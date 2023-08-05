@@ -1,0 +1,47 @@
+.gitignore
+LICENSE
+README.md
+environment.yml
+pyproject.toml
+requirement.txt
+setup.cfg
+.github/workflows/python-package-conda.yml
+docs/Functional_Specification.md
+docs/Poster for 583.pdf
+docs/Technology Review.key
+docs/Technology Review.pdf
+docs/Technology Review.pptx
+docs/candle_plot-6m.png
+docs/candle_plot.png
+docs/data_reader.png
+docs/milestone.md
+docs/price_plot.png
+docs/price_plot_6m.png
+docs/test.png
+example/1.ipynb
+example/1.py
+example/2.ipynb
+example/evaluation.ipynb
+example/invest_stragy.ipynb
+example/model.ipynb
+example/test.png
+example/visualization.ipynb
+stocktool/__init__.py
+stocktool.egg-info/PKG-INFO
+stocktool.egg-info/SOURCES.txt
+stocktool.egg-info/dependency_links.txt
+stocktool.egg-info/requires.txt
+stocktool.egg-info/top_level.txt
+stocktool/evaluation/__init__.py
+stocktool/evaluation/evaluation.py
+stocktool/model/__init__.py
+stocktool/model/model.py
+stocktool/model/pylintrc
+stocktool/tests/__init__.py
+stocktool/tests/pylintrc
+stocktool/tests/test_evaluation.py
+stocktool/tests/test_model.py
+stocktool/tests/test_visualization.py
+stocktool/visualization/__init__.py
+stocktool/visualization/pylintrc
+stocktool/visualization/visualization.py
