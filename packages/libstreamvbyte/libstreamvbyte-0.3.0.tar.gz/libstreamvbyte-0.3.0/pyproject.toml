@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "libstreamvbyte"
+version = "0.3.0"
+description = "A C++ implementation with Python bindings of StreamVByte."
+authors = ["HSING-HAN WU (Xyphuz) <xyphuzwu@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+setuptools = "^65.6.3"
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.2.0"
+numpy = "^1.23.5"
+
+[tool.cibuildwheel]
+build = ["cp310-*", "cp311-*"]
+
+[build-system]
+requires = ["setuptools", "build", "wheel"]
+build-backend = "setuptools.build_meta"
