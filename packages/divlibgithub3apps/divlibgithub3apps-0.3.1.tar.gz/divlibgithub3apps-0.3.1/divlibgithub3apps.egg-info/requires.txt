@@ -1,0 +1,9 @@
+cryptography>=3.4.8
+github3.py>=3.2.0
+pyjwt>=1.5.3
+requests>=2.18.0
+
+[dev]
+pypandoc
+twine
+wheel
