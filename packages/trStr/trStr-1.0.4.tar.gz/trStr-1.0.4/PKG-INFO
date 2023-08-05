@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: trStr
+Version: 1.0.4
+Summary: String methods for Turkish characters
+Home-page: https://seridilekce.com
+Author: Muhammet Fatih DİNÇ
+Author-email: mfatihdinc61@gmail.com
+License: MIT
+Keywords: turkish,string,upper
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+
+Solves the problem of string methods to uppercase/lowercase of 'i, I' characters in Turkish; for upper, lower, capitalize, title methods.
+
+Normal string methods is problematic for Turkish strings as follows:
+
+"Islak".lower() -> "islak" 
+"aliler bize geldi".upper() -> "ALILER BIZE GELDI" 
+
+This class solves the problem above
+
+Usage: 
+
+trStr(your_str).lower() 
+trStr(your_str).upper() 
+trStr(your_str).capitalize() 
+trStr(your_str).title()
