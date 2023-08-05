@@ -1,0 +1,146 @@
+Metadata-Version: 2.1
+Name: unfccc_di_api
+Version: 3.0.2
+Summary: Python wrapper around the Flexible Query API of the UNFCCC.
+Home-page: https://github.com/pik-primap/unfccc_di_api
+Author: Mika Pflüger
+Author-email: mika.pflueger@pik-potsdam.de
+License: Apache Software License 2.0
+Project-URL: Documentation, https://unfccc-di-api.readthedocs.io
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Atmospheric Science
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.7
+Description-Content-Type: text/x-rst
+Provides-Extra: test
+Provides-Extra: dev
+License-File: LICENSE
+
+=============
+UNFCCC DI API
+=============
+
+
+.. image:: https://img.shields.io/pypi/v/unfccc_di_api.svg
+        :target: https://pypi.python.org/pypi/unfccc_di_api
+        :alt: PyPI release
+
+.. image:: https://readthedocs.org/projects/unfccc-di-api/badge/?version=main
+        :target: https://unfccc-di-api.readthedocs.io/en/main/
+        :alt: Documentation
+
+.. image:: https://zenodo.org/badge/DOI/10.5281/zenodo.4457483.svg
+   :target: https://doi.org/10.5281/zenodo.4457483
+
+
+Python wrapper around the `Flexible Query API <https://di.unfccc.int/flex_annex1>`_ of
+the UNFCCC.
+
+
+* Free software: Apache Software License 2.0
+* Documentation: https://unfccc-di-api.readthedocs.io.
+
+
+Features
+--------
+
+* High-level API to query all information for a given party.
+* Low-level API to selectively query information with the same resolution as in the
+  UNFCCC web query tool.
+
+Citation
+--------
+If you use this library and want to cite it, please cite it as:
+
+Mika Pflüger, Daniel Huppmann & Johannes Gütschow. (2022-12-13).
+pik-primap/unfccc_di_api: unfccc_di_api version 3.0.2.
+Zenodo. https://doi.org/10.5281/zenodo.7431899
+
+Data package
+------------
+If you just want all the data in CSV and parquet format (suitable for reading with
+pandas), look at our `data package <https://doi.org/10.5281/zenodo.4198782>`_.
+
+CI status and other links
+-------------------------
+
+.. image:: https://results.pre-commit.ci/badge/github/pik-primap/unfccc_di_api/main.svg
+   :target: https://results.pre-commit.ci/latest/github/pik-primap/unfccc_di_api/main
+   :alt: pre-commit.ci status
+
+=========
+Changelog
+=========
+
+3.0.2 (2022-12-13)
+------------------
+
+* Support python 3.11.
+* Drop support for python 3.6.
+
+3.0.1 (2022-03-15)
+------------------
+
+* Fix handling of unspecified measure IDs. The DI API started returning measure IDs
+  without a name or description. We now call them ``unknown measure nr. {measureId}``
+  instead of erroring out.
+
+3.0.0 (2021-12-03)
+------------------
+
+* Support python 3.10.
+* Fix handling of duplicate variable IDs. **Note**: This entails changes to the public
+  API! In particular, UNFCCCSingleCategoryApiReader.variables now has a generic index
+  instead of using the ``variableId`` as index. Also, the ``query`` function now
+  correctly restricts queries if ``category_ids`` are provided and correctly fills
+  all categories with data for a multi-category variable.
+* Fix pre-commit config for newer mypy type checking versions.
+* Raise a more informative NoDataError (subclass of KeyError) instead of a generic
+  KeyError when a query result is empty.
+
+2.0.1 (2021-04-23)
+------------------
+
+* Change build system.
+
+2.0.0 (2021-02-09)
+------------------
+
+* Accept ASCII format for ``gases`` when querying data
+  and return gases & units normalized to ASCII (optional), thanks to Daniel Huppmann.
+  Note that gases and units are normalized to ASCII by default, if you need the old
+  behaviour for compatibility reasons, pass ``normalize_gas_names=False`` to your
+  ``query()`` calls.
+
+1.1.1 (2021-02-08)
+------------------
+
+* Include ipython notebooks and CHANGELOG in release tarballs.
+
+1.1.0 (2021-01-25)
+------------------
+
+* Add a useful error message when querying for unknown parties, thanks to
+  Daniel Huppmann.
+
+1.0.0 (2021-01-22)
+------------------
+
+* Add continuous integration using GitHub actions.
+* Add tests.
+* Add usage documentation in notebook format.
+* Documentation fixes.
+
+0.1.0 (2021-01-22)
+------------------
+
+* First release on PyPI.
+* Convert API wrapper into standalone Python package.
