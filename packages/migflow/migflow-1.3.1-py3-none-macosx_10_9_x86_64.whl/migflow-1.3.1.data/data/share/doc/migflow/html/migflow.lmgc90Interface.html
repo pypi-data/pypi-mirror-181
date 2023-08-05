@@ -1,0 +1,314 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>migflow.lmgc90Interface &mdash; MigFlow  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="migflow.time_integration" href="migflow.time_integration.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MigFlow
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.3.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">MigFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="main-features.html">Main Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="migflow.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="migflow.fluid.html">migflow.fluid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migflow.scontact.html">migflow.scontact</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migflow.time_integration.html">migflow.time_integration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">migflow.lmgc90Interface</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MigFlow</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="migflow.html">API Reference</a> &raquo;</li>
+        
+      <li>migflow.lmgc90Interface</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-migflow.lmgc90Interface">
+<span id="migflow-lmgc90interface"></span><h1>migflow.lmgc90Interface<a class="headerlink" href="#module-migflow.lmgc90Interface" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="migflow.lmgc90Interface.ParticleProblem">
+<em class="property">class </em><code class="descclassname">migflow.lmgc90Interface.</code><code class="descname">ParticleProblem</code><span class="sig-paren">(</span><em>dim</em>, <em>period=0</em>, <em>xp=0</em>, <em>yp=0</em>, <em>restart=0</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.lmgc90Interface.ParticleProblem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class definition holding data of lmgc90
+in a compatible form to use coupling with
+gmsh</p>
+<p>Attributs are :</p>
+<ul class="simple">
+<li>number of objects (disks|sphere)</li>
+<li>volume of objects (disks|sphere)</li>
+<li>reference map on objects to models (diskx2rbdy2 | spher2rbdy3)</li>
+</ul>
+<p>The methods are :</p>
+<ul class="simple">
+<li>iterate()  : do one time iteration</li>
+<li>position() : give back position of all spher</li>
+<li>velocity() : give back velocity of all spher</li>
+<li>externalForces() : update external forces on particles</li>
+<li>getMeanRadius() : return the mean radius of particles</li>
+<li>getVolume() : give back the volume of all spher</li>
+<li>writeHeader() : write header file for plot</li>
+</ul>
+<p>Initialize lmgc90</p>
+<dl class="method">
+<dt id="migflow.lmgc90Interface.ParticleProblem.__del__">
+<code class="descname">__del__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.lmgc90Interface.ParticleProblem.__del__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="migflow.lmgc90Interface.ParticleProblem.contact_forces">
+<code class="descname">contact_forces</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.lmgc90Interface.ParticleProblem.contact_forces" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="migflow.lmgc90Interface.ParticleProblem.externalForces">
+<code class="descname">externalForces</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.lmgc90Interface.ParticleProblem.externalForces" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get an external forces array</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.lmgc90Interface.ParticleProblem.iterate">
+<code class="descname">iterate</code><span class="sig-paren">(</span><em>dt</em>, <em>forces</em>, <em>tol=None</em>, <em>gsit1=None</em>, <em>gsit2=None</em>, <em>freqWrite=0</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.lmgc90Interface.ParticleProblem.iterate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do one step of a lmgc90 computation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.lmgc90Interface.ParticleProblem.mass">
+<code class="descname">mass</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.lmgc90Interface.ParticleProblem.mass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the mass of the  particles</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.lmgc90Interface.ParticleProblem.position">
+<code class="descname">position</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.lmgc90Interface.ParticleProblem.position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get current position of contactors and return it</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.lmgc90Interface.ParticleProblem.r">
+<code class="descname">r</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.lmgc90Interface.ParticleProblem.r" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the radius of the  particles</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.lmgc90Interface.ParticleProblem.set_boundary_velocity">
+<code class="descname">set_boundary_velocity</code><span class="sig-paren">(</span><em>tag</em>, <em>v</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.lmgc90Interface.ParticleProblem.set_boundary_velocity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="migflow.lmgc90Interface.ParticleProblem.velocity">
+<code class="descname">velocity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.lmgc90Interface.ParticleProblem.velocity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get current velocity of body of contactor and return it
+Beware : it should not work very well with clusters !</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.lmgc90Interface.ParticleProblem.volume">
+<code class="descname">volume</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.lmgc90Interface.ParticleProblem.volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the volume of the  particles</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.lmgc90Interface.ParticleProblem.write_vtk">
+<code class="descname">write_vtk</code><span class="sig-paren">(</span><em>odir</em>, <em>iiter</em>, <em>t</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.lmgc90Interface.ParticleProblem.write_vtk" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="migflow.lmgc90Interface.ParticleProblem.write_vtk_lmgc">
+<code class="descname">write_vtk_lmgc</code><span class="sig-paren">(</span><em>filemame</em>, <em>i</em>, <em>t</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.lmgc90Interface.ParticleProblem.write_vtk_lmgc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="migflow.lmgc90Interface.scontactTolmgc90">
+<code class="descclassname">migflow.lmgc90Interface.</code><code class="descname">scontactTolmgc90</code><span class="sig-paren">(</span><em>dirname</em>, <em>dim</em>, <em>it=0</em>, <em>fric=0.0</em>, <em>assume_box=False</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.lmgc90Interface.scontactTolmgc90" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="migflow.time_integration.html" class="btn btn-neutral float-left" title="migflow.time_integration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Copyright (C) &lt;2015-2022&gt;  &lt;Universite catholique de Louvain (UCL), Belgium
+Copyright (C) &lt;2015-2022&gt;   Universite de Montpellier, France&gt;
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

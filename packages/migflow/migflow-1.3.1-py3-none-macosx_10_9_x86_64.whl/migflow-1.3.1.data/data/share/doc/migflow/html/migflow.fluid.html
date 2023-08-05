@@ -1,0 +1,1263 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>migflow.fluid &mdash; MigFlow  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="migflow.scontact" href="migflow.scontact.html" />
+    <link rel="prev" title="API Reference" href="migflow.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MigFlow
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.3.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">MigFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="main-features.html">Main Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="migflow.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">migflow.fluid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migflow.scontact.html">migflow.scontact</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migflow.time_integration.html">migflow.time_integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migflow.lmgc90Interface.html">migflow.lmgc90Interface</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MigFlow</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="migflow.html">API Reference</a> &raquo;</li>
+        
+      <li>migflow.fluid</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-migflow.fluid">
+<span id="migflow-fluid"></span><h1>migflow.fluid<a class="headerlink" href="#module-migflow.fluid" title="Permalink to this headline">¶</a></h1>
+<p>Model for Immersed Granular Flow: Fluid user interface</p>
+<p>Contact: <a class="reference external" href="mailto:jonathan&#46;lambrechts&#37;&#52;&#48;uclouvain&#46;be">jonathan<span>&#46;</span>lambrechts<span>&#64;</span>uclouvain<span>&#46;</span>be</a>
+Webpage: www.migflow.be</p>
+<p>MigFlow computes immersed granular flows using an unresolved FEM-DEM model.
+The continuous phase (mixture) is computed by solving averaged Navier-Stokes equations on unstructured meshes with the continuous finite element method.</p>
+<dl class="class">
+<dt id="migflow.fluid.FluidProblem">
+<em class="property">class </em><code class="descclassname">migflow.fluid.</code><code class="descname">FluidProblem</code><span class="sig-paren">(</span><em>dim</em>, <em>g</em>, <em>mu</em>, <em>rho</em>, <em>sigma=0</em>, <em>coeff_stab=0.01</em>, <em>volume_drag=0.0</em>, <em>quadratic_drag=0.0</em>, <em>solver=None</em>, <em>solver_options=''</em>, <em>drag_in_stab=1</em>, <em>drag_coefficient_factor=1</em>, <em>temporal=True</em>, <em>advection=True</em>, <em>usolid=False</em>, <em>p2p1=False</em>, <em>full_implicit=False</em>, <em>model_b=False</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Creates the numerical representation of the fluid.</p>
+<p>Builds the fluid structure.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>dim</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Dimension of the problem</li>
+<li><strong>g</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – Gravity vector</li>
+<li><strong>mu</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>) – List of fluid phases dynamic viscosities (this should be a vector whom dimension specify if there is one or two fluid)</li>
+<li><strong>rho</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>) – List of fluid phases densities (this should be a vector whom dimension specify if there is one or two fluid)</li>
+<li><strong>sigma</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Surface tension (only when there are two fluids)</li>
+<li><strong>coeff_stab</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Optional argument used as coefficient for extra diffusivity added to stabilise the advection of concentration (only for two fluid problem)</li>
+<li><strong>volume_drag</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Enables volumetric drag : -volume_drag * u[i]</li>
+<li><strong>quadratic_drag</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Enables quadratic drag : -quadratic_drag*||uold|| * u[i]</li>
+<li><strong>solver</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – possible solver are “mumps”, “petsc”, “petsc4py”, “scipy”</li>
+<li><strong>solver_options</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Optional argument to specify solver option</li>
+<li><strong>drag_in_stab</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – States if the drag force is in the stabilisation term</li>
+<li><strong>drag_coefficient_factor</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Factor multiplicating the drag coefficient</li>
+<li><strong>temporal</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – Enables d/dt (i.e. False = steady)</li>
+<li><strong>advection</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – Enables advective terms (i.e. False = Stokes, True = Navier-Stokes</li>
+<li><strong>usolid</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – if False, div.u_solid is evaluated = (porosity-old_porosity)/dt</li>
+<li><strong>p2p1</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – if True, use P2 element for velocity fields and P1 element for pressure field, else a stabilised P1-P1 formulation is used</li>
+<li><strong>full_implicit</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If False, the linearised averaged Navier-Stokes equation are considered else a fully implicit formulation is used</li>
+<li><strong>model_b</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, the buoyancy term is assumed to be expressed as an additional drag</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> – If the dimension differs from 2 or 3</li>
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">NameError</span></code> – If C builder cannot be found</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.__del__">
+<code class="descname">__del__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.__del__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes the fluid structure.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.adapt_mesh">
+<code class="descname">adapt_mesh</code><span class="sig-paren">(</span><em>path_to_mesh='adapt/mesh'</em>, <em>lcmax=None</em>, <em>lcmin=None</em>, <em>n_el=None</em>, <em>old_n_particles=0</em>, <em>old_particle_position=None</em>, <em>old_particle_volume=None</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.adapt_mesh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adapts the mesh.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>old_n_particles</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Number of particles at the previous time step</li>
+<li><strong>old_particle_position</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]) – Position of the particles at the previous time step</li>
+<li><strong>old_particle_volume</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]) – Volume of the particles at the previous time step</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.add_constraint">
+<code class="descname">add_constraint</code><span class="sig-paren">(</span><em>constraint_index</em>, <em>constraint_value</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.add_constraint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.advance_concentration">
+<code class="descname">advance_concentration</code><span class="sig-paren">(</span><em>dt</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.advance_concentration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Solves the advection equation for the concentration using the current velocity field.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dt</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Computation time step</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.boundary_force">
+<code class="descname">boundary_force</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.boundary_force" title="Permalink to this definition">¶</a></dt>
+<dd><p>Give access to force exerted by the fluid on the boundaries.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Forces exerted by the fluid on the boundaries.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.bulk_force">
+<code class="descname">bulk_force</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.bulk_force" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gives access to the volume force at fluid nodes.
+:returns: Bulk force
+:rtype: np.ndarray</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.compute_cfl">
+<code class="descname">compute_cfl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.compute_cfl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the CFL number divided by the time step</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.compute_node_force">
+<code class="descname">compute_node_force</code><span class="sig-paren">(</span><em>dt</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.compute_node_force" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the forces to apply on each grain resulting from the fluid motion.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dt</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Computation time step</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.compute_node_torque">
+<code class="descname">compute_node_torque</code><span class="sig-paren">(</span><em>dt</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.compute_node_torque" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the angular drags to apply on each grain resulting from the fluid motion.
+Only in 2D
+:type dt: <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>
+:param dt: Computation time step</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.concentration_dg">
+<code class="descname">concentration_dg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.concentration_dg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the concentration at discontinuous nodes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">concentration field</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.concentration_dg_grad">
+<code class="descname">concentration_dg_grad</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.concentration_dg_grad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the gradient of the concentration field at discontinuous nodes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">concentration gradient</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.coordinates">
+<code class="descname">coordinates</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.coordinates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gives access to the coordinate of the mesh nodes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">mesh nodal coordinates</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.coordinates_fields">
+<code class="descname">coordinates_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.coordinates_fields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the coordinates of each degree of freedom of the solution.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">fields coordinates</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.curvature">
+<code class="descname">curvature</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.curvature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the curvature at each element.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">curvature</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.dimension">
+<code class="descname">dimension</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.dimension" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the dimension of the problem</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">dimension</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.elements">
+<code class="descname">elements</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.elements" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gives read-only access to the elements of the mesh.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">mesh elements</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.field_index">
+<code class="descname">field_index</code><span class="sig-paren">(</span><em>ifield</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.field_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gives access to all the index of a field into the solution vector.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ifield</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – field index (0,..,dimension-1) is a velocity, dimension gives the pressure.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">index array.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.fields_gradient">
+<code class="descname">fields_gradient</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.fields_gradient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an continuous gradient estimation of each field on a P1 mesh.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Fields_gradient</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.full_implicit_euler">
+<code class="descname">full_implicit_euler</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.full_implicit_euler" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.get_default_export">
+<code class="descname">get_default_export</code><span class="sig-paren">(</span><em>dtype=&lt;class 'numpy.float64'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.get_default_export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the default fields to write in your output as a dictionnary {field : (values, discretisation_element)}
+:param dtype: numpy representation. Defaults to np.float64.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">default fields</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.get_mapping">
+<code class="descname">get_mapping</code><span class="sig-paren">(</span><em>etype</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.get_mapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get mapping associated to an element.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>etype</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – element type (“P1”, “P1DG”, “P2”, “P2DG”)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">mapping associated to the element type.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.get_p1_element">
+<code class="descname">get_p1_element</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.get_p1_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the P1 element used -&gt; “triangle_p1” or “tetrahedron_p1”</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">“triangle_p1”</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.get_pressure_element">
+<code class="descname">get_pressure_element</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.get_pressure_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the discretisation element of the pressure field
+:returns: pressure element
+:rtype: str</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.get_velocity_element">
+<code class="descname">get_velocity_element</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.get_velocity_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the discretisation element of the velocity field
+:returns: velocity element
+:rtype: str</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.global_map">
+<code class="descname">global_map</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.global_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gives access to the map of all the degrees of freedom.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">global mapping</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.implicit_euler">
+<code class="descname">implicit_euler</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.implicit_euler" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.interpolate">
+<code class="descname">interpolate</code><span class="sig-paren">(</span><em>solution=None</em>, <em>velocity=None</em>, <em>velocity_x=None</em>, <em>velocity_y=None</em>, <em>velocity_z=None</em>, <em>pressure=None</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.interpolate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Imposes the solution (or the field) to the prescribed value.
+If a callback is given, the solution (or field) is estimated at its local position.
+The solution (or field) is strongly imposed (not weakly).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>solution</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, &lt;built-in function callable&gt;, <code class="docutils literal notranslate"><span class="pre">None</span></code>]) – imposed solution vector</li>
+<li><strong>velocity</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, &lt;built-in function callable&gt;, <code class="docutils literal notranslate"><span class="pre">None</span></code>]) – imposed velocity vector.</li>
+<li><strong>velocity_x</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, &lt;built-in function callable&gt;, <code class="docutils literal notranslate"><span class="pre">None</span></code>]) – imposed horizontal velocity component.</li>
+<li><strong>velocity_y</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, &lt;built-in function callable&gt;, <code class="docutils literal notranslate"><span class="pre">None</span></code>]) – imposed horizontal velocity component.</li>
+<li><strong>velocity_z</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, &lt;built-in function callable&gt;, <code class="docutils literal notranslate"><span class="pre">None</span></code>]) – imposed horizontal velocity component.</li>
+<li><strong>pressure</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, &lt;built-in function callable&gt;, <code class="docutils literal notranslate"><span class="pre">None</span></code>]) – imposed pressure field.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.load_msh">
+<code class="descname">load_msh</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.load_msh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the domain geometry for the fluid computation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filename</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Name of the msh file. If None the current gmsh model is loaded without the need to a msh file.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.local_size">
+<code class="descname">local_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.local_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of degree of freedom by element.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">number of degree of freedom by element</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.mesh_boundaries">
+<code class="descname">mesh_boundaries</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.mesh_boundaries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the mesh boundaries information as a dictionnary : {boundary_number : edges}
+:returns: Mesh  information : {boundary_number : edges}
+:rtype: dict</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.mesh_velocity">
+<code class="descname">mesh_velocity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.mesh_velocity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Give access to the mesh velocity value at the mesh nodes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">mesh velocities at the mesh nodes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.move_particles">
+<code class="descname">move_particles</code><span class="sig-paren">(</span><em>position</em>, <em>velocity</em>, <em>contact</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.move_particles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set location of the grains in the mesh and compute the porosity in each cell.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>position</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – List of particles centre positions</li>
+<li><strong>velocity</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – List of particles velocity</li>
+<li><strong>contact</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – List of particles contact resultant forces</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.n_elements">
+<code class="descname">n_elements</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.n_elements" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of mesh elements.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">number of elements</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.n_fields">
+<code class="descname">n_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.n_fields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of fluid fields.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">number of fields</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.n_fluids">
+<code class="descname">n_fluids</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.n_fluids" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of fluids (only one or two).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Number of fluids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.n_nodes">
+<code class="descname">n_nodes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.n_nodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of mesh nodes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">number of nodes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.node_volume">
+<code class="descname">node_volume</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.node_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the volume associated with each node.
+:returns: node volume
+:rtype: np.ndarray</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.old_porosity">
+<code class="descname">old_porosity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.old_porosity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the old porosity.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">old porosity</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.parent_nodes">
+<code class="descname">parent_nodes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.parent_nodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gives access to the parent nodes of each node.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The parent nodes mapping</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.particle_element_id">
+<code class="descname">particle_element_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.particle_element_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the id of the mesh cell in which particles are located.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">particle element id</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.particle_position">
+<code class="descname">particle_position</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.particle_position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gives access to the particles position.
+:returns: particles position
+:rtype: np.ndarray</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.particle_uvw">
+<code class="descname">particle_uvw</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.particle_uvw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the coordinates of the particles inside their element
+:returns: parametric coordinates of the particles
+:rtype: np.ndarray</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.particle_velocity">
+<code class="descname">particle_velocity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.particle_velocity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gives access to the particles velocity.
+:returns: particles velocity
+:rtype: np.ndarray</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.particle_volume">
+<code class="descname">particle_volume</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.particle_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gives access to the particles volume.
+:returns: particles volume
+:rtype: np.ndarray</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.porosity">
+<code class="descname">porosity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.porosity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the porosity at independant nodes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">volume fluid fraction</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.pressure">
+<code class="descname">pressure</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.pressure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the pressure solution.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">pressure</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.pressure_index">
+<code class="descname">pressure_index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.pressure_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the index of the pressure field into the solution vector.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">pressure index array</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.read_mig">
+<code class="descname">read_mig</code><span class="sig-paren">(</span><em>odir</em>, <em>t</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.read_mig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads output file to reload computation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>odir</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Directory in which to read the file</li>
+<li><strong>t</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Time at which to read the file</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.read_vtk">
+<code class="descname">read_vtk</code><span class="sig-paren">(</span><em>dirname</em>, <em>i</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.read_vtk" title="Permalink to this definition">¶</a></dt>
+<dd><p>(DEPRECATED) Reads output file to reload computation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filename</strong> – Name of the file to read</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.set_concentration_cg">
+<code class="descname">set_concentration_cg</code><span class="sig-paren">(</span><em>concentration</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.set_concentration_cg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the concentration at nodes.
+:type concentration: <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>
+:param concentration: concentration field</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.set_coordinates">
+<code class="descname">set_coordinates</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.set_coordinates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the coordinates of the mesh nodes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – new nodes positions</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.set_mean_pressure">
+<code class="descname">set_mean_pressure</code><span class="sig-paren">(</span><em>mean_pressure</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.set_mean_pressure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enables the nodal mean pressure constraint and imposes its value.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mean_pressure</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – add a constraint to impose sum_i vol_i p_i = mean_pressure*volume</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.set_mesh">
+<code class="descname">set_mesh</code><span class="sig-paren">(</span><em>nodes</em>, <em>elements</em>, <em>boundaries</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.set_mesh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the domain geometry for the fluid computation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodes</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – (n_node, dimension) numpy float array of the nodes coordinates</li>
+<li><strong>elements</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – (n_elements, dimension+1) numpy int array of the elements</li>
+<li><strong>boundaries</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>) – [(name, (n_elements, dimension))] list of pair of name (string)</li>
+<li><strong>numpy int array with the corresponding boundary elements</strong> (<em>and</em>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.set_open_boundary">
+<code class="descname">set_open_boundary</code><span class="sig-paren">(</span><em>tag</em>, <em>velocity=None</em>, <em>pressure=None</em>, <em>concentration=None</em>, <em>viscous_flag=1</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.set_open_boundary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the weak open boundaries (=normal fluxes) for the fluid problem.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>tag</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – Physical tag (or list of tags), set in the mesh, of the open boundaries</li>
+<li><strong>velocity</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, &lt;built-in function callable&gt;, <code class="docutils literal notranslate"><span class="pre">None</span></code>]) – The velocity value if imposed (callback or number)</li>
+<li><strong>pressure</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, &lt;built-in function callable&gt;, <code class="docutils literal notranslate"><span class="pre">None</span></code>]) – The pressure value if imposed (callback or number)</li>
+<li><strong>concentration</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, &lt;built-in function callable&gt;, <code class="docutils literal notranslate"><span class="pre">None</span></code>]) – Concentration outside the boundary</li>
+<li><strong>viscous_flag</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – Flag to compute the viscous term at the boundary</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.set_particles">
+<code class="descname">set_particles</code><span class="sig-paren">(</span><em>delassus</em>, <em>volume</em>, <em>position</em>, <em>velocity</em>, <em>contact</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.set_particles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set location of the grains in the mesh and compute the porosity in each cell.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>delassus</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – List of particles delassus operators</li>
+<li><strong>volume</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – List of particles volume</li>
+<li><strong>position</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – List of particles centre positions</li>
+<li><strong>velocity</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – List of particles velocity</li>
+<li><strong>contact</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – List of particles contact resultant forces</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.set_strong_boundary">
+<code class="descname">set_strong_boundary</code><span class="sig-paren">(</span><em>tag</em>, <em>pressure=None</em>, <em>velocity=None</em>, <em>velocity_x=None</em>, <em>velocity_y=None</em>, <em>velocity_z=None</em>, <em>solution=None</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.set_strong_boundary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the strong boundaries (=constrains) for the fluid problem.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>tag</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Physical tag (set in the mesh) of the boundary on which the constraint is added</li>
+<li><strong>pressure</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, &lt;built-in function callable&gt;, <code class="docutils literal notranslate"><span class="pre">None</span></code>]) – value or callback assigned to the pressure field</li>
+<li><strong>velocity</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, &lt;built-in function callable&gt;, <code class="docutils literal notranslate"><span class="pre">None</span></code>]) – value or callback assigned to the velocity field</li>
+<li><strong>velocity_x</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, &lt;built-in function callable&gt;, <code class="docutils literal notranslate"><span class="pre">None</span></code>]) – value or callback assigned to the velocity_x field</li>
+<li><strong>velocity_y</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, &lt;built-in function callable&gt;, <code class="docutils literal notranslate"><span class="pre">None</span></code>]) – value or callback assigned to the velocity_y field</li>
+<li><strong>velocity_z</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, &lt;built-in function callable&gt;, <code class="docutils literal notranslate"><span class="pre">None</span></code>]) – value or callback assigned to the velocity_z field</li>
+<li><strong>solution</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, &lt;built-in function callable&gt;, <code class="docutils literal notranslate"><span class="pre">None</span></code>]) – value or callback assigned to the solution field</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.set_symmetry_boundary">
+<code class="descname">set_symmetry_boundary</code><span class="sig-paren">(</span><em>tag</em>, <em>pressure=None</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.set_symmetry_boundary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the weak symmetry boundaries (=normal fluxes) for the fluid problem.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>tag</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – Physical tag (or list of tags), set in the mesh file, of the symmetry boundaries</li>
+<li><strong>pressure</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, &lt;built-in function callable&gt;, <code class="docutils literal notranslate"><span class="pre">None</span></code>]) – The pressure value if imposed (callback or number)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.set_wall_boundary">
+<code class="descname">set_wall_boundary</code><span class="sig-paren">(</span><em>tag</em>, <em>pressure=None</em>, <em>velocity=None</em>, <em>viscous_flag=None</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.set_wall_boundary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the weak wall boundaries (=normal fluxes) for the fluid problem.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>tag</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – Physical tag (or list of tags), set in the mesh, of the wall boundaries</li>
+<li><strong>pressure</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, &lt;built-in function callable&gt;, <code class="docutils literal notranslate"><span class="pre">None</span></code>]) – The pressure value if imposed (callback or number)</li>
+<li><strong>velocity</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, &lt;built-in function callable&gt;, <code class="docutils literal notranslate"><span class="pre">None</span></code>]) – The velocity value if imposed (callback or number)</li>
+<li><strong>viscous_flag</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>]) – Flag to compute the viscous term at the boundary</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.set_weak_boundary">
+<code class="descname">set_weak_boundary</code><span class="sig-paren">(</span><em>tag</em>, <em>pressure=None</em>, <em>velocity=None</em>, <em>concentration=None</em>, <em>viscous_flag=None</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.set_weak_boundary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the weak boundaries (=normal fluxes) for the fluid problem.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>tag</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – Physical tag (or list of tags), set in the mesh, of the weak boundaries</li>
+<li><strong>pressure</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, &lt;built-in function callable&gt;, <code class="docutils literal notranslate"><span class="pre">None</span></code>]) – The pressure value if imposed (callback or number)</li>
+<li><strong>velocity</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, &lt;built-in function callable&gt;, <code class="docutils literal notranslate"><span class="pre">None</span></code>]) – The velocity value if imposed (callback or number)</li>
+<li><strong>concentration</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, &lt;built-in function callable&gt;, <code class="docutils literal notranslate"><span class="pre">None</span></code>]) – Concentration outside the boundary</li>
+<li><strong>viscous_flag</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>]) – Flag to compute the viscous term at the boundary</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.set_weak_boundary_nodal_values">
+<code class="descname">set_weak_boundary_nodal_values</code><span class="sig-paren">(</span><em>tag</em>, <em>values</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.set_weak_boundary_nodal_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the nodal values to use for the weak boundary instead of using a callback or a prescribed value. Only available for p1p1 formulation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>tag</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Physical tag (or list of tags), set in the mesh</li>
+<li><strong>values</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – nodal values imposed on the boundary</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>Raises :</dt>
+<dd>ValueError: if the tag is not found</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.solution">
+<code class="descname">solution</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.solution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gives access to the fluid field value at each degree of freedom as a flat array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">fluid solution</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.solution_at_coordinates">
+<code class="descname">solution_at_coordinates</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.solution_at_coordinates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the solution vector interpolated at the given coordinates.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – coordinates</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">solution at given coordinates</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.u_solid">
+<code class="descname">u_solid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.u_solid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the solid velocity as a p1-continuous field.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">solid velocity</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.velocity">
+<code class="descname">velocity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.velocity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the velocity solution.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">velocity</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.velocity_index">
+<code class="descname">velocity_index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.velocity_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the index of the velocities into the solution vector as a bidimensionnal array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">velocities index array</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.volume_flux">
+<code class="descname">volume_flux</code><span class="sig-paren">(</span><em>bnd_tag</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.volume_flux" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the integral of the (outgoing) normal velocity through boundary with tag bnd_tag.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">volume flux</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.write_mig">
+<code class="descname">write_mig</code><span class="sig-paren">(</span><em>output_dir</em>, <em>t</em>, <em>fields=None</em>, <em>mesh_dtype=&lt;class 'numpy.float64'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.write_mig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes the output files for post-visualization. Metadata are stored into a file called “fluid.migf” while the data are stored into the “fluid” directory.
+:type output_dir: <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>
+:param output_dir: Output directory
+:type t: <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>
+:param t: Computational time
+:param extra_fields: extra field as a dictionnary {name : values at p1 degree of freedom}</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.fluid.FluidProblem.write_vtk">
+<code class="descname">write_vtk</code><span class="sig-paren">(</span><em>output_dir</em>, <em>it</em>, <em>t</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.FluidProblem.write_vtk" title="Permalink to this definition">¶</a></dt>
+<dd><p>(DEPRECATED) Writes output file for post-visualization.
+:param output_dir: Output directory
+:param it: Computation iteration
+:param t: Computation time</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="migflow.fluid.removeprefix">
+<code class="descclassname">migflow.fluid.</code><code class="descname">removeprefix</code><span class="sig-paren">(</span><em>str</em>, <em>prefix</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.fluid.removeprefix" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="migflow.scontact.html" class="btn btn-neutral float-right" title="migflow.scontact" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="migflow.html" class="btn btn-neutral float-left" title="API Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Copyright (C) &lt;2015-2022&gt;  &lt;Universite catholique de Louvain (UCL), Belgium
+Copyright (C) &lt;2015-2022&gt;   Universite de Montpellier, France&gt;
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

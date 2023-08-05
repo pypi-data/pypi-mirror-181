@@ -1,0 +1,279 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Main Features &mdash; MigFlow  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installation" href="installation.html" />
+    <link rel="prev" title="MigFlow" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MigFlow
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.3.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">MigFlow</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Main Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#friction-cohesion-and-so-on">Friction, Cohesion and so on…</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adaptive-mesh">Adaptive Mesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#two-fluids-grains">Two Fluids + Grains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#arbitrary-eulerian-lagrangian-ale-method-free-surface">Arbitrary Eulerian-Lagrangian (ALE) method &amp; Free Surface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#periodic">Periodic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fluid-solver">Fluid solver</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migflow.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MigFlow</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Main Features</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="main-features">
+<h1>Main Features<a class="headerlink" href="#main-features" title="Permalink to this headline">¶</a></h1>
+<p>It is important to note that within the granular flows field there are many different types of applications, which can be computed in a variety of way. The model you use may be dependent of the observed quantity. In this section, we will briefly outline the possibilities offered by the MigFlow Software.</p>
+<div class="section" id="friction-cohesion-and-so-on">
+<h2>Friction, Cohesion and so on…<a class="headerlink" href="#friction-cohesion-and-so-on" title="Permalink to this headline">¶</a></h2>
+<p>The MigFlow software can take into account friction between the grains in various ways.</p>
+<p>Its own frictional contacts solver, <em>scontact</em>, can solve friction in both 2D and 3D for spherical grains, considering that they can rotate or not. This local solver takes advantage of the sphericity of the particles to be very fast and efficient. The forces exerted by the grains on the domain boundaries can be computed, as well as the stress tensor inside the grains. It is also possible to set periodic conditions at the boundaries. Finally, <em>scontact</em> allows to fix some grains so that they act like a boundary, enabling the simulation of a granular flow through a fixed porous media for example.</p>
+<p>Another possibility is to use <a class="reference external" href="https://git-xen.lmgc.univ-montp2.fr/lmgc90/lmgc90_user/wikis/home">LMGC90</a> Software (for installation we recommend to follow the instructions on their website), which is compatible with the fluid solver of MigFlow. This way, more complex contact laws and particle shapes can be taken into account. Note that the fluid solver will always consider spherical shapes for the grains.</p>
+<p>Both solvers make use of the Nonsmooth Contact dynamics, which is a time-stepping method that corrects iteratively the free velocities of the grains, obtained by applying external forces, to compute a set of velocities giving after displacement of the grains a stationary state without intersection.</p>
+<p>Some test cases are given to present how to call LMGC90 from the Users Interface:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://git.immc.ucl.ac.be/fluidparticles/migflow/blob/master/testcases/couette-2d/mill.py">mill.py</a> presents the mixing of grains with different radii in a rotating drum using LMGC90 or <em>scontact</em> to take into account the impact of the friction on the mixing efficiency.</li>
+<li><a class="reference external" href="https://git.immc.ucl.ac.be/fluidparticles/migflow/blob/master/testcases/avalanch/avalanchnofluid/avalanchnofluidfriction.py">avalanchnofluidfriction.py</a> presents a bidimensional grain avalanche without fluid, and shows how to use the LMGC90 software or the <em>scontact</em> solver at choice.</li>
+</ul>
+</div>
+<div class="section" id="adaptive-mesh">
+<h2>Adaptive Mesh<a class="headerlink" href="#adaptive-mesh" title="Permalink to this headline">¶</a></h2>
+<p>MigFlow is based on an unresolved Computational Fluid Dynamics-Discrete Element Method model. The discretisation method we choose for the CFD part is the Finite Element Method. On the one hand, unstructured grids offer a great flexibility to represent complex geometries with which grains interact. On the other hand, it is easy to adapt the mesh in order to refine it around the area of interest to accurately capture flow fields during the grains motion.</p>
+<ul class="simple">
+<li><a class="reference external" href="https://git.immc.ucl.ac.be/fluidparticles/migflow/blob/master/testcases/drop-2d/SimpleDrop/drop.py">drop.py</a> presents the fall of a cloud made of grains in a viscous fluid and makes use of this feature to refine the mesh around the cloud area during the fall. This way, it is possible to highly fasten the computation because the area of interest (i.e. the cloud) is small compared with the entire computational domain.</li>
+<li><a class="reference external" href="https://git.immc.ucl.ac.be/fluidparticles/migflow/blob/master/testcases/avalanch/avalanch1fluid/avalanch1fluidnofriction.py">avalanch1fluidnofriction.py</a> presents the fall of a granular column immersed in soft water</li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fluid</span><span class="o">.</span><span class="n">adapt_mesh</span><span class="p">(</span><span class="n">Max</span><span class="o">.</span> <span class="n">element</span> <span class="n">size</span><span class="p">,</span> <span class="n">Min</span><span class="o">.</span> <span class="n">element</span> <span class="n">size</span><span class="p">,</span> <span class="n">Total</span> <span class="n">number</span> <span class="n">of</span> <span class="n">elements</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The arguments a and b in the <em>adapt*mesh</em> function are optional. These parametres are used to weigh the maximum and minimum gradient used to compute the new mesh size at each node of the old mesh. For more information on the refinement formula see: Constant, M., Dubois, F., Lambrechts, J. and Legat, V. (2018). Implementation of an unresolved stabilised FEM-DEM model to solve immersed granular flows. <em>Computational Particle Mechanics</em>. <a class="reference external" href="https://doi.org/10.1007/s40571-018-0209-4">doi:10.1007/s40571-018-0209-4</a>.</p>
+</div>
+<div class="section" id="two-fluids-grains">
+<h2>Two Fluids + Grains<a class="headerlink" href="#two-fluids-grains" title="Permalink to this headline">¶</a></h2>
+<p>To consider two continuous phases, an advective equation for the concentration is added to the standard Navier-Stokes equations. See the following example to run test cases with two different continuous phases.</p>
+<ul class="simple">
+<li><a class="reference external" href="https://git.immc.ucl.ac.be/fluidparticles/migflow/blob/master/testcases/avalanch/avalanch2fluids/avalanch2fluids.py">avalanch2fluids.py</a> presents the fall of a granular column immersed in sea water in a 2D domain filled with soft water.</li>
+</ul>
+</div>
+<div class="section" id="arbitrary-eulerian-lagrangian-ale-method-free-surface">
+<h2>Arbitrary Eulerian-Lagrangian (ALE) method &amp; Free Surface<a class="headerlink" href="#arbitrary-eulerian-lagrangian-ale-method-free-surface" title="Permalink to this headline">¶</a></h2>
+<p>The MigFlow software can take into account mesh deformation using the Arbitrary Eulerian-Lagrangian (ALE) framwork. An example of this feature can be found :</p>
+<ul class="simple">
+<li><a class="reference external" href="https://git.immc.ucl.ac.be/fluidparticles/migflow/blob/master/testcases/poiseuilleALE/poiseuille.py">poiseuilleALE.py</a></li>
+</ul>
+<p>The user has to provide the mesh velocity and update the mesh coordinates. This feature can be used to simulate free-surface :</p>
+<ul class="simple">
+<li><a class="reference external" href="https://git.immc.ucl.ac.be/fluidparticles/migflow/blob/master/validation/dieSwell/dieSwell.py">dieSwell.py</a> presents the swelling of a flow past a die in 2D.</li>
+</ul>
+</div>
+<div class="section" id="periodic">
+<h2>Periodic<a class="headerlink" href="#periodic" title="Permalink to this headline">¶</a></h2>
+<p>Periodic conditions are available. The periodicity transformation are deduced from mesh file. For the fluid phase, two points which are periodic will have the same degree of freedom.
+As for the solid phase, a ghost particle is created if a particle is close to a periodic boundary. Similarly to the fluid approach, the ghost particle is only a pointer to its parent particle.</p>
+<p>Multiple examples of this feature can be found :</p>
+<ul class="simple">
+<li><a class="reference external" href="https://git.immc.ucl.ac.be/fluidparticles/migflow/blob/master/testcases/periodic">periodic</a></li>
+</ul>
+</div>
+<div class="section" id="fluid-solver">
+<h2>Fluid solver<a class="headerlink" href="#fluid-solver" title="Permalink to this headline">¶</a></h2>
+<p>The information is directly extracted from the mesh file. Therefore, to apply a boundary condition, the .geo file has to contain this information. No boundary conditions has to be imposed on the periodic boundaries. See the following examples for use of this feature :</p>
+<ul class="simple">
+<li><a class="reference external" href="https://git.immc.ucl.ac.be/fluidparticles/migflow/blob/master/testcases/periodicTest/2D/mesh.geo">mesh.geo</a></li>
+<li><a class="reference external" href="https://git.immc.ucl.ac.be/fluidparticles/migflow/blob/master/testcases/periodicTest/2D/poiseuille.py">periodic_poiseuille.py</a></li>
+</ul>
+<p>Be careful about the line orientation while specifying periodicity in your .geo file.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="installation.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="MigFlow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Copyright (C) &lt;2015-2022&gt;  &lt;Universite catholique de Louvain (UCL), Belgium
+Copyright (C) &lt;2015-2022&gt;   Universite de Montpellier, France&gt;
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

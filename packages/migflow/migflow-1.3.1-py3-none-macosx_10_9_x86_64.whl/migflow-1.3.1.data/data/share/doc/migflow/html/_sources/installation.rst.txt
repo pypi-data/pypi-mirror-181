@@ -1,0 +1,144 @@
+Installation
+============
+
+Migflow can be installed as a python package or compiled from source. In addition to migflow itself, the gmsh mesh generator is required and optionally petsc4py.
+
+Migflow
+-------
+
+Python package
+--------------
+
+The easiest way to install migflow is to use the package from `pypi <https://test.pypi.org/project/migflow/>`_ using pip.
+
+If you do not have pip installed (check the output of pip --version), follow the `official instruction <https://packaging.python.org/tutorials/installing-packages/>`_ to get it.
+
+Once pip is installed, simply type ::
+
+  pip install -i https://test.pypi.org/simple --user migflow
+
+Compilation from sources
+------------------------
+
+If you plan to develop migflow, you'll have to compile it from source (instead of installing the python package). If your operating system is Windows 10 version 2004 or higher, use the Windows Subsystem for Linux.
+
+1. To compile from source Rust is required : you can download it at `Rust website <https://www.rust-lang.org/tools/install>`_.
+
+2. Go on the `gitlab <https://git.immc.ucl.ac.be/fluidparticles/migflow>`_ page dedicated to the project to upload your ssh or https link
+
+3. Open your terminal and type the following commands::
+
+		cd ~
+
+		git clone https://git.immc.ucl.ac.be/fluidparticles/migflow.git
+
+		cd migflow
+
+		mkdir build
+
+		cd build
+
+		cmake ..
+
+		make -j8
+
+
+4. State the location of the python modules by writing the following line in your .bashrc (For MacOS you possibly need to create this hidden file in your HOME directory)::
+
+		  export PYTHONPATH=$HOME/migflow/build:$PYTHONPATH 
+
+		  source .bashrc
+ 		
+ 
+
+
+GMSH
+----
+
+Meshes representing the computational domain, on which Navier-Stokes equations are discretised, are created from .geo files using `GMSH <http://gmsh.info/>`_.
+
+If you use a package manager, it is recommended to install GMSH from your package manager (e.g. ``apt install gmsh`` on ubuntu).
+
+Otherwise, you can download it from `GMSH website <https://gmsh.info>`_ or install it with pip (``pip install --user gmsh``). Either way, check that the gmsh executable is in your PATH variable.
+
+ParaView
+--------
+
+ParaView is an open-source, multi-platform data analysis and visualization application.
+
+If you use a package manager, it is recommanded to install ParaView from your package manager (e.g. ``apt install paraview`` on ubuntu).
+
+Otherwise, you can download it from `ParaView website <https://www.paraview.org/download/>`_.
+
+Plugins
+~~~~~~~
+
+In order to install MigFlow Plugins, you need to open ParaView. Access "Tools &rightarrow; Manage Plugins...". On the opened window, click on "Load New Plugin" and select "migflow/paraview_utils/migflow_plugins.py". You will need to tick the "Auto-load" box.
+
+Now, you are able to open the migflow extensions (.migf, .migs). If you load a solid problem (.migs), the solid reader will be called. To have the default visualization, click on the "Set Default" box into the Properties menu.
+
+Linear Solver
+-------------
+
+MigFlow uses a linear solver to solve Navier-Stokes. The available linear solvers are :
+
+	- Pardiso
+	- Scipy
+	- PETSc4py
+	- PETSc
+	- MUMPS
+
+Pardiso Installation
+~~~~~~~~~~~~~~~~~~~~
+
+Pardiso is a parallel direct solver designed for large sparse matrix (`Pardiso webpage <https://www.pardiso-project.org/>`_).
+
+It can be install using pip : ``pip install mkl``
+
+
+Scipy Installation
+~~~~~~~~~~~~~~~~~~
+
+Scipy provides linear solver but its efficiency is limited on large matrices. If you consider large meshes, other linear solver should be used.
+
+It can be install using a package manager : ``apt install python3-scipy`` or using pip : ``pip install scipy``.
+
+PETSc4py Installation
+~~~~~~~~~~~~~~~~~~~~~
+
+The installation of PETSc4py is optional, if it is not available, migflow will use pardiso instead.
+
+Again if you use a package manager and if a PETSc4py package is available, use it. (ubuntu : ``apt install python3-petsc4py``).
+
+Otherwise, follow the instructions bellow to compile it from sources.
+   
+a. For other OS, go on `PETSc webpage <https://www.mcs.anl.gov/petsc/download/index.html>`_  and clone the repository on your computer::
+
+		git clone -b release https://gitlab.com/petsc/petsc.git petsc
+
+b. Compiling options for PETSc::
+
+		cd petsc
+
+		./configure --with-debugging=0 --with-shared-libraries=1 COPTFLAGS="-O2" FOPTFLAGS="-O2" CXXOPTFLAGS="-O2" --with-mpi=0 --with-petsc4py=yes --with-fortran=0 --download-f2cblaslapack=1
+
+c. Compile PETSc::
+
+		make -j4 install
+
+d. To use PETSc4py, you have to state the library location by writing the following into your .bashrc ::
+
+		export PYTHONPATH=/petsc/arch-linux-c-opt/lib
+	
+MUMPS Installation
+~~~~~~~~~~~~~~~~~~
+
+MUMPS is a multifrontal massively parallel solver with high efficiency for large systems of sparse linear equations (`MUMPS webpage <http://mumps-tech.com/mumps-2/>`_). 
+
+It can be install when you're building your build directory::
+
+	mkdir build
+
+	cmake -DBUILD_MUMPS=ON ..
+
+	make -j4
