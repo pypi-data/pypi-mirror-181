@@ -1,0 +1,24 @@
+datastore-activities:
+  output: ckanext-versioned-datastore/%(version)s_datastore-activities.css
+  filters: less
+  contents:
+    - less/datastore-activities.less
+
+search-css:
+  output: ckanext-versioned-datastore/%(version)s_search.css
+  filters: less
+  contents:
+    - less/search.less
+
+search-js:
+  output: ckanext-versioned-datastore/%(version)s_search.js
+  filters: rjsmin
+  contents:
+    - scripts/vendor/bodybuilder.js
+    - scripts/modules/search.js
+
+slugerator:
+  output: ckanext-versioned-datastore/%(version)s_slugerator.css
+  filters: less
+  contents:
+    - less/slugerator.less
