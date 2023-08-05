@@ -1,0 +1,18 @@
+CHANGES
+=======
+
+1.2.2
+-----
+
+* limit python min version to 3.7, ref #82
+* change back screenshot method
+* update tests
+* add appinfo
+* fix logcat
+* change stop to stop\_nowait
+* add reset and stop\_wait in StopEvent
+* add logcat command, fix shell2(rstrip) not working bug
+* fix apk install when version\_name has cn name
+* remove redundant import
+* read screenshot from stream rather than temp file
+* Bugfix: Fix utf-8 encoding command sending
