@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: bhpy
+Version: 1.0.0
+Summary: Python bindings to use Becker & Hickls' hardware control dll and API
+Project-URL: Homepage, https://www.becker-hickl.com
+Project-URL: Bug Tracker, https://github.com/bhmarscheck/bhpy/issues
+Project-URL: Download, https://github.com/bhmarscheck/bhpy/archive/refs/tags/v1.0.0.tar.gz
+Author-email: Marscheck <marscheck@becker-hickl.de>
+License: MIT License
+License-File: LICENSE.txt
+Keywords: BH,Becker&Hickl,FLIM,Fluorescence lifetime,SPC,SPCM,TCSPC,molecular imaging,photon counting
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Healthcare Industry
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: System :: Hardware :: Hardware Drivers
+Requires-Python: >=3.8
+Requires-Dist: numpy<2,>=1.23.0
+Description-Content-Type: text/markdown
+
+# bhPy
