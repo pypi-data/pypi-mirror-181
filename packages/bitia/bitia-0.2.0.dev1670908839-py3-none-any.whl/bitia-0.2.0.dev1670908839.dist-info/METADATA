@@ -1,0 +1,80 @@
+Metadata-Version: 2.1
+Name: bitia
+Version: 0.2.0.dev1670908839
+Summary: BioInformatics Tool for Infrastructure Automation (BiTIA) CLI utility.
+Author: Dilawar Singh
+Author-email: dilawar@subcom.tech
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: pyparsing (>=3.0.9,<4.0.0)
+Requires-Dist: requests (>=2.28.1,<3.0.0)
+Requires-Dist: rich (>=12.5.1,<13.0.0)
+Requires-Dist: typer (>=0.6.1,<0.7.0)
+Requires-Dist: validators (>=0.20.0,<0.21.0)
+Description-Content-Type: text/markdown
+
+<link rel="stylesheet" type="text/css" href="https://raw.githack.com/Ganz1285/termynal/master/termynal.css" />
+
+# BioInformatics Tool for Infrastructure Automation (BiTIA) CLI utility
+
+This is the cli utility of the BiTIA project. The other component is
+`bitia-runner`. Most users only need the cli client `bitia` to submit jobs.
+Install it using `pip`.
+
+```
+python -m pip install bitia --user
+python -m bitia --help
+```
+
+## Configuration
+
+TODO: Order of searching configuration file.
+
+### Unix like systems
+
+1. `./bitia.toml`
+2. `~/.bitia.toml`
+3. `$HOME/.config/bitia.toml`
+3. `/etc/bitia.toml`
+
+
+### Windows
+
+1. `bitia.toml`
+2. `%APPDATA%\bitia.toml`
+3. `%PROGRAMDATA%\bitia.toml`
+
+## BiTIA runner
+
+If you are self-hosting the BiTIA server, you need `bitia-runner` as well. See
+the documents of `bitia-runner` for more details. TODO.
+
+
+
+## EXAMPLES
+
+1. Using samtools to view a fastq file with same name as provided in url 
+ 
+NORMAL PIPELINE EXECUTION CODE         |  BITIA EXECUTION CODE
+:-------------------------:|:-------------------------:
+![](./docs/source/img/readme_example_1.gif)  |![](./docs/source/img/readme_example_1_bitia.gif)
+
+
+
+2. Using samtools to view a fastq file with different file name as provided in url
+
+NORMAL PIPELINE EXECUTION CODE         |  BITIA EXECUTION CODE
+:-------------------------:|:-------------------------:
+![](./docs/source/img/readme_example_2.gif)  |![](./docs/source/img/readme_example_2_bitia.gif)
+
+3. Using Fastqc to do Quality check on a fastq file with same file name as provided
+
+NORMAL PIPELINE EXECUTION CODE         |  BITIA EXECUTION CODE
+:-------------------------:|:-------------------------:
+![](./docs/source/img/readme_example_3.gif)  |![](./docs/source/img/readme_example_3_bitia.gif)
+
+
