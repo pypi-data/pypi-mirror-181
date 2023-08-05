@@ -1,0 +1,5 @@
+[console_scripts]
+add_test_users=scripts.generate_initial_db:generate_test_data
+init_mistelaflask=scripts.generate_initial_db:init_mistelaflask
+wsgi=wsgi:init_mistelaflask
+

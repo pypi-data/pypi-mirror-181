@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+{% include 'header.html' %}
+<body>
+    <div class="mistela-background" style="--background-img: url({{url_for('static', filename='img/background.png')}})">
+        <section class="hero is-fullheight" >
+            {% include 'navbar.html' %}
+            <div class="hero-body">
+                <div class="container has-text-centered">
+                {% block content %}
+                {% endblock %}
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+{% include 'footer.html' %}
+</html>

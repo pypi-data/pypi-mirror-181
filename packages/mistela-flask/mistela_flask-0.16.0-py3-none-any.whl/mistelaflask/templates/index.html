@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% if current_user.is_authenticated %}
+  {% with _logo = url_for('static', filename='img/logo_svg.svg') %}         
+      <h1 class="title">
+        <img src="{{_logo}}" alt="{{ main_event.name }}">
+      </h1>
+  {% endwith %}
+    <h2 class="subtitle">
+      {{ main_event.main_date | format_datetime("%d | %m | %Y") }}
+    </h2>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+          <ul class=flashes>
+          {% for category, message in messages %}
+              <li class="notification is-{{ category }} is-light">{{ message }}</li>
+          {% endfor %}
+          </ul>
+      {% endif %}
+    {% endwith %}
+    <h4 class="subtitle">{{ main_event.main_date | format_datetime("%Y.%m.%d") }}</h4>
+    <div class="tile is-ancestor is-vertical is-half">
+        <div class="tile is-parent"> 
+            <div class="tile is-parent is-vertical is-3">
+            </div>
+            <div class="tile is-parent is-vertical is-3">
+              <a href="{{ url_for('main.events_list') }}"> 
+                <article class="tile is-child notification">
+                    <div class="content text has-text-centered">
+                        <p class="title">
+                          <i class="fa-regular fa-calendar"></i>
+                          Over the event
+                        </p>
+                    </div>
+                </article>
+                </a>
+            </div>
+            <div class="tile is-parent is-vertical is-3">
+                <a href="{{ url_for('main.invitations_list') }}">
+                <article class="tile is-child notification">
+                    <div class="content text has-text-centered">
+                        <p class="title">
+                            <i class="fa-solid fa-envelope"></i>
+                            Your invitation
+                        </p>
+                    </div>
+                </article>
+                </a>
+            </div> 
+            </a>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}
