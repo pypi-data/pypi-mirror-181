@@ -1,0 +1,10 @@
+prefix=/usr
+includedir=${prefix}/include
+
+pythonpath=/usr/lib/python3.10/site-packages/
+
+Name: calliope
+Description: Playlist generation toolkit
+URL: https://calliope-music.readthedocs.io/
+Version: 9.0
+Cflags: -I${includedir}
