@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+shelly_cloud.egg-info/PKG-INFO
+shelly_cloud.egg-info/SOURCES.txt
+shelly_cloud.egg-info/dependency_links.txt
+shelly_cloud.egg-info/requires.txt
+shelly_cloud.egg-info/top_level.txt
+shellyapi/__init__.py
+shellyapi/shellyapi.py
+shellyapi/validations.py
+tests/__init__.py
+tests/test_shellyapi.py
+tests/test_validations.py
