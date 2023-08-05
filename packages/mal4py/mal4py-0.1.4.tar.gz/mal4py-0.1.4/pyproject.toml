@@ -1,0 +1,27 @@
+[build-system]
+requires = ["requests","setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mal4py"
+version = "0.1.4"
+authors = [
+    { name="Tony White", email="tony.white_dev@proton.me" },
+]
+maintainers = [
+    { name="antoblanco", email="tony.white_dev@proton.me"},
+]
+keywords = ["api", "myanimelist", "MAL", "Anime", "Manga"]
+description = "MAL API An unofficial MyAnimeList API for Python 3"
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/AntoBlanco/MAL4Py"
+"Bug Tracker" = "https://github.com/AntoBlanco/MAL4Py/issues"
