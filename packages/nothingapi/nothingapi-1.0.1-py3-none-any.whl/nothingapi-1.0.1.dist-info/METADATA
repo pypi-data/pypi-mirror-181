@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: nothingapi
+Version: 1.0.1
+Summary: The Official Python API Wrapper for the Nothing Currency!
+Project-URL: Homepage, https://github.com/MaskdDev/nothingapi
+Project-URL: Bug Tracker, https://github.com/MaskdDev/nothingapi/issues
+Author-email: MaskdDev <maskddev@gmail.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Requires-Dist: requests==2.28.1
+Description-Content-Type: text/markdown
+
+# NothingAPI - The Official Python API Wrapper for the Nothing Currency!
+## Basic Syntax
+### Installing the API using pip:
+```
+pip install nothingapi
+```
+
+### Fetching a User Dict and printing its balance:
+```
+import nothingapi as api
+user = api.get_user(user_id)
+print(user["balance"])
+```
