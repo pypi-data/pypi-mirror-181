@@ -1,0 +1,15 @@
+indicates_english_message = [
+    "haha",
+    "hahaha",
+    "hm",
+    "nooo",
+    "mwah",
+    "tss",
+    "oof",
+    "sorta",
+    "hehe",
+    "opera",
+    "nah",
+    "smh",
+    " ty",
+]
