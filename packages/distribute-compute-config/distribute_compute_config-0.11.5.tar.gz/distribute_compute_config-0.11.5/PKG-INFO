@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: distribute_compute_config
+Version: 0.11.5
+Summary: 
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+
+# pybind
+
+Python bindings for creating `distribute` configs
+
+## Developing
+
+In your virtual environment:
+
+```
+maturin develop
+```
+
+## Virtual Environments
+
+create a virtual environment:
+
+```
+python3 -m venv .venv
+```
+
+```
+source .venv/bin/activate
+```
+
+For fish shells:
+
+```
+source .venv/bin/activate.fish
+```
+
+## Example
+
+See the [user documentation](https://fluid-dynamics-group.github.io/distribute-docs/python_api.html) page in on the python api for a worked example
+
