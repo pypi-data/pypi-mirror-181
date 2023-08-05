@@ -1,0 +1,3 @@
+[gui_scripts]
+cruiz = cruiz.__main__:main
+cruiz-pyside2 = cruiz.__main_pyside2__:main
