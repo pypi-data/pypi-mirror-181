@@ -1,0 +1,37 @@
+name: Publish package
+# Publish to PyPI when new release on GitHub, if tests pass
+on:
+  workflow_dispatch:
+  release:
+    types: [created]
+
+jobs:
+
+  tests:
+    uses: MaastrichtU-IDS/translator-openpredict/.github/workflows/test-package.yml@master
+
+
+  publish:
+    needs: [ tests ]
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: Install build dependencies
+      run: |
+        pip install build
+
+    - name: Build distribution
+      run: |
+        python -m build
+
+    - name: Publish
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        password: ${{ secrets.PYPI_TOKEN }}
