@@ -1,0 +1,7 @@
+# @name create a genre
+
+curl
+    -vv
+    -X POST  http://0.0.0.0:5000/api/v1/genres/
+    -H 'Content-Type: application/json'
+    -d '{"categories":["ada13f3c-51fb-407f-8a1f-3550a0e921e2"], "title": "some genre", "description": "some description"}'

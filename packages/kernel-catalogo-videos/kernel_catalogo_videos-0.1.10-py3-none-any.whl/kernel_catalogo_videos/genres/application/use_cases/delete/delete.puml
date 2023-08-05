@@ -1,0 +1,38 @@
+@startuml
+
+left to right direction
+
+actor "Admin" as adm
+
+usecase "Send request to web app" as UC0
+usecase "Run command for delete genre" as UC1
+usecase "Run use case" as UC2
+
+rectangle DeleteGenreUseCase {
+  usecase UC3 as "Before delete entity
+  ..rules..
+  - Check if it belogs to Category
+  ..raise an exception..
+  - Should returns an exception for each rule
+  "
+  usecase "Sets is_deleted is True in genre entity" as UC4
+  usecase "Saves entity in database" as UC5
+}
+
+note "DELETE /api/v2/genres/{uuid}" as N1
+UC0 .. N1
+N1 .. UC1
+
+note "CreateGenreCommand.run" as N2
+UC1 .. N2
+
+
+adm --> UC0
+UC0 --> UC1
+UC1 --> UC2
+UC2 --> UC3
+UC3 --> UC4
+UC4 --> UC5
+
+
+@enduml

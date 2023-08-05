@@ -1,0 +1,6 @@
+# @name get category
+
+curl
+    -vv
+    -X GET  http://0.0.0.0:5000/api/v1/genres/68a47624-2571-4125-b05d-1d8d44367c81/
+
