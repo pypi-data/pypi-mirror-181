@@ -1,0 +1,11 @@
+[console_scripts]
+fint_server = fps_uvicorn.cli:app
+
+[fps_config]
+fint_rtc_server = fint_rtc_server.config
+
+[fps_exception]
+fint_rtc_server = fint_rtc_server.exceptions
+
+[fps_router]
+fint_rtc_server = fint_rtc_server.routes
