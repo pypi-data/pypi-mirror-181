@@ -1,0 +1,39 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "semantha-streamlit-compare"
+version = "0.2.0"
+description = "This is the project for a streamlit component which uses semantha semantic compare."
+authors = ["thingsTHINKING GmbH <github@thingsthinking.net>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+streamlit = "^1.14.0"
+requests = "^2.28.1"
+semantha_sdk= "4.1.1"
+
+[project.dependencies]
+streamlit = "^1.14.0"
+requests = "^2.28.1"
+
+[project]
+name = "semantha-streamlit-compare"
+version = "0.2.0"
+authors = [
+  { name="thingsTHINKING GmbH", email="github@thingsthinking.net" },
+]
+description = "This is the project for a streamlit component which uses semantha semantic compare."
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License (Apache License 2.0)",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/thingsTHINKING/semantha-streamlit-compare"
+"Bug Tracker" = "https://github.com/thingsTHINKING/semantha-streamlit-compare/issues"
