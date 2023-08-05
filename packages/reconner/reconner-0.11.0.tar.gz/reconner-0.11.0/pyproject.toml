@@ -1,0 +1,94 @@
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core>=1.0.0"]
+
+[tool.poetry]
+name = "reconner"
+version = "0.11.0"
+description = "Recon NER, Debug and correct annotated Named Entity Recognition (NER) data for inconsitencies and get insights on improving the quality of your data."
+packages = [
+    { include = "recon" }
+]
+authors = ["Kabir Khan <kabirkhan1137@outlook.com>"]
+readme = "README.md"
+documentation = "https://kabirkhan.github.io/recon"
+homepage = "https://kabirkhan.github.io/recon"
+repository = "https://github.com/kabirkhan/recon"
+classifiers = [
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: System Administrators",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development",
+    "Typing :: Typed",
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "License :: OSI Approved :: MIT License"
+]
+
+[tool.poetry.dependencies]
+python = ">= 3.8, < 3.11"
+click-completion = "*"
+colorama = "*"
+numpy = ">= 1.20.0"
+pydantic = ">= 1.9, <2.0"
+spacy = ">= 3.2.0, < 3.5.0"
+scipy = ">= 1.7.0, < 1.9"
+xxhash = ">= 3.0.0, < 4.0"
+
+[tool.poetry.dev-dependencies]
+autoflake = "*"
+flake8 = ">=5.0"
+pytest = "*"
+pytest-cov = "*"
+pytest-xdist = "*"
+mypy = "*"
+black = "*"
+isort = "*"
+mkdocs = "*"
+mkdocs-material = "*"
+markdown-include = ">= 0.5.1, < 0.6.0"
+mkdocstrings-python = "*"
+pyright = "^1.1.272"
+
+[tool.poetry.extras]
+jupyter = ["jupyterlab >= 3.0", "ipywidgets"]
+hf = ["datasets >= 2.0, <3.0"]
+plot = ["seaborn >= 0.9, <1.0"]
+prodigy = ["prodigy >= 1.11, < 1.12"]
+
+[tool.poetry.scripts]
+recon = "recon.cli:app"
+
+[tool.poetry.plugins."prodigy_recipes"]
+"recon.ner_correct" = "recon:prodigy_recipes.recon_ner_correct_v1"
+"recon.ner_merge" = "recon:prodigy_recipes.recon_ner_merge_v1"
+
+[tool.black]
+line-length = 100
+target-version = ['py39']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.venv
+  | docker
+)/
+'''
+
+[tool.isort]
+profile = "black"
+known_first_party = ["recon"]
+
+[tool.pyright]
+include = ["recon"]
+reportInvalidStringEscapeSequence = false
+reportMissingImports = false
