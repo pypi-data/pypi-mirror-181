@@ -1,0 +1,40 @@
+[tool.poetry]
+name = "com.wyattbaldwin.make_release"
+version = "1.0a3"
+description = "Make a release"
+readme = "README.md"
+authors = ["Wyatt Baldwin <self@wyattbaldwin.com>"]
+repository = "https://github.com/wylee/com.wyattbaldwin/tree/dev/make_release"
+
+packages = [
+    { include = "make_release", from = "src" }
+]
+
+include = [
+    "CHANGELOG.md",
+    "README.md",
+]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+runcommands = "^1.0a71"
+
+[tool.poetry.group.dev.dependencies]
+"com.wyattbaldwin" = { path = "../com.wyattbaldwin", develop = true }
+black = "*"
+coverage = "*"
+isort = "*"
+
+[tool.poetry.scripts]
+make-release = "make_release:make_release.console_script"
+
+[tool.isort]
+lines_after_imports = 2
+
+[tool.make-release.args]
+merge = false
+tag-name = "{name}-{version}"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
