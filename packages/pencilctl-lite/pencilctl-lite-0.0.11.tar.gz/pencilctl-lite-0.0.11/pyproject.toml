@@ -1,0 +1,24 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "pencilctl-lite"
+version = "0.0.11"
+authors = ["David Carlos <ddavidcarlos1392@gmail.com>"]
+description = "A simple package to help deploy docker swarm stack."
+readme = "README.md"
+repository = "https://gitlab.com/pencillabs/infraestructure/pencilctl_lite"
+
+packages = [
+    { include = "pencilctl-lite" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+tomli = "*"
+PyYAML = "^6.0"
+
+[tool.poetry.dev-dependencies]
+ipython = "*"
+black = "^22.12.0"
