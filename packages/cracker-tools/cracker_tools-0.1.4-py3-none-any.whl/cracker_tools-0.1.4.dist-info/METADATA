@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: cracker-tools
+Version: 0.1.4
+Summary: 逆向工具包
+Home-page: UNKNOWN
+Author: songtao
+Author-email: 
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+#### 1.1 打包
+`python
+python -m pip install --upgrade setuptools wheel # 打包工具
+python -m pip install --upgrade twine  # 发布模块的工具
+`
+
+#### 2.1 安装此包
+ pip install cracker-tools -i https://pypi.python.org/pypi
+
+
