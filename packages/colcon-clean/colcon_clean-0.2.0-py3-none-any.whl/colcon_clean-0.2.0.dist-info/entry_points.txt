@@ -1,0 +1,17 @@
+[colcon_clean.base_handler]
+build = colcon_clean.base_handler.build:BuildBaseHandler
+install = colcon_clean.base_handler.install:InstallBaseHandler
+log = colcon_clean.base_handler.log:LogBaseHandler
+test_result = colcon_clean.base_handler.test_result:TestResultBaseHandler
+
+[colcon_clean.subverb]
+packages = colcon_clean.subverb.packages:PackagesCleanSubverb
+workspace = colcon_clean.subverb.workspace:WorkspaceCleanSubverb
+
+[colcon_core.extension_point]
+colcon_clean.base_handler = colcon_clean.base_handler:BaseHandlerExtensionPoint
+colcon_clean.subverb = colcon_clean.subverb:CleanSubverbExtensionPoint
+
+[colcon_core.verb]
+clean = colcon_clean.verb.clean:CleanVerb
+
