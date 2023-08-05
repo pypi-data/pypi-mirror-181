@@ -1,0 +1,57 @@
+default:
+  env: default
+  log:
+    version: 1
+    disable_existing_loggers: False
+    formatters:
+      simple:
+        format: "%(asctime)s - %(filename)s - %(levelname)s - %(message)s"
+    handlers:
+      console:
+        class: logging.StreamHandler
+        level: DEBUG
+        formatter: simple
+        stream: ext://sys.stdout
+      info_file_handler:
+        class: logging.handlers.TimedRotatingFileHandler
+        level: INFO
+        formatter: simple
+        filename: /tmp/var/log/lowcode/info.log
+        backupCount: 7
+        encoding: utf8
+      error_file_handler:
+        class: logging.handlers.TimedRotatingFileHandler
+        level: ERROR
+        formatter: simple
+        filename: /tmp/var/log/lowcode/error.log
+        backupCount: 7
+        encoding: utf8
+      debug_file_handler:
+        class: logging.handlers.TimedRotatingFileHandler
+        level: DEBUG
+        formatter: simple
+        filename: /tmp/var/log/lowcode/debug.log
+        backupCount: 7
+        encoding: utf8
+    loggers:
+      debug:
+        level: DEBUG
+        handlers: [ console, debug_file_handler ]
+        propagate: False
+      info:
+        level: INFO
+        handlers: [ console, info_file_handler ]
+        propagate: False
+      error:
+        level: ERROR
+        handlers: [ console, error_file_handler ]
+        propagate: False
+      root:
+        level: INFO
+        handlers: [ console, info_file_handler ]
+        propagate: False
+
+  jinja2:
+      variable_start_string: "{$"
+      variable_end_string: "$}"
+  
