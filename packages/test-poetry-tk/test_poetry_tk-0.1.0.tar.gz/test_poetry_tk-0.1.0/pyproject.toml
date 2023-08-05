@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "test_poetry_tk"
+version = "0.1.0"
+description = ""
+authors = ["Thomas Kuoch <kuoch.thomas@gmail.com>"]
+readme = "README.md"
+packages = [{include = "test_poetry_tk"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pandas = "^1.5.2"
+
+
+[tool.poetry.group.notebook.dependencies]
+ipykernel = "^6.19.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
