@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: ocpa
+Version: 1.2
+Summary: Object-Centric Process Analysis
+Home-page: https://github.com/ocpm/ocpa
+Author: Jan Niklas Adams and Gyunam Park
+Author-email: niklas.adams@pads.rwth-aachen.de
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: pm4py (<2.3.0)
+Requires-Dist: scikit-learn (<=0.24.2)
+Requires-Dist: setuptools
+Requires-Dist: jsonschema
+
+UNKNOWN
+
+
