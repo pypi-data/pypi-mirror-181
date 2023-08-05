@@ -1,0 +1,11 @@
+requests
+
+[dev]
+black
+isort
+
+[test]
+pytest
+pytest-cov
+pytest-xdist
+pytest-sugar

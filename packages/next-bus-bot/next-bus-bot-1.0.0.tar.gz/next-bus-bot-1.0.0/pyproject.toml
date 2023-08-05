@@ -1,0 +1,45 @@
+[project]
+name = "next-bus-bot"
+description = "Get the next in coming buses at a Paris area Station."
+
+version = "1.0.0"
+authors =[
+{name="Pierre-Antoine Comby", email="pierre-antoine.comby@crans.org"}
+]
+
+dependencies = ["requests"]
+
+
+[project.scripts]
+nbb = "nbb.cli:main"
+
+[project.optional-dependencies]
+test = ["pytest", "pytest-cov", "pytest-xdist", "pytest-sugar"]
+dev = ["black", "isort"]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+
+[tool.setuptools.dynamic]
+readme = {file = ["README.rst"]}
+
+[tool.coverage.run]
+omit = ["*tests*"]
+
+[tool.coverage.report]
+precision = 2
+exclude_lines = ["pragma: no cover", "raise NotImplementedError"]
+
+# Formatting using black.
+[tool.black]
+
+[tool.isort]
+profile="black"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = [
+    "--cov=nbb",
+    "--cov-report=term-missing",
+    "--cov-report=xml"
+]
