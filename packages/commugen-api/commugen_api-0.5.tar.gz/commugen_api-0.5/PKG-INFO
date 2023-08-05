@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: commugen_api
+Version: 0.5
+Summary: Python wrapper for commugen api
+Home-page: https://bitbucket.org/kobi_commugen/commugen_api/
+Author: kobi kolodner
+Author-email: kobi@commugen.com
+License: MIT
+Classifier: Development Status :: 2 - Pre-Alpha
+Description-Content-Type: text/markdown
+
+commugen-api
+============
+
+This is a simple python wrapper for commugen api
+
+API documentation
+-----------------
+the oficial api documentation can be found here:
+[api documentation]()
