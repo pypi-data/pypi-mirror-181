@@ -1,0 +1,3 @@
+REDIS_HOST = "localhost"
+REDIS_PORT = 12000
+REDIS_PASSWORD = "guest"

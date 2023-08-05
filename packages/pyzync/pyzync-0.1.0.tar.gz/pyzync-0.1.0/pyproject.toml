@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "pyzync"
+version = "0.1.0"
+description = "An integration framework for continuously syncing data"
+authors = ["Joseph DeWitt <joseph@zync.me>"]
+license = "Proprietary"
+packages = [{include = "zync"},{include = "taskqueue"},{include = "nosql"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pydantic = "^1.9.1"
+pymongo = "^4.3.2"
+rq = "^1.11.1"
+redis = "^4.3.4"
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.6.0"
+pytest = "^7.1.2"
+python-dotenv = "^0.20.0"
+
+[tool.poetry.group.integration.dependencies]
+google-api-python-client = "^2.62.0"
+google-auth-httplib2 = "^0.1.0"
+google-auth-oauthlib = "^0.5.3"
+requests = "^2.28.1"
+python-dateutil = "^2.8.2"
+
+[tool.poetry.group.docs.dependencies]
+mkdocs = "^1.4.2"
+mkdocs-material = "^8.5.11"
+
+[build-system]
+requires = ["poetry-core>=1.2.1"]
+build-backend = "poetry.core.masonry.api"
