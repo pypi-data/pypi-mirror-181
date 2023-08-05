@@ -1,0 +1,20 @@
+{
+  "tokenize.doctest::tokenize.doctest": true,
+  "unit/test_aline.py::TestAline::test_align_I_ego": true,
+  "unit/test_aline.py::TestAline::test_align_blow_flare": true,
+  "unit/test_aline.py::TestAline::test_aline_eat_edere": true,
+  "unit/test_aline.py::TestAline::test_aline_fish_piscis": true,
+  "unit/test_aline.py::TestAline::test_aline_flow_fluere": true,
+  "unit/test_distance.py::TestEditDistance::test_with_transpositions[rain-shine-5-expecteds5]": true,
+  "unit/test_distance.py::TestEditDistance::test_with_transpositions[wants-Wasp-1-expecteds2]": true,
+  "unit/test_distance.py::TestEditDistance::test_with_transpositions[wants-Wasp-2-expecteds3]": true,
+  "unit/test_distance.py::TestEditDistance::test_with_transpositions[wants-wasp-2-expecteds3]": true,
+  "unit/test_distance.py::TestEditDistanceABC::test_with_transpositions[abc-ca-2-True-3]": true,
+  "unit/test_distance.py::TestEditDistanceABC::test_with_transpositions[abc-ca-3-True-3]": true,
+  "unit/test_distance.py::TestEditDistanceABC::test_with_transpositions[wants-Wasp-1-False-3]": true,
+  "unit/test_distance.py::TestEditDistanceABC::test_with_transpositions[wants-Wasp-1-True-3]": true,
+  "unit/test_distance.py::TestEditDistanceABC::test_with_transpositions[wants-Wasp-1-True-4]": true,
+  "unit/test_phoneRegex.py::tweetTokenizer": true,
+  "unit/test_tokenize.py::TestTokenize::test_sent_tokenize[1. This is R .\\n2. This is A .\\n3. That's all-expected3]": true,
+  "unit/test_tokenize.py::TestTokenize::test_sent_tokenize[1. This is R .\\n2. This is A .\\n3. That's all-expected6]": true
+}
