@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: notecron
+Version: 0.4.24
+Summary: notecron
+Home-page: https://github.com/1007530194
+Author: niuliangtao
+Author-email: 1007530194@qq.com
+License: UNKNOWN
+Platform: UNKNOWN
+License-File: LICENSE
+Requires-Dist: apscheduler
+Requires-Dist: gunicorn
+Requires-Dist: records
+Requires-Dist: notedata
+Requires-Dist: flask-migrate
+Requires-Dist: flask-script
+Requires-Dist: flask-apscheduler
+Requires-Dist: flask-sqlalchemy
+Requires-Dist: gevent
+
+UNKNOWN
+
