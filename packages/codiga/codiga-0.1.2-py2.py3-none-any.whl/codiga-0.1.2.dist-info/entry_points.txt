@@ -1,0 +1,9 @@
+[console_scripts]
+codiga-analyze = codiga.analyze:main
+codiga-check-quality = codiga.check_quality:main
+codiga-compare = codiga.compare:main
+codiga-git-hook = codiga.git_hook:main
+codiga-github-action = codiga.github_action:main
+codiga-project = codiga.project:main
+codiga-snippets-import = codiga.snippets_imports:main
+
