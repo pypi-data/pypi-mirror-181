@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: bai2_to_json
+Version: 0.0.3
+Summary: Small package for a function which unpacks bai2 files, uses the bai2 package.
+Author-email: jpranieri <jonathon@buildcover.com>
+License-File: LICENSE
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Requires-Dist: bai==0.8.2
+Description-Content-Type: text/markdown
+
+# bai2_to_json
+This is a simple package built for two purposes: i) learn to use PyPI to distribute packages, and ii) publish the function within, which converts a bai_2 object to a JSON-serialized object.
+## Usage
+```
+import bai2_to_json
+
+path = '$yourpath'
+
+file_to_json(path)
+    # returns a json object
+```
