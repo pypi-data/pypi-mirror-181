@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61.0",
+		    "matplotlib>=3.4.3",
+		    "numpy>=1.20.3",
+		    "scipy>=1.7.1",
+		    "pandas>=1.3.4"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pipeworks"
+version = "0.0.3"
+authors = [
+  { name="Kevin Kuei", email="kevinkuei@gmail.com" },
+]
+description = "Collection of classes for calculating pressurized and open channel flow hydraulics for outlet works. "
+readme = "README.md"
+requires-python = ">=3.9.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/kckuei/pipeworks"
+"Bug Tracker" = "https://github.com/kckuei/pipeworks/issues"
+
+
