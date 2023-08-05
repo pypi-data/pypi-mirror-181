@@ -1,0 +1,92 @@
+/*
+ * Copyright 2020-2021 Exactpro (Exactpro Systems Limited)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+syntax = "proto3";
+
+package th2.crawler.dataprocessor;
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+import "th2_grpc_common/common.proto";
+import "th2_grpc_lw_data_provider/lw_data_provider.proto";
+
+option java_multiple_files = true;
+option java_package = "com.exactpro.th2.crawler.dataprocessor.grpc";
+
+service DataProcessor {
+
+  rpc CrawlerConnect(CrawlerInfo) returns (DataProcessorInfo);
+
+  rpc IntervalStart(IntervalInfo) returns (google.protobuf.Empty);
+
+  rpc SendEvent(EventDataRequest) returns (EventResponse);
+
+  rpc SendMessage(MessageDataRequest) returns (MessageResponse);
+}
+
+message IntervalInfo {
+  google.protobuf.Timestamp start_time = 1;
+  google.protobuf.Timestamp end_time = 2;
+
+  // The last state is optional and might be missing if no checkpoint were created on this interval
+  oneof last_state {
+    EventID last_event_id = 3;
+    MessageIDs last_message_ids = 4;
+  }
+}
+
+message MessageIDs {
+  repeated MessageID message_ids = 1;
+}
+
+message CrawlerInfo {
+  CrawlerId id = 1;
+}
+
+message CrawlerId {
+  string name = 1;
+}
+
+message DataProcessorInfo {
+  string name = 1;
+  string version = 2;
+  reserved 3, 4;
+}
+
+message EventDataRequest {
+  CrawlerId id = 1;
+  repeated th2.data_provider.lw.EventResponse event_data = 2;
+}
+
+message MessageDataRequest {
+  CrawlerId id = 1;
+  repeated th2.data_provider.lw.MessageGroupResponse message_data = 2;
+}
+
+message EventResponse {
+  EventID id = 1;
+  Status status = 2;
+}
+
+message MessageResponse {
+  reserved 1;
+  repeated MessageID ids = 3;
+  Status status = 2;
+}
+
+message Status {
+  bool handshake_required = 1;
+}
