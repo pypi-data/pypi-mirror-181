@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "simplipy-python"
+version = "0.0.5"
+description = "Create simple commands with this Module."
+authors = ["Vermin1ty"]
+readme = "README.md"
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
