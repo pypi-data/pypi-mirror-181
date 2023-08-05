@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/notify_mi/__init__.py
+src/notify_mi/helper.py
+src/notify_mi/notify.py
+src/notify_mi/providers.py
+src/notify_mi.egg-info/PKG-INFO
+src/notify_mi.egg-info/SOURCES.txt
+src/notify_mi.egg-info/dependency_links.txt
+src/notify_mi.egg-info/top_level.txt
