@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+src/uPrintGen/MicroprintGenerator.py
+src/uPrintGen/SVGMicroprintGenerator.py
+src/uPrintGen/__init__.py
+src/uPrintGen/command_line.py
+src/uPrintGen.egg-info/PKG-INFO
+src/uPrintGen.egg-info/SOURCES.txt
+src/uPrintGen.egg-info/dependency_links.txt
+src/uPrintGen.egg-info/entry_points.txt
+src/uPrintGen.egg-info/requires.txt
+src/uPrintGen.egg-info/top_level.txt
