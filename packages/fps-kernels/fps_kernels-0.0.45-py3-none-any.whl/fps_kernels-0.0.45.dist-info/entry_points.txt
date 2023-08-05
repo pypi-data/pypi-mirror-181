@@ -1,0 +1,5 @@
+[fps_config]
+fps-kernels = fps_kernels.config
+
+[fps_router]
+fps-kernels = fps_kernels.routes
