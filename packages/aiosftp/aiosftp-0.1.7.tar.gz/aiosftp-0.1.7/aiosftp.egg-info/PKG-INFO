@@ -1,0 +1,76 @@
+Metadata-Version: 2.1
+Name: aiosftp
+Version: 0.1.7
+Summary: FTP/SSH/sFTP Server implementation built on to of Asyncio.Facility to deploy SSH server easily inside any project.
+Home-page: https://github.com/phenobarbital/aiosftp
+Author: Jesus Lara
+Author-email: jesuslara@phenobarbital.info
+License: Apache-2
+Project-URL: Source, https://github.com/phenobarbital/aiosftp
+Project-URL: Funding, https://paypal.me/phenobarbital
+Project-URL: Say Thanks!, https://saythanks.io/to/phenobarbital
+Keywords: ftp,ftp server,sftp server,ssh server,asyncio
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Topic :: Software Development :: Object Brokering
+Classifier: Topic :: System :: Distributed Computing
+Classifier: Topic :: System :: Networking
+Classifier: Operating System :: OS Independent
+Classifier: Environment :: Web Environment
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Framework :: AsyncIO
+Requires-Python: >=3.8.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# aioSFTP #
+
+[![pypi](https://img.shields.io/pypi/v/aiosftp?style=plastic)](https://pypi.org/project/aiosftp/)
+[![status](https://img.shields.io/pypi/status/aiosftp?style=plastic)](https://pypi.org/project/aiosftp/)
+[![versions](https://img.shields.io/pypi/pyversions/blacksheep.svg?style=plastic)](https://github.com/phenobarbital/naiosftp)
+[![Apache licensed](https://img.shields.io/github/license/phenobarbital/aiosftp?style=plastic)](https://raw.githubusercontent.com/phenobarbital/aiosftp/master/LICENSE)
+
+
+aioSFTP is a FTP/sFTP/SSH server implemented on top of asyncio with integrated security, TLS/SSL connections, Users and other cool features.
+work with ``asyncio``.
+
+``aioSFTP`` requires Python 3.8+ and is distributed under Apache 2 license.
+
+## Which services are provided ##
+
+* FTP Server (using aioftp)
+* sFTP server and SSH Server (using asyncssh)
+* Web interface for uploading files (using aiohttp)
+### How do I get set up? ###
+
+First, you need to install aioSFTP:
+
+.. code-block ::
+
+    pip install aiosftp
+
+Then, you can start the server running the command:
+
+.. code-block ::
+
+   aiosftp --host <hostname> --port <port>
+
+where
+
+- ``<hostname>`` is a hostname of the server (default, listen on localhost)
+- ``<port>`` SSH Server Port
+- ``<ftp-port>`` FTP Server Port
+- ``<path>`` The base path where all files live in.
+
+
+### License ###
+
+aioSFTP is copyright of Jesus Lara (https://phenobarbital.info) and is under Apache 2 license. I am providing code in this repository under an open source license, remember, this is my personal repository; the license that you receive is from me and not from my employeer.
+
+

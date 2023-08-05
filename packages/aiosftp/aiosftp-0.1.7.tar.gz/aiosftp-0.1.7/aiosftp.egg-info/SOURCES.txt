@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+aiosftp/__init__.py
+aiosftp/__main__.py
+aiosftp/conf.py
+aiosftp/ftp.py
+aiosftp/scp.py
+aiosftp/user.py
+aiosftp/version.py
+aiosftp.egg-info/PKG-INFO
+aiosftp.egg-info/SOURCES.txt
+aiosftp.egg-info/dependency_links.txt
+aiosftp.egg-info/entry_points.txt
+aiosftp.egg-info/requires.txt
+aiosftp.egg-info/top_level.txt
