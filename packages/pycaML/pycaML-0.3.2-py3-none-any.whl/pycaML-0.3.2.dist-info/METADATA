@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: pycaML
+Version: 0.3.2
+Summary: Python Comparative Analysis for Machine Learning
+Home-page: https://github.com/reese3222/pycaML
+Author: Donato Riccio
+License: UNKNOWN
+Keywords: machine learning,optimization,stacking
+Platform: UNKNOWN
+Requires-Python: >=3.7, <4
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: scikit-learn
+Requires-Dist: scipy
+Requires-Dist: xgboost
+Requires-Dist: lightgbm
+Requires-Dist: catboost
+Requires-Dist: hyperopt
+Requires-Dist: tqdm
+Requires-Dist: interpret
+
+pycaML is an easy machine learning model comparison tool with optimization. It allows to generate a table comparing multiple machine learning models, to see which one is best for your data. The unique feature of pycaML is built-in hyperparameters tuning using Bayesian Optimization. It also supports meta-models like Stacking and Voting ensembles. You can setup and optimize 25 models with one line of code.
+
