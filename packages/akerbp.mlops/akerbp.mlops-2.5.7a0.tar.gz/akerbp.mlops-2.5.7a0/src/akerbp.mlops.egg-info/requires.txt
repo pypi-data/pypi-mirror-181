@@ -1,0 +1,5 @@
+cognite-sdk[pandas]==4.4.3
+pytest>=6.1.1
+pydantic>=1.7.3
+PyYAML>=5.4.1
+akerbp.mlpet>=3.3.0<4.0.0
