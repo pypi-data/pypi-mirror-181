@@ -1,0 +1,15 @@
+[console_scripts]
+csCreatePanopticImgs = vspscripts.preparation.createPanopticImgs:main
+csCreateTrainIdInstanceImgs = vspscripts.preparation.createTrainIdInstanceImgs:main
+csCreateTrainIdLabelImgs = vspscripts.preparation.createTrainIdLabelImgs:main
+csDownload = vspscripts.download.downloader:main
+csEvalInstanceLevelSemanticLabeling = vspscripts.evaluation.evalInstanceLevelSemanticLabeling:main
+csEvalObjectDetection3d = vspscripts.evaluation.evalObjectDetection3d:main
+csEvalPanopticSemanticLabeling = vspscripts.evaluation.evalPanopticSemanticLabeling:main
+csEvalPixelLevelSemanticLabeling = vspscripts.evaluation.evalPixelLevelSemanticLabeling:main
+csPlot3dDetectionResults = vspscripts.evaluation.plot3dResults:main
+
+[gui_scripts]
+csLabelTool = vspscripts.annotation.cityscapesLabelTool:main [gui]
+csViewer = vspscripts.viewer.cityscapesViewer:main [gui]
+
