@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nautobot_tools_dd"
+version = "0.0.3"
+description = "Nautobot tools project by Data Ductus"
+requires-python = ">=3.7"
+keywords = ["network", "automation", "nautobot", "yang"]
+classifiers = [
+    "Framework :: Django",
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "nautobot",
+    "yangson",
+]
