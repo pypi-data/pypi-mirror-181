@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: blastMining
+Version: 1.2.0
+Home-page: https://github.com/NuruddinKhoiry/blastMining.git
+Author: Ahmad Nuruddin Khoiri
+Author-email: nuruddinkhoiri34@gmail.com
+License: GPLv3
+Requires-Python: >=3
+License-File: LICENSE
+Requires-Dist: numpy (>=1.22.3)
+Requires-Dist: pandas (>=1.4.2)
+Requires-Dist: fastnumbers (>=3.1.0)
+
+Mining NCBI BLAST outputs
