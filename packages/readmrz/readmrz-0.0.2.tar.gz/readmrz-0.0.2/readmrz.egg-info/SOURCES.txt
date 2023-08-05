@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+readmrz/__init__.py
+readmrz/cli.py
+readmrz/detector.py
+readmrz/reader.py
+readmrz.egg-info/PKG-INFO
+readmrz.egg-info/SOURCES.txt
+readmrz.egg-info/dependency_links.txt
+readmrz.egg-info/entry_points.txt
+readmrz.egg-info/requires.txt
+readmrz.egg-info/top_level.txt
+readmrz/language/mrz.traineddata
