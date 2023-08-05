@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+selection/__init__.py
+selection/backend_lxml.py
+selection/backend_pyquery.py
+selection/base.py
+selection/const.py
+selection/py.typed
+selection/util.py
+selection.egg-info/PKG-INFO
+selection.egg-info/SOURCES.txt
+selection.egg-info/dependency_links.txt
+selection.egg-info/requires.txt
+selection.egg-info/top_level.txt

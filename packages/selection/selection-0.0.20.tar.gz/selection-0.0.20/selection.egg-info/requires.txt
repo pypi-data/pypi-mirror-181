@@ -1,0 +1,6 @@
+
+[:platform_system != "Windows"]
+lxml
+
+[pyquery]
+pyquery
