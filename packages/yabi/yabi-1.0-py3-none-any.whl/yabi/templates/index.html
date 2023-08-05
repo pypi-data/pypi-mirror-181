@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block website_header %}{{ website_name }}{% endblock %}
+
+{% block content %}
+<h2>{% block section_title %}Latest Posts{% endblock %}</h2>
+
+<section class="post_lists">
+    {% for post in latest_posts %}
+    <div class="post_header_container">
+        <div class="post_header_date"> {{ post.date.strftime('%b %-d, %Y') }}</div>
+        <div class="post_header_summary">
+            <h3><a href="{{ post.target_path.relative_to(website_path) }}">{{ post.title }}</a></h3>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+
+{% if index %}
+<section class="pagination">
+    {% if previous_page %}
+    <a href="/{{ previous_page.relative_to(website_path) }}"> Previous </a>
+    {% endif %}
+    -- {{ index }} --
+    {% if next_page %}
+    <a href="/{{ next_page.relative_to(website_path) }}"> Next </a>
+    {% endif %}
+</section>
+{% endif %}
+
+{% endblock %}
