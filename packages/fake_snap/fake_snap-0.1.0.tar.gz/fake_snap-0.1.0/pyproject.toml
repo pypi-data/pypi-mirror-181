@@ -1,0 +1,17 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "fake_snap"
+authors = [
+    {name = "Joey Wheeler", email = "joewheeler2048@gmail.com"},
+    {name = "Noah Wheeler", email = "tagordi@gmail.com"}
+]
+readme = {file = "README.md", content-type = "text/markdown"}
+license = {file = "LICENSE"}
+requires-python = ">=3.8"
+dynamic = ["version", "description"]
+
+[project.urls]
+Home = "https://git.jharmison.com/JediJoey/fake_snap"
