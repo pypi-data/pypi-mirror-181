@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "deepolicy"
+version = "0.0.3"
+authors = [
+  { name="Xin ZHOU", email="zhouxin12@nudt.edu.cn" },
+]
+description = "Create the robot`s brain. - deepolicy"
+readme = "README.txt"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://deepolicy.cn"
+"Github" = "https://github.com/deepolicy"
