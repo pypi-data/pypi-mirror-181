@@ -1,0 +1,7 @@
+registry="127.0.0.1:5000"
+branch="stable"
+service="server"
+docker_dir = "docker"
+env="production"
+docker_path=""
+stack=""
