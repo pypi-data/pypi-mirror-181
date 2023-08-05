@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: dewi-dataclass
+Version: 1.0.0a0
+Summary: DEWI DataClass: a (mutable) data class / config object implementation
+Home-page: https://github.com/LA-Toth/dewi-dataclass
+Author: Laszlo Attila Toth
+Author-email: python-dewi@laszloattilatoth.me
+Maintainer: Laszlo Attila Toth
+Maintainer-email: python-dewi@laszloattilatoth.me
+License: Apache
+Keywords: dataclass,config,configtree,node
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Utilities
+Requires-Python: >=3.10
+License-File: COPYING
+
+UNKNOWN
+
