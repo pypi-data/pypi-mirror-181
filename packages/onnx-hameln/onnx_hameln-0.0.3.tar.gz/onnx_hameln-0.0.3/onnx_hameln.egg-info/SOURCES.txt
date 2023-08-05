@@ -1,0 +1,13 @@
+README.md
+setup.py
+onnx_hameln/__init__.py
+onnx_hameln.egg-info/PKG-INFO
+onnx_hameln.egg-info/SOURCES.txt
+onnx_hameln.egg-info/dependency_links.txt
+onnx_hameln.egg-info/requires.txt
+onnx_hameln.egg-info/top_level.txt
+onnx_hameln/core/__init__.py
+onnx_hameln/core/hameln.py
+onnx_hameln/core/pattern.py
+onnx_hameln/core/rewriter/__init__.py
+onnx_hameln/core/rewriter/conv_conv_concat_bn_leakyrelu_rewriter.py

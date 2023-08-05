@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: onnx_hameln
+Version: 0.0.3
+Summary: an onnx rewrite tool
+Home-page: https://github.com/irasin/onnx_hameln
+Author: irasin
+Author-email: edad811@gmail.com
+License: Apache License 2.0
+Description: # ONNX model rewriter tool
+        
+        
+        a pure python tool to rewrite and optimize onnx model
+        
+        
+        ## usage
+        
+        ```python
+        from onnx_hameln import HamelnModel, HPM
+        
+        
+        m = HamelnModel("yolov5l_v3.onnx")
+        
+        HPM.rewrite(m)
+        
+        m.set_batch_size(32).set_nhwc_input_format().export("rewrite.onnx")
+        
+        
+        ```
+        
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
