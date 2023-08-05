@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: meetupscraper
+Version: 0.9.2
+Summary: A web scraper for meetup.com.
+Home-page: http://github.com/hakierspejs/meetupscraper
+Author: Hakiespejs Łódź
+Author-email: d33tah@gmail.com
+License: WTFPL
+License-File: LICENSE
+Requires-Dist: requests
+Requires-Dist: lxml
+Requires-Dist: python-dateutil
+
