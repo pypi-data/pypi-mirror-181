@@ -1,0 +1,2 @@
+[console_scripts]
+sgx-ra-verify = intel_sgx_ra.cli:run

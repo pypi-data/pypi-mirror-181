@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: intel-sgx-ra
+Version: 0.5
+Summary: Intel SGX Remote Attestation verification library
+Home-page: https://cosmian.com
+Author: Cosmian Tech
+Author-email: tech@cosmian.com
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: requests (<3.0.0,>=2.28.1)
+Requires-Dist: cryptography (<39.0.0,>=38.0.1)
+
+# Intel SGX Remote Attestation library
