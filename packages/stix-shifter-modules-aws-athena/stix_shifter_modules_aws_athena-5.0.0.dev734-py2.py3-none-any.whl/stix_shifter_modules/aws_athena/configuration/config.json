@@ -1,0 +1,2632 @@
+{
+    "connection": {
+        "type": {
+            "displayName": "Amazon Athena",
+            "group": "aws",
+            "type": "connectorType"
+        },
+        "help": {
+            "type": "link",
+            "default": "data-sources.html"
+        },
+        "region": {
+            "type": "text"
+        },
+        "s3_bucket_location": {
+            "type": "text"
+        },
+        "vpcflow_database_name": {
+            "type": "text",
+            "optional": true
+        },
+        "vpcflow_table_name": {
+            "type": "text",
+            "optional": true
+        },
+        "ocsf_database_name": {
+            "type": "text",
+            "optional": true
+        },
+        "ocsf_table_name": {
+            "type": "text",
+            "optional": true
+        },
+        "guardduty_database_name": {
+            "type": "text",
+            "optional": true
+        },
+        "guardduty_table_name": {
+            "type": "text",
+            "optional": true
+        },
+        "options": {
+            "unmapped_fallback": {
+                "type": "boolean",
+                "default": false,
+                "optional": true,
+                "hidden": true
+            },
+            "type": "fields",
+            "async_call": {
+                "type": "text",
+                "hidden": true,
+                "optional": true
+            },
+            "result_limit": {
+                "default": 10000,
+                "min": 1,
+                "max": 500000,
+                "type": "number",
+                "previous": "connection.resultSizeLimit"
+            },
+            "time_range": {
+                "default": 5,
+                "min": 1,
+                "max": 10000,
+                "type": "number",
+                "previous": "connection.timerange",
+                "nullable": true
+            },
+            "timeout": {
+                "default": 30,
+                "min": 1,
+                "max": 60,
+                "hidden": true,
+                "type": "number",
+                "previous": "connection.timeoutLimit"
+            },
+            "dialects": {
+                "type": "array",
+                "hidden": true,
+                "optional": true
+            },
+            "language": {
+                "type": "string",
+                "default": "stix",
+                "optional": true,
+                "hidden": true
+            },
+            "validate_pattern": {
+                "type": "boolean",
+                "optional": true,
+                "hidden": true,
+                "previous": "connection.validate_pattern"
+            },
+            "stix_validator": {
+                "type": "boolean",
+                "default": false,
+                "optional": true,
+                "hidden": true,
+                "previous": "connection.stix_validator"
+            },
+            "mapping": {
+                "type": "json",
+                "optional": true,
+                "previous": "connection.mapping",
+                "default": {
+                    "guardduty_config": {
+                        "guardduty": {
+                            "extract_fields": {
+                                "principal_id": {
+                                    "json_extract_query": "resource,'$.accesskeydetails.principalid'"
+                                },
+                                "user_name": {
+                                    "json_extract_query": "resource,'$.accesskeydetails.username'"
+                                },
+                                "instance_id": {
+                                    "json_extract_query": "resource,'$.instancedetails.instanceid'"
+                                },
+                                "image_id": {
+                                    "json_extract_query": "resource,'$.instancedetails.imageid'"
+                                },
+                                "availability_zone": {
+                                    "json_extract_query": "resource,'$.instancedetails.availabilityzone'"
+                                },
+                                "security_group_name": {
+                                    "json_extract_query": "resource,'$.instancedetails.networkinterfaces.0.securitygroups.0.groupname'"
+                                },
+                                "security_group_id": {
+                                    "json_extract_query": "resource,'$.instancedetails.networkinterfaces.0.securitygroups.0.groupid'"
+                                },
+                                "access_key_id": {
+                                    "json_extract_query": "resource,'$.accesskeydetails.accesskeyid'"
+                                },
+                                "api": {
+                                    "json_extract_query": "service,'$.action.accesawsapicallactionskeyid.api'"
+                                },
+                                "api_service_name": {
+                                    "json_extract_query": "service,'$.action.accesawsapicallactionskeyid.servicename'"
+                                },
+                                "remote_ip": {
+                                    "json_extract_query": [
+                                        "service,'$.action.networkconnectionaction.remoteipdetails.ipaddressv4'",
+                                        "service,'$.action.portprobeaction.remoteipdetails.ipaddressv4'",
+                                        "service,'$.action.awsapicallaction.remoteipdetails.ipaddressv4'"
+                                    ]
+                                },
+                                "remote_port": {
+                                    "json_extract_query": "service,'$.action.networkconnectionaction.remoteportdetails.port'"
+                                },
+                                "eth0_private_ip": {
+                                    "json_extract_query": "resource,'$.instancedetails.networkinterfaces.0.privateipaddress'"
+                                },
+                                "eth0_private_dns_name": {
+                                    "json_extract_query": "resource,'$.instancedetails.networkinterfaces.0.privatednsname'"
+                                },
+                                "eth1_private_ip": {
+                                    "json_extract_query": "resource,'$.instancedetails.networkinterfaces.1.privateipaddress'"
+                                },
+                                "eth1_private_dns_name": {
+                                    "json_extract_query": "resource,'$.instancedetails.networkinterfaces.1.privatednsname'"
+                                },
+                                "local_port": {
+                                    "json_extract_query": [
+                                        "service,'$.action.networkconnectionaction.localportdetails.port'",
+                                        "service,'$.action.portprobeaction.localportdetails.port'"
+                                    ]
+                                },
+                                "public_ip": {
+                                    "json_extract_query": "resource,'$.instancedetails.networkinterfaces.0.publicip'"
+                                },
+                                "ipv6_address": {
+                                    "json_extract_query": "resource,'$.instancedetails.networkinterfaces.0.ipv6addresses.0'"
+                                },
+                                "protocol": {
+                                    "json_extract_query": "service,'$.action.networkconnectionaction.protocol'"
+                                },
+                                "public_dns_name": {
+                                    "json_extract_query": "resource,'$.instancedetails.networkinterfaces.0.publicdnsname'"
+                                },
+                                "dns_domain": {
+                                    "json_extract_query": "service,'$.action.dnsrequestaction.domain'"
+                                },
+                                "interface_id": {
+                                    "json_extract_query": "resource,'$.instancedetails.networkinterfaces.0.networkinterfaceid'"
+                                },
+                                "subnet_id": {
+                                    "json_extract_query": "resource,'$.instancedetails.networkinterfaces.0.subnetid'"
+                                },
+                                "vpc_id": {
+                                    "json_extract_query": "resource,'$.instancedetails.networkinterfaces.0.vpcid'"
+                                },
+                                "city_name": {
+                                    "json_extract_query": [
+                                        "service,'$.action.networkconnectionaction.remoteipdetails.city.cityname'",
+                                        "service,'$.action.portprobeaction.remoteipdetails.city.cityname'",
+                                        "service,'$.action.awsapicallaction.remoteipdetails.city.cityname'"
+                                    ]
+                                },
+                                "country_name": {
+                                    "json_extract_query": [
+                                        "service,'$.action.networkconnectionaction.remoteipdetails.country.countryname'",
+                                        "service,'$.action.portprobeaction.remoteipdetails.country.countryname'",
+                                        "service,'$.action.awsapicallaction.remoteipdetails.country.countryname'"
+                                    ]
+                                },
+                                "event_firstseen": {
+                                    "json_extract_query": "service,'$.eventfirstseen'"
+                                },
+                                "event_lastseen": {
+                                    "json_extract_query": "service,'$.eventlastseen'"
+                                },
+                                "platform": {
+                                    "json_extract_query": "resource,'$.instancedetails.platform'"
+                                }
+                            }
+                        }
+                    },
+                    "guardduty_from_stix_map": {
+                        "ipv4-addr": {
+                            "fields": {
+                                "value": [
+                                    "eth0_private_ip",
+                                    "eth1_private_ip",
+                                    "public_ip",
+                                    "remote_ip"
+                                ],
+                                "x_aws_interface_id": [
+                                    "interface_id"
+                                ],
+                                "x_aws_remote_city_name": [
+                                    "city_name"
+                                ],
+                                "x_aws_remote_country_name": [
+                                    "country_name"
+                                ]
+                            }
+                        },
+                        "ipv6-addr": {
+                            "fields": {
+                                "value": [
+                                    "ipv6_address"
+                                ],
+                                "x_aws_interface_id": [
+                                    "interface_id"
+                                ]
+                            }
+                        },
+                        "network-traffic": {
+                            "fields": {
+                                "src_port": [
+                                    "local_port"
+                                ],
+                                "dst_port": [
+                                    "remote_port"
+                                ],
+                                "src_ref.value": [
+                                    "eth0_private_ip"
+                                ],
+                                "dst_ref.value": [
+                                    "remote_ip"
+                                ],
+                                "protocols[*]": [
+                                    "protocol"
+                                ]
+                            }
+                        },
+                        "domain-name": {
+                            "fields": {
+                                "value": [
+                                    "eth0_private_dns_name",
+                                    "eth1_private_dns_name",
+                                    "public_dns_name",
+                                    "dns_domain"
+                                ]
+                            }
+                        },
+                        "user-account": {
+                            "fields": {
+                                "user_id": [
+                                    "principal_id"
+                                ],
+                                "account_login": [
+                                    "user_name"
+                                ]
+                            }
+                        },
+                        "x-aws-details": {
+                            "fields": {
+                                "account_id": [
+                                    "accountid"
+                                ],
+                                "region": [
+                                    "region"
+                                ]
+                            }
+                        },
+                        "x-aws-instance": {
+                            "fields": {
+                                "instance_id": [
+                                    "instance_id"
+                                ],
+                                "image_id": [
+                                    "image_id"
+                                ],
+                                "availability_zone": [
+                                    "availability_zone"
+                                ]
+                            }
+                        },
+                        "x-aws-vpc": {
+                            "fields": {
+                                "vpc_id": [
+                                    "vpc_id"
+                                ],
+                                "subnet_id": [
+                                    "subnet_id"
+                                ],
+                                "security_group_name": [
+                                    "security_group_name"
+                                ],
+                                "security_group_id": [
+                                    "security_group_id"
+                                ]
+                            }
+                        },
+                        "x-aws-api": {
+                            "fields": {
+                                "access_key_id": [
+                                    "access_key_id"
+                                ],
+                                "api": [
+                                    "api"
+                                ],
+                                "api_service_name": [
+                                    "api_service_name"
+                                ]
+                            }
+                        },
+                        "x-ibm-finding": {
+                            "fields": {
+                                "name": [
+                                    "title"
+                                ],
+                                "finding_type": [
+                                    "type"
+                                ],
+                                "description": [
+                                    "description"
+                                ],
+                                "src_ip_ref.value": [
+                                    "eth0_private_ip"
+                                ],
+                                "dst_ip_ref.value": [
+                                    "remote_ip"
+                                ],
+                                "start": [
+                                    "event_firstseen"
+                                ],
+                                "end": [
+                                    "event_lastseen"
+                                ],
+                                "src_os_ref.value": [
+                                    "platform"
+                                ],
+                                "dst_geolocation": [
+                                    "country_name"
+                                ]
+                            }
+                        }
+                    },
+                    "network_protocol_map": {
+                        "hopopt": "0",
+                        "icmp": "1",
+                        "igmp": "2",
+                        "ggp": "3",
+                        "ip-in-ip": "4",
+                        "st": "5",
+                        "tcp": "6",
+                        "cbt": "7",
+                        "egp": "8",
+                        "igp": "9",
+                        "bbn-rcc-mon": "10",
+                        "nvp-ii": "11",
+                        "pup": "12",
+                        "argus": "13",
+                        "emcon": "14",
+                        "xnet": "15",
+                        "chaos": "16",
+                        "udp": "17",
+                        "mux": "18",
+                        "dcn-meas": "19",
+                        "hmp": "20",
+                        "prm": "21",
+                        "xns-idp": "22",
+                        "trunk-1": "23",
+                        "trunk-2": "24",
+                        "leaf-1": "25",
+                        "leaf-2": "26",
+                        "rdp": "27",
+                        "irtp": "28",
+                        "iso-tp4": "29",
+                        "netblt": "30",
+                        "mfe-nsp": "31",
+                        "merit-inp": "32",
+                        "dccp": "33",
+                        "3pc": "34",
+                        "idpr": "35",
+                        "xtp": "36",
+                        "ddp": "37",
+                        "idpr-cmtp": "38",
+                        "tp++": "39",
+                        "il": "40",
+                        "ipv6": "41",
+                        "sdrp": "42",
+                        "ipv6-route": "43",
+                        "ipv6-frag": "44",
+                        "idrp": "45",
+                        "rsvp": "46",
+                        "gre": "47",
+                        "dsr": "48",
+                        "bna": "49",
+                        "esp": "50",
+                        "ah": "51",
+                        "i-nlsp": "52",
+                        "swipe": "53",
+                        "narp": "54",
+                        "mobile": "55",
+                        "tlsp": "56",
+                        "skip": "57",
+                        "ipv6-icmp": "58",
+                        "ipv6-nonxt": "59",
+                        "ipv6-opts": "60",
+                        "cftp": "62",
+                        "sat-expak": "64",
+                        "kryptolan": "65",
+                        "rvd": "66",
+                        "ippc": "67",
+                        "sat-mon": "69",
+                        "visa": "70",
+                        "ipcu": "71",
+                        "cpnx": "72",
+                        "cphb": "73",
+                        "wsn": "74",
+                        "pvp": "75",
+                        "br-sat-mon": "76",
+                        "sun-nd": "77",
+                        "wb-mon": "78",
+                        "wb-expak": "79",
+                        "iso-ip": "80",
+                        "vmtp": "81",
+                        "secure-vmtp": "82",
+                        "vines": "83",
+                        "ttp": "84",
+                        "iptm": "84",
+                        "nsfnet-igp": "85",
+                        "dgp": "86",
+                        "tcf": "87",
+                        "eigrp": "88",
+                        "ospfigp": "89",
+                        "sprite-rpc": "90",
+                        "larp": "91",
+                        "mtp": "92",
+                        "ax.25": "93",
+                        "ipip": "94",
+                        "micp": "95",
+                        "scc-sp": "96",
+                        "etherip": "97",
+                        "encap": "98",
+                        "gmtp": "100",
+                        "ifmp": "101",
+                        "pnni": "102",
+                        "pim": "103",
+                        "aris": "104",
+                        "scps": "105",
+                        "qnx": "106",
+                        "a/n": "107",
+                        "ipcomp": "108",
+                        "snp": "109",
+                        "compaq-peer": "110",
+                        "ipx-in-ip": "111",
+                        "vrrp": "112",
+                        "pgm": "113",
+                        "l2tp": "115",
+                        "ddx": "116",
+                        "iatp": "117",
+                        "stp": "118",
+                        "srp": "119",
+                        "uti": "120",
+                        "smp": "121",
+                        "sm": "122",
+                        "ptp": "123",
+                        "isis over ipv4": "124",
+                        "fire": "125",
+                        "crtp": "126",
+                        "crudp": "127",
+                        "sscopmce": "128",
+                        "iplt": "129",
+                        "sps": "130",
+                        "pipe": "131",
+                        "sctp": "132",
+                        "fc": "133",
+                        "rsvp-e2e-ignore": "134",
+                        "mobility header": "135",
+                        "udplite": "136",
+                        "mpls-in-ip": "137",
+                        "manet": "138",
+                        "hip": "139",
+                        "shim6": "140",
+                        "wesp": "141",
+                        "rohc": "142",
+                        "reserved": "255"
+                    },
+                    "ocsf_from_stix_map": {
+                        "email-addr": {
+                            "fields": {
+                                "value": [
+                                    "identity.user.email_addr"
+                                ]
+                            }
+                        },
+                        "ipv4-addr": {
+                            "fields": {
+                                "value": [
+                                    "dst_endpoint.ip",
+                                    "src_endpoint.ip"
+                                ]
+                            }
+                        },
+                        "ipv6-addr": {
+                            "fields": {
+                                "value": [
+                                    "dst_endpoint.ip",
+                                    "src_endpoint.ip"
+                                ]
+                            }
+                        },
+                        "network-traffic": {
+                            "fields": {
+                                "dst_byte_count": [
+                                    "traffic.bytes_in"
+                                ],
+                                "dst_packets": [
+                                    "traffic.packets_in"
+                                ],
+                                "dst_port": [
+                                    "dst_endpoint.port"
+                                ],
+                                "dst_ref.value": [
+                                    "dst_endpoint.ip"
+                                ],
+                                "extensions.'x-network-ext'.boundary": [
+                                    "connection_info.boundary"
+                                ],
+                                "extensions.'x-network-ext'.boundary_id": [
+                                    "connection_info.boundary_id"
+                                ],
+                                "extensions.'x-network-ext'.bytes": [
+                                    "traffic.bytes"
+                                ],
+                                "extensions.'x-network-ext'.direction": [
+                                    "connection_info.direction"
+                                ],
+                                "extensions.'x-network-ext'.direction_id": [
+                                    "connection_info.direction_id"
+                                ],
+                                "extensions.'x-network-ext'.packets": [
+                                    "traffic.packets"
+                                ],
+                                "extensions.'x-network-ext'.protocol_ver": [
+                                    "connection_info.protocol_ver"
+                                ],
+                                "extensions.'x-network-ext'.tcp_flags": [
+                                    "connection_info.tcp_flags"
+                                ],
+                                "protocols[*]": [
+                                    "connection_info.protocol_num"
+                                ],
+                                "src_byte_count": [
+                                    "traffic.bytes_out"
+                                ],
+                                "src_packets": [
+                                    "traffic.packets_out"
+                                ],
+                                "src_port": [
+                                    "src_endpoint.port"
+                                ],
+                                "src_ref.value": [
+                                    "src_endpoint.ip"
+                                ]
+                            }
+                        },
+                        "software": {
+                            "fields": {
+                                "extension.product.feature_name": [
+                                    "metadata.product.feature.name"
+                                ],
+                                "extension.product.feature_uid": [
+                                    "metadata.product.feature.uid"
+                                ],
+                                "extension.product.feature_version": [
+                                    "metadata.product.feature.version"
+                                ],
+                                "extension.product.path": [
+                                    "metadata.product.path"
+                                ],
+                                "extension.product.uid": [
+                                    "metadata.product.uid"
+                                ],
+                                "languages": [
+                                    "metadata.product.lang"
+                                ],
+                                "name": [
+                                    "metadata.product.name"
+                                ],
+                                "vendor": [
+                                    "metadata.product.vendor_name"
+                                ],
+                                "version": [
+                                    "metadata.product.version"
+                                ]
+                            }
+                        },
+                        "url": {
+                            "fields": {
+                                "value": [
+                                    "http_request.url"
+                                ]
+                            }
+                        },
+                        "user-account": {
+                            "fields": {
+                                "account_type": [
+                                    "identity.user.account_type"
+                                ],
+                                "display_name": [
+                                    "identity.user.name"
+                                ],
+                                "extensions.'aws-account-ext'.account_type_id": [
+                                    "identity.user.account_type_id"
+                                ],
+                                "extensions.'aws-account-ext'.credential_uid": [
+                                    "identity.user.credential_uid"
+                                ],
+                                "extensions.'aws-account-ext'.domain": [
+                                    "identity.user.domain"
+                                ],
+                                "extensions.'aws-account-ext'.group_desc": [
+                                    "identity.user.groups.desc"
+                                ],
+                                "extensions.'aws-account-ext'.group_name": [
+                                    "identity.user.groups.name"
+                                ],
+                                "extensions.'aws-account-ext'.group_privileges": [
+                                    "identity.user.groups.privileges"
+                                ],
+                                "extensions.'aws-account-ext'.group_type": [
+                                    "identity.user.groups.type"
+                                ],
+                                "extensions.'aws-account-ext'.group_uid": [
+                                    "identity.user.groups.uid"
+                                ],
+                                "extensions.'aws-account-ext'.org_uid": [
+                                    "identity.user.org_uid"
+                                ],
+                                "extensions.'aws-account-ext'.session_uid": [
+                                    "identity.user.session_uid"
+                                ],
+                                "extensions.'aws-account-ext'.session_uuid": [
+                                    "identity.user.session_uuid"
+                                ],
+                                "extensions.'aws-account-ext'.type": [
+                                    "identity.user.type"
+                                ],
+                                "extensions.'aws-account-ext'.type_id": [
+                                    "identity.user.type_id"
+                                ],
+                                "extensions.'aws-account-ext'.uid": [
+                                    "identity.user.uid"
+                                ],
+                                "extensions.'aws-account-ext'.uuid": [
+                                    "identity.user.uuid"
+                                ],
+                                "user_id": [
+                                    "identity.user.account_uid"
+                                ]
+                            }
+                        },
+                        "x-ibm-finding": {
+                            "fields": {
+                                "alert_id": [
+                                    "observables.type_id"
+                                ],
+                                "description": [
+                                    "observables.value"
+                                ],
+                                "dst_ip_ref.value": [
+                                    "dst_endpoint.ip"
+                                ],
+                                "end": [
+                                    "end_time"
+                                ],
+                                "event_count": [
+                                    "count"
+                                ],
+                                "finding_type": [
+                                    "observables.type"
+                                ],
+                                "name": [
+                                    "observables.name"
+                                ],
+                                "severity": [
+                                    "severity_id"
+                                ],
+                                "src_ip_ref.value": [
+                                    "src_endpoint.ip"
+                                ],
+                                "start": [
+                                    "start_time"
+                                ],
+                                "time_observed": [
+                                    "_time"
+                                ]
+                            }
+                        },
+                        "x-oca-asset": {
+                            "fields": {
+                                "extensions.'x-dst-endpoint'.instance_uid": [
+                                    "dst_endpoint.instance_uid"
+                                ],
+                                "extensions.'x-dst-endpoint'.interface_uid": [
+                                    "dst_endpoint.interface_uid"
+                                ],
+                                "extensions.'x-dst-endpoint'.subnet_uid": [
+                                    "dst_endpoint.subnet_uid"
+                                ],
+                                "extensions.'x-dst-endpoint'.svc_name": [
+                                    "dst_endpoint.svc_name"
+                                ],
+                                "extensions.'x-dst-endpoint'.vpc_uid": [
+                                    "dst_endpoint.vpc_uid"
+                                ],
+                                "extensions.'x-src-endpoint'.instance_uid": [
+                                    "src_endpoint.instance_uid"
+                                ],
+                                "extensions.'x-src-endpoint'.interface_uid": [
+                                    "src_endpoint.interface_uid"
+                                ],
+                                "extensions.'x-src-endpoint'.subnet_uid": [
+                                    "src_endpoint.subnet_uid"
+                                ],
+                                "extensions.'x-src-endpoint'.svc_name": [
+                                    "src_endpoint.svc_name"
+                                ],
+                                "extensions.'x-src-endpoint'.vpc_uid": [
+                                    "src_endpoint.vpc_uid"
+                                ],
+                                "name": [
+                                    "dst_endpoint.name",
+                                    "src_endpoint.name"
+                                ]
+                            }
+                        },
+                        "x-oca-event": {
+                            "fields": {
+                                "action": [
+                                    "activity"
+                                ],
+                                "category": [
+                                    "category_name"
+                                ],
+                                "code": [
+                                    "activity_id",
+                                    "category_uid"
+                                ],
+                                "created": [
+                                    "time"
+                                ],
+                                "duration": [
+                                    "duration"
+                                ],
+                                "extensions.'x-cloud-api'.class_uid": [
+                                    "class_uid"
+                                ],
+                                "module": [
+                                    "class_name"
+                                ],
+                                "network_ref.dst_ref.value": [
+                                    "dst_endpoint.ip"
+                                ],
+                                "network_ref.src_ref.value": [
+                                    "dst_endpoint.ip"
+                                ],
+                                "timezone": [
+                                    "timezone_offset"
+                                ]
+                            }
+                        },
+                        "x-ocsf-cloud": {
+                            "fields": {
+                                "account_type": [
+                                    "cloud.account_type"
+                                ],
+                                "account_type_id": [
+                                    "cloud.account_type_id"
+                                ],
+                                "account_uid": [
+                                    "cloud.account_uid"
+                                ],
+                                "api_version": [
+                                    "api.version"
+                                ],
+                                "message": [
+                                    "message"
+                                ],
+                                "operation": [
+                                    "api.operation"
+                                ],
+                                "org_uid": [
+                                    "cloud.org_uid"
+                                ],
+                                "profiles": [
+                                    "profiles"
+                                ],
+                                "project_uid": [
+                                    "cloud.project_uid"
+                                ],
+                                "provider": [
+                                    "cloud.provider"
+                                ],
+                                "raw_data": [
+                                    "raw_data"
+                                ],
+                                "ref_event_code": [
+                                    "ref_event_code"
+                                ],
+                                "ref_event_name": [
+                                    "ref_event_name"
+                                ],
+                                "ref_event_uid": [
+                                    "ref_event_uid"
+                                ],
+                                "ref_time": [
+                                    "ref_time"
+                                ],
+                                "region": [
+                                    "cloud.region"
+                                ],
+                                "request_flags": [
+                                    "api.request.flags"
+                                ],
+                                "request_uid": [
+                                    "api.request.uid"
+                                ],
+                                "resource_uid": [
+                                    "cloud.resource_uid"
+                                ],
+                                "response_code": [
+                                    "api.response.code"
+                                ],
+                                "response_error": [
+                                    "api.response.error"
+                                ],
+                                "response_error_message": [
+                                    "api.response.error_message"
+                                ],
+                                "response_flags": [
+                                    "api.response.flags"
+                                ],
+                                "response_message": [
+                                    "api.response.message"
+                                ],
+                                "service_labels": [
+                                    "api.service.labels"
+                                ],
+                                "service_name": [
+                                    "api.service.name"
+                                ],
+                                "service_uid": [
+                                    "api.service.uid",
+                                    "api.service.version"
+                                ],
+                                "severity": [
+                                    "severity"
+                                ],
+                                "status": [
+                                    "status"
+                                ],
+                                "status_code": [
+                                    "status_code"
+                                ],
+                                "status_detail": [
+                                    "status_detail"
+                                ],
+                                "status_id": [
+                                    "status_id"
+                                ],
+                                "type_name": [
+                                    "type_name"
+                                ],
+                                "type_uid": [
+                                    "type_uid"
+                                ],
+                                "zone": [
+                                    "cloud.zone"
+                                ]
+                            }
+                        },
+                        "x-ocsf-enrichments": {
+                            "fields": {
+                                "data": [
+                                    "enrichments.data"
+                                ],
+                                "name": [
+                                    "enrichments.name"
+                                ],
+                                "provider": [
+                                    "enrichments.provider"
+                                ],
+                                "type": [
+                                    "enrichments.type"
+                                ],
+                                "value": [
+                                    "enrichments.value"
+                                ]
+                            }
+                        },
+                        "x-ocsf-http-request": {
+                            "fields": {
+                                "http_headers_name": [
+                                    "http_request.http_headers.name"
+                                ],
+                                "http_headers_value": [
+                                    "http_request.http_headers.value"
+                                ],
+                                "http_method": [
+                                    "http_request.http_method"
+                                ],
+                                "prefix": [
+                                    "http_request.prefix"
+                                ],
+                                "referrer": [
+                                    "http_request.referrer"
+                                ],
+                                "uid": [
+                                    "http_request.uid"
+                                ],
+                                "user_agent": [
+                                    "http_request.user_agent"
+                                ],
+                                "value": [
+                                    "http_request.args"
+                                ],
+                                "version": [
+                                    "http_request.version"
+                                ],
+                                "x_forwarded_for": [
+                                    "http_request.x_forwarded_for"
+                                ]
+                            }
+                        },
+                        "x-ocsf-identity": {
+                            "fields": {
+                                "authorizations.decision": [
+                                    "identity.authorizations.decision"
+                                ],
+                                "authorizations.name": [
+                                    "identity.authorizations.policy.name"
+                                ],
+                                "authorizations.policy_desc": [
+                                    "identity.authorizations.policy.desc"
+                                ],
+                                "authorizations.policy_group_desc": [
+                                    "identity.authorizations.policy.group.desc"
+                                ],
+                                "authorizations.policy_group_namee": [
+                                    "identity.authorizations.policy.group.name"
+                                ],
+                                "authorizations.policy_group_privileges": [
+                                    "identity.authorizations.policy.group.privileges"
+                                ],
+                                "authorizations.policy_group_type": [
+                                    "identity.authorizations.policy.group.type"
+                                ],
+                                "authorizations.policy_group_uid": [
+                                    "identity.authorizations.policy.group.uid"
+                                ],
+                                "authorizations.uid": [
+                                    "identity.authorizations.policy.uid"
+                                ],
+                                "authorizations.version": [
+                                    "identity.authorizations.policy.version"
+                                ],
+                                "idp.name": [
+                                    "identity.idp.name"
+                                ],
+                                "idp.uid": [
+                                    "identity.idp.uid"
+                                ],
+                                "invoked_by": [
+                                    "identity.invoked_by"
+                                ],
+                                "message": [
+                                    "identity.message"
+                                ],
+                                "session.created_time": [
+                                    "identity.session.created_time"
+                                ],
+                                "session.credential_uid": [
+                                    "identity.session.credential_uid"
+                                ],
+                                "session.expiration_time": [
+                                    "identity.session.expiration_time"
+                                ],
+                                "session.issuer": [
+                                    "identity.session.issuer"
+                                ],
+                                "session.mfa": [
+                                    "identity.session.mfa"
+                                ],
+                                "session.uid": [
+                                    "identity.session.uid"
+                                ]
+                            }
+                        },
+                        "x-ocsf-metadata": {
+                            "fields": {
+                                "correlation_uid": [
+                                    "metadata.correlation_uid"
+                                ],
+                                "labels": [
+                                    "metadata.labels"
+                                ],
+                                "logged_time": [
+                                    "metadata.logged_time"
+                                ],
+                                "modified_time": [
+                                    "metadata.modified_time"
+                                ],
+                                "processed_time": [
+                                    "metadata.processed_time"
+                                ],
+                                "sequence": [
+                                    "metadata.sequence"
+                                ],
+                                "uid": [
+                                    "metadata.uid"
+                                ],
+                                "version": [
+                                    "metadata.version"
+                                ]
+                            }
+                        },
+                        "x-ocsf-resources": {
+                            "fields": {
+                                "account_uid": [
+                                    "resources.account_uid"
+                                ],
+                                "cloud_partition": [
+                                    "resources.cloud_partition"
+                                ],
+                                "criticality": [
+                                    "resources.criticality"
+                                ],
+                                "details": [
+                                    "resources.details"
+                                ],
+                                "group_name": [
+                                    "resources.group_name"
+                                ],
+                                "labels": [
+                                    "resources.labels"
+                                ],
+                                "name": [
+                                    "resources.name"
+                                ],
+                                "owner": [
+                                    "resources.owner"
+                                ],
+                                "region": [
+                                    "resources.region"
+                                ],
+                                "type": [
+                                    "resources.type"
+                                ],
+                                "uid": [
+                                    "resources.uid"
+                                ]
+                            }
+                        }
+                    },
+                    "operators": {
+                        "ComparisonExpressionOperators.And": "AND",
+                        "ComparisonExpressionOperators.Or": "OR",
+                        "ComparisonComparators.GreaterThan": ">",
+                        "ComparisonComparators.GreaterThanOrEqual": ">=",
+                        "ComparisonComparators.LessThan": "<",
+                        "ComparisonComparators.LessThanOrEqual": "<=",
+                        "ComparisonComparators.Equal": "=",
+                        "ComparisonComparators.NotEqual": "!=",
+                        "ComparisonComparators.Like": "LIKE",
+                        "ComparisonComparators.In": "IN",
+                        "ComparisonComparators.Matches": "REGEXP_LIKE",
+                        "ObservationOperators.Or": "UNION",
+                        "ObservationOperators.And": "INTERSECT"
+                    },
+                    "to_stix_map": {
+                        "ocsf": {
+                            "_time": [
+                                {
+                                    "key": "first_observed",
+                                    "cybox": false,
+                                    "transformer": "EpochToTimestamp"
+                                },
+                                {
+                                    "key": "last_observed",
+                                    "cybox": false,
+                                    "transformer": "EpochToTimestamp"
+                                },
+                                {
+                                    "key": "x-ibm-finding.time_observed",
+                                    "object": "ibm_finding",
+                                    "transformer": "EpochToTimestamp"
+                                }
+                            ],
+                            "activity": {
+                                "key": "x-oca-event.action",
+                                "object": "x_oca_event"
+                            },
+                            "activity_id": {
+                                "key": "x-oca-event.code",
+                                "object": "x_oca_event",
+                                "transformer": "ToInteger"
+                            },
+                            "api": {
+                                "operation": {
+                                    "key": "x-ocsf-cloud.operation",
+                                    "object": "ocsf_cloud_api"
+                                },
+                                "request": {
+                                    "flags": {
+                                        "key": "x-ocsf-cloud.request_flags",
+                                        "object": "ocsf_cloud_api",
+                                        "transformer": "ToLowercaseArray"
+                                    },
+                                    "uid": {
+                                        "key": "x-ocsf-cloud.request_uid",
+                                        "object": "ocsf_cloud_api"
+                                    }
+                                },
+                                "response": {
+                                    "code": {
+                                        "key": "x-ocsf-cloud.response_code",
+                                        "object": "ocsf_cloud_api",
+                                        "transformer": "ToInteger"
+                                    },
+                                    "error": {
+                                        "key": "x-ocsf-cloud.response_error",
+                                        "object": "ocsf_cloud_api"
+                                    },
+                                    "error_message": {
+                                        "key": "x-ocsf-cloud.response_error_message",
+                                        "object": "ocsf_cloud_api"
+                                    },
+                                    "flags": {
+                                        "key": "x-ocsf-cloud.response_flags",
+                                        "object": "ocsf_cloud_api",
+                                        "transformer": "ToLowercaseArray"
+                                    },
+                                    "message": {
+                                        "key": "x-ocsf-cloud.response_message",
+                                        "object": "ocsf_cloud_api"
+                                    }
+                                },
+                                "service": {
+                                    "labels": {
+                                        "key": "x-ocsf-cloud.service_labels",
+                                        "object": "ocsf_cloud_api",
+                                        "transformer": "ToLowercaseArray"
+                                    },
+                                    "name": {
+                                        "key": "x-ocsf-cloud.service_name",
+                                        "object": "ocsf_cloud_api"
+                                    },
+                                    "uid": {
+                                        "key": "x-ocsf-cloud.service_uid",
+                                        "object": "ocsf_cloud_api"
+                                    },
+                                    "version": {
+                                        "key": "x-ocsf-cloud.service_uid",
+                                        "object": "ocsf_cloud_api"
+                                    }
+                                },
+                                "version": {
+                                    "key": "x-ocsf-cloud.api_version",
+                                    "object": "ocsf_cloud_api"
+                                }
+                            },
+                            "category_name": {
+                                "key": "x-oca-event.category",
+                                "object": "x_oca_event"
+                            },
+                            "category_uid": {
+                                "key": "x-oca-event.code",
+                                "object": "x_oca_event",
+                                "transformer": "ToInteger"
+                            },
+                            "class_name": {
+                                "key": "x-oca-event.module",
+                                "object": "x_oca_event"
+                            },
+                            "class_uid": {
+                                "key": "x-oca-event.extensions.x-cloud-api.class_uid",
+                                "object": "x_oca_event",
+                                "transformer": "ToInteger"
+                            },
+                            "cloud": {
+                                "account_type": {
+                                    "key": "x-ocsf-cloud.account_type",
+                                    "object": "ocsf_cloud_api"
+                                },
+                                "account_type_id": {
+                                    "key": "x-ocsf-cloud.account_type_id",
+                                    "object": "ocsf_cloud_api",
+                                    "transformer": "ToInteger"
+                                },
+                                "account_uid": {
+                                    "key": "x-ocsf-cloud.account_uid",
+                                    "object": "ocsf_cloud_api"
+                                },
+                                "org_uid": {
+                                    "key": "x-ocsf-cloud.org_uid",
+                                    "object": "ocsf_cloud_api"
+                                },
+                                "project_uid": {
+                                    "key": "x-ocsf-cloud.project_uid",
+                                    "object": "ocsf_cloud_api"
+                                },
+                                "provider": {
+                                    "key": "x-ocsf-cloud.provider",
+                                    "object": "ocsf_cloud_api"
+                                },
+                                "region": {
+                                    "key": "x-ocsf-cloud.region",
+                                    "object": "ocsf_cloud_api"
+                                },
+                                "resource_uid": {
+                                    "key": "x-ocsf-cloud.resource_uid",
+                                    "object": "ocsf_cloud_api"
+                                },
+                                "zone": {
+                                    "key": "x-ocsf-cloud.zone",
+                                    "object": "ocsf_cloud_api"
+                                }
+                            },
+                            "count": [
+                                {
+                                    "key": "number_observed",
+                                    "cybox": false,
+                                    "transformer": "ToInteger"
+                                },
+                                {
+                                    "key": "x-ibm-finding.event_count",
+                                    "transformer": "ToInteger",
+                                    "object": "ibm_finding"
+                                }
+                            ],
+                            "duration": {
+                                "key": "x-oca-event.duration",
+                                "object": "x_oca_event",
+                                "transformer": "ToInteger"
+                            },
+                            "end_time": [
+                                {
+                                    "key": "x-ibm-finding.end",
+                                    "object": "ibm_finding",
+                                    "transformer": "EpochToTimestamp"
+                                },
+                                {
+                                    "key": "last_observed",
+                                    "cybox": false,
+                                    "transformer": "EpochToTimestamp"
+                                }
+                            ],
+                            "enrichments": {
+                                "data": {
+                                    "key": "x-ocsf-enrichments.data",
+                                    "object": "enrichments"
+                                },
+                                "name": {
+                                    "key": "x-ocsf-enrichments.name",
+                                    "object": "enrichments"
+                                },
+                                "provider": {
+                                    "key": "x-ocsf-enrichments.provider",
+                                    "object": "enrichments"
+                                },
+                                "type": {
+                                    "key": "x-ocsf-enrichments.type",
+                                    "object": "enrichments"
+                                },
+                                "value": {
+                                    "key": "x-ocsf-enrichments.value",
+                                    "object": "enrichments"
+                                }
+                            },
+                            "http_request": {
+                                "args": {
+                                    "key": "x-ocsf-http-request.value",
+                                    "object": "http_request"
+                                },
+                                "http_headers": {
+                                    "name": {
+                                        "key": "x-ocsf-http-request.http_headers_name",
+                                        "object": "ocsf_cloud_api"
+                                    },
+                                    "value": {
+                                        "key": "x-ocsf-http-request.http_headers_value",
+                                        "object": "http_request"
+                                    }
+                                },
+                                "http_method": {
+                                    "key": "x-ocsf-http-request.http_method",
+                                    "object": "http_request"
+                                },
+                                "prefix": {
+                                    "key": "x-ocsf-http-request.prefix",
+                                    "object": "http_request"
+                                },
+                                "referrer": {
+                                    "key": "x-ocsf-http-request.referrer",
+                                    "object": "http_request"
+                                },
+                                "uid": {
+                                    "key": "x-ocsf-http-request.uid",
+                                    "object": "http_request"
+                                },
+                                "url": {
+                                    "key": "url.value",
+                                    "object": "url"
+                                },
+                                "user_agent": {
+                                    "key": "x-ocsf-http-request.user_agent",
+                                    "object": "http_request"
+                                },
+                                "version": {
+                                    "key": "x-ocsf-http-request.version",
+                                    "object": "http_request"
+                                },
+                                "x_forwarded_for": {
+                                    "key": "x-ocsf-http-request.x_forwarded_for",
+                                    "object": "http_request"
+                                }
+                            },
+                            "identity": {
+                                "authorizations": {
+                                    "decision": {
+                                        "key": "x-ocsf-identity.authorizations.decision",
+                                        "object": "x-ocsf-identity"
+                                    },
+                                    "policy": {
+                                        "desc": {
+                                            "key": "x-ocsf-identity.authorizations.policy_desc",
+                                            "object": "x-ocsf-identity"
+                                        },
+                                        "group": {
+                                            "desc": {
+                                                "key": "x-ocsf-identity.authorizations.policy_group_desc",
+                                                "object": "x-ocsf-identity"
+                                            },
+                                            "name": {
+                                                "key": "x-ocsf-identity.authorizations.policy_group_namee",
+                                                "object": "x-ocsf-identity"
+                                            },
+                                            "privileges": {
+                                                "key": "x-ocsf-identity.authorizations.policy_group_privileges",
+                                                "object": "x-ocsf-identity"
+                                            },
+                                            "type": {
+                                                "key": "x-ocsf-identity.authorizations.policy_group_type",
+                                                "object": "x-ocsf-identity"
+                                            },
+                                            "uid": {
+                                                "key": "x-ocsf-identity.authorizations.policy_group_uid",
+                                                "object": "x-ocsf-identity"
+                                            }
+                                        },
+                                        "name": {
+                                            "key": "x-ocsf-identity.authorizations.name",
+                                            "object": "x-ocsf-identity"
+                                        },
+                                        "uid": {
+                                            "key": "x-ocsf-identity.authorizations.uid",
+                                            "object": "x-ocsf-identity"
+                                        },
+                                        "version": {
+                                            "key": "x-ocsf-identity.authorizations.version",
+                                            "object": "x-ocsf-identity"
+                                        }
+                                    }
+                                },
+                                "idp": {
+                                    "name": {
+                                        "key": "x-ocsf-identity.idp.name",
+                                        "object": "x-ocsf-identity"
+                                    },
+                                    "uid": {
+                                        "key": "x-ocsf-identity.idp.uid",
+                                        "object": "x-ocsf-identity"
+                                    }
+                                },
+                                "invoked_by": {
+                                    "key": "x-ocsf-identity.invoked_by",
+                                    "object": "x-ocsf-identity"
+                                },
+                                "message": {
+                                    "key": "x-ocsf-identity.message",
+                                    "object": "x-ocsf-identity"
+                                },
+                                "session": {
+                                    "created_time": {
+                                        "key": "x-ocsf-identity.session.created_time",
+                                        "object": "x-ocsf-identity"
+                                    },
+                                    "credential_uid": {
+                                        "key": "x-ocsf-identity.session.credential_uid",
+                                        "object": "x-ocsf-identity"
+                                    },
+                                    "expiration_time": {
+                                        "key": "x-ocsf-identity.session.expiration_time",
+                                        "object": "x-ocsf-identity"
+                                    },
+                                    "issuer": {
+                                        "key": "x-ocsf-identity.session.issuer",
+                                        "object": "x-ocsf-identity"
+                                    },
+                                    "mfa": {
+                                        "key": "x-ocsf-identity.session.mfa",
+                                        "object": "x-ocsf-identity"
+                                    },
+                                    "uid": {
+                                        "key": "x-ocsf-identity.session.uid",
+                                        "object": "x-ocsf-identity"
+                                    }
+                                },
+                                "user": {
+                                    "account_type": {
+                                        "key": "user-account.account_type",
+                                        "object": "user"
+                                    },
+                                    "account_type_id": {
+                                        "key": "user-account.extensions.aws-account-ext.account_type_id",
+                                        "object": "user",
+                                        "transformer": "ToInteger"
+                                    },
+                                    "account_uid": {
+                                        "key": "user-account.user_id",
+                                        "object": "user"
+                                    },
+                                    "credential_uid": {
+                                        "key": "user-account.extensions.aws-account-ext.credential_uid",
+                                        "object": "user"
+                                    },
+                                    "domain": {
+                                        "key": "user-account.extensions.aws-account-ext.domain",
+                                        "object": "user"
+                                    },
+                                    "email_addr": {
+                                        "key": "email-addr.value",
+                                        "object": "email_addr"
+                                    },
+                                    "groups": {
+                                        "desc": {
+                                            "key": "user-account.extensions.aws-account-ext.group_desc",
+                                            "object": "user"
+                                        },
+                                        "name": {
+                                            "key": "user-account.extensions.aws-account-ext.group_name",
+                                            "object": "user"
+                                        },
+                                        "privileges": {
+                                            "key": "user-account.extensions.aws-account-ext.group_privileges",
+                                            "object": "user"
+                                        },
+                                        "type": {
+                                            "key": "user-account.extensions.aws-account-ext.group_type",
+                                            "object": "user"
+                                        },
+                                        "uid": {
+                                            "key": "user-account.extensions.aws-account-ext.group_uid",
+                                            "object": "user"
+                                        }
+                                    },
+                                    "name": {
+                                        "key": "user-account.display_name",
+                                        "object": "user"
+                                    },
+                                    "org_uid": {
+                                        "key": "user-account.extensions.aws-account-ext.org_uid",
+                                        "object": "user"
+                                    },
+                                    "session_uid": {
+                                        "key": "user-account.extensions.aws-account-ext.session_uid",
+                                        "object": "user"
+                                    },
+                                    "session_uuid": {
+                                        "key": "user-account.extensions.aws-account-ext.session_uuid",
+                                        "object": "user"
+                                    },
+                                    "type": {
+                                        "key": "user-account.extensions.aws-account-ext.type",
+                                        "object": "user"
+                                    },
+                                    "type_id": {
+                                        "key": "user-account.extensions.aws-account-ext.type_id",
+                                        "object": "user",
+                                        "transformer": "ToInteger"
+                                    },
+                                    "uid": {
+                                        "key": "user-account.extensions.aws-account-ext.uid",
+                                        "object": "user"
+                                    },
+                                    "uuid": {
+                                        "key": "user-account.extensions.aws-account-ext.uuid",
+                                        "object": "user"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "key": "x-ocsf-cloud.message",
+                                "object": "ocsf_cloud_api"
+                            },
+                            "metadata": {
+                                "correlation_uid": {
+                                    "key": "x-ocsf-metadata.correlation_uid",
+                                    "object": "metadata"
+                                },
+                                "labels": {
+                                    "key": "x-ocsf-metadata.labels",
+                                    "object": "metadata"
+                                },
+                                "logged_time": {
+                                    "key": "x-ocsf-metadata.logged_time",
+                                    "object": "metadata"
+                                },
+                                "modified_time": {
+                                    "key": "x-ocsf-metadata.modified_time",
+                                    "object": "metadata"
+                                },
+                                "processed_time": {
+                                    "key": "x-ocsf-metadata.processed_time",
+                                    "object": "metadata"
+                                },
+                                "product": {
+                                    "feature": {
+                                        "name": {
+                                            "key": "software.extension.product.feature_name",
+                                            "object": "software"
+                                        },
+                                        "uid": {
+                                            "key": "software.extension.product.feature_uid",
+                                            "object": "software"
+                                        },
+                                        "version": {
+                                            "key": "software.extension.product.feature_version",
+                                            "object": "software"
+                                        }
+                                    },
+                                    "lang": {
+                                        "key": "software.languages",
+                                        "object": "software"
+                                    },
+                                    "name": {
+                                        "key": "software.name",
+                                        "object": "software"
+                                    },
+                                    "path": {
+                                        "key": "software.extension.product.path",
+                                        "object": "software"
+                                    },
+                                    "uid": {
+                                        "key": "software.extension.product.uid",
+                                        "object": "software"
+                                    },
+                                    "vendor_name": {
+                                        "key": "software.vendor",
+                                        "object": "software"
+                                    },
+                                    "version": {
+                                        "key": "software.version",
+                                        "object": "software"
+                                    }
+                                },
+                                "sequence": {
+                                    "key": "x-ocsf-metadata.sequence",
+                                    "object": "metadata",
+                                    "transformer": "ToInteger"
+                                },
+                                "uid": {
+                                    "key": "x-ocsf-metadata.uid",
+                                    "object": "metadata"
+                                },
+                                "version": {
+                                    "key": "x-ocsf-metadata.version",
+                                    "object": "metadata"
+                                }
+                            },
+                            "observables": {
+                                "name": {
+                                    "key": "x-ibm-finding.name",
+                                    "object": "ibm_finding"
+                                },
+                                "type": {
+                                    "key": "x-ibm-finding.finding_type",
+                                    "object": "ibm_finding"
+                                },
+                                "type_id": {
+                                    "key": "x-ibm-finding.alert_id",
+                                    "object": "ibm_finding",
+                                    "transformer": "ToInteger"
+                                },
+                                "value": {
+                                    "key": "x-ibm-finding.description",
+                                    "object": "ibm_finding"
+                                }
+                            },
+                            "profiles": {
+                                "key": "x-ocsf-cloud.profiles",
+                                "object": "ocsf_cloud_api"
+                            },
+                            "raw_data": {
+                                "key": "x-ocsf-cloud.raw_data",
+                                "object": "ocsf_cloud_api"
+                            },
+                            "ref_event_code": {
+                                "key": "x-ocsf-cloud.ref_event_code",
+                                "object": "ocsf_cloud_api"
+                            },
+                            "ref_event_name": {
+                                "key": "x-ocsf-cloud.ref_event_name",
+                                "object": "ocsf_cloud_api"
+                            },
+                            "ref_event_uid": {
+                                "key": "x-ocsf-cloud.ref_event_uid",
+                                "object": "ocsf_cloud_api"
+                            },
+                            "ref_time": {
+                                "key": "x-ocsf-cloud.ref_time",
+                                "object": "ocsf_cloud_api"
+                            },
+                            "resources": {
+                                "account_uid": [
+                                    {
+                                        "key": "x-ocsf-resources.account_uid",
+                                        "object": "resources"
+                                    },
+                                    {
+                                        "key": "x-ocsf-resources.cloud_api_ref",
+                                        "object": "resources",
+                                        "references": "ocsf_cloud_api"
+                                    }
+                                ],
+                                "cloud_partition": {
+                                    "key": "x-ocsf-resources.cloud_partition",
+                                    "object": "resources"
+                                },
+                                "criticality": {
+                                    "key": "x-ocsf-resources.criticality",
+                                    "object": "resources"
+                                },
+                                "details": {
+                                    "key": "x-ocsf-resources.details",
+                                    "object": "resources"
+                                },
+                                "group_name": {
+                                    "key": "x-ocsf-resources.group_name",
+                                    "object": "resources"
+                                },
+                                "labels": {
+                                    "key": "x-ocsf-resources.labels",
+                                    "object": "resources"
+                                },
+                                "name": {
+                                    "key": "x-ocsf-resources.name",
+                                    "object": "resources"
+                                },
+                                "owner": {
+                                    "key": "x-ocsf-resources.owner",
+                                    "object": "resources"
+                                },
+                                "region": {
+                                    "key": "x-ocsf-resources.region",
+                                    "object": "resources"
+                                },
+                                "type": {
+                                    "key": "x-ocsf-resources.type",
+                                    "object": "resources"
+                                },
+                                "uid": {
+                                    "key": "x-ocsf-resources.uid",
+                                    "object": "resources"
+                                }
+                            },
+                            "severity": {
+                                "key": "x-ocsf-cloud.severity",
+                                "object": "ocsf_cloud_api"
+                            },
+                            "severity_id": {
+                                "key": "x-ibm-finding.severity",
+                                "object": "ibm_finding",
+                                "transformer": "ToInteger"
+                            },
+                            "src_endpoint": {
+                                "port": {
+                                    "key": "network-traffic.src_port",
+                                    "object": "nt",
+                                    "transformer": "ToInteger"
+                                },
+                                "svc_name": {
+                                    "key": "x-oca-asset.extensions.x-src-endpoint.svc_name",
+                                    "object": "asset"
+                                },
+                                "ip": [
+                                    {
+                                        "key": "ipv4-addr.value",
+                                        "object": "src_ip",
+                                        "transformer": "CheckIPv4"
+                                    },
+                                    {
+                                        "key": "ipv6-addr.value",
+                                        "object": "src_ip",
+                                        "transformer": "CheckIPv6"
+                                    },
+                                    {
+                                        "key": "network-traffic.src_ref",
+                                        "object": "nt",
+                                        "references": "src_ip"
+                                    },
+                                    {
+                                        "key": "x-ibm-finding.src_ip_ref",
+                                        "object": "finding",
+                                        "references": "src_ip"
+                                    },
+                                    {
+                                        "key": "x-oca-asset.ip_refs",
+                                        "object": "host",
+                                        "references": [
+                                            "src_ip"
+                                        ],
+                                        "group": true
+                                    },
+                                    {
+                                        "key": "x-oca-event.network_ref",
+                                        "object": "event",
+                                        "references": "nt"
+                                    }
+                                ],
+                                "intermediate_ips": [
+                                    {
+                                        "key": "ipv4-addr.value",
+                                        "object": "src_ipv4",
+                                        "unwrap": true,
+                                        "transformer": "FilterIPv4List"
+                                    },
+                                    {
+                                        "key": "ipv6-addr.value",
+                                        "object": "src_ipv6",
+                                        "unwrap": true,
+                                        "transformer": "FilterIPv6List"
+                                    },
+                                    {
+                                        "key": "x-oca-asset.ip_refs",
+                                        "object": "asset",
+                                        "references": [
+                                            "src_ipv4",
+                                            "src_ipv6"
+                                        ],
+                                        "unwrap": true
+                                    }
+                                ],
+                                "interface_uid": {
+                                    "key": "x-oca-asset.extensions.x-src-endpoint.interface_uid",
+                                    "object": "asset"
+                                },
+                                "vpc_uid": {
+                                    "key": "x-oca-asset.extensions.x-src-endpoint.vpc_uid",
+                                    "object": "asset"
+                                },
+                                "instance_uid": {
+                                    "key": "x-oca-asset.extensions.x-src-endpoint.instance_uid",
+                                    "object": "asset"
+                                },
+                                "subnet_uid": {
+                                    "key": "x-oca-asset.extensions.x-src-endpoint.subnet_uid",
+                                    "object": "asset"
+                                },
+                                "name": {
+                                    "key": "x-oca-asset.name",
+                                    "object": "asset"
+                                }
+                            },
+                            "dst_endpoint": {
+                                "port": {
+                                    "key": "network-traffic.dst_port",
+                                    "object": "nt",
+                                    "transformer": "ToInteger"
+                                },
+                                "svc_name": {
+                                    "key": "x-oca-asset.extensions.x-dst-endpoint.svc_name",
+                                    "object": "asset"
+                                },
+                                "ip": [
+                                    {
+                                        "key": "ipv4-addr.value",
+                                        "object": "dst_ip",
+                                        "transformer": "CheckIPv4"
+                                    },
+                                    {
+                                        "key": "ipv6-addr.value",
+                                        "object": "dst_ip",
+                                        "transformer": "CheckIPv6"
+                                    },
+                                    {
+                                        "key": "network-traffic.dst_ref",
+                                        "object": "nt",
+                                        "references": "dst_ip"
+                                    },
+                                    {
+                                        "key": "x-ibm-finding.dst_ip_ref",
+                                        "object": "finding",
+                                        "references": "dst_ip"
+                                    },
+                                    {
+                                        "key": "x-oca-asset.ip_refs",
+                                        "object": "host",
+                                        "references": [
+                                            "dst_ip"
+                                        ],
+                                        "group": true
+                                    },
+                                    {
+                                        "key": "x-oca-event.network_ref",
+                                        "object": "event",
+                                        "references": "nt"
+                                    }
+                                ],
+                                "intermediate_ips": [
+                                    {
+                                        "key": "ipv4-addr.value",
+                                        "object": "dst_ipv4",
+                                        "unwrap": true,
+                                        "transformer": "FilterIPv4List"
+                                    },
+                                    {
+                                        "key": "ipv6-addr.value",
+                                        "object": "dst_ipv6",
+                                        "unwrap": true,
+                                        "transformer": "FilterIPv6List"
+                                    },
+                                    {
+                                        "key": "x-oca-asset.ip_refs",
+                                        "object": "asset",
+                                        "references": [
+                                            "dst_ipv4",
+                                            "dst_ipv6"
+                                        ],
+                                        "unwrap": true
+                                    }
+                                ],
+                                "interface_uid": {
+                                    "key": "x-oca-asset.extensions.x-dst-endpoint.interface_uid",
+                                    "object": "asset"
+                                },
+                                "vpc_uid": {
+                                    "key": "x-oca-asset.extensions.x-dst-endpoint.vpc_uid",
+                                    "object": "asset"
+                                },
+                                "instance_uid": {
+                                    "key": "x-oca-asset.extensions.x-dst-endpoint.instance_uid",
+                                    "object": "asset"
+                                },
+                                "subnet_uid": {
+                                    "key": "x-oca-asset.extensions.x-dst-endpoint.subnet_uid",
+                                    "object": "asset"
+                                },
+                                "name": {
+                                    "key": "x-oca-asset.name",
+                                    "object": "asset"
+                                }
+                            },
+                            "connection_info": {
+                                "protocol_num": {
+                                    "key": "network-traffic.protocol",
+                                    "object": "nt",
+                                    "transformer": "ProtocolNumToName"
+                                },
+                                "protocol_name": {
+                                    "key": "network-traffic.protocol",
+                                    "object": "nt"
+                                },
+                                "tcp_flags": {
+                                    "key": "network-traffic.extensions.x-network-ext.tcp_flags",
+                                    "object": "nt"
+                                },
+                                "protocol_ver": {
+                                    "key": "network-traffic.extensions.x-network-ext.protocol_ver",
+                                    "object": "nt"
+                                },
+                                "direction": {
+                                    "key": "network-traffic.extensions.x-network-ext.direction",
+                                    "object": "nt"
+                                },
+                                "boundary_id": {
+                                    "key": "network-traffic.extensions.x-network-ext.boundary_id",
+                                    "object": "nt"
+                                },
+                                "boundary": {
+                                    "key": "network-traffic.extensions.x-network-ext.boundary",
+                                    "object": "nt"
+                                },
+                                "direction_id": {
+                                    "key": "network-traffic.extensions.x-network-ext.direction_id",
+                                    "object": "nt"
+                                }
+                            },
+                            "traffic": {
+                                "packets_in": {
+                                    "key": "network-traffic.dst_packets",
+                                    "object": "nt"
+                                },
+                                "packets_out": {
+                                    "key": "network-traffic.src_packets",
+                                    "object": "nt"
+                                },
+                                "packets": {
+                                    "key": "network-traffic.extensions.x-network-ext.packets",
+                                    "object": "nt"
+                                },
+                                "bytes_in": {
+                                    "key": "network-traffic.dst_byte_count",
+                                    "object": "nt"
+                                },
+                                "bytes_out": {
+                                    "key": "network-traffic.src_byte_count",
+                                    "object": "nt"
+                                },
+                                "bytes": {
+                                    "key": "network-traffic.extensions.x-network-ext.bytes",
+                                    "object": "nt"
+                                }
+                            },
+                            "start_time": [
+                                {
+                                    "key": "x-ibm-finding.start",
+                                    "object": "ibm_finding",
+                                    "transformer": "EpochToTimestamp"
+                                },
+                                {
+                                    "key": "first_observed",
+                                    "cybox": false,
+                                    "transformer": "EpochToTimestamp"
+                                }
+                            ],
+                            "status": {
+                                "key": "x-ocsf-cloud.status",
+                                "object": "ocsf_cloud_api"
+                            },
+                            "status_code": {
+                                "key": "x-ocsf-cloud.status_code",
+                                "object": "ocsf_cloud_api"
+                            },
+                            "status_detail": {
+                                "key": "x-ocsf-cloud.status_detail",
+                                "object": "ocsf_cloud_api"
+                            },
+                            "status_id": {
+                                "key": "x-ocsf-cloud.status_id",
+                                "object": "ocsf_cloud_api",
+                                "transformer": "ToInteger"
+                            },
+                            "time": {
+                                "key": "x-oca-event.created",
+                                "object": "x_oca_event"
+                            },
+                            "timezone_offset": {
+                                "key": "x-oca-event.timezone",
+                                "object": "x_oca_event",
+                                "transformer": "ToInteger"
+                            },
+                            "type_name": {
+                                "key": "x-ocsf-cloud.type_name",
+                                "object": "ocsf_cloud_api"
+                            },
+                            "type_uid": {
+                                "key": "x-ocsf-cloud.type_uid",
+                                "object": "ocsf_cloud_api",
+                                "transformer": "ToInteger"
+                            }
+                        },
+                        "vpcflow": {
+                            "sourceaddress": [
+                                {
+                                    "key": "ipv4-addr.value",
+                                    "object": "src_ip"
+                                },
+                                {
+                                    "key": "ipv6-addr.value",
+                                    "object": "src_ip"
+                                },
+                                {
+                                    "key": "network-traffic.src_ref",
+                                    "object": "nt",
+                                    "references": "src_ip"
+                                },
+                                {
+                                    "key": "x-ibm-finding.src_ip_ref",
+                                    "object": "ibm_finding",
+                                    "references": "src_ip"
+                                },
+                                {
+                                    "key": "ipv4-addr.x_aws_interface_id",
+                                    "object": "src_ip",
+                                    "ds_key": "interfaceid",
+                                    "cybox": false
+                                },
+                                {
+                                    "key": "ipv6-addr.x_aws_interface_id",
+                                    "object": "src_ip",
+                                    "ds_key": "interfaceid",
+                                    "cybox": false
+                                }
+                            ],
+                            "destinationaddress": [
+                                {
+                                    "key": "ipv4-addr.value",
+                                    "object": "dst_ip"
+                                },
+                                {
+                                    "key": "ipv6-addr.value",
+                                    "object": "dst_ip"
+                                },
+                                {
+                                    "key": "x-ibm-finding.dst_ip_ref",
+                                    "object": "ibm_finding",
+                                    "references": "dst_ip"
+                                },
+                                {
+                                    "key": "network-traffic.dst_ref",
+                                    "object": "nt",
+                                    "references": "dst_ip"
+                                }
+                            ],
+                            "sourceport": [
+                                {
+                                    "key": "network-traffic.src_port",
+                                    "object": "nt",
+                                    "transformer": "ToInteger"
+                                }
+                            ],
+                            "destinationport": [
+                                {
+                                    "key": "network-traffic.dst_port",
+                                    "object": "nt",
+                                    "transformer": "ToInteger"
+                                }
+                            ],
+                            "protocol": [
+                                {
+                                    "key": "network-traffic.protocols",
+                                    "object": "nt",
+                                    "transformer": "ToLowercaseArray"
+                                }
+                            ],
+                            "starttime": [
+                                {
+                                    "key": "network-traffic.start",
+                                    "object": "nt",
+                                    "transformer": "EpochSecondsToTimestamp"
+                                },
+                                {
+                                    "key": "x-ibm-finding.start",
+                                    "object": "ibm_finding",
+                                    "transformer": "EpochSecondsToTimestamp"
+                                },
+                                {
+                                    "key": "first_observed",
+                                    "cybox": false,
+                                    "transformer": "EpochSecondsToTimestamp"
+                                }
+                            ],
+                            "endtime": [
+                                {
+                                    "key": "network-traffic.end",
+                                    "object": "nt",
+                                    "transformer": "EpochSecondsToTimestamp"
+                                },
+                                {
+                                    "key": "x-ibm-finding.end",
+                                    "object": "ibm_finding",
+                                    "transformer": "EpochSecondsToTimestamp"
+                                },
+                                {
+                                    "key": "last_observed",
+                                    "cybox": false,
+                                    "transformer": "EpochToTimestamp"
+                                }
+                            ],
+                            "account": [
+                                {
+                                    "key": "x-aws-details.account_id",
+                                    "object": "accountid"
+                                }
+                            ],
+                            "action": {
+                                "key": "x-ibm-finding.finding_type",
+                                "object": "ibm_finding"
+                            },
+                            "name": {
+                                "key": "x-ibm-finding.name",
+                                "object": "ibm_finding"
+                            }
+                        },
+                        "guardduty": {
+                            "resource_instancedetails_networkinterfaces_0_privateipaddress": [
+                                {
+                                    "key": "ipv4-addr.value",
+                                    "object": "nc_private_ip1"
+                                },
+                                {
+                                    "key": "network-traffic.src_ref",
+                                    "object": "nc_nt",
+                                    "references": "nc_private_ip1"
+                                },
+                                {
+                                    "key": "domain-name.resolves_to_refs",
+                                    "object": "private_dns_name",
+                                    "references": [
+                                        "nc_private_ip1"
+                                    ]
+                                },
+                                {
+                                    "key": "x-ibm-finding.src_ip_ref",
+                                    "object": "ibm_finding",
+                                    "references": "nc_private_ip1"
+                                },
+                                {
+                                    "key": "ipv4-addr.x_aws_interface_id",
+                                    "object": "nc_private_ip1",
+                                    "ds_key": "resource_instancedetails_networkinterfaces_0_networkinterfaceid",
+                                    "cybox": false
+                                },
+                                {
+                                    "key": "ipv4-addr.x_aws_ip_type",
+                                    "object": "nc_private_ip1",
+                                    "value": "private",
+                                    "cybox": false
+                                }
+                            ],
+                            "resource_instancedetails_networkinterfaces_0_ipv6addresses_0": [
+                                {
+                                    "key": "ipv6-addr.value",
+                                    "object": "nc_ipv6_ip"
+                                },
+                                {
+                                    "key": "ipv6-addr.x_aws_interface_id",
+                                    "object": "nc_ipv6_ip",
+                                    "ds_key": "resource_instancedetails_networkinterfaces_0_networkinterfaceid",
+                                    "cybox": false
+                                }
+                            ],
+                            "resource_instancedetails_networkinterfaces_0_publicip": [
+                                {
+                                    "key": "ipv4-addr.value",
+                                    "object": "nc_public_ip"
+                                },
+                                {
+                                    "key": "domain-name.resolves_to_refs",
+                                    "object": "nc_public_name",
+                                    "references": [
+                                        "nc_public_ip"
+                                    ]
+                                },
+                                {
+                                    "key": "ipv4-addr.x_aws_interface_id",
+                                    "object": "nc_public_ip",
+                                    "ds_key": "resource_instancedetails_networkinterfaces_0_networkinterfaceid",
+                                    "cybox": false
+                                },
+                                {
+                                    "key": "ipv4-addr.x_aws_ip_type",
+                                    "object": "nc_public_ip",
+                                    "value": "public",
+                                    "cybox": false
+                                }
+                            ],
+                            "resource_instancedetails_networkinterfaces_0_privatednsname": [
+                                {
+                                    "key": "domain-name.value",
+                                    "object": "private_dns_name"
+                                }
+                            ],
+                            "resource_instancedetails_networkinterfaces_0_publicdnsname": [
+                                {
+                                    "key": "domain-name.value",
+                                    "object": "nc_public_name"
+                                }
+                            ],
+                            "resource_instancedetails_networkinterfaces_1_privateipaddress": [
+                                {
+                                    "key": "ipv4-addr.value",
+                                    "object": "nc_private_ip2"
+                                },
+                                {
+                                    "key": "domain-name.resolves_to_refs",
+                                    "object": "nc_private_name2",
+                                    "references": [
+                                        "nc_private_ip2"
+                                    ]
+                                },
+                                {
+                                    "key": "ipv4-addr.x_aws_interface_id",
+                                    "object": "nc_private_ip2",
+                                    "ds_key": "resource_instancedetails_networkinterfaces_1_networkinterfaceid",
+                                    "cybox": false
+                                },
+                                {
+                                    "key": "ipv4-addr.x_aws_ip_type",
+                                    "object": "nc_private_ip2",
+                                    "value": "private",
+                                    "cybox": false
+                                }
+                            ],
+                            "resource_instancedetails_networkinterfaces_1_privatednsname": [
+                                {
+                                    "key": "domain-name.value",
+                                    "object": "nc_private_name2"
+                                }
+                            ],
+                            "service_action_networkconnectionaction_remoteipdetails_ipaddressv4": [
+                                {
+                                    "key": "ipv4-addr.value",
+                                    "object": "nc_remote_ip"
+                                },
+                                {
+                                    "key": "network-traffic.dst_ref",
+                                    "object": "nc_nt",
+                                    "references": "nc_remote_ip"
+                                },
+                                {
+                                    "key": "x-ibm-finding.dst_ip_ref",
+                                    "object": "ibm_finding",
+                                    "references": "nc_remote_ip"
+                                },
+                                {
+                                    "key": "x-ibm-finding.dst_geolocation",
+                                    "object": "ibm_finding",
+                                    "ds_key": "service_action_networkconnectionaction_remoteipdetails_country_countryname",
+                                    "cybox": false
+                                },
+                                {
+                                    "key": "ipv4-addr.x_aws_remote_city_name",
+                                    "object": "nc_remote_ip",
+                                    "ds_key": "service_action_networkconnectionaction_remoteipdetails_city_cityname",
+                                    "cybox": false
+                                },
+                                {
+                                    "key": "ipv4-addr.x_aws_remote_country_name",
+                                    "object": "nc_remote_ip",
+                                    "ds_key": "service_action_networkconnectionaction_remoteipdetails_country_countryname",
+                                    "cybox": false
+                                }
+                            ],
+                            "service_action_networkconnectionaction_localportdetails_port": [
+                                {
+                                    "key": "network-traffic.src_port",
+                                    "object": "nc_nt",
+                                    "transformer": "ToInteger"
+                                }
+                            ],
+                            "service_action_networkconnectionaction_remoteportdetails_port": [
+                                {
+                                    "key": "network-traffic.dst_port",
+                                    "object": "nc_nt",
+                                    "transformer": "ToInteger"
+                                }
+                            ],
+                            "service_action_networkconnectionaction_protocol": [
+                                {
+                                    "key": "network-traffic.protocols",
+                                    "object": "nc_nt",
+                                    "transformer": "ToLowercaseArray"
+                                }
+                            ],
+                            "resource_instancedetails_networkinterfaces_0_subnetid": {
+                                "key": "x-aws-vpc.subnet_id",
+                                "object": "vpc"
+                            },
+                            "resource_instancedetails_networkinterfaces_0_vpcid": {
+                                "key": "x-aws-vpc.vpc_id",
+                                "object": "vpc"
+                            },
+                            "resource_instancedetails_networkinterfaces_0_securitygroups_0_groupid": {
+                                "key": "x-aws-vpc.security_group_id",
+                                "object": "vpc"
+                            },
+                            "resource_instancedetails_networkinterfaces_0_securitygroups_0_groupname": {
+                                "key": "x-aws-vpc.security_group_name",
+                                "object": "vpc"
+                            },
+                            "resource_instancedetails_imageid": {
+                                "key": "x-aws-instance.image_id",
+                                "object": "instance"
+                            },
+                            "resource_instancedetails_instanceid": {
+                                "key": "x-aws-instance.instance_id",
+                                "object": "instance"
+                            },
+                            "resource_instancedetails_availabilityzone": {
+                                "key": "x-aws-instance.availability_zone",
+                                "object": "instance"
+                            },
+                            "portprobe_resource_instancedetails_networkinterfaces_0_privateipaddress": [
+                                {
+                                    "key": "ipv4-addr.value",
+                                    "object": "pp_private_ip1"
+                                },
+                                {
+                                    "key": "domain-name.resolves_to_refs",
+                                    "object": "private_dns_name",
+                                    "references": [
+                                        "pp_private_ip1"
+                                    ]
+                                },
+                                {
+                                    "key": "x-ibm-finding.src_ip_ref",
+                                    "object": "ibm_finding",
+                                    "references": "pp_private_ip1"
+                                },
+                                {
+                                    "key": "ipv4-addr.x_aws_interface_id",
+                                    "object": "pp_private_ip1",
+                                    "ds_key": "resource_instancedetails_networkinterfaces_0_networkinterfaceid",
+                                    "cybox": false
+                                },
+                                {
+                                    "key": "ipv4-addr.x_aws_ip_type",
+                                    "object": "pp_private_ip1",
+                                    "value": "private",
+                                    "cybox": false
+                                }
+                            ],
+                            "service_action_portprobeaction_portprobedetails_0_remoteipdetails_ipaddressv4": [
+                                {
+                                    "key": "ipv4-addr.value",
+                                    "object": "pp_remote_ip"
+                                },
+                                {
+                                    "key": "x-ibm-finding.dst_ip_ref",
+                                    "object": "ibm_finding",
+                                    "references": "pp_remote_ip"
+                                },
+                                {
+                                    "key": "x-ibm-finding.dst_geolocation",
+                                    "object": "ibm_finding",
+                                    "ds_key": "service_action_portprobeaction_portprobedetails_0_remoteipdetails_country_countryname",
+                                    "cybox": false
+                                },
+                                {
+                                    "key": "ipv4-addr.x_aws_remote_city_name",
+                                    "object": "pp_remote_ip",
+                                    "ds_key": "service_action_portprobeaction_portprobedetails_0_remoteipdetails_city_cityname",
+                                    "cybox": false
+                                },
+                                {
+                                    "key": "ipv4-addr.x_aws_remote_country_name",
+                                    "object": "pp_remote_ip",
+                                    "ds_key": "service_action_portprobeaction_portprobedetails_0_remoteipdetails_country_countryname",
+                                    "cybox": false
+                                }
+                            ],
+                            "service_action_portprobeaction_portprobedetails_0_localportdetails_port": [
+                                {
+                                    "key": "x-ibm-finding.probe_port",
+                                    "object": "ibm_finding"
+                                }
+                            ],
+                            "service_action_awsapicallaction_remoteipdetails_ipaddressv4": [
+                                {
+                                    "key": "ipv4-addr.value",
+                                    "object": "api_remote_ip"
+                                },
+                                {
+                                    "key": "x-ibm-finding.dst_ip_ref",
+                                    "object": "ibm_finding",
+                                    "references": "api_remote_ip"
+                                },
+                                {
+                                    "key": "x-ibm-finding.dst_geolocation",
+                                    "object": "ibm_finding",
+                                    "ds_key": "service_action_awsapicallaction_remoteipdetails_country_countryname",
+                                    "cybox": false
+                                },
+                                {
+                                    "key": "ipv4-addr.x_aws_remote_city_name",
+                                    "object": "api_remote_ip",
+                                    "ds_key": "service_action_awsapicallaction_remoteipdetails_city_cityname",
+                                    "cybox": false
+                                },
+                                {
+                                    "key": "ipv4-addr.x_aws_remote_country_name",
+                                    "object": "api_remote_ip",
+                                    "ds_key": "service_action_awsapicallaction_remoteipdetails_country_countryname",
+                                    "cybox": false
+                                }
+                            ],
+                            "resource_accesskeydetails_principalid": {
+                                "key": "user-account.user_id",
+                                "object": "api_user"
+                            },
+                            "resource_accesskeydetails_username": {
+                                "key": "user-account.account_login",
+                                "object": "api_user"
+                            },
+                            "resource_accesskeydetails_accesskeyid": {
+                                "key": "x-aws-api.access_key_id",
+                                "object": "api_details"
+                            },
+                            "service_action_awsapicallaction_api": {
+                                "key": "x-aws-api.api",
+                                "object": "api_details"
+                            },
+                            "service_action_awsapicallaction_servicename": {
+                                "key": "x-aws-api.service_name",
+                                "object": "api_details"
+                            },
+                            "dnsrequest_resource_instancedetails_networkinterfaces_0_privateipaddress": [
+                                {
+                                    "key": "ipv4-addr.value",
+                                    "object": "dns_private_ip1"
+                                },
+                                {
+                                    "key": "domain-name.resolves_to_refs",
+                                    "object": "private_dns_name",
+                                    "references": [
+                                        "dns_private_ip1"
+                                    ]
+                                },
+                                {
+                                    "key": "x-ibm-finding.src_ip_ref",
+                                    "object": "ibm_finding",
+                                    "references": "dns_private_ip1"
+                                },
+                                {
+                                    "key": "ipv4-addr.x_aws_interface_id",
+                                    "object": "dns_private_ip1",
+                                    "ds_key": "resource_instancedetails_networkinterfaces_0_networkinterfaceid",
+                                    "cybox": false
+                                },
+                                {
+                                    "key": "ipv4-addr.x_aws_ip_type",
+                                    "object": "dns_private_ip1",
+                                    "value": "private",
+                                    "cybox": false
+                                }
+                            ],
+                            "service_action_dnsrequestaction_domain": [
+                                {
+                                    "key": "domain-name.value",
+                                    "object": "dns_domain_name"
+                                }
+                            ],
+                            "accountid": {
+                                "key": "x-aws-details.account_id",
+                                "object": "aws_details"
+                            },
+                            "region": {
+                                "key": "x-aws-details.region",
+                                "object": "aws_details"
+                            },
+                            "severity": {
+                                "key": "x-ibm-finding.severity",
+                                "object": "ibm_finding"
+                            },
+                            "title": {
+                                "key": "x-ibm-finding.name",
+                                "object": "ibm_finding"
+                            },
+                            "type": {
+                                "key": "x-ibm-finding.finding_type",
+                                "object": "ibm_finding"
+                            },
+                            "description": {
+                                "key": "x-ibm-finding.description",
+                                "object": "ibm_finding"
+                            },
+                            "resource_instancedetails_platform": [
+                                {
+                                    "key": "software.name",
+                                    "object": "software"
+                                },
+                                {
+                                    "key": "x-ibm-finding.src_os_ref",
+                                    "object": "ibm_finding",
+                                    "references": "software"
+                                }
+                            ],
+                            "service_eventfirstseen": [
+                                {
+                                    "key": "first_observed",
+                                    "cybox": false
+                                },
+                                {
+                                    "key": "x-ibm-finding.start",
+                                    "object": "ibm_finding"
+                                }
+                            ],
+                            "service_eventlastseen": [
+                                {
+                                    "key": "last_observed",
+                                    "cybox": false
+                                },
+                                {
+                                    "key": "x-ibm-finding.end",
+                                    "object": "ibm_finding"
+                                }
+                            ]
+                        }
+                    },
+                    "vpcflow_from_stix_map": {
+                        "ipv4-addr": {
+                            "fields": {
+                                "value": [
+                                    "sourceaddress",
+                                    "destinationaddress"
+                                ],
+                                "x_aws_interface_id": [
+                                    "interfaceId"
+                                ]
+                            }
+                        },
+                        "ipv6-addr": {
+                            "fields": {
+                                "value": [
+                                    "sourceaddress",
+                                    "destinationaddress"
+                                ],
+                                "x_aws_interface_id": [
+                                    "interfaceid"
+                                ]
+                            }
+                        },
+                        "network-traffic": {
+                            "fields": {
+                                "src_port": [
+                                    "sourceport"
+                                ],
+                                "dst_port": [
+                                    "destinationport"
+                                ],
+                                "src_ref.value": [
+                                    "sourceaddress"
+                                ],
+                                "dst_ref.value": [
+                                    "destinationaddress"
+                                ],
+                                "protocols[*]": [
+                                    "protocol"
+                                ],
+                                "start": [
+                                    "starttime"
+                                ],
+                                "end": [
+                                    "endtime"
+                                ]
+                            }
+                        },
+                        "x-aws-details": {
+                            "fields": {
+                                "account_id": [
+                                    "account"
+                                ]
+                            }
+                        },
+                        "x-ibm-finding": {
+                            "fields": {
+                                "finding_type": [
+                                    "action"
+                                ],
+                                "src_ip_ref.value": [
+                                    "sourceaddress"
+                                ],
+                                "dst_ip_ref.value": [
+                                    "destinationaddress"
+                                ],
+                                "start": [
+                                    "starttime"
+                                ],
+                                "end": [
+                                    "endtime"
+                                ]
+                            }
+                        }
+                    }
+                }
+            },
+            "stix_2.1": {
+                "type": "boolean",
+                "default": false,
+                "optional": true,
+                "hidden": true
+            }
+        }
+    },
+    "configuration": {
+        "auth": {
+            "type": "fields",
+            "aws_access_key_id": {
+                "type": "password"
+            },
+            "aws_iam_role": {
+                "type": "password",
+                "optional": true
+            },
+            "aws_assume_role_external_id": {
+                "type": "password",
+                "optional": true
+            },
+            "aws_secret_access_key": {
+                "type": "password"
+            }
+        }
+    }
+}
