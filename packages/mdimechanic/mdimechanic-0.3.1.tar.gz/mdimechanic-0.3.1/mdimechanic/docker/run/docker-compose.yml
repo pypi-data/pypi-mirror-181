@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  engine:
+    #build: ../../user
+    image: "${MDIMECH_ENGINE_NAME}"
+    command: bash -c "bash /repo/.mdimechanic/.temp/docker_mdi_engine.sh"
+    volumes:
+      - "${MDIMECH_WORKDIR}:/repo"
+      - "${MDIMECH_PACKAGEDIR}:/MDI_Mechanic"
+    networks:
+      mdinet:
+        aliases:
+          - enginehost
+
+networks:
+  mdinet:
+    driver: "bridge"
