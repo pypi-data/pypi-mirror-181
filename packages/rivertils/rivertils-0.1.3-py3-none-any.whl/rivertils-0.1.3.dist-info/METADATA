@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: rivertils
+Version: 0.1.3
+Summary: 
+Author: Rivers Cuomo
+Author-email: riverscuomo@users.noreply.github.com
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: textblob (>=0.17.1,<0.18.0)
+Description-Content-Type: text/markdown
+
+To publish to PyPi you have to pass the creds for pypi
+poetry build
+poetry publish --username(not email) --password
+
+# Rivertils
+Scripts that are imported by packages you've deployed to pypi
