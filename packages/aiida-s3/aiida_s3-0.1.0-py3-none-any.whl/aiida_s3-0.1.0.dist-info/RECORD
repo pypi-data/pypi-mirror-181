@@ -1,0 +1,16 @@
+aiida_s3/__init__.py,sha256=8MWfFhhNwwd3wM6C0gi9e4bT68uxO7FPt-fGrj-OTf0,135
+aiida_s3/py.typed,sha256=8PjyZ1aVoQpRVvt71muvuq5qE-jTFZkK-GLHkhdebmc,26
+aiida_s3/cli/__init__.py,sha256=dhegiTri_Lj-XnitXvQUcCV1NnHyf2AiXJAvwuUbOk4,351
+aiida_s3/cli/cmd_profile.py,sha256=8-rJmZ9vZGF1ebFBNce99Y0Ep-LHhWarI_-o8YsT4m0,2678
+aiida_s3/repository/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+aiida_s3/repository/aws_s3.py,sha256=uus60VSLUN24Ad87rQ_rNCU02rrNHWuJZJyG4oJ4AOg,8175
+aiida_s3/repository/azure_blob.py,sha256=FXJTgJCIZf8WL6J48BY2c_4AAujERS2SAremawwCMME,8042
+aiida_s3/storage/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+aiida_s3/storage/psql_aws_s3.py,sha256=v1SyEabpsGEALYx5BwrRaamEQIKq7kNngACaL7AQehs,3826
+aiida_s3/storage/psql_azure_blob.py,sha256=rYF0A3mcvqRpU-ivfdSVAbrSFV9nn9Qqi26q8znORTI,3229
+aiida_s3/storage/psql_dos.py,sha256=1Yl9LQQqPiSZgnhIoXCrsYpZCJILRVQjFifMUA74BnU,2947
+aiida_s3-0.1.0.dist-info/entry_points.txt,sha256=kqBpeHLzGKYyShxP6khTGAIdi4Gd2sXLPh05AbN1aw4,201
+aiida_s3-0.1.0.dist-info/LICENSE.txt,sha256=_m0RGWTMgBqsIoglUQ1D0LwyAv3NTfvuw29MYyRLQbE,1076
+aiida_s3-0.1.0.dist-info/WHEEL,sha256=rSgq_JpHF9fHR1lx53qwg_1-2LypZE_qmcuXbVUq948,81
+aiida_s3-0.1.0.dist-info/METADATA,sha256=ceVHf8BOixP--xJFui2Rq_Vc5NO5LlBrQQqBo5nERrc,5352
+aiida_s3-0.1.0.dist-info/RECORD,,
