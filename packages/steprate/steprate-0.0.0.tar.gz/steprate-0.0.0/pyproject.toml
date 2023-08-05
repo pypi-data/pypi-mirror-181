@@ -1,0 +1,11 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "steprate"
+description = "计算阶梯扣率或阶梯分成的一组方法"
+readme = "README.md"
+keywords= ["阶梯扣率", "阶梯分成", "扣除", "阶梯", "扣率", "分成","step","rate",]
+license = {text = ""}
+dynamic = ["version"]
