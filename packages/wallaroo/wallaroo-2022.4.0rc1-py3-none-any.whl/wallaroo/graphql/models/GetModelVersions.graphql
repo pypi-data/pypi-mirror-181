@@ -1,0 +1,20 @@
+query GetModelVersions($name: String = "", $pk_id: bigint) {
+  model(where: {_or: [
+    {model_id: {_eq: $name}}, 
+    {models_pk_id: {_eq: $pk_id}}
+  ]}) {
+    file_name
+    created_at
+    id
+    image_path
+    input_schema
+    model_id
+    model_version
+    models_pk_id
+    output_schema
+    owner_id
+    sha
+    updated_at
+    visibility
+  }
+}

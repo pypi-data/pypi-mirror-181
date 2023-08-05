@@ -1,0 +1,13 @@
+query GetWorkspaceTasks($workspace_id: bigint!) {
+    task(where: {
+        workspace_id: {
+            _eq:$workspace_id
+        }
+    }) {
+        id,
+        flavor,
+        subject,
+        status,
+        attempt
+    }
+}

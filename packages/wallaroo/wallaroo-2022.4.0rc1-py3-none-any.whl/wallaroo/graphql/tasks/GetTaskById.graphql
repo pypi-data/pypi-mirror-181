@@ -1,0 +1,19 @@
+query GetTaskById($id: uuid!) {
+    task_by_pk(id:$id) {
+        id
+        status
+        flavor
+        subject
+        task_type
+        next_attempt
+        attempt_output {
+            id
+            attempt
+            status
+            error_data
+            output_data
+            start_time
+            end_time
+        }
+    }
+}

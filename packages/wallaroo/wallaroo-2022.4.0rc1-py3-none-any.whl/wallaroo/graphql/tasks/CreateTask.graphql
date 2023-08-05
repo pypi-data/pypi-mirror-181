@@ -1,0 +1,26 @@
+mutation CreateTask(
+    $id: uuid!
+    $flavor: task_flavor_enum!
+    $subject: String!
+    $workspace_id: bigint
+    $task_type: task_type_enum!
+    $input_data: jsonb
+) {
+    insert_task_one(
+        object: {
+            id: $id
+            flavor: $flavor
+            subject: $subject
+            workspace_id: $workspace_id
+            status: pending
+            attempt: 0
+            private:false
+            task_type: $task_type
+            input_data:$input_data
+        }
+    ) {
+        id
+        next_attempt
+    }
+}
+
