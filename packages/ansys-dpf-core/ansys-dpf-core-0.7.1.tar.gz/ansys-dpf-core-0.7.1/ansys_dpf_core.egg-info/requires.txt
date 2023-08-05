@@ -1,0 +1,9 @@
+packaging
+psutil
+tqdm
+numpy
+ansys-dpf-gate>=0.3.*
+
+[plotting]
+pyvista>=0.32.0
+matplotlib>=3.2
