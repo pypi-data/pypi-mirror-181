@@ -1,0 +1,103 @@
+# Minimal `$ docker compose ...` configuration to demonstrate the requirements for
+# running Prunerr in containers.
+version: "3.8"
+
+services:
+
+  transmission:
+    image: "linuxserver/transmission"
+    # command:
+    #   # From `# pgrep -fla transmission`:
+    #   # `/usr/bin/transmission-daemon -g /config -c /watch -f`
+    #   - "transmission-daemon"
+    #   - "-g"
+    #   - "/config"
+    #   - "-c"
+    #   - "/watch"
+    #   - "-f"
+    #   # Enable debug logging
+    #   - "--log-debug"
+    environment:
+      TZ: "${TZ:-America/Los_Angeles}"
+      PUID: "${PUID:-1000}"
+      PGID: "${PGID:-100}"
+      USER: "${TRANSMISSION_USER:-transmission}"
+      PASS: "${TRANSMISSION_PASS}"
+    volumes:
+      # Exit the container if the core `s6-overlay` service fails.
+      # Replace with the correct path for your `$ docker compose ...` project.
+      # - "./s6/etc/s6-overlay/s6-rc.d/svc-transmission/finish:/etc/s6-overlay/s6-rc.d/svc-transmission/finish"
+      # Intended for use in the image
+      - "./transmission/config/:/config/"
+      # The volume on which Transmission's `download-dir` is stored
+      - "${DOWNLOAD_VOLUME}:${DOWNLOAD_VOLUME}"
+    # Transmission seems to be very poorly behaved when disk space is exhausted: items
+    # become corrupted, items lose track of their data/files, etc..  Guard against that,
+    # for example if Prunerr stops running for any reason, by shutting it down before
+    # disk space is exhausted.  Abuse the `HEALTHCHECK` to exit PID 1 with 0 status code
+    # before that happens.  The `on-failure` restart policy ensures that `# dockerd`
+    # won't restart the container again.
+    restart: "on-failure"
+    healthcheck:
+      test: >-
+        test "$(df --output="avail" "${DOWNLOAD_VOLUME}" | tail -n +2)"
+        -gt "${CRITICAL_AVAIL}" || /sbin/shutdown &&
+        curl -LI -u "${TRANSMISSION_USER:-transmission}:${TRANSMISSION_PASS}"
+        "http://localhost:9091/transmission/rpc/" |
+        grep '^X-Transmission-Session-Id: '
+    labels:
+      traefik.enable: true
+      # Un comment and set `TRANSMISSION_HOST` to proxy via Traefik
+      # traefik.http.routers.transmission.rule: "Host(`${TRANSMISSION_HOST}`)"
+      traefik.http.services.transmission.loadbalancer.server.port: 9091
+      traefik.http.routers.transmission.entrypoints: "websecure"
+      traefik.http.routers.transmission.tls.certresolver: "letsencrypt"
+
+  sonarr:
+    image: "ghcr.io/hotio/sonarr"
+    volumes:
+      - "./sonarr/config/:/config/"
+    # ports:
+    #   - "8989:8989"
+    restart: "unless-stopped"
+    healthcheck:
+      test: >-
+        curl -Lv
+        "http://sonarr:8989/api/system/status?apikey=${SONARR_API_KEY:-}" |
+        grep '"appData": *"/config"'
+
+  radarr:
+    image: "ghcr.io/hotio/radarr"
+    volumes:
+      - "./radarr/config/:/config/"
+    # ports:
+    #   - "7878:7878"
+    restart: "unless-stopped"
+    healthcheck:
+      test: >-
+        curl -Lv
+        "http://radarr:7878/api/v3/system/status?apikey=${RADARR_API_KEY:-}" |
+        grep '"appData": *"/config"'
+
+  ## Container for use by end users
+  prunerr-daemon:
+    image: "merpatterson/prunerr"
+    depends_on:
+      - "transmission"
+      - "sonarr"
+      - "radarr"
+    # Match permissions inside and outside the container
+    environment:
+      # Make the run-time user configurable in `./.env` to match permissions inside and
+      # outside the container.  Default to the common/standard main/first user and group
+      # IDs
+      PUID: "${PUID:-1000}"
+      PGID: "${PGID:-${PUID:-1000}}"
+      # Un-comment to get more verbose `DEBUG` logging
+      # DEBUG: "true"
+    volumes:
+      # Use the Prunerr config from the Prunerr checkout
+      - "./home/.config/:/home/prunerr/.config/"
+      # The volume on which Transmission's `download-dir` is stored
+      - "${DOWNLOAD_VOLUME}:${DOWNLOAD_VOLUME}"
+    restart: "unless-stopped"
