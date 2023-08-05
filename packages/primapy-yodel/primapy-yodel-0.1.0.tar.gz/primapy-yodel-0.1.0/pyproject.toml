@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "primapy-yodel"
+version = "0.1.0"
+description = "Safety placeholder"
+authors = ["Team AMOps <amops@prima.it>"]
+readme = "README.md"
+packages = [{include = "primapy_yodel"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
