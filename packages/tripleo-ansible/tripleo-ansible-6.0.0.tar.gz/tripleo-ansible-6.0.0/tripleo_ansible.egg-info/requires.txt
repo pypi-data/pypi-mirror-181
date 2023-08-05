@@ -1,0 +1,10 @@
+metalsmith
+pbr>=1.6
+python-heatclient
+tripleo-common>=16.0.0
+
+[:(python_version=='2.7')]
+python-ironicclient!=2.5.2,!=2.7.1,!=3.0.0,<4.0.0,>=2.3.0
+
+[:(python_version>='3.6')]
+python-ironicclient!=2.5.2,!=2.7.1,!=3.0.0,>=2.3.0
