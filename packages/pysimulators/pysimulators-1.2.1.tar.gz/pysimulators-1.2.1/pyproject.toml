@@ -1,0 +1,88 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = [
+    "oldest-supported-numpy",
+    "pchanial-legacy-install-hooks>=1.5",
+    "setuptools==64.0.3",
+    "setuptools_scm[toml]>=6.2",
+    "wheel",
+]
+
+[project]
+name = "pysimulators"
+authors = [
+    {name = "Pierre Chanial", email = "pierre.chanial@gmail.com"},
+]
+maintainers = [
+    {name = "Pierre Chanial", email = "pierre.chanial@gmail.com"},
+]
+description = "Tools to build an instrument model."
+readme = "README.md"
+keywords = [
+    "scientific computing",
+]
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Fortran",
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Astronomy",
+    "Topic :: Scientific/Engineering :: Atmospheric Science",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Topic :: Scientific/Engineering :: Medical Science Apps.",
+    "Topic :: Scientific/Engineering :: Physics",
+]
+requires-python = ">=3.8"
+license = {file = "LICENSE"}
+dependencies = [
+    "pyoperators[fft]>=0.12.5",
+    "astropy>=0.3.2",
+    "numexpr",
+    "numpy>=1.17",
+    "scipy>=0.9",
+]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+healpix = ["healpy"]
+dev = [
+    "healpy",
+    "pyfftw",
+    "pytest",
+    "pytest-cov",
+    "pytest-mock",
+    "pchanial-legacy-install-hooks",
+    "setuptools_scm",
+]
+
+[project.urls]
+homepage = "https://pchanial.github.io/pysimulators"
+repository = "https://github.com/pchanial/pysimulators"
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "except ImportError:",
+    "raise NotImplementedError",
+    "if typing.TYPE_CHECKING:",
+]
+show_missing = true
+skip_covered = true
+
+[tool.isort]
+known_first_party = ["pyoperators", "pysimulators"]
+
+[tool.pytest.ini_options]
+addopts = "-ra --cov=pysimulators"
+testpaths = [
+    "tests",
+]
+
+[tool.setuptools_scm]
+version_scheme = "post-release"
+fallback_version = "0.0.0"

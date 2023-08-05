@@ -1,0 +1,17 @@
+pyoperators[fft]>=0.12.5
+astropy>=0.3.2
+numexpr
+numpy>=1.17
+scipy>=0.9
+
+[dev]
+healpy
+pyfftw
+pytest
+pytest-cov
+pytest-mock
+pchanial-legacy-install-hooks
+setuptools_scm
+
+[healpix]
+healpy
