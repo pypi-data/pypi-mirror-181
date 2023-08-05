@@ -1,0 +1,3 @@
+[console_scripts]
+encord-active=encord_active.app.cli.main:cli
+
