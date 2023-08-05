@@ -1,0 +1,2 @@
+[console_scripts]
+onec-checkgrammar = kontur.checkgrammar.cli:cli
