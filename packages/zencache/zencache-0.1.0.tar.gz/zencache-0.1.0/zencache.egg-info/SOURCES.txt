@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+zencache/__init__.py
+zencache/server.py
+zencache/service.py
+zencache.egg-info/PKG-INFO
+zencache.egg-info/SOURCES.txt
+zencache.egg-info/dependency_links.txt
+zencache.egg-info/entry_points.txt
+zencache.egg-info/not-zip-safe
+zencache.egg-info/requires.txt
+zencache.egg-info/top_level.txt

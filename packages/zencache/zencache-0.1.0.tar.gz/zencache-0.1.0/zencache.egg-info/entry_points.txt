@@ -1,0 +1,3 @@
+[console_scripts]
+zencached = zencache.server:zencached_application
+
