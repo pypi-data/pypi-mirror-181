@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: jiggy
+Version: 0.1.8
+Summary: Python client for Jiggy AI Tools
+Author-email: Bill Kish <bk@jiggy.ai>
+Project-URL: Homepage, https://github.com/jiggy-ai/jiggy-client-py
+Project-URL: Bug Tracker, https://github.com/jiggy-ai/jiggy-client-py/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+Python client for Jiggy open source components
+
+pip install jiggy
+
+set api key via environment variable: "JIGGY_API_KEY"
+
+This is in an experimental form and not suitable for large vector collections or production use cases.
