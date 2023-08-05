@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: eskrim
+Version: 1.0.5
+Summary: A program to estimate microbial richness from metagenomic sequencing data by counting k-mers
+Author: Florian Plaza Oñate
+Project-URL: Homepage, https://forgemia.inra.fr/metagenopolis/eskrim
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Environment :: Console
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# ESKRIM: EStimate with K-mers the RIchness in a Microbiome #
+
+### Purpose ###
+
+* ESKRIM is a reference-free tool that compares microbial richness in shotgun metagenomic samples by counting k-mers
+
+### Installation via pip ###
+```
+pip install eskrim 
+```
+
+### Usage ###
+```
+eskrim -h
+```
+
+Contaminants reads from the host genome should be removed before using ESKRIM.  
+If your FASTQ files are paired, we recommend to use only forward reads.
+
+### Authors ###
+
+* Florian Plaza Oñate: florian.plaza-onate@inrae.fr
+* Emmanuelle Le Chatelier: emmanuelle.le-chatelier@inrae.fr
+
