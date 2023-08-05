@@ -1,0 +1,16 @@
+<div class="object-widget"
+     tal:attributes="class view/klass">
+    <span i18n:translate="">Horaire</span> "<span tal:replace="python: view.subform.widgets.get('title').value"/>"
+    <br>
+    <tal:block repeat="dates python: view.subform.widgets.get('dates').value">
+        <tal:condition condition="python: dates['start_date'] != dates['end_date']">
+            <span i18n:translate="">Du</span> <span tal:replace="dates/start_date"/>
+            <span i18n:translate="">au</span> <span tal:replace="dates/end_date"/>
+        </tal:condition>
+        <tal:condition condition="python: dates['start_date'] == dates['end_date']">
+            <span i18n:translate="">Le</span> <span tal:replace="dates/start_date"/>
+        </tal:condition>
+        <br>
+    </tal:block>
+    <div tal:replace="structure python: view.subform.widgets.get('schedule').render()"/>
+</div>

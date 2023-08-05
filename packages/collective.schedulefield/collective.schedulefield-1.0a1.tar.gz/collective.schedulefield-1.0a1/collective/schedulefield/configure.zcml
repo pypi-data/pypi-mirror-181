@@ -1,0 +1,169 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:z3c="http://namespaces.zope.org/z3c"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="collective.schedulefield">
+
+  <i18n:registerTranslations directory="locales" />
+  <include package="z3c.form" file="meta.zcml" />
+
+  <genericsetup:registerProfile
+      name="default"
+      title="collective.schedulefield"
+      directory="profiles/default"
+      description="Installs the collective.schedulefield add-on."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <adapter
+      factory=".schedule.ScheduleFieldWidget"
+      for=".schedule.ISchedule
+           z3c.form.interfaces.IFormLayer"
+      />
+
+  <adapter
+      factory=".schedule.ObjectFieldWidget"
+      for=".schedule.IScheduleWithTitle
+           z3c.form.interfaces.IFormLayer"
+      />
+
+  <adapter
+      factory=".exceptionalclosure.ObjectFieldWidget"
+      for=".exceptionalclosure.IExceptionalClosure
+           z3c.form.interfaces.IFormLayer"
+      />
+
+  <adapter
+      zcml:condition="installed plone.restapi"
+      factory=".serializer.ExceptionalclosureSerializer"
+      />
+
+  <adapter
+      zcml:condition="installed plone.restapi"
+      factory=".serializer.ExceptionalclosureDeserializer"
+      />
+
+  <adapter
+      zcml:condition="installed plone.restapi"
+      factory=".serializer.MultiScheduleSerializer"
+      />
+
+  <adapter
+      zcml:condition="installed plone.restapi"
+      factory=".serializer.daterange_converter"
+      />
+
+  <browser:resource
+    file="js/jquery.maskedinput.min.js"
+    name="jquery.maskedinput.min.js"
+    />
+
+  <browser:resource
+    file="js/schedulemask.js"
+    name="schedulemask.js"
+    />
+
+  <z3c:widgetTemplate
+      mode="display"
+      widget=".schedule.ISchedule"
+      layer="z3c.form.interfaces.IFormLayer"
+      template="schedule_display.pt"
+      />
+
+  <z3c:widgetTemplate
+      mode="display"
+      widget=".schedule.IScheduleWithTitle"
+      layer="z3c.form.interfaces.IFormLayer"
+      template="schedulewithtitle_display.pt"
+      />
+
+  <z3c:widgetTemplate
+      mode="display"
+      widget=".exceptionalclosure.IExceptionalClosure"
+      layer="z3c.form.interfaces.IFormLayer"
+      template="exceptionalclosure_display.pt"
+      />
+
+  <z3c:widgetTemplate
+      mode="input"
+      widget=".schedule.ISchedule"
+      layer="z3c.form.interfaces.IFormLayer"
+      template="schedule_input.pt"
+      />
+
+  <z3c:widgetTemplate
+      mode="hidden"
+      widget=".schedule.ISchedule"
+      layer="z3c.form.interfaces.IFormLayer"
+      template="schedule_hidden.pt"
+      />
+
+  <adapter factory=".schedule.WidgetDataConverter" />
+
+  <plone:behavior
+    title="Scheduled Content"
+    description="Adds schedule field"
+    provides=".behavior.IScheduledContent"
+    factory=".behavior.ScheduledContent"
+    for="plone.dexterity.interfaces.IDexterityContent"
+    marker=".behavior.IScheduledContent"
+    />
+
+  <plone:behavior
+    title="Multi scheduled Content"
+    description="Adds multi schedule field"
+    provides=".behavior.IMultiScheduledContent"
+    factory=".behavior.MultiScheduledContent"
+    for="plone.dexterity.interfaces.IDexterityContent"
+    marker=".behavior.IMultiScheduledContent"
+    />
+
+  <plone:behavior
+    title="Exceptional closure Content"
+    description="Adds exceptional closure field"
+    provides=".behavior.IExceptionalClosureContent"
+    factory=".behavior.ExceptionalClosureContent"
+    for="plone.dexterity.interfaces.IDexterityContent"
+    marker=".behavior.IExceptionalClosureContent"
+    />
+
+  <browser:viewlet
+    name="schedulefield.schedule"
+    for="*"
+    view="plone.app.layout.globals.interfaces.IViewView"
+    manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+    class=".viewlet.ScheduledContentViewlet"
+    template="scheduled_content_viewlet.pt"
+    permission="zope2.View"
+    />
+
+  <browser:viewlet
+    name="schedulefield.multischedule"
+    for="*"
+    view="plone.app.layout.globals.interfaces.IViewView"
+    manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+    class=".viewlet.MultiScheduledContentViewlet"
+    template="multi_scheduled_content_viewlet.pt"
+    permission="zope2.View"
+    />
+
+  <browser:viewlet
+    name="schedulefield.exceptionalclosure"
+    for="*"
+    view="plone.app.layout.globals.interfaces.IViewView"
+    manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+    class=".viewlet.ExceptionalClosureContentViewlet"
+    template="exceptionalclosure_content_viewlet.pt"
+    permission="zope2.View"
+    />
+
+  <browser:resourceDirectory
+    name="collective.schedulefield"
+    directory="static"
+    />
+
+</configure>
