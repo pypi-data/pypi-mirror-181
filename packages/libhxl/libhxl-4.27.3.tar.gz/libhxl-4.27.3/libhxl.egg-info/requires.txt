@@ -1,0 +1,11 @@
+jsonpath_ng
+ply
+python-dateutil
+python-io-wrapper>=0.2
+requests>=2.11
+requests_cache
+structlog==22.1.0
+unidecode
+urllib3<1.27,>=1.21.1
+wheel
+xlrd3==1.1.0
