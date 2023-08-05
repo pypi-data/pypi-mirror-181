@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: migflow
+Version: 1.3
+Summary: Model for Immersed Granular Flows
+Home-page: https://www.migflow.be
+Author: Migflow Team
+Author-email: jonathan.lambrechts@uclouvain.be
+License: GPLv3
+Platform: Posix
+Platform: Windows
+Classifier: Environment :: Console
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Programming Language :: C
+Classifier: Programming Language :: Python
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: scipy
+
+MigFlow (https://www.migflow.be)
+
+MigFlow is a free and open source software dedicated to the simulations, in complex geometry, of immersed granular flows (mixture fluid-grains) presenting a large discrepancy in the solid volume fraction going from pure fluid to porous media. The fluid is solved using the finite element method at a greater scale than the grain scale while the grains are solved using the discrete element method to obtain accurate representation of the local effects due to the grains configuration.
+
+

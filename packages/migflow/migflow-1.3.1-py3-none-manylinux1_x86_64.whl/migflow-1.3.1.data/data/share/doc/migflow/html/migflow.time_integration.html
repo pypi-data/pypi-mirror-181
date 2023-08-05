@@ -1,0 +1,277 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>migflow.time_integration &mdash; MigFlow  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="migflow.lmgc90Interface" href="migflow.lmgc90Interface.html" />
+    <link rel="prev" title="migflow.scontact" href="migflow.scontact.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MigFlow
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.3.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">MigFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="main-features.html">Main Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="migflow.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="migflow.fluid.html">migflow.fluid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migflow.scontact.html">migflow.scontact</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">migflow.time_integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migflow.lmgc90Interface.html">migflow.lmgc90Interface</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MigFlow</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="migflow.html">API Reference</a> &raquo;</li>
+        
+      <li>migflow.time_integration</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-migflow.time_integration">
+<span id="migflow-time-integration"></span><h1>migflow.time_integration<a class="headerlink" href="#module-migflow.time_integration" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="migflow.time_integration.iterate">
+<code class="descclassname">migflow.time_integration.</code><code class="descname">iterate</code><span class="sig-paren">(</span><em>fluid</em>, <em>particles</em>, <em>dt</em>, <em>min_nsub=1</em>, <em>contact_tol=1e-08</em>, <em>external_particles_forces=None</em>, <em>fixed_grains=False</em>, <em>after_sub_iter=None</em>, <em>max_nsub=None</em>, <em>check_residual_norm=-1</em>, <em>use_predictor_corrector=True</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.time_integration.iterate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Migflow solver: the solver type depends on the fluid and particles given as arguments.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>fluid</strong> – fluid structure</li>
+<li><strong>particles</strong> – particles structure</li>
+<li><strong>dt</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – time step</li>
+<li><strong>min_nsub</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – minimal nsub for the particles iterations</li>
+<li><strong>contact_tol</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – tolerance for the contact solver</li>
+<li><strong>external_particles_forces</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]) – vector of external forces applied on the particles</li>
+<li><strong>fixed_grains</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – boolean variable specifying if the grains are fixed in the fluid</li>
+<li><strong>after_sub_iter</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[&lt;built-in function callable&gt;]) – callback to execute once a sub iteration has been made</li>
+<li><strong>max_nsub</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – maximum number of times the time step can be further split if conergence is not reached</li>
+<li><strong>check_residual_norm</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – check if the fluid solver has converged to the specified norm</li>
+<li><strong>use_predictor_corrector</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – boolean variable specifying if the predictor-corrector scheme is used</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> – fluid and particles cannot be both None</li>
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> – external_particles_forces must have shape (number of particles,dimension)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="migflow.time_integration.predictor_corrector_iterate">
+<code class="descclassname">migflow.time_integration.</code><code class="descname">predictor_corrector_iterate</code><span class="sig-paren">(</span><em>fluid</em>, <em>particles</em>, <em>dt</em>, <em>min_nsub=1</em>, <em>contact_tol=1e-08</em>, <em>external_particles_forces=None</em>, <em>alpha=0.5</em>, <em>after_sub_iter=None</em>, <em>max_nsub=None</em>, <em>check_residual_norm=-1</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.time_integration.predictor_corrector_iterate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predictor-corrector scheme to solve fluid and grains.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fluid</strong> – fluid structure</li>
+<li><strong>particles</strong> – particles structure</li>
+<li><strong>dt</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – time step</li>
+<li><strong>min_nsub</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – minimal nsub for the particles iterations</li>
+<li><strong>contact_tol</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – tolerance for the contact solver</li>
+<li><strong>external_particles_forces</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]) – external forces applied on the particles</li>
+<li><strong>alpha</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – parametre of the predictor-corrector scheme [alpha*f(n)+(1-alpha)*f(n+1)]</li>
+<li><strong>after_sub_iter</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[&lt;built-in function callable&gt;]) – callback to execute once a sub iteration has been made</li>
+<li><strong>max_split</strong> – maximum number of times the time step can be further split if convergence is not reached</li>
+<li><strong>check_residual_norm</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – check if the fluid solver has converged to the specified norm</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="migflow.lmgc90Interface.html" class="btn btn-neutral float-right" title="migflow.lmgc90Interface" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="migflow.scontact.html" class="btn btn-neutral float-left" title="migflow.scontact" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Copyright (C) &lt;2015-2022&gt;  &lt;Universite catholique de Louvain (UCL), Belgium
+Copyright (C) &lt;2015-2022&gt;   Universite de Montpellier, France&gt;
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

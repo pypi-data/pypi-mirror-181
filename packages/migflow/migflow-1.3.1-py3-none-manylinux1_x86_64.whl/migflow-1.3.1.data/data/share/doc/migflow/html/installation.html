@@ -1,0 +1,356 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Installation &mdash; MigFlow  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Examples" href="examples.html" />
+    <link rel="prev" title="Main Features" href="main-features.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MigFlow
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.3.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">MigFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="main-features.html">Main Features</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#migflow">Migflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python-package">Python package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#compilation-from-sources">Compilation from sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gmsh">GMSH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#paraview">ParaView</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#plugins">Plugins</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#linear-solver">Linear Solver</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pardiso-installation">Pardiso Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scipy-installation">Scipy Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#petsc4py-installation">PETSc4py Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mumps-installation">MUMPS Installation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migflow.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MigFlow</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Installation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>Migflow can be installed as a python package or compiled from source. In addition to migflow itself, the gmsh mesh generator is required and optionally petsc4py.</p>
+<div class="section" id="migflow">
+<h2>Migflow<a class="headerlink" href="#migflow" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="python-package">
+<h2>Python package<a class="headerlink" href="#python-package" title="Permalink to this headline">¶</a></h2>
+<p>The easiest way to install migflow is to use the package from <a class="reference external" href="https://test.pypi.org/project/migflow/">pypi</a> using pip.</p>
+<p>If you do not have pip installed (check the output of pip –version), follow the <a class="reference external" href="https://packaging.python.org/tutorials/installing-packages/">official instruction</a> to get it.</p>
+<p>Once pip is installed, simply type</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">i</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">test</span><span class="o">.</span><span class="n">pypi</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">simple</span> <span class="o">--</span><span class="n">user</span> <span class="n">migflow</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="compilation-from-sources">
+<h2>Compilation from sources<a class="headerlink" href="#compilation-from-sources" title="Permalink to this headline">¶</a></h2>
+<p>If you plan to develop migflow, you’ll have to compile it from source (instead of installing the python package). If your operating system is Windows 10 version 2004 or higher, use the Windows Subsystem for Linux.</p>
+<ol class="arabic">
+<li><p class="first">To compile from source Rust is required : you can download it at <a class="reference external" href="https://www.rust-lang.org/tools/install">Rust website</a>.</p>
+</li>
+<li><p class="first">Go on the <a class="reference external" href="https://git.immc.ucl.ac.be/fluidparticles/migflow">gitlab</a> page dedicated to the project to upload your ssh or https link</p>
+</li>
+<li><p class="first">Open your terminal and type the following commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~</span>
+
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">git</span><span class="o">.</span><span class="n">immc</span><span class="o">.</span><span class="n">ucl</span><span class="o">.</span><span class="n">ac</span><span class="o">.</span><span class="n">be</span><span class="o">/</span><span class="n">fluidparticles</span><span class="o">/</span><span class="n">migflow</span><span class="o">.</span><span class="n">git</span>
+
+<span class="n">cd</span> <span class="n">migflow</span>
+
+<span class="n">mkdir</span> <span class="n">build</span>
+
+<span class="n">cd</span> <span class="n">build</span>
+
+<span class="n">cmake</span> <span class="o">..</span>
+
+<span class="n">make</span> <span class="o">-</span><span class="n">j8</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">State the location of the python modules by writing the following line in your .bashrc (For MacOS you possibly need to create this hidden file in your HOME directory):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export PYTHONPATH=$HOME/migflow/build:$PYTHONPATH
+
+source .bashrc
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="gmsh">
+<h2>GMSH<a class="headerlink" href="#gmsh" title="Permalink to this headline">¶</a></h2>
+<p>Meshes representing the computational domain, on which Navier-Stokes equations are discretised, are created from .geo files using <a class="reference external" href="http://gmsh.info/">GMSH</a>.</p>
+<p>If you use a package manager, it is recommended to install GMSH from your package manager (e.g. <code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">install</span> <span class="pre">gmsh</span></code> on ubuntu).</p>
+<p>Otherwise, you can download it from <a class="reference external" href="https://gmsh.info">GMSH website</a> or install it with pip (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--user</span> <span class="pre">gmsh</span></code>). Either way, check that the gmsh executable is in your PATH variable.</p>
+</div>
+<div class="section" id="paraview">
+<h2>ParaView<a class="headerlink" href="#paraview" title="Permalink to this headline">¶</a></h2>
+<p>ParaView is an open-source, multi-platform data analysis and visualization application.</p>
+<p>If you use a package manager, it is recommanded to install ParaView from your package manager (e.g. <code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">install</span> <span class="pre">paraview</span></code> on ubuntu).</p>
+<p>Otherwise, you can download it from <a class="reference external" href="https://www.paraview.org/download/">ParaView website</a>.</p>
+<div class="section" id="plugins">
+<h3>Plugins<a class="headerlink" href="#plugins" title="Permalink to this headline">¶</a></h3>
+<p>In order to install MigFlow Plugins, you need to open ParaView. Access “Tools &amp;rightarrow; Manage Plugins…”. On the opened window, click on “Load New Plugin” and select “migflow/paraview_utils/migflow_plugins.py”. You will need to tick the “Auto-load” box.</p>
+<p>Now, you are able to open the migflow extensions (.migf, .migs). If you load a solid problem (.migs), the solid reader will be called. To have the default visualization, click on the “Set Default” box into the Properties menu.</p>
+</div>
+</div>
+<div class="section" id="linear-solver">
+<h2>Linear Solver<a class="headerlink" href="#linear-solver" title="Permalink to this headline">¶</a></h2>
+<p>MigFlow uses a linear solver to solve Navier-Stokes. The available linear solvers are :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Pardiso</li>
+<li>Scipy</li>
+<li>PETSc4py</li>
+<li>PETSc</li>
+<li>MUMPS</li>
+</ul>
+</div></blockquote>
+<div class="section" id="pardiso-installation">
+<h3>Pardiso Installation<a class="headerlink" href="#pardiso-installation" title="Permalink to this headline">¶</a></h3>
+<p>Pardiso is a parallel direct solver designed for large sparse matrix (<a class="reference external" href="https://www.pardiso-project.org/">Pardiso webpage</a>).</p>
+<p>It can be install using pip : <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">mkl</span></code></p>
+</div>
+<div class="section" id="scipy-installation">
+<h3>Scipy Installation<a class="headerlink" href="#scipy-installation" title="Permalink to this headline">¶</a></h3>
+<p>Scipy provides linear solver but its efficiency is limited on large matrices. If you consider large meshes, other linear solver should be used.</p>
+<p>It can be install using a package manager : <code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">install</span> <span class="pre">python3-scipy</span></code> or using pip : <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">scipy</span></code>.</p>
+</div>
+<div class="section" id="petsc4py-installation">
+<h3>PETSc4py Installation<a class="headerlink" href="#petsc4py-installation" title="Permalink to this headline">¶</a></h3>
+<p>The installation of PETSc4py is optional, if it is not available, migflow will use pardiso instead.</p>
+<p>Again if you use a package manager and if a PETSc4py package is available, use it. (ubuntu : <code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">install</span> <span class="pre">python3-petsc4py</span></code>).</p>
+<p>Otherwise, follow the instructions bellow to compile it from sources.</p>
+<ol class="loweralpha">
+<li><p class="first">For other OS, go on <a class="reference external" href="https://www.mcs.anl.gov/petsc/download/index.html">PETSc webpage</a>  and clone the repository on your computer:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="o">-</span><span class="n">b</span> <span class="n">release</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">gitlab</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">petsc</span><span class="o">/</span><span class="n">petsc</span><span class="o">.</span><span class="n">git</span> <span class="n">petsc</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Compiling options for PETSc:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">petsc</span>
+
+<span class="o">./</span><span class="n">configure</span> <span class="o">--</span><span class="k">with</span><span class="o">-</span><span class="n">debugging</span><span class="o">=</span><span class="mi">0</span> <span class="o">--</span><span class="k">with</span><span class="o">-</span><span class="n">shared</span><span class="o">-</span><span class="n">libraries</span><span class="o">=</span><span class="mi">1</span> <span class="n">COPTFLAGS</span><span class="o">=</span><span class="s2">&quot;-O2&quot;</span> <span class="n">FOPTFLAGS</span><span class="o">=</span><span class="s2">&quot;-O2&quot;</span> <span class="n">CXXOPTFLAGS</span><span class="o">=</span><span class="s2">&quot;-O2&quot;</span> <span class="o">--</span><span class="k">with</span><span class="o">-</span><span class="n">mpi</span><span class="o">=</span><span class="mi">0</span> <span class="o">--</span><span class="k">with</span><span class="o">-</span><span class="n">petsc4py</span><span class="o">=</span><span class="n">yes</span> <span class="o">--</span><span class="k">with</span><span class="o">-</span><span class="n">fortran</span><span class="o">=</span><span class="mi">0</span> <span class="o">--</span><span class="n">download</span><span class="o">-</span><span class="n">f2cblaslapack</span><span class="o">=</span><span class="mi">1</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Compile PETSc:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="o">-</span><span class="n">j4</span> <span class="n">install</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">To use PETSc4py, you have to state the library location by writing the following into your .bashrc</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">PYTHONPATH</span><span class="o">=/</span><span class="n">petsc</span><span class="o">/</span><span class="n">arch</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">c</span><span class="o">-</span><span class="n">opt</span><span class="o">/</span><span class="n">lib</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="mumps-installation">
+<h3>MUMPS Installation<a class="headerlink" href="#mumps-installation" title="Permalink to this headline">¶</a></h3>
+<p>MUMPS is a multifrontal massively parallel solver with high efficiency for large systems of sparse linear equations (<a class="reference external" href="http://mumps-tech.com/mumps-2/">MUMPS webpage</a>).</p>
+<p>It can be install when you’re building your build directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">build</span>
+
+<span class="n">cmake</span> <span class="o">-</span><span class="n">DBUILD_MUMPS</span><span class="o">=</span><span class="n">ON</span> <span class="o">..</span>
+
+<span class="n">make</span> <span class="o">-</span><span class="n">j4</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="examples.html" class="btn btn-neutral float-right" title="Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="main-features.html" class="btn btn-neutral float-left" title="Main Features" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Copyright (C) &lt;2015-2022&gt;  &lt;Universite catholique de Louvain (UCL), Belgium
+Copyright (C) &lt;2015-2022&gt;   Universite de Montpellier, France&gt;
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
