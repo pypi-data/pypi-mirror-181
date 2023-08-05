@@ -1,0 +1,16 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base", ":preserveSemverRanges", "group:allNonMajor"],
+  "automerge": true,
+  "enabledManagers": ["pip_requirements"],
+  "packageRules": [
+    {
+      "groupName": "package",
+      "matchFiles": ["requirements.txt"]
+    },
+    {
+      "groupName": "project_tooling",
+      "matchFiles": ["template/.tools/requirements/requirements_project.txt"]
+    }
+  ]
+}
