@@ -1,0 +1,42 @@
+@startuml
+
+enum StatusEnum
+StatusEnum : Active
+StatusEnum : Inactive
+
+
+entity Category
+Category : uuid id
+Category : string title
+Category : string slug
+Category : string description
+Category : StatusEnum status
+Category : boolean is_deleted
+Category : date created_at
+Category : validate()
+
+
+interface RepositoryInterface
+RepositoryInterface : insert(entity: Entity)
+RepositoryInterface : find_by_id(entity_id: uuid)
+RepositoryInterface : find_all()
+RepositoryInterface : update(entity: Entity)
+RepositoryInterface : delete(entity_id: uuid)
+
+
+interface InMemoryRepository implements RepositoryInterface
+InMemoryRepository : List[Entity]
+InMemoryRepository : insert(entity: Entity)
+InMemoryRepository : find_by_id(entity_id: uuid)
+InMemoryRepository : find_all()
+InMemoryRepository : update(entity: Entity)
+InMemoryRepository : delete(entity_id: uuid)
+
+
+
+class CategoryRepository implements RepositoryInterface
+
+class CategoryInMemoryRepository implements InMemoryRepository
+
+
+@enduml
