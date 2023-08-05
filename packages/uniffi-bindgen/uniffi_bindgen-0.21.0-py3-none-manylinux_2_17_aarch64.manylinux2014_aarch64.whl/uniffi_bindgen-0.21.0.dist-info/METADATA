@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: uniffi_bindgen
+Version: 0.21.0
+Summary: a multi-language bindings generator for rust (codegen and cli tooling)
+Keywords: ffi,bindgen
+Home-Page: https://mozilla.github.io/uniffi-rs
+Author: Firefox Sync Team <sync-team@mozilla.com>
+Author-email: Firefox Sync Team <sync-team@mozilla.com>
+License: MPL-2.0
+Project-URL: Source Code, https://github.com/mozilla/uniffi-rs
