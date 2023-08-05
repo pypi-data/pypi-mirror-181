@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: databricks-sql
+Version: 0.0.1
+Summary: Databricks SQL framework, easy to learn, fast to code, ready for production.
+Home-page: https://github.com/bernardocouto/databricks-sql
+License: Apache 2-0
+Author: Bernardo Couto
+Author-email: bernardocouto@icloud.com
+Requires-Python: >=3.8,<4.0
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Database
+Requires-Dist: databricks-sql-connector (==2.2.1)
+Requires-Dist: pystache (==0.6.0)
+Project-URL: Repository, https://github.com/bernardocouto/databricks-sql
+Description-Content-Type: text/markdown
+
+# Databricks SQL
+
+Databricks SQL framework, easy to learn, fast to code, ready for production.
+
+## Installation
+
+```shell
+$ pip install databricks-sql
+```
+
+## Configuration
+
+```python
+from databricks_sql.client import Configuration
+
+CONFIGURATION = Configuration.instance(
+    access_token="",
+    command_directory="",
+    http_path="",
+    server_hostname="",
+)
+```
+
+## License
+
+This project is licensed under the terms of the [Apache License 2.0](https://github.com/bernardocouto/databricks-sql/blob/main/LICENSE).
+
