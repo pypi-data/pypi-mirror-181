@@ -1,0 +1,34 @@
+{% import 'keg-elements/forms/horizontal-b3.html' as dynamic_render %}
+{% import 'keg-elements/forms/horizontal-b4.html' as b4_render %}
+{% import 'keg-elements/forms/horizontal-static.html' as static_render %}
+
+{%- macro doubled(value) -%}
+{{ value }}{{ value }}
+{%- endmacro -%}
+
+<div id="dynamic">
+    <div id="default">
+        {{ dynamic_render.field(form[field_name]) }}
+    </div>
+    <div id="doubled">
+        {{ dynamic_render.field(form[field_name], value_macro=doubled) }}
+    </div>
+</div>
+
+<div id="b4">
+    <div id="default">
+        {{ b4_render.field(form[field_name]) }}
+    </div>
+    <div id="doubled">
+        {{ b4_render.field(form[field_name], value_macro=doubled) }}
+    </div>
+</div>
+
+<div id="static">
+    <div id="default">
+        {{ static_render.field(form[field_name]) }}
+    </div>
+    <div id="doubled">
+        {{ static_render.field(form[field_name], value_macro=doubled) }}
+    </div>
+</div>
