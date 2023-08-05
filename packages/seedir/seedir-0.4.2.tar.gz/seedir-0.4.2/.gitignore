@@ -1,0 +1,21 @@
+#testing script
+seedir/seedir_testing.py
+seedirpackagetesting.py
+
+# Compiled python modules.
+*.pyc
+seedir/__pycache__
+
+# Setuptools distribution folder.
+/dist/
+/build/
+
+# Python egg metadata, regenerated from source files by setuptools.
+/*.egg-info
+
+# Mac specific editing files
+.DS_Store
+**/.DS_Store
+
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
