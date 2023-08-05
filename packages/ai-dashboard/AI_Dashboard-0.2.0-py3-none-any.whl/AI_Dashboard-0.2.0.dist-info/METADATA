@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: AI-Dashboard
+Version: 0.2.0
+Home-page: https://relevance.ai/
+Author: Relevance AI
+Author-email: dev@relevance.ai
+License-File: LICENSE
+Requires-Dist: marko (==1.2.2)
+Requires-Dist: requests (>=2.0.0)
+Requires-Dist: kaleido (==0.1.0)
+Requires-Dist: plotly (==5.3.1)
+Provides-Extra: tests
+Requires-Dist: pytest ; extra == 'tests'
+Requires-Dist: pytest-xdist ; extra == 'tests'
+Requires-Dist: pytest-cov ; extra == 'tests'
+
