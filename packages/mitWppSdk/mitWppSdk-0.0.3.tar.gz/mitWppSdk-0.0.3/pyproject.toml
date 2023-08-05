@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mitWppSdk"
+version = "0.0.3"
+authors = [
+  { name="Mercadotecnia Ideas y Tecnologia", email="developers@mitec.com.mx" },
+]
+description = "SDK de integracion para generador de ligas"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/opardor/mit-wpp-python-sdk"
+"Bug Tracker" = "https://github.com/opardor/mit-wpp-python-sdk/issues"

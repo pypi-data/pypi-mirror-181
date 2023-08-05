@@ -1,0 +1,2 @@
+class WppException(Exception):
+    pass
