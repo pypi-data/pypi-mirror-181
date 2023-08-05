@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: pylolzapi
+Version: 0.0.2
+Summary: Python Wrapper for lolz.guru API
+Author: urlykkz
+Author-email: padreyonez@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# zelenka.guru | lolz.guru API
+[![CodeFactor](https://www.codefactor.io/repository/github/urlykkis/pylolzapi/badge)](https://www.codefactor.io/repository/github/urlykkis/pylolzapi)
+## О библиотеки
+Позволяет удобно пользоваться API лолза
+
+## Грядущие обновления
+Добавление всех методов
+
+Добавление Асинхронной поддержки
+
+Добавление поддержи Прокси
+
+Добавление документации
+
+## Использование:
+```python
+from pylolzapi import LZTApi
+
+api = LZTApi("YOUR_TOKEN")
+print(api.user_info.user_id)
+```
