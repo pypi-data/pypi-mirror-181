@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: pde-fncsf-exporter
+Version: 0.0.6
+Summary: Export the data to the PDE-FNCSF platform
+Author: hugo juhel
+Author-email: juhel.hugo@sciance.ca
+Requires-Python: >=3.8.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: PyYAML (>=6.0,<7.0)
+Requires-Dist: awswrangler (>=2.17.0,<3.0.0)
+Requires-Dist: click (>=8.1.3,<9.0.0)
+Requires-Dist: clix (>=1.0.8,<2.0.0)
+Requires-Dist: pandas (>=1.5.0,<2.0.0)
+Requires-Dist: pydantic (>=1.10.2,<2.0.0)
