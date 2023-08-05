@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: awsad2cli
+Version: 0.0.3
+Summary: A tool to login to AWS console using awsapps.com/console and assume a CLI role with support for MFA
+Home-page: https://github.com/shiftbreak/AWSAD2CLI
+Author: ShiftBreak
+Author-email: shiftbreak@password1.net
+Keywords: iam,boto,aws
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.7, <4
+License-File: LICENSE
+Requires-Dist: selenium
+Requires-Dist: configparser
+Requires-Dist: webdriver-manager
+Requires-Dist: argparse
+
