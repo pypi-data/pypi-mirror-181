@@ -1,0 +1,2 @@
+[console_scripts]
+fs-task-queue-worker = fs_task_queue.__main__:main

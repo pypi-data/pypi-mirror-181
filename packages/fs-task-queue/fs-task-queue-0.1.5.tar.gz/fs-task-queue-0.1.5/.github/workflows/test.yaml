@@ -1,0 +1,49 @@
+name: Tests
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+jobs:
+  test-file-queue:
+    name: 'Test fs-task-queue'
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.8", "3.9", "3.10"]
+    steps:
+      - name: 'Checkout Repository'
+        uses: actions/checkout@master
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install Dependencies
+        run: |
+          pip install .[extra,dev]
+      - name: Black Formatting
+        run: |
+          black --version
+          black fs_task_queue --diff
+          black --check fs_task_queue
+      - name: Flake8 Formatting
+        run: |
+          flake8 --version
+          flake8
+      - name: Release Check
+        run: |
+          python -m build --sdist
+          twine check dist/*
+      - name: Unit Tests
+        run: |
+          pytest tests/test_unit.py -v
+      - name: Startup Integration Test Requirements
+        run: |
+          docker-compose up --build -d
+      - name: Integration Tests
+        run: |
+          # run with root so no permissions issues
+          export PYTEST_PATH=$(which pytest)
+          sudo $PYTEST_PATH tests/test_integration.py -v

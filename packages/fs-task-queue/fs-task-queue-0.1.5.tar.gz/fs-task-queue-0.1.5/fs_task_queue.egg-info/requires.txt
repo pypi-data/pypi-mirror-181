@@ -1,0 +1,13 @@
+
+[dev]
+pytest
+black
+flake8
+build
+twine
+
+[extra]
+filelock
+paramiko
+dask
+distributed
