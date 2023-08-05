@@ -1,0 +1,77 @@
+[build-system]
+requires = ["setuptools>=62", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
+write_to = "src/saxonhe4py/_version.py"
+
+[project]
+name = "saxonhe4py"
+description = "A Saxon HE packaged for Python"
+authors = [{name = "Andrey Kolotev", email = "kolotev@gmail.com"}]
+readme = "README.md"
+license = {file = "LICENSE"}
+dynamic = ["version",]
+classifiers = [
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Intended Audience :: Developers",
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Libraries :: Java Libraries",
+    "Topic :: Text Processing :: Markup :: XML",
+    "Topic :: Software Development :: Libraries :: Java Libraries",
+    "Operating System :: Unix",
+    ]
+
+requires-python = ">=3.8"
+
+dependencies = [
+]
+
+
+[project.urls]
+Home = "https://github.com/kolotev/saxonhe4py"
+Source = "https://github.com/kolotev/saxonhe4py"
+
+[project.optional-dependencies]
+
+test = [
+    "pytest >=7.2.0",
+    "pytest-xdist",
+    "pytest-cov",
+    "pytest-html",
+    "black",
+    "isort",
+    "flake8",
+]
+
+dev = [
+    "tox>=3.3.0,<4",
+    "setuptools_scm>=6.2",
+    "build",
+    "twine",
+]
+
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+saxon_he = ["**/*"]
+
+[tool.isort]
+profile = "black"
+
+[tool.poetry]
+name = "saxonhe4py"
+version = "0.0.0"
+description = ""
+authors = []
