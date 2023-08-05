@@ -1,0 +1,635 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2022-11-03 03:51+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=cp949\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: E:\eudplib\eudplib\core\allocator\constexpr.py:104
+msgid "Address not divisible; {} is not a factor of {}"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\allocator\constexpr.py:169
+msgid "Reforwarding without reset is not allowed"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\allocator\constexpr.py:170
+msgid "Cannot forward to None"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\allocator\constexpr.py:184
+msgid "Forward not initialized"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\allocator\payload.py:81
+#: E:\eudplib\eudplib\core\allocator\payload.py:98
+msgid "Invalid type"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\allocator\payload.py:152
+msgid "[Stage 1/3] CollectObjects"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\allocator\payload.py:169
+#: E:\eudplib\eudplib\core\allocator\payload.py:201
+msgid " - Collected {} / {} objects"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\allocator\payload.py:188
+msgid "No object collected"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\allocator\payload.py:205
+msgid "ShufflePayload has been turned off."
+msgstr ""
+
+#: E:\eudplib\eudplib\core\allocator\payload.py:305
+msgid "[Stage 2/3] AllocObjects"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\allocator\payload.py:316
+#: E:\eudplib\eudplib\core\allocator\payload.py:319
+msgid " - Allocated {} / {} objects"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\allocator\payload.py:337
+msgid "Occupation map length ({}) & Object size mismatch for object ({})"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\allocator\payload.py:341
+#: E:\eudplib\eudplib\core\allocator\payload.py:343
+msgid " - Preprocessed {} / {} objects"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\allocator\payload.py:345
+msgid " - Allocating objects.."
+msgstr ""
+
+#: E:\eudplib\eudplib\core\allocator\payload.py:361
+msgid "[Stage 3/3] ConstructPayload"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\allocator\payload.py:374
+msgid "obj.GetDataSize()({}) != Real payload size({}) for object {}"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\allocator\payload.py:379
+#: E:\eudplib\eudplib\core\allocator\payload.py:381
+msgid " - Written {} / {} objects"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\allocator\pbuffer.py:75
+msgid "Non-const dwords must be aligned to 4byte"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\allocator\pbuffer.py:81
+msgid "rlocmode should be 1 or 4"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\allocator\pbuffer.py:148
+msgid "Cannot write non-const in byte/word/nonalligned dword."
+msgstr ""
+
+#: E:\eudplib\eudplib\core\allocator\rlocint.py:61
+#: E:\eudplib\eudplib\core\allocator\rlocint.py:68
+msgid "Cannot divide RlocInt with non-const"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\allocator\rlocint.py:70
+msgid "Divide by zero"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\allocator\rlocint.py:73
+msgid "RlocInt not divisible by {}"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\eudfunc\eudf.py:40
+#: E:\eudplib\eudplib\core\eudfunc\eudf.py:74
+#: E:\eudplib\eudplib\core\eudfunc\eudf.py:102
+#: E:\eudplib\eudplib\core\eudfunc\eudfmethod.py:42
+msgid "No variadic arguments (*args) allowed for EUDFunc."
+msgstr ""
+
+#: E:\eudplib\eudplib\core\eudfunc\eudf.py:43
+#: E:\eudplib\eudplib\core\eudfunc\eudf.py:77
+#: E:\eudplib\eudplib\core\eudfunc\eudf.py:105
+#: E:\eudplib\eudplib\core\eudfunc\eudfmethod.py:45
+msgid "No variadic keyword arguments (**kwargs) allowed for EUDFunc."
+msgstr ""
+
+#: E:\eudplib\eudplib\core\eudfunc\eudf.py:98
+msgid "Different number of variables({}) from initial values({})"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\eudfunc\eudfptr.py:122
+msgid "{} is not an EUDFuncN"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\eudfunc\eudfptr.py:130
+msgid "Function requires {} arguments (Expected {})"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\eudfunc\eudfptr.py:134
+msgid "Function returns {} values (Expected {})"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\eudfunc\eudfuncn.py:137
+msgid "Block start/end mismatch inside function"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\eudfunc\eudfuncn.py:163
+msgid "Number of returned values should be constant."
+msgstr ""
+
+#: E:\eudplib\eudplib\core\eudfunc\eudfuncn.py:164
+msgid " (From function %s)"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\eudfunc\eudfuncn.py:194
+#: E:\eudplib\eudplib\core\eudfunc\eudfuncn.py:236
+msgid "Return number mismatch : "
+msgstr ""
+
+#: E:\eudplib\eudplib\core\eudfunc\eudfuncn.py:224
+msgid "Argument number mismatch : "
+msgstr ""
+
+#: E:\eudplib\eudplib\core\eudfunc\eudtypedfuncn.py:51
+msgid "Different number of variables({}) from type declarations({})"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\eudfunc\eudtypedfuncn.py:104
+msgid "Different number of arguments({}) from mask declarations({})."
+msgstr ""
+
+#: E:\eudplib\eudplib\core\eudstruct\eudstruct.py:159
+msgid "Unknown field name {}"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\eudstruct\eudstruct.py:174
+msgid "Cannot reassign another value to eudstruct."
+msgstr ""
+
+#: E:\eudplib\eudplib\core\eudstruct\vararray.py:46
+msgid "{} items expected, got {}"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\eudstruct\vararray.py:49
+#: E:\eudplib\eudplib\eudlib\eudarray.py:50
+msgid "Invalid item #{}"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\eudstruct\vararray.py:51
+#: E:\eudplib\eudplib\core\rawtrigger\rawtriggerdef.py:88
+msgid "nextptr should be ConstExpr"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\eudstruct\vararray.py:130
+msgid "EUDVArray index out of bounds."
+msgstr ""
+
+#: E:\eudplib\eudplib\core\eudstruct\vararray.py:347
+msgid "Can't iterate EUDVArray"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\mapdata\chktok.py:42
+msgid "Length of section name cannot be longer than 4"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\mapdata\fixmapdata.py:110
+msgid "[Warning] Input map has 0000.00 null tiles"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\mapdata\fixmapdata.py:112
+msgid "Replaced them to 0000.01, because they cause desync."
+msgstr ""
+
+#: E:\eudplib\eudplib\core\mapdata\mpqapi.py:92
+msgid "You need to install stormlib before using eudplib."
+msgstr ""
+
+#: E:\eudplib\eudplib\core\mapdata\mpqapi.py:140
+msgid "Loading StormLib failed."
+msgstr ""
+
+#: E:\eudplib\eudplib\core\mapdata\mpqapi.py:154
+#: E:\eudplib\eudplib\core\mapdata\mpqapi.py:167
+msgid "Duplicate opening"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\mapdata\proptable.py:60
+msgid "Invalid property type"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\mapdata\proptable.py:74
+msgid "Unit property table overflow"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\mapdata\stringmap.py:48
+msgid "Ambigious string {}"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\mapdata\tblformat.py:256
+#: E:\eudplib\eudplib\core\mapdata\tblformat.py:352
+msgid "Invalid type for string"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\mapdata\tblformat.py:294
+#: E:\eudplib\eudplib\core\mapdata\tblformat.py:364
+msgid "String table overflow"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\rawtrigger\action.py:184
+msgid "Invalid {} \"{}\" in action{} \"{}\""
+msgstr ""
+
+#: E:\eudplib\eudplib\core\rawtrigger\action.py:190
+msgid "Actions cannot be shared by two triggers."
+msgstr ""
+
+#: E:\eudplib\eudplib\core\rawtrigger\action.py:193
+#: E:\eudplib\eudplib\core\rawtrigger\condition.py:138
+msgid "Trigger should not be null."
+msgstr ""
+
+#: E:\eudplib\eudplib\core\rawtrigger\action.py:194
+msgid "Triggers out of range"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\rawtrigger\condition.py:129
+msgid "Invalid {} \"{}\" in condition{} \"{}\""
+msgstr ""
+
+#: E:\eudplib\eudplib\core\rawtrigger\condition.py:135
+msgid "Condition cannot be shared by two triggers."
+msgstr ""
+
+#: E:\eudplib\eudplib\core\rawtrigger\condition.py:139
+msgid "Condition index should be 0 to 15"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\rawtrigger\condition.py:147
+msgid "Orphan condition. This often happens when you try to do arithmetics with conditions."
+msgstr ""
+
+#: E:\eudplib\eudplib\core\rawtrigger\condition.py:166
+msgid "To prevent error, Condition can't be put into if."
+msgstr ""
+
+#: E:\eudplib\eudplib\core\rawtrigger\condition.py:200
+msgid "Bring and Command can't exchange AtMost and Exactly/AtLeast"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\rawtrigger\condition.py:205
+msgid "Invalid comparison \"{}\" in trigger index {}"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\rawtrigger\condition.py:214
+msgid "Can't negate EUDX condition"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\rawtrigger\condition.py:219
+msgid "Can't negate condition with comparison"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\rawtrigger\condition.py:221
+msgid "Can't negate condition"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\rawtrigger\constenc.py:191
+#: E:\eudplib\eudplib\core\rawtrigger\constenc.py:327
+#: E:\eudplib\eudplib\core\rawtrigger\strenc.py:74
+#: E:\eudplib\eudplib\core\rawtrigger\strenc.py:96
+#: E:\eudplib\eudplib\core\rawtrigger\strenc.py:100
+msgid "[Warning] \"{}\" is not a {}"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\rawtrigger\rawtriggerdef.py:105
+msgid "Too many conditions"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\rawtrigger\rawtriggerdef.py:106
+msgid "Too many actions"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\rawtrigger\stockact.py:81
+#: E:\eudplib\eudplib\core\rawtrigger\stockact.py:111
+msgid "Don't use Wait action UNLESS YOU KNOW WHAT YOU'RE DOING!"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\rawtrigger\stockact.py:687
+msgid "SetKills Player should be only P1~P12 or CurrentPlayer"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\rawtrigger\stockact.py:689
+msgid "SetKills Unit should be at most 227"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\rawtrigger\strenc.py:59
+msgid "AIScript name too short"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\rawtrigger\strenc.py:65
+#: E:\eudplib\eudplib\core\rawtrigger\strenc.py:90
+msgid "Cannot encode string {} as {}."
+msgstr ""
+
+#: E:\eudplib\eudplib\core\rawtrigger\strenc.py:67
+#: E:\eudplib\eudplib\core\rawtrigger\strenc.py:92
+msgid " - Suggestion: {}"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\variable\eudv.py:137
+msgid "Trying to modify value of l-value variable"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\variable\eudv.py:511
+#: E:\eudplib\eudplib\core\variable\eudv.py:528
+#: E:\eudplib\eudplib\core\variable\eudv.py:539
+#: E:\eudplib\eudplib\core\variable\eudv.py:555
+#: E:\eudplib\eudplib\core\variable\eudv.py:571
+msgid "{}: Comparing with temporary variable."
+msgstr ""
+
+#: E:\eudplib\eudplib\core\variable\eudv.py:547
+msgid "No unsigned number can be leq than {}"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\variable\eudv.py:563
+msgid "No unsigned number can be greater than {}"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\variable\eudv.py:842
+msgid "dst and src have intersection"
+msgstr ""
+
+#: E:\eudplib\eudplib\core\variable\eudv.py:862
+msgid "Input/output size mismatch"
+msgstr ""
+
+#: E:\eudplib\eudplib\ctrlstru\breakcont.py:64
+#: E:\eudplib\eudplib\ctrlstru\breakcont.py:76
+#: E:\eudplib\eudplib\ctrlstru\breakcont.py:88
+msgid "No loop/switch block surrounding this code area"
+msgstr ""
+
+#: E:\eudplib\eudplib\ctrlstru\cshelper.py:38
+#: E:\eudplib\eudplib\ctrlstru\cshelper.py:43
+msgid "Control structures must be double-parenthesised."
+msgstr ""
+
+#: E:\eudplib\eudplib\ctrlstru\loopblock.py:185
+msgid "No loop block surrounding this code area"
+msgstr ""
+
+#: E:\eudplib\eudplib\ctrlstru\simpleblock.py:65
+msgid "Cannot have EUDElseIf after EUDElse"
+msgstr ""
+
+#: E:\eudplib\eudplib\ctrlstru\simpleblock.py:98
+msgid "Cannot have EUDElse after EUDElse"
+msgstr ""
+
+#: E:\eudplib\eudplib\ctrlstru\simpleblock.py:157
+#: E:\eudplib\eudplib\ctrlstru\swblock.py:84
+#: E:\eudplib\eudplib\ctrlstru\swblock.py:101
+msgid "Block start/end mismatch"
+msgstr ""
+
+#: E:\eudplib\eudplib\ctrlstru\swblock.py:80
+msgid "Invalid selector start for EUDSwitch"
+msgstr ""
+
+#: E:\eudplib\eudplib\ctrlstru\swblock.py:89
+msgid "Duplicate cases"
+msgstr ""
+
+#: E:\eudplib\eudplib\ctrlstru\swblock.py:90
+msgid "cases out of mask"
+msgstr ""
+
+#: E:\eudplib\eudplib\ctrlstru\swblock.py:104
+msgid "Duplicate default"
+msgstr ""
+
+#: E:\eudplib\eudplib\epscript\epsimp.py:112
+msgid "[epScript] Compiling \"{}\"..."
+msgstr ""
+
+#: E:\eudplib\eudplib\epscript\epsimp.py:115
+msgid " - Compiled failed for {}"
+msgstr ""
+
+#: E:\eudplib\eudplib\eudlib\epdoffsetmap.py:81
+msgid "EPD check warning. Don't use raw pointer address"
+msgstr ""
+
+#: E:\eudplib\eudplib\eudlib\epdoffsetmap.py:115
+msgid "Invalid EPDOffsetMap member type: {}"
+msgstr ""
+
+#: E:\eudplib\eudplib\eudlib\epdoffsetmap.py:118
+msgid "EPDOffsetMap members should be aligned"
+msgstr ""
+
+#: E:\eudplib\eudplib\eudlib\epdoffsetmap.py:144
+#: E:\eudplib\eudplib\eudlib\epdoffsetmap.py:154
+msgid "Only dword can be read as epd"
+msgstr ""
+
+#: E:\eudplib\eudplib\eudlib\epdoffsetmap.py:164
+msgid "Only dword can be read as position"
+msgstr ""
+
+#: E:\eudplib\eudplib\eudlib\eudarray.py:94
+msgid "Can't iterate EUDArray"
+msgstr ""
+
+#: E:\eudplib\eudplib\eudlib\locf\locf.py:171
+#: E:\eudplib\eudplib\eudlib\locf\locf.py:202
+#: E:\eudplib\eudplib\eudlib\locf\locf.py:233
+msgid "number of coordinates should be 2 or 4."
+msgstr ""
+
+#: E:\eudplib\eudplib\eudlib\memiof\byterw.py:250
+msgid "copyto target should be EUDByteReader/Writer/Stream"
+msgstr ""
+
+#: E:\eudplib\eudplib\eudlib\memiof\dwepdio.py:236
+#: E:\eudplib\eudplib\eudlib\memiof\dwepdio.py:244
+#: E:\eudplib\eudplib\eudlib\memiof\dwepdio.py:252
+msgid "safe read functions are deprecated in 0.61 and will be removed in 0.63"
+msgstr ""
+
+#: E:\eudplib\eudplib\eudlib\objpool.py:80
+#: E:\eudplib\eudplib\eudlib\objpool.py:90
+msgid "Only structs less than {} fields can be allocated"
+msgstr ""
+
+#: E:\eudplib\eudplib\eudlib\stringf\cpstr.py:56
+msgid "Invalid string section name: {}"
+msgstr ""
+
+#: E:\eudplib\eudplib\eudlib\stringf\cpstr.py:92
+msgid "Unexpected type for CPString: {}"
+msgstr ""
+
+#: E:\eudplib\eudplib\eudlib\stringf\eudprint.py:314
+msgid "Object with unknown parameter type {} given to f_eudprint."
+msgstr ""
+
+#: E:\eudplib\eudplib\eudlib\stringf\fmtprint.py:53
+msgid "Max string recursion exceeded"
+msgstr ""
+
+#: E:\eudplib\eudplib\eudlib\stringf\fmtprint.py:69
+#: E:\eudplib\eudplib\eudlib\stringf\fmtprint.py:74
+msgid "cannot switch from manual field specification to automatic field numbering"
+msgstr ""
+
+#: E:\eudplib\eudplib\eudlib\stringf\pname.py:128
+msgid "IsPName player should be Player1 to Player8 or CurrentPlayer, not {}"
+msgstr ""
+
+#: E:\eudplib\eudplib\eudlib\utilf\listloop.py:73
+msgid "listloop mismatch"
+msgstr ""
+
+#: E:\eudplib\eudplib\eudlib\utilf\pexist.py:77
+msgid "No player met condition for input map settings:"
+msgstr ""
+
+#: E:\eudplib\eudplib\eudlib\utilf\pexist.py:79
+msgid " type {}"
+msgstr ""
+
+#: E:\eudplib\eudplib\eudlib\utilf\pexist.py:81
+msgid " force {}"
+msgstr ""
+
+#: E:\eudplib\eudplib\eudlib\utilf\pexist.py:83
+msgid " race {}"
+msgstr ""
+
+#: E:\eudplib\eudplib\eudlib\utilf\pexist.py:84
+msgid "Check out whether Start Locations are placed correctly."
+msgstr ""
+
+#: E:\eudplib\eudplib\maprw\injector\vectorReloc.py:204
+msgid "MRGN section size bug"
+msgstr ""
+
+#: E:\eudplib\eudplib\maprw\loadmap.py:40
+msgid "Loading map {}"
+msgstr ""
+
+#: E:\eudplib\eudplib\maprw\loadmap.py:41
+msgid "input path is not a map file"
+msgstr ""
+
+#: E:\eudplib\eudplib\maprw\loadmap.py:45
+msgid "input map does not exist"
+msgstr ""
+
+#: E:\eudplib\eudplib\maprw\loadmap.py:49
+msgid "You lacks permission to get access rights for input map"
+msgstr ""
+
+#: E:\eudplib\eudplib\maprw\loadmap.py:50
+#: E:\eudplib\eudplib\maprw\savemap.py:88
+#: E:\eudplib\eudplib\maprw\savemap.py:104
+msgid "Try to turn off antivirus or StarCraft"
+msgstr ""
+
+#: E:\eudplib\eudplib\maprw\loadmap.py:55
+msgid "Fail to open input map"
+msgstr ""
+
+#: E:\eudplib\eudplib\maprw\loadmap.py:58
+msgid "Fail to extract scenario.chk, maybe invalid scx"
+msgstr ""
+
+#: E:\eudplib\eudplib\maprw\mpqadd.py:61
+msgid "MPQ filename duplicate : \"{}\""
+msgstr ""
+
+#: E:\eudplib\eudplib\maprw\mpqadd.py:82
+msgid "Invalid content type"
+msgstr ""
+
+#: E:\eudplib\eudplib\maprw\mpqadd.py:122
+msgid "Failed adding file {} to mpq: May be duplicate"
+msgstr ""
+
+#: E:\eudplib\eudplib\maprw\savemap.py:63
+msgid "Saving to {}..."
+msgstr ""
+
+#: E:\eudplib\eudplib\maprw\savemap.py:87
+#: E:\eudplib\eudplib\maprw\savemap.py:103
+msgid "You lacks permission to get access rights for output map"
+msgstr ""
+
+#: E:\eudplib\eudplib\maprw\savemap.py:93
+#: E:\eudplib\eudplib\maprw\savemap.py:109
+msgid "Fail to access output map ({})"
+msgstr ""
+
+#: E:\eudplib\eudplib\maprw\savemap.py:96
+msgid "Fail to export input map data to output map"
+msgstr ""
+
+#: E:\eudplib\eudplib\maprw\savemap.py:112
+msgid "Fail to add scenario.chk"
+msgstr ""
+
+#: E:\eudplib\eudplib\maprw\savemap.py:114
+msgid "Fail to compact MPQ"
+msgstr ""
+
+#: E:\eudplib\eudplib\maprw\savemap.py:119
+msgid "Writing trace file to {}"
+msgstr ""
+
+#: E:\eudplib\eudplib\trigger\tpatcher.py:68
+msgid "Can't put Action in conditionals: {}"
+msgstr ""
+
+#: E:\eudplib\eudplib\trigger\triggerdef.py:48
+msgid "preserved should be bool"
+msgstr ""
+
+#: E:\eudplib\eudplib\utils\blockstru.py:76
+#: E:\eudplib\eudplib\utils\blockstru.py:90
+msgid "Block starting/ending mismatch"
+msgstr ""
+
+#: E:\eudplib\eudplib\utils\blockstru.py:77
+#: E:\eudplib\eudplib\utils\blockstru.py:91
+msgid "    - Started with {}"
+msgstr ""
+
+#: E:\eudplib\eudplib\utils\blockstru.py:78
+#: E:\eudplib\eudplib\utils\blockstru.py:92
+msgid "    - Ended with {}"
+msgstr ""
+
+#: E:\eudplib\eudplib\utils\exprproxy.py:41
+msgid "Type {} is not castable"
+msgstr ""
+
+#: E:\eudplib\eudplib\utils\ubconv.py:46 E:\eudplib\eudplib\utils\ubconv.py:55
+#: E:\eudplib\eudplib\utils\ubconv.py:64
+msgid "Invalid type {}"
+msgstr ""
+
