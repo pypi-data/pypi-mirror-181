@@ -1,0 +1,3 @@
+[console_scripts]
+inseq=inseq.commands.cli:main
+
