@@ -1,0 +1,66 @@
+Metadata-Version: 2.1
+Name: systemd-py
+Version: 0.3.1
+Summary: systemd-py is a library which helps you to create systemd services in python.
+Home-page: https://amiwrpremium.github.io/systemd-py/
+License: MIT
+Keywords: systemd,service,unit,python,service unit,systemd unit,service file,systemd service
+Author: amiwrpremium
+Author-email: amiwrpremium@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
+Requires-Dist: mkdocs (>=1.4.2,<2.0.0)
+Requires-Dist: mkdocs-gen-files (>=0.4.0,<0.5.0)
+Requires-Dist: mkdocs-git-committers-plugin-2 (>=1.1.1,<2.0.0)
+Requires-Dist: mkdocs-git-revision-date-localized-plugin (>=1.1.0,<2.0.0)
+Requires-Dist: mkdocs-literate-nav (>=0.5.0,<0.6.0)
+Requires-Dist: mkdocs-material (>=8.5.11,<9.0.0)
+Requires-Dist: mkdocs-section-index (>=0.3.4,<0.4.0)
+Requires-Dist: mkdocstrings[python] (>=0.19.0,<0.20.0)
+Requires-Dist: pydantic (>=1.10.2,<2.0.0)
+Requires-Dist: typer[all] (>=0.7.0,<0.8.0)
+Project-URL: Documentation, https://amiwrpremium.github.io/systemd-py/
+Project-URL: Repository, https://github.com/amiwrpremium/systemd-py
+Description-Content-Type: text/markdown
+
+# Systemd-py
+`systemd-py` is a library which helps you to create systemd services in python.
+
+
+## Installation
+### Install from PyPI
+    pip install systemd-py
+
+### Install from source (build using poetry)
+    git clone
+    cd systemd-py
+    poetry build
+    pip install dist/systemd-py-<version>-py3-none-any.whl
+
+### Install from GitHub
+    pip install git+hhttps://github.com/amiwrprez/systemd-py.git
+
+
+## Documentation
+### Online
+See [documentation](https://amiwrpremium.github.io/systemd-py/).
+
+### Offline
+You can generate documentation locally using `mkdocs`:
+    mkdocs build
+
+
+## Examples
+### From docs
+See [Documentation Examples](https://amiwrpremium.github.io/systemd-py/examples/)
+### Example Folder
+See [examples](https://github.com/amiwrpremium/systemd-py/tree/master/examples) for examples.
+

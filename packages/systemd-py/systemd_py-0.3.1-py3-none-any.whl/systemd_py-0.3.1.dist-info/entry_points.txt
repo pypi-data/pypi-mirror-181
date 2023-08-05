@@ -1,0 +1,3 @@
+[console_scripts]
+systemd-py=systemd_py.commands.main:app
+
