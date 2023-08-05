@@ -1,0 +1,94 @@
+# Unreal Engine Assets Validator Library
+
+Command-line Interface (CLI) responsible for validating Unreal Engine asset files.
+
+A [`uasset` file](https://docs.unrealengine.com/5.1/en-US/assets-and-content-packs-in-unreal-engine/) is an asset file used by Unreal Editor. It contains an asset, such as a level, material, animation, sound, or particle system, used in an Unreal Engine game.  Any piece of content in an Unreal Engine project is an asset.
+
+## Overview
+
+As you develop projects in Unreal Engine (UE), the list of Assets in your Content Browser will expand.  This runs the risk of creating redundant variations of assets you're experimenting with, or introducing ambiguity with overly similar names.  For example, it is possible for you to have a folder named "Soldier" with a Blueprint, a texture, and a model that all have the name "Soldier" in them, but no clear way to tell which is which in a simple list.
+
+For large projects, Epic Games recommends you establish a [common naming convention](https://docs.unrealengine.com/5.1/en-US/recommended-asset-naming-conventions-in-unreal-engine-projects/) for individual Assets early in development.  This will make it easier for you and your team to locate files and prevent potential conflicts or ambiguity.
+
+```text
+[AssetTypePrefix]_[AssetName]_[Descriptor]_[OptionalVariantLetterOrNumber]
+```
+
+- `AssetTypePrefix` identifies the type of Asset, refer to the table below for details.
+- `AssetName` is the Asset's name.
+- `Descriptor` provides additional context for the Asset, to help identify how it is used. For example, whether a texture is a normal map or an opacity map.
+- `OptionalVariantLetterOrNumber` is optionally used to differentiate between multiple versions or variations of an asset.
+
+Consider using this naming convention for your own project's Assets, as it will provide multiple ways for your team to locate an Asset when searching the Content Browser.
+
+## Recommended Asset Prefixes
+
+This list is not exhaustive, as new features can require new Asset types.  If you are using an Asset type not listed, use the existing list as a guideline for your naming convention for that Asset.
+
+| ASSET                                                                                                                         | PREFIX  |
+|-------------------------------------------------------------------------------------------------------------------------------|---------|
+| **General**                                                                                                                   |
+| [High Dynamic Range Image (HDRI)](https://docs.unrealengine.com/5.1/en-US/hdri-backdrop-visualization-tool-in-unreal-engine/) | `HDR_`  |
+| [Material](https://docs.unrealengine.com/5.1/en-US/unreal-engine-materials/)                                                  | `M_`    |
+| [Material Instance](https://docs.unrealengine.com/5.1/en-US/instanced-materials-in-unreal-engine/)                            | `MI_`   |
+| [Physics Asset](https://docs.unrealengine.com/5.1/en-US/physics-asset-editor-in-unreal-engine/)                               | `PHYS_` |
+| [Physics Material](https://docs.unrealengine.com/5.1/en-US/physical-materials-in-unreal-engine/)                              | `PM_`   |
+| [Post Process Material](https://docs.unrealengine.com/5.1/en-US/post-process-materials-in-unreal-engine/)                     | `PPM_`  |
+| [Skeletal Mesh](https://docs.unrealengine.com/5.1/en-US/skeletal-meshes/)                                                     | `SK_`   |
+| [Static Mesh](https://docs.unrealengine.com/5.1/en-US/static-meshes/)                                                         | `SM_`   |
+| [Texture](https://docs.unrealengine.com/5.1/en-US/textures-in-unreal-engine/)                                                 | `T_`    |
+| [OCIO Profile](https://docs.unrealengine.com/5.1/en-US/color-management-with-opencolorio-in-unreal-engine/)                   | `OCIO_` |
+| **[Blueprints](https://docs.unrealengine.com/5.1/en-US/blueprints-visual-scripting-in-unreal-engine/)**                       | 
+| Actor Component                                                                                                               | `AC_`   |
+| Animation Blueprint                                                                                                           | `ABP_`  |
+| Blueprint Interface                                                                                                           | `BI_`   |
+| Blueprint                                                                                                                     | `BP_`   |
+| Curve Table                                                                                                                   | `CT_`   |
+| Data Table                                                                                                                    | `DT_`   |
+| Enum                                                                                                                          | `E_`    |
+| Structure                                                                                                                     | `F_`    |
+| Widget Blueprint                                                                                                              | `WBP_`  |
+| **[Particle Effects](https://docs.unrealengine.com/5.1/en-US/creating-visual-effects-in-niagara-for-unreal-engine/)**         |
+| Particle System (Cascade)                                                                                                     | `PS_`   |
+| Niagara Emitter                                                                                                               | `FXE_`  |
+| Niagara System                                                                                                                | `FXS_`  |
+| Niagara Function                                                                                                              | `FXF_`  |
+| **[Skeletal Mesh Animations](https://docs.unrealengine.com/5.1/en-US/skeletal-mesh-animation-system-in-unreal-engine/)**      |
+| Rig                                                                                                                           | `Rig_`  |
+| Skeleton                                                                                                                      | `SKEL_` |
+| Montages                                                                                                                      | `AM_`   |
+| Animation Sequence                                                                                                            | `AS_`   |
+| Blend Space                                                                                                                   | `BS_`   |
+| **[In-Camera VFX](https://docs.unrealengine.com/5.1/en-US/in-camera-vfx-in-unreal-engine/)**                                  |
+| NDisplay Configuration                                                                                                        | `NDC_`  |
+| **[Animation](https://docs.unrealengine.com/5.1/en-US/cinematics-and-movie-making-in-unreal-engine/)**                        |
+| Level Sequence                                                                                                                | `LS_`   |
+| Sequencer Edits                                                                                                               | `EDIT_` |
+| **[Media](https://docs.unrealengine.com/5.1/en-US/media-framework-in-unreal-engine/)**                                        |
+| Media Source                                                                                                                  | `MS_`   |
+| Media Output                                                                                                                  | `MO_`   |
+| Media Player                                                                                                                  | `MP_`   | 
+| Media Profile                                                                                                                 | `MPR_`  |
+| **Other**                                                                                                                     |
+| [Level Snapshots](https://docs.unrealengine.com/5.1/en-US/level-snapshots-in-unreal-engine/)                                  | `SNAP_` |
+| [Remote Control Preset](https://docs.unrealengine.com/5.1/en-US/remote-control-for-unreal-engine/)                            | `RCP_`  |
+
+## Installation
+
+```shell
+poetry install
+poetry shell
+```
+
+## Execution
+
+```shell
+./validate.py --path ~/path/to/human/trainer/assets/root/folder
+```
+
+## Distribution
+
+```shell
+poetry shell
+poetry publish --build --username $PYPI_USERNAME --password $PYPI_PASSWORD
+```
