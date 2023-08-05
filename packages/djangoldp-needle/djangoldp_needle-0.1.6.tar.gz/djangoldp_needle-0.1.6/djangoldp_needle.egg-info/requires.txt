@@ -1,0 +1,7 @@
+djangoldp>=1.0
+djangoldp_account
+beautifulsoup4
+requests
+
+[dev]
+requests-mock
