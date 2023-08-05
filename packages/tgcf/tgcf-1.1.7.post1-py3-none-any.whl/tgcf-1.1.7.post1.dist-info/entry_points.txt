@@ -1,0 +1,4 @@
+[console_scripts]
+tgcf=tgcf.cli:app
+tgcf-web=tgcf.web_ui.run:main
+
