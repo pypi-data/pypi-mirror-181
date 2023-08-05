@@ -1,0 +1,15 @@
+LICENSE.txt
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/bigsmiles/__init__.py
+src/bigsmiles/bigsmiles.py
+src/bigsmiles/config.py
+src/bigsmiles/tokenizer.py
+src/bigsmiles/tree_to_string.py
+src/bigsmiles.egg-info/PKG-INFO
+src/bigsmiles.egg-info/SOURCES.txt
+src/bigsmiles.egg-info/dependency_links.txt
+src/bigsmiles.egg-info/not-zip-safe
+src/bigsmiles.egg-info/top_level.txt
