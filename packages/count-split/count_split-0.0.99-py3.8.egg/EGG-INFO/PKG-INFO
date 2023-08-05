@@ -1,0 +1,122 @@
+Metadata-Version: 2.1
+Name: count-split
+Version: 0.0.99
+Summary: Count splitting for random sampled count matrices
+Home-page: https://scottyler892@bitbucket.org/scottyler892/count_split
+Author: Scott Tyler
+Author-email: scottyler89@gmail.com
+License: UNKNOWN
+Description: # README #
+        
+        ### What is this repository for? ###
+        
+        Anti-correlated genes as a method of feature selection
+        * Unsupervised feature selection for single cell omics (or anything else!) that passes the null dataset test
+        
+        ### How do I get set up? ###
+        
+        `python3 -m pip install anticor_features`
+        
+        You can also install using the setup.py script in the distribution like so:
+        `python3 setup.py install`
+        
+        
+        ### How do I run use this package? ###
+        
+        ```
+        from anticor_features.anticor_features import get_anti_cor_genes
+        
+        ## Then feed in the expression matrix, with cells in columns, genes in rows
+        ## and the feature names (all_features)
+        ## and the species code (in gProfiler format, linked below)
+        
+        anti_cor_table = get_anti_cor_genes(in_mat,
+                                            all_features,
+                                            species="hsapiens")
+        
+        ```
+        A list of the gProfiler accepted species codes is listed here: https://biit.cs.ut.ee/gprofiler/page/organism-list
+        
+        The above call yields a pandas data frame that will give you the collected summary statistics, and let you filter based on the features annotated as "selected" in that column
+        ```
+        >>> print(anti_cor_table.head())
+             gene  pre_remove_feature  pre_remove_pathway  ...       FDR  num_sig_pos_cor  selected
+        0    Xkr4               False               False  ...       NaN              NaN       NaN
+        1     Rp1               False               False  ...       NaN              NaN       NaN
+        2   Sox17               False               False  ...  0.001883           3406.0      True
+        3  Mrpl15               False                True  ...       NaN              NaN       NaN
+        4  Lypla1               False                True  ...       NaN              NaN       NaN
+        ```
+        The NaNs are produced where the gene was not assayed for anti-correlations either from pre-filtering
+        (the default is to remove genes in pathways related to mitochondria, ribosomes, and hemoglobin).
+        
+        If you want to customize which GO terms are removed, or specify specific genes to exclude, you can do that with the pre_remove_features and pre_remove_pathways arguments
+        ```
+        anti_cor_table = get_anti_cor_genes(in_mat,
+                                            all_features,
+                                            species="hsapiens",
+                                            pre_remove_features = ["ACTB","MT-COX1"])
+        
+        ```
+        
+        ## Scanpy (or anything from python where you have a matrix) ##
+        * If you're using scanpy, then you can use the same basic syntax as above. The only thing worth noting is that our downsampling function assumes that the genes are in rows, and cells are in columns, which is flipped from AnnData's formatting, that's why we use the have the transpose() functions below:
+        
+        If you follow along [Scanpy's tutorial](https://scanpy-tutorials.readthedocs.io/en/latest/pbmc3k.html), then the only thing different would be swapping out:
+        
+        ```
+        [16]: sc.pp.highly_variable_genes(adata, min_mean=0.0125, max_mean=3, min_disp=0.5)
+        [17]: sc.pl.highly_variable_genes(adata)
+        [18]: adata.raw = adata
+        [19]: adata = adata[:, adata.var.highly_variable]
+        ```
+        for
+        ```
+        from anticor_features.anticor_features import get_anti_cor_genes
+        
+        anti_cor_table = get_anti_cor_genes(adata.X.T,
+                                            adata.var.index.tolist(),
+                                            species="hsapiens")
+        
+        selected_table = anti_cor_table[anti_cor_table["selected"]==True]
+        print(selected_table)
+        
+        ## And you can save the anti-correlation dataframe into the adata object as well:
+        import pandas as pd
+        adata.var = pd.concat([adata.var,anti_cor_table], axis=1)
+        
+        ## And then we subset the data to only include the selected features!
+        adata.raw = adata
+        adata = adata[:, selected_table.index]
+        
+        ## Note that the downstream clusters and marker genes will be slightly different!
+        ```
+        
+        * *An important note if you're working in a cluster environment*
+        ** Anti-correlated genes are selected out of memory - to do this, the pipeline needs a hard-disk area to work in. On a stand-alone computer it'll automatically find the system temp drive, but this might not be the behavior you want on a cluster, or if you're analyzing several datasets simultaneously because they would overwrite each other.
+        ** In those cases, you should supply the additional argument `scratch_dir=</local/path/to/dataset/directory>`. This ensures that each dataset will be analyzed properly and there won't be conflicts in terms of where files get written.
+        
+        ### Command line interface ###
+        You can also use this tool at the command line, if you have either a .tsv or an hdf5 file, with the matrix under the key "infile"
+        
+        ```
+        python3 -m anticor_features.anticor_features -i exprs.tsv -species mmusculus
+        ```
+        or something similar. This outputs the pandas table to a tsv in the same folder as the input file
+        
+        See the help section for more detailed usage of the command line interface:
+        ```
+        python3 -m anticor_features.anticor_features -h
+        ```
+        
+        ### License ###
+        This package is available via the AGPLv3 license.
+        
+        ### Who do I talk to? ###
+        
+        * Repo owner/admin: scottyler89+bitbucket@gmail.com
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
