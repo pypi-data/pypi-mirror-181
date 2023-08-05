@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: altdss
+Version: 0.0.1
+Summary: AltDSS: Work-in-progress Python package to expose DSS_Python and OpenDSSDirect.py common features
+Home-page: UNKNOWN
+Author: Paulo Meira
+Author-email: pmeira@ieee.org
+License: UNKNOWN
+Keywords: OpenDSS
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Dist: future
+Requires-Dist: six
+Requires-Dist: dss-python (==0.12.1)
+Requires-Dist: opendssdirect.py (==0.7.0)
+
+UNKNOWN
+
+
