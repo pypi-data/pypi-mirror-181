@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: tink-http-python
+Version: 0.0.8
+Summary: Python SDK for accessing the tink API 
+Home-page: https://github.com/namelivia/tink-http-python
+Author: José Ignacio Amelivia Santiago
+Author-email: jignacio.amelivia@gmail.com
+Project-URL: Bug Reports, https://github.com/namelivia/tink-http-python/issues
+Keywords: tink,api
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.8, <4
+Description-Content-Type: text/markdown
+Requires-Dist: tink-python-api-types
+Requires-Dist: requests
+Requires-Dist: dataclass-map-and-log (==0.1.2)
+Requires-Dist: pyhumps
+
+# tink-http-python
+[![tag](https://img.shields.io/github/tag/namelivia/tink-http-python.svg)](https://github.com/namelivia/tink-http-python/releases) [![build](https://github.com/namelivia/tink-http-python/actions/workflows/build.yml/badge.svg)](https://github.com/namelivia/tink-http-python/actions/workflows/build.yml) [![codecov](https://codecov.io/gh/namelivia/tink-http-python/branch/main/graph/badge.svg?token=NlsLE3qD4V)](https://codecov.io/gh/namelivia/tink-http-python)
+ [![Lint](https://github.com/namelivia/tink-http-python/actions/workflows/black.yml/badge.svg)](https://github.com/namelivia/tink-http-python/actions/workflows/black.yml)
+
+
+Retrieve bank accounts information using python
