@@ -1,0 +1,707 @@
+#!python
+
+import click
+import os
+import requests
+from bs4 import BeautifulSoup as bs
+import json
+import smtplib
+import datetime
+from PyPDF2 import PdfFileMerger
+from PIL import Image
+from colorama import Fore as F
+
+home = os.getenv('HOME')
+archimedean_file_path = os.path.join(home, '.archimedean')
+creds_file_path = os.path.join(home, '.archimedean', 'creds.json')
+hw_file_path = os.path.join(home, '.archimedean', 'homework_file.txt')
+apes_chapters_path = os.path.join(home, '.archimedean', 'apes_chapters')
+downloads_folder = os.path.join(home, 'Downloads')
+
+
+class styles:
+    red = '\033[31m'
+    green = '\033[32m'
+    yellow = '\033[33m'
+    cyan = '\u001b[36m'
+    white = '\u001b[37m'
+    clear = '\x1b[2K'
+    line_up = '\033[1A'
+
+
+def get_creds():
+    "Get user's credentials from ~/.archimedean/creds.txt"
+    creds = json.load(open(creds_file_path, 'r'))
+    return creds['username'], creds['password']
+
+
+def time_in_range(start, end, x):
+    """Return true if x is in the range [start, end]"""
+    if start <= end:
+        return start <= x <= end
+    else:
+        return start <= x or x <= end
+
+
+@click.group()
+def archimedean():
+    "Get student homework and due dates from Archie to your command line"
+
+
+@archimedean.command()
+def login():
+    "Login to Archie"
+
+    print()
+
+    username = input(
+        styles.yellow + "Enter Archie's username: " + styles.white)
+    password = input(
+        styles.yellow + "Enter Archie's password: " + styles.white)
+
+    if not os.path.isdir(archimedean_file_path):
+        os.makedirs(archimedean_file_path)
+
+    creds = {
+        "username": username,
+        "password": password
+    }
+
+    open(creds_file_path, 'w+').write(json.dumps(creds, indent=4))
+
+    print(styles.green + "\nSaved credentials. You can now login to Archie.\n")
+
+
+@archimedean.command()
+def homework():
+    "Get homework"
+    if not os.path.isfile(creds_file_path):
+        print(
+            styles.red + "\nRun 'archimedean login' first to save your credentials.\n")
+        exit()
+
+    usr = tuple(get_creds())[0]
+    pswd = tuple(get_creds())[1]
+
+    login_data = {"login_name": usr,
+                  "passwd": pswd, "submit": "Login"}
+
+    url = "http://sis.archimedean.org/sis/default.php?"
+
+    with requests.Session() as s:
+        r = s.post(url, data=login_data)
+        soup = bs(r.content, 'html.parser')
+        # print(soup.prettify())
+        hw_url = "http://sis.archimedean.org/sis/course_wall.php"
+        r = s.get(hw_url)
+        soup = bs(r.content, 'html.parser')
+
+    html_hw_lst = soup.findAll('td', nowrap='nowrap')
+    html_duedate_lst = soup.findAll('td', nowrap='nowrap')
+    html_teacher_lst = soup.findAll('td', nowrap='nowrap')
+    duedate_lst_unf = []
+    hw_lst = []
+    teacher_lst = []
+    duedate_lst = []
+
+    for duedate in html_duedate_lst:
+        duedate.findNext('td')
+        duedate = duedate.findNext('td')
+        duedate = duedate.findNext('td')
+        duedate = duedate.findNext('td')
+        duedate_lst_unf.append(duedate.get_text())
+
+    for date_f in duedate_lst_unf:
+        date_f = date_f.split("-")
+        duedate_lst.append(str(date_f[1]) + "/" +
+                           str(date_f[2] + "/" + str(date_f[0])))
+
+    for hw in html_hw_lst:
+        hw_lst.append(hw.get_text())
+
+    for teacher in html_teacher_lst:
+        teacher = teacher.findNext('td')
+        teacher = teacher.findNext('td')
+        teacher = teacher.findNext('td')
+        teacher = teacher.findNext('td')
+        teacher = teacher.findNext('td')
+        teacher_lst.append(teacher.get_text())
+
+    i = 0
+    print(styles.cyan)
+    for hw in hw_lst:
+        print(f"{hw} due on {duedate_lst[i]} for {teacher_lst[i]}")
+        i += 1
+
+    print()
+
+
+@archimedean.command()
+def cinemath():
+    "Download all of a class's cinemath files"
+    if not os.path.isfile(creds_file_path):
+        print(
+            styles.red + "\nRun 'archimedean login' first to save your credentials.\n")
+        exit()
+
+    usr = tuple(get_creds())[0]
+    pswd = tuple(get_creds())[1]
+
+    payload = {
+        "username": usr,
+        "password": pswd
+    }
+
+    with requests.Session() as s:
+        r = s.post("https://cinemath.archimedean.org/index.php", data=payload)
+        school_name = input("Choose your school: (amc or auc) ")
+        r = s.get(
+            f"https://cinemath.archimedean.org/menu.php?school={school_name}")
+        soup = bs(r.content, 'html.parser')
+
+        classes = {}
+
+        for a in soup.findAll("a"):
+            if str(a).split()[2].startswith("onclick=\"load_lesson("):
+                classes.update({a.text: a['onclick'].split("'")[1]})
+
+    print()
+
+    i = 1
+    for cls in classes:
+        print(styles.yellow, i, " = ", cls)
+        i += 1
+
+    print()
+    usr_num = int(
+        input(styles.green + "Which class to choose? " + styles.white))
+    class_name = list(classes.items())[usr_num - 1][1]
+
+    r = requests.get(
+        f"https://cinemath.archimedean.org/toc_generic.php?class_name={class_name}")
+    soup = bs(r.content, 'html.parser')
+
+    total_lessons = soup.findAll('a')[-1].text.split()[-1]
+
+    for i in range(2, int(total_lessons) + 1):
+        r = requests.get(
+            f"https://cinemath.archimedean.org/load_jpeg.php?class_name={class_name}&lesson_number={i}")
+        soup = bs(r.content, 'html.parser')
+
+        if soup.prettify().strip() != "There is no teacher notes for this lesson":
+            for img in soup.findAll('img'):
+                src = img['src']
+                img_data = requests.get(src).content
+                lesson = src.split("/")[7]
+
+                if not os.path.isdir(os.path.join(home, 'Downloads', str(list(classes.items())[usr_num - 1][0]))):
+                    os.makedirs(os.path.join(home, 'Downloads', str(
+                        list(classes.items())[usr_num - 1][0])))
+
+                with open(os.path.join(home, 'Downloads', str(list(classes.items())[usr_num - 1][0]), f"{str(lesson)}.jpg"), 'wb') as handler:
+                    handler.write(img_data)
+
+                print(
+                    styles.cyan +
+                    f"\nDownloading files to '{os.path.join(home, 'Downloads', str(list(classes.items())[usr_num - 1][0]))}'. Lessons left:", styles.yellow, int(
+                        total_lessons) - i,
+                    end="")
+                print(styles.line_up, end=styles.clear)
+
+
+@archimedean.command()
+def email():
+    "Set up email to notify when there is new homeworks"
+    if not os.path.isfile(creds_file_path):
+        print(
+            styles.red + "\nRun 'archimedean login' first to save your credentials.\n")
+        exit()
+
+    user_email = input(
+        styles.yellow + "Enter the email account that will receive new homework messages: " + styles.white)
+
+    usr = tuple(get_creds())[0]
+    pswd = tuple(get_creds())[1]
+
+    login_data = {"login_name": usr,
+                  "passwd": pswd, "submit": "Login"}
+
+    url = "https://sis.archimedean.org/sis/default.php?"
+
+    with requests.Session() as s:
+        r = s.post(url, data=login_data)
+        soup = bs(r.content, 'html.parser')
+        # print(soup.prettify())
+        hw_url = "https://sis.archimedean.org/sis/course_wall.php"
+        r = s.get(hw_url)
+        soup = bs(r.content, 'html.parser')
+
+    html_hw_lst = soup.findAll('td', nowrap='nowrap')
+    html_duedate_lst = soup.findAll('td', nowrap='nowrap')
+    html_teacher_lst = soup.findAll('td', nowrap='nowrap')
+    duedate_lst_unf = []
+    hw_lst = []
+    teacher_lst = []
+    duedate_lst = []
+
+    for duedate in html_duedate_lst:
+        duedate.findNext('td')
+        duedate = duedate.findNext('td')
+        duedate = duedate.findNext('td')
+        duedate = duedate.findNext('td')
+        duedate_lst_unf.append(duedate.get_text())
+
+    for date_f in duedate_lst_unf:
+        date_f = date_f.split("-")
+        duedate_lst.append(str(date_f[1]) + "/" +
+                           str(date_f[2] + "/" + str(date_f[0])))
+
+    for hw in html_hw_lst:
+        hw_lst.append(hw.get_text())
+
+    for teacher in html_teacher_lst:
+        teacher = teacher.findNext('td')
+        teacher = teacher.findNext('td')
+        teacher = teacher.findNext('td')
+        teacher = teacher.findNext('td')
+        teacher = teacher.findNext('td')
+        teacher_lst.append(teacher.get_text())
+
+    if os.path.isfile(hw_file_path):
+        file_hw = open(hw_file_path, "r")
+
+        check_prev = ''
+        check_prev += ''.join(hw_lst)
+
+        hw_str = file_hw.read()
+
+        if hw_str == check_prev:
+            print("\n", styles.green,
+                  "No changes in homework\nNo email will be sent.", styles.white, "\n")
+        else:
+            print("\nNew Homework")
+            print("\n", styles.cyan, "Changes in homework detected", styles.white)
+            print("\n", styles.green, "Sending mail...")
+            server = smtplib.SMTP('smtp.gmail.com', 587)
+            server.starttls()
+            server.login('archimedean.mailer@gmail.com',
+                         "jhfopbayxojluvnw")
+
+            current_time = datetime.datetime.now()
+            current_time = current_time.strftime("%-I:%M %p")
+
+            current_date = datetime.datetime.now()
+            current_date = current_date.strftime("%B %d")
+
+            homework = ' '.join(hw_lst)
+
+            homework = ''
+
+            for i in range(len(hw_lst)):
+                homework += '' + \
+                    hw_lst[i] + " for " + teacher_lst[i] + \
+                    " is due on " + duedate_lst[i] + "\n\n"
+
+            mail = 'Subject: {}\n\n{}'.format(
+                "New Archie HW | " + str(current_date) + " " + str(current_time), homework)
+
+            server.sendmail('archimedean.mailer@gmail.com',
+                            user_email, mail)
+            print("\n", styles.red,
+                  "Mail sent!\n*Check spam folder if not found*\n", styles.white)
+
+            file_hw = open(hw_file_path, "w")
+
+            for write in hw_lst:
+                file_hw.write(write)
+    else:
+        file_hw = open(hw_file_path, "w+")
+
+        for write in hw_lst:
+            file_hw.write(write)
+
+        print("\nNew Homework")
+        print("\n", styles.cyan, "Changes in homework detected", styles.white)
+        print("\n", styles.green, "Sending mail...")
+        server = smtplib.SMTP('smtp.gmail.com', 587)
+        server.starttls()
+        server.login('archimedean.mailer@gmail.com',
+                     "jhfopbayxojluvnw")
+
+        current_time = datetime.datetime.now()
+        current_time = current_time.strftime("%-I:%M %p")
+
+        current_date = datetime.datetime.now()
+        current_date = current_date.strftime("%B %d")
+
+        homework = ' '.join(hw_lst)
+
+        homework = ''
+
+        for i in range(len(hw_lst)):
+            homework += '' + \
+                hw_lst[i] + " for " + teacher_lst[i] + \
+                " is due on " + duedate_lst[i] + "\n\n"
+
+        mail = 'Subject: {}\n\n{}'.format(
+            "New Archie HW | " + str(current_date) + " " + str(current_time), homework)
+
+        server.sendmail('archimedean.mailer@gmail.com', user_email, mail)
+
+        print("\n", styles.red,
+              "Mail sent!\n*Check spam folder if not found*\n", styles.white)
+
+
+@archimedean.command()
+def birthdays():
+    "Get all upcoming student birthdays"
+    if not os.path.isfile(creds_file_path):
+        print(
+            styles.red + "\nRun 'archimedean login' first to save your credentials.\n")
+        exit()
+
+    print()
+
+    usr = tuple(get_creds())[0]
+    pswd = tuple(get_creds())[1]
+
+    login_data = {"login_name": usr,
+                  "passwd": pswd, "submit": "Login"}
+
+    url = "https://sis.archimedean.org/sis/default.php?"
+
+    with requests.Session() as s:
+        r = s.post(url, data=login_data)
+        soup = bs(r.content, 'html.parser')
+        hw_url = "https://sis.archimedean.org/sis/student_birthdays.php"
+        r = s.get(hw_url)
+        soup = bs(r.content, 'html.parser')
+
+    for bday in soup.findAll("tr"):
+        print(styles.yellow + str(bday.findChildren("td")[0])[4:len(bday.findChildren("td")[0]) - 6],
+              "=",
+              str(bday.findChildren("td")[1])[4:len(bday.findChildren("td")[0]) - 6])
+
+    print()
+
+
+@archimedean.command()
+def resources():
+    "Get the resources for a specified class"
+    if not os.path.isfile(creds_file_path):
+        print(
+            styles.red + "\nRun 'archimedean login' first to save your credentials.\n")
+        exit()
+
+    print()
+
+    usr = tuple(get_creds())[0]
+    pswd = tuple(get_creds())[1]
+
+    login_data = {"login_name": usr,
+                  "passwd": pswd, "submit": "Login"}
+
+    url = "https://sis.archimedean.org/sis/default.php?`"
+
+    with requests.Session() as s:
+        r = s.post(url, data=login_data)
+        soup = bs(r.content, 'html.parser')
+        hw_url = "https://sis.archimedean.org/sis/class_my_students_support.php"
+        r = s.get(hw_url)
+        soup = bs(r.content, 'html.parser')
+
+    resource_links = []
+
+    for a in soup.findAll("a"):
+        if a['onclick'].startswith("paneSplitter.loadContent('centerContent','class_resource_view_student.php?"):
+            resource_links.append("https://sis.archimedean.org/sis/" + str(
+                a['onclick']).split("centerContent','")[-1].split(";return false;")[0])
+
+    i = 1
+    for class_name in soup.findAll("li"):
+        if class_name.findChildren("strong"):
+            # print(str(class_name.findChildren("strong")[0])[8:-9], "=")
+            if str(class_name.next_element.next_element.next_element).startswith("-"):
+                print(i, "=", styles.cyan +
+                      str(class_name.next_element.next_element.next_element)[1:] + styles.white)
+                i += 1
+            else:
+                print(i, "=", styles.cyan +
+                      str(class_name.next_element.next_element) + styles.white)
+                i += 1
+
+    print()
+
+    user_class = int(
+        input(styles.yellow + "Choose your class: " + styles.white))
+
+    resource_link = resource_links[user_class - 1][:-2]
+
+    print(styles.green + "\nConnecting to Archie...\n")
+
+    with requests.Session() as s:
+        r = s.post(url, data=login_data)
+        soup = bs(r.content, 'html.parser')
+        r = s.get(resource_link)
+        soup = bs(r.content, 'html.parser')
+
+    if soup.findAll("strong"):
+        for i in range(len(list(soup.findAll("strong")))):
+            print(styles.white + "Resource Name:",
+                  str(list(soup.findAll("strong"))[i])[8:-9])
+            print("Link:", styles.cyan + "https://sis.archimedean.org/sis/" +
+                  str(list(soup.findAll("a"))[i]).split("href=\"")[1].split("\"")[0] + "\n")
+    else:
+        print(styles.red + "No resources found for this class.\n")
+
+
+@archimedean.command()
+def apes():
+    "Get specified AP Enviornmental Science chapters to study. (For APES students only!)"
+    if not os.path.isfile(creds_file_path):
+        print(
+            styles.red + "\nRun 'archimedean login' first to save your credentials.\n")
+        exit()
+
+    if not os.path.isdir(apes_chapters_path):
+        os.makedirs(apes_chapters_path)
+
+    print(styles.cyan + "\nAccessing APES resources on Archie...\n")
+
+    usr = tuple(get_creds())[0]
+    pswd = tuple(get_creds())[1]
+
+    login_data = {"login_name": usr,
+                  "passwd": pswd, "submit": "Login"}
+
+    url = "https://sis.archimedean.org/sis/default.php?`"
+
+    with requests.Session() as s:
+        r = s.post(url, data=login_data)
+        soup = bs(r.content, 'html.parser')
+        hw_url = "https://sis.archimedean.org/sis/class_resource_view_student.php?ID=2511&sName=S5X&subjectID=131&addResource=0&rndval=1667609886320"
+        r = s.get(hw_url)
+        soup = bs(r.content, 'html.parser')
+
+    chapters = {}
+
+    for chapter_num in soup.find_all('strong'):
+        if chapter_num.text.startswith('Ch') or chapter_num.text.startswith('ch') and "ter" in chapter_num.text:
+            chapters.update({str(chapter_num.text).split()[1]: "https://sis.archimedean.org/sis/" + str(
+                chapter_num.next_element.next_element.next_element.next_element.next_element['href'])})
+
+    for chapter_num in chapters:
+        response = s.get(chapters[chapter_num])
+
+        file = open(apes_chapters_path +
+                    f"/Chapter {chapter_num}" + ".pdf", 'wb')
+        file.write(response.content)
+        file.close()
+
+    start_chapter = int(
+        input(styles.yellow + "Start from chapter: " + styles.white))
+    end_chapter = int(input(styles.yellow + "To chapter: " + styles.white))
+
+    if not os.path.isdir(os.path.join(home, '.archimedean', 'end_screen')):
+        os.makedirs(os.path.join(home, '.archimedean', 'end_screen'))
+
+    if not os.path.isfile(os.path.join(home, '.archimedean', 'end_screen', 'end_screen.pdf')):
+        r = requests.get(
+            "https://preview.redd.it/yjse0is38vz81.jpg?auto=webp&s=627bc4e333090da608d5cbb1e99fd1c3fafc3d39")
+        f = open(os.path.join(home, ".archimedean",
+                              'end_screen', 'end_screen.png'), 'wb')
+        f.write(r.content)
+        f.close()
+
+        end_screen = Image.open(os.path.join(
+            home, ".archimedean", 'end_screen', 'end_screen.png'))
+        end_screen = end_screen.convert('RGB')
+        end_screen.save(os.path.join(home, ".archimedean",
+                        'end_screen', "end_screen.pdf"))
+
+    files = {}
+
+    for file in os.listdir(apes_chapters_path):
+        files.update({file[len(file)-6:len(file)-4].strip(): file})
+
+    merger = PdfFileMerger()
+
+    for chapter in range(int(start_chapter), int(end_chapter) + 1):
+        merger.append(apes_chapters_path + "/" + files[str(chapter)])
+        merger.append(os.path.join(home, '.archimedean',
+                      'end_screen', 'end_screen.pdf'))
+
+    merger.write(downloads_folder +
+                 f"/Chapters {start_chapter} to {end_chapter}.pdf")
+    merger.close()
+
+    print(styles.cyan +
+          f"\nChapters {start_chapter} to {end_chapter} saved to Downloads folder!\n")
+
+
+@archimedean.command()
+def schedule():
+    "Get your schedule"
+    if not os.path.isfile(creds_file_path):
+        print(
+            styles.red + "\nRun 'archimedean login' first to save your credentials.\n")
+        exit()
+
+    usr = tuple(get_creds())[0]
+    pswd = tuple(get_creds())[1]
+
+    login_data = {"login_name": usr,
+                  "passwd": pswd, "submit": "Login"}
+
+    url = "https://sis.archimedean.org/sis/default.php?"
+
+    with requests.Session() as s:
+        r = s.post(url, data=login_data)
+        soup = bs(r.content, 'html.parser')
+        hw_url = "https://sis.archimedean.org/sis/schedule_view_teacher.php"
+        r = s.get(hw_url)
+        soup = bs(r.content, 'html.parser')
+
+    schedule = []
+
+    for schedule_tr in soup.findAll(onmouseout="bgColor='white';"):
+        if str(list(schedule_tr)[7]).split(">")[2].split("<")[0] != "Assisting" and str(list(schedule_tr)[7]).split(">")[2].split("<")[0] != "College Counseling":
+            schedule.append({
+                "start_time": str(list(schedule_tr)[1]).split(">")[2].split("<")[0][:-3],
+                "end_time": str(list(schedule_tr)[3]).split(">")[2].split("<")[0][:-3],
+                "weekdays": str(list(schedule_tr)[5]).split(">")[2].split("<")[0],
+                "class_name": str(list(schedule_tr)[7]).split(">")[2].split("<")[0]
+            })
+
+    i = 0
+    for class_info in schedule:
+        if len(class_info['weekdays']) == 1:
+            schedule.pop(i)
+            moving_period = class_info['class_name']
+        if class_info['class_name'] == "Lunch":
+            schedule.remove(class_info)
+        i += 1
+
+    military_time = datetime.datetime.now().strftime("%H:%M")
+    normal_time = datetime.datetime.now().strftime("%I:%M %p")
+    weekday = datetime.datetime.now().strftime("%A")[0]
+    if weekday == "Thursday":
+        weekday = "R"
+    print(styles.green + "\nIt is currently:",
+          styles.white + normal_time)
+
+    i = 0
+    for class_info in schedule:
+        if weekday == "S":
+            print(styles.red + "No school today (Unless you have AP review sessions)\n")
+            break
+        elif time_in_range(class_info['start_time'], class_info['end_time'], military_time):
+            if weekday in class_info['weekdays']:
+                print(styles.green + "Your current class is", styles.white + class_info['class_name'] + styles.green, "which ends at", styles.white + datetime.time(
+                    int(class_info['end_time'].split(":")[0]), int(class_info['end_time'].split(":")[1])).strftime("%I:%M"))
+            else:
+                print(styles.green + "Your current class is", styles.white + moving_period + styles.green, "which ends at", styles.white + datetime.time(
+                    int(class_info['end_time'].split(":")[0]), int(class_info['end_time'].split(":")[1])).strftime("%I:%M"))
+
+            try:
+                if weekday not in schedule[i + 1]['weekdays']:
+                    print(styles.green + f"You will go to" + styles.white,
+                          moving_period, styles.green + "next\n")
+                else:
+                    print(styles.green + f"You will go to" + styles.white,
+                          schedule[i + 1]['class_name'], styles.green + "next\n")
+                break
+            except:
+                print(styles.cyan + "School ends next!\n")
+                break
+
+        elif int(military_time[0:2]) == 16 and int(military_time[3:]) >= 30:
+            print(styles.red + "No school right now.\n")
+            break
+
+        elif int(military_time[0:2]) > 16:
+            print(styles.red + "No school right now.\n")
+            break
+
+        i += 1
+
+
+@archimedean.command()
+@click.argument("urls", nargs=-1)  # Adds infinite arguments
+def economics(urls):
+    """
+    Only applies to Economics students with Mister Trainor.
+    Gets the answers to MRU homework that Mister Trainor assigns.
+    """
+
+    if len(urls) == 0:
+        print("\nNeed to pass in a MRU.org url for a homework that was assigned by Mister Trainor.")
+        print("Example:",  styles.cyan +
+              "archimedean economics mru.org/courses/everyday-economics/comparative-advantage-and-tragedy-tasmania")
+        exit()
+
+    print("\n")
+
+    for url in urls:
+        with requests.Session() as s:
+            r = s.get(url)
+            soup = bs(r.content, 'html.parser')
+
+            print(F.YELLOW + "Answers for", F.CYAN +
+                  soup.find('h2').text.strip())
+
+            lesson = url.split("/")[-1].split("?")[0]
+            for div in soup.find_all('div', class_='lesson__video-title'):
+                if div.next_element['href'].split("/")[-1] == lesson:
+                    question = div.findNext('div').next_element['href']
+
+            question_url = f"https://mru.org{question}"
+            print(F.RESET + question_url)
+
+            r = s.get(question_url)
+
+            soup = bs(r.content, 'html.parser')
+
+            form = soup.find('form', class_='webform-client-form').next_element
+
+            for question in form.find_all('input', class_="form-radio"):
+                if question['value'] == "r":
+                    answer = question.parent.text.strip()
+                    letter = answer[0: 3].upper()
+
+                    print(F.LIGHTGREEN_EX + letter + answer[3:])
+
+        print()
+
+
+@archimedean.command()
+def mru():
+    "Gets the Economics MRU answers with only the lesson name."
+    mru = requests.get(
+        "https://mru.org/principles-economics-macroeconomics-0/")
+    soup = bs(mru.content, 'html.parser')
+
+    lessons = []
+
+    while True:
+        lesson = input("Enter lesson name: ")
+        if lesson == "":
+            break
+        else:
+            lessons.append(lesson)
+
+    print()
+
+    courses = {}
+    for a in soup.findAll("a"):
+        courses.update({a.text.strip(): a['href']})
+
+    for lesson in lessons:
+        if lesson in courses:
+            print("https://mru.org" + courses[lesson])
+            economics("https://mru.org" + courses[lesson])
+        else:
+            print(styles.red + lesson, "lesson not found.")
+
+
+archimedean(prog_name='archimedean')
