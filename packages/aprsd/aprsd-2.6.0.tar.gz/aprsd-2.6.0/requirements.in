@@ -1,0 +1,29 @@
+aprslib>=0.7.0
+click
+click-completion
+flask==2.1.2
+werkzeug==2.1.2
+flask-classful
+flask-httpauth
+imapclient
+pluggy
+pbr
+pyyaml
+requests
+pytz
+six
+thesmuggler
+update_checker
+flask-socketio
+eventlet
+tabulate
+rich
+# For the list-plugins pypi.org search scraping
+beautifulsoup4
+wrapt
+# kiss3 uses attrs
+kiss3
+attrs==22.1.0
+# for mobile checking
+user-agents
+pyopenssl
