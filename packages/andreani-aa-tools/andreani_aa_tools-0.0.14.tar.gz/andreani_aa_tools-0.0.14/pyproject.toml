@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=42"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "andreani_aa_tools"
+version = "0.0.14"
+authors = [
+  { name = "Ignacio Belogi", email = "ibelogi@andreani.com" },
+]
+description = "Common functions and protocols used by the Andreani Advanced Analytics team"
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/eloychang/andreani_aa_tools"
+"Bug Tracker" = "https://github.com/eloychang/andreani_aa_tools/issues"
