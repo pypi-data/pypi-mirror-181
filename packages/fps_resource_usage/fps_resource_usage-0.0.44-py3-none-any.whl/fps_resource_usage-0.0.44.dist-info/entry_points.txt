@@ -1,0 +1,5 @@
+[fps_config]
+fps-resource-usage = fps_resource_usage.config
+
+[fps_router]
+fps-resource-usage = fps_resource_usage.routes
