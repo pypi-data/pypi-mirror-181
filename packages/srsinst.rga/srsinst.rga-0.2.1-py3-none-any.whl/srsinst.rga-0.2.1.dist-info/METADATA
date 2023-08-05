@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: srsinst.rga
+Version: 0.2.1
+Summary: Communication package for SRS RGA
+Author: Chulhoon Kim
+License: MIT license
+Keywords: RGA,residual gas analyzer,SRS,Stanford Research Systems
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Chemistry
+Classifier: Topic :: Scientific/Engineering :: Physics
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: srsgui (>=0.1.5)
+
+# `srsinst.rga`
+
+
+`srsinst.rga` is a Python 3 package to provide serial and Ethernet communication with 
+[Stanford Research Systems (SRS) Residual Gas Analyzers (RGA)](https://thinksrs.com/products/rga.html).
+`rga` is designed for multiple threads to access an SRS RGA communication port simultaneously.
