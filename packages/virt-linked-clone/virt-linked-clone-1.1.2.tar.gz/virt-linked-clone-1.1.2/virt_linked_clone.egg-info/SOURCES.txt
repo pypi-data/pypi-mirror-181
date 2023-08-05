@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+virt_linked_clone/__init__.py
+virt_linked_clone/__main__.py
+virt_linked_clone/cli.py
+virt_linked_clone/version.py
+virt_linked_clone/virt_linked_clone.py
+virt_linked_clone/zsh_completion.sh
+virt_linked_clone.egg-info/PKG-INFO
+virt_linked_clone.egg-info/SOURCES.txt
+virt_linked_clone.egg-info/dependency_links.txt
+virt_linked_clone.egg-info/entry_points.txt
+virt_linked_clone.egg-info/requires.txt
+virt_linked_clone.egg-info/top_level.txt
