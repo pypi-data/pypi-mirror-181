@@ -1,0 +1,73 @@
+name: hermespy
+
+# Execute tests if pushed to any branch
+on: [push, pull_request]
+
+jobs:
+
+
+  Testing:
+  
+    runs-on: ${{ matrix.runs-on }}
+    strategy:
+      fail-fast: false
+      matrix:
+        runs-on: [ubuntu-latest]
+
+    name: Test on ${{ matrix.runs-on }}
+    steps:
+    - name: Checkout full repository
+      uses: actions/checkout@v2
+      with:
+        lfs: true
+        submodules: recursive
+
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+
+    - name: Install dependencies
+      run: |
+        sudo apt update
+        sudo apt-get install -y build-essential octave
+        export MAKEFLAGS="-j $(grep -c ^processor /proc/cpuinfo)"
+        pip install .[test,documentation,quadriga,uhd,audio]
+
+    - name: Run unit tests
+      run: python tests/test_install.py unit_tests
+      
+
+  Documentation:
+  
+    needs: Testing
+    runs-on: ubuntu-latest
+    steps:
+    
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        lfs: true
+        submodules: recursive
+
+    - name: Setup python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+
+    - name: Install doc dependencies
+      run: |
+        sudo apt update
+        sudo apt-get install -y build-essential octave pandoc
+        export MAKEFLAGS="-j $(grep -c ^processor /proc/cpuinfo)"
+        pip install -e .[test,documentation,quadriga,uhd,audio]
+
+    - name: Build documentation
+      run: python -m setup build_sphinx
+
+    - name: Create github pages
+      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+      uses: JamesIves/github-pages-deploy-action@4.1.2
+      with:
+        branch: gh-pages
+        folder: documentation/html

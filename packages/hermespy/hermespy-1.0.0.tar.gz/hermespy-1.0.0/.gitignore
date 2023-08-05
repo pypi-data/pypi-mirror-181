@@ -1,0 +1,44 @@
+# folders
+
+.mypy_cache/
+__pycache__
+_results_*/
+documentation/
+results/
+.idea/
+env*/
+matlab_env/
+.ipynb_checkpoints/
+
+# IDE specific
+.vscode/
+*.code-workspace
+
+# python-specific
+*.so
+*.pyc
+.python-version
+*.so
+
+# Don't track build fragments
+wheel/
+*.egg-info/
+*.pyd
+_skbuild/
+build/
+dist/
+.coverage
+MANIFEST
+pip-wheel-metadata/
+
+# misc
+*~
+
+# docs-specific
+docssource/channel.rst
+docssource/modem.*
+docssource/modules.rst
+docssource/scenario.rst
+docssource/simulator_core.*
+docssource/source.rst
+docs/
