@@ -1,0 +1,16 @@
+{% load static %}
+
+<script src="{% static 'core_explore_common_app/common/js/tools.js' %}"></script>
+<script src="{% static 'core_elasticsearch_app/js/search_box.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'core_elasticsearch_app/css/search_box.css' %}">
+
+<div class="container">
+    <form>
+      <div class="row">
+          <div class="col-sm-12">
+                  <input id="es_search_box_input" class="form-control es_search_box_input" type="text"
+               placeholder="Search..." aria-label="Search">
+          </div>
+      </div>
+    </form>
+</div>
