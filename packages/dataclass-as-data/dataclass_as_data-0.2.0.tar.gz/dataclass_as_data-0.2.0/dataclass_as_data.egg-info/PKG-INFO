@@ -1,0 +1,303 @@
+Metadata-Version: 2.1
+Name: dataclass-as-data
+Version: 0.2.0
+Summary: Simple configurable conversion of dataclasses to raw data
+Home-page: https://gitlab.com/sigmath_bits/dataclass-as-data
+Author: Sigmath Bits
+License: GPLv3
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Provides-Extra: test
+Provides-Extra: dev
+License-File: LICENSE
+
+# Dataclass As Data
+This is a simple package for configurable conversion of dataclasses to a data representation, typically a dict or a tuple.
+The behaviour for how a dataclass is converted to and from data can be configured to differ from the default per dataclass if desired.
+
+This package only supports simple primitive types, other dataclasses, and the primitive generics
+`dict[...]`, `list[...]`, `tuple[...]`, `Union[...]`, and `Optional[...]` as type annotations by default. 
+The conversion of other types can be configured using the `converters` keyword-only argument.
+
+## Install
+
+This package supports **Python 3.9** and above.
+
+```bash
+pip install dataclass-as-data
+```
+
+## Quick Start
+
+```python
+import dataclasses
+from dataclass_as_data import as_data, from_data
+
+
+# Create a dataclass
+@dataclasses.dataclass
+class Person:
+    name: str
+    age: int
+
+    
+# Create a dataclass object
+person = Person("Simon", 21)
+
+>>> person
+Person(name='Simon', age=21)
+
+# Call as_data with the dataclass object to convert it to a dictionary
+data = as_data(person)
+
+>>> data
+{'name': 'Simon', 'age': 21}
+
+# Call from_data with the dataclass and the data to get the object instance back
+>>> from_data(Person, data)
+Person(name='Simon', age=21)
+```
+
+Dataclasses can be nested within dataclasses, which are recursively converted to their data representation.
+
+```python
+@dataclasses.dataclass
+class Friends:
+    people: list[Person]
+
+
+# All dataclasses are converted recursively
+>>> as_data(Friends([Person("Sunset", 22), Person("Starlight", 20)]))
+{'people': [{'name': 'Sunset', 'age': 22}, {'name': 'Starlight', 'age': 20}]}
+
+>>> from_data(Friends, {'people': [{'name': 'Sunset', 'age': 22}, {'name': 'Starlight', 'age': 20}]})
+Friends(people=[Person(name='Sunset', age=22), Person(name='Starlight', age=20)])
+```
+
+## Configuring as_data and from_data
+To change what data is constructed when using `as_data` and `from_data`, override the `as_data` method and `from_data` class methods in your dataclass.
+It is good practice to forward on the `converters` keyword argument on when doing this if you would like [type converters](#type-conversion) to still apply,
+but this is optional.
+
+**Note:** you must use one of `as_dict`, `as_tuple`, `from_dict`, or `from_tuple` (**not** `as_data` or `from_data`)
+if you wish to use the default behaviour and modify it.
+
+```python
+from dataclass_as_data import as_data, as_dict, from_data, from_dict
+
+
+@dataclasses.dataclass
+class Config:
+    VERSION = (1, 0)
+    version: tuple[int, int] = VERSION
+
+    def as_data(self, *, converters) -> dict:
+        # Ensure correct version when converting to data
+        assert self.version == self.VERSION, "Incorrect version!"
+
+        return as_dict(self, converters=converters)  # use as_dict to otherwise use default behaviour
+
+    @classmethod
+    def from_data(cls, data: dict, *, converters):
+        # Update version on data load
+        if data['version'] < cls.VERSION:
+            data['version'] = cls.VERSION
+
+        return from_dict(cls, data, converters=converters)  # use from_dict to otherwise use default behaviour
+
+    
+# Now these methods are called instead
+>> > as_data(Config((0, 1)))
+AssertionError: Incorrect version!
+
+>> from_data(Config, {'version': (0, 1)})
+Config(version=(1, 0))
+```
+
+### DataAsTuple
+If you'd simply like a dataclass to be represented as a tuple instead of a dict when calling `as_data`, 
+inherent from the `DataAsTuple` abstract base class.
+
+```python
+from dataclass_as_data import as_data, DataAsTuple
+
+
+# Create a dataclass inheriting from DataAsTuple
+@dataclasses.dataclass
+class Person(DataAsTuple):
+    name: str
+    age: int
+
+    
+# Calling as_data now returns a tuple
+>>> as_data(Person("Summer", 24))
+("Summer", 24)
+```
+
+This merely overrides `as_data` and `from_data` to use `as_tuple` and `from_tuple` for you respectively.
+
+```python
+from dataclass_as_data import as_tuple, from_tuple
+
+
+# Same as inheriting from DataAsTuple
+@dataclasses.dataclass
+class Person:
+    name: str
+    age: int
+    
+    def as_data(self, *, converters):
+        return as_tuple(self, converters=converters)
+
+    @classmethod
+    def from_data(cls, data: tuple, *, converters):
+        return from_tuple(cls, data, converters=converters)
+```
+
+## Custom converters
+`dataclass_as_data` also provides multiple ways to customise how non-dataclass types are converted.
+
+By default, no conversion is performed for other class types.
+The only exception is when the class type and the data type passed to `from_data` don't match, in which case it will convert the 
+data back to the class type by passing it as a single argument to its constructor.
+
+### Simple property transformation
+`from_data` supports very basic custom property converters in the form of single-input functions.
+These converters are called on the relevant properties when `from_data` is called.
+Note that all regular types, such as `int`, are also technically treated this way by default.
+
+```python
+from dataclass_as_data import from_data
+
+
+def lower_str(value) -> str:
+    """Convert to lowercase str"""
+    return str(value).lower()
+
+    
+@dataclasses.dataclass
+class Employee:
+    id: int
+    name: lower_str
+
+
+# The `lower_str` converter is called on the value of the `name` parameter
+>>> from_data(Employee, {'id': 123, 'name': "Sylvester"})
+Employee(id=123, name='sylvester')
+
+# The string value of `id` is coerced into an int
+>>> from_data(Employee, {'id': "456", 'name': "Sunny"})
+Employee(id=456, name='sunny')
+```
+
+### Class conversion
+If you have your own classes that you'd like to use in type hints,
+you can also configure regular classes to be converted to and from data in a certain way by defining an
+`as_data` method and `from_data` class method.
+
+**Note:** these cannot use the `as_dict`, `from_dict`, `as_tuple`, or `from_tuple` functions as they only take a dataclass.
+
+```python
+from dataclass_as_data import as_data, from_data
+
+
+class Name:
+    def __init__(self, full_name):
+        self.first, self.last = full_name.split(" ")
+        
+    def as_data(self):
+        return f"{self.last}, {self.first}"
+    
+    @classmethod
+    def from_data(cls, data):
+        last, first = data.split(", ")
+        return cls(f"{first} {last}")
+    
+    def __repr__(self):
+        return f"{type(self).__name__}('{self.first} {self.last}')"
+
+    
+@dataclasses.dataclass
+class Student:
+    name: Name
+
+
+# Data for the class is now represented and converted as desired
+>>> as_data(Student(Name("Silver Spoon")))
+{'name': 'Spoon, Silver'}
+
+>>> from_data(Student, {'name': 'Spoon, Silver'})
+Student(name=Name('Silver Spoon'))
+```
+
+### Type conversion
+How any type is converted can be defined by passing a dictionary of types to their converters to
+the `converters` argument supported by `as_data` and `from_data`. 
+This takes a dictionary of types to single-input converter functions to be used during conversion for that type.
+
+```python
+from dataclass_as_data import as_data, from_data
+
+
+@dataclasses.dataclass
+class RandomNumberGenerator:
+    seed: bytes
+
+
+def bytes_to_str(_bytes: bytes) -> str:
+    return _bytes.decode('utf-8')
+
+
+def str_to_bytes(string: str) -> bytes:
+    return bytes(string, 'utf-8')
+
+
+# `bytes` objects are now represented as `str`s
+>>> as_data(RandomNumberGenerator(b'Sigmath Bytes'), converters={bytes: bytes_to_str})
+{'seed': 'Sigmath Bytes'}
+
+>>> from_data(RandomNumberGenerator, {'seed': 'Sigmath Bytes'}, converters={bytes: str_to_bytes})
+RandomNumberGenerator(seed=b'Sigmath Bytes')
+```
+
+These converters also accept an optional keyword-only argument. If this argument is specified, the converter will also be
+applied to all subclasses. Which subclass is being converted will be passed through this argument. 
+
+This argument does not need to be used to enable subclass-matching for converters.
+
+```python
+from dataclass_as_data import as_data, from_data
+
+
+class ID(int):
+    def __repr__(self):
+        return f"{type(self).__name__}({super().__repr__()})"
+
+
+@dataclasses.dataclass
+class User:
+    name: str
+    id: ID
+    
+    
+def int_to_bytes(value: int, *, _cls) -> bytes:
+    return value.to_bytes(1, 'little')
+    
+    
+def bytes_to_int(_bytes: bytes, *, cls) -> int:
+    return cls.from_bytes(_bytes, 'little')
+
+
+# `int` objects and their subclasses are now represented as `bytes`
+>>> as_data(User("Siggy", ID(123)), converters={int: int_to_bytes})
+{'name': 'Siggy', 'id': b'{'}
+
+>>> from_data(User, {'name': 'Siggy', 'id': b'{'}, converters={int: bytes_to_int})
+User(name='Siggy', id=ID(123))
+```

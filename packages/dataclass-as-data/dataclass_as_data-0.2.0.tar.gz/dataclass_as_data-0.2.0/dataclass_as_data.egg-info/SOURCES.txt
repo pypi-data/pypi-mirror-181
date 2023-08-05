@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+dataclass_as_data/__init__.py
+dataclass_as_data/dataclass_as_data.py
+dataclass_as_data/py.typed
+dataclass_as_data.egg-info/PKG-INFO
+dataclass_as_data.egg-info/SOURCES.txt
+dataclass_as_data.egg-info/dependency_links.txt
+dataclass_as_data.egg-info/requires.txt
+dataclass_as_data.egg-info/top_level.txt
+tests/__init__.py
+tests/test_dataclass_as_data.py
+tests/test_dataclasses.py

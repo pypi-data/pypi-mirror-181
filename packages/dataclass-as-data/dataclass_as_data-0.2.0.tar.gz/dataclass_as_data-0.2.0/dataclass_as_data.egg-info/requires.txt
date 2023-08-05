@@ -1,0 +1,12 @@
+
+[dev]
+tox==4.0.5
+mypy==0.991
+build==0.7.0
+twine==4.0.0
+typing-extensions==4.4.0
+
+[test]
+tox==3.25.0
+mypy==0.991
+typing-extensions==4.4.0
