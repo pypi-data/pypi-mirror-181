@@ -1,0 +1,56 @@
+Metadata-Version: 2.1
+Name: td_ml_auto_build_segments
+Version: 0.1.1
+Summary: TD Auto Build Segments in Audience Studio
+Project-URL: Homepage, https://github.com/treasure-data-ps/td_ml_auto_build_segments
+Project-URL: Bug Tracker, https://github.com/treasure-data-ps/td_ml_auto_build_segments
+Author-email: Dilyan Kovachev <pruchka@gmail.com>
+License: Copyright © 2022 Treasure Data, Inc. (or its affiliates). All rights reserved
+License-File: LICENSE
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# ml-auto-build-segments
+
+## Introduction
+
+This Python Library allows you to automatically add attributes to Parent Segment in Treasure Data and Auto-build Folders and Segments in Audience Studio.
+
+
+## Inputs
+
+* `config/auto_build.yml` : This is the `.yaml` config file that defines the params for the Python functions that add new tables to Parent Segment via API, and use the column_name where `main_attr: yes` param flags which attribute will be used for the segment creation rules. Example `config/auto_build.yml` file with notes on each param below:
+```
+#####################################################################
+########################## GLOBAL PARAMS ############################
+#####################################################################
+sink_database: ml_db                        #database where all model output tables will be saved
+unique_user_id: td_canonical_id             #the main join key that will be used to join behaviors tables to customers table      
+api_endpoint: 'https://api.treasuredata.com'
+ps_name: 'ENTER PS NAME'                 #name of Parent Segment where ML Folders & Audiences will be built
+v5_flag: 1                                  #indicate if you want to build Segments in V5 or V4
+folder_depth: 10                            #determines how deeply into nested folders in Audience Studio the code will scan to find the Segments you want 
+ps_stats_table: 'ps_stats'                  #stores list of all PS, Folders, and Segments in given 
+
+######### Params for new attributes to add to PS #####
+src_table:                                  #params for ML Model output table to be added to PS and used for Audience Creation
+  name: next_best_product_final
+  join_key: td_canonical_id
+  cols:                                     #list of columns from src_table to be added to PS as attributes
+    - name: nbp_helmets
+      type: number
+      build_segments: yes                   #if = 'yes', this column is used as the attribute value for building auto segments               
+    - name: next_best_product
+      type: string
+      build_segments: yes                   #if = 'yes', this column is used as the attribute value for building auto segments
+
+########## Auto Build Segment Params ############
+rerun_ps: yes                             #if = 'yes', ps will be re-run after the ML model table is added to PS
+ml_folder: '[ML] Base Audiences'          #name of Base Folder where all ML Model Audiences will be created
+sub_folder: 'Auto-Segmentation'           #name of Sub-Folder where specific Audiences to current WF ML Model will be added
+attr_group: 'ML Models'                  #name of Attribute Group where attributes added to Parent Segment will be grouped in Audience Studio
+```
+
+`Copyright © 2022 Treasure Data, Inc. (or its affiliates). All rights reserved`

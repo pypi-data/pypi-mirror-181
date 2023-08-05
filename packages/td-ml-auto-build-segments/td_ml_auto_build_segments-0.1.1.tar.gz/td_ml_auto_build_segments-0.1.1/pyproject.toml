@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "td_ml_auto_build_segments"
+version = "0.1.01"
+authors = [
+  { name="Dilyan Kovachev", email="pruchka@gmail.com" },
+]
+description = "TD Auto Build Segments in Audience Studio"
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/treasure-data-ps/td_ml_auto_build_segments"
+"Bug Tracker" = "https://github.com/treasure-data-ps/td_ml_auto_build_segments"
