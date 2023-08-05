@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: nvidia-tao-tf2
+Version: 4.0.0
+Summary: NVIDIA's package for DNN implementation on TensorFlow 2.0 for use with TAO Toolkit.
+Author: NVIDIA Corporation
+License: NVIDIA Proprietary Software
+Keywords: nvidia,tao,tf2
+Classifier: Environment :: Console
+Classifier: License :: Other/Proprietary License
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+License-File: LICENSE
+

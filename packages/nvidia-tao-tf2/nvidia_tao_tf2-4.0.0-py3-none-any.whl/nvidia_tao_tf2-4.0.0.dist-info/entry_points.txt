@@ -1,0 +1,3 @@
+[console_scripts]
+classification_tf2 = nvidia_tao_tf2.cv.classification.entrypoint.classification:main
+efficientdet_tf2 = nvidia_tao_tf2.cv.efficientdet.entrypoint.efficientdet:main
