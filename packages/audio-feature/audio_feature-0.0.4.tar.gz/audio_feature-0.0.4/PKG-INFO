@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: audio_feature
+Version: 0.0.4
+Summary: get features from wav
+Author: AaronLi
+Author-email: 1470409562@qq.com
+License: apache 3.0
+Requires: torchaudio
