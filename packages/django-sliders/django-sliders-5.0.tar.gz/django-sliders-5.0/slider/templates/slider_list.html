@@ -1,0 +1,59 @@
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="container carousel-inner" id="id_carousel_inner">
+{#    {% for slider in slider_data %}#}
+{##}
+{##}
+{#            <div class="carousel-item active" style="display:block">#}
+{#                <img class="d-block w-100" src="{{ slider.slider_img_url }}" alt="First slide">#}
+{#            </div>#}
+{##}
+{#    {% endfor %}#}
+
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+{#<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js">#}
+{#    const sliders = {{ sliders | safe }};#}
+{#    console.log("sliders: ", sliders);#}
+{#    function bindingSlider(sliders){#}
+{#        let carouselDiv = "";#}
+{#        for(let i = 0; i<sliders.length; i++){#}
+{#            var slider = sliders[i];#}
+{#            console.log("slider1: ", slider);#}
+{#            var img_url = sliders[i].slider_img_url;#}
+{#            if (i == 0){#}
+{#                carouselDiv += `<div class='carousel-item active' style='display:block'>#}
+{#                        <img class='d-block w-100' src=${img_url} alt="First slide">#}
+{#                </div>`#}
+{#            }#}
+{#            else{#}
+{#                carouselDiv += `<div class='carousel-item' style='display:block'>#}
+{#                    <img class='d-block w-100' src=${img_url} alt="">#}
+{#                </div>`#}
+{#            }#}
+{#        }#}
+{#        console.log("div: ", carouselDiv);#}
+{#        $('#id_carousel_inner').innerHTML = carouselDiv;#}
+{#        window.Document.getElementById("id_carousel_inner").innerHTML = carouselDiv;#}
+{##}
+{#    }#}
+{##}
+{#    bindingSlider(sliders);#}
+{#</script>#}
+
+
+
+
