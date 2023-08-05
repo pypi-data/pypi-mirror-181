@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: saltext.vector
+Version: 0.0.5
+Summary: Salt engine to send events to Vector
+Home-page: https://gitlab.com/turtletraction/salt-grafana/
+Author: Max Arnold
+Author-email: max.arnold@turtletraction.com
+License: Apache Software License
+Project-URL: Source, https://gitlab.com/turtletraction/salt-grafana/
+Project-URL: Tracker, https://gitlab.com/turtletraction/salt-grafana/issues
+Keywords: salt-extension
+Platform: any
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Cython
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+Requires-Dist: salt (>=3003)
+
+# Salt Vector
+
+[Salt](https://saltproject.io) engine to send events to [Vector](https://vector.dev)
+
+This is a part of [Salt Grafana](https://turtletraction-oss.gitlab.io/salt-grafana/) project.
