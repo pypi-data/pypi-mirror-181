@@ -1,0 +1,13 @@
+numpy
+scipy
+xarray
+torch
+appdirs
+rich
+quantnn>=0.0.4dev
+h5py
+netCDF4
+
+[development]
+pytest
+pykdtree
