@@ -1,0 +1,2 @@
+[console_scripts]
+daggerml-s3-install = executor_s3.install:cli
