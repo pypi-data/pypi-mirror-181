@@ -1,0 +1,66 @@
+Metadata-Version: 2.1
+Name: colabrsync
+Version: 0.2.0
+Summary: Run rsync periodically in the background on Google Colab.
+Home-page: https://github.com/susumuota/colabrsync
+License: MIT
+Keywords: rsync,colab,Google Colab
+Author: Susumu OTA
+Author-email: 1632335+susumuota@users.noreply.github.com
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: System :: Archiving
+Classifier: Topic :: System :: Archiving :: Backup
+Classifier: Topic :: System :: Archiving :: Mirroring
+Classifier: Topic :: Utilities
+Project-URL: Repository, https://github.com/susumuota/colabrsync
+Description-Content-Type: text/markdown
+
+# colabrsync
+
+Run rsync periodically in the background on Google Colab.
+
+## Usage
+
+```python
+!pip install colabrsync
+
+from google.colab import drive
+drive.mount('/content/drive')
+
+!mkdir -p /content/outputs
+!mkdir -p /content/drive/MyDrive/outputs
+
+from colabrsync import RsyncMirror
+
+rsm = RsyncMirror('/content/outputs/', '/content/drive/MyDrive/outputs/')
+
+!diff -ur /content/outputs /content/drive/MyDrive/outputs
+
+!touch /content/outputs/newfile.txt
+
+!diff -ur /content/outputs /content/drive/MyDrive/outputs
+
+!sleep 60
+
+!diff -ur /content/outputs /content/drive/MyDrive/outputs
+
+del rsm
+
+!ls -l /content/outputs /content/drive/MyDrive/outputs
+```
+
+## License
+
+MIT License, See LICENSE file.
+
+## Author
+
+Susumu OTA
+
