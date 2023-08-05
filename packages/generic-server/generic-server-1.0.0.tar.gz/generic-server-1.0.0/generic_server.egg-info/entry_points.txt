@@ -1,0 +1,2 @@
+[console_scripts]
+genericserver = genericserver.__main__:main

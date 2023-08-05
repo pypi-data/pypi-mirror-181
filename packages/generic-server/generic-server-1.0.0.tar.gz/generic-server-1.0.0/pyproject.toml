@@ -1,0 +1,36 @@
+[build-system]
+requires = ["pytest",
+            "pytest-mock",
+            "setuptools>=42",
+            "wheel",
+            "setuptools_scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "generic-server"
+version = "1.0.0"
+description = "Python generic server implementation, with predefined request-answer pairs and different modes (e.g, 'normal', 'no response', 'fail test1')"
+readme = "README.md"
+authors = [{ name = "Carsten König" }]
+license = { text = "MIT License" }
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Software Development",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Operating System :: Unix",
+    "Operating System :: POSIX",
+    "Operating System :: MacOS"
+]
+keywords = ["mock", "testing", "Integration tests", "server", "simulator"]
+dependencies = [
+]
+requires-python = ">=3.10"
+
+[project.urls]
+Homepage = "https://gitlab.com/ck2go/generic-server"
+
+[project.scripts]
+genericserver = "genericserver.__main__:main"
