@@ -1,0 +1,83 @@
+Metadata-Version: 2.1
+Name: zencache
+Version: 0.1.3
+Summary: Pure memory cache powered by Open RPC.
+Home-page: UNKNOWN
+Author: zencore
+Author-email: dobetter@zencore.cn
+License: MIT
+Keywords: orpc,rpc,orpcd,zencache,zencached
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# zencache
+
+Pure memory cache powered by orpc.
+
+## Install
+
+```
+pip install zencache
+```
+
+## Example server config: zencached-config.yml
+
+```
+daemon: true
+pidfile: zencached.pid
+loglevel: INFO
+logfile: zencached.log
+server:
+  listen: 0.0.0.0
+  port: 6779
+  backlog: 8192
+  buffer_size: 65536
+  rfile_buffer_size: 65536
+  wfile_buffer_size: 65536
+  max_request_size: 4194304
+authentication:
+  enable: true
+  users:
+    app01: spnPF3HzY975GJYC
+    app02: ZWRVfHrK8QkQoOnQ
+    app03: xuFTlTy9i6KCfncp
+```
+
+## Example client usage
+
+```
+from orpc_client import OrpcConnectionPool
+
+zencached_client_pool = OrpcConnectionPool(10, kwargs={
+    "host": "127.0.0.1",
+    "port": 6779,
+    "username": "app01",
+    "password": "spnPF3HzY975GJYC",
+    "login_event": "zencache.login",
+    "auto_login": True,
+    })
+
+with zencached_client_pool.get_session() as session:
+    session.zencache.set('a', 'a')
+    assert session.zencache.get('a') == 'a'
+```
+
+## Releases
+
+### v0.1.3
+
+- Add gevent patch all.
+- Force item key to str format.
+
+### v0.1.0
+
+- First release.
+
+
