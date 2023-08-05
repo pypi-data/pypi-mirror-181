@@ -1,0 +1,91 @@
+Metadata-Version: 2.1
+Name: hermespy
+Version: 1.0.0
+Summary: The Heterogeneous Radio Mobile Simulator
+Home-page: https://github.com/Barkhausen-Institut/hermespy
+Author: Jan Adler
+Author-email: jan.adler@barkhauseninstitut.org
+Project-URL: Documentation, https://hermespy.org/
+Project-URL: Barkhausen Institute, https://www.barkhauseninstitut.org
+Project-URL: Bug Tracker, https://github.com/Barkhausen-Institut/hermespy/issues
+Classifier: Programming Language :: Python :: 3.9
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 4 - Beta
+Classifier: Natural Language :: English
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: matplotlib (>=3.5.2)
+Requires-Dist: h5py (~=3.7.0)
+Requires-Dist: numpy (>=1.21.6)
+Requires-Dist: scipy (~=1.9.3)
+Requires-Dist: pybind11 (~=2.10.1)
+Requires-Dist: ray (~=2.1.0)
+Requires-Dist: ruamel.yaml (~=0.17.21)
+Requires-Dist: sparse (~=0.13.0)
+Requires-Dist: numba (~=0.56.4)
+Requires-Dist: sphinx (~=5.3.0)
+Requires-Dist: rich (~=12.6.0)
+Requires-Dist: ZODB (~=5.7.0)
+Provides-Extra: audio
+Requires-Dist: sounddevice ; extra == 'audio'
+Provides-Extra: develop
+Requires-Dist: pybind11 ; extra == 'develop'
+Requires-Dist: scikit-build ; extra == 'develop'
+Requires-Dist: cmake ; extra == 'develop'
+Requires-Dist: sphinx ; extra == 'develop'
+Requires-Dist: wheel ; extra == 'develop'
+Requires-Dist: black ; extra == 'develop'
+Requires-Dist: flake8 ; extra == 'develop'
+Provides-Extra: documentation
+Requires-Dist: sphinx-autodoc-typehints ; extra == 'documentation'
+Requires-Dist: sphinxcontrib-apidoc ; extra == 'documentation'
+Requires-Dist: sphinxcontrib-mermaid ; extra == 'documentation'
+Requires-Dist: sphinxcontrib-bibtex ; extra == 'documentation'
+Requires-Dist: sphinx-rtd-theme ; extra == 'documentation'
+Requires-Dist: sphinx-rtd-dark-mode ; extra == 'documentation'
+Requires-Dist: sphinx-tabs ; extra == 'documentation'
+Requires-Dist: sphinx-copybutton ; extra == 'documentation'
+Requires-Dist: sphinx-carousel ; extra == 'documentation'
+Requires-Dist: nbsphinx ; extra == 'documentation'
+Requires-Dist: ipywidgets ; extra == 'documentation'
+Requires-Dist: scikit-build ; extra == 'documentation'
+Provides-Extra: quadriga
+Requires-Dist: oct2py ; extra == 'quadriga'
+Provides-Extra: test
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: coverage ; extra == 'test'
+Provides-Extra: uhd
+Requires-Dist: usrp-uhd-client (>=0.0.1) ; extra == 'uhd'
+
+# HermesPy
+HermesPy (Heterogeneous Radio Mobile Simulator - Python) is a semi-static link-level simulator based on time-driven mechanisms.
+
+It provides a framework for the link-level simulation of a multi-RAT wireless link, consisting of
+multiple transmit and receive modems, which may operate at different carrier frequencies. 
+In addition to simulating individual transmission links, HermesPy allows the analysis of both co-channel and
+adjacent-channel interference among different communication systems.
+
+## Features
+
+The current release version 1.0.0 serves as a platform for joint development.
+Its main focus is to provide a software architecture that can be easily extended.
+Detailed core features as well as a release plan can be found in the
+[features](https://hermespy.org/features.html) list.
+
+## Documentation
+
+For detailed [installation instructions](https://hermespy.org/installation.html),
+tutorials and a full API documentation, please consult the official
+[documentation](https://hermespy.org/index.html) website.
+
+## Contributors
+
+* [Andre Noll Barreto](https://gitlab.com/anollba)
+* [Tobias Kronauer](https://github.com/tokr-bit)
+* [Jan Adler](https://github.com/adlerjan)
+
+## Copyright
+Copyright (C) 2022 Barkhausen Institut gGmbH
