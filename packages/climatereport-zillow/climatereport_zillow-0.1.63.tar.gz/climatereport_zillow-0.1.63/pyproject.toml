@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "climatereport_zillow"
+version = "0.1.63"
+description = "Zillow listings do not contain a section on the environmental risk of the property. This package compiles a report on the climate risks of the property in the zillow listing."
+authors = ["Darci Kovacs"]
+license = "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Public License"
+readme = "README.md"
+documentation = 'https://climatereportzillow.readthedocs.io/en/latest/index.html'
+homepage = "https://github.com/DarciKovacs/climatereport_zillow"
+repository = "https://github.com/DarciKovacs/climatereport_zillow"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+matplotlib = "^3.6.2"
+pandas = "^1.5.2"
+numpy = "^1.23.5"
+bs4 = "^0.0.1"
+requests = "^2.28.1"
+
+[tool.poetry.dev-dependencies]
+
+[tool.poetry.group.dev.dependencies]
+myst-nb = "^0.17.1"
+sphinx-autoapi = "^2.0.0"
+sphinx-rtd-theme = "^1.1.1"
+pytest = "^7.2.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
