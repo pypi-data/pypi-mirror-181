@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: tirf-trajectory
+Version: 0.0.5
+Summary: TIRF Trajectory
+Author: Kan Liu
+Author-email: liuk@wipm.ac.cn
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: nonstationarity
+Requires-Dist: scipy
+Requires-Dist: plotly
+Requires-Dist: pandas
+Requires-Dist: openpyxl
+Requires-Dist: lmfit
+Requires-Dist: param
+
+# TIRF Trajectory
+
+## 介绍
+该软件用来处理tirf实验采集的带噪声的FRET强度信号，目前可以自动对进行FRET强度等级进行分类和截断。
+
+## 安装
+1. [安装miniconda](https://docs.conda.io/en/main/miniconda.html). 国内用户可以使用[清华镜像](https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/?C=M&O=D)下载安装文件, 国内软件源镜像的设置可以参考[清华tuna的说明](https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/).
+   
+1. 以Linux为例，假设miniconda安装在默认目录，打开命令行界面，按照以下命令行安装运行环境（只需运行一次，即完成安装）。
+    ```bash
+    source ~/miniconda3/bin/activate
+    cd path/to/proj/dir/contains/environment_rt.yml
+    conda env create -f environment_rt.yml
+    ```
+
+## 运行
+
+1. 以后每次使用之前，先自行下面的操作
+    ```bash
+    source ~/miniconda3/bin/activate
+    cd path/to/proj/dir/notebooks
+    conda activate tirf_traj
+    jupyter lab --ip=0.0.0.0
+    ```
+
+1. 打开浏览器输入 http://10.0.0.3:8888/lab (假设运行上一步命令机器的ip为10.0.0.3)，或 http://127.0.0.1:8888/lab (假设运行上一步命令的机器就是打开浏览器的机器)。处于安全考虑，不建议再未做进一步设置的前提下在公网可访问的情况下开启jupyter。
+
+1. 在浏览器中打开tirfdata.ipynb,依次执行即可，请特别注意文本标注的cell中的提示。此外需要注意的事项，目前版本如需正常显示图像，需要保证你的浏览器可以正常连接以下网址。
+   * [cdn.jsdelivr.net](https://cdn.jsdelivr.net)
+   * [cdn.plot.ly](https://cdn.plot.ly)
+
+1. 在浏览器中打开tdp.ipynb,可画TDP图
