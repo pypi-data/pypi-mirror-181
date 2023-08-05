@@ -1,0 +1,5 @@
+recursive-include lucas_helpers_webforce/database *.py
+recursive-include lucas_helpers_webforce/database *.py
+recursive-include lucas_helpers_webforce/libraries *.py
+recursive-include lucas_helpers_webforce/models *.py
+recursive-include lucas_helpers_webforce/queues *.py
