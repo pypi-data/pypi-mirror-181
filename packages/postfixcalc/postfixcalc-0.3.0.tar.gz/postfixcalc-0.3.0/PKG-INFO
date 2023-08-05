@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: postfixcalc
+Version: 0.3.0
+Summary: the stupid postfix evaluator
+License: Apache2.0
+Author: Mahdi Haghverdi
+Author-email: mahdihaghverdiliewpl@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: black (>=22.12.0,<23.0.0)
+Description-Content-Type: text/markdown
+
+# postfixcalc
+
+Simple and stupid infix to postfix converter and evaluator
