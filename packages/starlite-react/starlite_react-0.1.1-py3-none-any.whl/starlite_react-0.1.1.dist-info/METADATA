@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: starlite-react
+Version: 0.1.1
+Summary: Serve React static files from Starlite
+Home-page: https://github.com/smithk86/starlite-react
+License: MIT
+Author: Kyle Smith
+Author-email: smithk86@smc3.com
+Requires-Python: >=3.10,<4
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: starlite
+Project-URL: Documentation, https://smithk86.github.io/starlite-react
+Project-URL: Repository, https://github.com/smithk86/starlite-react
+Description-Content-Type: text/markdown
+
+# starlite-react
+Small helper for deploying static files for React with Starlite
+
