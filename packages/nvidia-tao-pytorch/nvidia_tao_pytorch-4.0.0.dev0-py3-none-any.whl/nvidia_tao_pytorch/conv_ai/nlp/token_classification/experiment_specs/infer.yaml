@@ -1,0 +1,7 @@
+# Copyright (c) 2020, NVIDIA CORPORATION. All rights reserved.
+# TLT Spec file for inference using the previously pretrained Token Classification model.
+
+# "Simulate" user input: batch with two samples.
+input_batch:
+  - 'We bought four shirts from the Nvidia gear store in Santa Clara.'
+  - 'Nvidia is a company.'

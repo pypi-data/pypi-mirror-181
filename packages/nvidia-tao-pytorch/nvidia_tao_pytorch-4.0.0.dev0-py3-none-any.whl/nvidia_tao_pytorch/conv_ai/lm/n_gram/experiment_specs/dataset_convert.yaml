@@ -1,0 +1,14 @@
+# Copyright (c) 2020, NVIDIA CORPORATION.  All rights reserved.
+# TLT Spec file for conversion of datasets to format accepted by the TLT dataset/model.
+
+# Dataset. Available options: [assistant]
+dataset_name: assistant
+
+# Extension of the files containing in dataset
+extension: ???
+
+# Path to the folder containing the dataset source files.
+source_data_dir: ???
+
+# Path to the output folder.
+target_data_file: ???

@@ -1,0 +1,31 @@
+# Copyright (c) 2020, NVIDIA CORPORATION. All rights reserved.
+# TLT Spec file for finetuning of the pre-trained TokenClassification model
+
+
+data_dir: ???
+
+tlt_checkpoint_interval: 1
+
+# Fine-tuning settings: training dataset.
+finetuning_ds:
+  num_samples: -1 # number of samples to be considered, -1 means all the dataset
+  text_file: text_train.txt
+  labels_file: labels_train.txt
+  batch_size: 64
+
+# Fine-tuning settings: validation dataset.
+validation_ds:
+  num_samples: -1 # number of samples to be considered, -1 means all the dataset
+  text_file: text_dev.txt
+  labels_file: labels_dev.txt
+  batch_size: 64
+
+# Fine-tuning settings: different optimizer.
+optim:
+  name: adam
+  lr: 2e-5
+
+trainer:
+  max_epochs: 3
+
+megatron: false

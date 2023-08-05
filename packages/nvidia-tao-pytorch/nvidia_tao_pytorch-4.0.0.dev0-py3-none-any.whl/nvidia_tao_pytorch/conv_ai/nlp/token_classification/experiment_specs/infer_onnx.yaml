@@ -1,0 +1,10 @@
+# Copyright (c) 2020, NVIDIA CORPORATION. All rights reserved.
+# TLT Spec file for inference using the previously pretrained Token Classification model.
+
+# Name of the .etlt from which the ONNX graph will be loaded.
+restore_from: exported-trained-model.etlt
+
+# "Simulate" user input: batch with two samples.
+input_batch:
+  - 'We bought four shirts from the Nvidia gear store in Santa Clara.'
+  - 'Nvidia is a company.'

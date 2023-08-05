@@ -1,0 +1,10 @@
+# Copyright (c) 2020, NVIDIA CORPORATION. All rights reserved.
+# TLT spec file for inference on file containing multiple sentence from a n-gram LM arpa/binary.
+
+# "Simulate" user input:
+input_batch:
+  - 'set alarm for seven thirty am'
+  - 'lower volume by fifty percent'
+  - 'what is my schedule for tomorrow'
+
+restore_from: ???

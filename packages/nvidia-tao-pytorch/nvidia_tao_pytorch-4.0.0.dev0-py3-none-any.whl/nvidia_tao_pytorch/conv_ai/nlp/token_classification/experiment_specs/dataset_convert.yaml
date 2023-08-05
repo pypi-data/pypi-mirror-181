@@ -1,0 +1,20 @@
+# Copyright (c) 2020, NVIDIA CORPORATION. All rights reserved.
+# TLT Spec file for conversion of datasets to format accepted by the TLT dataset/model.
+
+# Path to the folder containing the dataset source files
+source_data_dir: ???
+
+# Path to the output folder.
+target_data_dir: ???
+
+# list of file names inside source_data_dir in IOB format
+list_of_file_names:  ['train.txt','dev.txt']
+
+# name of the file with training data inside sourse_data_dir
+# train_file is used to generate label to label_id mapping
+train_file_name: 'train.txt'
+
+# Max sequence length use -1 to leave the examples's length as is,
+# otherwise long examples will be split into multiple examples'
+max_length: -1
+

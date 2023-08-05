@@ -1,0 +1,26 @@
+# Copyright (c) 2020, NVIDIA CORPORATION. All rights reserved.
+# TLT Spec file for finetuning of the previously pretrained Punctuation and Capitalization model.
+
+trainer:
+  max_epochs: 100
+
+tlt_checkpoint_interval: 1
+data_dir: ???
+# Fine-tuning settings: training dataset.
+finetuning_ds:
+  num_samples: -1 # number of samples to be considered, -1 means all the dataset
+  ds_item: ???
+  tokens_in_batch: 15000
+
+# Fine-tuning settings: validation dataset.
+validation_ds:
+  num_samples: -1 # number of samples to be considered, -1 means all the dataset
+  ds_item: ???
+  tokens_in_batch: 15000
+
+# Fine-tuning settings: different optimizer.
+optim:
+  name: adam
+  lr: 2e-5
+
+megatron: false

@@ -1,0 +1,14 @@
+model:
+  intermediate: True
+  order: 2
+  pruning:
+    - 0
+    
+training_ds:
+  is_tarred: false
+  is_file: true
+  data_file: ???
+
+vocab_file: ""
+encryption_key: "tlt_encode"
+discount_fallback: true

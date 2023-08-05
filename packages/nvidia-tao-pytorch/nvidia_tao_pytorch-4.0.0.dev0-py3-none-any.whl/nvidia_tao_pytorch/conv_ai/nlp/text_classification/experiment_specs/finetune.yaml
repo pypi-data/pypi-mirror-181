@@ -1,0 +1,36 @@
+# Copyright (c) 2020, NVIDIA CORPORATION. All rights reserved.
+# TLT Spec file for finetuning of a previously pretrained BERT model on a text classification task.
+
+trainer:
+  max_epochs: 100
+
+tlt_checkpoint_interval: 1
+
+# Fine-tuning settings: training dataset.
+finetuning_ds:
+  file_path: ???
+  num_samples: -1 # number of samples to be considered, -1 means all the dataset
+  shuffle: true
+  batch_size: 64
+  num_workers: 3
+  drop_last: false
+  pin_memory: false
+
+# Fine-tuning settings: validation dataset.
+validation_ds:
+  file_path: ???
+  num_samples: -1 # number of samples to be considered, -1 means all the dataset
+  shuffle: false
+  batch_size: 64
+  num_workers: 3
+  drop_last: false
+  pin_memory: false
+
+# Fine-tuning settings: different optimizer.
+optim:
+  name: adam
+  lr: 0.001
+  betas: [0.9, 0.9998]
+  weight_decay: 0.001
+
+megatron: false

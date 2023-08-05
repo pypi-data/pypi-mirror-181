@@ -1,0 +1,15 @@
+model:
+  intermediate: True
+  order: 2
+  pruning:
+    - 0
+
+tuning_ds:
+  is_tarred: false
+  is_file: true
+  data_file: ???
+
+weight: 0.5
+restore_from: ???
+vocab_file: ""
+encryption_key: "tlt_encode"

@@ -1,0 +1,53 @@
+train_dataset: ???
+validation_dataset: ???
+
+# Data parameters.
+sample_rate: 22050
+n_window_stride: 256
+
+# Training dataset parameters.
+train_n_segments: 16384
+train_min_duration: 0.75
+train_max_duration: null
+
+# Validation dataset parameters.
+val_n_segments: 16384
+val_min_duration: 0.75
+val_max_duration: null
+
+training_ds:
+  dataset:
+    _target_: "nemo.collections.tts.torch.data.VocoderDataset"
+    manifest_filepath: ${train_dataset}
+    sample_rate: ${sample_rate}
+    min_duration: ${train_min_duration}
+    max_duration: ${train_max_duration}
+    n_segments: ${train_n_segments}
+    load_precomputed_mel: true
+    hop_length: ${n_window_stride}
+  dataloader_params:
+    drop_last: false
+    shuffle: true
+    batch_size: 16
+    num_workers: 4
+
+validation_ds:
+  dataset:
+    _target_: "nemo.collections.tts.torch.data.VocoderDataset"
+    manifest_filepath: ${validation_dataset}
+    sample_rate: ${sample_rate}
+    min_duration: ${val_min_duration}
+    max_duration: ${val_max_duration}
+    n_segments: ${val_n_segments}
+    load_precomputed_mel: true
+    hop_length: ${n_window_stride}
+  dataloader_params:
+    drop_last: false
+    shuffle: false
+    batch_size: 2
+    num_workers: 1
+
+optim:
+  _target_: torch.optim.AdamW
+  lr: 0.0001
+  betas: [0.8, 0.99]

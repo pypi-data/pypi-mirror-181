@@ -1,0 +1,17 @@
+# Copyright (c) 2020, NVIDIA CORPORATION. All rights reserved.
+# TLT spec file for conversion of Mozilla Common Voice datasets to a format
+# accepted by the TLT model.
+
+# Which dataset this is
+dataset_name: "mcv"
+
+# Path to the dataset
+source_data_dir: ???
+
+# Path to the output folder
+target_data_dir: ???
+
+# Valid characters for the text labels
+valid_chars: [' ', 'а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с',
+              'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я']
+

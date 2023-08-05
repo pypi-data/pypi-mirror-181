@@ -1,0 +1,18 @@
+# Copyright (c) 2020, NVIDIA CORPORATION. All rights reserved.
+# TLT spec file for conversion of the AN4 dataset to a format accepted
+# by the TLT model.
+# For this dataset, please make sure you have sox installed in order for
+# the conversion from .sph to .wav to work properly.
+
+# The dataset type
+dataset_name: "an4"
+
+# Path to the dataset
+source_data_dir: ???
+
+# Path to the output folder
+target_data_dir: ???
+
+# Valid characters for the text labels
+valid_chars: [" ", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
+              "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "'"]

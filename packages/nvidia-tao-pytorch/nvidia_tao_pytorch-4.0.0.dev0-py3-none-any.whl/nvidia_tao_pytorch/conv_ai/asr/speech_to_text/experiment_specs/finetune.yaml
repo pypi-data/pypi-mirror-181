@@ -1,0 +1,39 @@
+# Copyright (c) 2020, NVIDIA CORPORATION. All rights reserved.
+# TLT spec file for fine-tuning a previously trained ASR model (Jasper or QuartzNet) on the MCV Russian dataset.
+
+trainer:
+  max_epochs: 3   # This is low for demo purposes
+
+tlt_checkpoint_interval: 1
+
+# Whether or not to change the decoder vocabulary.
+# Note that this MUST be set if the labels change, e.g. to a different language's character set
+# or if additional punctuation characters are added.
+change_vocabulary: true
+
+# Fine-tuning settings: training dataset
+finetuning_ds:
+  manifest_filepath: ???
+  sample_rate: 16000
+  labels: [' ', 'а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о',
+           'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я']
+  batch_size: 32
+  trim_silence: true
+  max_duration: 16.7
+  shuffle: true
+  is_tarred: false
+  tarred_audio_filepaths: null
+
+# Fine-tuning settings: validation dataset
+validation_ds:
+  manifest_filepath: ???
+  sample_rate: 16000
+  labels: [' ', 'а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о',
+           'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я']
+  batch_size: 32
+  shuffle: false
+
+# Fine-tuning settings: optimizer
+optim:
+  name: novograd
+  lr: 0.001

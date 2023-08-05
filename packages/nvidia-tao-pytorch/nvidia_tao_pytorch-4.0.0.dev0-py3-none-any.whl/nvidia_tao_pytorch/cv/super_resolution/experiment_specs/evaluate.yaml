@@ -1,0 +1,19 @@
+# Copyright (c) 2020, NVIDIA CORPORATION.  All rights reserved.
+# TLT Spec file for training of the ESRGAN model for super resolution
+
+general:
+  model: "srragan"
+  scale: 2
+  gpu_ids: [0]
+  root: ???
+  resume_state: ""
+  val_images: "valImg"
+  pretrain_model_D: 
+  pretrain_model_G: ???
+ 
+dataset:
+  mode: "LRHR"
+  dataroot_HR: ???
+  dataroot_LR: ???
+
+encryption_key: ???

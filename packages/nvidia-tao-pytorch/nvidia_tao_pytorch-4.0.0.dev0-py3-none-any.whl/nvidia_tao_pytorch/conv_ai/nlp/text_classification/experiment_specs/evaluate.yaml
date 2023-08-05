@@ -1,0 +1,14 @@
+# Copyright (c) 2020, NVIDIA CORPORATION. All rights reserved.
+# TLT Spec file for evaluation of BERT model for text classification.
+
+trainer:
+  gpus: 1 # number of GPUs (0 for CPU), or list of the GPUs to use e.g. [0, 1]
+
+# Test settings:
+test_ds:
+  file_path: ???
+  batch_size: 32
+  shuffle: false
+  num_samples: -1 # number of samples to be considered, -1 means the whole the dataset
+
+megatron: false

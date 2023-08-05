@@ -1,0 +1,17 @@
+# Copyright (c) 2020, NVIDIA CORPORATION. All rights reserved.
+# TLT Spec file for conversion of datasets to format accepted by the TLT dataset/model.
+
+# Path to the folder containing the dataset source files
+source_data_dir: tatoeba
+
+# Path to the folder containing the procesed dataset.
+target_data_dir: ???
+
+# percent of sentences to cut in the middle
+percent_to_cut: 0
+# number of lines to combine into single example
+num_lines_to_combine: 1
+# number of samples, use -1 for the whole dataset
+num_samples: 10000
+# size of the dev set
+percent_dev: 0.2
