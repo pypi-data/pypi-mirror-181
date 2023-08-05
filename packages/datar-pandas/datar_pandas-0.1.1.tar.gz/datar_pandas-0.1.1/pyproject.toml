@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "datar-pandas"
+version = "0.1.1"
+description = "The pandas backend for datar"
+authors = ["pwwang <pwwang@pwwang.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "datar_pandas"}]
+
+[tool.poetry.dependencies]
+python = "^3.7.1"
+pdtypes = "^0.0.4"
+datar = "^0.10.3"
+datar-numpy = "^0.0"
+# modin = { version = "^0.10", optional = true }
+
+# [tool.poetry.extras]
+# modin = ["modin"]
+
+[tool.poetry.dev-dependencies]
+pytest = "^7"
+pytest-cov = "^4"
+
+[tool.poetry.plugins.datar]
+pandas = "datar_pandas:plugin"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+addopts = "-vv --assert=plain -p no:asyncio -p no:xdist --tb=short --cov-config=.coveragerc --cov=datar_pandas --cov-report xml:cov.xml --cov-report term-missing"
+# addopts = "-vv --assert=plain -p no:asyncio --tb=short -n 0"
+filterwarnings = [
+    # "ignore::UserWarning",
+    # "ignore::RuntimeWarning",
+    "ignore",
+    # "error"
+]
+console_output_style = "progress"
+junit_family = "xunit1"
