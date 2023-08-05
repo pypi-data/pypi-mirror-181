@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: jinjax-ui
+Version: 0.1
+Summary: Headless JinjaX UI components
+Home-page: https://jinjax-ui.scaletti.dev/
+License: MIT
+Author: Juan-Pablo Scaletti
+Author-email: juanpablo@jpscaletti.com
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Other Audience
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Text Processing :: Markup :: HTML
+Classifier: Typing :: Typed
+Requires-Dist: jinjax (>=0.17)
+Project-URL: Documentation, https://jinjax-ui.scaletti.dev/docs/
+Project-URL: Repository, https://github.com/jpsca/jinjax-ui
+Description-Content-Type: text/markdown
+
+# JinjaX-UI
+
+Headless JinjaX UI components
+
