@@ -1,0 +1,59 @@
+@startuml
+
+
+interface Entity
+
+Entity : uuid unique_entity_id
+Entity : to_dict()
+Entity : id()
+
+
+interface SearchableRepositoryInterface
+SearchableRepositoryInterface : List[str] items
+SearchableRepositoryInterface : search()
+
+interface RepositoryInterface
+RepositoryInterface : insert(entity: Entity)
+RepositoryInterface : find_by_id(entity_id: uuid)
+RepositoryInterface : find_all()
+RepositoryInterface : update(entity: Entity)
+RepositoryInterface : delete(entity_id: uuid)
+
+interface InMemoryRepository implements RepositoryInterface
+InMemoryRepository : List[Entity]
+InMemoryRepository : insert(entity: Entity)
+InMemoryRepository : find_by_id(entity_id: uuid)
+InMemoryRepository : find_all()
+InMemoryRepository : update(entity: Entity)
+InMemoryRepository : delete(entity_id: uuid)
+
+
+
+class InMemorySearchableRepository extends InMemoryRepository
+class InMemorySearchableRepository implements SearchableRepositoryInterface
+InMemorySearchableRepository : search(params : SearchParams)
+
+
+SearchableRepositoryInterface <|-- RepositoryInterface
+
+
+
+class SearchParams
+SearchParams : int page
+SearchParams : int per_page
+SearchParams : str sort
+SearchParams : str sort_direction
+SearchParams : hash filters
+
+class SearchResult
+SearchResult : List[Entity] items
+SearchResult : int current_page
+SearchResult : int per_page
+SearchResult : int last_page
+SearchResult : string sort
+SearchResult : string sort_direction
+SearchResult : hash filters
+SearchResult : int total
+
+
+@enduml

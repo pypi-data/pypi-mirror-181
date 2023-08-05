@@ -1,0 +1,46 @@
+@startuml
+
+left to right direction
+
+actor "Admin" as adm
+
+usecase "Send request to web app" as UC0
+usecase "Run command for create genre" as UC1
+usecase "Check the payload is none" as UC2
+usecase "Run use case" as UC3
+
+rectangle CreateGenreUseCase {
+  usecase UC4 as "Check categories
+  ..rules..
+  - Check the category exists
+  - Check the category is active
+  - Check the category is undelete
+  ..raise an exception..
+  - Should returns an exception for each rule
+  "
+  usecase "Create genre entity" as UC5
+  usecase "Saves entity in database" as UC6
+  usecase "Returns entity saved" as UC7
+}
+
+note "POST /api/v2/genres/" as N1
+UC0 .. N1
+N1 .. UC1
+
+note "CreateGenreCommand.run" as N2
+UC1 .. N2
+
+note "Raises InvalidDataException" as N3
+UC2 .. N3
+
+adm --> UC0
+UC0 --> UC1
+UC1 --> UC2
+UC2 --> UC3
+
+UC3 --> UC4
+UC4 --> UC5
+UC5 --> UC6
+UC6 --> UC7
+
+@enduml
