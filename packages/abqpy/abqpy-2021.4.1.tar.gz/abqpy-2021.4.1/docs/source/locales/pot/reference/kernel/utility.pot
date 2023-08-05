@@ -1,0 +1,2432 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022, WANG Hailin
+# This file is distributed under the same license as the abqpy package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: abqpy 2021\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-04 00:21+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../reference/kernel/utility.md:1
+msgid "Utility and View"
+msgstr ""
+
+#: ../../reference/kernel/utility.md:3
+msgid "Utility commands are used to do the following:"
+msgstr ""
+
+#: ../../reference/kernel/utility.md:5
+msgid "Create SymbolicConstant and Boolean objects."
+msgstr ""
+
+#: ../../reference/kernel/utility.md:6
+msgid "Change the name of a key to a Repository object."
+msgstr ""
+
+#: ../../reference/kernel/utility.md:7
+msgid "Control the use of deprecated commands."
+msgstr ""
+
+#: ../../reference/kernel/utility.md:8
+msgid "Request input from the user."
+msgstr ""
+
+#: ../../reference/kernel/utility.md:9
+msgid "Display status information."
+msgstr ""
+
+#: ../../reference/kernel/utility.md:10
+msgid "Execute Python commands or functions."
+msgstr ""
+
+#: ../../reference/kernel/utility.md:11
+msgid "Register a callback that will be invoked when certain Abaqus Scripting Interface commands are about to be executed."
+msgstr ""
+
+#: ../../reference/kernel/utility.md:12
+msgid "Register a callback that will be invoked when certain Abaqus Scripting Interface objects are about to be deleted."
+msgstr ""
+
+#: ../../reference/kernel/utility.md:13
+msgid "Upgrade Abaqus kernel or GUI scripts from one release of Abaqus to a later release."
+msgstr ""
+
+#: ../../reference/kernel/utility.md:15
+msgid "View commands are used to transform three-dimensional views stored in Session and Viewport objects to the screen. (See Session object and Viewport object.)"
+msgstr ""
+
+#: ../../reference/kernel/utility.md:17
+msgid "Other Classes"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/AbaqusBoolean.py:docstring of abaqus.UtilityAndView.AbaqusBoolean.AbaqusBoolean:1
+msgid "Bases: :py:class:`int`"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/AbaqusBoolean.py:docstring of abaqus.UtilityAndView.AbaqusBoolean.AbaqusBoolean:1
+msgid "The AbaqusBoolean object is used in a similar way to the SymbolicConstant object. If you pass an AbaqusBoolean object to the Python repr() function, the function returns the text without quotes. In effect, the text is the variable that, by convention, refers to the AbaqusBoolean object. An AbaqusBoolean object has a value of 0 or 1, and an AbaqusBoolean object can be tested in an if statement. You can use an AbaqusBoolean object as an argument to a method in place of 1 or 0. Conversely, you can pass a 0 or a 1 to an Abaqus Scripting Interface method that expects a Boolean argument, and the 0 or 1 will be coerced to the appropriate AbaqusBoolean value. There are only two possible values for an AbaqusBoolean object: 1 and 0. You can import both values from the symbolicConstants module or from the abaqus module. Abaqus Scripting Interface commands that expect an AbaqusBoolean object will also accept a Python bool (True, False), or a Python int (1, 0)."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/AbaqusBoolean.py:docstring of abaqus.UtilityAndView.AbaqusBoolean.AbaqusBoolean:16
+#: ../../../../src/abaqus/UtilityAndView/BackwardCompatibility.py:docstring of abaqus.UtilityAndView.BackwardCompatibility.BackwardCompatibility:37
+#: ../../../../src/abaqus/UtilityAndView/SymbolicConstant.py:docstring of abaqus.UtilityAndView.SymbolicConstant.SymbolicConstant:15
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View:10
+msgid "This object can be accessed by::"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/AbaqusBoolean.py:docstring of abaqus.UtilityAndView.AbaqusBoolean.AbaqusBoolean:22
+msgid "Check `AbaqusBoolean on help.3ds.com/2021 <https://help.3ds.com/2021/English/DSSIMULIA_Established/SIMACAEKERRefMap/simaker-c-abaqusbooleanpyc.htm?contextscope=all>`__."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/AbaqusBoolean.py:docstring of abaqus.UtilityAndView.AbaqusBoolean.AbaqusBoolean:0
+#: ../../../../src/abaqus/UtilityAndView/BackwardCompatibility.py:docstring of abaqus.UtilityAndView.BackwardCompatibility.BackwardCompatibility:0
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View:0
+msgid "Public Data Attributes:"
+msgstr ""
+
+#: ../../None:6:<autosummary>:1
+msgid ":py:obj:`real <builtins.int.real>`\\"
+msgstr ""
+
+#: ../../None:6:<autosummary>:1
+msgid "the real part of a complex number"
+msgstr ""
+
+#: ../../None:6:<autosummary>:1
+msgid ":py:obj:`imag <builtins.int.imag>`\\"
+msgstr ""
+
+#: ../../None:6:<autosummary>:1
+msgid "the imaginary part of a complex number"
+msgstr ""
+
+#: ../../None:6:<autosummary>:1
+msgid ":py:obj:`numerator <builtins.int.numerator>`\\"
+msgstr ""
+
+#: ../../None:6:<autosummary>:1
+msgid "the numerator of a rational number in lowest terms"
+msgstr ""
+
+#: ../../None:6:<autosummary>:1
+msgid ":py:obj:`denominator <builtins.int.denominator>`\\"
+msgstr ""
+
+#: ../../None:6:<autosummary>:1
+msgid "the denominator of a rational number in lowest terms"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/AbaqusBoolean.py:docstring of abaqus.UtilityAndView.AbaqusBoolean.AbaqusBoolean:0
+#: ../../../../src/abaqus/UtilityAndView/BackwardCompatibility.py:docstring of abaqus.UtilityAndView.BackwardCompatibility.BackwardCompatibility:0
+#: ../../../../src/abaqus/UtilityAndView/Repository.py:docstring of abaqus.UtilityAndView.Repository.Repository:0
+#: ../../../../src/abaqus/UtilityAndView/SymbolicConstant.py:docstring of abaqus.UtilityAndView.SymbolicConstant.SymbolicConstant:0
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View:0
+msgid "Public Methods:"
+msgstr ""
+
+#: ../../None:13:<autosummary>:1
+msgid ":py:obj:`__init__ <abaqus.UtilityAndView.AbaqusBoolean.AbaqusBoolean.__init__>`\\ \\(value\\)"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/AbaqusBoolean.py:docstring of abaqus.UtilityAndView.AbaqusBoolean.AbaqusBoolean.__init__:1
+#: ../../None:13:<autosummary>:1
+msgid "The AbaqusBoolean method creates an AbaqusBoolean object."
+msgstr ""
+
+#: ../../None:13:<autosummary>:1
+msgid ":py:obj:`getId <abaqus.UtilityAndView.AbaqusBoolean.AbaqusBoolean.getId>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:13:<autosummary>:1
+msgid ":py:obj:`getText <abaqus.UtilityAndView.AbaqusBoolean.AbaqusBoolean.getText>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:13:<autosummary>:1
+msgid ":py:obj:`isTrue <abaqus.UtilityAndView.AbaqusBoolean.AbaqusBoolean.isTrue>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:13:<autosummary>:1
+msgid ":py:obj:`__copy__ <abaqus.UtilityAndView.AbaqusBoolean.AbaqusBoolean.__copy__>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:13:<autosummary>:1
+msgid ":py:obj:`__getstate__ <abaqus.UtilityAndView.AbaqusBoolean.AbaqusBoolean.__getstate__>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:13:<autosummary>:1
+msgid ":py:obj:`__hash__ <abaqus.UtilityAndView.AbaqusBoolean.AbaqusBoolean.__hash__>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:13:<autosummary>:1
+#: ../../None:57:<autosummary>:1
+#: ../../None:71:<autosummary>:1
+msgid "Return hash(self)."
+msgstr ""
+
+#: ../../None:13:<autosummary>:1
+msgid ":py:obj:`__reduce__ <abaqus.UtilityAndView.AbaqusBoolean.AbaqusBoolean.__reduce__>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:13:<autosummary>:1
+msgid "Helper for pickle."
+msgstr ""
+
+#: ../../None:13:<autosummary>:1
+msgid ":py:obj:`__repr__ <abaqus.UtilityAndView.AbaqusBoolean.AbaqusBoolean.__repr__>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:13:<autosummary>:1
+#: ../../None:34:<autosummary>:1
+#: ../../None:57:<autosummary>:1
+#: ../../None:71:<autosummary>:1
+msgid "Return repr(self)."
+msgstr ""
+
+#: ../../None:13:<autosummary>:1
+msgid ":py:obj:`__setstate__ <abaqus.UtilityAndView.AbaqusBoolean.AbaqusBoolean.__setstate__>`\\ \\(\\*args\\)"
+msgstr ""
+
+#: ../../None:13:<autosummary>:1
+msgid ":py:obj:`__str__ <abaqus.UtilityAndView.AbaqusBoolean.AbaqusBoolean.__str__>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:13:<autosummary>:1
+#: ../../None:71:<autosummary>:1
+msgid "Return str(self)."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__repr__ <builtins.int.__repr__>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__hash__ <builtins.int.__hash__>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__getattribute__ <builtins.int.__getattribute__>`\\ \\(name\\, \\/\\)"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+#: ../../None:57:<autosummary>:1
+#: ../../None:71:<autosummary>:1
+msgid "Return getattr(self, name)."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__lt__ <builtins.int.__lt__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+#: ../../None:57:<autosummary>:1
+#: ../../None:71:<autosummary>:1
+msgid "Return self<value."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__le__ <builtins.int.__le__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+#: ../../None:57:<autosummary>:1
+#: ../../None:71:<autosummary>:1
+msgid "Return self<=value."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__eq__ <builtins.int.__eq__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+#: ../../None:57:<autosummary>:1
+#: ../../None:71:<autosummary>:1
+msgid "Return self==value."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__ne__ <builtins.int.__ne__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+#: ../../None:57:<autosummary>:1
+#: ../../None:71:<autosummary>:1
+msgid "Return self!=value."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__gt__ <builtins.int.__gt__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+#: ../../None:57:<autosummary>:1
+#: ../../None:71:<autosummary>:1
+msgid "Return self>value."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__ge__ <builtins.int.__ge__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+#: ../../None:57:<autosummary>:1
+#: ../../None:71:<autosummary>:1
+msgid "Return self>=value."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__add__ <builtins.int.__add__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+#: ../../None:71:<autosummary>:1
+msgid "Return self+value."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__radd__ <builtins.int.__radd__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid "Return value+self."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__sub__ <builtins.int.__sub__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid "Return self-value."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__rsub__ <builtins.int.__rsub__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid "Return value-self."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__mul__ <builtins.int.__mul__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+#: ../../None:71:<autosummary>:1
+msgid "Return self*value."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__rmul__ <builtins.int.__rmul__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+#: ../../None:71:<autosummary>:1
+msgid "Return value*self."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__mod__ <builtins.int.__mod__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+#: ../../None:71:<autosummary>:1
+msgid "Return self%value."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__rmod__ <builtins.int.__rmod__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+#: ../../None:71:<autosummary>:1
+msgid "Return value%self."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__divmod__ <builtins.int.__divmod__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid "Return divmod(self, value)."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__rdivmod__ <builtins.int.__rdivmod__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid "Return divmod(value, self)."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__pow__ <builtins.int.__pow__>`\\ \\(value\\[\\, mod\\]\\)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid "Return pow(self, value, mod)."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__rpow__ <builtins.int.__rpow__>`\\ \\(value\\[\\, mod\\]\\)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid "Return pow(value, self, mod)."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__neg__ <builtins.int.__neg__>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid "-self"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__pos__ <builtins.int.__pos__>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid "+self"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__abs__ <builtins.int.__abs__>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid "abs(self)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__bool__ <builtins.int.__bool__>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid "True if self else False"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__invert__ <builtins.int.__invert__>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid "~self"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__lshift__ <builtins.int.__lshift__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid "Return self<<value."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__rlshift__ <builtins.int.__rlshift__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid "Return value<<self."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__rshift__ <builtins.int.__rshift__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid "Return self>>value."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__rrshift__ <builtins.int.__rrshift__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid "Return value>>self."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__and__ <builtins.int.__and__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid "Return self&value."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__rand__ <builtins.int.__rand__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid "Return value&self."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__xor__ <builtins.int.__xor__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid "Return self^value."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__rxor__ <builtins.int.__rxor__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid "Return value^self."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__or__ <builtins.int.__or__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+#: ../../None:57:<autosummary>:1
+msgid "Return self|value."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__ror__ <builtins.int.__ror__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+#: ../../None:57:<autosummary>:1
+msgid "Return value|self."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__int__ <builtins.int.__int__>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid "int(self)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__float__ <builtins.int.__float__>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid "float(self)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__floordiv__ <builtins.int.__floordiv__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid "Return self//value."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__rfloordiv__ <builtins.int.__rfloordiv__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid "Return value//self."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__truediv__ <builtins.int.__truediv__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid "Return self/value."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__rtruediv__ <builtins.int.__rtruediv__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid "Return value/self."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__index__ <builtins.int.__index__>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid "Return self converted to an integer, if self is suitable for use as an index into a list."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`conjugate <builtins.int.conjugate>`\\"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid "Returns self, the complex conjugate of any int."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`bit_length <builtins.int.bit_length>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid "Number of bits necessary to represent self in binary."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`to_bytes <builtins.int.to_bytes>`\\ \\(length\\, byteorder\\, \\*\\[\\, signed\\]\\)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid "Return an array of bytes representing an integer."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`from_bytes <builtins.int.from_bytes>`\\ \\(byteorder\\, \\*\\[\\, signed\\]\\)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid "Return the integer represented by the given array of bytes."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`as_integer_ratio <builtins.int.as_integer_ratio>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid "Return integer ratio."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__trunc__ <builtins.int.__trunc__>`\\"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid "Truncating an Integral returns itself."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__floor__ <builtins.int.__floor__>`\\"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid "Flooring an Integral returns itself."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__ceil__ <builtins.int.__ceil__>`\\"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid "Ceiling of an Integral returns itself."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__round__ <builtins.int.__round__>`\\"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid "Rounding an Integral returns itself."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__getnewargs__ <builtins.int.__getnewargs__>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__format__ <builtins.int.__format__>`\\ \\(format\\_spec\\, \\/\\)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid "Default object formatter."
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid ":py:obj:`__sizeof__ <builtins.int.__sizeof__>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:57:<autosummary>:1
+msgid "Returns size in memory, in bytes."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/AbaqusBoolean.py:docstring of abaqus.UtilityAndView.AbaqusBoolean.AbaqusBoolean:1
+#: ../../../../src/abaqus/UtilityAndView/BackwardCompatibility.py:docstring of abaqus.UtilityAndView.BackwardCompatibility.BackwardCompatibility:1
+#: ../../../../src/abaqus/UtilityAndView/Repository.py:docstring of abaqus.UtilityAndView.Repository.Repository:1
+#: ../../../../src/abaqus/UtilityAndView/SymbolicConstant.py:docstring of abaqus.UtilityAndView.SymbolicConstant.SymbolicConstant:1
+#: ../../../../src/abaqus/UtilityAndView/SymbolicConstant.py:docstring of abaqus.UtilityAndView.SymbolicConstant.abaqusConstants:1
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View:1
+msgid "Member Details:"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/AbaqusBoolean.py:docstring of abaqus.UtilityAndView.AbaqusBoolean.AbaqusBoolean.__init__:4
+#: ../../../../src/abaqus/UtilityAndView/Callback.py:docstring of abaqus.UtilityAndView.Callback.addImportCallback:6
+#: ../../../../src/abaqus/UtilityAndView/Callback.py:docstring of abaqus.UtilityAndView.Callback.removeImportCallback:4
+#: ../../../../src/abaqus/UtilityAndView/Customization.py:docstring of abaqus.UtilityAndView.Customization.journalMethodCall:18
+#: ../../../../src/abaqus/UtilityAndView/Delete.py:docstring of abaqus.UtilityAndView.Delete.deleteObjectCallback:8
+#: ../../../../src/abaqus/UtilityAndView/Method.py:docstring of abaqus.UtilityAndView.Method.addCallback:5
+#: ../../../../src/abaqus/UtilityAndView/Method.py:docstring of abaqus.UtilityAndView.Method.removeCallback:5
+#: ../../../../src/abaqus/UtilityAndView/SymbolicConstant.py:docstring of abaqus.UtilityAndView.SymbolicConstant.SymbolicConstant.__init__:4
+#: ../../../../src/abaqus/UtilityAndView/Upgrade.py:docstring of abaqus.UtilityAndView.Upgrade.upgradeScript:9
+#: ../../../../src/abaqus/UtilityAndView/User.py:docstring of abaqus.UtilityAndView.User.getWarningReply:16
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.__init__:6
+msgid "This function can be accessed by::"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/AbaqusBoolean.py:docstring of abaqus.UtilityAndView.AbaqusBoolean.AbaqusBoolean.__init__:9
+msgid "Check `AbaqusBoolean.__init__ on help.3ds.com/2021 <https://help.3ds.com/2021/English/DSSIMULIA_Established/SIMACAEKERRefMap/simaker-c-abaqusbooleanpyc.htm?contextscope=all#simaker-abaqusboolean__init__pyc>`__."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/AbaqusBoolean.py:docstring of abaqus.UtilityAndView.AbaqusBoolean.AbaqusBoolean.__init__:0
+#: ../../../../src/abaqus/UtilityAndView/BackwardCompatibility.py:docstring of abaqus.UtilityAndView.BackwardCompatibility.BackwardCompatibility.setValues:0
+#: ../../../../src/abaqus/UtilityAndView/Callback.py:docstring of abaqus.UtilityAndView.Callback.addImportCallback:0
+#: ../../../../src/abaqus/UtilityAndView/Callback.py:docstring of abaqus.UtilityAndView.Callback.removeImportCallback:0
+#: ../../../../src/abaqus/UtilityAndView/Customization.py:docstring of abaqus.UtilityAndView.Customization.journalMethodCall:0
+#: ../../../../src/abaqus/UtilityAndView/Delete.py:docstring of abaqus.UtilityAndView.Delete.deleteObjectCallback:0
+#: ../../../../src/abaqus/UtilityAndView/Method.py:docstring of abaqus.UtilityAndView.Method.addCallback:0
+#: ../../../../src/abaqus/UtilityAndView/Method.py:docstring of abaqus.UtilityAndView.Method.removeCallback:0
+#: ../../../../src/abaqus/UtilityAndView/Repository.py:docstring of abaqus.UtilityAndView.Repository.Repository.changeKey:0
+#: ../../../../src/abaqus/UtilityAndView/SymbolicConstant.py:docstring of abaqus.UtilityAndView.SymbolicConstant.SymbolicConstant.__init__:0
+#: ../../../../src/abaqus/UtilityAndView/Upgrade.py:docstring of abaqus.UtilityAndView.Upgrade.upgradeScript:0
+#: ../../../../src/abaqus/UtilityAndView/User.py:docstring of abaqus.UtilityAndView.User.getWarningReply:0
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.__init__:0
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.fitView:0
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.next:0
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.pan:0
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.previous:0
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.rotate:0
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.setLayerTransform:0
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.setProjection:0
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.setRotationCenter:0
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.setValues:0
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.setViewpoint:0
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.zoom:0
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.zoomRectangle:0
+msgid "Parameters"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/AbaqusBoolean.py:docstring of abaqus.UtilityAndView.AbaqusBoolean.AbaqusBoolean.__init__:12
+msgid "An Int specifying whether the AbaqusBoolean object will test true or false. Possible values are 0 and 1, which will create the AbaqusBoolean method OFF and ON, respectively."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/AbaqusBoolean.py:docstring of abaqus.UtilityAndView.AbaqusBoolean.AbaqusBoolean.__init__:0
+#: ../../../../src/abaqus/UtilityAndView/BackwardCompatibility.py:docstring of abaqus.UtilityAndView.BackwardCompatibility.BackwardCompatibility.getDeprecatedArgsUsed:0
+#: ../../../../src/abaqus/UtilityAndView/BackwardCompatibility.py:docstring of abaqus.UtilityAndView.BackwardCompatibility.BackwardCompatibility.getDeprecatedMethodsUsed:0
+#: ../../../../src/abaqus/UtilityAndView/SymbolicConstant.py:docstring of abaqus.UtilityAndView.SymbolicConstant.SymbolicConstant.__init__:0
+#: ../../../../src/abaqus/UtilityAndView/Upgrade.py:docstring of abaqus.UtilityAndView.Upgrade.upgradeScript:0
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.__init__:0
+msgid "Returns"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/AbaqusBoolean.py:docstring of abaqus.UtilityAndView.AbaqusBoolean.AbaqusBoolean.__init__:15
+msgid "An AbaqusBoolean object."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/AbaqusBoolean.py:docstring of abaqus.UtilityAndView.AbaqusBoolean.AbaqusBoolean.__init__:0
+#: ../../../../src/abaqus/UtilityAndView/BackwardCompatibility.py:docstring of abaqus.UtilityAndView.BackwardCompatibility.BackwardCompatibility.getDeprecatedArgsUsed:0
+#: ../../../../src/abaqus/UtilityAndView/BackwardCompatibility.py:docstring of abaqus.UtilityAndView.BackwardCompatibility.BackwardCompatibility.getDeprecatedMethodsUsed:0
+#: ../../../../src/abaqus/UtilityAndView/SymbolicConstant.py:docstring of abaqus.UtilityAndView.SymbolicConstant.SymbolicConstant.__init__:0
+#: ../../../../src/abaqus/UtilityAndView/Upgrade.py:docstring of abaqus.UtilityAndView.Upgrade.upgradeScript:0
+#: ../../../../src/abaqus/UtilityAndView/User.py:docstring of abaqus.UtilityAndView.User.getWarningReply:0
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.__init__:0
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.setValues:0
+msgid "Return type"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/AbaqusBoolean.py:docstring of abaqus.UtilityAndView.AbaqusBoolean.AbaqusBoolean.__init__:16
+msgid ":class:`AbaqusBoolean`"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/BackwardCompatibility.py:docstring of abaqus.UtilityAndView.BackwardCompatibility.BackwardCompatibility:1
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View:1
+msgid "Bases: :py:class:`object`"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/BackwardCompatibility.py:docstring of abaqus.UtilityAndView.BackwardCompatibility.BackwardCompatibility:1
+msgid "The BackwardCompatibility object enables the user to control access to deprecated commands in the Abaqus Scripting Interface and to collect data on which deprecated commands have been used. This enables the user to check that no deprecated methods, members, or arguments have been used. Data are recorded on any deprecated members, methods, or arguments that are used. The BackwardCompatibility object has no constructor. The abaqus module and the odbAccess module each have a member named backwardCompatibility. By default, the value of the **includeDeprecated** member is ON, and Abaqus will execute a script containing deprecated commands with no indication that you should update the script. You can do either of the following to change the value of the **includeDeprecated** member and to determine which commands have been deprecated:"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/BackwardCompatibility.py:docstring of abaqus.UtilityAndView.BackwardCompatibility.BackwardCompatibility:13
+msgid "From the command line interface in Abaqus/CAE or from an Abaqus Scripting Interface script that is run from within Abaqus/CAE, use the following command::"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/BackwardCompatibility.py:docstring of abaqus.UtilityAndView.BackwardCompatibility.BackwardCompatibility:18
+msgid "From an Abaqus Scripting Interface script that is run using `abaqus python` at the system prompt, use the following two commands::"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/BackwardCompatibility.py:docstring of abaqus.UtilityAndView.BackwardCompatibility.BackwardCompatibility:24
+msgid "In addition, the BackwardCompatibility object provides tools to assist you in determining the deprecated commands that have been used. For example, to determine the deprecated commands used in the script createLug.py, use the following commands::"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/BackwardCompatibility.py:docstring of abaqus.UtilityAndView.BackwardCompatibility.BackwardCompatibility:42
+msgid "Check `BackwardCompatibility on help.3ds.com/2021 <https://help.3ds.com/2021/English/DSSIMULIA_Established/SIMACAEKERRefMap/simaker-c-backwardcompatibilitypyc.htm?contextscope=all>`__."
+msgstr ""
+
+#: ../../None:5:<autosummary>:1
+msgid ":py:obj:`includeDeprecated <abaqus.UtilityAndView.BackwardCompatibility.BackwardCompatibility.includeDeprecated>`\\"
+msgstr ""
+
+#: ../../None:5:<autosummary>:1
+msgid "A Boolean specifying whether deprecated members, methods, and arguments can be seen and used."
+msgstr ""
+
+#: ../../None:5:<autosummary>:1
+msgid ":py:obj:`reportDeprecated <abaqus.UtilityAndView.BackwardCompatibility.BackwardCompatibility.reportDeprecated>`\\"
+msgstr ""
+
+#: ../../None:5:<autosummary>:1
+msgid "A Boolean specifying whether a warning is displayed after running a script that contains deprecated commands."
+msgstr ""
+
+#: ../../None:5:<autosummary>:1
+msgid ":py:obj:`showKeysInReport <abaqus.UtilityAndView.BackwardCompatibility.BackwardCompatibility.showKeysInReport>`\\"
+msgstr ""
+
+#: ../../None:5:<autosummary>:1
+msgid "A Boolean specifying whether the keys and indices are included in the report that is displayed when **reportDeprecated** is True."
+msgstr ""
+
+#: ../../None:7:<autosummary>:1
+msgid ":py:obj:`getDeprecatedMethodsUsed <abaqus.UtilityAndView.BackwardCompatibility.BackwardCompatibility.getDeprecatedMethodsUsed>`\\ \\(\\)"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/BackwardCompatibility.py:docstring of abaqus.UtilityAndView.BackwardCompatibility.BackwardCompatibility.getDeprecatedMethodsUsed:1
+#: ../../None:7:<autosummary>:1
+msgid "This method returns a list of deprecated methods used since the last call to resetDeprecatedMethodsUsed."
+msgstr ""
+
+#: ../../None:7:<autosummary>:1
+msgid ":py:obj:`getDeprecatedArgsUsed <abaqus.UtilityAndView.BackwardCompatibility.BackwardCompatibility.getDeprecatedArgsUsed>`\\ \\(\\)"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/BackwardCompatibility.py:docstring of abaqus.UtilityAndView.BackwardCompatibility.BackwardCompatibility.getDeprecatedArgsUsed:1
+#: ../../None:7:<autosummary>:1
+msgid "This method returns a list of deprecated arguments used since the last call to resetDeprecatedArgsUsed."
+msgstr ""
+
+#: ../../None:7:<autosummary>:1
+msgid ":py:obj:`resetDeprecatedMethodsUsed <abaqus.UtilityAndView.BackwardCompatibility.BackwardCompatibility.resetDeprecatedMethodsUsed>`\\ \\(\\)"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/BackwardCompatibility.py:docstring of abaqus.UtilityAndView.BackwardCompatibility.BackwardCompatibility.resetDeprecatedMethodsUsed:1
+#: ../../None:7:<autosummary>:1
+msgid "This method clears the list of deprecated methods used."
+msgstr ""
+
+#: ../../None:7:<autosummary>:1
+msgid ":py:obj:`resetDeprecatedArgsUsed <abaqus.UtilityAndView.BackwardCompatibility.BackwardCompatibility.resetDeprecatedArgsUsed>`\\ \\(\\)"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/BackwardCompatibility.py:docstring of abaqus.UtilityAndView.BackwardCompatibility.BackwardCompatibility.resetDeprecatedArgsUsed:1
+#: ../../None:7:<autosummary>:1
+msgid "This method clears the list of deprecated arguments used."
+msgstr ""
+
+#: ../../None:7:<autosummary>:1
+msgid ":py:obj:`setValues <abaqus.UtilityAndView.BackwardCompatibility.BackwardCompatibility.setValues>`\\ \\(\\[includeDeprecated\\, ...\\]\\)"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/BackwardCompatibility.py:docstring of abaqus.UtilityAndView.BackwardCompatibility.BackwardCompatibility.setValues:1
+#: ../../None:7:<autosummary>:1
+msgid "This method modifies the BackwardCompatibility object."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/BackwardCompatibility.py:docstring of abaqus.UtilityAndView.BackwardCompatibility.BackwardCompatibility.getDeprecatedArgsUsed:4
+#: ../../../../src/abaqus/UtilityAndView/BackwardCompatibility.py:docstring of abaqus.UtilityAndView.BackwardCompatibility.BackwardCompatibility.getDeprecatedMethodsUsed:4
+msgid "A list of Strings."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/BackwardCompatibility.py:docstring of abaqus.UtilityAndView.BackwardCompatibility.BackwardCompatibility.getDeprecatedArgsUsed:5
+#: ../../../../src/abaqus/UtilityAndView/BackwardCompatibility.py:docstring of abaqus.UtilityAndView.BackwardCompatibility.BackwardCompatibility.getDeprecatedMethodsUsed:5
+msgid ":class:`List[str]`"
+msgstr ""
+
+#: ../../docstring of abaqus.UtilityAndView.BackwardCompatibility.BackwardCompatibility.includeDeprecated:1
+msgid "A Boolean specifying whether deprecated members, methods, and arguments can be seen and used. Possible values are ON and OFF. The default value is ON."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/BackwardCompatibility.py:docstring of abaqus.UtilityAndView.BackwardCompatibility.BackwardCompatibility.setValues:10
+#: ../../docstring of abaqus.UtilityAndView.BackwardCompatibility.BackwardCompatibility.reportDeprecated:1
+msgid "A Boolean specifying whether a warning is displayed after running a script that contains deprecated commands. The default value is True."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/BackwardCompatibility.py:docstring of abaqus.UtilityAndView.BackwardCompatibility.BackwardCompatibility.setValues:4
+msgid "Check `BackwardCompatibility.setValues on help.3ds.com/2021 <https://help.3ds.com/2021/English/DSSIMULIA_Established/SIMACAEKERRefMap/simaker-c-backwardcompatibilitypyc.htm?contextscope=all#simaker-backwardcompatibilitysetvaluespyc>`__."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/BackwardCompatibility.py:docstring of abaqus.UtilityAndView.BackwardCompatibility.BackwardCompatibility.setValues:7
+msgid "A Boolean specifying whether deprecated members, methods, and arguments can be seen and used. The default value is ON."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/BackwardCompatibility.py:docstring of abaqus.UtilityAndView.BackwardCompatibility.BackwardCompatibility.setValues:13
+#: ../../docstring of abaqus.UtilityAndView.BackwardCompatibility.BackwardCompatibility.showKeysInReport:1
+msgid "A Boolean specifying whether the keys and indices are included in the report that is displayed when **reportDeprecated** is True. The default value is False."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Callback.py:docstring of abaqus.UtilityAndView.Callback:1
+msgid "These functions execute Python commands or functions."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Callback.py:docstring of abaqus.UtilityAndView.Callback.addImportCallback:1
+msgid "This function defines a function to be called when a specified Abaqus/CAE module is imported. You cannot specify a custom module. For more information, see An example of a callback function."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Callback.py:docstring of abaqus.UtilityAndView.Callback.addImportCallback:11
+msgid "Check `Callback.addImportCallback on help.3ds.com/2021 <https://help.3ds.com/2021/English/DSSIMULIA_Established/SIMACAEKERRefMap/simaker-c-functioncallbackpyc.htm?contextscope=all#simaker-functioncallbackaddimportcallbackpyc>`__."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Callback.py:docstring of abaqus.UtilityAndView.Callback.addImportCallback:14
+msgid "A String specifying the name of a specified Abaqus/CAE module."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Callback.py:docstring of abaqus.UtilityAndView.Callback.addImportCallback:16
+msgid "A Python function to be called. The interface definition of the callback function is `def functionName(moduleName, userData)`. **moduleName** is a String. **userData** is the object passed as the **userData** argument to the addImportCallback method."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Callback.py:docstring of abaqus.UtilityAndView.Callback.addImportCallback:20
+msgid "Any Python object or None. This object is passed to the callback function."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Callback.py:docstring of abaqus.UtilityAndView.Callback.removeImportCallback:1
+msgid "This function removes a callback added in addImportCallback."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Callback.py:docstring of abaqus.UtilityAndView.Callback.removeImportCallback:9
+msgid "Check `Callback.removeImportCallback on help.3ds.com/2021 <https://help.3ds.com/2021/English/DSSIMULIA_Established/SIMACAEKERRefMap/simaker-c-functioncallbackpyc.htm?contextscope=all#simaker-functioncallbackremoveimportcallbackpyc>`__."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Callback.py:docstring of abaqus.UtilityAndView.Callback.removeImportCallback:12
+msgid "A Python function to be called; it must be the same as the **callback** argument specified in the original call to addImportCallback."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Callback.py:docstring of abaqus.UtilityAndView.Callback.removeImportCallback:15
+msgid "Any Python object or None; it must be the same as the **userData** argument specified in the original call to addImportCallback."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Customization.py:docstring of abaqus.UtilityAndView.Customization:1
+msgid "The following command is used to record a user-defined command in the Abaqus journal file."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Customization.py:docstring of abaqus.UtilityAndView.Customization.journalMethodCall:1
+msgid "This function may be used by a user-defined command to record itself in the Abaqus journal file. For example::"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Customization.py:docstring of abaqus.UtilityAndView.Customization.journalMethodCall:12
+msgid "Your command should not call journalMethodCall if the command changes the mdb using built-in Abaqus Scripting Interface commands, because built-in commands are journaled by default. A command that changes the mdb customData is one example of a command that should call journalMethodCall."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Customization.py:docstring of abaqus.UtilityAndView.Customization.journalMethodCall:23
+msgid "Check `Customization.journalMethodCall on help.3ds.com/2021 <https://help.3ds.com/2021/English/DSSIMULIA_Established/SIMACAEKERRefMap/simaker-c-functioncustomizationpyc.htm?contextscope=all#simaker-functioncustomizationjournalmethodcallpyc>`__."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Customization.py:docstring of abaqus.UtilityAndView.Customization.journalMethodCall:26
+msgid "A String specifying the path to the object."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Customization.py:docstring of abaqus.UtilityAndView.Customization.journalMethodCall:28
+msgid "A String specifying the name of the method."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Customization.py:docstring of abaqus.UtilityAndView.Customization.journalMethodCall:30
+msgid "A sequence specifying the positional arguments to be written to the journal file."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Customization.py:docstring of abaqus.UtilityAndView.Customization.journalMethodCall:32
+msgid "A Python dict object specifying the keyword arguments to be written to the journal file."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Delete.py:docstring of abaqus.UtilityAndView.Delete.deleteObjectCallback:1
+msgid "This method adds a callback function that will be invoked when the specified Abaqus Scripting Interface objects are about to be deleted. The callback is invoked only when the object is deleted using the Python statement del object. The callback is not invoked when the object is deleted using an Abaqus Scripting Interface command such as mdb.models[name].parts[name].deleteFeature()."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Delete.py:docstring of abaqus.UtilityAndView.Delete.deleteObjectCallback:13
+msgid "Check `Delete.deleteObjectCallback on help.3ds.com/2021 <https://help.3ds.com/2021/English/DSSIMULIA_Established/SIMACAEKERRefMap/simaker-c-functiondeletepyc.htm?contextscope=all#simaker-functiondeletedeleteobjectcallbackpyc>`__."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Delete.py:docstring of abaqus.UtilityAndView.Delete.deleteObjectCallback:16
+msgid "A Python function to be called when an object matching the specified path is about to be deleted. The interface definition of the callback function is `def functionName(objectPath, userData)` where **objectPath** is the path to the object about to be deleted. **userData** is the object passed as the **userData** argument to the addCallback method."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Delete.py:docstring of abaqus.UtilityAndView.Delete.deleteObjectCallback:22
+msgid "A String specifying the path to an object or the SymbolicConstant ANY. You can include wildcards in the path to specify a pattern to be matched. Examples of valid paths are  `path='mdb.models[*]' path=\"mdb.models['Axle*'].parts[*]\"`, and `path='mdb.models[*].materials[*]'`"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Delete.py:docstring of abaqus.UtilityAndView.Delete.deleteObjectCallback:27
+#: ../../../../src/abaqus/UtilityAndView/Method.py:docstring of abaqus.UtilityAndView.Method.addCallback:27
+#: ../../../../src/abaqus/UtilityAndView/Method.py:docstring of abaqus.UtilityAndView.Method.removeCallback:27
+msgid "Any type of data. This data will be passed to the callback function. The default value is None."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Delete.py:docstring of abaqus.UtilityAndView.Delete.deleteObjectCallback:30
+msgid "A Boolean specifying that the callback should be called if an object owned by the object specified by the **path** argument is about to be deleted. The default value is False."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Method.py:docstring of abaqus.UtilityAndView.Method.addCallback:1
+msgid "This method adds a callback function that will be invoked when certain Abaqus/CAE commands are about to be executed."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Method.py:docstring of abaqus.UtilityAndView.Method.addCallback:10
+msgid "Check `Method.addCallback on help.3ds.com/2021 <https://help.3ds.com/2021/English/DSSIMULIA_Established/SIMACAEKERRefMap/simaker-c-functionmethodpyc.htm?contextscope=all#simaker-functionmethodaddcallbackpyc>`__."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Method.py:docstring of abaqus.UtilityAndView.Method.addCallback:13
+#: ../../../../src/abaqus/UtilityAndView/Method.py:docstring of abaqus.UtilityAndView.Method.removeCallback:13
+msgid "An object or type object specifying which object will trigger the callback function to be invoked or the Symbolic Constant ALL_TYPES."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Method.py:docstring of abaqus.UtilityAndView.Method.addCallback:16
+#: ../../../../src/abaqus/UtilityAndView/Method.py:docstring of abaqus.UtilityAndView.Method.removeCallback:16
+msgid "A String specifying the name of the method on the caller that will trigger the callback function to be invoked or the Symbolic Constant ALL_METHODS."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Method.py:docstring of abaqus.UtilityAndView.Method.addCallback:19
+msgid "A Python function to be called when a command matching the specified caller and method name is about to be executed. The interface definition of the callback function is `def functionName(callingMethod, args, keywordArgs, userData)` where **callingMethod** is the method that called this function. **args** is the sequence of non-keyword arguments that was passed to the calling method. **keywordArgs** is the dictionary of keyword arguments that was passed to the calling method. **userData** is the object passed as the **userData** argument to the addCallback method."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Method.py:docstring of abaqus.UtilityAndView.Method.addCallback:30
+msgid "A Boolean specifying that the callback should be called after the method has executed (instead of before the method is called). The default value is False, which indicates that the callback should be called before the method has executed. If **callAfter** = True, you can also access the return value of the command from within the callback by including the following statement `returnValue = getMethodReturnValue()` The getMethodReturnValue function is in the global namespace of the callback function."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Method.py:docstring of abaqus.UtilityAndView.Method.removeCallback:1
+msgid "This method removes a callback added by the addCallback method. To successfully remove a callback, all arguments must exactly match those used when the callback was added."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Method.py:docstring of abaqus.UtilityAndView.Method.removeCallback:10
+msgid "Check `Method.removeCallback on help.3ds.com/2021 <https://help.3ds.com/2021/English/DSSIMULIA_Established/SIMACAEKERRefMap/simaker-c-functionmethodpyc.htm?contextscope=all#simaker-functionmethodremovecallbackpyc>`__."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Method.py:docstring of abaqus.UtilityAndView.Method.removeCallback:19
+msgid "A Python function to be called when a command matching the specified caller and method name is about to be executed. The interface definition of the callback function is `def functionName(callingMethod, args, keywordArgs, userData)` where **callingMethod** is the method that called this function. **args** is the sequence of nonkeyword arguments that was passed to the calling method. **keywordArgs** is the dictionary of keyword arguments that was passed to the calling method. **userData** is the object passed as the **userData** argument to the removeCallback method."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Repository.py:docstring of abaqus.UtilityAndView.Repository.Repository:1
+msgid "Bases: :py:class:`dict`"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Repository.py:docstring of abaqus.UtilityAndView.Repository.Repository:1
+msgid "Repositories are containers that store a particular type of object; for example, the steps repository contains all the steps defined in the model. An Abaqus Scripting Interface Repository maps a key to a value. The key is usually a String, and the value is any Python object, usually an Abaqus object. A repository is similar to a Python dictionary; however, only a constructor can add an object to a repository. In addition, all of the objects in a repository are of the same base type. For more information, see Repositories. A Repository has no constructor. Abaqus creates empty repositories when you import a module. For example, Abaqus creates an empty parts repository when you import the part module. The following methods of the Repository object are standard Python dictionary methods and are not described here: The Repository object is derived from the dict object. - has_key - items - keys - values - [changeKey(...)](https://help.3ds.com/2022/english/DSSIMULIA_Established/SIMACAEKERRefMap/simaker-c-utlrepositorypyc.htm?ContextScope=all#simaker-utlrepositorychangekeypyc)"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Repository.py:docstring of abaqus.UtilityAndView.Repository.Repository:21
+msgid "Check `Repository on help.3ds.com/2021 <https://help.3ds.com/2021/English/DSSIMULIA_Established/SIMACAEKERRefMap/simaker-c-repositorypyc.htm?contextscope=all>`__."
+msgstr ""
+
+#: ../../None:3:<autosummary>:1
+msgid ":py:obj:`changeKey <abaqus.UtilityAndView.Repository.Repository.changeKey>`\\ \\(fromName\\, toName\\)"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Repository.py:docstring of abaqus.UtilityAndView.Repository.Repository.changeKey:1
+#: ../../None:3:<autosummary>:1
+msgid "This method changes the name of a key in a repository and the **name** member of the value object."
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid ":py:obj:`__repr__ <builtins.dict.__repr__>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid ":py:obj:`__getattribute__ <builtins.dict.__getattribute__>`\\ \\(name\\, \\/\\)"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid ":py:obj:`__lt__ <builtins.dict.__lt__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid ":py:obj:`__le__ <builtins.dict.__le__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid ":py:obj:`__eq__ <builtins.dict.__eq__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid ":py:obj:`__ne__ <builtins.dict.__ne__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid ":py:obj:`__gt__ <builtins.dict.__gt__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid ":py:obj:`__ge__ <builtins.dict.__ge__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid ":py:obj:`__iter__ <builtins.dict.__iter__>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+#: ../../None:71:<autosummary>:1
+msgid "Implement iter(self)."
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid ":py:obj:`__init__ <builtins.dict.__init__>`\\ \\(\\*args\\, \\*\\*kwargs\\)"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid ":py:obj:`__or__ <builtins.dict.__or__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid ":py:obj:`__ror__ <builtins.dict.__ror__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid ":py:obj:`__ior__ <builtins.dict.__ior__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid "Return self|=value."
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid ":py:obj:`__len__ <builtins.dict.__len__>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+#: ../../None:71:<autosummary>:1
+msgid "Return len(self)."
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid ":py:obj:`__getitem__ <builtins.dict.__getitem__>`\\"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid "x.__getitem__(y) <==> x[y]"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid ":py:obj:`__setitem__ <builtins.dict.__setitem__>`\\ \\(key\\, value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid "Set self[key] to value."
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid ":py:obj:`__delitem__ <builtins.dict.__delitem__>`\\ \\(key\\, \\/\\)"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid "Delete self[key]."
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid ":py:obj:`__contains__ <builtins.dict.__contains__>`\\ \\(key\\, \\/\\)"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid "True if the dictionary has the specified key, else False."
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid ":py:obj:`__sizeof__ <builtins.dict.__sizeof__>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid ":py:obj:`get <builtins.dict.get>`\\ \\(key\\[\\, default\\]\\)"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid "Return the value for key if key is in the dictionary, else default."
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid ":py:obj:`setdefault <builtins.dict.setdefault>`\\ \\(key\\[\\, default\\]\\)"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid "Insert key with a value of default if key is not in the dictionary."
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid ":py:obj:`pop <builtins.dict.pop>`\\ \\(k\\[\\,d\\]\\)"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid "If key is not found, default is returned if given, otherwise KeyError is raised"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid ":py:obj:`popitem <builtins.dict.popitem>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid "Remove and return a (key, value) pair as a 2-tuple."
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid ":py:obj:`keys <builtins.dict.keys>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid ":py:obj:`items <builtins.dict.items>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid ":py:obj:`values <builtins.dict.values>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid ":py:obj:`update <builtins.dict.update>`\\ \\(\\[E\\, \\]\\*\\*F\\)"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid "If E is present and has a .keys() method, then does:  for k in E: D[k] = E[k] If E is present and lacks a .keys() method, then does:  for k, v in E: D[k] = v In either case, this is followed by: for k in F:  D[k] = F[k]"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid ":py:obj:`fromkeys <builtins.dict.fromkeys>`\\ \\(\\[value\\]\\)"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid "Create a new dictionary with keys from iterable and values set to value."
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid ":py:obj:`clear <builtins.dict.clear>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid ":py:obj:`copy <builtins.dict.copy>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid ":py:obj:`__reversed__ <builtins.dict.__reversed__>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid "Return a reverse iterator over the dict keys."
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid ":py:obj:`__class_getitem__ <builtins.dict.__class_getitem__>`\\"
+msgstr ""
+
+#: ../../None:34:<autosummary>:1
+msgid "See PEP 585"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Repository.py:docstring of abaqus.UtilityAndView.Repository.Repository.changeKey:5
+msgid "Check `Repository.changeKey on help.3ds.com/2021 <https://help.3ds.com/2021/English/DSSIMULIA_Established/SIMACAEKERRefMap/simaker-c-repositorypyc.htm?contextscope=all#simaker-repositorychangekeypyc>`__."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Repository.py:docstring of abaqus.UtilityAndView.Repository.Repository.changeKey:8
+msgid "A String specifying the old name of the repository key."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Repository.py:docstring of abaqus.UtilityAndView.Repository.Repository.changeKey:10
+msgid "A String specifying the new name of the repository key."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/SymbolicConstant.py:docstring of abaqus.UtilityAndView.SymbolicConstant.SymbolicConstant:1
+msgid "Bases: :py:class:`str`"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/SymbolicConstant.py:docstring of abaqus.UtilityAndView.SymbolicConstant.SymbolicConstant:1
+msgid "The SymbolicConstant object represents a string in a way that can be stored in a replay file and used as an argument to Abaqus Scripting Interface methods and functions. By convention the string representation of the SymbolicConstant object is the same as its variable name. If you pass a SymbolicConstant object to the Python repr() function, the function returns the text without quotes. In effect, the text is the variable that, by convention, refers to the SymbolicConstant object. Two SymbolicConstant objects with the same text are the same Python object, although you can assign them to different variables. All of the SymbolicConstant objects that are required in Abaqus Scripting Interface methods are defined in the abaqusConstants module. Some SymbolicConstant objects and the SymbolicConstant constructor are defined in the abaqus module. The SymbolicConstant constructor is also defined in the symbolicConstants module."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/SymbolicConstant.py:docstring of abaqus.UtilityAndView.SymbolicConstant.SymbolicConstant:21
+msgid "Check `SymbolicConstant on help.3ds.com/2021 <https://help.3ds.com/2021/English/DSSIMULIA_Established/SIMACAEKERRefMap/simaker-c-symbolicconstantpyc.htm?contextscope=all>`__."
+msgstr ""
+
+#: ../../None:13:<autosummary>:1
+msgid ":py:obj:`__init__ <abaqus.UtilityAndView.SymbolicConstant.SymbolicConstant.__init__>`\\ \\(text\\)"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/SymbolicConstant.py:docstring of abaqus.UtilityAndView.SymbolicConstant.SymbolicConstant.__init__:1
+#: ../../None:13:<autosummary>:1
+msgid "The SymbolicConstant method creates a SymbolicConstant object."
+msgstr ""
+
+#: ../../None:13:<autosummary>:1
+msgid ":py:obj:`__copy__ <abaqus.UtilityAndView.SymbolicConstant.SymbolicConstant.__copy__>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:13:<autosummary>:1
+msgid ":py:obj:`__getstate__ <abaqus.UtilityAndView.SymbolicConstant.SymbolicConstant.__getstate__>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:13:<autosummary>:1
+msgid ":py:obj:`__lt__ <abaqus.UtilityAndView.SymbolicConstant.SymbolicConstant.__lt__>`\\ \\(other\\)"
+msgstr ""
+
+#: ../../None:13:<autosummary>:1
+msgid "Sorting method; True if self is < other"
+msgstr ""
+
+#: ../../None:13:<autosummary>:1
+msgid ":py:obj:`__reduce__ <abaqus.UtilityAndView.SymbolicConstant.SymbolicConstant.__reduce__>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:13:<autosummary>:1
+msgid ":py:obj:`__repr__ <abaqus.UtilityAndView.SymbolicConstant.SymbolicConstant.__repr__>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:13:<autosummary>:1
+msgid ":py:obj:`__setstate__ <abaqus.UtilityAndView.SymbolicConstant.SymbolicConstant.__setstate__>`\\ \\(\\*args\\)"
+msgstr ""
+
+#: ../../None:13:<autosummary>:1
+msgid ":py:obj:`__str__ <abaqus.UtilityAndView.SymbolicConstant.SymbolicConstant.__str__>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:13:<autosummary>:1
+msgid ":py:obj:`getId <abaqus.UtilityAndView.SymbolicConstant.SymbolicConstant.getId>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:13:<autosummary>:1
+msgid ":py:obj:`getText <abaqus.UtilityAndView.SymbolicConstant.SymbolicConstant.getText>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:13:<autosummary>:1
+msgid ":py:obj:`__new__ <abaqus.UtilityAndView.SymbolicConstant.SymbolicConstant.__new__>`\\ \\(cls\\, name\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`__repr__ <builtins.str.__repr__>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`__hash__ <builtins.str.__hash__>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`__str__ <builtins.str.__str__>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`__getattribute__ <builtins.str.__getattribute__>`\\ \\(name\\, \\/\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`__lt__ <builtins.str.__lt__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`__le__ <builtins.str.__le__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`__eq__ <builtins.str.__eq__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`__ne__ <builtins.str.__ne__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`__gt__ <builtins.str.__gt__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`__ge__ <builtins.str.__ge__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`__iter__ <builtins.str.__iter__>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`__mod__ <builtins.str.__mod__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`__rmod__ <builtins.str.__rmod__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`__len__ <builtins.str.__len__>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`__getitem__ <builtins.str.__getitem__>`\\ \\(key\\, \\/\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Return self[key]."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`__add__ <builtins.str.__add__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`__mul__ <builtins.str.__mul__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`__rmul__ <builtins.str.__rmul__>`\\ \\(value\\, \\/\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`__contains__ <builtins.str.__contains__>`\\ \\(key\\, \\/\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Return key in self."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`encode <builtins.str.encode>`\\ \\(\\[encoding\\, errors\\]\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Encode the string using the codec registered for encoding."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`replace <builtins.str.replace>`\\ \\(old\\, new\\[\\, count\\]\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Return a copy with all occurrences of substring old replaced by new."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`split <builtins.str.split>`\\ \\(\\[sep\\, maxsplit\\]\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Return a list of the words in the string, using sep as the delimiter string."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`rsplit <builtins.str.rsplit>`\\ \\(\\[sep\\, maxsplit\\]\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`join <builtins.str.join>`\\ \\(iterable\\, \\/\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Concatenate any number of strings."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`capitalize <builtins.str.capitalize>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Return a capitalized version of the string."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`casefold <builtins.str.casefold>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Return a version of the string suitable for caseless comparisons."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`title <builtins.str.title>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Return a version of the string where each word is titlecased."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`center <builtins.str.center>`\\ \\(width\\[\\, fillchar\\]\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Return a centered string of length width."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`count <builtins.str.count>`\\ \\(sub\\[\\, start\\[\\, end\\]\\]\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Return the number of non-overlapping occurrences of substring sub in string S[start:end]."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`expandtabs <builtins.str.expandtabs>`\\ \\(\\[tabsize\\]\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Return a copy where all tab characters are expanded using spaces."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`find <builtins.str.find>`\\ \\(sub\\[\\, start\\[\\, end\\]\\]\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Return the lowest index in S where substring sub is found, such that sub is contained within S[start:end]."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`partition <builtins.str.partition>`\\ \\(sep\\, \\/\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Partition the string into three parts using the given separator."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`index <builtins.str.index>`\\ \\(sub\\[\\, start\\[\\, end\\]\\]\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`ljust <builtins.str.ljust>`\\ \\(width\\[\\, fillchar\\]\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Return a left-justified string of length width."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`lower <builtins.str.lower>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Return a copy of the string converted to lowercase."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`lstrip <builtins.str.lstrip>`\\ \\(\\[chars\\]\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Return a copy of the string with leading whitespace removed."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`rfind <builtins.str.rfind>`\\ \\(sub\\[\\, start\\[\\, end\\]\\]\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Return the highest index in S where substring sub is found, such that sub is contained within S[start:end]."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`rindex <builtins.str.rindex>`\\ \\(sub\\[\\, start\\[\\, end\\]\\]\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`rjust <builtins.str.rjust>`\\ \\(width\\[\\, fillchar\\]\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Return a right-justified string of length width."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`rstrip <builtins.str.rstrip>`\\ \\(\\[chars\\]\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Return a copy of the string with trailing whitespace removed."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`rpartition <builtins.str.rpartition>`\\ \\(sep\\, \\/\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`splitlines <builtins.str.splitlines>`\\ \\(\\[keepends\\]\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Return a list of the lines in the string, breaking at line boundaries."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`strip <builtins.str.strip>`\\ \\(\\[chars\\]\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Return a copy of the string with leading and trailing whitespace removed."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`swapcase <builtins.str.swapcase>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Convert uppercase characters to lowercase and lowercase characters to uppercase."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`translate <builtins.str.translate>`\\ \\(table\\, \\/\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Replace each character in the string using the given translation table."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`upper <builtins.str.upper>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Return a copy of the string converted to uppercase."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`startswith <builtins.str.startswith>`\\ \\(prefix\\[\\, start\\[\\, end\\]\\]\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Return True if S starts with the specified prefix, False otherwise."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`endswith <builtins.str.endswith>`\\ \\(suffix\\[\\, start\\[\\, end\\]\\]\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Return True if S ends with the specified suffix, False otherwise."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`removeprefix <builtins.str.removeprefix>`\\ \\(prefix\\, \\/\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Return a str with the given prefix string removed if present."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`removesuffix <builtins.str.removesuffix>`\\ \\(suffix\\, \\/\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Return a str with the given suffix string removed if present."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`isascii <builtins.str.isascii>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Return True if all characters in the string are ASCII, False otherwise."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`islower <builtins.str.islower>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Return True if the string is a lowercase string, False otherwise."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`isupper <builtins.str.isupper>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Return True if the string is an uppercase string, False otherwise."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`istitle <builtins.str.istitle>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Return True if the string is a title-cased string, False otherwise."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`isspace <builtins.str.isspace>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Return True if the string is a whitespace string, False otherwise."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`isdecimal <builtins.str.isdecimal>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Return True if the string is a decimal string, False otherwise."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`isdigit <builtins.str.isdigit>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Return True if the string is a digit string, False otherwise."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`isnumeric <builtins.str.isnumeric>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Return True if the string is a numeric string, False otherwise."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`isalpha <builtins.str.isalpha>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Return True if the string is an alphabetic string, False otherwise."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`isalnum <builtins.str.isalnum>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Return True if the string is an alpha-numeric string, False otherwise."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`isidentifier <builtins.str.isidentifier>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Return True if the string is a valid Python identifier, False otherwise."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`isprintable <builtins.str.isprintable>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Return True if the string is printable, False otherwise."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`zfill <builtins.str.zfill>`\\ \\(width\\, \\/\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Pad a numeric string with zeros on the left, to fill a field of the given width."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`format <builtins.str.format>`\\ \\(\\*args\\, \\*\\*kwargs\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Return a formatted version of S, using substitutions from args and kwargs."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`format_map <builtins.str.format_map>`\\ \\(mapping\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Return a formatted version of S, using substitutions from mapping."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`__format__ <builtins.str.__format__>`\\ \\(format\\_spec\\, \\/\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Return a formatted version of the string as described by format_spec."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`maketrans <builtins.str.maketrans>`\\"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Return a translation table usable for str.translate()."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`__sizeof__ <builtins.str.__sizeof__>`\\ \\(\\)"
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid "Return the size of the string in memory, in bytes."
+msgstr ""
+
+#: ../../None:71:<autosummary>:1
+msgid ":py:obj:`__getnewargs__ <builtins.str.__getnewargs__>`\\"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/SymbolicConstant.py:docstring of abaqus.UtilityAndView.SymbolicConstant.SymbolicConstant:0
+msgid "Private Methods:"
+msgstr ""
+
+#: ../../None:3:<autosummary>:1
+msgid ":py:obj:`_addToCache <abaqus.UtilityAndView.SymbolicConstant.SymbolicConstant._addToCache>`\\ \\(\\*args\\, \\*\\*kwargs\\)"
+msgstr ""
+
+#: ../../None:3:<autosummary>:1
+msgid "Helper method for __new__ Also used by AbaqusBoolean.__new__"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/SymbolicConstant.py:docstring of abaqus.UtilityAndView.SymbolicConstant.SymbolicConstant.__init__:9
+msgid "Check `SymbolicConstant.__init__ on help.3ds.com/2021 <https://help.3ds.com/2021/English/DSSIMULIA_Established/SIMACAEKERRefMap/simaker-c-symbolicconstantpyc.htm?contextscope=all#simaker-symbolicconstant__init__pyc>`__."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/SymbolicConstant.py:docstring of abaqus.UtilityAndView.SymbolicConstant.SymbolicConstant.__init__:12
+msgid "A String specifying the text of the SymbolicConstant object. The String must contain only capital letters, digits, or underscores and must not start with a digit."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/SymbolicConstant.py:docstring of abaqus.UtilityAndView.SymbolicConstant.SymbolicConstant.__init__:15
+msgid "A SymbolicConstant object."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/SymbolicConstant.py:docstring of abaqus.UtilityAndView.SymbolicConstant.SymbolicConstant.__init__:16
+msgid ":class:`SymbolicConstant`"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/SymbolicConstant.py:docstring of abaqus.UtilityAndView.SymbolicConstant.abaqusConstants:1
+msgid "Bases: :py:class:`~abaqus.UtilityAndView.SymbolicConstant.SymbolicConstant`, :py:class:`~enum.Enum`"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/SymbolicConstant.py:docstring of abaqus.UtilityAndView.SymbolicConstant.abaqusConstants:1
+msgid "An enumeration."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Upgrade.py:docstring of abaqus.UtilityAndView.Upgrade.upgradeScript:1
+msgid "This function can be used to upgrade a directory, a file, or a list of both directories and files. You can preview the changes before you choose to upgrade the file. A user interface to this function is available via the Plug-ins menu. For more information, see Upgrading a script. You can also use a simpler interface from the command line to upgrade scripts. For more information, see the summary of changed commands at the end of this guide."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Upgrade.py:docstring of abaqus.UtilityAndView.Upgrade.upgradeScript:14
+msgid "Check `Upgrade.upgradeScript on help.3ds.com/2021 <https://help.3ds.com/2021/English/DSSIMULIA_Established/SIMACAEKERRefMap/simaker-c-functionupgradepyc.htm?contextscope=all#simaker-functionupgradeupgradescriptpyc>`__."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Upgrade.py:docstring of abaqus.UtilityAndView.Upgrade.upgradeScript:17
+msgid "A String or sequence of Strings specifying the files or directories to upgrade. If a directory path is found, it will be searched for files with the suffix .py or .guiLog. If **searchSubdirectories** is True, any directories found within a directory will also be searched."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Upgrade.py:docstring of abaqus.UtilityAndView.Upgrade.upgradeScript:22
+msgid "A Boolean specifying whether to search any subdirectories (if the file name is a directory). If **searchSubdirectories** is True, the command will search the subdirectories of any directory in **fileNames**. If **searchSubdirectories** is False, the command will search the directory but not the subdirectories. The default value is True."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Upgrade.py:docstring of abaqus.UtilityAndView.Upgrade.upgradeScript:27
+msgid "A Boolean specifying whether to make backups of the files. The default value is True. This argument is ignored if **preview** is set."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Upgrade.py:docstring of abaqus.UtilityAndView.Upgrade.upgradeScript:30
+msgid "A Boolean specifying whether to preview the changes to the file instead of changing the file. If **preview** is True, display a preview of the file changes. The default value is True.By default, the preview is displayed in a web browser. The **diffExecutable** argument allows you to specify a different application in which to preview the changes."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Upgrade.py:docstring of abaqus.UtilityAndView.Upgrade.upgradeScript:35
+msgid "A String specifying the application used to display the differences between the script and the upgraded script. The default value is an empty string, and the differences are displayed by a web browser. Examples of values for **diffExecutable** are winmerge and diff. This argument is ignored if **preview** is False."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Upgrade.py:docstring of abaqus.UtilityAndView.Upgrade.upgradeScript:40
+msgid "A String specifying the name of the log file where any warnings and changes found during the upgrade are written. The default value is asiUpgrade.log."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Upgrade.py:docstring of abaqus.UtilityAndView.Upgrade.upgradeScript:43
+msgid "A String specifying the Abaqus release from which to upgrade. The default value is EARLIEST."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Upgrade.py:docstring of abaqus.UtilityAndView.Upgrade.upgradeScript:46
+msgid "A String specifying the Abaqus release to which to upgrade. The default value is LATEST."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Upgrade.py:docstring of abaqus.UtilityAndView.Upgrade.upgradeScript:48
+msgid "A SymbolicConstant specifying the type of scripting commands to be upgraded. Possible values are KERNEL, GUI, or BOTH. If **scriptType** is KERNEL only Abaqus Scripting Interface commands will be upgraded; if **scriptType** is GUI only Abaqus GUI Toolkit commands will be upgraded. The default value is BOTH."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Upgrade.py:docstring of abaqus.UtilityAndView.Upgrade.upgradeScript:53
+msgid "The number of changes made or, if **preview** was used, the number of changes that would have been made."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/Upgrade.py:docstring of abaqus.UtilityAndView.Upgrade.upgradeScript:55
+msgid ":class:`int`"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/User.py:docstring of abaqus.UtilityAndView.User:1
+msgid "The following commands are used to request data entry from a user."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/User.py:docstring of abaqus.UtilityAndView.User.getWarningReply:1
+msgid "This method is used to obtain a reply from a user from a warning dialog box. The method displays a modal warning dialog box with a message and standard buttons. The user clicks the one of the standard buttons, the getWarningReply returns the corresponding button value and closes the dialog box. You can use a separator in the message argument to provide a multi-line message in the warning dialog box; for example::"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/User.py:docstring of abaqus.UtilityAndView.User.getWarningReply:11
+msgid "You cannot use a script that contains getWarningReply if you are running the script from the command line and passing the script name to the command line options **-start**, **-script**, **-replay**, or **-noGUI**."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/User.py:docstring of abaqus.UtilityAndView.User.getWarningReply:21
+msgid "Check `User.getWarningReply on help.3ds.com/2021 <https://help.3ds.com/2021/English/DSSIMULIA_Established/SIMACAEKERRefMap/simaker-c-functionuserpyc.htm?contextscope=all#simaker-functionusergetwarningreplypyc>`__."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/User.py:docstring of abaqus.UtilityAndView.User.getWarningReply:24
+msgid "A String specifying the message in the warning dialog box."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/User.py:docstring of abaqus.UtilityAndView.User.getWarningReply:26
+msgid "A Sequence of standard buttons to be displayed in the warning dialog box. Permissible values are YES, NO, YES_TO_ALL and CANCEL."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/User.py:docstring of abaqus.UtilityAndView.User.getWarningReply:29
+msgid ":class:`The button that the user clicks.`"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View:1
+msgid "The Session and Viewport View objects store view settings for custom (both predefined and user-defined) views. The paradigm used to define a view is based on a camera analogy. Similar to taking a photograph with a camera, features such as camera position, view direction, orientation, depth of field, and projection are specified to transform three-dimensional views to the screen. The Layer View objects store a transformation matrix used to position the contents of the Layer within a viewport."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View:17
+msgid "Check `View on help.3ds.com/2021 <https://help.3ds.com/2021/English/DSSIMULIA_Established/SIMACAEKERRefMap/simaker-c-viewpyc.htm?contextscope=all>`__."
+msgstr ""
+
+#: ../../None:18:<autosummary>:1
+msgid ":py:obj:`displayedObjectScreenWidth <abaqus.UtilityAndView.View.View.displayedObjectScreenWidth>`\\"
+msgstr ""
+
+#: ../../None:18:<autosummary>:1
+msgid "A Float specifying the width in viewport millimeters of the bounding rectangle around the viewport contents."
+msgstr ""
+
+#: ../../None:18:<autosummary>:1
+msgid ":py:obj:`displayedObjectScreenHeight <abaqus.UtilityAndView.View.View.displayedObjectScreenHeight>`\\"
+msgstr ""
+
+#: ../../None:18:<autosummary>:1
+msgid "A Float specifying the height in viewport millimeters of the bounding rectangle around the viewport contents."
+msgstr ""
+
+#: ../../None:18:<autosummary>:1
+msgid ":py:obj:`layerTransform <abaqus.UtilityAndView.View.View.layerTransform>`\\"
+msgstr ""
+
+#: ../../None:18:<autosummary>:1
+#: ../../docstring of abaqus.UtilityAndView.View.View.layerTransform:1
+msgid "A tuple of Floats specifying a transformation matrix used to position the contents of the Layer within a viewport."
+msgstr ""
+
+#: ../../None:18:<autosummary>:1
+msgid ":py:obj:`movieMode <abaqus.UtilityAndView.View.View.movieMode>`\\"
+msgstr ""
+
+#: ../../None:18:<autosummary>:1
+msgid "A Boolean specifying whether or not the camera is in movie mode."
+msgstr ""
+
+#: ../../None:18:<autosummary>:1
+msgid ":py:obj:`name <abaqus.UtilityAndView.View.View.name>`\\"
+msgstr ""
+
+#: ../../None:18:<autosummary>:1
+msgid "A String specifying the name of the view (also used as the repository key)."
+msgstr ""
+
+#: ../../None:18:<autosummary>:1
+msgid ":py:obj:`nearPlane <abaqus.UtilityAndView.View.View.nearPlane>`\\"
+msgstr ""
+
+#: ../../None:18:<autosummary>:1
+msgid "A Float specifying the distance from the camera to the near clipping plane."
+msgstr ""
+
+#: ../../None:18:<autosummary>:1
+msgid ":py:obj:`farPlane <abaqus.UtilityAndView.View.View.farPlane>`\\"
+msgstr ""
+
+#: ../../None:18:<autosummary>:1
+msgid "A Float specifying the distance from the camera to the far clipping plane when **farPlaneMode** =SPECIFY."
+msgstr ""
+
+#: ../../None:18:<autosummary>:1
+msgid ":py:obj:`width <abaqus.UtilityAndView.View.View.width>`\\"
+msgstr ""
+
+#: ../../None:18:<autosummary>:1
+msgid "A Float specifying the width of the front clipping plane."
+msgstr ""
+
+#: ../../None:18:<autosummary>:1
+msgid ":py:obj:`height <abaqus.UtilityAndView.View.View.height>`\\"
+msgstr ""
+
+#: ../../None:18:<autosummary>:1
+msgid "A Float specifying the height of the front clipping plane."
+msgstr ""
+
+#: ../../None:18:<autosummary>:1
+msgid ":py:obj:`projection <abaqus.UtilityAndView.View.View.projection>`\\"
+msgstr ""
+
+#: ../../None:18:<autosummary>:1
+msgid "A SymbolicConstant specifying the projection mode."
+msgstr ""
+
+#: ../../None:18:<autosummary>:1
+msgid ":py:obj:`cameraPosition <abaqus.UtilityAndView.View.View.cameraPosition>`\\"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.__init__:35
+#: ../../None:18:<autosummary>:1
+#: ../../docstring of abaqus.UtilityAndView.View.View.cameraPosition:1
+msgid "A sequence of three Floats specifying the camera position."
+msgstr ""
+
+#: ../../None:18:<autosummary>:1
+msgid ":py:obj:`cameraUpVector <abaqus.UtilityAndView.View.View.cameraUpVector>`\\"
+msgstr ""
+
+#: ../../None:18:<autosummary>:1
+msgid "A sequence of three Floats specifying the camera's up vector (the screen's positive **Y**-axis)."
+msgstr ""
+
+#: ../../None:18:<autosummary>:1
+msgid ":py:obj:`cameraTarget <abaqus.UtilityAndView.View.View.cameraTarget>`\\"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.__init__:40
+#: ../../None:18:<autosummary>:1
+#: ../../docstring of abaqus.UtilityAndView.View.View.cameraTarget:1
+msgid "A sequence of three Floats specifying the center of the scene."
+msgstr ""
+
+#: ../../None:18:<autosummary>:1
+msgid ":py:obj:`viewOffsetX <abaqus.UtilityAndView.View.View.viewOffsetX>`\\"
+msgstr ""
+
+#: ../../None:18:<autosummary>:1
+msgid "A Float specifying the amount to pan the model in the screen **X**-direction as a fraction of the viewport width."
+msgstr ""
+
+#: ../../None:18:<autosummary>:1
+msgid ":py:obj:`viewOffsetY <abaqus.UtilityAndView.View.View.viewOffsetY>`\\"
+msgstr ""
+
+#: ../../None:18:<autosummary>:1
+msgid "A Float specifying the amount to pan the model in the screen **Y**-direction as a fraction of the viewport height."
+msgstr ""
+
+#: ../../None:18:<autosummary>:1
+msgid ":py:obj:`autoFit <abaqus.UtilityAndView.View.View.autoFit>`\\"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.__init__:53
+#: ../../None:18:<autosummary>:1
+#: ../../docstring of abaqus.UtilityAndView.View.View.autoFit:1
+msgid "A Boolean specifying whether the view is auto-fit when applied."
+msgstr ""
+
+#: ../../None:15:<autosummary>:1
+msgid ":py:obj:`__init__ <abaqus.UtilityAndView.View.View.__init__>`\\ \\(name\\, nearPlane\\, farPlane\\, width\\, ...\\)"
+msgstr ""
+
+#: ../../None:15:<autosummary>:1
+msgid "This method creates a View object."
+msgstr ""
+
+#: ../../None:15:<autosummary>:1
+msgid ":py:obj:`fitView <abaqus.UtilityAndView.View.View.fitView>`\\ \\(\\[drawImmediately\\]\\)"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.fitView:1
+#: ../../None:15:<autosummary>:1
+msgid "This method scales the displayable object (such as a part, the assembly, or an **X - Y** plot) to fit the viewport."
+msgstr ""
+
+#: ../../None:15:<autosummary>:1
+msgid ":py:obj:`next <abaqus.UtilityAndView.View.View.next>`\\ \\(\\[drawImmediately\\]\\)"
+msgstr ""
+
+#: ../../None:15:<autosummary>:1
+msgid "This method restores the view in the viewport to the next view setting in the list."
+msgstr ""
+
+#: ../../None:15:<autosummary>:1
+msgid ":py:obj:`pan <abaqus.UtilityAndView.View.View.pan>`\\ \\(\\[xFraction\\, yFraction\\, asMovie\\, ...\\]\\)"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.pan:1
+#: ../../None:15:<autosummary>:1
+msgid "This method pans the view in the viewport using absolute, not relative, mode."
+msgstr ""
+
+#: ../../None:15:<autosummary>:1
+msgid ":py:obj:`previous <abaqus.UtilityAndView.View.View.previous>`\\ \\(\\[drawImmediately\\]\\)"
+msgstr ""
+
+#: ../../None:15:<autosummary>:1
+msgid "This method restores the view in the viewport to the previous view setting in the list."
+msgstr ""
+
+#: ../../None:15:<autosummary>:1
+msgid ":py:obj:`rotate <abaqus.UtilityAndView.View.View.rotate>`\\ \\(\\[xAngle\\, yAngle\\, zAngle\\, mode\\, ...\\]\\)"
+msgstr ""
+
+#: ../../None:15:<autosummary>:1
+msgid "This method rotates the view in the viewport."
+msgstr ""
+
+#: ../../None:15:<autosummary>:1
+msgid ":py:obj:`setLayerTransform <abaqus.UtilityAndView.View.View.setLayerTransform>`\\ \\(\\[layerTransform\\, options\\, ...\\]\\)"
+msgstr ""
+
+#: ../../None:15:<autosummary>:1
+msgid "This method modifies the transformation used to position a Layer."
+msgstr ""
+
+#: ../../None:15:<autosummary>:1
+msgid ":py:obj:`setProjection <abaqus.UtilityAndView.View.View.setProjection>`\\ \\(projection\\[\\, drawImmediately\\]\\)"
+msgstr ""
+
+#: ../../None:15:<autosummary>:1
+msgid "This method modifies the appearance of three-dimensional models in the viewport."
+msgstr ""
+
+#: ../../None:15:<autosummary>:1
+msgid ":py:obj:`setRotationCenter <abaqus.UtilityAndView.View.View.setRotationCenter>`\\ \\(rotationCenter\\)"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.setRotationCenter:1
+#: ../../None:15:<autosummary>:1
+msgid "This method sets the center of rotation to the specified location."
+msgstr ""
+
+#: ../../None:15:<autosummary>:1
+msgid ":py:obj:`setValues <abaqus.UtilityAndView.View.View.setValues>`\\ \\(\\[options\\, drawImmediately\\, ...\\]\\)"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.setValues:1
+#: ../../None:15:<autosummary>:1
+msgid "This method modifies the View object."
+msgstr ""
+
+#: ../../None:15:<autosummary>:1
+msgid ":py:obj:`setViewpoint <abaqus.UtilityAndView.View.View.setViewpoint>`\\ \\(viewVector\\[\\, cameraUpVector\\, ...\\]\\)"
+msgstr ""
+
+#: ../../None:15:<autosummary>:1
+msgid "This method sets the camera's position in the viewport."
+msgstr ""
+
+#: ../../None:15:<autosummary>:1
+msgid ":py:obj:`zoom <abaqus.UtilityAndView.View.View.zoom>`\\ \\(zoomFactor\\[\\, mode\\, asMovie\\, ...\\]\\)"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.zoom:1
+#: ../../None:15:<autosummary>:1
+msgid "This method magnifies the view in the viewport."
+msgstr ""
+
+#: ../../None:15:<autosummary>:1
+msgid ":py:obj:`zoomRectangle <abaqus.UtilityAndView.View.View.zoomRectangle>`\\ \\(point1\\, point2\\[\\, drawImmediately\\]\\)"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.zoomRectangle:1
+#: ../../None:15:<autosummary>:1
+msgid "This method fills the viewport with the graphics located within the given rectangle."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.__init__:1
+msgid "This method creates a View object. Note:All dimensions and coordinates are specified in the model coordinate system. Note:This method cannot be used to create a View for a Layer object."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.__init__:11
+msgid "Check `View.__init__ on help.3ds.com/2021 <https://help.3ds.com/2021/English/DSSIMULIA_Established/SIMACAEKERRefMap/simaker-c-viewpyc.htm?contextscope=all#simaker-view__init__pyc>`__."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.__init__:14
+msgid "A String specifying the name of the view (also used as the repository key). Possible values are 'Front', 'Back', 'Top', 'Bottom', 'Left', `Right', 'Iso', 'User-1', 'User-2', 'User-3', and 'User-4'. The object member associated with this argument is a SymbolicConstant. Possible values of the **name** member are:FRONT, BACK, TOP, BOTTOM, LEFT, RIGHT, ISO, USER1, USER2, USER3, and USER4."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.__init__:20
+#: ../../docstring of abaqus.UtilityAndView.View.View.nearPlane:1
+msgid "A Float specifying the distance from the camera to the near clipping plane. Possible values are **nearPlane** > 0.0."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.__init__:23
+#: ../../docstring of abaqus.UtilityAndView.View.View.farPlane:1
+msgid "A Float specifying the distance from the camera to the far clipping plane when **farPlaneMode** =SPECIFY. Possible values are **farPlane** > **nearPlane**."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.__init__:26
+#: ../../docstring of abaqus.UtilityAndView.View.View.width:1
+msgid "A Float specifying the width of the front clipping plane. Possible values are **width** > 0.0."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.__init__:29
+#: ../../docstring of abaqus.UtilityAndView.View.View.height:1
+msgid "A Float specifying the height of the front clipping plane. Possible values are **height** > 0.0."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.__init__:32
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.setProjection:10
+#: ../../docstring of abaqus.UtilityAndView.View.View.projection:1
+msgid "A SymbolicConstant specifying the projection mode. Possible values are PERSPECTIVE and PARALLEL."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.__init__:37
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.setViewpoint:11
+#: ../../docstring of abaqus.UtilityAndView.View.View.cameraUpVector:1
+msgid "A sequence of three Floats specifying the camera's up vector (the screen's positive **Y**-axis). The initial value is (0, 0, 0)."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.__init__:42
+#: ../../docstring of abaqus.UtilityAndView.View.View.viewOffsetX:1
+msgid "A Float specifying the amount to pan the model in the screen **X**-direction as a fraction of the viewport width. A positive value pans the model to the right. A negative value pans the model to the left.The*viewOffsetX* and **viewOffsetY** arguments allow you to pan the view without changing the position of the camera or the target (*cameraPosition* and **cameraTarget** arguments to the View method). The resulting change in the view allows you to pan a perspective display without producing an apparent rotation of the model."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.__init__:49
+#: ../../docstring of abaqus.UtilityAndView.View.View.viewOffsetY:1
+msgid "A Float specifying the amount to pan the model in the screen **Y**-direction as a fraction of the viewport height. A positive value pans the model upward. A negative value pans the model downward."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.__init__:55
+#: ../../docstring of abaqus.UtilityAndView.View.View.movieMode:1
+msgid "A Boolean specifying whether or not the camera is in movie mode. The default value is OFF."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.__init__:58
+msgid "A View object."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.__init__:59
+msgid ":class:`View`"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.__init__:0
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.setProjection:0
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.setRotationCenter:0
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.setValues:0
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.zoom:0
+msgid "Raises"
+msgstr ""
+
+#: ../../docstring of abaqus.UtilityAndView.View.View.displayedObjectScreenHeight:1
+msgid "A Float specifying the height in viewport millimeters of the bounding rectangle around the viewport contents. This value does not include annotations or symbols and it is not clipped to the size of the viewport window."
+msgstr ""
+
+#: ../../docstring of abaqus.UtilityAndView.View.View.displayedObjectScreenWidth:1
+msgid "A Float specifying the width in viewport millimeters of the bounding rectangle around the viewport contents. This value does not include annotations or symbols and it is not clipped to the size of the viewport window."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.fitView:5
+msgid "Check `View.fitView on help.3ds.com/2021 <https://help.3ds.com/2021/English/DSSIMULIA_Established/SIMACAEKERRefMap/simaker-c-viewpyc.htm?contextscope=all#simaker-viewfitviewpyc>`__."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.fitView:8
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.next:10
+msgid "A Boolean specifying the viewport should refresh immediately after the command is processed. This is typically only used when writing a script and it is desirable to show intermediate results before the script completes. The default value is False."
+msgstr ""
+
+#: ../../docstring of abaqus.UtilityAndView.View.View.name:1
+msgid "A String specifying the name of the view (also used as the repository key). Possible values are 'Front', 'Back', 'Top', 'Bottom', 'Left', 'Right', 'Iso', 'User-1', 'User-2', 'User-3', and 'User-4'. The object member associated with this argument is a SymbolicConstant. Possible values of the **name** member are: FRONT, BACK, TOP, BOTTOM, LEFT, RIGHT, ISO, USER1, USER2, USER3, and USER4."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.next:1
+msgid "This method restores the view in the viewport to the next view setting in the list. (There is a list of eight views stored for each viewport.) If there is no next view, no action is taken. Note:This method is not available for a Layer View."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.next:7
+msgid "Check `View.next on help.3ds.com/2021 <https://help.3ds.com/2021/English/DSSIMULIA_Established/SIMACAEKERRefMap/simaker-c-viewpyc.htm?contextscope=all#simaker-viewnextpyc>`__."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.pan:4
+msgid "Check `View.pan on help.3ds.com/2021 <https://help.3ds.com/2021/English/DSSIMULIA_Established/SIMACAEKERRefMap/simaker-c-viewpyc.htm?contextscope=all#simaker-viewpanpyc>`__."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.pan:7
+msgid "A Float specifying the amount to pan the model in the screen **X**-direction as a fraction of the viewport width. A positive value pans the model to the right. A negative value pans the model to the left. The default value is 0.0."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.pan:11
+msgid "A Float specifying the amount to pan the model in the screen **Y**-direction as a fraction of the viewport height. A positive value pans the model upward. A negative value pans the model downward. The default value is 0.0."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.pan:15
+msgid "A Boolean specifying the alternate mode of the pan view manipulation should be used. The default value is OFF. This argument is ignored for a Layer View."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.pan:18
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.previous:10
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.rotate:26
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.setLayerTransform:14
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.setProjection:13
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.setValues:19
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.setViewpoint:14
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.zoom:21
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.zoomRectangle:13
+msgid "A Boolean specifying the viewport should refresh immediately after the command is processed. This argument is typically used only when writing a script and it is desirable to show intermediate results before the script completes. The default value is False."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.previous:1
+msgid "This method restores the view in the viewport to the previous view setting in the list. (There is a list of eight views stored for each viewport.) If there is no previous view, no action is taken. Note:This method is not available for a Layer View."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.previous:7
+msgid "Check `View.previous on help.3ds.com/2021 <https://help.3ds.com/2021/English/DSSIMULIA_Established/SIMACAEKERRefMap/simaker-c-viewpyc.htm?contextscope=all#simaker-viewpreviouspyc>`__."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.rotate:1
+msgid "This method rotates the view in the viewport. If a center of rotation has been previously specified and **asMovie** is OFF then this method will honor that rotation center."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.rotate:6
+msgid "Check `View.rotate on help.3ds.com/2021 <https://help.3ds.com/2021/English/DSSIMULIA_Established/SIMACAEKERRefMap/simaker-c-viewpyc.htm?contextscope=all#simaker-viewrotatepyc>`__."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.rotate:9
+msgid "A Float specifying the degrees to rotate about the **X**-axis. The default value is 0.0."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.rotate:11
+msgid "A Float specifying the degrees to rotate about the **Y**-axis. The default value is 0.0."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.rotate:13
+msgid "A Float specifying the degrees to rotate about the*Z*-axis. The default value is 0.0."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.rotate:15
+msgid "A SymbolicConstant specifying the rotation mode. Possible values are:  * TOTAL : Set the view to (0, 0, 1), then rotate about the screen's axes (an absolute rotation). * SCREEN : Rotate incrementally about the screen's axes (a relative rotation). * MODEL : Rotate incrementally about the model's axes (a relative rotation).  The default value is MODEL."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.rotate:15
+msgid "A SymbolicConstant specifying the rotation mode. Possible values are:"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.rotate:17
+msgid "TOTAL : Set the view to (0, 0, 1), then rotate about the screen's axes (an absolute rotation)."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.rotate:18
+msgid "SCREEN : Rotate incrementally about the screen's axes (a relative rotation)."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.rotate:19
+msgid "MODEL : Rotate incrementally about the model's axes (a relative rotation)."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.rotate:21
+msgid "The default value is MODEL."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.rotate:23
+msgid "A Boolean specifying the alternate mode of the rotate view manipulation should be used. The default value is OFF."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.setLayerTransform:1
+msgid "This method modifies the transformation used to position a Layer. Note:This method is not available for Session and Viewport Views."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.setLayerTransform:5
+msgid "Check `View.setLayerTransform on help.3ds.com/2021 <https://help.3ds.com/2021/English/DSSIMULIA_Established/SIMACAEKERRefMap/simaker-c-viewpyc.htm?contextscope=all#simaker-viewsetlayertransformpyc>`__."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.setLayerTransform:8
+msgid "A sequence of 16 Floats specifying the transformation matrix."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.setLayerTransform:10
+msgid "A View object from which the view settings are to be copied. If the **layerTransform** argument is also supplied to setLayerTransform, it will override the values in the View object specified by **view**."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.setProjection:1
+msgid "This method modifies the appearance of three-dimensional models in the viewport. Choosing PERSPECTIVE makes a model appear more realistic by decreasing the apparent size of features that are farther away from the viewing point. Note:This method is not available for a Layer View."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.setProjection:7
+msgid "Check `View.setProjection on help.3ds.com/2021 <https://help.3ds.com/2021/English/DSSIMULIA_Established/SIMACAEKERRefMap/simaker-c-viewpyc.htm?contextscope=all#simaker-viewsetprojectionpyc>`__."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.setRotationCenter:4
+msgid "Check `View.setRotationCenter on help.3ds.com/2021 <https://help.3ds.com/2021/English/DSSIMULIA_Established/SIMACAEKERRefMap/simaker-c-viewpyc.htm?contextscope=all#simaker-viewsetrotationcenterpyc>`__."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.setRotationCenter:7
+msgid "A sequence of a String and an Int specifying a part instance name and a node label or a sequence of 3 Floats specifying a point."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.setRotationCenter:10
+msgid "rotationCenter cannot be set using a part instance and node label unless the     displayed object is an ODB."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.setValues:4
+msgid "This method is not available for a Layer View."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.setValues:6
+msgid "The optional arguments to `setValues` are the same as the arguments to the View method, except for the `name` and `autoFit` arguments. In addition, `setValues` has the following optional arguments:"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.setValues:12
+msgid "Check `View.setValues on help.3ds.com/2021 <https://help.3ds.com/2021/English/DSSIMULIA_Established/SIMACAEKERRefMap/simaker-c-viewpyc.htm?contextscope=all#simaker-viewsetvaluespyc>`__."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.setValues:15
+msgid "A View object from which the view settings are to be copied. If other arguments are also supplied to `setValues`, they will override the values in the View object specified by `view`."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.setValues:24
+msgid "A Float specifying the viewing angle of the camera. Possible values are 0.0 < filedOfViewAngle < 180.0."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.setValues:27
+msgid "A SymbolicConstant specifying how the distance from the camera to the far clipping plane is set. Possible values are AUTOCOMPUTE and SPECIFY."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.setValues:30
+msgid ":class:`None.`"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.setViewpoint:1
+msgid "This method sets the camera's position in the viewport. Note:This method is not available for a Layer View."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.setViewpoint:5
+msgid "Check `View.setViewpoint on help.3ds.com/2021 <https://help.3ds.com/2021/English/DSSIMULIA_Established/SIMACAEKERRefMap/simaker-c-viewpyc.htm?contextscope=all#simaker-viewsetviewpointpyc>`__."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.setViewpoint:8
+msgid "A sequence of three Floats specifying the viewing vector (from the camera to the origin of the model)."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.zoom:4
+msgid "Check `View.zoom on help.3ds.com/2021 <https://help.3ds.com/2021/English/DSSIMULIA_Established/SIMACAEKERRefMap/simaker-c-viewpyc.htm?contextscope=all#simaker-viewzoompyc>`__."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.zoom:7
+msgid "A Float specifying the amount to zoom. Possible values are 0.000001 ≤ **zoomFactor** ≤ 1000000. A **zoomFactor** less than one reduces the image. A **zoomFactor** greater than one enlarges the image."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.zoom:11
+msgid "A SymbolicConstant specifying the way the zoom is executed. Possible values are:  * ABSOLUTE : Execute fitView, then zoom. * RELATIVE : Zoom from the current camera settings.  The default value is ABSOLUTE."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.zoom:11
+msgid "A SymbolicConstant specifying the way the zoom is executed. Possible values are:"
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.zoom:13
+msgid "ABSOLUTE : Execute fitView, then zoom."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.zoom:14
+msgid "RELATIVE : Zoom from the current camera settings."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.zoom:16
+msgid "The default value is ABSOLUTE."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.zoom:18
+msgid "A Boolean specifying the alternate mode of the zoom view manipulation should be used. The default value is OFF. This argument is ignored for a Layer View."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.zoomRectangle:4
+msgid "Check `View.zoomRectangle on help.3ds.com/2021 <https://help.3ds.com/2021/English/DSSIMULIA_Established/SIMACAEKERRefMap/simaker-c-viewpyc.htm?contextscope=all#simaker-viewzoomrectanglepyc>`__."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.zoomRectangle:7
+msgid "A pair of Floats specifying the*X*- and **Y**-coordinates of one corner of the rectangle in fractions of the viewport width and height."
+msgstr ""
+
+#: ../../../../src/abaqus/UtilityAndView/View.py:docstring of abaqus.UtilityAndView.View.View.zoomRectangle:10
+msgid "A pair of Floats specifying the*X*- and **Y**-coordinates of the other corner of the rectangle in fractions of the viewport width and height."
+msgstr ""
