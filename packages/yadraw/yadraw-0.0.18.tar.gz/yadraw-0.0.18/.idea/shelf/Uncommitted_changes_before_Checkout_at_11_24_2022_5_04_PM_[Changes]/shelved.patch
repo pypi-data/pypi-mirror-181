@@ -1,0 +1,107 @@
+Index: main.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import logging\r\nimport threading\r\nimport time\r\n\r\nimport attrs\r\nfrom typing import Tuple, Union, Dict\r\n\r\nimport pygame\r\nimport yatools.logging_config\r\n\r\n\r\n@attrs.define(kw_only=True)\r\nclass Area:\r\n    x0: int = attrs.field(init=True, default=0)  # Top left corner on the screen\r\n    y0: int = attrs.field(init=True, default=0)  # Top left corner on the screen\r\n    w: int = attrs.field(init=True, default=800)  # Width/Height\r\n    h: int = attrs.field(init=True, default=800)  # Width/Height\r\n    xc: int = attrs.field(init=True, default=0)  # Coord of zero-point on the surface\r\n    yc: int = attrs.field(init=True, default=0)  # Coord of zero-point on the surface\r\n    xs: float = attrs.field(init=True, default=1)  # Scale\r\n    ys: float = attrs.field(init=True, default=1)  # Scale\r\n    surface: pygame.Surface = attrs.field(init=False, default=None)\r\n\r\n\r\n@attrs.define(kw_only=True)\r\nclass Window(Area):\r\n    \"\"\"\r\n    Main YaDraw class. Represents a single window.\r\n    Only one window is supported.\r\n    \"\"\"\r\n    screen: pygame.Surface = attrs.field(init=False, default=None)  # Main screen handler\r\n    areas: Dict[str, Area] = attrs.field(init=True, default={})\r\n    continue_running_main_loop: bool = attrs.field(init=False, default=False)\r\n    main_loop_thread: Union[threading.Thread, None] = attrs.field(init=False, default=None)\r\n    auto_update_s: float = attrs.field(init=True, default=None)\r\n    gui_initialized: bool = attrs.field(init=False, default=False)\r\n\r\n    def __attrs_post_init__(self):\r\n        self._start_main_loop()\r\n\r\n    def close(self):\r\n        self._stop_main_loop()\r\n\r\n    def _start_main_loop(self):\r\n        self.main_loop_thread = threading.Thread(target=self._main_loop)\r\n        self.gui_initialized = False\r\n        self.continue_running_main_loop = True\r\n        self.main_loop_thread.start()\r\n        logging.info('Started gui thread')\r\n        logging.debug('Main thread: waiting for gui to initialize')\r\n        while not self.gui_initialized:\r\n            pass\r\n        logging.debug('Main thread: continue')\r\n\r\n    def _stop_main_loop(self):\r\n        self.continue_running_main_loop = False\r\n        self.main_loop_thread.join()\r\n        self.main_loop_thread = None\r\n        logging.info('Joined gui thread')\r\n\r\n    def _init(self):\r\n        pygame.init()\r\n        self.screen = pygame.display.set_mode([self.w, self.h])\r\n        self.gui_initialized = True\r\n\r\n    def _main_loop(self):\r\n        self._init()\r\n        while self.continue_running_main_loop:\r\n            pass\r\n        pygame.quit()\r\n\r\n\r\nif __name__ == \"__main__\":\r\n    yatools.logging_config.init()\r\n    tick = time.perf_counter()\r\n    window = Window()\r\n    logging.info(f\"init: {time.perf_counter() - tick} seconds\")\r\n    window.close()\r\n
+===================================================================
+diff --git a/main.py b/main.py
+--- a/main.py	
++++ b/main.py	
+@@ -1,78 +1,38 @@
+-import logging
+ import threading
+ import time
+-
+-import attrs
+-from typing import Tuple, Union, Dict
+-
+ import pygame
+-import yatools.logging_config
+-
+ 
+-@attrs.define(kw_only=True)
+-class Area:
+-    x0: int = attrs.field(init=True, default=0)  # Top left corner on the screen
+-    y0: int = attrs.field(init=True, default=0)  # Top left corner on the screen
+-    w: int = attrs.field(init=True, default=800)  # Width/Height
+-    h: int = attrs.field(init=True, default=800)  # Width/Height
+-    xc: int = attrs.field(init=True, default=0)  # Coord of zero-point on the surface
+-    yc: int = attrs.field(init=True, default=0)  # Coord of zero-point on the surface
+-    xs: float = attrs.field(init=True, default=1)  # Scale
+-    ys: float = attrs.field(init=True, default=1)  # Scale
+-    surface: pygame.Surface = attrs.field(init=False, default=None)
+ 
+-
+-@attrs.define(kw_only=True)
+-class Window(Area):
+-    """
+-    Main YaDraw class. Represents a single window.
+-    Only one window is supported.
+-    """
+-    screen: pygame.Surface = attrs.field(init=False, default=None)  # Main screen handler
+-    areas: Dict[str, Area] = attrs.field(init=True, default={})
+-    continue_running_main_loop: bool = attrs.field(init=False, default=False)
+-    main_loop_thread: Union[threading.Thread, None] = attrs.field(init=False, default=None)
+-    auto_update_s: float = attrs.field(init=True, default=None)
+-    gui_initialized: bool = attrs.field(init=False, default=False)
+-
+-    def __attrs_post_init__(self):
+-        self._start_main_loop()
+-
+-    def close(self):
+-        self._stop_main_loop()
+-
+-    def _start_main_loop(self):
+-        self.main_loop_thread = threading.Thread(target=self._main_loop)
++class Window:
++    def __init__(self):
++        self.screen = None
++        self.gui_thread = None
+         self.gui_initialized = False
+-        self.continue_running_main_loop = True
+-        self.main_loop_thread.start()
+-        logging.info('Started gui thread')
+-        logging.debug('Main thread: waiting for gui to initialize')
++        self.keep_running_gui_thread = True
++
++        self.gui_thread = threading.Thread(target=self._gui_loop)
++        self.gui_thread.start()
+         while not self.gui_initialized:
+-            pass
+-        logging.debug('Main thread: continue')
++            time.sleep(0.1)
++            pass  # await gui initialization
+ 
+-    def _stop_main_loop(self):
+-        self.continue_running_main_loop = False
+-        self.main_loop_thread.join()
+-        self.main_loop_thread = None
+-        logging.info('Joined gui thread')
+-
+-    def _init(self):
++    def _gui_loop(self):
+         pygame.init()
+-        self.screen = pygame.display.set_mode([self.w, self.h])
++        self.screen = pygame.display.set_mode([400, 400])
+         self.gui_initialized = True
+ 
+-    def _main_loop(self):
+-        self._init()
+-        while self.continue_running_main_loop:
+-            pass
++        while self.keep_running_gui_thread:
++            ...  # handle events etc.
++
+         pygame.quit()
+ 
++    def close(self):
++        self.keep_running_gui_thread = False
++        self.gui_thread.join()
++
+ 
+ if __name__ == "__main__":
+-    yatools.logging_config.init()
+     tick = time.perf_counter()
+     window = Window()
+-    logging.info(f"init: {time.perf_counter() - tick} seconds")
++    print(f"init: {time.perf_counter() - tick} seconds")
+     window.close()
