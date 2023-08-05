@@ -1,0 +1,4 @@
+[console_scripts]
+marble-cli=pymarble.rff:main
+marble-gui=pymarble.frontend.app:main
+
