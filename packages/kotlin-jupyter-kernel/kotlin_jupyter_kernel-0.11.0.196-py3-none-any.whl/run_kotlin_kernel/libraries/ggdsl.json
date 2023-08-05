@@ -1,0 +1,10 @@
+{
+  "description": "Lets-plot and Dataframe ggdsl",
+  "properties": {
+    "v": "0.1.1"
+  },
+  "link": "https://github.com/AndreiKingsley/lib-ggdsl",
+  "dependencies": [
+    "org.jetbrains.kotlinx:ggdsl-dataframe-lets-plot:$v"
+  ]
+}
