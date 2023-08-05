@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e5e152a6-15e1-4894-8a8a-414556555a52" name="Changes" comment="Add support for Rect with negative scales.">
+      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_minimal.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_minimal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yadraw/yadraw.py" beforeDir="false" afterPath="$PROJECT_DIR$/yadraw/yadraw.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="perf_test" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2FUUMPL50UUvk6rkqeOoiZCdOPD" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;Python&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\pc\yadraw" />
+      <recent name="C:\pc\yadraw\src" />
+      <recent name="C:\pc\yadraw\src\yadraw_yakovkinii" />
+      <recent name="C:\pc\yadraw\test" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python tests.Python tests for test_minimal.TestMinimal.test_minimal">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="yadraw" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="scratch_19" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="yadraw" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$APPLICATION_CONFIG_DIR$/scratches" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/scratch_19.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="scratch_20" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="yadraw" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$APPLICATION_CONFIG_DIR$/scratches" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/scratch_20.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_async_redraw.TestAsyncRedraw" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="yadraw" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_async_redraw.TestAsyncRedraw&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_minimal.TestMinimal.test_minimal" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="yadraw" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_minimal.TestMinimal.test_minimal&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests in test_async_redraw.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="yadraw" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/test_async_redraw.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python tests.Python tests for test_minimal.TestMinimal.test_minimal" />
+        <item itemvalue="Python.scratch_20" />
+        <item itemvalue="Python tests.Python tests for test_async_redraw.TestAsyncRedraw" />
+        <item itemvalue="Python.scratch_19" />
+        <item itemvalue="Python tests.Python tests in test_async_redraw.py" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e5e152a6-15e1-4894-8a8a-414556555a52" name="Changes" comment="" />
+      <created>1664546107070</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1664546107070</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Initial commit">
+      <created>1667506950089</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1667506950089</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Good things going on">
+      <created>1667577015749</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1667577015749</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Add event handler hijacking">
+      <created>1667600394045</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1667600394045</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Add auto-update">
+      <created>1667649607624</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1667649607624</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Add auto-update">
+      <created>1667650569557</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1667650569557</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Update method attributes">
+      <created>1667650991446</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1667650991446</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Add async redraw">
+      <created>1667653452939</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1667653452939</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Add async redraw">
+      <created>1667654128344</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1667654128344</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Refactor and bugfixes">
+      <created>1667670660430</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1667670660430</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Refactor and bugfixes">
+      <created>1667670733194</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1667670733194</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Refactor and bugfixes">
+      <created>1667670905899</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1667670905899</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Refactor and bugfixes">
+      <created>1667674352100</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1667674352100</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Prepare for packaging">
+      <created>1667674378335</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1667674378335</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Prepare for packaging">
+      <created>1667674422646</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1667674422646</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Test package">
+      <created>1667675260586</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1667675260586</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Prepare for real packaging">
+      <created>1667675853408</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1667675853408</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Bugfix and call it v0.0.2">
+      <created>1667676861195</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1667676861195</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Update requirements and call it v0.0.3">
+      <created>1667677271649</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1667677271649</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Update dependencies and call it v0.0.4">
+      <created>1667677780360</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1667677780360</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Update project structure.">
+      <created>1668778838239</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1668778838239</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Update project structure.">
+      <created>1668778872825</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1668778872825</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Bump version.">
+      <created>1668779024292</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1668779024292</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Tru different structure.">
+      <created>1668779763303</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1668779763303</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Update references.">
+      <created>1668780462459</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1668780462459</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Switch to YaTools.">
+      <created>1668781600342</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1668781600342</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Update references.">
+      <created>1668782088924</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1668782088924</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Bugfixes. Remove area catalog. Simplify usage.">
+      <created>1668790293659</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1668790293659</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Bump version.">
+      <created>1668790325929</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1668790325929</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Update dependencies.">
+      <created>1668790445653</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1668790445653</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Fix dependencies.">
+      <created>1668791312583</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1668791312583</updated>
+    </task>
+    <task id="LOCAL-00031" summary="bump version.">
+      <created>1668791339636</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1668791339636</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Remove threading from requirements.">
+      <created>1668792050326</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1668792050326</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Fix typing issue.">
+      <created>1668792585504</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1668792585504</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Fix unpacking issue.">
+      <created>1668794665812</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1668794665812</updated>
+    </task>
+    <task id="LOCAL-00035" summary="0.0.14&#10;Add on_event forwarding.&#10;Add is_screen_pos_inside_area function.&#10;Update readme.">
+      <created>1669299162102</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1669299162102</updated>
+    </task>
+    <task id="LOCAL-00036" summary="perf test">
+      <created>1669301965622</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1669301965622</updated>
+    </task>
+    <task id="LOCAL-00037" summary="c1">
+      <created>1669303576215</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1669303576215</updated>
+    </task>
+    <task id="LOCAL-00038" summary="v0.0.15&#10;Improve loading performance.">
+      <created>1669306698902</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1669306698902</updated>
+    </task>
+    <task id="LOCAL-00039" summary="v0.0.16&#10;Add more primitives.&#10;Update README.md.&#10;Partially remove logging.">
+      <created>1669314733111</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1669314733111</updated>
+    </task>
+    <task id="LOCAL-00040" summary="v0.0.17&#10;Update README.md.">
+      <created>1669315263331</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1669315263331</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Fixed some stuff (c)">
+      <created>1669328123752</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1669328123752</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Fix Rect scaling.">
+      <created>1670864094172</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1670864094172</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Add support for Rect with negative scales.">
+      <created>1670865433531</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1670865433531</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/python-coloredlogs" />
+    </ignored-roots>
+    <MESSAGE value="Prepare for real packaging" />
+    <MESSAGE value="Bugfix and call it v0.0.2" />
+    <MESSAGE value="Update requirements and call it v0.0.3" />
+    <MESSAGE value="Update dependencies and call it v0.0.4" />
+    <MESSAGE value="Update project structure." />
+    <MESSAGE value="Tru different structure." />
+    <MESSAGE value="Switch to YaTools." />
+    <MESSAGE value="Update references." />
+    <MESSAGE value="Bugfixes. Remove area catalog. Simplify usage." />
+    <MESSAGE value="Bump version." />
+    <MESSAGE value="Update dependencies." />
+    <MESSAGE value="Fix dependencies." />
+    <MESSAGE value="bump version." />
+    <MESSAGE value="Remove threading from requirements." />
+    <MESSAGE value="Fix typing issue." />
+    <MESSAGE value="Fix unpacking issue." />
+    <MESSAGE value="0.0.14&#10;Add on_event forwarding.&#10;Add is_screen_pos_inside_area function.&#10;Update readme." />
+    <MESSAGE value="perf test" />
+    <MESSAGE value="c1" />
+    <MESSAGE value="v0.0.15&#10;Improve loading performance." />
+    <MESSAGE value="v0.0.16&#10;Add more primitives.&#10;Update README.md.&#10;Partially remove logging." />
+    <MESSAGE value="v0.0.17&#10;Update README.md." />
+    <MESSAGE value="Fixed some stuff (c)" />
+    <MESSAGE value="Fix Rect scaling." />
+    <MESSAGE value="Add support for Rect with negative scales." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add support for Rect with negative scales." />
+  </component>
+</project>
