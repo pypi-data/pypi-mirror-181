@@ -1,0 +1,16 @@
+LICENSE.txt
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/trilium_py/__init__.py
+src/trilium_py/client.py
+src/trilium_py.egg-info/PKG-INFO
+src/trilium_py.egg-info/SOURCES.txt
+src/trilium_py.egg-info/dependency_links.txt
+src/trilium_py.egg-info/requires.txt
+src/trilium_py.egg-info/top_level.txt
+src/trilium_py/utils/__init__.py
+src/trilium_py/utils/param_util.py
+src/trilium_py/utils/time_util.py
+src/trilium_py/utils/url_util.py
