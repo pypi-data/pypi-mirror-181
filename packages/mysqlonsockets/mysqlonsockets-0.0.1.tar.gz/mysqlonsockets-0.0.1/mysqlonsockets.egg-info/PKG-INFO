@@ -1,0 +1,53 @@
+Metadata-Version: 2.1
+Name: mysqlonsockets
+Version: 0.0.1
+Summary: A module which helps you use your MYSQL database over local network by connecting another devices.
+Author: Vedant Barhate
+Author-email: vedant.barhate27@gmail.com
+Keywords: python,socket,sockets,mysql,sql,database,server-client,sql remote user
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: License :: OSI Approved :: MIT License
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+
+
+# mysqlonsockets
+
+
+```cmd
+pip install mysqlonsockets
+```
+
+Developed by Vedant Barhate (c) 2022
+
+You need basic knowledge of Python And MySQL to use this package.
+
+This package is useful when you want to use your MySQL database from one device on another devices.
+
+
+## Example
+
+### Creating A Server
+```python
+from mysqlonsockets import Server
+server = Server(server_host='<IPv4 addr>', server_port=9999, db_host='localhost', db_user='root', db_pswd='<user-pswd>', db_name='<database name>')
+server.startServer()
+# When You Are Done
+server.stopServer()
+```
+
+### Creating A Client
+```python
+from mysqlonsockets import Client
+client = Client(host='<IPv4 addr of device to join>', port=9999)
+client.connectClient()
+data = askQuery('<SQL-Query>')
+print(data)
+# When You Are Done
+client.closeClient()
+```
