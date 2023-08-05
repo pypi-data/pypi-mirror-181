@@ -1,0 +1,3 @@
+include resilient_circuits/LICENSE
+include ./CHANGES
+recursive-exclude tests *
