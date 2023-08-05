@@ -1,0 +1,33 @@
+# Script to detect if a Python module requirement is satisfied.
+#
+# This should be handled by Meson instead of requiring a script, see:
+# https://github.com/mesonbuild/meson/issues/2377
+
+import pkg_resources
+
+import sys
+
+requirements =  sys.argv[1:]
+
+returncode = 0
+
+for requirement in requirements:
+    if requirement == 'gi':
+        # PyGObject is 'special', detect it without using pkg_resources.
+        try:
+            import gi
+        except ImportError:
+            sys.stderr.write("{}: PyGObject was not found.\n".format(requirement, e.req))
+            returncode = 1
+        continue
+
+    try:
+        pkg_resources.require(requirement)
+    except pkg_resources.VersionConflict as e:
+        sys.stderr.write("{}: Wanted Python dependency {}, got {}.\n".format(requirement, e.req, e.dist))
+        returncode = 1
+    except pkg_resources.DistributionNotFound as e:
+        sys.stderr.write("{}: Required Python dependency {} was not found.\n".format(requirement, e.req))
+        returncode = 1
+
+sys.exit(returncode)

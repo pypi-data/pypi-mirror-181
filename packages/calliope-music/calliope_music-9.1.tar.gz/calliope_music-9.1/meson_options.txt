@@ -1,0 +1,30 @@
+option('bandcamp', type: 'feature', value: 'auto',
+       description: 'Enable Bandcamp integration (requires Python "requests" library)')
+option('lastfm', type: 'feature', value: 'auto',
+       description: 'Enable Last.fm integration (requires Python "lastfmclient" library)')
+option('listenbrainz', type: 'feature', value: 'auto',
+       description: 'Enable Listenbrainz integration (requires Python "pylistenbrainz" library)')
+option('musicbrainz', type: 'feature', value: 'auto',
+       description: 'Enable Musicbrainz integration (requires Python "musicbrainzngs" library)')
+option('play', type: 'feature', value: 'auto',
+       description: 'Enable `play` command (requires GStreamer & PyGObject)')
+option('select', type: 'feature', value: 'auto',
+       description: 'Enable `select` command (requires Python "simpleai" library)')
+option('spotify', type: 'feature', value: 'auto',
+       description: 'Enable Spotify integration (requires Python "spotipy" library)')
+option('suggest', type: 'feature', value: 'auto',
+       description: 'Enable recommendation engine (requires Python "lightfm" library)')
+option('tracker', type: 'feature', value: 'auto',
+       description: 'Enable Tracker integration (requires Tracker & PyGObject)')
+option('youtube', type: 'feature', value: 'auto',
+       description: 'Enable Youtube integration (requires Google Python client libraries)')
+
+option('direct_install', type: 'boolean', value: 'false',
+       description: 'Check for runtime dependencies at configure-time. Set to true if you are installing directly into a system, rather than building a package.')
+option('docs', type: 'boolean', value: 'false',
+       description: 'Enable documentation (requires Sphinx and some Sphinx plugins)')
+option('testsuite', type: 'boolean', value: 'false',
+       description: 'Enable automated test suite (requires Python "mutagen" library)')
+
+option('viewer', type: 'feature', value: 'auto',
+       description: 'Enable playlist viewer app (requires GTK+ and PyGObject)')

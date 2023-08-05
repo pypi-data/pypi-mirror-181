@@ -1,0 +1,17 @@
+# .readthedocs.yml
+# Read the Docs configuration file
+# See https://docs.readthedocs.io/en/stable/config-file/v2.html for details
+
+version: 2
+
+sphinx:
+  configuration: docs/conf.py
+  # The sphinx-click integration can break following code changes, which
+  # renders the 'Command reference' section of the docs empty. Turn this
+  # warning into an error.
+  fail_on_warning: true
+
+python:
+  version: 3.8
+  install:
+    - requirements: docs/doc_requirements.txt
