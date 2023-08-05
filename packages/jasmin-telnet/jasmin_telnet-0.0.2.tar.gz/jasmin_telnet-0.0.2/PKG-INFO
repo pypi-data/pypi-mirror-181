@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: jasmin_telnet
+Version: 0.0.2
+Summary: Manage Jasmin SMS Gateway through telnet
+Project-URL: Homepage, https://github.com/BlackOrder/jasmin_telnet
+Project-URL: Bug Tracker, https://github.com/BlackOrder/jasmin_telnet/issues
+Author-email: BlackOrder <4302157+BlackOrder@users.noreply.github.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.11
+Requires-Dist: pexpect==4.8.0
+Description-Content-Type: text/markdown
+
+# Jasmin Telnet
