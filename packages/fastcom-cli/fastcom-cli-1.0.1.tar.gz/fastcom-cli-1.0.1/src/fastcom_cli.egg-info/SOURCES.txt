@@ -1,0 +1,13 @@
+.gitignore
+LICENSE
+README.md
+pyproject.toml
+src/fastcom/__main__.py
+src/fastcom/test.py
+src/fastcom/timer.py
+src/fastcom_cli.egg-info/PKG-INFO
+src/fastcom_cli.egg-info/SOURCES.txt
+src/fastcom_cli.egg-info/dependency_links.txt
+src/fastcom_cli.egg-info/entry_points.txt
+src/fastcom_cli.egg-info/requires.txt
+src/fastcom_cli.egg-info/top_level.txt
