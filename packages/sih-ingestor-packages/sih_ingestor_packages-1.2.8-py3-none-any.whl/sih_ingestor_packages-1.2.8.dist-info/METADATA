@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: sih-ingestor-packages
+Version: 1.2.8
+Summary: Helpers for SIH
+Home-page: https://github.com/SIH-France/sih-ingestor-package.git
+Author: SIH France
+Author-email: yves.efangon@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: markdown
+Requires-Dist: beautifulsoup4
+Requires-Dist: pyyaml
+Requires-Dist: requests
+Requires-Dist: mysql-connector-python
+Requires-Dist: six
+Requires-Dist: pandas
+Requires-Dist: pymongo
+Requires-Dist: psutil
+Requires-Dist: fuzzywuzzy
+Requires-Dist: xmltodict
+Requires-Dist: scraperapi-sdk
+Requires-Dist: scrapy
+Requires-Dist: requests-html
+Requires-Dist: unidecode
+Requires-Dist: stringcase
+Requires-Dist: nltk
+Requires-Dist: elasticsearch
+Requires-Dist: rdflib
+
+# List custom packages for SIH
+## Upload package to anaconda: (https://docs.anaconda.com/anaconda-repository/2.23/user/using/)
+### pip
+python setup.py sdist
+anaconda upload dist/*.tar.gz
+
+### conda
+conda build .
+conda build . --output
+anaconda upload /path/to/conda-package.tar.bz2
