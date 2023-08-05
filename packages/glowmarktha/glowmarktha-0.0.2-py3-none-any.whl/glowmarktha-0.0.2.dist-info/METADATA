@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: glowmarktha
+Version: 0.0.2
+Summary: A package to gather smart meter data from Glowmarkt devices.
+Home-page: https://github.com/tombrien/glowmarkt-ha
+Author: Tom Brien
+Author-email: tom@tombrien.io
+Project-URL: Bug Tracker, https://github.com/tombrien/glowmarkt-ha/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: httpx
+
+# glowmarkt-ha
+A Python library to access the Glowmarkt API solely to be consumed by Home Assistant 
