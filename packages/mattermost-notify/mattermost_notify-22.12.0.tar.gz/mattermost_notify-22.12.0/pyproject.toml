@@ -1,0 +1,76 @@
+[tool.poetry]
+name = "mattermost-notify"
+version = "22.12.0"
+description = "Python tool to post GitHub Action runs to mattermost"
+authors = ["Jaspar Stach <jasp.stac@gmx.de>"]
+license = "GPL-3.0-or-later"
+readme = "README.md"
+
+classifiers=[
+  # Full list: https://pypi.org/pypi?%3Aaction=list_classifiers
+  "Development Status :: 4 - Beta",
+  "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",  # pylint: disable=line-too-long
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Operating System :: OS Independent",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+packages = [
+  { include = "mattermost_notify"},
+  { include = "tests", format = "sdist" },
+  { include = "poetry.lock", format = "sdist" },
+  { include = "poetry.toml", format = "sdist" },
+]
+include = [
+]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+pontos = ">=22.7.0"
+httpx = "^0.23.1"
+
+[tool.poetry.dev-dependencies]
+autohooks = ">=22.11.2"
+autohooks-plugin-pylint = ">=22.8.1"
+autohooks-plugin-black = ">=22.11.0"
+autohooks-plugin-isort = ">=22.8.0"
+coverage = "^6.5"
+
+[tool.black]
+line-length = 80
+target-version = ['py37', 'py38', 'py39', 'py310']
+exclude = '''
+/(
+    \.git
+  | \.venv
+  | \.github
+  | \.vscode
+  | _build
+  | build
+  | dist
+  | docs
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 80
+
+[tool.autohooks]
+pre-commit = ['autohooks.plugins.black', 'autohooks.plugin.isort', 'autohooks.plugins.pylint']
+mode = "poetry"
+
+[tool.pontos.version]
+version-module-file = "mattermost_notify/__version__.py"
+
+[tool.poetry.scripts]
+mnotify-git = 'mattermost_notify.git:main'
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
