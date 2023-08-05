@@ -1,0 +1,997 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>migflow.scontact &mdash; MigFlow  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="migflow.time_integration" href="migflow.time_integration.html" />
+    <link rel="prev" title="migflow.fluid" href="migflow.fluid.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MigFlow
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.3.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">MigFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="main-features.html">Main Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="migflow.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="migflow.fluid.html">migflow.fluid</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">migflow.scontact</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migflow.time_integration.html">migflow.time_integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migflow.lmgc90Interface.html">migflow.lmgc90Interface</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MigFlow</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="migflow.html">API Reference</a> &raquo;</li>
+        
+      <li>migflow.scontact</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-migflow.scontact">
+<span id="migflow-scontact"></span><h1>migflow.scontact<a class="headerlink" href="#module-migflow.scontact" title="Permalink to this headline">¶</a></h1>
+<p>Model for Immersed Granular Flow: Fluid user interface</p>
+<p>Contact: <a class="reference external" href="mailto:jonathan&#46;lambrechts&#37;&#52;&#48;uclouvain&#46;be">jonathan<span>&#46;</span>lambrechts<span>&#64;</span>uclouvain<span>&#46;</span>be</a>
+Webpage: www.migflow.be</p>
+<p>MigFlow computes immersed granular flows using an unresolved FEM-DEM model.
+The continuous phase (mixture) is computed by solving averaged Navier-Stokes equations on unstructured meshes with the continuous finite element method.</p>
+<dl class="class">
+<dt id="migflow.scontact.ParticleProblem">
+<em class="property">class </em><code class="descclassname">migflow.scontact.</code><code class="descname">ParticleProblem</code><span class="sig-paren">(</span><em>dim</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Creates the numerical structure containing all the physical particles that appear in the problem</p>
+<p>Builds the particle problem structure.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dim</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Dimension of the problem</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> – If the dimension differs from 2 or 3</li>
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">NameError</span></code> – If C builder cannot be found</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.__del__">
+<code class="descname">__del__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.__del__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes the particle solver structure.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.add_body">
+<code class="descname">add_body</code><span class="sig-paren">(</span><em>x</em>, <em>invertM</em>, <em>invertI</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.add_body" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a body in the particle problem. — Only in 2D</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – array of the position of the body</li>
+<li><strong>InvertM</strong> – inverse mass of the body</li>
+<li><strong>InvertI</strong> – inverse inertia of the body</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">body id</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">int</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.add_boundary_periodic_entity">
+<code class="descname">add_boundary_periodic_entity</code><span class="sig-paren">(</span><em>dim</em>, <em>transform</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.add_boundary_periodic_entity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a periodic entity.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dim</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – dimension of the entity</li>
+<li><strong>transform</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – array of the transformation to applied to the periodic entity</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.add_boundary_periodic_point">
+<code class="descname">add_boundary_periodic_point</code><span class="sig-paren">(</span><em>x</em>, <em>tag</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.add_boundary_periodic_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a boundary periodic point.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – array of the coordinates of the point</li>
+<li><strong>tag</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – entity tag</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.add_boundary_periodic_segment">
+<code class="descname">add_boundary_periodic_segment</code><span class="sig-paren">(</span><em>x0</em>, <em>x1</em>, <em>tag</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.add_boundary_periodic_segment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a boundary periodic segment.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x0</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – array of the coordinates of the first endpoint</li>
+<li><strong>x1</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – array of the coordinates of the second endpoint</li>
+<li><strong>tag</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – entity tag</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.add_boundary_periodic_triangle">
+<code class="descname">add_boundary_periodic_triangle</code><span class="sig-paren">(</span><em>x0</em>, <em>x1</em>, <em>x2</em>, <em>tag</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.add_boundary_periodic_triangle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a boundary periodic triangle.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x0</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – array of the coordinates of the first summit</li>
+<li><strong>x1</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – array of the coordinates of the second summit</li>
+<li><strong>x2</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – array of the coordinates of the third summit</li>
+<li><strong>tag</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – tag of the periodic entity</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.add_boundary_segment">
+<code class="descname">add_boundary_segment</code><span class="sig-paren">(</span><em>x0</em>, <em>x1</em>, <em>tag</em>, <em>material='default'</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.add_boundary_segment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a boundary segment.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x0</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – array of the coordinates of the first endpoint</li>
+<li><strong>x1</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – array of the coordinates of the second endpoint</li>
+<li><strong>tag</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – segment tag</li>
+<li><strong>material</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – segment material</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.add_boundary_triangle">
+<code class="descname">add_boundary_triangle</code><span class="sig-paren">(</span><em>x0</em>, <em>x1</em>, <em>x2</em>, <em>tag</em>, <em>material='default'</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.add_boundary_triangle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a boundary triangle.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x0</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – array of the coordinates of the first summit</li>
+<li><strong>x1</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – array of the coordinates of the second summit</li>
+<li><strong>x2</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – array of the coordinates of the third summit</li>
+<li><strong>tag</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – triangle tag</li>
+<li><strong>material</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – triangle material</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.add_entities">
+<code class="descname">add_entities</code><span class="sig-paren">(</span><em>xbody</em>, <em>invertM=0.0</em>, <em>invertI=0.0</em>, <em>particles_coordinates=None</em>, <em>particles_radius=None</em>, <em>particles_materials='default'</em>, <em>segments_coordinates=None</em>, <em>segments_tags=None</em>, <em>segments_materials='default'</em>, <em>triangles_coordinates=None</em>, <em>triangles_tags=None</em>, <em>triangles_materials='default'</em>, <em>is_relative_position=True</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.add_entities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds entities (either particles, segments or triangles) to a body described by its position, inverse of mass and inverse of inertia.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>xbody</strong> (<em>np.ndarray</em>) – position of the body</li>
+<li><strong>invertM</strong> (<em>float</em><em>, </em><em>optional</em>) – inverse mass of the body. Defaults to 0.</li>
+<li><strong>invertI</strong> (<em>float</em><em>, </em><em>optional</em>) – inverse inertia of the body. Defaults to 0.</li>
+<li><strong>particles_coordinates</strong> (<em>np.ndarray</em><em>, </em><em>optional</em>) – position of the particles. Defaults to None.</li>
+<li><strong>particles_radius</strong> (<em>Union</em><em>[</em><em>np.ndarray</em><em>, </em><em>float</em><em>]</em><em>, </em><em>optional</em>) – array of the particles radii. Defaults to None.</li>
+<li><strong>particles_materials</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – array of the particles material. Defaults to “default”.</li>
+<li><strong>segments_coordinates</strong> (<em>np.ndarray</em><em>, </em><em>optional</em>) – array of the segments coordinates as n_segments x 2 x dimension. Defaults to None.</li>
+<li><strong>segments_tags</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – array of the segments tags. Defaults to None.</li>
+<li><strong>segments_materials</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – array of the segments materials. Defaults to “default”.</li>
+<li><strong>triangles_coordinates</strong> (<em>np.ndarray</em><em>, </em><em>optional</em>) – array of the segments coordinates as n_segments x 3 x dimension. Defaults to None.</li>
+<li><strong>triangles_tags</strong> (<em>str</em><em>, </em><em>optional</em>) – array of the triangles tags. Defaults to None.</li>
+<li><strong>triangles_materials</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – array of the triangles materials. Defaults to “default”.</li>
+<li><strong>is_relative_position</strong> (<em>bool</em><em>, </em><em>optional</em>) – flag if the given position is the relative position towards the body or the absolute position. Defaults to True.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">body id</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">int</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.add_particle">
+<code class="descname">add_particle</code><span class="sig-paren">(</span><em>x</em>, <em>r</em>, <em>m</em>, <em>tag='default'</em>, <em>forced=False</em>, <em>inverse_inertia=None</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.add_particle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a particle in the particle container.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – array of the particle position</li>
+<li><strong>r</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – particle radius</li>
+<li><strong>m</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – particle mass</li>
+<li><strong>tag</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – particle material</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">body id</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">int</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.add_particle_body">
+<code class="descname">add_particle_body</code><span class="sig-paren">(</span><em>positions</em>, <em>radii</em>, <em>masses</em>, <em>material='default'</em>, <em>forced=False</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.add_particle_body" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a body in the particle problem with a list of constituting particles — Only in 2D</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>positions</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – positions of the particles constituting the body</li>
+<li><strong>radii</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – radii of the particles</li>
+<li><strong>masses</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – masses of the particles</li>
+<li><strong>material</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – material of the particles</li>
+<li><strong>forced</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – Flag indicating whether the body is forced or not</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">body id</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">int</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.add_particle_to_body">
+<code class="descname">add_particle_to_body</code><span class="sig-paren">(</span><em>x</em>, <em>r</em>, <em>body</em>, <em>material='default'</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.add_particle_to_body" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a particle to a body.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – array of the particle positon with respect to the body’s centre of mass</li>
+<li><strong>r</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Particle radius</li>
+<li><strong>body</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – number of the body to which the particle will be added</li>
+<li><strong>material</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Particle material</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.add_particles">
+<code class="descname">add_particles</code><span class="sig-paren">(</span><em>x</em>, <em>r</em>, <em>m</em>, <em>tag='default'</em>, <em>forced=False</em>, <em>inverse_inertia=None</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.add_particles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds particles in the particle container.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – array of tuple to set the centre particle position</li>
+<li><strong>r</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – array of particle radius</li>
+<li><strong>m</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – array of particle mass</li>
+<li><strong>tag</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – particle material</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">id of the added bodies</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">np.ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.add_segment_to_body">
+<code class="descname">add_segment_to_body</code><span class="sig-paren">(</span><em>x0</em>, <em>x1</em>, <em>body</em>, <em>tag</em>, <em>material='default'</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.add_segment_to_body" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a segment to a body.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x0</strong> (<em>np.ndarray</em>) – array of the coordinates of the first endpoint</li>
+<li><strong>x1</strong> (<em>np.ndarray</em>) – array of the coordinates of the second endpoint</li>
+<li><strong>body</strong> (<em>int</em>) – body id</li>
+<li><strong>tag</strong> (<em>str</em>) – boundary id associated to the segment</li>
+<li><strong>material</strong> (<em>str</em>) – Segment material</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.body_invert_inertia">
+<code class="descname">body_invert_inertia</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.body_invert_inertia" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the invert inertias of the bodies.
+:returns: Array of the body invert inertias
+:rtype: np.ndarray</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.body_invert_mass">
+<code class="descname">body_invert_mass</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.body_invert_mass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the invert mases of the bodies.
+:returns: Array of the body invert masses
+:rtype: np.ndarray</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.body_omega">
+<code class="descname">body_omega</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.body_omega" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the angular velocities of the bodies.
+:returns: Array of the body angular velocities
+:rtype: np.ndarray</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.body_position">
+<code class="descname">body_position</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.body_position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the positions of the bodies.
+:returns: Array of the body positions
+:rtype: np.ndarray</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.body_theta">
+<code class="descname">body_theta</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.body_theta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the array of the body angles.
+:returns: Array of the body angles
+:rtype: np.ndarray</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.body_velocity">
+<code class="descname">body_velocity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.body_velocity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the velocities of the bodies.
+:returns: Array of the body velocities
+:rtype: np.ndarray</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.bounding_box">
+<code class="descname">bounding_box</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.bounding_box" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the bounding box of the particle problem.
+:returns: position of the lower left corner, position of the upper right corner
+:rtype: Tuple[np.ndarray, np.ndarray]</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.computeStressTensor">
+<code class="descname">computeStressTensor</code><span class="sig-paren">(</span><em>nodes</em>, <em>radius</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.computeStressTensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the stress tensor of the granular material
+:type nodes: <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>
+:param nodes: Array of nodes at which to compute the stress tensor
+:param r: Radius within which the contact forces will be averaged</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Array of stresses on the nodes of the grid</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.contact_forces">
+<code class="descname">contact_forces</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.contact_forces" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the contact forces on each particle.
+:returns: Array of the particle contact forces
+:rtype: np.ndarray</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.contacts">
+<code class="descname">contacts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.contacts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gives the contacts between the bodies.
+:returns: Array of contact forces between the particles
+:rtype: np.ndarray</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.delassus">
+<code class="descname">delassus</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.delassus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the delassus operators of the particles.
+:returns: Array of the particle delassus operators
+:rtype: np.ndarray</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.dim">
+<code class="descname">dim</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.dim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the dimension of the particle problem.
+:returns: Dimension of the problem
+:rtype: int</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.get_boundary_forces">
+<code class="descname">get_boundary_forces</code><span class="sig-paren">(</span><em>tag='default'</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.get_boundary_forces" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the forces acting on a boundary because of the contacts in the global basis.
+:type tag: <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>
+:param tag: Name of the boundary</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Array of forces on boundary named tag</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.get_material_id">
+<code class="descname">get_material_id</code><span class="sig-paren">(</span><em>material</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.get_material_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number associated to a string material.
+:type material: <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>
+:param material: string material.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">number associated to the string material</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.get_tag_id">
+<code class="descname">get_tag_id</code><span class="sig-paren">(</span><em>tag='default'</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.get_tag_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number associated to a string tag.
+:type tag: <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>
+:param tag: string tag.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">number associated to the string tag</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.id">
+<code class="descname">id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the ids of the particles.
+:returns: Array of the particle ids
+:rtype: np.ndarray</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.iterate">
+<code class="descname">iterate</code><span class="sig-paren">(</span><em>dt</em>, <em>forces</em>, <em>body_forces=None</em>, <em>tol=1e-08</em>, <em>force_motion=0</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.iterate" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Computes iteratively the set of velocities that respect the non-interpenetration constrain.</dt>
+<dd>Returns 1 if the computation converged, 0 otherwise.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dt</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Numerical time step</li>
+<li><strong>forces</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – List of vectors containing the forces applied on the particles</li>
+<li><strong>body_forces</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]) – List of forces applied to the bodies</li>
+<li><strong>tol</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Optional argument defining the interpenetration tolerance to stop the NLGS iterations of the NSCD</li>
+<li><strong>force_motion</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Optional argument allowing to move the grains if convergence has not been reached when set to 1</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.load_msh_boundaries">
+<code class="descname">load_msh_boundaries</code><span class="sig-paren">(</span><em>filename</em>, <em>tags=None</em>, <em>shift=None</em>, <em>material='default'</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.load_msh_boundaries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads the numerical domain and set the physical boundaries the particles cannot go through.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>filename</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – name of the msh file. If None the current gmsh model is loaded without the need to a msh file.</li>
+<li><strong>tags</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – tags of physical boundary defined in the msh file</li>
+<li><strong>shift</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]) – optional argument to shift the numerical domain</li>
+<li><strong>material</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – material of the boundary</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.material">
+<code class="descname">material</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.material" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the materials of the particles.
+:returns: Array of the particle materials
+:rtype: np.ndarray</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.mu">
+<code class="descname">mu</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.mu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the array of the friction coefficients between materials.
+:returns: Array of the friction coefficients between materials.
+:rtype: np.ndarray</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.n_bodies">
+<code class="descname">n_bodies</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.n_bodies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of bodies.
+:returns: number of bodies
+:rtype: int</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.n_particles">
+<code class="descname">n_particles</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.n_particles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of particles.
+:returns: number of particles
+:rtype: int</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.parse_type">
+<code class="descname">parse_type</code><span class="sig-paren">(</span><em>tname</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.parse_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.particle_body">
+<code class="descname">particle_body</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.particle_body" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the bodies associated to each particle</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">body id</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.periodic_entity">
+<code class="descname">periodic_entity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.periodic_entity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the array of periodic entities.
+:returns: Array of periodic entities
+:rtype: np.ndarray</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.periodic_points">
+<code class="descname">periodic_points</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.periodic_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the array of periodic points.
+:returns: Array of periodic points
+:rtype: np.ndarray</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.periodic_segments">
+<code class="descname">periodic_segments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.periodic_segments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the array of periodic segments.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.periodic_triangles">
+<code class="descname">periodic_triangles</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.periodic_triangles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the array of periodic triangles.
+:returns: Array of periodic segments
+:rtype: np.ndarray</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.position">
+<code class="descname">position</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the positions of the particles.
+:returns: Array of the particle positions
+:rtype: np.ndarray</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.r">
+<code class="descname">r</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.r" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the raddi of the particles.
+:returns: Array of the particle radii
+:rtype: np.ndarray</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.read_mig">
+<code class="descname">read_mig</code><span class="sig-paren">(</span><em>odir</em>, <em>t</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.read_mig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads output files.
+:type odir: <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>
+:param odir: Directory in which to read the file
+:type t: <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>
+:param t: Time at which to read the file</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.remove_bodies_flag">
+<code class="descname">remove_bodies_flag</code><span class="sig-paren">(</span><em>flag</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.remove_bodies_flag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes particles based on given flag.
+:type flag: <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>
+:param flag: flag with the same size as the number of bodies, with 0 for bodies to be removed and 1 for bodies to be kept</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.restore_state">
+<code class="descname">restore_state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.restore_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Restores the saved state of the particle problem.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.save_state">
+<code class="descname">save_state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.save_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves the current state of the particle problem.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.segments">
+<code class="descname">segments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.segments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the array of boundary segments.
+:returns: Array of boundary segments
+:rtype: np.ndarray</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.set_boundary_velocity">
+<code class="descname">set_boundary_velocity</code><span class="sig-paren">(</span><em>tag</em>, <em>v</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.set_boundary_velocity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the velocity of a boundary to a given value.
+:type tag: <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>
+:param tag: Name of the boundary
+:type v: <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>
+:param v: Velocity vector to be given to the boundary</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.set_compute_contact_forces">
+<code class="descname">set_compute_contact_forces</code><span class="sig-paren">(</span><em>compute_contact_forces=1</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.set_compute_contact_forces" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enables the computation of the contact forces on each particle if 1 and disables it if 0.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.set_fixed_contact_geometry">
+<code class="descname">set_fixed_contact_geometry</code><span class="sig-paren">(</span><em>flag</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.set_fixed_contact_geometry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the management of the contact geometry, either fixed (default) or changing each time the contact is solved.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>flag</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – True for fixed False for changing.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.set_friction_coefficient">
+<code class="descname">set_friction_coefficient</code><span class="sig-paren">(</span><em>mu</em>, <em>mat0='default'</em>, <em>mat1='default'</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.set_friction_coefficient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the friction coefficient between two materials.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>mu</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Value of the friction coefficient</li>
+<li><strong>mat0</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – First material</li>
+<li><strong>mat1</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Second material</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.set_use_queue">
+<code class="descname">set_use_queue</code><span class="sig-paren">(</span><em>use_queue=1</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.set_use_queue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enables the use of the queue if 1 and disables it if 0.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.triangles">
+<code class="descname">triangles</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.triangles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the array of boundary triangles.
+:returns: Array of boundary triangles
+:rtype: np.ndarray</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.velocity">
+<code class="descname">velocity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.velocity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the velocities of the particles.
+:returns: Array of the particle velocities
+:rtype: np.ndarray</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.volume">
+<code class="descname">volume</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the volumes of the particles.
+:returns: Array of the particle volumes
+:rtype: np.ndarray</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="migflow.scontact.ParticleProblem.write_mig">
+<code class="descname">write_mig</code><span class="sig-paren">(</span><em>output_dir</em>, <em>t</em>, <em>extra_fields={}</em><span class="sig-paren">)</span><a class="headerlink" href="#migflow.scontact.ParticleProblem.write_mig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes output files for post-visualization.
+:type output_dir: <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>
+:param output_dir: Directory in which to write the file (expected to end in “.mig”)
+:type t: <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>
+:param t: Time at which the simulation is
+:type extra_fields: <code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]
+:param extra_fields: extra field as a dictionnary {name : values}</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="migflow.time_integration.html" class="btn btn-neutral float-right" title="migflow.time_integration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="migflow.fluid.html" class="btn btn-neutral float-left" title="migflow.fluid" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Copyright (C) &lt;2015-2022&gt;  &lt;Universite catholique de Louvain (UCL), Belgium
+Copyright (C) &lt;2015-2022&gt;   Universite de Montpellier, France&gt;
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
