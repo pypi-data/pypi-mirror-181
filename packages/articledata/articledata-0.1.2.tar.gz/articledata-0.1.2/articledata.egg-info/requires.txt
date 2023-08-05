@@ -1,0 +1,9 @@
+languagecodes
+pydantic
+
+[dev]
+mypy
+wheel
+twine
+pytest
+types-PyYAML

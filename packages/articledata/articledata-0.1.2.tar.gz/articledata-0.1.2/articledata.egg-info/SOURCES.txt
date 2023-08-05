@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+articledata/__init__.py
+articledata/article.py
+articledata/py.typed
+articledata/url.py
+articledata.egg-info/PKG-INFO
+articledata.egg-info/SOURCES.txt
+articledata.egg-info/dependency_links.txt
+articledata.egg-info/namespace_packages.txt
+articledata.egg-info/not-zip-safe
+articledata.egg-info/requires.txt
+articledata.egg-info/top_level.txt
