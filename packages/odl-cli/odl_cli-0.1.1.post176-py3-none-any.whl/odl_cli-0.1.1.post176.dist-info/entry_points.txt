@@ -1,0 +1,4 @@
+[console_scripts]
+dsdl=dsdl.cli:cli
+odl-cli=cli.cli:main
+
