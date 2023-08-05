@@ -1,0 +1,15 @@
+marinedebrisdetector.egg-info
+build
+*.npz
+*.tif
+*durban_20190424*
+venv
+.idea
+checkpoints
+**__pycache__
+wandb
+.ipynb_checkpoints
+notebooks
+*.out
+lightning_logs
+marinedebrisdetector/wandb
