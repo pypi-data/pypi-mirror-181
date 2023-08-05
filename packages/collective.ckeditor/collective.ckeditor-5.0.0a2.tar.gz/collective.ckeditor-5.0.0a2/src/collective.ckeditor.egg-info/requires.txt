@@ -1,0 +1,17 @@
+setuptools
+zope.i18nmessageid
+collective.quickupload
+collective.plonefinder
+plone.app.uuid
+plone.api
+demjson3
+
+[pytest]
+pytest
+gocept.pytestlayer
+pathlib2
+requests
+
+[test]
+plone.app.testing
+plone.app.robotframework[debug]
