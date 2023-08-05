@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=42", "pybind11>=2.10.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.cibuildwheel]
+build = "cp*"
+skip = "*-musllinux*"
+
+before-build = "bash scripts/cibw_before_build.sh {package}"
+build-verbosity = "1"
+
+test-requires = "pytest"
+test-command = "pytest {project}/tests"
+
+[tool.cibuildwheel.linux]
+test-skip = "*-*linux_aarch64"
+
+[tool.cibuildwheel.macos]
+test-skip = "*-macosx_arm64 *-macosx_universal2:arm64"
+
+[tool.cibuildwheel.windows]
+test-skip = "*-win_arm64"
