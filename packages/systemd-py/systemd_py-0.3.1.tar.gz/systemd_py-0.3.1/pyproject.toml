@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "systemd-py"
+version = "0.3.1"
+description = "systemd-py is a library which helps you to create systemd services in python."
+authors = ["amiwrpremium <amiwrpremium@gmail.com>"]
+readme = "README.md"
+license = "MIT"
+packages = [{include = "systemd_py"}]
+homepage = "https://amiwrpremium.github.io/systemd-py/"
+repository = "https://github.com/amiwrpremium/systemd-py"
+documentation = "https://amiwrpremium.github.io/systemd-py/"
+keywords = ["systemd", "service", "unit", "python", "service unit", "systemd unit", "service file", "systemd service"]
+classifiers = [
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities",
+]
+
+[tool.poetry.scripts]
+systemd-py = "systemd_py.commands.main:app"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pydantic = "^1.10.2"
+mkdocs = "^1.4.2"
+mkdocs-material = "^8.5.11"
+mkdocstrings = {extras = ["python"], version = "^0.19.0"}
+mkdocs-git-revision-date-localized-plugin = "^1.1.0"
+mkdocs-git-committers-plugin-2 = "^1.1.1"
+mkdocs-gen-files = "^0.4.0"
+mkdocs-literate-nav = "^0.5.0"
+mkdocs-section-index = "^0.3.4"
+typer = {extras = ["all"], version = "^0.7.0"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
