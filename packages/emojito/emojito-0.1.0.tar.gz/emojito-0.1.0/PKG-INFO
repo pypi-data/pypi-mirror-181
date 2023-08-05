@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: emojito
+Version: 0.1.0
+Summary: 
+Home-page: https://gitlab.com/deepadmax/emojito
+License: GPL-3.0-or-later
+Author: Maximillian Strand
+Author-email: maxi@millian.se
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: beautifulsoup4 (>=4.11.1,<5.0.0)
+Project-URL: Repository, https://gitlab.com/deepadmax/emojito
+Description-Content-Type: text/markdown
+
+# Emojito
+
+There are many packages that provide shortnames for emojis. This package allows you to provide your own shortnames and with what to replace them.
+
+## Features
+
+- Find and replace shortnames. You provide the shortnames and the content with which to replace them.
+- Compatible with HTML. In stead of indiscrimnately finding and replacing shortnames anywhere in the text, accidentally replacing content that overlaps with tags, the HTML will be parsed and only the plain text within tags will be affected.
