@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: macchanger1
+Version: 0.0.4
+Summary: MAC changer
+Author: skrab-sah
+Author-email: skrab.sah@gmail.com
+Classifier: Operating System :: POSIX :: Linux
+Classifier: License :: OSI Approved :: MIT License
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# MAC Changer
+
+Programming implementation of macchanger tool.
+
+## How to install it?
+
+## On Linux
+``` pip install macchanger1 ```
+
+## How to use it?
+
+### Initialize Package
+``` from macchanger import * ```
+
+# documentation is in it's script.
+
+
+## On any issue.
+### e-mail me on: skrab.sah@gmail.com
