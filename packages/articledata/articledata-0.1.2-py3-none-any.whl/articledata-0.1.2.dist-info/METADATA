@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: articledata
+Version: 0.1.2
+Summary: Utility library for trading article data.
+Home-page: http://github.com/pudo/articledata
+Author: Friedrich Lindenberg, Heleen Emanuel
+Author-email: friedrich@pudo.org
+License: MIT
+Keywords: articles media news journalism
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: languagecodes
+Requires-Dist: pydantic
+Provides-Extra: dev
+Requires-Dist: mypy ; extra == 'dev'
+Requires-Dist: wheel ; extra == 'dev'
+Requires-Dist: twine ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: types-PyYAML ; extra == 'dev'
+
+# articledata 
+
+A Python-based metadata specification for exchanging news articles between different systems. The purpose of this is to differentiate between a media crawling/extraction and mining/NLP phase of a media analytics system. 
+
+
