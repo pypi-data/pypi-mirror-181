@@ -1,0 +1,23 @@
+retry2~=0.9
+requests~=2.27
+requests-toolbelt~=0.9
+six~=1.16
+
+[:python_version == "2.7"]
+configparser~=4.0
+setuptools~=44.0
+cachetools~=2.1
+keyring==18.0.1
+
+[:python_version == "3.6"]
+setuptools~=59.6
+keyring~=23.4
+cachetools~=2.1
+
+[:python_version > "3.6"]
+setuptools~=62.1
+keyring~=23.5
+cachetools~=5.0
+
+[:python_version >= "3.6"]
+jwcrypto~=1.4.0
