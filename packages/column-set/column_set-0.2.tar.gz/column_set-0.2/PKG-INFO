@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: column_set
+Version: 0.2
+Summary: A tiny library for abstraction of data source columns to reduce coupling.
+Home-page: https://github.com/vahndi/column-set
+Author: Vahndi Minah
+License: MIT
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+License-File: LICENSE.txt
