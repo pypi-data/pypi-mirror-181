@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: fastcom-cli
+Version: 1.0.1
+Summary: Unofficial CLI for fast.com
+Project-URL: repo, https://github.com/Tina-otoge/fastcom-cli
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests
+
+# Fast.com CLI
+
+*Unofficial CLI tool to run Internet speed measurement tests using Fast.com's
+service.*
