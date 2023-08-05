@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: trajpy
+Version: 1.4.0
+Summary: Trajectory classifier for cells, nanoparticles & whatelse.
+Home-page: https://github.com/ocbe-uio/trajpy.git
+Author: Mauricio Moreira and Eduardo Mossmann
+Author-email: trajpy@protonmail.com
+License: GNU GPLv3
+Keywords: trajectory quantification,feature engineering,diffusion classification
+Platform: UNKNOWN
+Requires-Dist: numpy (>=1.14.3)
+Requires-Dist: scipy (==1.7.1)
+
+UNKNOWN
+
+
