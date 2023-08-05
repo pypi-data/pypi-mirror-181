@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+src/py_metarium_decoder/__init__.py
+src/py_metarium_decoder.egg-info/PKG-INFO
+src/py_metarium_decoder.egg-info/SOURCES.txt
+src/py_metarium_decoder.egg-info/dependency_links.txt
+src/py_metarium_decoder.egg-info/requires.txt
+src/py_metarium_decoder.egg-info/top_level.txt
+src/py_metarium_decoder/base/__init__.py
+src/py_metarium_decoder/base/decoder.py
