@@ -1,0 +1,8 @@
+# A Heat environment file that can be used to upgrade an undercloud
+
+resource_registry:
+  OS::TripleO::Services::UndercloudUpgrade: ../../deployment/undercloud/undercloud-upgrade.yaml
+
+parameter_defaults:
+  UndercloudUpgrade: true
+  DnfStreams: [{'module':'container-tools', 'stream':'3.0', 'distribution_version':'8'}]
