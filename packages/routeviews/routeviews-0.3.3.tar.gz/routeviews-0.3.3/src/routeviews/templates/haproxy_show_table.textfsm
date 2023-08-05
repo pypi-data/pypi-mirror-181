@@ -1,0 +1,19 @@
+Value Required,Filldown table (\S+)
+Value Filldown type (\S+)
+Value Filldown size (\d+)
+Value Filldown used (\d+)
+Value Required key (\S+)
+Value conn_cnt (\d+)
+Value conn_exp (\d+)
+Value conn_cur (\d+)
+Value conn_use (\d+)
+Value bytes_in_rate (\d+)
+Value bytes_out_rate (\d+)
+
+Start
+  ^#\s+table: *${table}, *type: *${type}, *size: *${size}, *used: *${used}.* -> Connections
+
+Connections
+  ^0x\S*: *key=${key} *use=${conn_use} *exp=${conn_exp} *conn_cnt=${conn_cnt} *conn_cur=${conn_cur} *bytes_in\S+=${bytes_in_rate} *bytes_out\S+=${bytes_out_rate}.* -> Record
+
+EOF

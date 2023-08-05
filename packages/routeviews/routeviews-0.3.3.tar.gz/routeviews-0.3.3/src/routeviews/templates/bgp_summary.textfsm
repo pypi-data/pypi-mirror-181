@@ -1,0 +1,25 @@
+Value Filldown,Required ROUTER_ID (\S+)
+Value Filldown LOCAL_AS (\d+)
+Value NEIGHBOR (\S+)
+Value VERSION (\d+)
+Value NEIGHBOR_AS (\d+)
+Value MSGRCVD (\d+)
+Value MSGSENT (\d+)
+Value TBLVER (\d+)
+Value INQ (\d+)
+Value OUTQ (\d+)
+Value UP_DOWN (\S+)
+Value STATE_PFXRCD (\S+)
+
+Start
+  ^BGP\s+router\s+identifier\s+${ROUTER_ID},\s+local\s+AS\s+number\s+${LOCAL_AS}\s*
+  ^Neighbor\s+V\s+AS\s+MsgRcvd\s+MsgSent\s+TblVer\s+InQ\s+OutQ\s+Up/Down\s+State/PfxRcd -> Neighbors
+
+Neighbors
+  ^Total.* -> NoRecord
+  ^\S+> -> NoRecord
+  ^${NEIGHBOR}\s+${VERSION}\s+${NEIGHBOR_AS}\s+${MSGRCVD}\s+${MSGSENT}\s+${TBLVER}\s+${INQ}\s+${OUTQ}\s+${UP_DOWN}\s+${STATE_PFXRCD} -> Record
+  ^${NEIGHBOR}\s+ -> Continue
+  ^\s+${VERSION}\s+${NEIGHBOR_AS}\s+${MSGRCVD}\s+${MSGSENT}\s+${TBLVER}\s+${INQ}\s+${OUTQ}\s+${UP_DOWN}\s+${STATE_PFXRCD} -> Record
+
+EOF

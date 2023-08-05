@@ -1,0 +1,10 @@
+[console_scripts]
+routeviews-email-peers = routeviews.scripts.get_peers_email:run_main
+routeviews-lint = routeviews.scripts.format_ansible_inventory:run_main
+routeviews-peer-request = routeviews.scripts.ansible_peering_request:run_main
+routeviews-template = routeviews.scripts.template:run_main
+rvm-bgp-status = routeviews.scripts.bgp_peering_status:run_main
+rvm-bmp-status = routeviews.scripts.bmp_status:run_main
+rvm-haproxy-stats = routeviews.scripts.haproxy_stats:run_main
+rvm-latest-mrt = routeviews.scripts.latest_mrt_dump:run_main
+

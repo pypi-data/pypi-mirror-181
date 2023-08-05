@@ -1,0 +1,15 @@
+Value Required remote (\S+)
+Value uptime (\S+)
+Value MonSent (\d+)
+Value MirrSent (\d+)
+Value MirrLost (\d+)
+Value ByteSent (\d+)
+Value ByteQ (\d+)
+Value ByteQKernel (\d+)
+
+Start
+  ^\s+remote\s+uptime\s+MonSent\s+MirrSent\s+MirrLost\s+ByteSent\s+ByteQ\s+ByteQKernel
+  ^\s+--------- -> Connections
+
+Connections
+  ^\s+${remote}\s+${uptime}\s+${MonSent}\s+${MirrSent}\s+${MirrLost}\s+${ByteSent}\s+${ByteQ}\s+${ByteQKernel} -> Record
