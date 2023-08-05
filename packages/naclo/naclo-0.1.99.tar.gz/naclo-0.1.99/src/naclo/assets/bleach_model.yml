@@ -1,0 +1,28 @@
+# Structure data
+structure_col: ''
+structure_type: ''
+
+# Target data
+target_col: ''
+input_units: ''
+output_units: ''
+units_col: ''
+assay_type: vitro
+drop_na_units: false
+
+# Formatting
+format_settings:
+  duplicate_compounds: average
+  append_columns:
+    - smiles
+    - mol
+    - inchi_key
+    - mw
+  remove_header_chars: '.'
+  remove_na_targets: false
+
+# Chemistry
+chem_settings:
+  neutralize_charge: true
+  desalt: true
+  fragment_filter: carbon_count

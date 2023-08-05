@@ -1,0 +1,133 @@
+{
+    "pg/ml": ["pg/ml", 1e-9],
+    "ng/ml": ["ng/ml", 1e-6],
+    "ug/ml": ["ug/ml", 1e-3],
+    "µg/ml": ["ug/ml", 1e-3],
+    "mg/ml": ["mg/ml", 1],
+    "g/ml": ["g/ml", 1e3],
+
+    "pg•ml-1": ["pg/ml", 1e-9],
+    "ng•ml-1": ["ng/ml", 1e-6],
+    "ug•ml-1": ["ug/ml", 1e-3],
+    "µg•ml-1": ["ug/ml", 1e-3],
+    "mg•ml-1": ["mg/ml", 1],
+    "g•ml-1": ["g/ml", 1e3],
+
+    "pg ml-1": ["pg/ml", 1e-9],
+    "ng ml-1": ["ng/ml", 1e-6],
+    "ug ml-1": ["ug/ml", 1e-3],
+    "µg ml-1": ["ug/ml", 1e-3],
+    "mg ml-1": ["mg/ml", 1],
+    "g ml-1": ["g/ml", 1e3],
+
+    "pg.ml-1": ["pg/ml", 1e-9],
+    "ng.ml-1": ["ng/ml", 1e-6],
+    "ug.ml-1": ["ug/ml", 1e-3],
+    "µg.ml-1": ["ug/ml", 1e-3],
+    "mg.ml-1": ["mg/ml", 1],
+    "g.ml-1": ["g/ml", 1e3],
+
+
+    "pg/l": ["pg/l", 1e-12],
+    "ng/l": ["ng/l", 1e-9],
+    "ug/l": ["ug/l", 1e-6],
+    "µg/l": ["ug/l", 1e-6],
+    "mg/l": ["mg/l", 1e-3],
+    "g/l": ["g/l", 1],
+
+    "pg•l-1": ["pg/l", 1e-12],
+    "ng•l-1": ["ng/l", 1e-9],
+    "ug•l-1": ["ug/l", 1e-6],
+    "µg•l-1": ["ug/l", 1e-6],
+    "mg•l-1": ["mg/l", 1e-3],
+    "g•l-1": ["g/l", 1],
+
+    "pg l-1": ["pg/l", 1e-12],
+    "ng l-1": ["ng/l", 1e-9],
+    "ug l-1": ["ug/l", 1e-6],
+    "µg l-1": ["ug/l", 1e-6],
+    "mg l-1": ["mg/l", 1e-3],
+    "g l-1": ["g/l", 1],
+
+    "pg.l-1": ["pg/l", 1e-12],
+    "ng.l-1": ["ng/l", 1e-9],
+    "ug.l-1": ["ug/l", 1e-6],
+    "µg.l-1": ["ug/l", 1e-6],
+    "mg.l-1": ["mg/l", 1e-3],
+    "g.l-1": ["g/l", 1],
+
+
+    "pg/kg": ["pg/kg", 1e-12],
+    "ng/kg": ["ng/kg", 1e-9],
+    "ug/kg": ["ug/kg", 1e-6],
+    "µg/kg": ["ug/kg", 1e-6],
+    "mg/kg": ["mg/kg", 1e-3],
+    "g/kg": ["g/kg", 1],
+
+    "pg•kg-1": ["pg/kg", 1e-12],
+    "ng•kg-1": ["ng/kg", 1e-9],
+    "ug•kg-1": ["ug/kg", 1e-6],
+    "µg•kg-1": ["ug/kg", 1e-6],
+    "mg•kg-1": ["mg/kg", 1e-3],
+    "g•kg-1": ["g/kg", 1],
+
+    "pg kg-1": ["pg/kg", 1e-12],
+    "ng kg-1": ["ng/kg", 1e-9],
+    "ug kg-1": ["ug/kg", 1e-6],
+    "µg kg-1": ["ug/kg", 1e-6],
+    "mg kg-1": ["mg/kg", 1e-3],
+    "g kg-1": ["g/kg", 1],
+
+    "pg.kg-1": ["pg/kg", 1e-12],
+    "ng.kg-1": ["ng/kg", 1e-9],
+    "ug.kg-1": ["ug/kg", 1e-6],
+    "µg.kg-1": ["ug/kg", 1e-6],
+    "mg.kg-1": ["mg/kg", 1e-3],
+    "g.kg-1": ["g/kg", 1],
+
+
+    "pmol/kg": ["pmol/kg", 1e-12],
+    "nmol/kg": ["nmol/kg", 1e-9],
+    "umol/kg": ["umol/kg", 1e-6],
+    "µmol/kg": ["umol/kg", 1e-6],
+    "mmol/kg": ["mmol/kg", 1e-3],
+    "mol/kg": ["mol/kg", 1],
+
+    "pmol•kg-1": ["pmol/kg", 1e-12],
+    "nmol•kg-1": ["nmol/kg", 1e-9],
+    "umol•kg-1": ["umol/kg", 1e-6],
+    "µmol•kg-1": ["umol/kg", 1e-6],
+    "mmol•kg-1": ["mmol/kg", 1e-3],
+    "mol•kg-1": ["mol/kg", 1],
+
+    "pmol kg-1": ["pmol/kg", 1e-12],
+    "nmol kg-1": ["nmol/kg", 1e-9],
+    "umol kg-1": ["umol/kg", 1e-6],
+    "µmol kg-1": ["umol/kg", 1e-6],
+    "mmol kg-1": ["mmol/kg", 1e-3],
+    "mol kg-1": ["mol/kg", 1],
+
+    "pmol.kg-1": ["pmol/kg", 1e-12],
+    "nmol.kg-1": ["nmol/kg", 1e-9],
+    "umol.kg-1": ["umol/kg", 1e-6],
+    "µmol.kg-1": ["umol/kg", 1e-6],
+    "mmol.kg-1": ["mmol/kg", 1e-3],
+    "mol.kg-1": ["mol/kg", 1],
+
+
+    "pm": ["pm", 1e-12],
+    "nm": ["nm", 1e-9],
+    "um": ["um", 1e-6],
+    "µm": ["um", 1e-6],
+    "mm": ["mm", 1e-3],
+    "m": ["m", 1],
+
+
+    "-log(m)": ["-log(m)", 1],
+    
+    
+    "-log(mol/kg)": ["-log(mol/kg)", 1],
+    "-log(mol•kg-1)": ["-log(mol/kg)", 1],
+    "-log(mol kg-1)": ["-log(mol/kg)", 1],
+    "-log(mol.kg-1)": ["-log(mol/kg)", 1]
+}

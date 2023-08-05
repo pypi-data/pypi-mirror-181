@@ -1,0 +1,6 @@
+ALL_NA_STRUCTURES: All structures were invalid. All rows dropped
+ALL_NA_TARGETS: All activities were invalid. All rows dropped
+NA_NO_ACTIVITY_COLUMN: NA activies were to be removed but no activity column was specified. No action taken
+CONFLICTING_INPUT_UNITS: Units column was specified but input units were not mixed. Converted using input units
+DUPLICATES_NO_ACTIVITY_COLUMN: Duplicates were to be averaged but no target column was specified. Duplicates removed instead
+OUTPUT_UNITS_CONVERSION: Activity column was not specified but output units were. No unit conversion performed
