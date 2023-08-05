@@ -1,0 +1,16 @@
+README.md
+setup.py
+petals_local_parallel/__init__.py
+petals_local_parallel/all_to_all_communication_primitives.py
+petals_local_parallel/autoconfig.py
+petals_local_parallel/communications.py
+petals_local_parallel/slicer_wrapper.py
+petals_local_parallel/slicer_wrapper_interface.py
+petals_local_parallel/slicer_wrapper_test.py
+petals_local_parallel/slicer_wrapper_test_cpu.py
+petals_local_parallel/slicing_config.py
+petals_local_parallel/slicing_configs.py
+petals_local_parallel.egg-info/PKG-INFO
+petals_local_parallel.egg-info/SOURCES.txt
+petals_local_parallel.egg-info/dependency_links.txt
+petals_local_parallel.egg-info/top_level.txt
