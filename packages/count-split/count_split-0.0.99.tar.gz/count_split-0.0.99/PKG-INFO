@@ -1,0 +1,70 @@
+Metadata-Version: 2.1
+Name: count_split
+Version: 0.0.99
+Summary: Count splitting for random sampled count matrices
+Home-page: https://scottyler892@bitbucket.org/scottyler892/count_split
+Author: Scott Tyler
+Author-email: scottyler89@gmail.com
+License: UNKNOWN
+Description: # README #
+        
+        ### What is this repository for? ###
+        
+        This is a python implementation of Anna Neufeld's paper's new approach to fixing the "double dipping" problem in doing DEG analysis on a test split between clusters that were defined using a training split. Make sure to cite them too even if you're using my python package!
+        
+        Check out their paper here: https://arxiv.org/abs/2207.00554
+        And their R implementation here: https://anna-neufeld.github.io/countsplit/
+        
+        ### How do I get set up? ###
+        
+        `python3 -m pip install count_split`
+        
+        You can also install using the setup.py script in the distribution like so:
+        `python3 setup.py install`
+        
+        
+        ### How do I run use this package? ###
+        
+        This package assumes that the imput matrix is organized with samples in columns, and variables in rows.
+        For single-cell experiments, this is cells in columns and genes in rows. Make sure that this is the case, or transpose the matrix when calling the pertinent function
+        To keep memory use low, we do it peice-meal, breaking the columns into bins.
+        If you have memory issues, try decreaseing bin_size to something lower (default: bin_size=5000)
+        
+        ** If you've got a dense or sparse matrix:
+        * Note that if you're using scanpy/anndata, the hdf5 file will often have an "X" object, that is typically a sparse matrix. 
+        
+        ```
+        import numpy as np
+        from scipy.sparse import csc_matrix
+        from count_split.count_split import multi_split
+        
+        in_mat = np.random.negative_binomial(.1, .1, size=(1000,5000))
+        
+        mat1, mat2 = multi_split(in_mat, 
+                        percent_vect=[0.5, 0.5],
+                        bin_size = 5000)
+        
+        ## It also works for sparse matrices:
+        mat1, mat2 = multi_split(csc_matrix(in_mat), 
+                        percent_vect=[0.5, 0.5],
+                        bin_size = 5000)
+        
+        ```
+        
+        ** If you've got an hdf5 file with a dense matrix stored under a specified key (default key is "infile"), you can split that too
+        ```
+        from count_split.count_split import split_mat_counts_h5
+        split_mat_counts_h5(in_mat_file, out_mat_file_1, out_mat_file_2, percent_1=0.5, bin_size=5000, key="infile")
+        ```
+        
+        ### License ###
+        This package is available via the AGPLv3 license.
+        
+        ### Who do I talk to? ###
+        
+        * Repo owner/admin: scottyler89+bitbucket@gmail.com
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
