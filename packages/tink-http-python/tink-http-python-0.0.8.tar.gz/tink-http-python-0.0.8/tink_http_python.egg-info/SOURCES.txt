@@ -1,0 +1,17 @@
+README.md
+setup.py
+tink_http_python/__init__.py
+tink_http_python/accounts.py
+tink_http_python/api.py
+tink_http_python/config.py
+tink_http_python/tink.py
+tink_http_python/transactions.py
+tink_http_python.egg-info/PKG-INFO
+tink_http_python.egg-info/SOURCES.txt
+tink_http_python.egg-info/dependency_links.txt
+tink_http_python.egg-info/requires.txt
+tink_http_python.egg-info/top_level.txt
+tink_http_python/authentication/__init__.py
+tink_http_python/authentication/api.py
+tink_http_python/authentication/authentication.py
+tink_http_python/authentication/storage.py
