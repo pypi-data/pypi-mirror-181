@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pyplanet-roll_dice"
+version = "1.0.0"
+authors = [
+    { name="skybaks", email="tmflame@gmail.com" },
+]
+description = "A dice rolling plugin for the Pyplanet Trackmania Dedicated Server controller"
+readme = "readme.md"
+requires-python = ">=3.7"
+classifiers = [
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+
+    "Operating System :: OS Independent",
+
+    "Topic :: Games/Entertainment",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/skybaks/pyplanet-roll_dice"
+"Bug Tracker" = "https://github.com/skybaks/pyplanet-roll_dice/issues"

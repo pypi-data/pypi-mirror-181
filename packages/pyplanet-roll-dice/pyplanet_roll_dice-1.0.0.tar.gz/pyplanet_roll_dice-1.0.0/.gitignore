@@ -1,0 +1,6 @@
+#python
+*.pyc
+__pycache__
+#virtaulenv
+env/
+venv/
