@@ -1,0 +1,51 @@
+Metadata-Version: 2.1
+Name: shapelets-platform
+Version: 2.0.78
+Summary: Data Scientist platform
+Home-page: https://shapelets.io
+Author: Shapelets Dev Team
+Author-email: info@shapelets.io
+Maintainer: Shapelets Dev Team
+Maintainer-email: info@shapelets.io
+Platform: Any
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Software Development
+Classifier: Typing :: Typed
+Classifier: License :: Other/Proprietary License
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Provides-Extra: docs
+Provides-Extra: vfs-all
+Provides-Extra: vfs-azure
+Provides-Extra: vfs-dropbox
+Provides-Extra: vfs-google
+Provides-Extra: vfs-oci
+Provides-Extra: vfs-git
+Provides-Extra: vfs-libarchive
+Provides-Extra: vfs-ossfs
+Provides-Extra: vfs-s3
+Provides-Extra: vfs-sftp
+Provides-Extra: vfs-ssh
+Provides-Extra: vfs-smb
+Provides-Extra: vfs-wandb
+Provides-Extra: vfs-webdav
+Provides-Extra: vfs-xrootd
+License-File: LICENSE.md
+
+## Shapelets
+
+Shapelets Platform.
