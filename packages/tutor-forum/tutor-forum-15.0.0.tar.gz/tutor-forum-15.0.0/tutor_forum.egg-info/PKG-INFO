@@ -1,0 +1,78 @@
+Metadata-Version: 2.1
+Name: tutor-forum
+Version: 15.0.0
+Summary: forum plugin for Tutor
+Home-page: https://github.com/overhangio/tutor-forum
+Author: Overhang.IO
+Maintainer: Zaat.dev
+Maintainer-email: ghassan@zaat.dev
+License: AGPLv3
+Project-URL: Code, https://github.com/overhangio/tutor-forum
+Project-URL: Issue tracker, https://github.com/overhangio/tutor-forum/issues
+Project-URL: Community, https://discuss.openedx.org
+Description: Forum plugin for `Tutor <https://docs.tutor.overhang.io>`__
+        ============================================================
+        
+        This plugin adds `discussion forums <https://github.com/openedx/cs_comments_service>`__ to your `Open edX <https://openedx.org/>`__ platform, such that students can have conversations about the courses they are following right in your LMS.
+        
+        .. image:: https://overhang.io/static/catalog/screenshots/forum.png
+          :alt: Forum screenshot
+        
+        Installation
+        ------------
+        
+        ::
+        
+            pip install tutor-forum
+        
+        Usage
+        -----
+        
+        ::
+        
+            tutor plugins enable forum
+            tutor local quickstart
+        
+        Configuration
+        -------------
+        
+        - ``FORUM_DOCKER_IMAGE`` (default: ``""{{ DOCKER_REGISTRY }}overhangio/openedx-forum:{{ FORUM_VERSION }}"``)
+        - ``FORUM_MONGODB_DATABASE`` (default: ``"cs_comments_service"``)
+        - ``FORUM_PORT`` (default: ``"4567""``)
+        - ``FORUM_API_KEY`` (default: ``"forumapikey"``)
+        
+        Debugging
+        ---------
+        
+        To debug the comments service, you are encouraged to mount the cs_comments_service repo from the host in the development container:
+        
+            tutor dev start --mount /path/to/cs_comments_service
+        
+        Once a local repository is mounted in the image, you will have to install all gems (ruby dependencies)::
+        
+            bundle install
+        
+        Troubleshooting
+        ---------------
+        
+        This Tutor plugin is maintained by Ghassan Maslamani from `Zaat.dev <https://Zaat.dev>`__. Community support is available from the official `Open edX forum <https://discuss.openedx.org>`__. Do you need help with this plugin? See the `troubleshooting <https://docs.tutor.overhang.io/troubleshooting.html>`__ section from the Tutor documentation.
+        
+        
+        License
+        -------
+        
+        This software is licensed under the terms of the `AGPLv3 <https://www.gnu.org/licenses/agpl-3.0.en.html>`__.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.6
+Description-Content-Type: text/x-rst
