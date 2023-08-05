@@ -1,0 +1,8 @@
+# Given I have a 'string array' named 'myFirstArray'   
+Given I have a 'string array' named 'mySecondArray' inside 'mySecondObject'
+Given I have a 'string array' named 'myThirdArray' inside 'myThirdObject' 
+Given I have a 'string array' named  'myFourthArray' inside 'myFourthObject'   
+Given I have a 'number' named 'myFirstNumber' inside 'myFirstObject'
+Given I have a 'string' named 'myFirstString' inside 'myFirstObject'
+Given I have a 'hex' named 'myFirstHex' inside 'myFirstObject'
+Then print all data
