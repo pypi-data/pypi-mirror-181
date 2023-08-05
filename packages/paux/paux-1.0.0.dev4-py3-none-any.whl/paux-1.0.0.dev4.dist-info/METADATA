@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: paux
+Version: 1.0.0.dev4
+Summary: finance util
+Home-page: https://github.com/pyted/pix
+Author: pyted
+Author-email: pyted@outlook.com
+License: MIT
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: pendulum
+Requires-Dist: redis
+
+finance util
