@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "csharpstring"
+version = "0.0.1"
+authors = [
+  { name="JSullivan", email="energy.keeper@gmail.com" },
+]
+description = "Adds a CSharp Style String Object, and namespace emulating much of the syntax C# uses to manipulate strings."
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/pypa/sampleproject"
+"Bug Tracker" = "https://github.com/pypa/sampleproject/issues"
