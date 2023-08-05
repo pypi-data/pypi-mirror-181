@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dexpresso"
+version = "0.4.0"
+authors = [
+  { name="dexpresso.protocol", email="dexpresso_dev@proton.me" },
+]
+description = "A library for better and safer interactions with Dexpresso exchange"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+]
+
+dependencies = [
+    "web3 >= 5.31.1",
+    "zksync-sdk>=0.1.667",
+    "hexbytes>=0.3.0",
+    "requests>=2.28.1"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/dexpresso-protocol/sdk"
+"Bug Tracker" = "https://github.com/dexpresso-protocol/sdk/issues"
