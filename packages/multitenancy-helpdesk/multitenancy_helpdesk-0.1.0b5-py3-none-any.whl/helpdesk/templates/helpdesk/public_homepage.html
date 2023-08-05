@@ -1,0 +1,123 @@
+{% extends "helpdesk/public_base.html" %}
+{% load i18n bootstrap4form %}
+
+{% block page_title %}{% trans "Welcome to Helpdesk" %}{% endblock %}
+
+{% block breadcrumbs %}
+    
+    <li class="breadcrumb-item active">Support</li>
+{% endblock %}
+
+{% block helpdesk_body %}
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+
+        {% if tickets.count%}
+
+        <!-- /.row -->
+        <div class="row">
+            <div class="form-group">
+                {% if sweetify %}
+                {% for message in sweetify %}
+
+                {% if message.tags == 'success' %}
+                <div class="alert alert-success">{{ message }}</div>
+                <div class=".toastrDefaultSuccess" id="alertSuccess"></div>
+
+                {% endif %}
+
+                {% endfor %}
+
+                {% endif %}
+
+            </div>
+            <div class="col">
+
+                <div class="mb-5 mr-3">
+                    <a href="{% url "helpdesk:submit" %}"><button type="submit"
+                            class="btn btn-success shadow float-right"><i class="fas fa-plus"></i> Submit Ticket</i></button></a>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title text-dark">Tickets</h3>
+
+                        <div class="card-tools">
+                            <div class="input-group input-group-sm" style="width: 150px;">
+                                <input type="text" name="table_search" class="form-control float-right"
+                                    placeholder="Search">
+
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body text-dark table-responsive p-0">
+                        <table class="table table-hover text-nowrap">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Title</th>
+                                    <th>Department</th>
+                                    <th>Description</th>
+                               
+                                    <th>Status</th>
+                                    <th>Date Created</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for ticket in tickets%}
+                                <tr>
+                                    <td>{{ticket.id}}</td>
+                                    <td><a href="{% url 'helpdesk:public_view'  %}?ticket={{ticket.id}}&email={{user.email}}"> {{ticket.title}} </a></td> 
+                                    <td>{{ticket.queue}}</td>
+                                    <td>{{ticket.description}}</td>
+                                  
+                                    <td>{{ticket.get_status}}</td>
+                                    <td>{{ticket.created}}</td>
+
+                                </tr>
+                                   
+
+                                    {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            {%else%}
+            <div class="row text-dark text-center">
+                <div class="col mt-5">
+                    <h2>You currently havent opened any yet</h2>
+                    <!-- /.row -->
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-5 mr-3">
+                                <a href="{% url "helpdesk:submit" %}"><button type="submit"
+                                        class="btn btn-success shadow "><i class="fas fa-plus"></i> Open Ticket</i></button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {%endif%}
+        </div>
+        <!-- /.row -->
+
+
+    </div><!-- /.container-fluid -->
+</section>
+{% endblock %}
+
+{% block helpdesk_js %}
+    {{ form.media.js }}
+{% endblock %}
