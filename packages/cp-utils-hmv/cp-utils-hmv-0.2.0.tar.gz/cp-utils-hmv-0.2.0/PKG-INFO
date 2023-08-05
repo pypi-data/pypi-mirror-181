@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: cp-utils-hmv
+Version: 0.2.0
+Summary: tools to deal with images coming from cell profiler pipelines
+Author-email: Hernando M Vergara <hvergarabio@gmail.com>
+License: BSD-3-Clause
+Project-URL: homepage, https://github.com/HernandoMV/cp-utils-hmv
+Project-URL: bug_tracker, https://github.com/HernandoMV/cp-utils-hmv/issues
+Project-URL: documentation, https://github.com/HernandoMV/cp-utils-hmv
+Project-URL: source_code, https://github.com/HernandoMV/cp-utils-hmv
+Project-URL: user_support, https://github.com/HernandoMV/cp-utils-hmv/issues
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: BSD License
+Requires-Python: >=3.8.0
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+License-File: LICENSE
+
+# cp-utils-hmv
