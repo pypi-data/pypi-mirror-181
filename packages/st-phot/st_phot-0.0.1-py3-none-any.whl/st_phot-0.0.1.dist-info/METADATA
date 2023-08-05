@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: st-phot
+Version: 0.0.1
+Author: Justin Pierel
+Author-email: jpierel@stsci.edu
+License: BSD
+Requires-Dist: numpy
+Requires-Dist: astropy
+Requires-Dist: jwst
+Requires-Dist: sncosmo
+Requires-Dist: webbpsf
+Requires-Dist: corner
+
