@@ -1,0 +1,127 @@
+{% extends 'explorer/base.html' %}
+
+{% block title %}
+    Explorer
+{% endblock title %}
+
+{% block content %}
+    <!-- BODY -->
+    <div class="container-fluid" style="margin-top: 60px;">
+        <!-- MAIN AREA -->
+        <div class="row">
+            <!-- LEFT AREA -->
+            <div class="col-sm-2">
+                <h1 style="text-align: center;">Volumes</h1>
+                <div class="list-group">
+                    {% for vol in volumes %}
+                        <a href="/explorer?volume={{ vol.name }}" class="list-group-item list-group-item-action {{ vol.selected }} {{ vol.status }}">{{ vol.name }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+            <!-- RIGHT AREA -->
+            <div class="col-sm-10" style="background-color:lavenderblush;">
+                <!-- SUMMARY -->
+                <div class="row" style="background-color: lavender;">
+                    <div class="col-sm-2"><h3>Summary:</h3></div>
+                    <div class="col-sm-2"><h3>Directories: {{ file_count.dir }}</h3></div>
+                    <div class="col-sm-4"><h3>Files: {{ file_count.file }}</h3></div>
+                </div>
+                <!-- DIRECTORY NAVIGATION -->
+                <div class="row border mb-0" style="background-color: rgb(224, 241, 247);">
+                    <div class="col-sm">
+                        <ul class="breadcrumb">
+                            {% for nev_location in nev_location_list %}
+                                <li class="breadcrumb-item"><a href="?volume={{ selected_vol }}&location={{nev_location.location}}">{{ nev_location.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Size</th>
+                            <th>Actions</th>
+                            <th>Creation Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for data in page_data %}
+                            <tr>
+                                {% if data.valid %}
+                                    <!-- DATA NAME SECTION -->
+                                    <td style="width: 35%;">
+                                        {% if data.type == "File" %}
+                                            <a style="color: green;" href="?volume={{ selected_vol }}&location={{ rel_location }}/{{ data.name }}"><span class="material-icons ">insert_drive_file</span> 
+                                                <span style="vertical-align: text-bottom;">
+                                                    {{ data.name }}
+                                                </span>
+                                            </a>
+                                        {% elif data.type == "Directory" %}
+                                            <a href="?volume={{ selected_vol }}&location={{ rel_location }}/{{ data.name }}"><span class="material-icons ">folder</span> 
+                                                <span style="vertical-align: text-bottom;">
+                                                    {{ data.name }}
+                                                </span>
+                                            </a>
+                                        {% endif %}
+                                    </td>
+
+                                    <!-- DATA SIZE -->
+                                    <td style="width: 20%;">{{ data.size|filesizeformat }}</td>
+                                    
+                                    <!-- ACTION SECTION -->
+                                    <td style="width: 20%;">
+                                        {% for action in actions %}
+                                            <!-- ACTIONS -->
+                                            {% if action == "delete" %}
+                                                <a style="color: red;" href="?volume={{ selected_vol }}&location={{ rel_location }}/{{ data.name }}&action={{ action }}" title="{{action}}"><span class="material-icons ">delete</span></a>
+                                            {% elif action == "download" %}
+                                                <a href="?volume={{ selected_vol }}&location={{ rel_location }}/{{ data.name }}&action={{ action }}" title="{{action}}"><span class="material-icons ">download</span></a>
+                                            {% else %}
+                                                <a href="?volume={{ selected_vol }}&location={{ rel_location }}/{{ data.name }}&action={{ action }}" title="{{action}}"><span class="material-icons ">error</span></a>
+                                            {% endif %}
+                                            &nbsp;
+                                        {% endfor %}
+                                    </td>
+
+                                    <td style="width: 25%;">{{ data.creation_time }}</td>
+                                {% else %}
+                                    <td style="width: 35%;">{{ data.name }}</td>
+                                    <td style="width: 20%;">&nbsp;</td>
+                                    <td style="width: 20%;">&nbsp;</td>
+                                    <td style="width: 25%;">{{ data.creation_time }}</td>
+                                {% endif %}
+                                
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <!-- PAGINATOR SECTION -->
+                {% if paginator_required %}
+                    <ul class="pagination justify-content-center">
+                        <!-- PREVIOUS PAGE -->
+                        {% if paginator_data.previous_page_number %}
+                            <li class="page-item"><a class="page-link" href="?volume={{ selected_vol }}&location={{ rel_location }}&page={{ paginator_data.previous_page_number }}">Previous</a></li>
+                        {% else %}
+                            <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                        {% endif %}
+
+                        <!-- MIDDLE PAGES -->
+                        {% for page in paginator_data.middle_pages %}
+                            <li class="page-item {{ page.selected }}"><a class="page-link" href="?volume={{ selected_vol }}&location={{ rel_location }}&page={{ page.number }}">{{page.number}}</a></li>
+                        {% endfor %}
+                        
+                        <!-- NEXT PAGE -->
+                        {% if paginator_data.next_page_number %}
+                            <li class="page-item"><a class="page-link" href="?volume={{ selected_vol }}&location={{ rel_location }}&page={{ paginator_data.next_page_number }}">Next</a></li>
+                        {% else %}
+                            <li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+                        {% endif %}
+                    </ul>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    
+{% endblock content %}
