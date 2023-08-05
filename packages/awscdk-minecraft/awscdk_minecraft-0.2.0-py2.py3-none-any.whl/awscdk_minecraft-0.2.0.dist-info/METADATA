@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: awscdk-minecraft
+Version: 0.2.0
+Home-page: 
+Author: 
+Author-email: 
+License: Proprietary
+Project-URL: Documentation, https://docs.rootski.io
+Project-URL: Source, https://github.com
+Keywords: <Add keywords here>
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.6.*
+Description-Content-Type: text/markdown; charset=UTF-8
+Requires-Dist: aws-cdk-lib (<3.0.0,>=2.45.0)
+Requires-Dist: constructs (<11.0.0,>=10.0.5)
+Requires-Dist: aws-cdk.aws-batch-alpha
+Requires-Dist: aws-prototyping-sdk.static-website
+Requires-Dist: importlib-metadata ; python_version < "3.8"
+Provides-Extra: all
+Requires-Dist: pytest ; extra == 'all'
+Requires-Dist: pytest-cov ; extra == 'all'
+Requires-Dist: pytest-xdist ; extra == 'all'
+Requires-Dist: twine ; extra == 'all'
+Provides-Extra: dev
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+Requires-Dist: pytest-xdist ; extra == 'dev'
+Provides-Extra: publish
+Requires-Dist: twine ; extra == 'publish'
+Provides-Extra: test
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: pytest-cov ; extra == 'test'
+Requires-Dist: pytest-xdist ; extra == 'test'
+
+# `awscdk-minecraft`
+
+## Installation
+
+`pip install awscdk-minecraft`
+
+## System requirements
+
+- AWS CDK CLI (and `npm`/`node` by extension)
+- Docker, installed and running
