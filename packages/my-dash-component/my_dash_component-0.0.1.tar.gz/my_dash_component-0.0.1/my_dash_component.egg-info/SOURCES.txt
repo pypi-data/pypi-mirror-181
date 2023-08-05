@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+package.json
+setup.py
+my_dash_component/MyDashComponent.py
+my_dash_component/__init__.py
+my_dash_component/_imports_.py
+my_dash_component/metadata.json
+my_dash_component/my_dash_component.min.js
+my_dash_component/my_dash_component.min.js.map
+my_dash_component/package-info.json
+my_dash_component.egg-info/PKG-INFO
+my_dash_component.egg-info/SOURCES.txt
+my_dash_component.egg-info/dependency_links.txt
+my_dash_component.egg-info/top_level.txt
