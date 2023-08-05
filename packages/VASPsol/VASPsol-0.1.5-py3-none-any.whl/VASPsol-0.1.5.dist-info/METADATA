@@ -1,0 +1,201 @@
+Metadata-Version: 2.1
+Name: VASPsol
+Version: 0.1.5
+Summary: A VASPsol python helper package to simplify calculations and analysis
+Author: Eric C. Fonseca
+Author-email: ericfonseca@ufl.edu
+License: BSD 2-clause
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Requires-Dist: anyio
+Requires-Dist: argon2-cffi
+Requires-Dist: argon2-cffi-bindings
+Requires-Dist: ase (==3.22.1)
+Requires-Dist: asttokens
+Requires-Dist: attrs
+Requires-Dist: Babel
+Requires-Dist: backcall
+Requires-Dist: beautifulsoup4
+Requires-Dist: bleach
+Requires-Dist: bokeh
+Requires-Dist: Bottleneck
+Requires-Dist: brotlipy (==0.7.0)
+Requires-Dist: certifi (==2022.12.7)
+Requires-Dist: cffi
+Requires-Dist: chardet
+Requires-Dist: charset-normalizer
+Requires-Dist: click
+Requires-Dist: cloudpickle
+Requires-Dist: colorama
+Requires-Dist: commonmark (==0.9.1)
+Requires-Dist: conda (==22.11.1)
+Requires-Dist: conda-build (==3.23.3)
+Requires-Dist: conda-package-handling
+Requires-Dist: contourpy
+Requires-Dist: cryptography
+Requires-Dist: cycler
+Requires-Dist: cytoolz
+Requires-Dist: dask
+Requires-Dist: dask-glm (==0.2.0)
+Requires-Dist: dask-jobqueue (==0.8.1)
+Requires-Dist: dask-ml (==2022.5.27)
+Requires-Dist: debugpy
+Requires-Dist: decorator
+Requires-Dist: defusedxml
+Requires-Dist: distributed
+Requires-Dist: docutils (==0.19)
+Requires-Dist: emmet-core
+Requires-Dist: entrypoints
+Requires-Dist: executing
+Requires-Dist: fastjsonschema
+Requires-Dist: filelock
+Requires-Dist: flit-core
+Requires-Dist: fonttools (==4.25.0)
+Requires-Dist: fsspec
+Requires-Dist: future
+Requires-Dist: glob2
+Requires-Dist: HeapDict (==1.0.1)
+Requires-Dist: idna
+Requires-Dist: importlib-metadata (==5.1.0)
+Requires-Dist: ipykernel
+Requires-Dist: ipython
+Requires-Dist: ipython-genutils
+Requires-Dist: ipywidgets
+Requires-Dist: jaraco.classes (==3.2.3)
+Requires-Dist: jedi
+Requires-Dist: Jinja2
+Requires-Dist: joblib (==1.2.0)
+Requires-Dist: json5
+Requires-Dist: jsonschema
+Requires-Dist: jupyter
+Requires-Dist: jupyter-console
+Requires-Dist: jupyter-server
+Requires-Dist: jupyter-client
+Requires-Dist: jupyter-core
+Requires-Dist: jupyterlab
+Requires-Dist: jupyterlab-pygments
+Requires-Dist: jupyterlab-server
+Requires-Dist: jupyterlab-widgets
+Requires-Dist: keyring (==23.11.0)
+Requires-Dist: kiwisolver
+Requires-Dist: latexcodec
+Requires-Dist: libarchive-c
+Requires-Dist: llvmlite (==0.39.1)
+Requires-Dist: locket
+Requires-Dist: lxml
+Requires-Dist: lz4
+Requires-Dist: MarkupSafe
+Requires-Dist: matplotlib
+Requires-Dist: matplotlib-inline
+Requires-Dist: menuinst
+Requires-Dist: mistune
+Requires-Dist: mkl-service (==2.4.0)
+Requires-Dist: monty
+Requires-Dist: more-itertools (==9.0.0)
+Requires-Dist: mp-api
+Requires-Dist: mpmath
+Requires-Dist: msgpack
+Requires-Dist: multipledispatch (==0.6.0)
+Requires-Dist: munkres (==1.1.4)
+Requires-Dist: nbclassic
+Requires-Dist: nbclient
+Requires-Dist: nbconvert
+Requires-Dist: nbformat
+Requires-Dist: nest-asyncio
+Requires-Dist: networkx
+Requires-Dist: notebook
+Requires-Dist: notebook-shim
+Requires-Dist: numba (==0.56.4)
+Requires-Dist: numexpr
+Requires-Dist: numpy
+Requires-Dist: packaging
+Requires-Dist: palettable (==3.3.0)
+Requires-Dist: pandas
+Requires-Dist: pandocfilters
+Requires-Dist: parso
+Requires-Dist: partd
+Requires-Dist: pickleshare
+Requires-Dist: Pillow (==9.2.0)
+Requires-Dist: pkginfo
+Requires-Dist: plotly
+Requires-Dist: pluggy
+Requires-Dist: ply (==3.11)
+Requires-Dist: prometheus-client
+Requires-Dist: prompt-toolkit
+Requires-Dist: psutil
+Requires-Dist: pure-eval
+Requires-Dist: pybtex
+Requires-Dist: pycosat
+Requires-Dist: pycparser
+Requires-Dist: pydantic
+Requires-Dist: Pygments
+Requires-Dist: pymatgen
+Requires-Dist: pyOpenSSL
+Requires-Dist: pyparsing
+Requires-Dist: PyQt5 (==5.15.7)
+Requires-Dist: PyQt5-sip
+Requires-Dist: pyrsistent
+Requires-Dist: PySocks
+Requires-Dist: python-dateutil
+Requires-Dist: pytz
+Requires-Dist: pywin32 (==305.1)
+Requires-Dist: pywin32-ctypes (==0.2.0)
+Requires-Dist: pywinpty
+Requires-Dist: PyYAML
+Requires-Dist: pyzmq
+Requires-Dist: qtconsole
+Requires-Dist: QtPy
+Requires-Dist: readme-renderer (==37.3)
+Requires-Dist: requests
+Requires-Dist: requests-toolbelt (==0.10.1)
+Requires-Dist: rfc3986 (==2.0.0)
+Requires-Dist: rich (==12.6.0)
+Requires-Dist: ruamel.yaml
+Requires-Dist: ruamel.yaml.clib
+Requires-Dist: scikit-learn (==1.2.0)
+Requires-Dist: scipy (==1.9.3)
+Requires-Dist: seaborn (==0.12.1)
+Requires-Dist: Send2Trash
+Requires-Dist: sip
+Requires-Dist: six
+Requires-Dist: sniffio
+Requires-Dist: sortedcontainers
+Requires-Dist: soupsieve
+Requires-Dist: spglib
+Requires-Dist: stack-data
+Requires-Dist: sympy
+Requires-Dist: tabulate
+Requires-Dist: tblib
+Requires-Dist: tenacity
+Requires-Dist: terminado
+Requires-Dist: testpath
+Requires-Dist: threadpoolctl (==3.1.0)
+Requires-Dist: tinycss2
+Requires-Dist: toml
+Requires-Dist: tomli
+Requires-Dist: toolz
+Requires-Dist: tornado
+Requires-Dist: tqdm
+Requires-Dist: traitlets
+Requires-Dist: twine (==4.0.2)
+Requires-Dist: typing-extensions
+Requires-Dist: uncertainties
+Requires-Dist: urllib3
+Requires-Dist: VASPsol
+Requires-Dist: wcwidth
+Requires-Dist: webencodings (==0.5.1)
+Requires-Dist: websocket-client
+Requires-Dist: widgetsnbextension
+Requires-Dist: win-inet-pton
+Requires-Dist: wincertstore (==0.2)
+Requires-Dist: xlrd (==2.0.1)
+Requires-Dist: zict
+Requires-Dist: zipp
+
