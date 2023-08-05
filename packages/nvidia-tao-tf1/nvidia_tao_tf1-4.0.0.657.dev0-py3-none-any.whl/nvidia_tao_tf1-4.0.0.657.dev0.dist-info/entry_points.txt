@@ -1,0 +1,23 @@
+[console_scripts]
+augment = iva.augment.scripts.augment:main
+bpnet = driveix.bpnet.entrypoint.bpnet:main
+classification_tf1 = iva.makenet.entrypoint.makenet:main
+detectnet_v2 = iva.detectnet_v2.entrypoint.detectnet_v2:main
+dssd = iva.ssd.entrypoint.ssd:main
+efficientdet_tf1 = iva.efficientdet.entrypoint.efficientdet:main
+emotionnet = driveix.emotionnet.entrypoint.emotionnet:main
+faster_rcnn = iva.faster_rcnn.entrypoint.faster_rcnn:main
+fpenet = driveix.fpenet.entrypoint.fpenet:main
+gazenet = driveix.mitgazenet.entrypoint.gazenet:main
+gesturenet = driveix.classifynet.entrypoint.classifynet:main
+heartratenet = driveix.heartratenet.entrypoint.heartratenet:main
+lprnet = iva.lprnet.entrypoint.lprnet:main
+mask_rcnn = iva.mask_rcnn.entrypoint.mask_rcnn:main
+multitask_classification = iva.multitask_classification.entrypoint.multitask_classification:main
+retinanet = iva.retinanet.entrypoint.retinanet:main
+ssd = iva.ssd.entrypoint.ssd:main
+unet = iva.unet.entrypoint.unet:main
+yolo_v3 = iva.yolo_v3.entrypoint.yolo_v3:main
+yolo_v4 = iva.yolo_v4.entrypoint.yolo_v4:main
+yolo_v4_tiny = iva.yolo_v4.entrypoint.yolo_v4:main
+
