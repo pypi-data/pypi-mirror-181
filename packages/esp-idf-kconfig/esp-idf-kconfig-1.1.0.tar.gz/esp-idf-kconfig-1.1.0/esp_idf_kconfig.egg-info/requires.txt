@@ -1,0 +1,8 @@
+kconfiglib>=13.7.1
+
+[dev]
+flake8>=3.2.0
+flake8-import-order
+black
+pre-commit
+pexpect
