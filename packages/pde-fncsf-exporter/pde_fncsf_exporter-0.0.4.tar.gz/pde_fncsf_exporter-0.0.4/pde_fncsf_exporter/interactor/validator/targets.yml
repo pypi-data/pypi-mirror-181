@@ -1,0 +1,110 @@
+# Schools
+- name: schools
+  path: schools.csv
+  expectations:
+    - name: has_columns
+      params:
+        columns:
+          - school_id
+          - school_year
+          - school_name
+          - adress
+          - city
+          - postal_code
+          - id_org
+          - inserted_date
+    - name: has_types
+      params:
+        want:
+          school_id: string
+          school_year: Int64
+          school_name: string
+          adress: string
+          city: string
+          postal_code: string
+    - name: is_unique
+      params:
+        columns:
+          - school_id
+
+# Job postings
+- name: job_postings
+  path: job_postings.csv
+  expectations:
+    - name: has_columns
+      params:
+        columns:
+          - title
+          - contract_type
+          - fte
+          - posting_start_date
+          - posting_end_date
+          - hired
+          - school_id
+          - id_org
+          - inserted_date
+    - name: has_types
+      params:
+        want:
+          title: string
+          contract_type: Int64
+          fte: Float64
+          posting_start_date: string
+          posting_end_date: string
+          hired: Int64
+          school_id: string
+
+# Teachers
+- name: teachers
+  path: teachers.csv
+  expectations:
+    - name: has_columns
+      params:
+        columns:
+          - teacher_id
+          - school_year
+          - fte
+          - qualifications
+          - speciality
+          - contract_type
+          - contract_start_date
+          - contract_end_date
+          - retirement
+          - school_id
+          - id_org
+          - inserted_date
+    - name: has_types
+      params:
+        want:
+          teacher_id: string
+          school_year: Int64
+          fte: Float64
+          qualifications: Int64
+          speciality: Int64
+          contract_type: Int64
+          retirement: Int64
+          contract_start_date: string
+          contract_end_date: string
+          school_id: string
+
+# Students
+- name: students
+  path: students.csv
+  expectations:
+    - name: has_columns
+      params:
+        columns:
+          - school_id
+          - levels
+          - school_year
+          - number_of_students
+          - id_org
+          - inserted_date
+    - name: has_types
+      params:
+        want:
+          school_id: string
+          levels: Int64
+          school_year: Int64
+          number_of_students: Int64
+          
