@@ -1,0 +1,9 @@
+django>=2.2
+six
+mock
+
+[test]
+pytest
+pytest-cov
+pytest-django
+pytest-flakes
