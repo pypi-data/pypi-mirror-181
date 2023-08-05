@@ -1,0 +1,158 @@
+Metadata-Version: 2.1
+Name: chatgpt-gui
+Version: 0.4
+Summary: An unofficial GUI app for ChatGPT.
+Keywords: ai,gpt,gui,app,client,unofficial,ChatGPT
+Author-email: Cubicpath <cubicpath@pm.me>
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: X11 Applications :: Qt
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Software Development :: User Interfaces
+Classifier: Typing :: Typed
+Requires-Dist: PySide6-Essentials>=6.4.1
+Requires-Dist: toml>=0.10.2
+Requires-Dist: tls-client>=0.1.5
+Requires-Dist: undetected-chromedriver>=3.1.7
+Requires-Dist: beautifulsoup4>=4.11.1
+Requires-Dist: python-dotenv>=0.21.0 ; extra == "all"
+Requires-Dist: autopep8>=2.0.0 ; extra == "dev"
+Requires-Dist: bandit>=1.7.4 ; extra == "dev"
+Requires-Dist: pylint>=2.15.8 ; extra == "dev"
+Requires-Dist: pyright>=1.1.283 ; extra == "dev"
+Project-URL: Issue Tracker, https://github.com/Cubicpath/ChatGPT-GUI/issues
+Project-URL: Source Code, https://github.com/Cubicpath/ChatGPT-GUI
+Provides-Extra: all
+Provides-Extra: dev
+
+ChatGPT-GUI
+===============
+
+[![MIT License](https://img.shields.io/github/license/Cubicpath/ChatGPT-GUI?style=flat-square)][license]
+[![PyPI](https://img.shields.io/pypi/v/chatgpt-gui?label=PyPI&logo=pypi&style=flat-square)][homepage]
+[![Python](https://img.shields.io/pypi/pyversions/chatgpt-gui?label=Python&logo=python&style=flat-square)][python]
+[![CPython](https://img.shields.io/pypi/implementation/chatgpt-gui?label=Impl&logo=python&style=flat-square)][python]
+
+------------------------------
+
+An unofficial GUI app for ChatGPT.
+
+------------------------------
+
+**Note: This project is in a public alpha, and as such, many features are not complete.**
+
+### Other Documents:
+- [Changelog][changelog_github]
+- [License][license_github]
+
+### Table of Contents
+- [About](#about)
+     - [Features](#features)
+- [How to Use](#how-to-use)
+     - [Installation](#installation)
+     - [Authentication](#authentication)
+     - [Themes](#themes)
+          - [Theme File Structure](#theme-file-structure)
+
+
+### Disclaimer:
+_**ChatGPT-GUI is in no way associated with, endorsed by, or otherwise affiliated with OpenAI.**_
+
+About:
+---------------
+ChatGPT-GUI is an application written using [Qt for Python][PySide] that allows you to
+easily talk to Assistant, the AI based on [ChatGPT].
+
+This project is a fork of my other project, [HaloInfiniteGetter](https://github.com/Cubicpath/HaloInfiniteGetter).
+
+If you like this application, be sure to star :)
+
+### Features:
+- ~~[x] Email/Password Login to [ChatGPT] Without Browser~~
+  - ~~(Captcha solving is untested but implemented)~~
+- [x] Proxy Settings
+  - Supported Protocols are `HTTP` and `SOCKS5`
+- [x] Executable Script in PATH (`chatgpt`)
+- [x] Desktop & Start Menu Shorcuts
+- [x] Session (token) Persistence
+- [x] Automatic Access Token Refreshing
+- [x] Multiple Concurrent Conversations
+- [x] Multi-line input
+- [x] Exception Reporter & Traceback Viewer
+- [x] Themes
+  - Builtin themes are: [Breeze Dark, Breeze Light, and Legacy]
+
+#### Todo:
+- [ ] Conversation Saving & Loading
+- [ ] Retry AI Message
+- [ ] Pretty Conversation Views
+
+How to Use:
+---------------
+
+### Installation:
+- First, install Python 3.10 using [this link][python310]
+- Then, open command prompt (Win + R -- type in "cmd") and type `pip install chatgpt-gui`
+  - Optionally, to install the latest unstable version, type `pip install git+https://github.com/Cubicpath/ChatGPT-GUI.git`
+- And you are done! To launch the program simply type `chatgpt`
+  - Once launched, you can create a desktop shortcut by using the `Create Desktop Shortcut` tool
+under the `Tools` context menu
+
+### Authentication:
+~~Thanks to [rawandahmad698] and [tls-client][python-tls-client], there exists a method to authenticate without
+messing around with tokens or the browser. Simply sign in from the app itself!.~~
+
+Email & Password login is currently not working.
+Refer to session token authentication (below picture) in the meantime.
+
+![Sign In](https://i.imgur.com/DabSYBhl.png)
+
+If you want to use session tokens anyway, here is the guide:
+- Sign in to [ChatGPT] on your browser
+- Navigate to the Cookies for chat.openai.com
+  - On Firefox -- F12 > Move to the "Storage" tab > Under "Cookies" select https://chat.openai.com
+- Double-click the `__Secure-next-auth.session-token` cookie value and copy with CTRL + C
+- Open the Settings window, unlock the input by pressing the "Edit Session Token" button, then paste the copied value.
+- Press the Set button, and you should now be authenticated!
+
+### Themes:
+Themes are a way to style already-existing elements (Think CSS). They are held in a directory with their resources
+and stylesheet in the same folder level.
+
+#### Theme File Structure:
+    ../
+    │
+    ├───[theme_id]/
+    │       ├─── [icon1_name].svg
+    │       ├─── [icon2_name].svg
+    │       ├─── [icon3_name].svg
+    │       └─── stylesheet.qss
+    │
+
+The current builtin themes are:
+- `Breeze Dark`
+- `Breeze Light`
+- `Legacy (Default Qt)`
+
+While the current breeze themes are slightly modified versions, you can view the original themes at [BreezeStyleSheets].
+
+[BreezeStyleSheets]: https://github.com/Alexhuszagh/BreezeStyleSheets "BreezeStyleSheets"
+[changelog_github]: https://github.com/Cubicpath/ChatGPT-GUI/blob/master/CHANGELOG.md "Changelog"
+[ChatGPT]: https://https://chat.openai.com "ChatGPT"
+[homepage]: https://pypi.org/project/chatgpt-gui/ "ChatGPT-GUI PyPI"
+[license]: https://choosealicense.com/licenses/mit "MIT License"
+[license_github]: https://github.com/Cubicpath/ChatGPT-GUI/blob/master/LICENSE "MIT License"
+[PySide]: https://pypi.org/project/PySide6/ "PySide6"
+[python]: https://www.python.org "Python"
+[python310]: https://www.python.org/downloads/release/python-3100/ "Python 3.10"
+[rawandahmad698]: https://github.com/rawandahmad698 "rawandahmad698"
+[python-tls-client]: https://github.com/FlorianREGAZ/Python-Tls-Client "tls-client"
+
