@@ -1,0 +1,3 @@
+[console_scripts]
+pde_fncsf_exporter=pde_fncsf_exporter.api.cli:cli
+
