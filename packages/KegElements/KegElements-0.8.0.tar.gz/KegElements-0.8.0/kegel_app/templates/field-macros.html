@@ -1,0 +1,45 @@
+{% import 'keg-elements/forms/horizontal-b3.html' as dynamic_render %}
+{% import 'keg-elements/forms/horizontal-b4.html' as b4_render %}
+{% import 'keg-elements/forms/horizontal-static.html' as static_render %}
+
+{%- if _ is not defined -%}
+    {% macro _(message) -%}
+        {{ message }}
+    {%- endmacro %}
+{%- endif -%}
+
+<div id="dynamic">
+    <div id="div_form_group">
+        {% call dynamic_render.div_form_group(form[field_name], **field_kwargs) %}
+            {{ _('Contents') }}
+        {% endcall %}
+    </div>
+
+    <div id="field_widget">
+        {{ dynamic_render.field_widget(form[field_name], **field_kwargs) }}
+    </div>
+</div>
+
+<div id="b4">
+    <div id="div_form_group">
+        {% call b4_render.div_form_group(form[field_name], **field_kwargs) %}
+            {{ _('Contents') }}
+        {% endcall %}
+    </div>
+
+    <div id="field_widget">
+        {{ b4_render.field_widget(form[field_name], **field_kwargs) }}
+    </div>
+</div>
+
+<div id="static">
+    <div id="div_form_group">
+        {% call static_render.div_form_group(form[field_name], **field_kwargs) %}
+            {{ _('Contents') }}
+        {% endcall %}
+    </div>
+
+    <div id="field_widget">
+        {{ static_render.field_widget(form[field_name], **field_kwargs) }}
+    </div>
+</div>
