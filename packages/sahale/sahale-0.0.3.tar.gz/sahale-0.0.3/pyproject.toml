@@ -1,0 +1,23 @@
+[project]
+name = "sahale"
+version = "0.0.3"
+authors = [
+  { name="Jessie Young", email="jessie@sahale.io" },
+]
+description = "Python sdk for sahale"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/sahaleio/sdk-python"
+"Bug Tracker" = "https://github.com/sahaleio/sdk-python/issues"
+
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
