@@ -1,0 +1,40 @@
+---
+- name: primary instance
+  hosts: localhost
+  tasks:
+    - name: primary instance 14/main
+      dalibo.pglift.instance:
+        name: pg1
+        state: started
+        version: 14
+        port: 5432
+        settings:
+          unix_socket_directories: /tmp
+        patroni:
+          cluster: pgdemo
+          node: pg1
+          etcd:
+            host: "{{ etcd_host }}"
+          restapi:
+            connect_address: 127.0.1.1:8008
+            listen: 127.0.1.1:8008
+
+- name: replica instance
+  hosts: localhost
+  tasks:
+    - name: replica instance 14/main
+      dalibo.pglift.instance:
+        name: pg2
+        state: started
+        version: 14
+        port: 5433
+        settings:
+          unix_socket_directories: /tmp
+        patroni:
+          cluster: pgdemo
+          node: pg2
+          etcd:
+            host: "{{ etcd_host }}"
+          restapi:
+            connect_address: 127.0.1.1:8009
+            listen: 127.0.1.1:8009
