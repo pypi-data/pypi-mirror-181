@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "pymarble"
+version = "1.0.1"
+description = "Scientific instruments produce proprietary binary data that contains a multitude of primary and metadata. This project aims to create a software that supports the domain scientist in deciphering this data and metadata and supply python scripts that decipher the instrument measurements."
+license = "GPL-3.0-only"
+authors = ["Steffen Brinckmann <sbrinckm@gmail.com>","Fiona Dmello <f.dmello@fz-juelich.de>"]
+readme = "README_pypi.md"
+repository = "https://jugit.fz-juelich.de/marble"
+keywords = ["science", "instrument", "hacking", "deciphering", "reverse engineering", "RE"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Science/Research"
+]
+include = ["*.jpeg","*.png","*.jpg"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+PyQt5 = "^5.15.6"
+sortedcontainers = "^2.4.0"
+h5py = "^3.6.0"
+matplotlib = "^3.5.1"
+pandas = "^1.4.1"
+prettytable = "^3.2.0"
+
+[tool.poetry.scripts]
+marble-cli = "pymarble.rff:main"
+marble-gui = "pymarble.frontend.app:main"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
