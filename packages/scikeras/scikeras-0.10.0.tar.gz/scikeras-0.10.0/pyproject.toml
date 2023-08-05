@@ -1,0 +1,89 @@
+[tool.poetry]
+authors = ["Adrian Garcia Badaracco <1755071+adriangb@users.noreply.github.com>"]
+classifiers = [
+  "Development Status :: 2 - Pre-Alpha",
+  "Operating System :: OS Independent",
+  "Topic :: Software Development :: Libraries",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Education",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Natural Language :: English",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+]
+description = "Scikit-Learn API wrapper for Keras."
+documentation = "https://www.adriangb.com/scikeras/"
+homepage = "https://github.com/adriangb/scikeras"
+include = [
+  "LICENSE",
+]
+keywords = ["keras", "tensorflow", "scikit-learn", "deep-learning", "python"]
+license = "MIT"
+name = "scikeras"
+readme = "README.md"
+repository = "https://github.com/adriangb/scikeras"
+version = "0.10.0"
+
+[tool.poetry.dependencies]
+importlib-metadata = {version = ">=3", python = "<3.8"}
+python = ">=3.7.0,<3.11.0"
+scikit-learn = ">=1.0.0"
+packaging = ">=0.21"
+tensorflow = {version = ">=2.11.0", optional = true}
+tensorflow-cpu = {version = ">=2.11.0", optional = true}
+# https://github.com/grpc/grpc/issues/31492
+grpcio = { version = "<1.50.0", markers = "python_version >= '3.10' and sys_platform == 'darwin'" }
+
+[tool.poetry.extras]
+tensorflow = ["tensorflow"]
+tensorflow-cpu = ["tensorflow-cpu"]
+
+[tool.poetry.dev-dependencies]
+tensorflow = ">=2.11.0"
+coverage = {extras = ["toml"], version = ">=6.4.2"}
+insipid-sphinx-theme = ">=0.3.2"
+ipykernel = ">=6.15.1"
+jupyter = ">=1.0.0"
+jupytext = ">=1.14.0"
+matplotlib = ">=3.5.2"
+nbsphinx = ">=0.8.9"
+numpydoc = ">=1.4.0"
+pre-commit = ">=2.20.0"
+pytest = ">=7.1.2"
+pytest-cov = ">=3.0.0"
+sphinx = ">=5.0.2"
+
+[tool.isort]
+atomic = true
+filter_files = true
+include_trailing_comma = true
+known_first_party = "scikeras"
+known_third_party = [
+  "tensorflow",
+  "sklearn",
+]
+line_length = 88
+lines_after_imports = 2
+lines_between_types = 1
+multi_line_output = 3
+skip_glob = ["*/setup.py"]
+use_parentheses = true
+
+[tool.black]
+line-length = 88
+target-version = ['py36', 'py38']
+
+[tool.coverage.run]
+source = ["scikeras/"]
+
+[tool.coverage.report]
+show_missing = true
+
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core>=1.0.8"]
