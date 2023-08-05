@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: denormalize
+Version: 0.0.1
+Summary: A single-cell denormalization tool
+Author-email: Lirong Yang <chichaumiau@gmail.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# The denormalization package
+
+This is a package for denormalizing single-cell expression matrix.
+The package contains a denormalize module and within it several
+functions including unscale, denormalize and check_plot. 
