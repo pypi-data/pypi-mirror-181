@@ -1,0 +1,80 @@
+CKEditor configuration
+======================
+
+Log in as manager
+
+    >>> from plone.testing.z2 import Browser
+    >>> from plone.app.testing import SITE_OWNER_NAME
+    >>> from plone.app.testing import SITE_OWNER_PASSWORD
+    >>> app = layer['app']
+    >>> portal = layer['portal']
+    >>> browser = Browser(app)
+    >>> browser.open('http://nohost/plone/login_form')
+    >>> browser.getControl('Login Name').value = SITE_OWNER_NAME
+    >>> browser.getControl('Password').value = SITE_OWNER_PASSWORD
+    >>> browser.getControl('Log in').click()
+
+We will try to get javascript configuration using testbrowser
+The javascript code must depend on ckeditor_props.
+
+    >>> portal_url = portal.absolute_url()
+    >>> portal.error_log._ignored_exceptions = ()
+    >>> import transaction
+    >>> transaction.commit()
+
+Test ckeditor finder configuration
+==================================
+
+    >>> browser.open('%s/ckeditor_plone_config.js' % portal_url)
+    >>> js_string = "config.filebrowserImageBrowseUrl = '" + portal_url + "/@@plone_ckfinder?typeview=image&media=image&types:list=Image&_authenticator"
+    >>> js_string in browser.contents.decode('utf8')
+    True
+
+TODO fix with vocabu Remove 'News Item' portal_type for browsing images in ckeditor_properties
+TODO fix with vocabu     >>> from plone import api
+TODO fix with vocabu     >>> api.portal.set_registry_record(
+TODO fix with vocabu     ...  "collective.ckeditor.browser.ckeditorsettings.ICKEditorSchema.browse_images_portal_types",
+TODO fix with vocabu     ...  ('Image', 'News Item'))
+TODO fix with vocabu     >>> transaction.commit()
+
+TODO fix with vocabu Get the javascript config file
+
+TODO fix with vocabu     >>> browser.open('%s/ckeditor_plone_config.js' %portal_url)
+TODO fix with vocabu     >>> js_string = "config.filebrowserImageBrowseUrl = '" + portal_url + "/@@plone_ckfinder?typeview=image&media=image&types:list=Image&types:list=News%20Item&_authenticator"
+TODO fix with vocabu     >>> js_string in browser.contents.decode('utf8')
+TODO fix with vocabu     True
+
+Test Area style sheets configuration
+====================================
+
+    >>> browser.open('%s/ckeditor_plone_config.js' %portal_url)
+
+By default we must find all portal_css stylesheet in javascript configuration
+
+    >>> '++plone++static/plone-fullscreen/fullscreen.css' in browser.contents.decode('utf8')
+    True
+
+By default we must also find a specific css for plone ckeditor area
+
+    >>> 'ckeditor_plone_area.css' in browser.contents.decode('utf8')
+    True
+
+
+Test CKEditor area body ID
+==========================
+
+To get real wysiwyg by default editor area has the same id
+as Plone content. We must find it in javascript config file.
+
+    >>> "config.bodyId = 'content'" in browser.contents.decode('utf8')
+    True
+
+Test Combo Menu Styles
+======================
+
+A specific style menu must be set in javascript which
+depends on ckeditor control panel config.
+
+    >>> global_styles_config = "config.stylesSet = 'plone:%s/ckeditor_plone_menu_styles.js'" %portal_url
+    >>> global_styles_config in browser.contents.decode('utf8')
+    True
