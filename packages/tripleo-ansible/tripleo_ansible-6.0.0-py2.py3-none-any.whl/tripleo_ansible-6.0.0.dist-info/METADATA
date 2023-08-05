@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: tripleo-ansible
+Version: 6.0.0
+Summary: Ansible assets for the TripleO project.
+Home-page: https://opendev.org/openstack/tripleo-ansible
+Author: OpenStack
+Author-email: openstack-discuss@lists.openstack.org
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Intended Audience :: Information Technology
+Classifier: Topic :: Utilities
+Requires-Dist: metalsmith
+Requires-Dist: pbr (>=1.6)
+Requires-Dist: python-heatclient
+Requires-Dist: tripleo-common (>=16.0.0)
+Requires-Dist: python-ironicclient (!=2.5.2,!=2.7.1,!=3.0.0,<4.0.0,>=2.3.0) ; (python_version=='2.7')
+Requires-Dist: python-ironicclient (!=2.5.2,!=2.7.1,!=3.0.0,>=2.3.0) ; (python_version>='3.6')
+
+========================
+Team and repository tags
+========================
+
+.. image:: https://governance.openstack.org/tc/badges/tripleo-ansible.svg
+    :target: https://governance.openstack.org/tc/reference/tags/index.html
+
+.. Change things from this point on
+
+===============
+TripleO Ansible
+===============
+
+TripleO Ansible project repository. Contains Ansible playbooks, roles, and
+plugins for use with TripleO.
+
+Documentation for the project can be found at:
+`<https://docs.openstack.org/tripleo-ansible/latest/>`_
+
+Release notes for the project can be found at:
+`<https://docs.openstack.org/releasenotes/tripleo-ansible/>`_
+
+The project source code repository is located at:
+`<https://opendev.org/openstack/tripleo-ansible/>`_
+
+The project home is at:
+`<https://launchpad.net/tripleo>`_
+
+The project bug tracker is located at:
+`<https://bugs.launchpad.net/tripleo>`_
+
+
+

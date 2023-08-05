@@ -1,0 +1,14 @@
+module(load="im{{ log_offload_protocol }}")
+input(type="im{{ log_offload_protocol }}" address="{{ mgmt_port_ip }}" port="514")
+
+# Output the amphora tenant traffic flow logs
+if ($inputname == "im{{ log_offload_protocol }}" and $syslogfacility-text == "local0" and $syslogseverity-text == "info" and $hostname startswith "amphora") then {
+    action(type="omfile" FileCreateMode="0644" File="/var/log/octavia/octavia-tenant-traffic.log")
+    stop
+}
+
+# Output the amphora administrative logs
+if ($inputname == "im{{ log_offload_protocol }}" and $syslogfacility-text != "local0" and $hostname startswith "amphora") then {
+    action(type="omfile" FileCreateMode="0644" File="/var/log/octavia/octavia-amphora.log")
+    stop
+}
