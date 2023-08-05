@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: pipeworks
+Version: 0.0.2
+Summary: Collection of classes for calculating pressurized and open channel flow hydraulics for outlet works. 
+Project-URL: Homepage, https://github.com/kckuei/pipeworks
+Project-URL: Bug Tracker, https://github.com/kckuei/pipeworks/issues
+Author-email: Kevin Kuei <kevinkuei@gmail.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.9.7
+Description-Content-Type: text/markdown
+
+# PipeWorks
+A collection of generic classes for computing pressurized and open channel hydraulics for outlet works.
+
+Currently, setup for pressurized or unpressurized circular pipe flow.
+
+## Installation
+To install the [package](https://pypi.org/project/pipeworks/0.0.1/) via CLI:
+
+Using pip:
+```
+pip install pipeworks==0.0.1
+```
+
+Using conda:
+```
+conda install ..
+```
+
+## Examples
+
+
