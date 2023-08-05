@@ -1,0 +1,3 @@
+[console_scripts]
+make-release=make_release:make_release.console_script
+
