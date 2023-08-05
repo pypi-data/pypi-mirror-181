@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: facrud-router
+Version: 0.1.0
+Summary: FastApi CRUD router for SQLAlchemy
+Author: arutyunyan
+Author-email: 8david@inbox.ru
+Requires-Python: >=3.9,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: fastapi (>=0.88.0,<0.89.0)
+Requires-Dist: pydantic (>=1.10.2,<2.0.0)
+Requires-Dist: sqlalchemy (>=1.4.45,<2.0.0)
+Description-Content-Type: text/markdown
+
+# facrud-router
