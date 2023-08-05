@@ -1,0 +1,17 @@
+lightgbm>=2.0.11
+numpy>=1.13.3
+scikit-image>=0.13.0
+scipy>=0.19.1
+sentinelhub>=3.8.0
+
+[DEV]
+black[jupyter]>=22.3.0
+codecov
+flake8
+isort
+nbqa
+pylint>=2.14.0
+pytest-cov
+pytest-subtests
+pytest>=3.0.0
+twine
