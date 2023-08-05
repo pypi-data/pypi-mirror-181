@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: postgres-database-utils
+Version: 0.2.0
+Summary: A package for postgres database utilities
+Home-page: https://github.com/apinanyogaratnam/database-utils
+Author: apinanyogaratnam
+Author-email: apinanapinan@icloud.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10.4
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Postgres Database Utils
+
+A python package for postgres database utilities.
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Support](#support)
+- [Contributing](#contributing)
+
+## Installation
+
+Install the package using pip:
+
+```sh
+pip install database-utils
+```
+
+## Usage
+
+Create a database connection:
+```python
+from postgres_database_utils import create_connection
+
+connection = create_connection(
+    host="localhost",
+    port=5432,
+    database="postgres",
+    user="postgres",
+    password="postgres",
+)
+```
+
+## Support
+
+Please [open an issue](https://github.com/apinanyogaratnam/postgres-database-utils/issues/new) for support.
+
+## Contributing
+
+Please contribute using [Github Flow](https://guides.github.com/introduction/flow/). Create a branch, add commits, and [open a pull request](https://github.com/apinanyogaratnam/postgres-database-utils/compare/).
