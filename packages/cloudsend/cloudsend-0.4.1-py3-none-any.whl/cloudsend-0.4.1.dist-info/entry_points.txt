@@ -1,0 +1,4 @@
+[console_scripts]
+cli=cloudsend.cli:main
+demo=cloudsend.demo:main
+
