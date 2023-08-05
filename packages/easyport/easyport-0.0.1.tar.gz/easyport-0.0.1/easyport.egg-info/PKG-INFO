@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: easyport
+Version: 0.0.1
+Summary: Connect to EasyPort Module from Festo Didactic
+Author: Ferdinand List
+Author-email: ferdi.list@tum.de
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+This tool allows for connecting your Festo Didactic Easyport to your machine.
+
+`from easyport import epconnector as Ep`
+
+USB Connection:
+You have to make sure you can read / write your USB device. Either give group permissions to your user or add user to dialout group. 
+
+`Ep.FtdiConnector(setup=True)`:
+class for hardware connection to the Easyport. Only needed if usb connection is not possible.
+
+`Ep.BasicEasyport(filepath=Savefile)`:
+Basic class to send/receive from EasyPort.
