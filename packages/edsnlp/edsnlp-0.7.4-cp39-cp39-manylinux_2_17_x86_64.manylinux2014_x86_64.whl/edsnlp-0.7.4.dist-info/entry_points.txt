@@ -1,0 +1,43 @@
+[spacy_architectures]
+eds.stack_crf_ner_model.v1 = edsnlp.models.stack_crf_ner:create_model
+
+[spacy_factories]
+accents = edsnlp.components:accents
+adicap = edsnlp.components:adicap
+ccmu = edsnlp.components:ccmu
+charlson = edsnlp.components:charlson
+cim10" = edsnlp.components:cim10
+consultation_dates = edsnlp.components:consultation_dates
+context = edsnlp.components:context
+contextual_matcher = edsnlp.components:contextual_matcher
+covid" = edsnlp.components:covid
+dates = edsnlp.components:dates
+drugs = edsnlp.components:drugs
+endlines = edsnlp.components:endlines
+family = edsnlp.components:family
+gemsa" = edsnlp.components:gemsa
+history = edsnlp.components:history
+hypothesis = edsnlp.components:hypothesis
+lowercase = edsnlp.components:remove_lowercase
+matcher = edsnlp.components:matcher
+measurements = edsnlp.components:measurements
+negation = edsnlp.components:negation
+nested_ner = edsnlp.components:nested_ner
+normalizer = edsnlp.components:normalizer
+pollution = edsnlp.components:pollution
+priority = edsnlp.components:priority
+quotes = edsnlp.components:quotes
+reason = edsnlp.components:reason
+rspeech = edsnlp.components:rspeech
+sections = edsnlp.components:sections
+sentences = edsnlp.components:sentences
+sofa = edsnlp.components:sofa
+terminology = edsnlp.components:terminology
+tnm = edsnlp.components:tnm
+umls = edsnlp.components:umls
+
+[spacy_languages]
+eds = edsnlp.language:EDSLanguage
+
+[spacy_scorers]
+eds.nested_ner_scorer.v1 = edsnlp.pipelines.trainable.nested_ner:make_nested_ner_scorer
