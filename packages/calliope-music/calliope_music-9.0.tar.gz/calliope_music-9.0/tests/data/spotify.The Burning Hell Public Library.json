@@ -1,0 +1,92 @@
+[
+    {
+        "album_type": "album",
+        "artists": [
+            {
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/09kohMK0MSHgpmKWiQeQ5E"
+                },
+                "href": "https://api.spotify.com/v1/artists/09kohMK0MSHgpmKWiQeQ5E",
+                "id": "09kohMK0MSHgpmKWiQeQ5E",
+                "name": "The Burning Hell",
+                "type": "artist",
+                "uri": "spotify:artist:09kohMK0MSHgpmKWiQeQ5E"
+            }
+        ],
+        "available_markets": [
+            "AD",
+            "AL",
+            "AT",
+            "BA",
+            "BE",
+            "BG",
+            "BY",
+            "CH",
+            "CY",
+            "CZ",
+            "DE",
+            "DK",
+            "EE",
+            "ES",
+            "FI",
+            "FR",
+            "GB",
+            "GR",
+            "HR",
+            "HU",
+            "IE",
+            "IS",
+            "IT",
+            "LI",
+            "LT",
+            "LU",
+            "LV",
+            "MC",
+            "MD",
+            "ME",
+            "MK",
+            "MT",
+            "NL",
+            "NO",
+            "PL",
+            "PT",
+            "RO",
+            "RS",
+            "RU",
+            "SE",
+            "SI",
+            "SK",
+            "SM",
+            "UA",
+            "XK"
+        ],
+        "external_urls": {
+            "spotify": "https://open.spotify.com/album/36kt9AFzp9bueyRRBy6YmV"
+        },
+        "href": "https://api.spotify.com/v1/albums/36kt9AFzp9bueyRRBy6YmV",
+        "id": "36kt9AFzp9bueyRRBy6YmV",
+        "images": [
+            {
+                "height": 640,
+                "url": "https://i.scdn.co/image/ab67616d0000b273dfc88777c8978ecaca378977",
+                "width": 640
+            },
+            {
+                "height": 300,
+                "url": "https://i.scdn.co/image/ab67616d00001e02dfc88777c8978ecaca378977",
+                "width": 300
+            },
+            {
+                "height": 64,
+                "url": "https://i.scdn.co/image/ab67616d00004851dfc88777c8978ecaca378977",
+                "width": 64
+            }
+        ],
+        "name": "Public Library",
+        "release_date": "2016-04-01",
+        "release_date_precision": "day",
+        "total_tracks": 8,
+        "type": "album",
+        "uri": "spotify:album:36kt9AFzp9bueyRRBy6YmV"
+    }
+]

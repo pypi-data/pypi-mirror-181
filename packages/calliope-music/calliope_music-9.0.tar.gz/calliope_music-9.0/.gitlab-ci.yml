@@ -1,0 +1,113 @@
+include:
+  - remote: "https://gitlab.freedesktop.org/freedesktop/ci-templates/-/raw/ffe4d1b10aab7534489f0c4bbc4c5899df17d3f2/templates/ci-fairy.yml"
+  - remote: 'https://gitlab.freedesktop.org/freedesktop/ci-templates/-/raw/ffe4d1b10aab7534489f0c4bbc4c5899df17d3f2/templates/fedora.yml'
+
+stages:
+  - prepare
+  - test
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+cache:
+  paths:
+    - .cache/pip
+    - venv/
+
+.calliope.fedora:latest:
+  variables:
+    FDO_DISTRIBUTION_TAG: '2022-11-24.1'
+    FDO_DISTRIBUTION_VERSION: 36
+    FDO_DISTRIBUTION_PACKAGES: 'dbus-x11 dconf glib2-devel gstreamer1-plugins-good libmediaart-devel ninja-build python3-gobject python3-pylint python3-pytest python3-pytest-benchmark python3-pyyaml rsync tracker3-devel tracker3-miners'
+    FDO_DISTRIBUTION_EXEC: |
+      # Some Python dependencies contain C code, so we need a C toolchain available during this process.
+      # Non exhaustive list: splitstream
+      dnf install -y gcc python3-devel python3-pip redhat-rpm-config
+      pip3 install meson
+      pip3 install click jsonschema parsedatetime splitstream yoyo-migrations
+      pip3 install mutagen
+      pip3 install beautifulsoup4 cachecontrol google-api-python-client jinja2 lastfmclient lockfile lxml musicbrainzngs pylistenbrainz simpleai spotipy
+      pip3 install sphinx sphinx-autoapi sphinx-click sphinx-jsonschema
+      pip3 install coverage pytest-cov pytest-pep8
+      # dbus-launch warns if there's no /etc/machine-id
+      systemd-machine-id-setup
+      # Clean up
+      dnf remove -y gcc gtk2 python3-devel redhat-rpm-config
+      dnf clean all
+      rm -R /root/*
+
+build-fedora-container:
+  extends:
+    - .fdo.container-build@fedora
+    - .calliope.fedora:latest
+  stage: prepare
+
+# Run tests that can't run in a venv, mainly those depending on PyGObject.
+tests-meson-host:
+  stage: test
+  extends:
+  - .fdo.distribution-image@fedora
+  - .calliope.fedora:latest
+
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+  script:
+    - |
+      mkdir build
+      cd build
+      meson .. -Ddirect_install=true -Ddocs=true -Dtestsuite=true
+      ninja
+    - |
+      env LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 XDG_DATA_DIRS=/usr/share dbus-launch meson test --suite calliope --print-errorlogs
+  artifacts:
+    expire_in: 1 week
+    when: always
+    paths:
+    - build/meson-logs/*
+    reports:
+      junit: "build/meson-logs/testlog.junit.xml"
+
+tests-tox-venv-py37:
+  image: python:3.7
+  stage: test
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+  script:
+    - |
+      apt-get update -y
+      apt-get install -y rsync
+      pip install tox
+      tox -e py37
+
+tests-tox-venv-py310:
+  image: python:3.10
+  stage: test
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+  script:
+    - |
+      apt-get update -y
+      apt-get install -y rsync
+      pip install tox
+      tox -e py310
+
+tests-tox-venv-py311:
+  image: python:3.11
+  stage: test
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+  script:
+    - |
+      apt-get update -y
+      apt-get install -y rsync
+      pip install tox
+      tox -e py311
+  artifacts:
+    when: always
+    reports:
+      junit: report.xml
+      coverage_report:
+        coverage_format: cobertura
+        path: coverage.xml
+
+  coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+%)$/'

@@ -1,0 +1,9 @@
+# This is a list of modules which are needed to build the documentation.
+# This file is consumed by readthedocs.org.
+
+click
+parsedatetime
+sphinx >= 3.2
+sphinx-autoapi
+sphinx-click
+sphinx-jsonschema

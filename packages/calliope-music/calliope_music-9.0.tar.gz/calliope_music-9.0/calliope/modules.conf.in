@@ -1,0 +1,11 @@
+[Modules]
+bandcamp = @enable_bandcamp@
+lastfm = @enable_lastfm@
+listenbrainz = @enable_listenbrainz@
+musicbrainz = @enable_musicbrainz@
+play = @enable_play@
+select = @enable_select@
+spotify = @enable_spotify@
+suggest = @enable_suggest@
+tracker = @enable_tracker@
+youtube = @enable_youtube@

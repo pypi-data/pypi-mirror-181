@@ -1,0 +1,90 @@
+{
+    "href": "https://api.spotify.com/v1/me/tracks?offset=0&limit=20",
+    "items": [
+        {
+            "added_at": "2021-08-11T10:45:17Z",
+            "track": {
+                "album": {
+                    "album_type": "single",
+                    "artists": [
+                        {
+                            "external_urls": {
+                                "spotify": "https://open.spotify.com/artist/4tOVIRjlWWfR1RrAxyRqTE"
+                            },
+                            "href": "https://api.spotify.com/v1/artists/4tOVIRjlWWfR1RrAxyRqTE",
+                            "id": "4tOVIRjlWWfR1RrAxyRqTE",
+                            "name": "Chromatics",
+                            "type": "artist",
+                            "uri": "spotify:artist:4tOVIRjlWWfR1RrAxyRqTE"
+                        }
+                    ],
+                    "available_markets": [],
+                    "external_urls": {
+                        "spotify": "https://open.spotify.com/album/1lige5FVk5RvkVHZsuJ1eI"
+                    },
+                    "href": "https://api.spotify.com/v1/albums/1lige5FVk5RvkVHZsuJ1eI",
+                    "id": "1lige5FVk5RvkVHZsuJ1eI",
+                    "images": [
+                        {
+                            "height": 640,
+                            "url": "https://i.scdn.co/image/ab67616d0000b27365091d9a157cb447918233ce",
+                            "width": 640
+                        },
+                        {
+                            "height": 300,
+                            "url": "https://i.scdn.co/image/ab67616d00001e0265091d9a157cb447918233ce",
+                            "width": 300
+                        },
+                        {
+                            "height": 64,
+                            "url": "https://i.scdn.co/image/ab67616d0000485165091d9a157cb447918233ce",
+                            "width": 64
+                        }
+                    ],
+                    "name": "Time Rider",
+                    "release_date": "2019-02-19",
+                    "release_date_precision": "day",
+                    "total_tracks": 3,
+                    "type": "album",
+                    "uri": "spotify:album:1lige5FVk5RvkVHZsuJ1eI"
+                },
+                "artists": [
+                    {
+                        "external_urls": {
+                            "spotify": "https://open.spotify.com/artist/4tOVIRjlWWfR1RrAxyRqTE"
+                        },
+                        "href": "https://api.spotify.com/v1/artists/4tOVIRjlWWfR1RrAxyRqTE",
+                        "id": "4tOVIRjlWWfR1RrAxyRqTE",
+                        "name": "Chromatics",
+                        "type": "artist",
+                        "uri": "spotify:artist:4tOVIRjlWWfR1RrAxyRqTE"
+                    }
+                ],
+                "available_markets": [],
+                "disc_number": 1,
+                "duration_ms": 283000,
+                "explicit": false,
+                "external_ids": {
+                    "isrc": "QM24S1907088"
+                },
+                "external_urls": {
+                    "spotify": "https://open.spotify.com/track/063P9fza0DJ5V4odLnVUcv"
+                },
+                "href": "https://api.spotify.com/v1/tracks/063P9fza0DJ5V4odLnVUcv",
+                "id": "063P9fza0DJ5V4odLnVUcv",
+                "is_local": false,
+                "name": "Time Rider",
+                "popularity": 0,
+                "preview_url": null,
+                "track_number": 1,
+                "type": "track",
+                "uri": "spotify:track:063P9fza0DJ5V4odLnVUcv"
+            }
+        }
+    ],
+    "limit": 1,
+    "next": "https://api.spotify.com/v1/me/tracks?offset=20&limit=20",
+    "offset": 0,
+    "previous": null,
+    "total": 2
+}

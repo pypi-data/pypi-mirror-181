@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<metadata xmlns="http://musicbrainz.org/ns/mmd-2.0#" xmlns:ns2="http://musicbrainz.org/ns/ext#-2.0" created="2021-07-12T12:14:17.632Z">
+  <recording-list count="1" offset="0">
+    <recording id="5667663d-a5f9-46cd-868b-ab8822e4f3ee" ns2:score="100">
+      <title>Like Eating Glass</title>
+      <length>266720</length>
+      <artist-credit>
+        <name-credit>
+          <name>Bloc Party</name>
+          <artist id="8c538f11-c141-4588-8ecb-931083524186">
+            <name>Bloc Party</name>
+            <sort-name>Bloc Party</sort-name>
+            <disambiguation>English indie rock band</disambiguation>
+            <alias-list>
+              <alias sort-name="Block Party">Block Party</alias>
+            </alias-list>
+          </artist>
+        </name-credit>
+      </artist-credit>
+      <first-release-date>2019-07-12</first-release-date>
+      <release-list>
+        <release id="db6d0858-8689-4af9-944e-b0a9423d27b8">
+          <title>Silent Alarm Live</title>
+          <status id="4e304316-386d-3409-af2e-78857eec5cfe">Official</status>
+          <artist-credit>
+            <name-credit>
+              <name>Bloc Party</name>
+              <artist id="8c538f11-c141-4588-8ecb-931083524186">
+                <name>Bloc Party</name>
+                <sort-name>Bloc Party</sort-name>
+                <disambiguation>English indie rock band</disambiguation>
+              </artist>
+            </name-credit>
+          </artist-credit>
+          <release-group id="274009ee-3e4d-476c-9a79-eed4d81efebb" type="Live" type-id="6fd474e2-6b58-3102-9d17-d6f7eb7da0a0">
+            <title>Silent Alarm Live</title>
+            <primary-type id="f529b476-6e62-324f-b0aa-1f3e33d313fc">Album</primary-type>
+            <secondary-type-list>
+              <secondary-type id="6fd474e2-6b58-3102-9d17-d6f7eb7da0a0">Live</secondary-type>
+            </secondary-type-list>
+          </release-group>
+          <date>2019-07-12</date>
+          <country>GB</country>
+          <release-event-list>
+            <release-event>
+              <date>2019-07-12</date>
+              <area id="8a754a16-0027-3a29-b6d7-2b40ea0481ed">
+                <name>United Kingdom</name>
+                <sort-name>United Kingdom</sort-name>
+                <iso-3166-1-code-list>
+                  <iso-3166-1-code>GB</iso-3166-1-code>
+                </iso-3166-1-code-list>
+              </area>
+            </release-event>
+          </release-event-list>
+          <medium-list count="1">
+            <track-count>13</track-count>
+            <medium>
+              <position>1</position>
+              <format>CD</format>
+              <track-list count="13" offset="0">
+                <track id="edb18f5d-bd59-4334-b688-76b9927d75bf">
+                  <number>1</number>
+                  <title>Like Eating Glass</title>
+                  <length>266720</length>
+                </track>
+              </track-list>
+            </medium>
+          </medium-list>
+        </release>
+        <release id="32ae5c46-bf15-4909-9fc6-075c955d9794">
+          <title>Silent Alarm Live</title>
+          <status id="4e304316-386d-3409-af2e-78857eec5cfe">Official</status>
+          <artist-credit>
+            <name-credit>
+              <name>Bloc Party</name>
+              <artist id="8c538f11-c141-4588-8ecb-931083524186">
+                <name>Bloc Party</name>
+                <sort-name>Bloc Party</sort-name>
+                <disambiguation>English indie rock band</disambiguation>
+              </artist>
+            </name-credit>
+          </artist-credit>
+          <release-group id="274009ee-3e4d-476c-9a79-eed4d81efebb" type="Live" type-id="6fd474e2-6b58-3102-9d17-d6f7eb7da0a0">
+            <title>Silent Alarm Live</title>
+            <primary-type id="f529b476-6e62-324f-b0aa-1f3e33d313fc">Album</primary-type>
+            <secondary-type-list>
+              <secondary-type id="6fd474e2-6b58-3102-9d17-d6f7eb7da0a0">Live</secondary-type>
+            </secondary-type-list>
+          </release-group>
+          <date>2019-07</date>
+          <country>FR</country>
+          <release-event-list>
+            <release-event>
+              <date>2019-07</date>
+              <area id="08310658-51eb-3801-80de-5a0739207115">
+                <name>France</name>
+                <sort-name>France</sort-name>
+                <iso-3166-1-code-list>
+                  <iso-3166-1-code>FR</iso-3166-1-code>
+                </iso-3166-1-code-list>
+              </area>
+            </release-event>
+            <release-event>
+              <date>2019-07</date>
+              <area id="3e08b2cd-69f3-317c-b1e4-e71be581839e">
+                <name>Mexico</name>
+                <sort-name>Mexico</sort-name>
+                <iso-3166-1-code-list>
+                  <iso-3166-1-code>MX</iso-3166-1-code>
+                </iso-3166-1-code-list>
+              </area>
+            </release-event>
+          </release-event-list>
+          <medium-list count="1">
+            <track-count>13</track-count>
+            <medium>
+              <position>1</position>
+              <format>Digital Media</format>
+              <track-list count="13" offset="0">
+                <track id="fc43ec1f-7b4c-41e3-a9fb-5b422b1456f6">
+                  <number>1</number>
+                  <title>Like Eating Glass</title>
+                  <length>266720</length>
+                </track>
+              </track-list>
+            </medium>
+          </medium-list>
+        </release>
+        <release id="43786f72-f2aa-4821-a141-d7aeca4f7c04">
+          <title>Silent Alarm Live</title>
+          <status id="4e304316-386d-3409-af2e-78857eec5cfe">Official</status>
+          <artist-credit>
+            <name-credit>
+              <name>Bloc Party</name>
+              <artist id="8c538f11-c141-4588-8ecb-931083524186">
+                <name>Bloc Party</name>
+                <sort-name>Bloc Party</sort-name>
+                <disambiguation>English indie rock band</disambiguation>
+              </artist>
+            </name-credit>
+          </artist-credit>
+          <release-group id="274009ee-3e4d-476c-9a79-eed4d81efebb" type="Live" type-id="6fd474e2-6b58-3102-9d17-d6f7eb7da0a0">
+            <title>Silent Alarm Live</title>
+            <primary-type id="f529b476-6e62-324f-b0aa-1f3e33d313fc">Album</primary-type>
+            <secondary-type-list>
+              <secondary-type id="6fd474e2-6b58-3102-9d17-d6f7eb7da0a0">Live</secondary-type>
+            </secondary-type-list>
+          </release-group>
+          <medium-list count="1">
+            <track-count>12</track-count>
+            <medium>
+              <position>1</position>
+              <format>12" Vinyl</format>
+              <track-list count="12" offset="0">
+                <track id="77407db8-0d84-4e42-b2c7-6b60eccd487a">
+                  <number>A1</number>
+                  <title>Like Eating Glass</title>
+                  <length>266720</length>
+                </track>
+              </track-list>
+            </medium>
+          </medium-list>
+        </release>
+      </release-list>
+      <isrc-list>
+        <isrc id="QM6MZ1916107"/>
+      </isrc-list>
+    </recording>
+  </recording-list>
+</metadata>

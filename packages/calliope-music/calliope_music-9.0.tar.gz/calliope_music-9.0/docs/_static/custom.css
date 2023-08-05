@@ -1,0 +1,24 @@
+/* Main title should stand out a little more -- make it
+ * pure black (the rest of the text is gray). */
+h1 {
+    color: #000;
+}
+
+/* Links are orange instead of blue to match the visually identity
+ * of the logo. */
+a {
+    color: #ff7113;
+}
+
+a:hover {
+    color: #ff7113;
+}
+
+a:visited {
+    color: #d15c10;
+}
+
+/* Default logo alignment is centred, which looks very wrong. */
+div.sphinxsidebarwrapper p.logo {
+    text-align: left;
+}
