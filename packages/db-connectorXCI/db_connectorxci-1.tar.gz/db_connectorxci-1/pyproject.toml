@@ -1,0 +1,21 @@
+[build-system]
+requires = ["mysqlclient", "SQLAlchemy", "PyMySQL", "pycparser", "hatchling"]
+build-backend = "hatchling.build"
+[project]
+name = "db_connectorXCI"
+version = "1"
+authors = [
+  { name="DO Manh Dung", email="dungdm6191@gmail.com" },
+]
+description = "Db connector"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/nguacon01/db_connector.git"
+"Bug Tracker" = "https://github.com/nguacon01/db_connector/issues"
