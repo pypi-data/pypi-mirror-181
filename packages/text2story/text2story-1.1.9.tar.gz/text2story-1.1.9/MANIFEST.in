@@ -1,0 +1,6 @@
+# MANIFEST.in
+
+include src/text2story/annotators/ALLENNLP/Models/srl-pt_bertimbau-base/Vocabulary/*.txt
+include src/text2story/annotators/ALLENNLP/Models/srl-pt_bertimbau-base/config.json
+include src/text2story/annotators/ALLENNLP/Models/srl-pt_bertimbau-base/linear_layer.pt
+include src/text2story/annotators/CUSTOMPT/crf_v2.1.joblib
