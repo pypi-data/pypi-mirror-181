@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "container-collection"
+version = "0.4.4"
+description = "Collection of tasks for running containerized models."
+authors = [
+    "Jessica S. Yu <jesyu@uw.edu>"
+]
+license = "BSD-3-Clause"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+prefect = "^2.6.0"
+boto3 = "^1.24.59"
+numpy = "^1.23.4"
+pandas = "^1.5.1"
+docker = "^6.0.0"
+deepdiff = "^5.8.1"
+tabulate = "^0.9.0"
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.8.0"
+pylint = "^2.15.2"
+tox = "^3.26.0"
+pytest = "^7.2.0"
+pytest-cov = "^3.0.0"
+pytest-subtests = "^0.8.0"
+Sphinx = "^5.1.1"
+mypy = "^0.971"
+sphinx-rtd-theme = "^1.0.0"
+sphinx_mdinclude = "^0.5.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
