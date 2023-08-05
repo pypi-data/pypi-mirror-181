@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+versioneer.py
+bodo_platform_dummy_kernel/__init__.py
+bodo_platform_dummy_kernel/__main__.py
+bodo_platform_dummy_kernel/_version.py
+bodo_platform_dummy_kernel/install.py
+bodo_platform_dummy_kernel/kernel.py
+bodo_platform_dummy_kernel.egg-info/PKG-INFO
+bodo_platform_dummy_kernel.egg-info/SOURCES.txt
+bodo_platform_dummy_kernel.egg-info/dependency_links.txt
+bodo_platform_dummy_kernel.egg-info/requires.txt
+bodo_platform_dummy_kernel.egg-info/top_level.txt
