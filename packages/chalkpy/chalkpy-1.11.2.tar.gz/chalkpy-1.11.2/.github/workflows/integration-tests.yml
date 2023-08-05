@@ -1,0 +1,76 @@
+name: Integration Tests
+
+on:
+  pull_request: {}
+
+jobs:
+  fraud-template:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python_version: ["3.10", "3.8"]
+    steps:
+      - name: Checkout the Chalk Client
+        uses: actions/checkout@v3
+        with:
+          path: "chalk/"
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python_version }}
+          cache: "pip"
+
+      - name: Checkout the fraud template
+        uses: actions/checkout@v3
+        with:
+          repository: chalk-ai/fraud-template
+          path: "fraud-template/"
+          ssh-key: ${{ secrets.CHALK_GH_DEPLOY_KEY }}
+
+      - name: Install requirements
+        run: |
+          pip install -r ./fraud-template/requirements.txt  # Install the requirements for the fraud template
+          pip uninstall -y chalkpy
+          pip install ./chalk  # Install the chalk client locally
+
+      - name: Log in to chalk
+        uses: chalk-ai/cli-action@main
+        with:
+          version: nightly
+          client-id: ${{secrets.CHALK_FT_CLIENT_ID}}
+          client-secret: ${{secrets.CHALK_FT_CLIENT_SECRET}}
+          api-host: "https://api.staging.chalk.ai"
+          environment: tmnmwqtcbscbd # the dev environment
+
+      - name: Validate the code
+        working-directory: ./fraud-template
+        run: |
+          set -euo pipefail
+
+          # Validate that the code can be imported
+          chalkpy list
+
+          # Validate that the graph is valid
+          chalk lint
+
+      - name: Deploy fraud-template to staging
+        working-directory: ./fraud-template
+        run: |
+          set -euo pipefail
+
+          CHALK_DEPLOYMENT_ID="$(chalk apply --force --await --json --no-promote | jq -r .deployment_id | xargs)"
+          echo "Successfully deployed with deployment ID $CHALK_DEPLOYMENT_ID"
+          echo "CHALK_DEPLOYMENT_ID=$CHALK_DEPLOYMENT_ID" >> $GITHUB_ENV
+
+      - name: Run query (online) against staging
+        working-directory: ./fraud-template
+        run: chalk query --in user.id=1 --out user.id --trace --deployment $CHALK_DEPLOYMENT_ID
+        env:
+          CHALK_DEPLOYMENT_ID: ${{env.CHALK_DEPLOYMENT_ID}}
+
+      - name: Run tests (offline query)
+        working-directory: ./fraud-template
+        run: pytest .
+        env:
+          CHALK_DEPLOYMENT_ID: ${{env.CHALK_DEPLOYMENT_ID}}
