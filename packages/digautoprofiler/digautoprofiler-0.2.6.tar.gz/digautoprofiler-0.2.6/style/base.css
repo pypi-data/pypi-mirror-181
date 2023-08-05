@@ -1,0 +1,39 @@
+/*
+    See the JupyterLab Developer Guide for useful CSS Patterns:
+
+    https://jupyterlab.readthedocs.io/en/stable/developer/css.html
+*/
+.auto-profile-app {
+    /* css for the main side panel view container */
+    background: var(--jp-layout-color1);
+    color: var(--jp-ui-font-color1);
+
+    /* This is needed so that all font sizing of children done in ems is
+     * relative to this base size */
+    font-size: var(--jp-ui-font-size1);
+
+    /* text-align: center; */
+    overflow-y: auto;
+    min-width: 400px;
+    width: 450px;
+}
+
+.auto-profile-wrapper {
+    min-width: 400px;
+}
+
+#header-icon {
+    background: url('./logo.svg');
+    min-width: 100%;
+    min-height: 6em;
+    background-size: contain;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 1em;
+}
+
+.autoprofile-logo {
+    align-items: center;
+    display: flex;
+}
