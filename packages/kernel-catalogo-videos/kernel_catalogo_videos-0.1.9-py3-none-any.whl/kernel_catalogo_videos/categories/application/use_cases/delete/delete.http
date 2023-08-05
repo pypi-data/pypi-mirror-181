@@ -1,0 +1,7 @@
+# @name create a category
+
+curl
+    -vv
+    -X POST  http://0.0.0.0:5000/api/v1/categories/
+    -H 'Content-Type: application/json'
+    -d '{"title": "some title 3", "description": "some description"}'
