@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: Python-PCG
+Version: 0.1.1
+Summary: Python wrapper around the PCG c++ library.
+Author-email: Matthijs Wesseling <matthijs.wesseling@dyme.app>
+Project-URL: Homepage, https://github.com/Bladieblah/PyPCG
+Project-URL: Bug Tracker, https://github.com/Bladieblah/PyPCG/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# PyPCG
+
+This is a python wrapper around the pcg-cpp library, for randum number generation using the _permuted congruential generator_ method.
+
+Usage:
+
+```python
+import py_pcg
+
+rng = py_pcg.PCG32()
+rng = py_pcg.PCG32(42, 9001) # Seed with initial stream and state
+
+rng.rand()     # Generate a single random uniform number
+rng.randint(1000, bound=100) # Generate a list of bounded random integers
+```
