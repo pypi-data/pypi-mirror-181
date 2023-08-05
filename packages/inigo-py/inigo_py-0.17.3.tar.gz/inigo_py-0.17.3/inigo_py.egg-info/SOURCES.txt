@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+inigo_py/VERSION
+inigo_py/__init__.py
+inigo_py/ffi.py
+inigo_py/middleware.py
+inigo_py.egg-info/PKG-INFO
+inigo_py.egg-info/SOURCES.txt
+inigo_py.egg-info/dependency_links.txt
+inigo_py.egg-info/requires.txt
+inigo_py.egg-info/top_level.txt
+inigo_py/lib/inigo-darwin-amd64.dylib
+inigo_py/lib/inigo-darwin-arm64.dylib
+inigo_py/lib/inigo-linux-amd64.so
+inigo_py/lib/inigo-linux-arm64.so
