@@ -1,0 +1,21 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "bai2_to_json"
+version = "0.0.4"
+authors = [
+  { name="jpranieri", email="jonathon@buildcover.com" },
+]
+description = "Small package for a function which unpacks bai2 files, uses the bai2 package."
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: Other/Proprietary License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+  "bai2==0.8.2",
+]
