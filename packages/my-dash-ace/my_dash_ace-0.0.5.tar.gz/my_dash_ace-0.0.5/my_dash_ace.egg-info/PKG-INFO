@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: my-dash-ace
+Version: 0.0.5
+Summary: Dash Ace Editor Component
+Home-page: https://github.com/bailaohe/my-dash-ace
+Author: xu miao <xu@reasoned.ai>
+Author-email: xu@reasoned.ai
+License: MIT
+Platform: UNKNOWN
+Classifier: Framework :: Dash
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+
+# dash ace
+
+dash ace is a Dash component for Ace Editor.
+
+```
+    $ pip install dash-ace
+```
+
+
