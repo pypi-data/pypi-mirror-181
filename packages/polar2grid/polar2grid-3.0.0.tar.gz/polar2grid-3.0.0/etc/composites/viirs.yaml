@@ -1,0 +1,320 @@
+sensor_name: visir/viirs
+
+modifiers:
+  rayleigh_corrected:
+    modifier: !!python/name:satpy.modifiers.atmosphere.ReflectanceCorrector
+    url: "https://www.ssec.wisc.edu/~davidh/polar2grid/viirs_crefl/CMGDEM.hdf"
+    known_hash: "sha256:f33f1f867d79fff4fafe128f61c154236dd74fcc97bf418ea1437977a38d0604"
+    prerequisites:
+    - name: satellite_azimuth_angle
+      resolution: 742
+    - name: satellite_zenith_angle
+      resolution: 742
+    - name: solar_azimuth_angle
+      resolution: 742
+    - name: solar_zenith_angle
+      resolution: 742
+    optional_prerequisites: []
+
+  rayleigh_corrected_iband:
+    modifier: !!python/name:satpy.modifiers.atmosphere.ReflectanceCorrector
+    url: "https://www.ssec.wisc.edu/~davidh/polar2grid/viirs_crefl/CMGDEM.hdf"
+    known_hash: "sha256:f33f1f867d79fff4fafe128f61c154236dd74fcc97bf418ea1437977a38d0604"
+    prerequisites:
+    - name: satellite_azimuth_angle
+      resolution: 371
+    - name: satellite_zenith_angle
+      resolution: 371
+    - name: solar_azimuth_angle
+      resolution: 371
+    - name: solar_zenith_angle
+      resolution: 371
+    optional_prerequisites: []
+
+  sunz_corrected:
+    modifier: !!python/name:satpy.modifiers.SunZenithCorrector
+    prerequisites:
+      - name: solar_zenith_angle
+        resolution: 742
+
+  sunz_corrected_iband:
+    modifier: !!python/name:satpy.modifiers.SunZenithCorrector
+    prerequisites:
+      - name: solar_zenith_angle
+        resolution: 371
+
+composites:
+
+  unsharp_true_color:
+    compositor: !!python/name:satpy.composites.GenericCompositor
+    prerequisites:
+    - name: M05
+      modifiers: [sunz_corrected, rayleigh_corrected]
+    - name: M04
+      modifiers: [sunz_corrected, rayleigh_corrected]
+    - name: M03
+      modifiers: [sunz_corrected, rayleigh_corrected]
+# FIXME: Ratio is wrong due to sunz correction producing high output (I think)
+#    optional_prerequisites:
+#    - I01: [sunz_corrected, rayleigh_corrected]
+    standard_name: true_color
+
+  true_color:
+    compositor: !!python/name:satpy.composites.RatioSharpenedRGB
+    prerequisites:
+      - name: M05
+        modifiers: [sunz_corrected, rayleigh_corrected]
+      - name: M04
+        modifiers: [sunz_corrected, rayleigh_corrected]
+      - name: M03
+        modifiers: [sunz_corrected, rayleigh_corrected]
+    optional_prerequisites:
+      - name: I01
+        modifiers: [sunz_corrected_iband, rayleigh_corrected_iband]
+    standard_name: true_color
+    high_resolution_band: red
+
+#  true_color:
+#    compositor: !!python/name:satpy.composites.RatioSharpenedRGB
+#    prerequisites:
+#      # M05
+#      - name: _crefl01
+#      # M04
+#      - name: _crefl04
+#      # M03
+#      - name: _crefl03
+#    optional_prerequisites:
+#      # I01
+#      - name: _crefl08
+#    standard_name: true_color
+#    high_resolution_band: red
+
+  _preenhanced_true_color:
+    compositor: !!python/name:polar2grid.composites.enhanced.SingleEnhancedBandCompositor
+    prerequisites:
+      - name: true_color
+
+  _preenhanced_false_color:
+    compositor: !!python/name:polar2grid.composites.enhanced.SingleEnhancedBandCompositor
+    prerequisites:
+      - name: false_color
+
+  # VIIRS pre-enhanced versions of the true and false color bands
+  # These are meant to be provided to AWIPS using the "awips_tiled" writer
+  # so they can be joined together into an RGB.
+  viirs_crefl01:
+    compositor: !!python/name:polar2grid.composites.enhanced.SubBandCompositor
+    prerequisites:
+      - name: _preenhanced_true_color
+    standard_name: preenhanced_crefl
+    band_index: 'R'
+  viirs_crefl02:
+    compositor: !!python/name:polar2grid.composites.enhanced.SubBandCompositor
+    prerequisites:
+      - name: _preenhanced_false_color
+    standard_name: preenhanced_crefl
+    band_index: 'G'
+  viirs_crefl03:
+    compositor: !!python/name:polar2grid.composites.enhanced.SubBandCompositor
+    prerequisites:
+      - name: _preenhanced_true_color
+    standard_name: preenhanced_crefl
+    band_index: 'B'
+  viirs_crefl04:
+    compositor: !!python/name:polar2grid.composites.enhanced.SubBandCompositor
+    prerequisites:
+      - name: _preenhanced_true_color
+    standard_name: preenhanced_crefl
+    band_index: 'G'
+  viirs_crefl07:
+    compositor: !!python/name:polar2grid.composites.enhanced.SubBandCompositor
+    prerequisites:
+      - name: _preenhanced_false_color
+    standard_name: preenhanced_crefl
+    band_index: 'R'
+  viirs_crefl08:
+    compositor: !!python/name:polar2grid.composites.enhanced.SubBandCompositor
+    prerequisites:
+      - name: _preenhanced_true_color
+    standard_name: preenhanced_crefl
+    band_index: 'R'
+  viirs_crefl09:
+    compositor: !!python/name:polar2grid.composites.enhanced.SubBandCompositor
+    prerequisites:
+      - name: _preenhanced_false_color
+    standard_name: preenhanced_crefl
+    band_index: 'G'
+
+  _crefl01:
+    compositor: !!python/name:satpy.composites.SingleBandCompositor
+    prerequisites:
+      - name: M05
+        modifiers: [sunz_corrected, rayleigh_corrected]
+    standard_name: corrected_reflectance
+  _crefl02:
+    compositor: !!python/name:satpy.composites.SingleBandCompositor
+    prerequisites:
+      - name: M07
+        modifiers: [sunz_corrected, rayleigh_corrected]
+    standard_name: corrected_reflectance
+  _crefl03:
+    compositor: !!python/name:satpy.composites.SingleBandCompositor
+    prerequisites:
+      - name: M03
+        modifiers: [sunz_corrected, rayleigh_corrected]
+    standard_name: corrected_reflectance
+  _crefl04:
+    compositor: !!python/name:satpy.composites.SingleBandCompositor
+    prerequisites:
+      - name: M04
+        modifiers: [sunz_corrected, rayleigh_corrected]
+    standard_name: corrected_reflectance
+  _crefl05:
+    compositor: !!python/name:satpy.composites.SingleBandCompositor
+    prerequisites:
+      - name: M08
+        modifiers: [sunz_corrected, rayleigh_corrected]
+    standard_name: corrected_reflectance
+  _crefl06:
+    compositor: !!python/name:satpy.composites.SingleBandCompositor
+    prerequisites:
+      - name: M10
+        modifiers: [sunz_corrected, rayleigh_corrected]
+    standard_name: corrected_reflectance
+  _crefl07:
+    compositor: !!python/name:satpy.composites.SingleBandCompositor
+    prerequisites:
+      - name: M11
+        modifiers: [sunz_corrected, rayleigh_corrected]
+    standard_name: corrected_reflectance
+  _crefl08:
+    compositor: !!python/name:satpy.composites.SingleBandCompositor
+    prerequisites:
+      - name: I01
+        modifiers: [sunz_corrected_iband, rayleigh_corrected_iband]
+    standard_name: corrected_reflectance
+  _crefl09:
+    compositor: !!python/name:satpy.composites.SingleBandCompositor
+    prerequisites:
+      - name: I02
+        modifiers: [sunz_corrected_iband, rayleigh_corrected_iband]
+    standard_name: corrected_reflectance
+  _crefl10:
+    compositor: !!python/name:satpy.composites.SingleBandCompositor
+    prerequisites:
+      - name: I03
+        modifiers: [sunz_corrected_iband, rayleigh_corrected_iband]
+    standard_name: corrected_reflectance
+
+  false_color:
+    compositor: !!python/name:satpy.composites.RatioSharpenedRGB
+    prerequisites:
+      - name: M11
+        modifiers: [sunz_corrected, rayleigh_corrected]
+      - name: M07
+        modifiers: [sunz_corrected, rayleigh_corrected]
+      - name: M05
+        modifiers: [sunz_corrected, rayleigh_corrected]
+    optional_prerequisites:
+      - name: I02
+        modifiers: [sunz_corrected_iband, rayleigh_corrected_iband]
+    standard_name: false_color
+    high_resolution_band: green
+#  false_color:
+#    compositor: !!python/name:satpy.composites.RatioSharpenedRGB
+#    prerequisites:
+#      # M11
+#      - name: _crefl07
+#      # M07
+#      - name: _crefl02
+#      # M05
+#      - name: _crefl01
+#    optional_prerequisites:
+#      # I02
+#      - name: _crefl09
+#    standard_name: false_color
+#    high_resolution_band: green
+
+  natural_color:
+    compositor: !!python/name:satpy.composites.RatioSharpenedRGB
+    prerequisites:
+      - name: M10
+        modifiers: [sunz_corrected, rayleigh_corrected]
+      - name: M07
+        modifiers: [sunz_corrected, rayleigh_corrected]
+      - name: M05
+        modifiers: [sunz_corrected, rayleigh_corrected]
+    optional_prerequisites:
+      - name: I01
+        modifiers: [sunz_corrected_iband, rayleigh_corrected_iband]
+    standard_name: natural_color
+    high_resolution_band: green
+#  natural_color:
+#    compositor: !!python/name:satpy.composites.RatioSharpenedRGB
+#    prerequisites:
+#      # M10
+#      - name: _crefl06
+#      # M07
+#      - name: _crefl02
+#      # M05
+#      - name: _crefl01
+#    optional_prerequisites:
+#      # I02
+#      - name: _crefl09
+#    standard_name: natural_color
+#    high_resolution_band: green
+
+  true_color_raw:
+    compositor: !!python/name:satpy.composites.GenericCompositor
+    prerequisites:
+    - name: M05
+      modifiers: [sunz_corrected]
+    - name: M04
+      modifiers: [sunz_corrected]
+    - name: M03
+      modifiers: [sunz_corrected]
+    standard_name: true_color
+
+  night_overview:
+    compositor: !!python/name:satpy.composites.GenericCompositor
+    prerequisites:
+    - DNB
+    - DNB
+    - M15
+    standard_name: overview
+
+  night_microphysics:
+    compositor: !!python/name:satpy.composites.GenericCompositor
+    prerequisites:
+    - DNB
+    - M12
+    - M15
+    standard_name: night_microphysics
+
+  ifog:
+    compositor: !!python/name:satpy.composites.DifferenceCompositor
+    prerequisites:
+    - I05
+    - I04
+    standard_name: temperature_difference
+
+  dynamic_dnb:
+    compositor: !!python/name:satpy.composites.viirs.ERFDNB
+    prerequisites:
+      - DNB
+      - dnb_solar_zenith_angle
+      - dnb_lunar_zenith_angle
+      - dnb_moon_illumination_fraction
+    standard_name: equalized_radiance
+    units: "1"
+
+  dynamic_dnb_saturation:
+    compositor: !!python/name:satpy.composites.viirs.ERFDNB
+    prerequisites:
+      - DNB
+      - dnb_solar_zenith_angle
+      - dnb_lunar_zenith_angle
+      - dnb_moon_illumination_fraction
+    standard_name: equalized_radiance
+    units: "1"
+    saturation_correction: true

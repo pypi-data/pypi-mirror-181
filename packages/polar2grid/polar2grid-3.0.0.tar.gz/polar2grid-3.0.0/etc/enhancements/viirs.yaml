@@ -1,0 +1,47 @@
+enhancements:
+  normalized_dnb:
+    sensor: viirs
+    standard_name: equalized_radiance
+    operations:
+      - name: linear_stretch
+        method: !!python/name:satpy.enhancements.stretch
+        kwargs: { stretch: 'crude', min_stretch: 0.0, max_stretch: 1.0 }
+  pre_enhanced_viirs_crefl:
+    sensor: viirs
+    standard_name: preenhanced_crefl
+    operations: []
+
+  # Polar2Grid - VIIRS EDR Active Fires
+  viirs_confidence_cat:
+    name: confidence_cat
+    sensor: viirs
+    operations:
+      - name: colorize
+        method: !!python/name:satpy.enhancements.colorize
+        kwargs:
+          palettes:
+            - {colors: ylorrd, min_value: 7, max_value: 9}
+  viirs_confidence_pct:
+    name: confidence_pct
+    sensor: viirs
+    operations:
+      - name: colorize
+        method: !!python/name:satpy.enhancements.colorize
+        kwargs:
+          palettes:
+            - {colors: ylorrd, min_value: 0, max_value: 100}
+  viirs_fire_power:
+    name: power
+    sensor: viirs
+    operations:
+      - name: colorize
+        method: !!python/name:satpy.enhancements.colorize
+        kwargs:
+          palettes:
+            - {colors: ylorrd, min_value: 0, max_value: 250}
+
+  # VIIRS EDR Flood - Configured in Satpy
+#  viirs_water_detection:
+#    name: WaterDetection
+#    sensor: viirs
+#    operations: {}

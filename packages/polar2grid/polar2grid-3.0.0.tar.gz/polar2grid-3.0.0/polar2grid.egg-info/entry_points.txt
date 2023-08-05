@@ -1,0 +1,4 @@
+[console_scripts]
+geo2grid = polar2grid.__main__:g2g_main
+polar2grid = polar2grid.__main__:p2g_main
+

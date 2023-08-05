@@ -1,0 +1,272 @@
+resampling:
+  default_swath:
+    area_type: swath
+    resampler: nearest
+  default_area:
+    area_type: area
+    # Default 'resampler' will be determined at runtime based on target area
+    default_target: MAX
+
+  default_clavrx_all_products:
+    reader: clavrx
+    area_type: swath
+    resampler: ewa
+    kwargs:
+      weight_delta_max: 40.0
+      weight_distance_max: 1.0
+  default_clavrx_cloud_phase:
+    name: cloud_phase
+    reader: clavrx
+    area_type: swath
+    resampler: ewa
+    kwargs:
+      weight_delta_max: 40.0
+      weight_distance_max: 1.0
+      maximum_weight_mode: true
+  default_clavrx_cloud_type:
+    name: cloud_type
+    reader: clavrx
+    area_type: swath
+    resampler: ewa
+    kwargs:
+      weight_delta_max: 40.0
+      weight_distance_max: 1.0
+      maximum_weight_mode: true
+
+  avhrr_clavrx_all_products:
+    reader: clavrx
+    area_type: swath
+    sensor: avhrr
+    resampler: ewa
+    kwargs:
+      weight_delta_max: 40.0
+      weight_distance_max: 1.0
+      rows_per_scan: 0
+  avhrr_clavrx_cloud_phase:
+    name: cloud_phase
+    reader: clavrx
+    area_type: swath
+    sensor: avhrr
+    resampler: ewa
+    kwargs:
+      weight_delta_max: 40.0
+      weight_distance_max: 1.0
+      maximum_weight_mode: true
+      rows_per_scan: 0
+  avhrr_clavrx_cloud_type:
+    name: cloud_type
+    reader: clavrx
+    area_type: swath
+    sensor: avhrr
+    resampler: ewa
+    kwargs:
+      weight_delta_max: 40.0
+      weight_distance_max: 1.0
+      maximum_weight_mode: true
+      rows_per_scan: 0
+  default_amsr2:
+    area_type: swath
+    sensor: amsr2
+    resampler: nearest
+    kwargs:
+      radius_of_influence: 7200
+  default_viirs_sdr:
+    area_type: swath
+    sensor: viirs
+    reader: viirs_sdr
+    resampler: ewa
+    kwargs:
+      weight_delta_max: 40.0
+      weight_distance_max: 2.0
+  default_viirs_l1b:
+    area_type: swath
+    sensor: viirs
+    reader: viirs_l1b
+    resampler: ewa
+    kwargs:
+      weight_delta_max: 40.0
+      weight_distance_max: 2.0
+  default_nucaps:
+    area_type: swath
+    reader: nucaps
+    resampler: nearest
+    kwargs:
+      radius_of_influence: 40000
+  default_modis:
+    area_type: swath
+    sensor: modis
+    resampler: ewa
+    kwargs:
+      weight_delta_max: 10.0
+      weight_distance_max: 1.0
+  default_seadas_l2_viirs:
+    area_type: swath
+    sensor: viirs
+    reader: seadas_l2
+    resampler: ewa
+    kwargs:
+      weight_delta_max: 40.0
+      weight_distance_max: 2.0
+  default_seadas_l2_modis:
+    area_type: swath
+    sensor: modis
+    reader: seadas_l2
+    resampler: ewa
+    kwargs:
+      weight_delta_max: 10.0
+      weight_distance_max: 2.0
+  default_avhrr:
+    area_type: swath
+    sensor: avhrr
+    resampler: ewa
+    kwargs:
+      weight_delta_max: 10.0
+      weight_distance_max: 1.0
+      rows_per_scan: 0
+  default_mirs_amsu:
+    area_type: swath
+    sensor: amsu
+    reader: mirs
+    resampler: ewa
+    kwargs:
+      weight_delta_max: 100.0
+      weight_distance_max: 1.0
+      rows_per_scan: 0
+  default_mirs_amsu-mhs:
+    area_type: swath
+    sensor: amsu-mhs
+    reader: mirs
+    resampler: ewa
+    kwargs:
+      weight_delta_max: 100.0
+      weight_distance_max: 1.0
+      rows_per_scan: 0
+  default_mirs_atms:
+    area_type: swath
+    sensor: atms
+    reader: mirs
+    resampler: ewa
+    kwargs:
+      weight_delta_max: 100.0
+      weight_distance_max: 1.0
+      rows_per_scan: 0
+
+  # AVHRR L1B AAPP
+  default_avhrr_band1_vis:
+    area_type: swath
+    name: band1_vis
+    resampler: ewa
+    kwargs:
+      weight_delta_max: 10.0
+      weight_distance_max: 1.0
+  default_avhrr_band2_vis:
+    area_type: swath
+    name: band2_vis
+    resampler: ewa
+    kwargs:
+      weight_delta_max: 10.0
+      weight_distance_max: 1.0
+  default_avhrr_band3a_vis:
+    area_type: swath
+    name: band3a_vis
+    resampler: ewa
+    kwargs:
+      weight_delta_max: 10.0
+      weight_distance_max: 1.0
+  default_avhrr_band3b_bt:
+    area_type: swath
+    name: band3b_bt
+    resampler: ewa
+    kwargs:
+      weight_delta_max: 10.0
+      weight_distance_max: 1.0
+  default_avhrr_band4_bt:
+    area_type: swath
+    name: band4_bt
+    resampler: ewa
+    kwargs:
+      weight_delta_max: 10.0
+      weight_distance_max: 1.0
+  default_avhrr_band5_bt:
+    area_type: swath
+    name: band5_bt
+    resampler: ewa
+    kwargs:
+      weight_delta_max: 10.0
+      weight_distance_max: 1.0
+
+  # VIIRS EDR Fire
+  default_viirs_fire_T4:
+    area_type: swath
+    sensor: viirs
+    name: T4
+    resampler: nearest
+    kwargs:
+      grid_coverage: 0
+      radius_of_influence: 2000
+  default_viirs_fire_T13:
+    area_type: swath
+    sensor: viirs
+    name: T13
+    resampler: nearest
+    kwargs:
+      grid_coverage: 0
+      radius_of_influence: 2000
+  default_viirs_fire_confidence_cat:
+    area_type: swath
+    sensor: viirs
+    name: confidence_cat
+    resampler: nearest
+    kwargs:
+      grid_coverage: 0
+      radius_of_influence: 2000
+  default_viirs_fire_confidence_pct:
+    area_type: swath
+    sensor: viirs
+    name: confidence_pct
+    resampler: nearest
+    kwargs:
+      grid_coverage: 0
+      radius_of_influence: 2000
+  default_viirs_fire_power:
+    area_type: swath
+    sensor: viirs
+    name: power
+    resampler: nearest
+    kwargs:
+      grid_coverage: 0
+      radius_of_influence: 2000
+
+  # ACSPO SST
+  default_acspo_sst_viirs:
+    area_type: swath
+    name: sst
+    sensor: viirs
+    resampler: ewa
+    kwargs:
+      weight_delta_max: 40.0
+      weight_distance_max: 1.0
+  default_acspo_sst_modis:
+    area_type: swath
+    name: sst
+    sensor: modis
+    resampler: ewa
+    kwargs:
+      weight_delta_max: 40.0
+      weight_distance_max: 1.0
+  default_acspo_sst_avhrr:
+    area_type: swath
+    name: sst
+    sensor: avhrr
+    resampler: ewa
+    kwargs:
+      weight_delta_max: 40.0
+      weight_distance_max: 1.0
+
+  default_mersi2_l1b:
+    area_type: swath
+    reader: mersi2_l1b
+    resampler: ewa
+    kwargs:
+      weight_delta_max: 40.0
+      weight_distance_max: 1.0
