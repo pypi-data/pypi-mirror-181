@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+document/description.md
+simplewave/__init__.py
+simplewave/__main__.py
+simplewave/__version__.py
+simplewave/simplewave.py
+simplewave.egg-info/PKG-INFO
+simplewave.egg-info/SOURCES.txt
+simplewave.egg-info/dependency_links.txt
+simplewave.egg-info/entry_points.txt
+simplewave.egg-info/requires.txt
+simplewave.egg-info/top_level.txt
