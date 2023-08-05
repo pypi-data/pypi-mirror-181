@@ -1,0 +1,85 @@
+Metadata-Version: 2.1
+Name: ampel-nuclear
+Version: 0.8.3a0
+Summary: Astronomy units for the Ampel system to analyze nuclear events like TDEs
+Home-page: https://ampelproject.github.io
+License: BSD-3-Clause
+Author: Valery Brinnel
+Requires-Python: >=3.10,<3.11
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Typing :: Typed
+Requires-Dist: ampel-hu-astro[slack,sncosmo] (>=0.8.3a2,<0.8.4)
+Requires-Dist: ampel-photometry (>=0.8.3-alpha.2,<0.8.4)
+Requires-Dist: ampel-plot (>=0.8.3,<0.9.0)
+Requires-Dist: ampel-ztf[kafka] (>=0.8.3a4,<0.8.4)
+Requires-Dist: astropy (>=5.0,<6.0)
+Requires-Dist: backoff (>=2,<3)
+Requires-Dist: beautifulsoup4 (>=4.10.0,<5.0.0)
+Requires-Dist: corner (>=2.2.1,<3.0.0)
+Requires-Dist: dropbox (>=11.36.0,<12.0.0)
+Requires-Dist: iminuit (>=2.8.0,<3.0.0)
+Requires-Dist: numpy (>=1,<2)
+Requires-Dist: pandas (>=1.3.3,<2.0.0)
+Requires-Dist: pre-commit (>=2.20.0,<3.0.0)
+Requires-Dist: requests (>=2.26.0,<3.0.0)
+Requires-Dist: scipy (>=1.4,<2.0)
+Requires-Dist: sfdmap (>=0.1.1,<0.2.0)
+Requires-Dist: sncosmo (>=2.5.0,<3.0.0)
+Project-URL: Repository, https://github.com/AmpelProject/Ampel-nuclear
+Description-Content-Type: text/markdown
+
+# Ampel-nuclear
+Central repository to host AMPEL code to search for and analyze nuclear transients. At the moment, this is exclusively code from the ZTFbh science working group.
+
+## Installation
+### Prerequisites
+You need to export environment variables for the [AMPEL ZTF archive](https://ampelproject.github.io/astronomy/ztf/index) (tokens are available [here](https://ampel.zeuthen.desy.de/live/dashboard/tokens)), for [Fritz](https://fritz.science/), and for the dropbox API (ask Sjoert). 
+
+Furthermore, you need a running instance of [MongoDB](https://www.mongodb.com/docs/manual/installation/).
+
+### Setup
+Create a fresh Python 3.10 conda env
+```
+conda create -n tde_filter_upgrade python=3.10
+conda activate tde_filter_upgrade
+```
+Install is done via poetry:
+```
+pip install poetry 
+git clone https://github.com/AmpelProject/ampel-nuclear
+cd Ampel-nuclear
+poetry install
+```
+Now we have to build the ampel config. Issue
+```
+ampel config build -out ampel_conf.yaml
+```
+Note: this will throw some import errors, but you can ignore these because those packages are not needed locally. 
+
+Now you need to export the following tokens
+```
+export AMPEL_ARCHIVE_TOKEN='' 
+export DROPBOX_TOKEN=''
+export FRITZ_TOKEN=''
+```
+
+## Test
+To run the test, start your local MongoDB. And then issue
+
+```
+./run_tde_scan.py -i
+```
+
+The `-i` initiates (and saves) a new archive API stream token. To change the date, use `-d YYYY-MM-DD` for a certain day. The script will request alerts for the 24 hours after this date. 
+
+Note: When requesting a full day with `-d` from the archive, the first run will probably fail, as the archive database has not fully ramped up yet (`URL is locked`). In this case, just rerun `./run_tde_scan.py -d YYYY-MM-DD` (without `i` to prevent requesting a new stream token and overwriting the current one) until the archive starts serving alerts (you will see them getting ingested).
+
+To check the output, go to the `temp` directory that gets created when script is run without `-p` (push to dropbox).
+
+To see all available commands of the test script, run `./run_tde_scan.py -h`.
+
