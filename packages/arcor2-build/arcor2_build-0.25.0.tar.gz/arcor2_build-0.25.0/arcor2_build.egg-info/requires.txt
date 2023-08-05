@@ -1,0 +1,5 @@
+Flask~=2.2.2
+arcor2_build_data~=0.13.0
+arcor2~=0.26.0
+dataclasses-jsonschema[apispec,fast-dateparsing,fast-uuid,fast-validation]~=2.16.0
+pyhumps==3.8.0
