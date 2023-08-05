@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: pyrus-orm
+Version: 0.0.2
+Summary: Radically simple ORM for Pyrus's tasks
+License: MIT
+Author: Alexey Sveshnikov
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: pyrus-api (>=2.13.0,<3.0.0)
