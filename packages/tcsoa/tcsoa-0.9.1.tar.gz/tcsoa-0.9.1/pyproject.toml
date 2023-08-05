@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "tcsoa"
+version = "0.9.1"
+description = "A framework generated for the purpose of consuming Teamcenter™ services via Python."
+license = "MIT"
+authors = ["Alexander Haas"]
+include = ["tcsoa/**/*.py"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+requests = "^2.27.1"
+pythonnet = {version="^2.5.2", optional=true}
+Deprecated = "^1.2.13"
+
+[tool.poetry.dev-dependencies]
+peewee = "^3.14.10"
+pytest = "^7.1.2"
+twine = "^4.0.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

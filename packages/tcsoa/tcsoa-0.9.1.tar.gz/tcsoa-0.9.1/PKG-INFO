@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: tcsoa
+Version: 0.9.1
+Summary: A framework generated for the purpose of consuming Teamcenter™ services via Python.
+License: MIT
+Author: Alexander Haas
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: Deprecated (>=1.2.13,<2.0.0)
+Requires-Dist: pythonnet (>=2.5.2,<3.0.0)
+Requires-Dist: requests (>=2.27.1,<3.0.0)
