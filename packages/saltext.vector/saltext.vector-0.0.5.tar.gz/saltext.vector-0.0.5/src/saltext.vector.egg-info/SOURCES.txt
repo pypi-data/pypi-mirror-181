@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+src/saltext.vector.egg-info/PKG-INFO
+src/saltext.vector.egg-info/SOURCES.txt
+src/saltext.vector.egg-info/dependency_links.txt
+src/saltext.vector.egg-info/entry_points.txt
+src/saltext.vector.egg-info/not-zip-safe
+src/saltext.vector.egg-info/requires.txt
+src/saltext.vector.egg-info/top_level.txt
+src/saltext/vector/__init__.py
+src/saltext/vector/version.py
+src/saltext/vector/engines/__init__.py
+src/saltext/vector/engines/vector.py
