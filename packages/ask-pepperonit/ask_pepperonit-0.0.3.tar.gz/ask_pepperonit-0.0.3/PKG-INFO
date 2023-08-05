@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: ask_pepperonit
+Version: 0.0.3
+Summary: Say Hello!
+Home-page: https://github.com/D7017E/Web_Interaction_Package
+Author: Oscar Lundberg
+Author-email: jensoscarlundberg95@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2.7
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Web_Interaction_Package (ask_pepperonit)
+
+This is a small part collection of methods from a Pepper project. This package does not have any value by itself, but is rather customized for our colleagues to call upon certain methods within their block-programming module.
+
+Functionality mainly revolves around doing calls to Google's and Wikipedia's API with text(string) input and having Pepper display the results in an appropriate way.
+
+## Installation
+
+Run the following to install:
+
+```bash
+pip install ask_pepperonit
+```
+
+## Usage
+TODO
+
+## Contribution
+```bash
+python setup.py bdist_wheel sdist
+```
+then:
+```bash
+twine upload dist/*
+```
+
+## LICENSE
+MIT License
+
