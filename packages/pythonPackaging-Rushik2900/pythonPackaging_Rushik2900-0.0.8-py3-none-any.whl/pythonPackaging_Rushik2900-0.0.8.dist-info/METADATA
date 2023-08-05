@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: pythonPackaging-Rushik2900
+Version: 0.0.8
+Summary: Its an implementation of perceptron
+Home-page: https://github.com/Rushik2900/pythonPackaging
+Author: Rushik2900
+Author-email: rush2900@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: tqdm
+
+# pythonPakaging
+pythonPackaging
+
+## How to use this
+
+```python
+from Perceptron.perceptron import Perceptron
+
+# get x and y and then use below commands
+model=Perceptron(eta=ETA, epochs=EPOCHS)
+model.fit(X, y)
+```
+
+## Reference - 
+[official python docs](https://packaging.python.org/en/latest/tutorials/packaging-projects/)
+
+[github docs for github actions](https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python#publishing-to-package-registeries)
