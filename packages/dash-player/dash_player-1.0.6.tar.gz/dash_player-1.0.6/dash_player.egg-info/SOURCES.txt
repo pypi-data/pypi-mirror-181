@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+dash_player/DashPlayer.py
+dash_player/__init__.py
+dash_player/_imports_.py
+dash_player/dash_player.min.js
+dash_player/metadata.json
+dash_player/package.json
+dash_player.egg-info/PKG-INFO
+dash_player.egg-info/SOURCES.txt
+dash_player.egg-info/dependency_links.txt
+dash_player.egg-info/requires.txt
+dash_player.egg-info/top_level.txt
