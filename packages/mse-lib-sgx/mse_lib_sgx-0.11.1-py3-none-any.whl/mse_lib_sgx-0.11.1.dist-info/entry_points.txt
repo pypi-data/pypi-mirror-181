@@ -1,0 +1,2 @@
+[console_scripts]
+mse-run = mse_lib_sgx.cli:run
