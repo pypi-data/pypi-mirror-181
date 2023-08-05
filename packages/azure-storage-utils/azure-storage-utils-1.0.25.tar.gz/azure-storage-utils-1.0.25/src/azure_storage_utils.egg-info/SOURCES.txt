@@ -1,0 +1,14 @@
+README.md
+setup.py
+src/azure_storage_utils/PipelineOperator.py
+src/azure_storage_utils/__init__.py
+src/azure_storage_utils.egg-info/PKG-INFO
+src/azure_storage_utils.egg-info/SOURCES.txt
+src/azure_storage_utils.egg-info/dependency_links.txt
+src/azure_storage_utils.egg-info/requires.txt
+src/azure_storage_utils.egg-info/top_level.txt
+src/azure_storage_utils/Mapping/ContainerMap.py
+src/azure_storage_utils/Mapping/FileShareMap.py
+src/azure_storage_utils/Mapping/MapComparator.py
+src/azure_storage_utils/Mapping/MapReporter.py
+src/azure_storage_utils/Mapping/__init__.py
