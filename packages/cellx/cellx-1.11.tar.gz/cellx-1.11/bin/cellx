@@ -1,0 +1,91 @@
+#!/usr/bin/env python3
+#
+# Command-driven drawing/visualization/animation/presentation tool.
+# Copyright (c) 2018-2019, Hiroyuki Ohsaki.
+# All rights reserved.
+#
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+# macro expansion support is contributed by Hal.
+
+import fileinput
+import subprocess
+import sys
+import threading
+
+from perlcompat import die, getopts
+import cellx
+
+def usage():
+    die("""\
+usage: {} [-E] [-c #] [-M class] [-F rate] [-L rate] [-A alpha] [-m #] [file...]
+  -E        enable macro expansion with cpp
+  -c #      select color scheme
+  -M class  monitor class (Null/SDL/SDL_Filter/PostScript) (default: SDL)
+  -F rate   the number of frames per animation/fading
+  -L rate   limit the frame rate (default: infinity)
+  -A alpha  alpha for filtering effect (0 <= alpha <= 255)
+  -m #  the number of frames to render (default: infinity)
+""".format(sys.argv[0]))
+
+def read_via_cpp(parser):
+    # filter all input lines via pre-processor
+    # NOTE: filter process is invoked as a subprocess, and a thread is created
+    # to continuously read output from the subprocess.
+    filter = subprocess.Popen(['cpp'],
+                              stdin=subprocess.PIPE,
+                              stdout=subprocess.PIPE)
+
+    def reader():
+        for line in filter.stdout:
+            line = line.decode().rstrip()
+            parser.parse_line(line)
+
+    th = threading.Thread(target=reader)
+    th.start()
+    for line in fileinput.input():
+        filter.stdin.write(line.encode())
+    filter.stdin.close()
+    # wait until the thread is terminated
+    th.join()
+
+def main():
+    opt = getopts('dEc:M:F:L:A:m:') or usage()
+    debug = opt.d
+    enable_cpp = opt.E
+    color_scheme = int(opt.c) if opt.c else 0
+    monitor_class = opt.M if opt.M else 'SDL'
+    frame_rate = float(opt.F) if opt.F else 30
+    rate_limit = float(opt.L) if opt.L else None
+    alpha = int(opt.A) if opt.A else 64
+
+    cls = eval('cellx.monitor.' + monitor_class)
+    mon = cls(color_scheme=color_scheme, alpha=alpha)
+
+    cel = cellx.Cell(monitor=mon, frame_rate=frame_rate, rate_limit=rate_limit)
+
+    parser = cellx.Parser(cell=cel)
+
+    if enable_cpp:
+        read_via_cpp(parser)
+    else:
+        for line in fileinput.input():
+            line = line.rstrip()
+            if debug:
+                print(line, file=sys.stderr)
+            parser.parse_line(line)
+
+if __name__ == "__main__":
+    main()
