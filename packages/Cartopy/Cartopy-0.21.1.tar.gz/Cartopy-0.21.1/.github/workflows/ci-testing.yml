@@ -1,0 +1,105 @@
+name: Tests
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    if: github.repository == 'scitools/cartopy'
+
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        python-version: [3.8, 3.9, '3.10']
+        shapely-dev: [false]
+        include:
+          - os: ubuntu-latest
+            python-version: '3.10'
+            shapely-dev: true
+    defaults:
+      run:
+        shell: bash -l {0}
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: test-environment
+          python-version: ${{ matrix.python-version }}
+          channels: conda-forge/label/testing,conda-forge
+
+      - name: Minimum packages
+        # Only run on Linux for now
+        # Conda's linux packages don't grab the testing label of matplotlib causing failures due to freetype differences
+        if: matrix.python-version == '3.8' && matrix.os == 'ubuntu-latest'
+        id: minimum-packages
+        run: |
+          echo "PACKAGES=cython=0.29.15 matplotlib-base=3.2.1 numpy=1.19 owslib=0.19.1 pyproj=3.0 scipy=1.4.0 shapely=1.6.4" >> $GITHUB_ENV
+
+      - name: Latest packages
+        if: steps.minimum-packages.conclusion == 'skipped' && !matrix.shapely-dev
+        run: |
+          echo "PACKAGES=cython fiona matplotlib-base numpy pyproj pykdtree scipy shapely" >> $GITHUB_ENV
+
+      - name: Latest packages with Shapely dev
+        if: steps.minimum-packages.conclusion == 'skipped' && matrix.shapely-dev
+        run: |
+          echo "PACKAGES=cython fiona matplotlib-base numpy pyproj pykdtree scipy geos" >> $GITHUB_ENV
+
+      - name: Coverage packages
+        id: coverage
+        # only want the coverage to be run on the latest ubuntu
+        if: matrix.python-version == '3.10' && matrix.os == 'ubuntu-latest'
+        run: |
+          echo "PACKAGES=$PACKAGES pytest-cov coveralls" >> $GITHUB_ENV
+          echo "CYTHON_COVERAGE=1" >> $GITHUB_ENV
+          echo "EXTRA_TEST_ARGS=--cov=cartopy -ra" >> $GITHUB_ENV
+
+      - name: Install dependencies
+        run: |
+          PACKAGES="$PACKAGES owslib pep8 pillow pyshp pytest pytest-mpl!=0.16.0"
+          PACKAGES="$PACKAGES pytest-xdist setuptools_scm"
+          conda install $PACKAGES
+          conda info -a
+          conda list
+
+      - name: Install Shapely dev
+        if: matrix.shapely-dev
+        run: |
+          python -m pip install git+https://github.com/shapely/shapely.git@main
+
+      - name: Install Cartopy
+        id: install
+        run: |
+          MPL_CONFIG_DIR=~/.config/matplotlib
+          mkdir -p $MPL_CONFIG_DIR
+          echo "backend : agg" > $MPL_CONFIG_DIR/matplotlibrc
+          pip install --no-deps -e .
+          python -c "import cartopy; print('Version ', cartopy.__version__)"
+
+      - name: Testing
+        id: test
+        run: |
+          # Check that the downloader tool at least knows where to get the data from (but don't actually download it)
+          python tools/cartopy_feature_download.py gshhs physical --dry-run
+          CARTOPY_GIT_DIR=$PWD
+          PYPROJ_GLOBAL_CONTEXT=ON pytest -ra -n 4 --doctest-modules \
+              --color=yes \
+              --mpl --mpl-generate-summary=html \
+              --mpl-results-path="cartopy_test_output-${{ matrix.os }}-${{ matrix.python-version }}" \
+              --pyargs cartopy ${EXTRA_TEST_ARGS}
+
+      - name: Coveralls
+        if: steps.coverage.conclusion == 'success'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run:
+          coveralls --service=github
+
+      - name: Upload image results
+        uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: image-failures-${{ matrix.os }}-${{ matrix.python-version }}
+          path: cartopy_test_output-${{ matrix.os }}-${{ matrix.python-version }}
