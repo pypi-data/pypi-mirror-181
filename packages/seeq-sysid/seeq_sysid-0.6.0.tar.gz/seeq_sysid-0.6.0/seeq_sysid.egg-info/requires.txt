@@ -1,0 +1,10 @@
+ipyvuetify>=1.2.2
+ipywidgets
+gekko
+numpy
+pandas
+plotly
+seeq
+tensorflow>=2.1
+keras-tuner==1.0.4
+scipy
