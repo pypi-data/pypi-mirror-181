@@ -1,0 +1,17 @@
+beautifulsoup4==4.9.3
+camelot-py[base]==0.9.0
+chromedriver-binary-auto
+ghostscript
+html5lib==1.1
+lxml==4.6.2
+oauthlib==3.1.1
+opencv-python
+pandas==1.3.2
+python-levenshtein==0.12.2
+pyyaml==5.4.1
+rapidfuzz==1.7.1
+requests
+selenium==3.141.0
+sqlalchemy==1.4.22
+tqdm==4.62.1
+urllib3==1.26.6

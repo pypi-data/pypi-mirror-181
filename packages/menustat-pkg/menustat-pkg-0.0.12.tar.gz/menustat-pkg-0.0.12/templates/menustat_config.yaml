@@ -1,0 +1,134 @@
+cleaners:
+
+  gen_cleaners:
+    # regex match for numbers w/ possible decimals followed by "oz" or "fl oz"
+    serving_in_name:
+      - '\s?\(?(\d+(\.\d+)?\s*((fl )?oz|FL|liter))\)?'
+      - ', (\d+(\.\d{1,3})?( \w+)*)$'
+    serving_unit_list: ["g", "fl oz", "oz", "ml", "L"]
+    ss_text: '\d+(\.d+)?\-d+(\.d+)?'
+    ss_unit: '\d+\s*(g|oz|fl\s*oz|ml|L)'
+    ss_house: '\d+( \w{4,})+'
+    remove_from_desc: '1 serving = 1 slice = 1\/(4|8|12|16)(th)? of (the )?pizza'
+    household_serving_list: ["large", "medium", "bowl", "cup", "small/kids", "small", "crock", "gallon"]
+    keepcap: ["oz","on","ct","lb", "fl", "w/", "of", "or", "a", "ml", "BBQ", "XL", "BLT", "B.L.T.", "w/out", "X-Large"]
+    nd_cleaner:
+      '\n': ' '
+      ' without ': ' w/out '
+      ' \(?[Ww][Ii][Tt][Hh] ': ' w/ '
+      '|<[a-z]{1,4}>| - *$': ''
+      '[∆®™‡]|300 calories or less & at least 8g of protein|\(where available\)|\([Rr]\)': ''
+      '(,\s*$)': ''
+      ' fl$': ' fl oz'
+      ' - ': ', '
+      ' {2,}': ' '
+      ' (and|\+) ': ' & '
+      'ñ': 'n'
+      '[Ff]l. [Oo]z': 'fl oz'
+      'less than ': '<'
+      ' grams': ' g'
+      ' \((half|full) Salad\)$': ', \1 salad'
+      '\((\d) Tacos\)': ', \1 Tacos'
+      '\-+(\d) Cookies': ', \1 Cookies'
+      'W\/': 'w\/ '
+      '\) or \(': ' or '
+      ' milliliters': ' ml'
+      ' fluid ounces': ' fl oz'
+      # '(\d+)oz': '\1 oz'
+      # '(\d+)ml': '\1 ml'
+      ' (oz\.|ounces?)': ' oz'
+      'kids menu': 'Kids'
+      ' \(Reg\)': ', Regular'
+      '^Kid.?[Ss] (.*)': '\1, Kids'
+      ' inch(es)? ': ' in '
+      ' degree ': '° '
+      ' Jr\.': ' Jr'
+      '\(Where Available\)': ""
+      ' Half[ $]': ' ½ '
+
+  pdf_cleaners:
+    single_junkrows: '^(Menu Item|NUTRI_0120|\dof7)$|utrition(al analyses which| Information|™?$)|USA Nutritionals|NUTRITIONAL INFORMATION|CANADA ONLY|Nutrition(\t|\s)Guide|S a t u|If you have |has made an effort to provide complete|Nutrient amounts may vary|cont(\.|inued)'
+    header_match: '(CAL|FAT).*(TRANS|FAT).*(CARB|PROT|CHOLES|SODIUM)'
+    note_matches:
+      - '(?P<notes>Items Available at License Locations Only)'
+      - '(?P<notes> - not available at all locations)'
+      - '(?P<notes>\((Columbus, New York, New Jersey|Los Angeles ).*)'
+      # - '(?P<notes>NYC & Philadelphia Only)'
+      - '(?P<notes>\^Nutrition and Allergen Information Shown is Made on Plain Bagel)'
+      - '(?P<category>^.*[A-Z]{4,}) (?P<notes>Listed W/Out.*$)'
+      - '(?P<category>^.*[A-Z]{4,}) (?P<notes>\w{2,} \..*$)'
+      # - '(?P<category>^.*\w{2,}( \w{2,})*) *- (?P<note>\w{2,} .*$)'
+  web_cleaners:
+    wrong_cat_names: '(Party Platter|Fiesta Packs|Full Menu|Catering|Take Home|Delivery|learn more|brew at home)'
+    wrong_cat_urls: '(.*culvers.*(kids-meals|value-baskets|beverages|mindful-choices)|.*starbucks.*(merch|at-home-coffee).*|.*subway.*Menu\/Featured)'
+
+col_replace_dict:
+  '\s+|-|_+': '_'
+  '\.': ''
+  '[_ ]m?g$|[_ ]?total[_ ]?|\(m?g\)|\\n|\*': ''
+  '\s?\((m?g\.?|k?cals?\.?\s?|(milli)*grams)\)\s?': ''
+nutr_col_dict:
+  calorie: calories
+  cal: calories
+  carb: carbohydrates
+  carbo: carbohydrates
+  carbohydrate: carbohydrates
+  chol: cholesterol
+  cholestrerol: cholesterol
+  fat: total_fat
+  fiber: dietary_fiber
+  fib: dietary_fiber
+  nutrition_facts_per_serving: serving_size
+  servings_per_container: serving_size
+  prot: protein
+  portion_size: serving_size
+  portion: serving_size
+  sat: saturated_fat
+  sat_fat: saturated_fat
+  choleste_rol: cholesterol
+  saturate_d_fat: saturated_fat
+  serving_weight: serving_size
+  serving: serving_size
+  servingsize: serving_size
+  weight: serving_size
+  sod: sodium
+  sug: sugar
+  tran: trans_fat
+  trans_fatty_acid: trans_fat
+
+scrapers:
+  pdf_scrapers:
+    Example:
+      # readconf is for manually setting the way camelot reads a pdf
+      readconf:
+        - {"pages":"1-end","flavor":'stream', "edge_tol":100,"row_tol":10}
+        - {"pages":"1-end", "flavor":"stream", "split_text":True, "table_areas":["0,580,420,28"], "columns":["180,230,255,270,290,310,325,340,360,375,390"]}
+      # col_setter manually assigns the
+      col_setter: {"fat_cal":0, "m_s":0}
+      operations: ["headers_cats_combined", "allow_small_df", 'add_name_to_sizes', 'delete_newlined']
+  calculators:
+    Example:
+      add_button: 'css_selector_here'
+      rm_button: 'css_selector_here'
+      cust_div_css: 'css_selector_here'
+      cust_item_sect: 'css_selector_here'
+  web_scrapers:
+    Example:
+  #     cat_dict:
+      cat_menu_css: 'css_selector_here'
+      cat_name_css: 'css_selector_here'
+      categories_css: 'css_selector_here'
+      item_divs_css: 'css_selector_here'
+      item_name_css: 'css_selector_here'
+      iurl_css: 'css_selector_here'
+      menu_div_css: 'css_selector_here'
+  #     menu_structure:
+  #     nfacts_method:
+  #     table_nav_css:
+  #     -
+  #     -
+  #     -
+  #     url:
+  #     vars:
+  #     -
+  #     -
