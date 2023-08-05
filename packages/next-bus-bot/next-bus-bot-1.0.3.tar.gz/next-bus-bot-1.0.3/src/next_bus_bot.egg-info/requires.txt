@@ -1,0 +1,14 @@
+requests
+
+[:python_version <= "3.10"]
+tomli
+
+[dev]
+black
+isort
+
+[test]
+pytest
+pytest-cov
+pytest-xdist
+pytest-sugar

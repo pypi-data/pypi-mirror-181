@@ -1,0 +1,69 @@
+[project]
+name = "next-bus-bot"
+description = "Get the next in coming buses at a Paris area Station."
+
+version = "1.0.3"
+authors =[
+{name="Pierre-Antoine Comby", email="pierre-antoine.comby@crans.org"}
+]
+
+dependencies = [
+  "requests",
+  "tomli; python_version <= '3.10'",
+]
+
+readme = "README.rst"
+
+requires-python = ">=3.7"
+# For a list of valid classifiers, see https://pypi.org/classifiers/
+classifiers = [ 
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Topic :: Utilities",
+  # Pick your license as you wish
+  "License :: OSI Approved :: MIT License",
+  # Specify the Python versions you support here. In particular, ensure
+  # that you indicate you support Python 3. These classifiers are *not*
+  # checked by "pip install". See instead "python_requires" below.
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+]
+
+[project.scripts]
+nbb = "nbb.cli:main"
+
+[project.optional-dependencies]
+test = ["pytest", "pytest-cov", "pytest-xdist", "pytest-sugar"]
+dev = ["black", "isort"]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+
+[tool.setuptools]
+
+package-data = {"nbb" = ["*.toml"]}
+
+[tool.coverage.run]
+omit = ["*tests*"]
+
+[tool.coverage.report]
+precision = 2
+exclude_lines = ["pragma: no cover", "raise NotImplementedError"]
+
+# Formatting using black.
+[tool.black]
+
+[tool.isort]
+profile="black"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = [
+    "--cov=nbb",
+    "--cov-report=term-missing",
+    "--cov-report=xml"
+]
