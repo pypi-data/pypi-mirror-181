@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: connectionist
+Version: 0.0.0a4
+Summary: Tools for classical connectionist models of reading with TensorFlow
+Author-email: Jason Lo <lcmjlo@gmail.com>
+License-File: LICENSE
+Requires-Dist: tensorflow==2.*
