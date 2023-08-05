@@ -1,0 +1,15 @@
+chardet
+numpy
+pandas
+matplotlib
+seaborn
+networkx
+openpyxl
+websockets
+sqlalchemy
+astunparse
+pprintast
+cloudpickle
+cython==3.0.0a10
+scikit-opt~=0.6
+rpyc
