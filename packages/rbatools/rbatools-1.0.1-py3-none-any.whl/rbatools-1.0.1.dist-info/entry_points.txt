@@ -1,0 +1,4 @@
+[console_scripts]
+generate-sbtab-of-model-for-html = rbatools.cli.generate_sbtab_of_model_for_html:main
+run-growth-rate-optimization = rbatools.cli.run_growth_rate_optimization:main
+
