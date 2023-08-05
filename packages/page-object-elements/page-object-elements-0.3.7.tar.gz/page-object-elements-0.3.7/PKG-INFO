@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: page-object-elements
+Version: 0.3.7
+Summary: Page Object Elements
+Home-page: https://pypi.org/project/page-object-elements/
+Author: Ranisavljevic Milan
+Author-email: ramdjaram@gmail.com
+License: MIT
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+## Page Object Elements
+
+Dist: [pypi.org](https://pypi.org/project/page-object-elements/)
+
+### Installation
+
+`pip install page-object-elements`
+
+### Aspect Logger
+
+To customize behaviour of **poe** logger, `poe.ini` should be in the root of project (or in some child dirs). If not
+present or some of the values aren't set in `poe.ini` (**e.g** `logs_absolute_path`) default values will be applied.
+
+```
+poe.ini
+
+[LOGGER]
+level = DEBUG
+log_name = log
+stdout = True
+logs_absolute_path = C:\Users\<username>\workspace\<project>
+```
