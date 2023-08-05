@@ -1,0 +1,1 @@
+from .generate_input_contents import generate_input_contents
