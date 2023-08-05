@@ -1,0 +1,14 @@
+google-api-python-client>=2.55.0
+idem>=20.0.0
+idem-aiohttp>=1.0.3
+pop>=20.1.1
+deepdiff>=5.8.1
+importlib_resources>=5.9.0
+
+[autogen]
+pop-create-idem>=3.0.0
+typing_extensions>=4.4.0
+
+[full]
+pop-create-idem>=3.0.0
+typing_extensions>=4.4.0
