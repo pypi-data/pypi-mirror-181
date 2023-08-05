@@ -1,0 +1,20 @@
+[console_scripts]
+classification_tf1 = nvidia_tao_deploy.cv.classification_tf1.entrypoint.classification_tf1:main
+classification_tf2 = nvidia_tao_deploy.cv.classification_tf2.entrypoint.classification_tf2:main
+deformable_detr = nvidia_tao_deploy.cv.deformable_detr.entrypoint.deformable_detr:main
+detectnet_v2 = nvidia_tao_deploy.cv.detectnet_v2.entrypoint.detectnet_v2:main
+dssd = nvidia_tao_deploy.cv.ssd.entrypoint.ssd:main
+efficientdet_tf1 = nvidia_tao_deploy.cv.efficientdet_tf1.entrypoint.efficientdet_tf1:main
+efficientdet_tf2 = nvidia_tao_deploy.cv.efficientdet_tf2.entrypoint.efficientdet_tf2:main
+faster_rcnn = nvidia_tao_deploy.cv.faster_rcnn.entrypoint.faster_rcnn:main
+lprnet = nvidia_tao_deploy.cv.lprnet.entrypoint.lprnet:main
+mask_rcnn = nvidia_tao_deploy.cv.mask_rcnn.entrypoint.mask_rcnn:main
+multitask_classification = nvidia_tao_deploy.cv.multitask_classification.entrypoint.multitask_classification:main
+retinanet = nvidia_tao_deploy.cv.retinanet.entrypoint.retinanet:main
+segformer = nvidia_tao_deploy.cv.segformer.entrypoint.segformer:main
+ssd = nvidia_tao_deploy.cv.ssd.entrypoint.ssd:main
+unet = nvidia_tao_deploy.cv.unet.entrypoint.unet:main
+yolo_v3 = nvidia_tao_deploy.cv.yolo_v3.entrypoint.yolo_v3:main
+yolo_v4 = nvidia_tao_deploy.cv.yolo_v4.entrypoint.yolo_v4:main
+yolo_v4_tiny = nvidia_tao_deploy.cv.yolo_v4.entrypoint.yolo_v4:main
+

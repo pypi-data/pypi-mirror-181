@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: nvidia-tao-deploy
+Version: 4.0.0.1
+Summary: NVIDIA's package for deploying models from TAO Toolkit.
+Home-page: UNKNOWN
+Author: NVIDIA Corporation
+License: NVIDIA Proprietary Software
+Keywords: nvidia,tao,tensorrt
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: License :: Other/Proprietary License
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.6.*
+Requires-Dist: Pillow (<9.0.0,>=8.1.0)
+Requires-Dist: PyYAML (>=5.1)
+Requires-Dist: absl-py (>=0.7.1)
+Requires-Dist: h5py (==3.7.0)
+Requires-Dist: hydra-core (==1.2.0)
+Requires-Dist: matplotlib (>=3.0.3)
+Requires-Dist: mpi4py (>=3.0.3)
+Requires-Dist: omegaconf (==2.2.2)
+Requires-Dist: onnx
+Requires-Dist: onnxruntime
+Requires-Dist: opencv-python
+Requires-Dist: protobuf (==3.20.1)
+Requires-Dist: pycocotools-fix
+Requires-Dist: pynvml (==11.0.0)
+Requires-Dist: scikit-image (==0.17.2)
+Requires-Dist: scikit-learn (==0.24.2)
+Requires-Dist: scipy (==1.5.4)
+Requires-Dist: seaborn (==0.7.1)
+Requires-Dist: six (>=1.12.0)
+Requires-Dist: tqdm (==4.64.0)
+
+UNKNOWN
+
+
