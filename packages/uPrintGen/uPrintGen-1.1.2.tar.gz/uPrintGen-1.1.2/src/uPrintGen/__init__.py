@@ -1,0 +1,1 @@
+from .SVGMicroprintGenerator import SVGMicroprintGenerator
