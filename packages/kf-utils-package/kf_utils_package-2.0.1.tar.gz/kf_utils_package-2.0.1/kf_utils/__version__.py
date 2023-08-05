@@ -1,0 +1,7 @@
+__title__ = "kf_utils_package"
+__description__ = "Utils package used in all Knowledge Factory microservices."
+__url__ = "https://umane.everis.com/git/KFSEMBU/utils"
+__download_url__ = "https://pypi.org/project/kf-utils-package/"
+__version__ = "2.0.1"
+__author__ = "KFSEMBU"
+__license__ = "GNU General Public License version 3"
