@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: lxb-pylib
+Version: 1.1
+Summary: Shared tools in multiple projects
+Home-page: https://github.com/congvm.it/lxb_pylib
+Description-Content-Type: text/markdown
+
+# LXB Pylib
+
+## Introduction
+
+LXB Pylib - **Lixibox Python Library** is a package of common tools.
+The package contains various functions and classes for quick analysis, processing and visualization.
+
+## Installation
+
+You can install this package using `pip`
+
+```sh
+pip install lxb_pylib
+```
+
+Or, re-compile and setup from source:
+
+```sh
+git clone https://github.com/lixibox/lxb_pylib.git
+cd lxb_pylib
+
+# For production
+python -m setup.py install
+
+# For development
+pip install -e .
+```
+
+## Contribution
+
+If you want to contribute to this package, you can push your code to our repository.
+
+## Contributors
+
+[1] CongVM - cong.vo@lixibox.com
