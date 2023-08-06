@@ -1,0 +1,15 @@
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+bin/query_galaxy.py
+bin/update_cluster_tags.py
+src/galaxy_parser/__init__.py
+src/galaxy_parser/discerner.py
+src/galaxy_parser/exceptions.py
+src/galaxy_parser/galaxy.py
+src/misp_galaxy_parser.egg-info/PKG-INFO
+src/misp_galaxy_parser.egg-info/SOURCES.txt
+src/misp_galaxy_parser.egg-info/dependency_links.txt
+src/misp_galaxy_parser.egg-info/requires.txt
+src/misp_galaxy_parser.egg-info/top_level.txt

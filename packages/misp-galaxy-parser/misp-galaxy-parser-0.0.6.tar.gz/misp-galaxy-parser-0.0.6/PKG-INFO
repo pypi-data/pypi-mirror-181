@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: misp-galaxy-parser
+Version: 0.0.6
+Summary: Set of utilities to parse and use MISP galaxy clusters
+Home-page: https://github.com/ostefano/misp-galaxy-parser
+Author: Stefano Ortolani
+Project-URL: Bug Tracker, https://github.com/ostefano/misp-galaxy-parser/issues
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Security
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Provides-Extra: misp
+
+# MISP Galaxy Parser
+
+Utilities to parse galaxy clusters and resolve labels (including synonyms).
+
+There is some string normalization (whitespace removal and compound words handling) that 
+can be improved, but anything domain-specific is computed using MITRE galaxies.
+
+```bash
+./bin/query_galaxy.py -q sednit -g mitre-intrusion-set 
+> Mapping 'sednit' to:  ['misp-galaxy:mitre-intrusion-set="APT28 - G0007"']
+```
+
+```bash
+./bin/query_galaxy.py -q apt28 -g mitre-intrusion-set 
+> Mapping 'apt28' to:  ['misp-galaxy:mitre-intrusion-set="APT28 - G0007"']
+```
+
+```bash
+./bin/query_galaxy.py -q feodo -g malpedia
+> Mapping 'feodo' to:  ['misp-galaxy:malpedia="Emotet"']
+```
+
+```bash
+./bin/query_galaxy.py -q emotet -g malpedia
+> Mapping 'emotet' to:  ['misp-galaxy:malpedia="Emotet"']
+```
