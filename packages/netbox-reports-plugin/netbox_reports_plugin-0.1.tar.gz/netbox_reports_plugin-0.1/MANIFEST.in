@@ -1,0 +1,3 @@
+recursive-include netbox_reports_plugin/templates *.html
+recursive-include netbox_reports_plugin/static *.css
+recursive-include netbox_reports_plugin/static *.js
