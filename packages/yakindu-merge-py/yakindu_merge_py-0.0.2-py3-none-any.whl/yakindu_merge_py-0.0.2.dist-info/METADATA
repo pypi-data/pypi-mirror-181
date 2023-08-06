@@ -1,0 +1,68 @@
+Metadata-Version: 2.1
+Name: yakindu-merge-py
+Version: 0.0.2
+Summary: Divide and merge statecharts for easy collaboration
+Author-email: Rein Spanjer <contact@reinspanjer.nl>
+License: MIT License
+        
+        Copyright (c) 2022 Rein Spanjer
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+Project-URL: Homepage, https://github.com/Spanjer1/yakindu-merge-py
+Keywords: yakindu,tool,merge
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: lxml (==4.9.1)
+Requires-Dist: tomli ; python_version < "3.11"
+Provides-Extra: dev
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: pip-tools ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+
+## YAKINDU Merge Tool
+
+YAKINDU Statechart Tools is an Eclipse-based editor where you can create state machines and generate code from it. 
+Their  documentation is found [here](https://www.itemis.com/en/yakindu/state-machine/)
+
+This python tool helps collaboration within YAKINDU Statechart Tools. It introduces the possibility of using different components and a template to generate one final statechart.
+In the different components, you can choose which parts are migrated. 
+
+The yakmerge tool is easily installed by running
+
+```
+pip install yakindu-merge-py
+```
+
+Afterwards you can invoke the following commando with the files that are in the example folder.
+
+```
+yakmerge -o ./example/final.ysc -t ./example/TrafficLightTemplate.ysc ./example/TrafficLightOn.ysc ./example/TrafficLightOff.ysc
+```
+
+Every component needs to have one composite state with the filename surrounded by underscores. 
+TrafficLightOn.ysc has a composite state with \_TrafficLightOn\_ and TrafficLightOff.ysc -> \_TrafficLightOff\_. 
+The template has two composite state. The template defines the interaction between the different components. 
+
+The final.ysc is produced. It is also possible to overwrite the template when omitting the -o option. But be aware that this overwrites the template file. 
+
+The definition is not migrated, each component needs to have a copy.
