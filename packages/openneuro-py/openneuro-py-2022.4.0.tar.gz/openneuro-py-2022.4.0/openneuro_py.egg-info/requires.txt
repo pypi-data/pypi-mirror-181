@@ -1,0 +1,14 @@
+httpx>=0.15
+requests
+tqdm
+click
+aiofiles
+sgqlc
+appdirs
+
+[:python_version < "3.8"]
+importlib-metadata
+typing-extensions
+
+[tests]
+pytest
