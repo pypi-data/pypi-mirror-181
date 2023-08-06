@@ -1,0 +1,3 @@
+include whl/*
+prune demo
+include install_requires.txt
