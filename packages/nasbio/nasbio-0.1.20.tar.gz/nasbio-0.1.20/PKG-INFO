@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: nasbio
+Version: 0.1.20
+Summary: 
+Author: Kah Wai LIM
+Author-email: kahwai222@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: fastapi (>=0.87.0,<0.88.0)
+Requires-Dist: pika (>=1.3.1,<2.0.0)
+Requires-Dist: sqlalchemy (>=1.4.43,<2.0.0)
+Requires-Dist: strawberry-graphql[fastapi] (>=0.142.2,<0.143.0)
+Requires-Dist: uvicorn[standard] (>=0.19.0,<0.20.0)
+Description-Content-Type: text/markdown
+
+# NASBio Web Services
+## Common Python Packages
+
