@@ -1,0 +1,13 @@
+datasette>=0.44
+Pillow>=7.1.2
+httpx>=0.13.3
+
+[heif]
+pyheif>=0.4
+
+[test]
+asgiref
+pytest
+pytest-asyncio
+sqlite-utils
+pytest-httpx>=0.4.0
