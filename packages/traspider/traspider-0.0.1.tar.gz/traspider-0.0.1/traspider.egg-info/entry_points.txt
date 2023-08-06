@@ -1,0 +1,2 @@
+[console_scripts]
+traspider = traspider.commands.cmdline:execute
