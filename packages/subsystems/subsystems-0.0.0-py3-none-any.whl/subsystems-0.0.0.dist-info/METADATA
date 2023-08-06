@@ -1,0 +1,118 @@
+Metadata-Version: 2.1
+Name: subsystems
+Version: 0.0.0
+Summary: Assembler for Pythonic back-end and Javascript front-end
+Author-email: Mikael Koli <koli.mikael@gmail.com>
+License: MIT License
+        
+        Copyright (c) 2022 Mikael Koli
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+License-File: LICENCE
+Requires-Python: >=3.7
+Requires-Dist: fastapi
+Requires-Dist: rocketry
+Requires-Dist: sqlalchemy
+Requires-Dist: uvicorn[standard]
+Provides-Extra: docs
+Requires-Dist: pydata-sphinx-theme; extra == 'docs'
+Requires-Dist: sphinx-book-theme; extra == 'docs'
+Requires-Dist: sphinx-copybutton; extra == 'docs'
+Requires-Dist: sphinx-material; extra == 'docs'
+Requires-Dist: sphinx>=1.7.5; extra == 'docs'
+Provides-Extra: test
+Requires-Dist: httpx; extra == 'test'
+Requires-Dist: pytest; extra == 'test'
+Requires-Dist: pytest-asyncio; extra == 'test'
+Requires-Dist: requests; extra == 'test'
+Description-Content-Type: text/markdown
+
+# Subsystems
+
+This is a demo for creating a scheduler with an API.
+We use [Rocketry](https://rocketry.readthedocs.io/)
+for our scheduler and [FastAPI](https://fastapi.tiangolo.com/)
+for our API.
+
+This contains three source files:
+
+- ``app/api.py``: FastAPI application
+- ``app/scheduler.py``: Rocketry application
+- ``app/main.py``: Main launch script
+
+Add your tasks need to ``app/scheduler/tasks/`` and 
+modify API routes in ``app/api/routes/`` as needed.
+
+## Installation
+
+Clone this repository:
+
+```console
+git clone https://github.com/Miksus/rocketry-with-fastapi.git
+```
+
+Make sure you have Python 3.7 or newer.
+Then just install the dependencies:
+
+```console
+pip install -r requirements.txt
+```
+
+## Running
+
+```console
+python -m app
+```
+
+## Front-end
+
+For the front-end, download [Node](https://nodejs.org/en/), [npm](https://www.npmjs.com/) and [yarn](https://classic.yarnpkg.com).
+Then change to frontend directory to install the Node modules:
+
+```npm
+yarn install
+```
+
+Then start the server:
+
+```npm
+yarn start
+```
+
+![UI example](https://github.com/Miksus/rocketry-with-fastapi/blob/master/docs/demo.gif)
+
+## What next?
+
+Read more about Rocketry:
+
+- Documentation: https://rocketry.readthedocs.io/
+- Source code: https://github.com/Miksus/rocketry
+
+Read more about FastAPI:
+
+- Documentation: https://fastapi.tiangolo.com/
+- Source code: https://github.com/tiangolo/fastapi
+
+Read more about React:
+
+- Documentation: https://reactjs.org/
+- Source code: https://github.com/facebook/react
+
+
+Author: [Mikael Koli](https://github.com/Miksus)
