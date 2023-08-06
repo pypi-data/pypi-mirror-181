@@ -1,0 +1,7 @@
+[console_scripts]
+m6anet-compute_norm_factors = m6anet_gh_action.scripts.compute_normalization_factors:main
+m6anet-cross_validate = m6anet_gh_action.scripts.cross_validate:main
+m6anet-dataprep = m6anet_gh_action.scripts.dataprep:main
+m6anet-run_inference = m6anet_gh_action.scripts.run_inference:main
+m6anet-train = m6anet_gh_action.scripts.train:main
+
