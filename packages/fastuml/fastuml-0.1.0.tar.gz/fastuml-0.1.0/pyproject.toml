@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fastuml"
+version = "0.1.0"
+authors = [
+  { name="Mathis Logemann" },
+]
+dependencies = [
+  'textx',
+  'Jinja2',
+  'click'
+]
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.scripts]
+fastuml-class = "fastuml.uml:classdiagram"
+
+[tool.setuptools.package-data]
+fastuml = ["templates/*.jinja", "grammar/*.tx"]

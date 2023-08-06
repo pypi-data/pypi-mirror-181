@@ -1,0 +1,27 @@
+{% macro renderAssosiations(con) -%}
+    {% set dir = "none" %}
+    {% set style = "solid" %}
+    {% if con.arrow.backward and con.arrow.forward %}
+        {% set dir = "both" %}
+    {% elif con.arrow.backward %}
+        {% set dir = "back" %}
+    {% elif con.arrow.forward %}
+        {% set dir = "forward" %}
+    {% endif %}
+    {% if con.arrow.binding | length >= 2 %} 
+        {% set style = "dashed" %}
+    {% endif %}
+    {{ con.source.name }} -> {{ con.target.name }} [dir={{ dir }} style="{{ style }}" {% if con.label %}label={{ con.label }}{% endif %}]
+{% endmacro %}
+
+{% macro renderInheritance(child, parent) -%}
+{{ child.name }} -> {{ parent.type.name }} [dir=forward arrowhead=empty style=""]
+{% endmacro %}
+
+{% macro renderAggregation(class, con) -%}
+{{ class.name }} -> {{ con.type.name }} [dir=forward arrowhead=odiamond]
+{% endmacro %}
+
+{% macro renderComposition(class, con) -%}
+{{ class.name }} -> {{ con.type.name }} [dir=forward arrowhead=diamond]
+{% endmacro %}

@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+src/fastuml/__init__.py
+src/fastuml/__main__.py
+src/fastuml/uml.py
+src/fastuml.egg-info/PKG-INFO
+src/fastuml.egg-info/SOURCES.txt
+src/fastuml.egg-info/dependency_links.txt
+src/fastuml.egg-info/entry_points.txt
+src/fastuml.egg-info/requires.txt
+src/fastuml.egg-info/top_level.txt
+src/fastuml/grammar/uml.tx
+src/fastuml/templates/class.jinja
+src/fastuml/templates/connection.jinja
+src/fastuml/templates/package.jinja
+src/fastuml/templates/uml.jinja
