@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: pymbda
+Version: 0.3.1
+Summary: AWS Lambda Tool - Support for building and deploying zip based functions and layers.
+Home-page: https://github.com/paaksing/pymbda
+Author: Paaksing
+Author-email: paaksingtech@gmail.com
+License: MIT
+Keywords: AWS,AWS Lambda,Lambda,Serverless
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Environment :: Console
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Education
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Natural Language :: English
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: dacite (>=1.6)
+Requires-Dist: boto3
+
+# Pymbda
+
+Documentation pending.
