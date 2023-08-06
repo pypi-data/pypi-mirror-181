@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: salesforce-functions
+Version: 0.1.0
+Summary: Python support for Salesforce Functions
+Project-URL: Changelog, https://github.com/heroku/sf-functions-python/blob/main/CHANGELOG.md
+Project-URL: Source, https://github.com/heroku/sf-functions-python
+License-File: LICENSE
+Requires-Python: >=3.10
+Requires-Dist: aiohttp<4,>=3.8.3
+Requires-Dist: httptools<0.6,>=0.5.0
+Requires-Dist: orjson<4,>=3.8.2
+Requires-Dist: python-dateutil<3,>=2.8.2; python_version < '3.11'
+Requires-Dist: starlette<0.24,>=0.23.0
+Requires-Dist: structlog<23,>=22.2.0
+Requires-Dist: uvicorn<0.21,>=0.20.0
+Requires-Dist: uvloop<0.18,>=0.17.0; sys_platform != 'win32' and sys_platform != 'cygwin'
+Provides-Extra: development
+Requires-Dist: black==22.12.0; extra == 'development'
+Requires-Dist: flake8==6.0.0; extra == 'development'
+Requires-Dist: httpx==0.23.1; extra == 'development'
+Requires-Dist: isort[colors]==5.11.1; extra == 'development'
+Requires-Dist: mypy==0.991; extra == 'development'
+Requires-Dist: pylint==2.15.8; extra == 'development'
+Requires-Dist: pytest-asyncio==0.20.3; extra == 'development'
+Requires-Dist: pytest-cov==4.0.0; extra == 'development'
+Requires-Dist: pytest==7.2.0; extra == 'development'
+Description-Content-Type: text/markdown
+
+# sf-functions-python
+
+Python support for Salesforce Functions.
