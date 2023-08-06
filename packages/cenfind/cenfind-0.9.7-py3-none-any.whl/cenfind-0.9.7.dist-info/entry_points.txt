@@ -1,0 +1,8 @@
+[console_scripts]
+evaluate=cenfind.cli.evaluate:main
+prepare=cenfind.cli.prepare:main
+score=cenfind.cli.score:main
+squash=cenfind.cli.squash:main
+upload=cenfind.labelbox.upload_labels:main
+vignettes=cenfind.labelbox.vignettes:main
+
