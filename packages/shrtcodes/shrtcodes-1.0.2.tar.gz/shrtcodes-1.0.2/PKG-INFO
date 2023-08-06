@@ -1,0 +1,87 @@
+Metadata-Version: 2.1
+Name: shrtcodes
+Version: 1.0.2
+Summary: Simple shortcodes for Python.
+Home-page: https://github.com/Peter554/shrtcodes#readme
+License: MIT
+Author: Peter Byfield
+Author-email: byfield554@gmail.com
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.9
+Project-URL: Repository, https://github.com/Peter554/shrtcodes
+Description-Content-Type: text/markdown
+
+# shrtcodes
+
+![example workflow name](https://github.com/Peter554/shrtcodes/workflows/CI/badge.svg)
+
+`pip install shrtcodes`
+
+Simple shortcodes for Python.
+
+## Example:
+
+A toy example:
+
+```
+# example.txt
+Hello!
+
+{% img http://cutedogs.com/dog123.jpg "A very cute dog" %}
+
+Foo bar baz...
+
+{% repeat 3 %}
+Woop
+{% / %}
+
+Bye!
+```
+
+```py
+# example.py
+from shrtcodes import Shrtcodes
+
+
+shortcodes = Shrtcodes()
+
+
+@shortcodes.register_inline("img")
+def handle_img(src, alt):
+    return f'<img src="{src}" alt="{alt}"/>'
+
+
+@shortcodes.register_block("repeat")
+def handle_repeat(block, n):
+    return block * int(n)
+
+
+shortcodes.create_cli()
+```
+
+```
+python example.py example.txt
+```
+
+Output:
+
+```
+Hello!
+
+<img src="http://cutedogs.com/dog123.jpg" alt="A very cute dog"/>
+
+Foo bar baz...
+
+Woop
+Woop
+Woop
+
+Bye!
+```
+
+A more useful example would be the generation of this README itself.
+See [`create_readme.py`](/create_readme.py) and [`README.template.md`](/README.template.md).
+
