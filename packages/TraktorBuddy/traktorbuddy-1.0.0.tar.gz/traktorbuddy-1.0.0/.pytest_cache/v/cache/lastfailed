@@ -1,0 +1,10 @@
+{
+  "Tests/track_test.py::test_constructor_and_stars": true,
+  "Tests/track_test.py::testSetBeatGridLockedNow": true,
+  "Tests/track_test.py::testSetBeatGridLockedModifiedNow": true,
+  "Tests/track_test.py::testSetModifiedNow": true,
+  "Tests/track_test.py::testSetBeatGridLockModifiedNow": true,
+  "Tests/playlist_test.py::testTitle": true,
+  "Tests/collection_test.py::testFolders": true,
+  "Tests/collection_test.py::testPlaylists": true
+}
