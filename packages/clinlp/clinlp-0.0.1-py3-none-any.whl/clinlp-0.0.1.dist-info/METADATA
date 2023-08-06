@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: clinlp
+Version: 0.0.1
+Summary: 
+Author: Your Name
+Author-email: you@example.com
+Requires-Python: >=3.9,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: spacy (>=3.4.4,<4.0.0)
+Description-Content-Type: text/markdown
+
+# clinlp
+
+![clinlp](media/clinlp.png)
+
+Create performant and production-ready NLP pipelines for clinical text written in Dutch using `clinlp`.
+
