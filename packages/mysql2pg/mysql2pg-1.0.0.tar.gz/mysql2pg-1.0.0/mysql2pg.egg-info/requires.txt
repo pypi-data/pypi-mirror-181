@@ -1,0 +1,6 @@
+aiomysql
+asyncpg
+
+[dev]
+black
+twine
