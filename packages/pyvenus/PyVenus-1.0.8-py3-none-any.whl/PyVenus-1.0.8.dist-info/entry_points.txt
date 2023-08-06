@@ -1,0 +1,3 @@
+[console_scripts]
+pyvenus = pyvenus.scripts:pyvenus_main
+pyvenus-setup = pyvenus.scripts:pyvenus_setup
