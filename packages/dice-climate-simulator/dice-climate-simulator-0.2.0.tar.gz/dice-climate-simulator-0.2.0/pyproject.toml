@@ -1,0 +1,33 @@
+# Copyright (c) 2022 International Institute for Applied Systems Analysis.
+# All rights reserved. The use and distribution terms for this software
+# are covered by the MIT License (http://opensource.org/licenses/MIT)
+# which can be found in the file LICENSE at the root of this distribution.
+# By using this software in any fashion, you are agreeing to be bound by
+# the terms of this license.
+# You must not remove this notice, or any other, from this software.
+[project]
+name = "dice-climate-simulator"
+version = "0.2.0"
+description = "Generic DICE simulations: climate module"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {file = "LICENSE"}
+authors = [
+  {name = "Anna Shchiptsova", email = "shchipts@iiasa.ac.at" }
+]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Science/Research",
+  "Topic :: Scientific/Engineering :: Physics",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+]
+[project.urls]
+"Source" = "https://github.com/shchipts/generic-dice/tree/master/python/climate-module"
+[project.scripts]
+dice-climate-simulator = "climate_module:main"
+[tool.setuptools.package-data]
+"climate_module.resources" = ["*.csv"]
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
