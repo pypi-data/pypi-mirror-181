@@ -1,0 +1,38 @@
+2022-11-22 00:12:46,807 INFO    MainThread:2114859 [wandb_setup.py:_flush():68] Configure stats pid to 2114859
+2022-11-22 00:12:46,808 INFO    MainThread:2114859 [wandb_setup.py:_flush():68] Loading settings from /home/costa/.config/wandb/settings
+2022-11-22 00:12:46,808 INFO    MainThread:2114859 [wandb_setup.py:_flush():68] Loading settings from /home/costa/Documents/go/src/cleanrl/cleanrl/wandb/settings
+2022-11-22 00:12:46,808 INFO    MainThread:2114859 [wandb_setup.py:_flush():68] Loading settings from environment variables: {'_require_service': 'True'}
+2022-11-22 00:12:46,808 INFO    MainThread:2114859 [wandb_setup.py:_flush():68] Inferring run settings from compute environment: {'program_relpath': 'cleanrl/ppo_dna_atari_envpool_bugfix.py', 'program': '/home/costa/Documents/go/src/cleanrl/cleanrl/ppo_dna_atari_envpool_bugfix.py'}
+2022-11-22 00:12:46,808 INFO    MainThread:2114859 [wandb_init.py:_log_setup():476] Logging user logs to /home/costa/Documents/go/src/cleanrl/cleanrl/wandb/run-20221122_001246-1wnbndhd/logs/debug.log
+2022-11-22 00:12:46,808 INFO    MainThread:2114859 [wandb_init.py:_log_setup():477] Logging internal logs to /home/costa/Documents/go/src/cleanrl/cleanrl/wandb/run-20221122_001246-1wnbndhd/logs/debug-internal.log
+2022-11-22 00:12:46,808 INFO    MainThread:2114859 [wandb_init.py:init():516] calling init triggers
+2022-11-22 00:12:46,808 INFO    MainThread:2114859 [wandb_init.py:init():519] wandb.init called with sweep_config: {}
+config: {'exp_name': 'ppo_dna_atari_envpool_bugfix', 'seed': 1, 'torch_deterministic': True, 'cuda': True, 'track': True, 'wandb_project_name': 'cleanRL', 'wandb_entity': None, 'env_id': 'Pong-v5', 'total_timesteps': 10000000, 'num_envs': 128, 'num_steps': 128, 'anneal_lr': True, 'gamma': 0.99, 'policy_learning_rate': 0.00025, 'policy_batch_size': 2048, 'policy_gae_lambda': 0.8, 'policy_update_epochs': 2, 'value_learning_rate': 0.00025, 'value_batch_size': 512, 'value_gae_lambda': 0.95, 'value_update_epochs': 1, 'distill_learning_rate': 0.00025, 'distill_batch_size': 512, 'distill_update_epochs': 2, 'distill_beta': 1.0, 'norm_adv': True, 'clip_coef': 0.1, 'ent_coef': 0.01, 'max_grad_norm': 0.5, 'target_kl': None, 'batch_size': 16384}
+2022-11-22 00:12:46,809 INFO    MainThread:2114859 [wandb_init.py:init():569] starting backend
+2022-11-22 00:12:46,809 INFO    MainThread:2114859 [wandb_init.py:init():573] setting up manager
+2022-11-22 00:12:46,811 INFO    MainThread:2114859 [backend.py:_multiprocessing_setup():102] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2022-11-22 00:12:46,813 INFO    MainThread:2114859 [wandb_init.py:init():580] backend started and connected
+2022-11-22 00:12:46,820 INFO    MainThread:2114859 [wandb_init.py:init():658] updated telemetry
+2022-11-22 00:12:46,841 INFO    MainThread:2114859 [wandb_init.py:init():692] communicating run to backend with 30 second timeout
+2022-11-22 00:12:47,060 INFO    MainThread:2114859 [wandb_run.py:_on_init():1974] communicating current version
+2022-11-22 00:12:47,071 WARNING MainThread:2114859 [wandb_init.py:init():1097] interrupted
+Traceback (most recent call last):
+  File "/home/costa/.cache/pypoetry/virtualenvs/cleanrl-iaYtZmCA-py3.9/lib/python3.9/site-packages/wandb/sdk/wandb_init.py", line 1076, in init
+    run = wi.init()
+  File "/home/costa/.cache/pypoetry/virtualenvs/cleanrl-iaYtZmCA-py3.9/lib/python3.9/site-packages/wandb/sdk/wandb_init.py", line 725, in init
+    run._on_init()
+  File "/home/costa/.cache/pypoetry/virtualenvs/cleanrl-iaYtZmCA-py3.9/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 1975, in _on_init
+    self._check_version = self._backend.interface.communicate_check_version(
+  File "/home/costa/.cache/pypoetry/virtualenvs/cleanrl-iaYtZmCA-py3.9/lib/python3.9/site-packages/wandb/sdk/interface/interface.py", line 106, in communicate_check_version
+    ret = self._communicate_check_version(check_version)
+  File "/home/costa/.cache/pypoetry/virtualenvs/cleanrl-iaYtZmCA-py3.9/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 434, in _communicate_check_version
+    result = self._communicate(rec)
+  File "/home/costa/.cache/pypoetry/virtualenvs/cleanrl-iaYtZmCA-py3.9/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 230, in _communicate
+    return self._communicate_async(rec, local=local).get(timeout=timeout)
+  File "/home/costa/.cache/pypoetry/virtualenvs/cleanrl-iaYtZmCA-py3.9/lib/python3.9/site-packages/wandb/sdk/interface/router.py", line 36, in get
+    is_set = self._object_ready.wait(timeout)
+  File "/home/costa/.pyenv/versions/3.9.5/lib/python3.9/threading.py", line 574, in wait
+    signaled = self._cond.wait(timeout)
+  File "/home/costa/.pyenv/versions/3.9.5/lib/python3.9/threading.py", line 316, in wait
+    gotit = waiter.acquire(True, timeout)
+KeyboardInterrupt

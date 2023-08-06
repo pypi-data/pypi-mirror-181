@@ -1,0 +1,90 @@
+2022-11-21 22:50:26,454 INFO    StreamThr :2106310 [internal.py:wandb_internal():88] W&B internal server running at pid: 2106310, started at: 2022-11-21 22:50:26.453824
+2022-11-21 22:50:26,455 DEBUG   HandlerThread:2106310 [handler.py:handle_request():138] handle_request: status
+2022-11-21 22:50:26,456 DEBUG   SenderThread:2106310 [sender.py:send_request():315] send_request: status
+2022-11-21 22:50:26,457 DEBUG   SenderThread:2106310 [sender.py:send():301] send: header
+2022-11-21 22:50:26,458 INFO    WriterThread:2106310 [datastore.py:open_for_write():75] open: /home/costa/Documents/go/src/cleanrl/cleanrl/wandb/run-20221121_225026-pyhfz8jq/run-pyhfz8jq.wandb
+2022-11-21 22:50:26,472 DEBUG   SenderThread:2106310 [sender.py:send():301] send: run
+2022-11-21 22:50:26,682 INFO    SenderThread:2106310 [dir_watcher.py:__init__():216] watching files in: /home/costa/Documents/go/src/cleanrl/cleanrl/wandb/run-20221121_225026-pyhfz8jq/files
+2022-11-21 22:50:26,683 INFO    SenderThread:2106310 [sender.py:_start_run_threads():912] run started: pyhfz8jq with start time 1669089026.449509
+2022-11-21 22:50:26,683 DEBUG   SenderThread:2106310 [sender.py:send():301] send: summary
+2022-11-21 22:50:26,683 DEBUG   HandlerThread:2106310 [handler.py:handle_request():138] handle_request: check_version
+2022-11-21 22:50:26,683 INFO    SenderThread:2106310 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-11-21 22:50:26,684 DEBUG   SenderThread:2106310 [sender.py:send_request():315] send_request: check_version
+2022-11-21 22:50:26,743 DEBUG   HandlerThread:2106310 [handler.py:handle_request():138] handle_request: run_start
+2022-11-21 22:50:26,745 DEBUG   HandlerThread:2106310 [meta.py:__init__():34] meta init
+2022-11-21 22:50:26,745 DEBUG   HandlerThread:2106310 [meta.py:__init__():49] meta init done
+2022-11-21 22:50:26,745 DEBUG   HandlerThread:2106310 [meta.py:probe():215] probe
+2022-11-21 22:50:26,751 DEBUG   HandlerThread:2106310 [meta.py:_setup_git():205] setup git
+2022-11-21 22:50:26,764 DEBUG   HandlerThread:2106310 [meta.py:_setup_git():212] setup git done
+2022-11-21 22:50:26,764 DEBUG   HandlerThread:2106310 [meta.py:_save_code():87] save code
+2022-11-21 22:50:26,769 DEBUG   HandlerThread:2106310 [meta.py:_save_code():108] save code done
+2022-11-21 22:50:26,769 DEBUG   HandlerThread:2106310 [meta.py:_save_patches():125] save patches
+2022-11-21 22:50:26,796 ERROR   HandlerThread:2106310 [meta.py:_save_patches():166] Error generating diff: Reference at 'refs/remotes/git@github.com:jseppanen/cleanrl.git/ppo-dna' does not exist
+2022-11-21 22:50:26,796 DEBUG   HandlerThread:2106310 [meta.py:_save_patches():167] save patches done
+2022-11-21 22:50:26,796 DEBUG   HandlerThread:2106310 [meta.py:_save_pip():53] save pip
+2022-11-21 22:50:26,796 DEBUG   HandlerThread:2106310 [meta.py:_save_pip():67] save pip done
+2022-11-21 22:50:26,796 DEBUG   HandlerThread:2106310 [meta.py:probe():253] probe done
+2022-11-21 22:50:26,841 DEBUG   SenderThread:2106310 [sender.py:send():301] send: files
+2022-11-21 22:50:26,841 INFO    SenderThread:2106310 [sender.py:_save_file():1155] saving file wandb-metadata.json with policy now
+2022-11-21 22:50:26,842 INFO    SenderThread:2106310 [sender.py:_save_file():1155] saving file code/cleanrl/ppo_dna_atari_envpool_bugfix.py with policy now
+2022-11-21 22:50:26,842 INFO    SenderThread:2106310 [sender.py:_save_file():1155] saving file diff.patch with policy now
+2022-11-21 22:50:26,848 DEBUG   HandlerThread:2106310 [handler.py:handle_request():138] handle_request: stop_status
+2022-11-21 22:50:26,849 DEBUG   SenderThread:2106310 [sender.py:send_request():315] send_request: stop_status
+2022-11-21 22:50:26,849 INFO    HandlerThread:2106310 [handler.py:handle_tbrecord():724] handling tbrecord: tbrecord {
+  log_dir: "runs/Pong-v5__ppo_dna_atari_envpool_bugfix__1__1669089025"
+  save: true
+}
+control {
+  relay_id: "5dc388133a344a089cfb8f28161b8328"
+}
+_info {
+  stream_id: "pyhfz8jq"
+}
+
+2022-11-21 22:50:26,852 DEBUG   HandlerThread:2106310 [config_util.py:dict_from_config_file():100] no default config file found in config-defaults.yaml
+2022-11-21 22:50:26,942 DEBUG   SenderThread:2106310 [sender.py:send():301] send: telemetry
+2022-11-21 22:50:26,943 DEBUG   SenderThread:2106310 [sender.py:send():301] send: tbrecord
+2022-11-21 22:50:26,947 DEBUG   SenderThread:2106310 [sender.py:send():301] send: files
+2022-11-21 22:50:26,947 INFO    SenderThread:2106310 [sender.py:_save_file():1155] saving file events.out.tfevents.1669089026.pop-os.2106249.0 with policy live
+2022-11-21 22:50:27,184 INFO    Thread-19 :2106310 [upload_job.py:push():139] Uploaded file /tmp/tmp_pmae2mcwandb/3ugmfmb0-code/cleanrl/ppo_dna_atari_envpool_bugfix.py
+2022-11-21 22:50:27,196 INFO    Thread-17 :2106310 [upload_job.py:push():139] Uploaded file /tmp/tmp_pmae2mcwandb/f6znd2lf-wandb-metadata.json
+2022-11-21 22:50:27,218 INFO    Thread-20 :2106310 [upload_job.py:push():139] Uploaded file /tmp/tmp_pmae2mcwandb/371e0ytz-diff.patch
+2022-11-21 22:50:27,339 INFO    Thread-22 :2106310 [upload_job.py:push():139] Uploaded file /tmp/tmp_pmae2mcwandb/3l4itdkt-events.out.tfevents.1669089026.pop-os.2106249.0
+2022-11-21 22:50:27,684 INFO    Thread-13 :2106310 [dir_watcher.py:_on_file_created():275] file/dir created: /home/costa/Documents/go/src/cleanrl/cleanrl/wandb/run-20221121_225026-pyhfz8jq/files/wandb-summary.json
+2022-11-21 22:50:27,684 INFO    Thread-13 :2106310 [dir_watcher.py:_on_file_created():275] file/dir created: /home/costa/Documents/go/src/cleanrl/cleanrl/wandb/run-20221121_225026-pyhfz8jq/files/events.out.tfevents.1669089026.pop-os.2106249.0
+2022-11-21 22:50:27,684 INFO    Thread-13 :2106310 [dir_watcher.py:_on_file_created():275] file/dir created: /home/costa/Documents/go/src/cleanrl/cleanrl/wandb/run-20221121_225026-pyhfz8jq/files/diff.patch
+2022-11-21 22:50:27,684 INFO    Thread-13 :2106310 [dir_watcher.py:_on_file_created():275] file/dir created: /home/costa/Documents/go/src/cleanrl/cleanrl/wandb/run-20221121_225026-pyhfz8jq/files/output.log
+2022-11-21 22:50:27,684 INFO    Thread-13 :2106310 [dir_watcher.py:_on_file_created():275] file/dir created: /home/costa/Documents/go/src/cleanrl/cleanrl/wandb/run-20221121_225026-pyhfz8jq/files/wandb-metadata.json
+2022-11-21 22:50:27,684 INFO    Thread-13 :2106310 [dir_watcher.py:_on_file_created():275] file/dir created: /home/costa/Documents/go/src/cleanrl/cleanrl/wandb/run-20221121_225026-pyhfz8jq/files/requirements.txt
+2022-11-21 22:50:27,685 INFO    Thread-13 :2106310 [dir_watcher.py:_on_file_created():275] file/dir created: /home/costa/Documents/go/src/cleanrl/cleanrl/wandb/run-20221121_225026-pyhfz8jq/files/code/cleanrl/ppo_dna_atari_envpool_bugfix.py
+2022-11-21 22:50:27,685 INFO    Thread-13 :2106310 [dir_watcher.py:_on_file_created():275] file/dir created: /home/costa/Documents/go/src/cleanrl/cleanrl/wandb/run-20221121_225026-pyhfz8jq/files/code
+2022-11-21 22:50:27,685 INFO    Thread-13 :2106310 [dir_watcher.py:_on_file_created():275] file/dir created: /home/costa/Documents/go/src/cleanrl/cleanrl/wandb/run-20221121_225026-pyhfz8jq/files/code/cleanrl
+2022-11-21 22:50:28,821 DEBUG   SenderThread:2106310 [sender.py:send():301] send: exit
+2022-11-21 22:50:28,821 INFO    SenderThread:2106310 [sender.py:send_exit():437] handling exit code: 1
+2022-11-21 22:50:28,822 INFO    SenderThread:2106310 [sender.py:send_exit():439] handling runtime: 2
+2022-11-21 22:50:28,822 DEBUG   HandlerThread:2106310 [handler.py:handle_request():138] handle_request: poll_exit
+2022-11-21 22:50:28,824 INFO    SenderThread:2106310 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-11-21 22:50:28,824 INFO    SenderThread:2106310 [sender.py:send_exit():445] send defer
+2022-11-21 22:50:28,824 DEBUG   SenderThread:2106310 [sender.py:send_request():315] send_request: poll_exit
+2022-11-21 22:50:28,825 DEBUG   HandlerThread:2106310 [handler.py:handle_request():138] handle_request: defer
+2022-11-21 22:50:28,825 INFO    HandlerThread:2106310 [handler.py:handle_request_defer():161] handle defer: 0
+2022-11-21 22:50:28,825 DEBUG   SenderThread:2106310 [sender.py:send_request():315] send_request: defer
+2022-11-21 22:50:28,825 INFO    SenderThread:2106310 [sender.py:send_request_defer():454] handle sender defer: 0
+2022-11-21 22:50:28,825 INFO    SenderThread:2106310 [sender.py:transition_state():458] send defer: 1
+2022-11-21 22:50:28,826 DEBUG   HandlerThread:2106310 [handler.py:handle_request():138] handle_request: defer
+2022-11-21 22:50:28,826 INFO    HandlerThread:2106310 [handler.py:handle_request_defer():161] handle defer: 1
+2022-11-21 22:50:28,913 DEBUG   SenderThread:2106310 [sender.py:send_request():315] send_request: defer
+2022-11-21 22:50:28,913 INFO    SenderThread:2106310 [sender.py:send_request_defer():454] handle sender defer: 1
+2022-11-21 22:50:28,913 INFO    SenderThread:2106310 [sender.py:transition_state():458] send defer: 2
+2022-11-21 22:50:28,915 DEBUG   SenderThread:2106310 [sender.py:send():301] send: stats
+2022-11-21 22:50:28,916 DEBUG   HandlerThread:2106310 [handler.py:handle_request():138] handle_request: defer
+2022-11-21 22:50:28,916 INFO    HandlerThread:2106310 [handler.py:handle_request_defer():161] handle defer: 2
+2022-11-21 22:50:28,916 DEBUG   SenderThread:2106310 [sender.py:send_request():315] send_request: defer
+2022-11-21 22:50:28,916 INFO    SenderThread:2106310 [sender.py:send_request_defer():454] handle sender defer: 2
+2022-11-21 22:50:28,916 INFO    SenderThread:2106310 [sender.py:transition_state():458] send defer: 3
+2022-11-21 22:50:28,917 DEBUG   HandlerThread:2106310 [handler.py:handle_request():138] handle_request: defer
+2022-11-21 22:50:28,917 INFO    HandlerThread:2106310 [handler.py:handle_request_defer():161] handle defer: 3
+2022-11-21 22:50:29,683 INFO    Thread-13 :2106310 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/costa/Documents/go/src/cleanrl/cleanrl/wandb/run-20221121_225026-pyhfz8jq/files/output.log
+2022-11-21 22:50:29,684 INFO    Thread-13 :2106310 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/costa/Documents/go/src/cleanrl/cleanrl/wandb/run-20221121_225026-pyhfz8jq/files/wandb-summary.json
+2022-11-21 22:50:34,982 INFO    MainThread:2106310 [internal.py:handle_exit():78] Internal process exited
+2022-11-21 22:50:34,982 WARNING MsgRouterThr:2106310 [router.py:message_loop():74] EOFError seen in message_loop

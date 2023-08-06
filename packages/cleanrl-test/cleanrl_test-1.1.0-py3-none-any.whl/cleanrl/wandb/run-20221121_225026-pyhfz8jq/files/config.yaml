@@ -1,0 +1,119 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    cli_version: 0.13.3
+    code_path: code/cleanrl/ppo_dna_atari_envpool_bugfix.py
+    framework: torch
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    python_version: 3.9.5
+    start_time: 1669089026.449509
+    t:
+      1:
+      - 1
+      - 12
+      - 55
+      3:
+      - 13
+      - 16
+      - 23
+      - 35
+      4: 3.9.5
+      5: 0.13.3
+      8:
+      - 5
+anneal_lr:
+  desc: null
+  value: true
+batch_size:
+  desc: null
+  value: 16384
+clip_coef:
+  desc: null
+  value: 0.1
+cuda:
+  desc: null
+  value: true
+distill_batch_size:
+  desc: null
+  value: 512
+distill_beta:
+  desc: null
+  value: 1.0
+distill_learning_rate:
+  desc: null
+  value: 0.00025
+distill_update_epochs:
+  desc: null
+  value: 2
+ent_coef:
+  desc: null
+  value: 0.01
+env_id:
+  desc: null
+  value: Pong-v5
+exp_name:
+  desc: null
+  value: ppo_dna_atari_envpool_bugfix
+gamma:
+  desc: null
+  value: 0.99
+max_grad_norm:
+  desc: null
+  value: 0.5
+norm_adv:
+  desc: null
+  value: true
+num_envs:
+  desc: null
+  value: 128
+num_steps:
+  desc: null
+  value: 128
+policy_batch_size:
+  desc: null
+  value: 2048
+policy_gae_lambda:
+  desc: null
+  value: 0.8
+policy_learning_rate:
+  desc: null
+  value: 0.00025
+policy_update_epochs:
+  desc: null
+  value: 2
+seed:
+  desc: null
+  value: 1
+target_kl:
+  desc: null
+  value: null
+torch_deterministic:
+  desc: null
+  value: true
+total_timesteps:
+  desc: null
+  value: 10000000
+track:
+  desc: null
+  value: true
+value_batch_size:
+  desc: null
+  value: 512
+value_gae_lambda:
+  desc: null
+  value: 0.95
+value_learning_rate:
+  desc: null
+  value: 0.00025
+value_update_epochs:
+  desc: null
+  value: 1
+wandb_entity:
+  desc: null
+  value: null
+wandb_project_name:
+  desc: null
+  value: cleanRL

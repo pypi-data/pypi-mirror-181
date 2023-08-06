@@ -1,0 +1,46 @@
+/home/costa/.cache/pypoetry/virtualenvs/cleanrl-iaYtZmCA-py3.9/lib/python3.9/site-packages/wandb/sdk/lib/import_hooks.py:246: DeprecationWarning: Deprecated since Python 3.4. Use importlib.util.find_spec() instead.
+  loader = importlib.find_loader(fullname, path)
+Traceback (most recent call last):
+  File "/home/costa/Documents/go/src/cleanrl/cleanrl/ppo_brax_jax.py", line 382, in <module>
+    agent_state, loss, pg_loss, v_loss, entropy_loss, approx_kl, key = update_ppo(
+  File "/home/costa/.cache/pypoetry/virtualenvs/cleanrl-iaYtZmCA-py3.9/lib/python3.9/site-packages/jax/_src/traceback_util.py", line 162, in reraise_with_filtered_traceback
+    return fun(*args, **kwargs)
+  File "/home/costa/.cache/pypoetry/virtualenvs/cleanrl-iaYtZmCA-py3.9/lib/python3.9/site-packages/jax/_src/api.py", line 528, in cache_miss
+    out_flat = xla.xla_call(
+  File "/home/costa/.cache/pypoetry/virtualenvs/cleanrl-iaYtZmCA-py3.9/lib/python3.9/site-packages/jax/core.py", line 1963, in bind
+    return call_bind(self, fun, *args, **params)
+  File "/home/costa/.cache/pypoetry/virtualenvs/cleanrl-iaYtZmCA-py3.9/lib/python3.9/site-packages/jax/core.py", line 1979, in call_bind
+    outs = top_trace.process_call(primitive, fun_, tracers, params)
+  File "/home/costa/.cache/pypoetry/virtualenvs/cleanrl-iaYtZmCA-py3.9/lib/python3.9/site-packages/jax/core.py", line 689, in process_call
+    return primitive.impl(f, *tracers, **params)
+  File "/home/costa/.cache/pypoetry/virtualenvs/cleanrl-iaYtZmCA-py3.9/lib/python3.9/site-packages/jax/_src/dispatch.py", line 233, in _xla_call_impl
+    compiled_fun = xla_callable(fun, device, backend, name, donated_invars,
+  File "/home/costa/.cache/pypoetry/virtualenvs/cleanrl-iaYtZmCA-py3.9/lib/python3.9/site-packages/jax/linear_util.py", line 295, in memoized_fun
+    ans = call(fun, *args)
+  File "/home/costa/.cache/pypoetry/virtualenvs/cleanrl-iaYtZmCA-py3.9/lib/python3.9/site-packages/jax/_src/dispatch.py", line 324, in _xla_callable_uncached
+    return lower_xla_callable(fun, device, backend, name, donated_invars, False,
+  File "/home/costa/.cache/pypoetry/virtualenvs/cleanrl-iaYtZmCA-py3.9/lib/python3.9/site-packages/jax/_src/profiler.py", line 313, in wrapper
+    return func(*args, **kwargs)
+  File "/home/costa/.cache/pypoetry/virtualenvs/cleanrl-iaYtZmCA-py3.9/lib/python3.9/site-packages/jax/_src/dispatch.py", line 400, in lower_xla_callable
+    jaxpr, out_type, consts = pe.trace_to_jaxpr_final2(
+  File "/home/costa/.cache/pypoetry/virtualenvs/cleanrl-iaYtZmCA-py3.9/lib/python3.9/site-packages/jax/_src/profiler.py", line 313, in wrapper
+    return func(*args, **kwargs)
+  File "/home/costa/.cache/pypoetry/virtualenvs/cleanrl-iaYtZmCA-py3.9/lib/python3.9/site-packages/jax/interpreters/partial_eval.py", line 2025, in trace_to_jaxpr_final2
+    jaxpr, out_type, consts = trace_to_subjaxpr_dynamic2(fun, main, debug_info)
+  File "/home/costa/.cache/pypoetry/virtualenvs/cleanrl-iaYtZmCA-py3.9/lib/python3.9/site-packages/jax/interpreters/partial_eval.py", line 1975, in trace_to_subjaxpr_dynamic2
+    ans = fun.call_wrapped(*in_tracers_)
+  File "/home/costa/.cache/pypoetry/virtualenvs/cleanrl-iaYtZmCA-py3.9/lib/python3.9/site-packages/jax/linear_util.py", line 168, in call_wrapped
+    ans = self.f(*args, **dict(self.params, **kwargs))
+  File "/home/costa/Documents/go/src/cleanrl/cleanrl/ppo_brax_jax.py", line 314, in update_ppo
+    b_obs = storage.obs.reshape((-1,) + envs.single_observation_space.shape)
+jax._src.traceback_util.UnfilteredStackTrace: AttributeError: module 'brax.envs' has no attribute 'single_observation_space'
+The stack trace below excludes JAX-internal frames.
+The preceding is the original exception that occurred, unmodified.
+--------------------
+The above exception was the direct cause of the following exception:
+Traceback (most recent call last):
+  File "/home/costa/Documents/go/src/cleanrl/cleanrl/ppo_brax_jax.py", line 382, in <module>
+    agent_state, loss, pg_loss, v_loss, entropy_loss, approx_kl, key = update_ppo(
+  File "/home/costa/Documents/go/src/cleanrl/cleanrl/ppo_brax_jax.py", line 314, in update_ppo
+    b_obs = storage.obs.reshape((-1,) + envs.single_observation_space.shape)
+AttributeError: module 'brax.envs' has no attribute 'single_observation_space'
