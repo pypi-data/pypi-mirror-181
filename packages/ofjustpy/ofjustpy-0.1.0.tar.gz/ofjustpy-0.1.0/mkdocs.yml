@@ -1,0 +1,23 @@
+site_name: ofjustpy
+site_description: A functional webframework built using [justpy-svelte](https://github.com/Monallabs-org/justpy-svelte)
+
+site_author: Kabira K. 
+
+repo_name: ofjustpy
+repo_url: https://webworks.monallabs.in/ofjustpy/
+
+
+extra:
+    docdate: 2022-12-17
+    version: 0.1.0
+    demo_url: http://webworks.monallabs.in/demos
+    
+nav:
+    - Introduction: 'README.md'
+    - Ofjustpy Programming Paradigm: 'ofjustpy_programming.md'
+    - API: 'API.md'
+
+      
+
+theme:
+    name: readthedocs

@@ -1,0 +1,35 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ofjustpy"
+maintainers = [
+ { name="Kabira K", email= "kabira@monallabs.in"}
+]
+
+dynamic = ["version", "description"]
+readme= "README.md"
+license = { file="LICENSE" }
+dependencies = [
+        'justpy-svelte',
+                ]
+                
+                
+[tool.hatch.version]
+path = "src/ofjustpy/__init__.py"
+
+[project.urls]
+Home = "http://webworks.monallabs.in/ofjustpy"
+Documentation = "https://github.com/monallabs-org/ofjustpy"
+Source = "https://github.com/monallabs-org/ofjustpy"
+
+[tool.pytest.ini_options]
+addopts = [
+    "--import-mode=importlib"
+]
+
+[tool.hatch.build.targets.wheel]
+packages = [
+  "src/ofjustpy",  
+]
