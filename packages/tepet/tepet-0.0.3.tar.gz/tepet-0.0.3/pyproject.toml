@@ -1,0 +1,14 @@
+[build-system]
+requires = ["flit_core >=2,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.metadata]
+module = "tepet"
+author = "Anton Ovinnikov"
+author-email = "toshakins@gmail.com"
+home-page = "https://github.com/toshakins/tepet"
+classifiers = ["License :: OSI Approved :: MIT License"]
+description-file = "README.md"
+requires-python = ">= 3.7"
+
+
