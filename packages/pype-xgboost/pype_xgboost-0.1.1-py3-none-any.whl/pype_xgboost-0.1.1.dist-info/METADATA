@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: pype-xgboost
+Version: 0.1.1
+Requires-Dist: pype-base (==0.1.1)
+Requires-Dist: pype-sklearn
+Requires-Dist: xgboost (>=1.6.2)
+Provides-Extra: dev
+Requires-Dist: pype-base (==0.1.1) ; extra == 'dev'
+Requires-Dist: pype-sklearn ; extra == 'dev'
+Requires-Dist: xgboost (==1.6.2) ; extra == 'dev'
+Provides-Extra: strict
+Requires-Dist: pype-base (==0.1.1) ; extra == 'strict'
+Requires-Dist: pype-sklearn ; extra == 'strict'
+Requires-Dist: xgboost (==1.6.2) ; extra == 'strict'
+
