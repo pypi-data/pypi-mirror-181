@@ -1,0 +1,3 @@
+[console_scripts]
+mapreg.prep = mapreg.prep_for_registration:main
+mapreg.register = mapreg.register_maps:main
