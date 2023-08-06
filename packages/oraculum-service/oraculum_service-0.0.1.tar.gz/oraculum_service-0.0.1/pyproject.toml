@@ -1,0 +1,20 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+[project]
+name = "oraculum-service"
+version = "0.0.1"
+authors = [
+    {name="Alexander Fedotov", email="alex.fedotov@aol.com"},
+]
+description = "Adaptive experimentation with the help of adaptive computations"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+]
+[project.urls]
+"Homepage" = "https://github.com/oraculum-service/oraculum"
+"Bug Tracker" = "https://github.com/oraculum-service/oraculum/issues"
