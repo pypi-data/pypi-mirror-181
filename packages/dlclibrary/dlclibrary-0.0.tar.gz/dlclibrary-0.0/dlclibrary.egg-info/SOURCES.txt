@@ -1,0 +1,14 @@
+LICENSE
+NOTICE.yml
+README.md
+setup.py
+dlclibrary/__init__.py
+dlclibrary/modelzoo_urls.yaml
+dlclibrary/version.py
+dlclibrary.egg-info/PKG-INFO
+dlclibrary.egg-info/SOURCES.txt
+dlclibrary.egg-info/dependency_links.txt
+dlclibrary.egg-info/requires.txt
+dlclibrary.egg-info/top_level.txt
+dlclibrary/dlcmodelzoo/__init__.py
+dlclibrary/dlcmodelzoo/modelzoo_download.py
