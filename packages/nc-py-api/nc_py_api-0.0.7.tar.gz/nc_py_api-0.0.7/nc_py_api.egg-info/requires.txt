@@ -1,0 +1,8 @@
+pg8000
+pymysql
+
+[dev]
+pytest
+pre-commit
+pylint
+coverage
