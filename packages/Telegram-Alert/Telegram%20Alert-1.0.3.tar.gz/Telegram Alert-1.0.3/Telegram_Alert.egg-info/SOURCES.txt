@@ -1,0 +1,10 @@
+MANIFEST.in
+README.md
+setup.py
+Telegram_Alert.egg-info/PKG-INFO
+Telegram_Alert.egg-info/SOURCES.txt
+Telegram_Alert.egg-info/dependency_links.txt
+Telegram_Alert.egg-info/not-zip-safe
+Telegram_Alert.egg-info/top_level.txt
+tgalert/__init__.py
+tgalert/tgalert.py

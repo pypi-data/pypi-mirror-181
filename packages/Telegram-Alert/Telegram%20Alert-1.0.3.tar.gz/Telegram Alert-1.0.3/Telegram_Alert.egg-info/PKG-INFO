@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: Telegram-Alert
+Version: 1.0.3
+Summary: Library for sending error messages to Telegram
+Home-page: https://github.com/arsen671games3/tgalert
+Author: Arsen
+Author-email: arsen.dev@arsen.me
+Keywords: telegram alert library python
+Requires-Python: ~=3.7
+Description-Content-Type: text/markdown
+
+Library for sending error messages to Telegram, based on aiohttp (has no other dependencies)
+So if you already use aiohttp in your project, the library will be useful to you.
