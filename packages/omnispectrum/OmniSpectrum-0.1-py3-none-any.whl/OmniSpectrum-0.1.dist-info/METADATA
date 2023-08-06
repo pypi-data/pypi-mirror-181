@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: OmniSpectrum
+Version: 0.1
+Summary: 全向地震动反应谱生成程序
+Home-page: http://umr.ink
+Author: Guochang Li
+Author-email: liguochangli@gmail.com
+License: Apache 3.0
+Platform: all
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: scipy
+Requires-Dist: tqdm
+Requires-Dist: python-docx
+
+# 全方位地震动反应谱生成
+
+## 安装
+
