@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: apache-airflow-provider-alembic
+Version: 0.1.1
+Summary: Apache Airflow Providers containing Operators and Plugins from Astronomer
+Home-page: https://github.com/astronomer/apache-airflow-provider-alembic/
+Author: Astronomer
+Author-email: humans@astronomer.io
+License: Apache License 2.0
+Project-URL: Source Code, https://github.com/astronomer/apache-airflow-provider-alembic
+Project-URL: Homepage, https://astronomer.io/
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Apache Airflow
+Classifier: Framework :: Apache Airflow :: Provider
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.7
