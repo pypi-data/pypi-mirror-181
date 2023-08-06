@@ -1,0 +1,38 @@
+Overview
+========
+
+**distutils644** monkey-patches Python distutils_
+to normalize metadata in generated archives:
+
+- ownership (root:root),
+- permissions (0644 or 0755),
+- order of directory entries (sorted),
+- tar format (ustar).
+
+.. _distutils:
+   https://docs.python.org/2/library/distutils.html
+
+Usage
+=====
+
+Add this to ``setup.py``:
+
+.. code:: python
+
+   try:
+       import distutils644
+   except ImportError:
+       pass
+   else:
+       distutils644.install()
+
+Prerequisites
+=============
+
+* Python 2.7 or ≥ 3.2
+* wheel_ ≥ 0.7 (for wheel support)
+
+.. _wheel:
+   https://pypi.org/project/wheel/
+
+.. vim:ft=rst ts=3 sts=3 sw=3 et

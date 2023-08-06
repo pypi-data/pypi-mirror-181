@@ -1,0 +1,5 @@
+#!/bin/sh
+export version=${1:?"no version number provided"}
+set -e -x
+dch -m -v "$version" -u low -c doc/changelog
+perl -pi -e 's/^__version__ = '"'"'\K[\w.]+/$ENV{version}/' distutils644.py

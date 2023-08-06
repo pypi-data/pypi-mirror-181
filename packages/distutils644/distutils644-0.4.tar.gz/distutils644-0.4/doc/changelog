@@ -1,0 +1,48 @@
+distutils644 (0.4) unstable; urgency=low
+
+  * Patch wheel only if it was already imported.
+  * Improve the setup script:
+    + Don't let wheel import setuptools, unless it's already imported
+      (e.g. by pip).
+    + Use HTTPS for jwilk.net.
+  * Add (no-op) clean target to Makefile.
+  * Improve the test suite.
+
+ -- Jakub Wilk <jwilk@jwilk.net>  Fri, 16 Dec 2022 18:16:09 +0100
+
+distutils644 (0.3.2) unstable; urgency=low
+
+  * Fix compatibility with wheel ≥ 0.32.
+
+ -- Jakub Wilk <jwilk@jwilk.net>  Thu, 04 Oct 2018 22:11:28 +0200
+
+distutils644 (0.3.1) unstable; urgency=low
+
+  * Fix “setup.py --help-commands” when the wheel module is missing.
+
+ -- Jakub Wilk <jwilk@jwilk.net>  Fri, 18 May 2018 20:41:38 +0200
+
+distutils644 (0.3) unstable; urgency=low
+
+  * Normalize metadata in zip files, too.
+  * Normalize metadata in wheels, too.
+    (This requires wheel ≥ 0.7.)
+  * Add a test suite.
+  * Upgrade the “Development Status” classifier to “Beta”.
+
+ -- Jakub Wilk <jwilk@jwilk.net>  Thu, 26 Apr 2018 13:08:02 +0200
+
+distutils644 (0.2) unstable; urgency=low
+
+  * Normalize order of tar directory entries.
+    https://github.com/jwilk/distutils644/issues/1
+  * Document how to opportunistically enable normalization.
+  * Update homepage URL.
+
+ -- Jakub Wilk <jwilk@jwilk.net>  Wed, 18 Apr 2018 20:44:04 +0200
+
+distutils644 (0.1) unstable; urgency=low
+
+  * Initial release.
+
+ -- Jakub Wilk <jwilk@jwilk.net>  Wed, 12 Apr 2017 23:00:46 +0200
