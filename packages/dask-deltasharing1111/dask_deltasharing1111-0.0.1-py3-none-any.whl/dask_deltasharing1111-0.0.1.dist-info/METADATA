@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: dask_deltasharing1111
+Version: 0.0.1
+Summary: A library for accessing tables from Delta Sharing as Dask DataFrames
+Project-URL: Homepage, https://github.com/KatanaGraph/dask_deltasharing
+Project-URL: Bug Tracker, https://github.com/KatanaGraph/dask_deltasharing/issues
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Requires-Dist: delta-sharing
+Description-Content-Type: text/markdown
+
+# Dask Delta Sharing
+
+This library lets you access tables in [Delta Sharing](https://github.com/delta-io/delta-sharing/)
+as [Dask DataFrames](https://docs.dask.org/en/stable/dataframe.html).
+
+Usage:
+
+```python
+import dask_deltasharing as dds
+df = dds.load_as_dask("test-profile.json#main.default.test_table")
+```
