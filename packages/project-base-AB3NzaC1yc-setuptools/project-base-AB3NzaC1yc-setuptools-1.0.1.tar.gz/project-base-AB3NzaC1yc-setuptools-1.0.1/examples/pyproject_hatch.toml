@@ -1,0 +1,72 @@
+[build-system]
+requires = ["hatchling", "setuptools", "wheel", "cython"]
+build-backend = "hatchling.build"
+
+[project]
+name = "dadi"
+description = "Fit population genetic models of demography and selection using diffusion approximations to the allele frequency spectrum"
+version= "2.2.0"
+readme = "README.md"
+requires-python = ">=3.7"
+license = "MIT"
+keywords = []
+authors = [
+    { name = "Ryan Gutenkunst", email = "rgutenk@arizona.edu" },
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: BSD License",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+dependencies = [
+    "matplotlib",
+    "numpy",
+    "scipy",
+    "nlopt",
+    "cython",
+]
+
+[project.urls]
+Documentation = "https://dadi.readthedocs.io/en/latest/"
+Source = "https://bitbucket.org/gutenkunstlab/dadi"
+
+[tool.hatch.version]
+path = "dadi/__init__.py"
+
+[tool.setuptools.setup]
+path = "./setup.py"
+
+[tool.hatch.envs.default]
+dependencies = [
+  "pytest",
+  "pytest-cov",
+]
+[tool.hatch.envs.default.scripts]
+cov = "pytest --cov-report=term-missing --cov-config=pyproject.toml --cov=temporary --cov=tests {args}"
+no-cov = "cov --no-cov {args}"
+
+[[tool.hatch.envs.test.matrix]]
+python = ["37", "38", "39", "310", "311"]
+
+[tool.coverage.run]
+branch = true
+parallel = true
+omit = [
+  "dadi/__init__.py",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/dadi",
+]
