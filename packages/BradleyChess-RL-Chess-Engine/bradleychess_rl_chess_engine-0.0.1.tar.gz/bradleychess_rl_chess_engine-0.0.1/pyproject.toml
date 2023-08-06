@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "BradleyChess_RL_Chess_Engine"
+version = "0.0.1"
+authors = [
+  { name="Abraham Borg", email="abrahamborg@gmail.com" },
+]
+description = "A simple chess engine build using the reinforced learning SARSA algorithm"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/pypa/BradleyChess_RL_Chess_Engine"
+"Bug Tracker" = "https://github.com/pypa/BradleyChess_RL_Chess_Engine/issues"
