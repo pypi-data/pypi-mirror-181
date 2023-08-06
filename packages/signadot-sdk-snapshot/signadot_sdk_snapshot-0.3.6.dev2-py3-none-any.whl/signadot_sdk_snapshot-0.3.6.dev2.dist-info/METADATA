@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: signadot-sdk-snapshot
+Version: 0.3.6.dev2
+Summary: Signadot API
+Home-page: 
+Author-email: 
+Keywords: Swagger,Signadot API
+Requires-Dist: certifi (>=2017.4.17)
+Requires-Dist: python-dateutil (>=2.1)
+Requires-Dist: six (>=1.10)
+Requires-Dist: urllib3 (>=1.23)
+
+    API for Signadot Sandboxes  # noqa: E501
+    
