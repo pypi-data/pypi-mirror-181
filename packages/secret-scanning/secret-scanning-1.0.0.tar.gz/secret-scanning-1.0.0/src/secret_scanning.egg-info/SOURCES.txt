@@ -1,0 +1,13 @@
+CHANGELOG.md
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+src/secret_scanning/__init__.py
+src/secret_scanning/scanner.py
+src/secret_scanning.egg-info/PKG-INFO
+src/secret_scanning.egg-info/SOURCES.txt
+src/secret_scanning.egg-info/dependency_links.txt
+src/secret_scanning.egg-info/requires.txt
+src/secret_scanning.egg-info/top_level.txt
