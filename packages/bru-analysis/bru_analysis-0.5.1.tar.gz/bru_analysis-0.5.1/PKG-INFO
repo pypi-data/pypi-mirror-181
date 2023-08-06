@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: bru-analysis
+Version: 0.5.1
+Summary: This library - Bru-analytics W&J. Private library
+Author: Oscar Riojas
+Author-email: oscar@whaleandjaguar.co
+Requires-Python: >=3.8.5,<3.11
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Dist: bertopic (>=0.12.0,<0.13.0)
+Requires-Dist: distribute (>=0.7.3,<0.8.0)
+Requires-Dist: pandas (>=1.4.4,<2.0.0)
+Requires-Dist: sentence-transformers (>=2.2.2,<3.0.0)
+Requires-Dist: setuptools (>=65.5.0,<66.0.0)
+Requires-Dist: spacy (>=3.4.2,<4.0.0)
+Requires-Dist: tensorflow (>=2.10.0,<3.0.0)
+Requires-Dist: torch (>=1.12.1,<2.0.0)
+Requires-Dist: transformers (>=4.21.3,<5.0.0)
