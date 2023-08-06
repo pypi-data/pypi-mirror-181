@@ -1,0 +1,145 @@
+Metadata-Version: 2.1
+Name: verto
+Version: 1.1.0
+Summary: Verto is an extension of the Python Markdown package, which allows authors to include complex HTML elements with simple text tags in their Markdown.
+Author: University of Canterbury Computer Science Education Research Group
+Author-email: csse-education-research@canterbury.ac.nz
+License: MIT
+Project-URL: Issue Tracker, https://github.com/uccser/verto/issues
+Project-URL: Documentation, https://verto.readthedocs.io/en/latest/
+Project-URL: Changelog, http://verto.readthedocs.io/en/latest/changelog.html
+Project-URL: Source Code, https://github.com/uccser/verto
+Keywords: markdown,verto,development,textbook,converter,media,richtext,interactive,education,html,book,author,extension
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Text Processing :: Markup
+Classifier: Topic :: Text Processing :: Markup :: HTML
+Requires-Python: >=3.8
+
+|Verto Image|
+
+|Build Status|
+
+Verto is an extension of the Python Markdown package, which allows
+authors to include complex HTML elements with simple text tags in their
+Markdown files.
+
+Basic Usage
+-----------
+
+Verto allows for an author to quickly include images and content and display
+them in a panel (similar to a Bootstrap Collapsible Panel) with the following
+markdown:
+
+.. code-block::
+
+  # Example Header
+
+  Example Paragraph
+
+  {panel type="example"}
+
+  # Example Panel
+
+  {image file-path="http://placehold.it/350x150" caption="Example Image"}
+
+  {panel end}
+
+While Verto has many configuration options it can be used immediately
+with little code. For example, if the previous markdown is saved in the file
+called ``example.md`` then the following would convert that file and print the
+output to stdout:
+
+.. code-block:: python
+
+  from verto import Verto
+
+  text = open('example.md', 'r').read()
+  converter = Verto()
+  result = converter.convert(text)
+
+  print(result.html_string)
+
+Documentation
+-------------
+
+Installation and usage documentation for Verto can be found on
+`ReadTheDocs`_, and can also be built from the documentation source
+within the ``docs/`` directory of the development distribution.
+
+License
+-------
+
+Verto is licensed under the MIT License. Read the `license file`_ for
+more details.
+
+Bugs and feature requests
+-------------------------
+
+Have a bug or a feature request? Please first search for `existing and
+closed issues`_ in our issue tracker. If your problem or idea is not
+addressed yet, please `open a new issue`_.
+
+FAQ
+---
+
+**Where is the changelog?**
+
+The changelog is available within the `documentation`_.
+
+**How do I install the development version as local package?**
+
+1. ``$ git clone https://github.com/uccser/verto.git``
+2. ``$ cd verto``
+3. ``$ pip3 install .``
+
+.. _ReadTheDocs: http://verto.readthedocs.io/en/latest/
+.. _documentation: http://verto.readthedocs.io/en/latest/changelog.html
+.. _license file: LICENSE.md
+.. _existing and closed issues: https://github.com/uccser/verto/issues
+.. _open a new issue: https://github.com/uccser/verto/issues/new
+
+.. |Build Status| image:: https://travis-ci.org/uccser/verto.svg?branch=master
+   :target: https://travis-ci.org/uccser/verto
+
+.. |Verto Image| image:: https://raw.githubusercontent.com/uccser/verto/master/verto/images/verto-logo.png
+  :target: https://github.com/uccser/verto
+  :alt: Verto GitHub
+
+Copyright (c) University of Canterbury Computer Science Education Research
+and contributors.
+
+The following license applies to all parts of this software except as
+documented below:
+
+====
+
+MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+====
+
+All packages used by this software may have their own licenses; we recommend
+you read them, as their terms may differ from the terms above.
