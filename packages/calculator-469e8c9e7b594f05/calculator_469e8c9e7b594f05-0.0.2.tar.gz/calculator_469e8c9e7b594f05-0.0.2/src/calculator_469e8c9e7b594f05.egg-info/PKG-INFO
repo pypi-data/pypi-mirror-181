@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: calculator-469e8c9e7b594f05
+Version: 0.0.2
+Summary: A small example package for depconf
+Author-email: Example Author <author@example.com>
+Project-URL: Homepage, https://github.com/pypa/sampleproject
+Project-URL: Bug Tracker, https://github.com/pypa/sampleproject/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+Don't use this it's an POC for dependency confusion
