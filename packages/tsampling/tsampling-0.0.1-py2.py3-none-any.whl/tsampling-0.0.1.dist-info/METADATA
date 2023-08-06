@@ -1,0 +1,93 @@
+Metadata-Version: 2.1
+Name: tsampling
+Version: 0.0.1
+Summary: A package that implements the Thompson Sampling approach for a Multi-Armed Bandit.
+Home-page: https://github.com/dianasargsyan/tsampling.git
+Author: Diana Sargsyan
+Author-email: diana_sargsyan2@edu.aua.am
+License: MIT license
+Keywords: tsampling
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+License-File: AUTHORS.rst
+Requires-Dist: typing
+Requires-Dist: numpy
+Requires-Dist: seaborn
+Requires-Dist: matplotlib
+Requires-Dist: pandas
+
+# tsampling
+Thompson Sampling Multi-Armed Bandit for Python
+
+A package that implements the Thompson Sampling approach for a Multi-Armed Bandit.
+The purpose of this project is to help people simply create and maintain Thompson Sampling experiments that have Bernoulli and Poisson distributions.
+
+## Usage
+
+### Setting up the experiment:
+
+The following method will instantiate the experiment with the default priors.
+```python
+from tsampling.bernoulli import BernoulliExperiment
+
+experiment = BernoulliExperiment(arms=2)
+```
+
+You can also set your custom priors by using the Priors module:
+```python
+
+from tsampling.bernoulli import BernoulliExperiment
+from tsampling.priors import BetaPrior
+
+pr = BetaPrior()
+pr.add_one(mean=0.5, variance=0.2, effective_size=10, label="option1")
+pr.add_one(mean=0.6, variance=0.3, effective_size=30, label="option2")
+experiment = BernoulliExperiment(priors=pr)
+```
+
+### Performing an action:
+You can randomly choos which arm to "pull" in the multi-armed bandit:
+```python
+experiment.choose_arm()
+```
+
+### Updating reward:
+You can update the different arms information by adding reward information:
+
+```python
+rewards = [{"label":"option1", "reward":1}, {"label":"option2", "reward":0}]
+experiment.add_rewards(rewards)
+```
+
+### Plotting Posterior Distribution:
+You can plot the posterior distribution 
+
+```python
+experiment.plot_posterior()
+```
+
+## Installation
+
+### Pip 
+```
+pip install tsampling
+```
+
+## License
+ Free software: MIT license
+
+## Credits
+
+This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+
+_Cookiecutter: https://github.com/audreyr/cookiecutter
+`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
