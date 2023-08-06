@@ -1,0 +1,113 @@
+Metadata-Version: 2.1
+Name: trackable
+Version: 0.1.0
+Summary: A minimalistic machine learning model tracker and reporting tool.
+Home-page: https://github.com/MillenniumForce/trackable
+License: MIT
+Author: Julian Garratt
+Author-email: trackable.py@gmail.com
+Requires-Python: >=3.8,<3.12
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Provides-Extra: dev
+Provides-Extra: doc
+Provides-Extra: test
+Requires-Dist: black (>=21.5b2,<22.0) ; extra == "test"
+Requires-Dist: bump2version (>=1.0.1,<2.0.0) ; extra == "dev"
+Requires-Dist: flake8 (>=3.9.2,<4.0.0) ; extra == "test"
+Requires-Dist: flake8-docstrings (>=1.6.0,<2.0.0) ; extra == "test"
+Requires-Dist: isort (>=5.8.0,<6.0.0) ; extra == "test"
+Requires-Dist: jinja2 (==3.0.3)
+Requires-Dist: mkdocs (==1.3.0) ; extra == "doc"
+Requires-Dist: mkdocs-include-markdown-plugin (>=4.0.3,<5.0.0) ; extra == "doc"
+Requires-Dist: mkdocs-material (==8.2.15) ; extra == "doc"
+Requires-Dist: mkdocstrings[python] (>=0.19.1,<0.20.0) ; extra == "doc"
+Requires-Dist: mypy (>=0.900,<0.901) ; extra == "test"
+Requires-Dist: pandas (>=1.5.2,<2.0.0)
+Requires-Dist: pip (>=20.3.1,<21.0.0) ; extra == "dev"
+Requires-Dist: pre-commit (>=2.12.0,<3.0.0) ; extra == "dev"
+Requires-Dist: pyparsing (>=3.0.9,<4.0.0)
+Requires-Dist: pytest (>=6.2.4,<7.0.0) ; extra == "test"
+Requires-Dist: pytest-cov (>=2.12.0,<3.0.0) ; extra == "test"
+Requires-Dist: toml (>=0.10.2,<0.11.0) ; extra == "dev"
+Requires-Dist: tox (>=3.20.1,<4.0.0) ; extra == "dev"
+Requires-Dist: twine (>=3.3.0,<4.0.0) ; extra == "dev"
+Requires-Dist: virtualenv (>=20.2.2,<21.0.0) ; extra == "dev"
+Description-Content-Type: text/markdown
+
+# trackable
+
+[![pypi](https://img.shields.io/pypi/v/trackable.svg)](https://pypi.org/project/trackable/)
+[![python](https://img.shields.io/pypi/pyversions/trackable.svg)](https://pypi.org/project/trackable/)
+[![Build Status](https://github.com/MillenniumForce/trackable/actions/workflows/dev.yml/badge.svg)](https://github.com/MillenniumForce/trackable/actions/workflows/dev.yml)
+[![codecov](https://codecov.io/gh/MillenniumForce/trackable/branch/main/graphs/badge.svg)](https://codecov.io/github/MillenniumForce/trackable)
+
+A minimalistic machine learning model tracker and reporting tool
+
+* Documentation: <https://MillenniumForce.github.io/trackable>
+* GitHub: <https://github.com/MillenniumForce/trackable>
+* PyPI: <https://pypi.org/project/trackable/>
+* Free software: MIT
+
+`trackable` is a package focussed on users already familiar with machine learning in Python and aims to:
+
+1. Provide a minimal model tracking tool with no frills
+2. An intuitive and lightweight api
+
+## Installation
+
+The latest released version can be installed from [PyPI](https://pypi.org/project/trackable/) using:
+
+```bash
+# pip
+pip install trackable
+```
+
+## Features
+
+To start using `trackable` import the main reporting functionality via:
+
+```python
+from trackable import Report
+```
+
+It's simple to start using the package. The example below (although simplistic) shows how easy it
+is to pick up the api:
+
+```python
+from sklearn.datasets import make_classification
+from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score, f1_score, roc_auc_score
+from trackable import Report
+
+X, y = make_classification()
+
+lr = LogisticRegression().fit(X, y)
+rf = RandomForestClassifier().fit(X, y)
+
+# Instantiate the report...
+report = Report(X, y, metrics = [accuracy_score, f1_score, roc_auc_score])
+
+# Add models...
+report.add_model(lr)
+report.add_model(rf)
+
+# Generate the report...
+report.generate()
+```
+
+## Credits
+
+This package was created with [Cookiecutter](https://github.com/audreyr/cookiecutter) and the [waynerv/cookiecutter-pypackage](https://github.com/waynerv/cookiecutter-pypackage) project template.
+
