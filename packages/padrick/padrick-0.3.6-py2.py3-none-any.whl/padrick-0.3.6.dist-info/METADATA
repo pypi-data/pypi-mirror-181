@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: padrick
+Version: 0.3.6
+Summary: A padframe controller/multiplexer generator for SoCs
+Home-page: https://github.com/pulp-platform/padrick
+Author: Manuel Eggimann
+Author-email: manuel.eggimann@gmail.com
+License: apache
+Project-URL: Documentation, https://padrick.readthedocs.io/en/latest/
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering :: Electronic Design Automation (EDA)
+Requires-Python: >=3.7
+Description-Content-Type: text/x-rst; charset=UTF-8
+License-File: LICENSE.txt
+License-File: AUTHORS.rst
+Requires-Dist: pydantic (>=1.8.2)
+Requires-Dist: click
+Requires-Dist: ruamel.yaml
+Requires-Dist: Mako
+Requires-Dist: lark-parser
+Requires-Dist: click-completion
+Requires-Dist: click-log
+Requires-Dist: click-spinner
+Requires-Dist: colorama
+Requires-Dist: hjson
+Requires-Dist: pip (>=20.1.1)
+Requires-Dist: natsort
+Provides-Extra: doc
+Requires-Dist: sphinx-rtd-theme ; extra == 'doc'
+Requires-Dist: sphinx-click ; extra == 'doc'
+Requires-Dist: sphinx-pydantic ; extra == 'doc'
+Requires-Dist: sphinx-jsonschema (==1.15) ; extra == 'doc'
+Requires-Dist: recommonmark ; extra == 'doc'
+Provides-Extra: binary_build
+Requires-Dist: pyoxidizer (==0.20.0) ; extra == 'binary_build'
+Requires-Dist: semver (<3,>=2) ; extra == 'binary_build'
+Provides-Extra: testing
+Requires-Dist: pytest ; extra == 'testing'
+Requires-Dist: pytest-cov ; extra == 'testing'
+
