@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: pysparkifier
+Version: 0.9.1
+Summary: Streamlined pyspark usage
+Home-page: https://github.com/javadba/pysparkifier
+Download-URL: https://github.com/javadba/pysparkifier/archive/0.9.1.tar.gz
+Author: Stephen Boesch
+Author-email: javadba@gmail.com
+License: Apache License 2.0
+Keywords: pyspark,utilities,utils
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+License-File: LICENSE
