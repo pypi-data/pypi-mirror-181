@@ -1,0 +1,166 @@
+id: semantic-sql-registry
+description: Registry overlap for Semantic-SQL designed to supplement OBO vocabularies
+license: CC0
+ontologies:
+  chiro:
+    url: http://purl.obolibrary.org/obo/chiro.owl
+    build_command: "robot relax -i $< merge -o $@"
+  ncit:
+    url: http://purl.obolibrary.org/obo/ncit.owl
+    build_command: "robot relax -i $< merge -o $@"
+  maxo:
+    url: http://purl.obolibrary.org/obo/maxo.owl
+    # https://github.com/monarch-initiative/MAxO/issues/367
+    build_command: "robot relax -i $< merge reason -r structural -o $@"
+  foodon:
+    url: http://purl.obolibrary.org/obo/foodon.owl
+    build_command: "robot merge -i $< relax reduce -c true -o $@"
+  chebiplus:
+    url: http://purl.obolibrary.org/obo/chebi.owl
+    build_command: "robot merge -i $< -I http://purl.obolibrary.org/obo/chiro.owl relax -o $@"
+  msio:
+    url: https://raw.githubusercontent.com/MSI-Metabolomics-Standards-Initiative/MSIO/master/releases/latest_release/MSIO-merged-reasoned.owl
+    prefixmap:
+      MSIO: http://purl.obolibrary.org/obo/MSIO_
+      nmrCV: "http://nmrML.org/nmrCV#NMR:"
+  phenio:
+    description: Monarch Phenomics Integrated Ontology
+    url: https://github.com/monarch-initiative/phenio/releases/latest/download/phenio.owl
+    relation_graph_settings:
+      properties:
+        - BFO:0000050
+        - BFO:0000051
+        - UPHENO:0000001
+        - UPHENO:0000003
+        - RO:0002202
+  comploinc:
+    url: https://github.com/loinc/comp-loinc/releases/download/v2022-11-05/merged_reasoned_loinc.owl
+    build_command: "robot relax -i $< merge -o $@"
+    prefixmap:
+      loinc: https://loinc.org/
+  bero:
+    url: https://github.com/berkeleybop/bero/releases/download/2022-05-26/bero.owl
+  aio:
+    url: https://raw.githubusercontent.com/berkeleybop/artificial-intelligence-ontology/main/aio.owl
+  reacto:
+    url: http://purl.obolibrary.org/obo/go/extensions/reacto.owl
+  go:
+    url: http://purl.obolibrary.org/obo/go/extensions/go-plus.owl
+  go-lego:
+    url: http://purl.obolibrary.org/obo/go/extensions/go-lego.owl
+  bao:
+    url: http://www.bioassayontology.org/bao/bao_complete.owl
+    has_imports: true
+  orcid:
+    url: https://raw.githubusercontent.com/cthoyt/wikidata-orcid-ontology/main/orcid.owl
+    prefixmap:
+      orcid: https://orcid.org/
+  cpont:
+    url: https://w3id.org/cpont/cpont.owl
+  biolink:
+    url: https://w3id.org/biolink/biolink-model.owl.ttl
+    jsonld_context: https://biolink.github.io/biolink-model/context.jsonld
+    format: turtle
+    #
+  biopax:
+    url: http://www.biopax.org/release/biopax-level3.owl
+  enanomapper:
+    url: http://enanomapper.github.io/ontologies/enanomapper.owl
+    has_imports: true
+    prefixmap:
+      evs.ncit: http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#
+      old.fix: http://purl.org/obo/owl/FIX#
+  mlo:
+    url: https://raw.githubusercontent.com/berkeleybop/artificial-intelligence-ontology/main/external/ml-ontology-202010021305.owl
+    has_imports: true
+    prefixmap:
+      mlo: http://www.a2rd.net.br/mlo#
+  ito:
+    url: https://github.com/OpenBioLink/ITO/raw/master/ITO.owl.zip
+    zip_extract_file: ITO.owl
+  reactome-Homo-sapiens:
+    url: https://reactome.org/download/current/biopax.zip
+    zip_extract_file: Homo_sapiens.owl
+  efo:
+    url: http://www.ebi.ac.uk/efo/efo.owl
+    has_imports: true
+  edam:
+    url: http://edamontology.org/EDAM.owl
+  sweetAll:
+    url: http://sweetontology.net/sweetAll
+    has_imports: true
+    named_prefixmaps:
+      - sweet
+      - prefixcc
+  lov:
+    url: https://lov.linkeddata.es/lov.n3.gz
+    format: n3
+    compression: gzip
+  schema-dot-org:
+    url: https://schema.org/version/latest/schemaorg-current-https.rdf
+  cosmo:
+    url: https://micra.com/COSMO/COSMO.owl
+    has_imports: true
+  #empathi:
+  #  url: https://raw.githubusercontent.com/shekarpour/empathi.io/master/empathi.owl
+  #  format: owlx
+  #  named_prefixmaps:
+  #    - prefixcc
+  #  prefixmap:
+  #    empathi: https://w3id.org/empathi/
+
+## CROP ONTOLOGIES
+  co_324:
+    url: https://cropontology.org/ontology/CO_324/rdf
+    prefixmap:
+      co_324: "https://cropontology.org/rdf/CO_324:"
+
+## PyOBO products      
+## See https://github.com/INCATools/semantic-sql/issues/45
+  hgnc.genegroup:
+    url: https://github.com/biopragmatics/obo-db-ingest/raw/main/export/hgnc.genegroup/hgnc.genegroup.owl.gz
+    compression: gzip
+    prefixmap:
+      hgnc.genegroup: http://purl.obolibrary.org/obo/hgnc.genegroup_
+  hgnc:
+    url: https://github.com/biopragmatics/obo-db-ingest/raw/main/export/hgnc/2022-06-01/hgnc.owl.gz
+    compression: gzip
+    prefixmap:
+      hgnc: http://purl.obolibrary.org/obo/hgnc_
+  dictybase:
+    url: https://github.com/biopragmatics/obo-db-ingest/raw/main/export/dictybase/dictybase.owl.gz
+    compression: gzip
+    prefixmap:
+      hgnc.genegroup: http://purl.obolibrary.org/obo/dictybase_
+  eccode:
+    url: https://github.com/biopragmatics/obo-db-ingest/raw/main/export/eccode/25-May-2022/eccode.owl.gz
+    compression: gzip
+    prefixmap:
+      EC: http://purl.obolibrary.org/obo/eccode_
+      uniprot.obo: http://purl.obolibrary.org/obo/uniprot_
+  uniprot:
+    url: https://github.com/biopragmatics/obo-db-ingest/raw/main/export/uniprot/2022_02/uniprot.owl.gz
+    compression: gzip
+    prefixmap:
+      uniprot.obo: http://purl.obolibrary.org/obo/uniprot_
+  rhea:
+    url: https://github.com/biopragmatics/obo-db-ingest/raw/main/export/rhea/122/rhea.owl.gz
+    compression: gzip
+    prefixmap:
+      rhea: http://purl.obolibrary.org/obo/rhea_
+      uniprot.obo: http://purl.obolibrary.org/obo/uniprot_
+  drugbank:
+    url: https://github.com/biopragmatics/obo-db-ingest/raw/main/export/drugbank/5.1.9/drugbank.owl.gz
+    compression: gzip
+    prefixmap:
+      drugbank: http://purl.obolibrary.org/obo/drugbank_
+  drugcentral:
+    url: https://github.com/biopragmatics/obo-db-ingest/raw/main/export/drugcentral.owl.gz
+    compression: gzip
+    prefixmap:
+      drugbank: http://purl.obolibrary.org/obo/drugcentral_
+  complexportal:
+    url: https://github.com/biopragmatics/obo-db-ingest/raw/main/export/complexportal/2022-02-03/complexportal.owl.gz
+    compression: gzip
+    prefixmap:
+      complexportal: http://purl.obolibrary.org/obo/complexportal_
