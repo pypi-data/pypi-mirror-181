@@ -1,0 +1,66 @@
+[
+  {
+    "name": "Customer01",
+    "id": "1",
+    "vendor": "fortinet",
+    "type": "fortigate",
+    "hosts": [
+      {
+        "name": "firewall01",
+        "id": 1,
+        "config": {
+          "firewall address": [
+            {
+              "name": "HOST_10.0.0.1",
+              "subnet": "10.0.0.1 255.255.255.255"
+            }
+          ]
+        }
+      },
+      {
+        "name": "firewall02",
+        "id": 2,
+        "config": {
+          "firewall address": [
+            {
+              "name": "HOST_10.0.0.2",
+              "subnet": "10.0.0.2 255.255.255.255"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "Customer02",
+    "id": "2",
+    "vendor": "fortinet",
+    "type": "fortigate",
+    "hosts": [
+      {
+        "name": "firewall01",
+        "id": 1,
+        "config": {
+          "firewall address": [
+            {
+              "name": "HOST_10.0.0.1",
+              "subnet": "10.0.0.1 255.255.255.255"
+            }
+          ]
+        }
+      },
+      {
+        "name": "firewall02",
+        "id": 2,
+        "config": {
+          "firewall address": [
+            {
+              "name": "HOST_10.0.0.2",
+              "subnet": "10.0.0.2 255.255.255.255"
+            }
+          ]
+        }
+      }
+    ]
+  }
+]
