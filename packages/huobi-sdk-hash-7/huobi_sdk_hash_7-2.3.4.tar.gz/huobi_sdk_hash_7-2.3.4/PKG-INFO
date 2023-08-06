@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: huobi-sdk-hash-7
+Version: 2.3.4
+Summary: Forked from https://github.com/HuobiRDCenter/huobi_Python
+Project-URL: Homepage, https://github.com/HuobiRDCenter/huobi_Python
+Author-email: hash7 <dv@hash7.io>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# Huobi Python SDK v2.3.3
+
+Python >= 3.9 support added. The unsubscribe_all method added to class MarketClient.
+Remove "slash path" from folder name.
+The test.py module could not be installed - fixed.
