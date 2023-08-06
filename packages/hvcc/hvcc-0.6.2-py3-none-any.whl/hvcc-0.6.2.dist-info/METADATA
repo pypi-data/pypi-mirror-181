@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: hvcc
+Version: 0.6.2
+Summary: `hvcc` is a python-based dataflow audio programming language compiler that generates C/C++ code and a variety of specific framework wrappers.
+Home-page: https://github.com/Wasted-Audio/hvcc
+Download-URL: https://github.com/Wasted-Audio/hvcc/archive/refs/tags/v0.6.2.tar.gz
+Author: Enzien Audio, Wasted Audio
+License: GPLv3
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Compilers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.7
+License-File: LICENSE
+Requires-Dist: Jinja2 (>=2.11)
+Requires-Dist: importlib-resources (>=5.1)
+Requires-Dist: json2daisy (>=0.4.2)
+

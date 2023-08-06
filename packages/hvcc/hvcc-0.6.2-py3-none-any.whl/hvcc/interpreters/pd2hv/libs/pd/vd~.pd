@@ -1,0 +1,8 @@
+#N canvas 556 194 566 153 12;
+#X obj 37 37 inlet~;
+#X obj 37 87 outlet~;
+#X text 150 45 dreamer: old vd~ is renamed to delread4~ now this simply
+wraps the newly named object;
+#X obj 37 62 delread4~ \$1;
+#X connect 0 0 3 0;
+#X connect 3 0 1 0;
