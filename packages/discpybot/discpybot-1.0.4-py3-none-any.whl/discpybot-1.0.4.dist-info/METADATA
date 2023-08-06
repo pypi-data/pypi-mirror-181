@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: discpybot
+Version: 1.0.4
+Requires-Dist: click
+Requires-Dist: nextcord
+Requires-Dist: requests
+Requires-Dist: datetime
+Requires-Dist: humanfriendly
+
+A simple CLI that generates a discord bot template in python.
