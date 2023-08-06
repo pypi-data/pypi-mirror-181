@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: chaosNLP
+Version: 0.0.1
+Summary: 容易理解的NLP库
+Author: huangchao
+Author-email: huangchao.cpp@gmail.com
+License: MIT License
+Keywords: NLP
+Description-Content-Type: text/markdown
+
+
+
+NLP常用方法的直白实现，优先保证理解，其次考虑实现效率。
+
+目前实现了word2vec，transformer，gpt，bert
