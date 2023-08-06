@@ -1,0 +1,78 @@
+name: tests
+on:
+  push:
+  schedule:
+    - cron: '30 14 * * *'
+
+jobs:
+  Unit-Tests:
+    name: Python-${{ matrix.python-version }}-${{ matrix.qt-binding }}-${{ matrix.platform }}
+    runs-on: ${{ matrix.platform }}
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ['3.7', '3.8', '3.9', '3.10', '3.11']
+        qt-binding: [PyQt5, PyQt6, PySide2, PySide6]
+        platform: [ubuntu-latest, macos-latest, windows-latest]
+        exclude:
+          - qt-binding: PySide2
+            platform: windows-latest
+            python-version: '3.11'
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+          architecture: x64
+      - name: Run system tests
+        run: python -m test.test_asyncio
+      - name: Install Qt dependencies
+        if: ${{ matrix.platform == 'ubuntu-latest' }}
+        run: sudo apt-get install libgl1-mesa-dev
+#      - name: Install Qt binding
+#        if: ${{ matrix.qt-binding == 'PySide2' }}
+#        run: pip install PySide2==5.15.2
+      - name: Install Qt binding
+        run: pip install ${{ matrix.qt-binding }}
+      - name: Run Qt binding tests
+        run: python tests/binding_tests.py -v
+        env:
+          TEST_QT_MODULE: ${{ matrix.qt-binding }}
+          QT_QPA_PLATFORM: offscreen
+      - name: Install Python packages
+        run: pip install coverage
+      - name: Run unit tests
+        run: coverage run -m unittest discover -s tests -v
+        env:
+          TEST_QT_MODULE: ${{ matrix.qt-binding }}
+          PYTHONPATH: src
+      - name: Run GUI tests
+        run: coverage run tests/gui_test_clicked.py
+        env:
+          TEST_QT_MODULE: ${{ matrix.qt-binding }}
+          PYTHONPATH: src
+          QT_QPA_PLATFORM: offscreen
+      - name: Run asyncio test suite
+        run: python tests/asyncio_tests.py
+        env:
+          QTINTERBINDING: ${{ matrix.qt-binding }}
+          PYTHONPATH: src
+      #- name: Test examples
+      #  run: python tests/example_tests.py
+      #  env:
+      #    QTINTERBINDING: ${{ matrix.qt-binding }}
+      #    PYTHONPATH: src
+      - name: Combine coverage data
+        run: coverage combine
+      - name: Generate coverage report
+        run: coverage xml
+      - name: Upload coverage report
+        uses: codecov/codecov-action@v3
+        with:
+          files: ./coverage.xml
+          fail_ci_if_error: false
+          verbose: true

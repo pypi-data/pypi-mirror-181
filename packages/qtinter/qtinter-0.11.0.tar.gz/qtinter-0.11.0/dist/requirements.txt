@@ -1,0 +1,5 @@
+# The following packages are needed for packaging qtinter.
+build
+setuptools
+setuptools-scm
+twine
