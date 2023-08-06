@@ -1,0 +1,49 @@
+{% import 'class.jinja' as uml_class %}
+{% import 'package.jinja' as uml_package %}
+{% import 'connection.jinja' as uml_connection %}
+
+digraph UML_Class_diagram {
+    rankdir="{{ model.options.direction }}";
+    concentrate={{ model.options.concentrate }};
+    splines={{ model.options.splines }};
+    overlap=false;
+    newrank=true;
+    ranksep="0.5";
+    esep=1;
+
+    node [
+		fontname="Helvetica,Arial,sans-serif"
+		shape=record
+		style=filled
+        colorscheme={{ model.options.colorScheme }}9
+        fillcolor=3
+	]
+
+{% for class in model.classes %}
+    {{ uml_class.render(class) }}
+{% endfor %}
+
+{% for package in model.packages %}
+    {{ uml_package.render(package, model.options) }}
+{% endfor %}
+
+{% for connection in model.connections %}
+    {% for association in connection.associations %}
+        {{ uml_connection.renderAssosiations(association) }}
+    {% endfor %}
+{% endfor %}
+
+{% for class in model.classes %}
+    {% for parent_class in class.extends %}
+        {{ uml_connection.renderInheritance(class, parent_class) }}
+    {% endfor %}
+    
+    {% for aggregation in class.aggregations %}
+        {{ uml_connection.renderAggregation(class, aggregation) }}
+    {% endfor %}
+
+    {% for composition in class.compositions %}
+        {{ uml_connection.renderComposition(class, composition) }}
+    {% endfor %}
+{% endfor %}
+}
