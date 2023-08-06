@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "ez-eda"
+version = "0.1.1"
+description = "simple EDA (Exploratory Data Analysis) visuals"
+authors = ["William VanBuskirk <william.n.vanbuskirk@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "ez_eda"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+seaborn = "^0.12.1"
+pandas = "^1.5.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
