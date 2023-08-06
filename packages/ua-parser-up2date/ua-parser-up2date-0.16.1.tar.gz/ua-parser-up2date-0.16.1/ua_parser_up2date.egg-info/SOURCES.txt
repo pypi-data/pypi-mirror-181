@@ -1,0 +1,14 @@
+MANIFEST.in
+README.rst
+pyproject.toml
+setup.cfg
+setup.py
+./ua_parser/__init__.py
+./ua_parser/user_agent_parser.py
+./ua_parser/user_agent_parser_test.py
+ua_parser/LICENSE
+ua_parser_up2date.egg-info/PKG-INFO
+ua_parser_up2date.egg-info/SOURCES.txt
+ua_parser_up2date.egg-info/dependency_links.txt
+ua_parser_up2date.egg-info/not-zip-safe
+ua_parser_up2date.egg-info/top_level.txt
