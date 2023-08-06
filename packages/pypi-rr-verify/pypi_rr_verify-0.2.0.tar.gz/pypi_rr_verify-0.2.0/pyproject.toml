@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "pypi-rr-verify"
+version = "0.2.0"
+description = "Version tracking of published package."
+authors = ["rroko <roko.mislov@reversinglabs.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "pypi_rr_verify"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
