@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: clinicalomicsdb
+Version: 0.4.0
+Summary: Clinical Trial Omics Database for machine learning benchmarking
+Author: Chang In Moon
+Author-email: moonchangin@gmail.com
+Requires-Python: >=3.9,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: Werkzeug (>=2.1.2,<3.0.0)
+Requires-Dist: bs4 (>=0.0.1,<0.0.2)
+Requires-Dist: pandas (>=1.4.3,<2.0.0)
+Requires-Dist: requests (>=2.28.0,<3.0.0)
