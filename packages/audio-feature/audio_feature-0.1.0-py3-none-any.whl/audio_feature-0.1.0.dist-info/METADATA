@@ -1,0 +1,101 @@
+Metadata-Version: 2.1
+Name: audio-feature
+Version: 0.1.0
+Summary: get features from wav
+Author: AaronLi
+Author-email: 1470409562@qq.com
+License: apache 3.0
+Description-Content-Type: text/markdown
+Requires-Dist: torchaudio
+Requires-Dist: numpy
+Requires-Dist: tqdm
+Requires-Dist: joblib
+Requires-Dist: loguru
+
+# 音频提取声学特征
+
+## 安装
+1. 自行安装依赖（可选），可以自己安装cpu版torch之类的，否则第2步会自动安装默认版
+```shell
+pip install torchaudio -i https://mirrors.aliyun.com/pypi/simple/
+```
+2. 安装此包
+```shell
+pip install audio_feature
+```
+## 使用方法
+### 1、直接得到音频特征的tensor
+其中特征计算的默认参数如下，可自行调整
+```python
+import audio_feature
+
+audio_feature.ComputeFbank(num_mel_bins=80,
+                           frame_length=25,
+                           frame_shift=10,
+                           dither=0.0,
+                           resample_rate=16000)
+
+audio_feature.ComputeMelSpectrogram(num_mel_bins=80,
+                                    n_fft=2048,
+                                    win_length=1200,
+                                    hop_length=300,
+                                    resample_rate=16000)
+```
+示例：
+```python
+import audio_feature
+import torchaudio
+
+wav_path = "./test.wav"
+
+# 提前读取音频文件
+waveform, sample_rate = torchaudio.load(wav_path)
+
+# 计算fbank
+cf_func = audio_feature.ComputeFbank()
+fbank = cf_func(waveform, sample_rate)
+print(fbank)
+
+# 计算mel
+cm_func = audio_feature.ComputeMelSpectrogram()
+mel = cm_func(waveform, sample_rate)
+print(mel)
+```
+
+### 2、批量将文件夹内的wav文件提取特征并保存为npy
+特征默认参数如下，可自行调整
+```python
+import audio_feature
+audio_feature.batch_compute(wav_dir, out_dir, nj=1,
+                  feature_type="fbank",
+                  frame_length=25, frame_shift=10, dither=0.0, # 这行是fbank参数
+                  n_fft=2048, win_length=1200, hop_length=300, # 这行是mel参数
+                  num_mel_bins=80, resample_rate=16000         # 这是共用参数
+                  )
+```
+python内示例
+```python
+import audio_feature
+
+wav_dir = "./wav_data/"
+out_dir = "./np_out/"
+
+audio_feature.batch_compute(wav_dir, out_dir, nj=2, feature_type="mel")
+```
+命令行使用示例
+```shell
+# -ft 特征类型 fbank 或 mel
+# -d  输入音频文件夹
+# -o  输出npy文件夹
+# -nj 并发数，npy文件的保存会占用大量磁盘io，可能并发并不需要太高
+# -f_len fbank的帧长
+# -f_sh  fbank的帧移
+# -di    fbank的抖动
+# -fft   mel的参数n_fft
+# -w_len mel的窗口长度
+# -h_len mel的滑窗距离
+# -n_mel fbank和mel通用的mel_bin数
+# -re  通用的音频重采样频率 默认16000
+
+audio_feature -d ./wav_data -o ./np_out -ft mel
+```
