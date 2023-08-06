@@ -1,0 +1,63 @@
+[tool.poetry]
+name = "annalise-confluence-junction"
+version = "2.0.0"
+description = "Publish to and manage Confluence spaces with markdown files tracked in Git."
+authors = ["Lachlan Newman <lachnewman007@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/HUU/Junction"
+keywords = ["confluence", "markdown", "git", "sync", "convert"]
+
+packages = [
+    { include = "junction", from = "src" },
+]
+
+[tool.poetry.dependencies]
+python = "3.8.*"
+requests = "^2.22.0"
+markdown = "^3.0.1"
+markdownsuperscript = "^2.1.1"
+markdownsubscript = "^2.1.1"
+markdown-urlize = "^0.2.0"
+markdown-emdash = "^0.1.0"
+gitpython = "^3.0.5"
+click = "8.1.3"
+click-log = "^0.3.2"
+colorama = "^0.4.3"
+python-magic = "0.4.27"
+pytest-mock = "^3.8.2"
+Faker = "^13.15.1"
+pyppeteer = "^1.0.2"
+CairoSVG = "^2.5.2"
+
+[tool.poetry.dev-dependencies]
+ipykernel = "^5.1.4"
+notebook = "^6.0.3"
+black = "22.6.0"
+flake8 = "^3.7.9"
+pre-commit = "^2.0.1"
+rope = "^0.16.0"
+pycodestyle = "^2.6.0"
+mypy = "^0.971"
+pyflakes = "^2.2.0"
+pytest = "7.1.2"
+
+[tool.poetry.scripts]
+junction = "junction.cli:main"
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+isolated_build = true
+envlist = py38
+
+[testenv]
+whitelist_externals = poetry
+commands =
+    poetry install -v
+    poetry run pytest tests/
+"""
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
