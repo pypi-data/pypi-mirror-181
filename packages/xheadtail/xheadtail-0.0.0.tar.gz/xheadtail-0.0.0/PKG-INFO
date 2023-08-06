@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: xheadtail
+Version: 0.0.0
+Summary: In-memory serialization and code generator for CPU and GPU
+Home-page: https://xsuite.readthedocs.io/
+Author: Lotta Mether
+Author-email: lotta.mether@cern.ch
+License: Apache 2.0
+Download-URL: https://pypi.python.org/pypi/xheadtail
+Project-URL: Bug Tracker, https://github.com/xsuite/xsuite/issues
+Project-URL: Documentation, https://xsuite.readthedocs.io/
+Project-URL: Source Code, https://github.com/xsuite/xheadtail
+Description: In-memory serialization and code generator for CPU and GPU
+Platform: UNKNOWN
+Requires-Python: >=3.7
+Provides-Extra: tests
