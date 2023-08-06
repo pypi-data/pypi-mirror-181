@@ -1,0 +1,8 @@
+importer_setting:
+  host: http://localhost:8000/metadata
+  instance_url: https://cure.gisat.cz/backend/rest/
+  path: C:\michal\gisat\be-metadata-importer
+  token: 'eyJ1c2VyS2V5IjogImJhNjIxYzAzLWJjNjUtNDY2OS04ZGY5LWZjNjIxMTQzYTk5ZiJ9'
+  method: endpoint
+register_setting:
+  registerName: dict
