@@ -1,0 +1,164 @@
+# PursuitLib FR lang file.
+# This file is distributed under the same license as the PACKAGE package.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PursuitLib\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-16 17:43+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Language: French\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+
+## ColorField
+
+#: env/lib/python3.8/site-packages/colorfield/fields.py:17
+msgid "Enter a valid hex color, eg. #000000"
+msgstr "Entrer une couleur RGB hexadécimale valide, ex: #000000"
+
+#: env/lib/python3.8/site-packages/colorfield/fields.py:21
+msgid "Enter a valid hexa color, eg. #00000000"
+msgstr "Entrer une couleur RGBA hexadécimale valide, ex: #00000000"
+
+
+## Jazzmin
+
+#: templates/admin/base.html:125
+msgid "Account"
+msgstr "Compte"
+
+#: templates/admin/base.html:143
+msgid "See Profile"
+msgstr "Voir profile"
+
+#: templates/admin/base.html:183 templates/admin/index.html:6
+#: templates/admin/index.html:11
+msgid "Dashboard"
+msgstr "Tableau de bord"
+
+#: templates/admin/base.html:294
+msgid "Jazzmin version"
+msgstr "Version de Jazzmin"
+
+#: templates/admin/base.html:297
+msgid "Copyright"
+msgstr "Copyright"
+
+#: templates/admin/base.html:297
+msgid "All rights reserved."
+msgstr "Tous droits réservés."
+
+#: templates/admin/base.html:313
+msgid "UI Configuration"
+msgstr "Configuration de l'interface"
+
+#: templates/admin/base.html:317
+msgid "Copy this info your settings file to persist these UI changes"
+msgstr "Copiez ces informations dans votre fichier de configuration pour rendre ces changements permanents"
+
+#: templates/admin/index.html:90
+#| msgid "%(entry.action_time|timesince)s ago"
+msgid "%(timesince)s ago"
+msgstr "Il y a %(timesince)s"
+
+#: templates/admin/submit_line.html:8
+msgid "Actions"
+msgstr "Actions"
+
+#: templates/admin_doc/template_detail.html:13
+#, python-format
+msgid "Template: <q>%(name)s</q>"
+msgstr "Modèle: <q>%(name)s</q>"
+
+#. Translators: Search is not a verb here, it qualifies path (a search path)
+#: templates/admin_doc/template_detail.html:17
+#, python-format
+msgid "Search path for template <q>%(name)s</q>:"
+msgstr "Rechercher le chemin pour le modèle <q>%(name)s</q>:"
+
+#: templates/admin_doc/template_filter_index.html:37
+#: templates/admin_doc/view_index.html:43
+#, python-format
+msgid ""
+"View function: <code>%(full_name)s</code>. Name: <code>%(url_name)s</code>."
+msgstr ""
+"Voir la fonction: <code>%(full_name)s</code>. Nombre: <code>%(url_name)s</code>."
+
+#: templatetags/jazzmin.py:390
+#, python-brace-format
+msgid "Added {name} “{object}”."
+msgstr "Ajout de {name} “{object}”."
+
+#: templatetags/jazzmin.py:406
+#, python-brace-format
+msgid "Deleted “{object}”."
+msgstr "“{object}” supprimé"
+
+#: utils.py:66
+#, python-brace-format
+msgid "Could not reverse url from {instance}"
+msgstr "URL inconnue pour {instance}"
+
+msgid "Yes, I’m sure"
+msgstr "Oui, je suis sûr"
+
+msgid "First, enter a username and password. Then, you'll be able to edit more user options."
+msgstr "Premièrement, entrez un nom d'utilisateur et un mot de passe. Vous pourrez ensuite modifier plus d'options."
+
+
+# CKEditor
+
+#: env/lib/python3.8/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:5
+msgid "Select an image to embed"
+msgstr "Sélectionner une image à insérer"
+
+#: env/lib/python3.8/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:27
+msgid "Browse for the image you want, then click 'Embed Image' to continue..."
+msgstr "Recherchez l'image que vous désirez, puis cliquez sur 'Insérer l'image' pour continuer..."
+
+#: env/lib/python3.8/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:29
+msgid ""
+"No images found. Upload images using the 'Image Button' dialog's 'Upload' "
+"tab."
+msgstr "Aucune image n'a été trouvée. Téléversez d'abord des images via l'onglet associé, ou par glisser/déposer."
+
+#: env/lib/python3.8/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:50
+msgid "Images in: "
+msgstr "Images dans: "
+
+#: env/lib/python3.8/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:62
+#: env/lib/python3.8/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:80
+msgid "Embed Image"
+msgstr "Insérer l'image"
+
+#: env/lib/python3.8/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:146
+msgid "Play Slideshow"
+msgstr "Jouer le diaporama"
+
+#: env/lib/python3.8/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:147
+msgid "Pause Slideshow"
+msgstr "Mettre en pause le diaporama"
+
+#: env/lib/python3.8/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:148
+msgid "&lsaquo; Previous Photo"
+msgstr "&lsaquo; Photo précédente"
+
+#: env/lib/python3.8/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:149
+msgid "Next Photo &rsaquo;"
+msgstr "Photo suivante &rsaquo;"
+
+#: env/lib/python3.8/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:150
+msgid "Next &rsaquo;"
+msgstr "Suivante &rsaquo;"
+
+#: env/lib/python3.8/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:151
+msgid "&lsaquo; Prev"
+msgstr "&lsaquo; Précédent"
+
+msgid "Search files"
+msgstr "Rechercher des fichiers"

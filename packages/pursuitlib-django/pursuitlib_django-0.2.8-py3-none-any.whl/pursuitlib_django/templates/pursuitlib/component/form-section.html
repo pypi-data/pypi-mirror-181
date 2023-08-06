@@ -1,0 +1,7 @@
+{% load pursuitlib %}
+
+{% for field in form|section_fields:section %}
+    {% if field.visible %}
+        {% field field padding=padding label=display_label %}
+    {% endif %}
+{% endfor %}

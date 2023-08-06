@@ -1,0 +1,18 @@
+{% load pursuitlib %}
+
+{% if field.widget_type == "hidden" %}
+    {{ field|as_widget }}
+{% else %}
+    <div {% if padding %}class="pb-3"{% endif %}>
+        {% if field.display_label and display_label %}
+            <label for="{{ field.id_for_label }}" class="pb-1">{{ field.label }}{% if field.field.required %}<span style="color:#F23727;font-weight:bold">*</span>{% endif %}</label>
+        {% endif %}
+        <div class="input-group mx-auto">
+            {% if field.display_icon %}
+                <span class="input-group-text"><i class="{{ field.icon }}"></i></span>
+            {% endif %}
+
+            {{ field|as_widget }}
+        </div>
+    </div>
+{% endif %}

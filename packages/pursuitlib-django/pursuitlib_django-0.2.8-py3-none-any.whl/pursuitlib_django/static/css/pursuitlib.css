@@ -1,0 +1,98 @@
+/* Links */
+
+a {
+    text-decoration: none;
+}
+
+.hidden-link {
+    color: inherit;
+}
+
+.hidden-link:hover {
+    color: inherit;
+}
+
+.subtle-link {
+    color: inherit;
+}
+
+.subtle-link:hover {
+    color: inherit;
+    opacity: 75%;
+}
+
+.subtle-link:active {
+    opacity: 50%;
+}
+
+.subtle-link-disabled {
+    color: inherit;
+    opacity: 50%;
+}
+
+.subtle-link-disabled:hover {
+    color: inherit;
+}
+
+.hoverable {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+}
+
+
+/* Misc */
+
+.text-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+
+/*** THIRD PARTY STYLING ***/
+
+
+/* CKEditor */
+
+.django-ckeditor-widget {
+    width: 100%;
+}
+
+
+/* Select2 */
+
+.select2-selection {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.select2-selection__rendered {
+    display: inline !important;
+    line-height: 200%;
+}
+
+.select2-selection__choice {
+    display: inline !important;
+    padding: .15em .65em !important;
+    white-space: nowrap;
+}
+
+.select2-selection__choice__remove {
+    padding: 0 !important;
+}
+
+.select2-search {
+    display: inline !important;
+}
+
+.select2-search__field {
+    vertical-align: middle !important;
+}
+
+.select2-search--hide {
+    display: none !important;
+}
+
+.select2-container--bootstrap-5 .select2-selection--multiple .select2-search .select2-search__field {
+    height: 1.75rem;
+}

@@ -1,0 +1,42 @@
+{% load pursuitlib %}
+
+<form {% block form_properties %}method="post"{% endblock %} action="{% block target %}{% endblock %}" enctype="multipart/form-data">
+    <div class="modal fade" id="{{ id }}" tabindex="-1" aria-labelledby="formLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="formLabel">{% block title %}{{ form.get_title }}{% endblock %}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    {% block form_header %}
+                        {% with header=form.get_header %}
+                            {% if header|not_empty %}
+                                <p class="text-justify">
+                                    {{ header }}
+                                </p>
+                            {% endif %}
+                        {% endwith %}
+                    {% endblock %}
+                    <div class="d-flex flex-column align-items-center justify-content-center">
+                        {% block form_csrf %}{% csrf_token %}{% endblock %}
+                        {% block widgets_header %}{% endblock %}
+                        <div class="pt-2 w-100">
+                            {% block form_content %}
+                                {% form_section form %}
+                            {% endblock %}
+                        </div>
+                        {% block widgets_footer %}{% endblock %}
+                    </div>
+                    {% block form_footer %}{% endblock %}
+                </div>
+                <div class="modal-footer">
+                    {% block footer %}
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                        <input type="submit" class="{% block form_submit_classes %}btn btn-primary{% endblock %}" value="{% block form_submit %}{{ form.get_submit_text }}{% endblock %}"/>
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
