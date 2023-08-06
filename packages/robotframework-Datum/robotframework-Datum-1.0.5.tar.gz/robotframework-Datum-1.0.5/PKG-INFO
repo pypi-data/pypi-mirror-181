@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: robotframework-Datum
+Version: 1.0.5
+Summary: Compare text library for robotframework. Can handle PDF and text files as well as strings
+Home-page: https://comparepdf.github.com
+Author: Abdelkader HASSINE;           Rafik SAADA
+Author-email: contact.abdelkaderhassine@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Topic :: Software Development :: Testing
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.0
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+
+README FILE
+
+Datum library
+ 
+Datum is a robot framework library that provide interesting keywords to handle pdf files and compare text.
+
+Installation
+The recommended installation method is pip:
+pip install robotframework-datum
+
+Running this command installs also the latest version of Requests.
+
+
