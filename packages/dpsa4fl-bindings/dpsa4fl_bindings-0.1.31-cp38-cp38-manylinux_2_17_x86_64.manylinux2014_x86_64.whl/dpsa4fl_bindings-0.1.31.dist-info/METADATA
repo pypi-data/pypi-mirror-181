@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: dpsa4fl-bindings
+Version: 0.1.31
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+
+
+# Python bindings for dpsa4fl
+This package is a wrapper around the [dpsa4fl](https://github.com/dpsa-project/dpsa4fl) crate.
+See [here](https://github.com/dpsa-project/overview) for more information.
+
+
+
