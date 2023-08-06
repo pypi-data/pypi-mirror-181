@@ -1,0 +1,7 @@
+sliceable-dict>=0.0.4
+pandas>1.0.0
+numpy>1.0.0
+
+[tests]
+black
+pytest
