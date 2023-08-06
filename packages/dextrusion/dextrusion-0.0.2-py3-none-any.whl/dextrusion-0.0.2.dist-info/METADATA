@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: dextrusion
+Version: 0.0.2
+Summary: DeXtrusion: automatic detection of cell extrusion in epithelial tissu
+Home-page: https://gitlab.pasteur.fr/gletort/dextrusion
+Author: Gaëlle Letort and Alexis Villars
+License-File: LICENSE
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: opencv-python
+Requires-Dist: tifffile (>=2022.2.2)
+Requires-Dist: roifile
+Requires-Dist: scikit-image
+Requires-Dist: scikit-learn
+Requires-Dist: scipy
+Requires-Dist: tensorflow (==2.8)
+Requires-Dist: protobuf (==3.19)
+Requires-Dist: ipython
+
