@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "goPEST"
+description = "A TOUGH2/Waiwera interface to PEST"
+readme = "README.md"
+requires-python = ">=2.7"
+keywords = ["goPEST", "PEST", "Waiwera", "TOUGH2", "AUTOUGH2"]
+authors = [ 
+    {name = "Angus Yeh", email = "a.yeh@auckland.ac.nz"},
+]
+license = {text = "BSD 3-Clause License"}
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Environment :: Console",
+    "License :: OSI Approved :: BSD License",
+    "Topic :: Scientific/Engineering",
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "numpy",
+    "scipy",
+    "h5py",
+    "PyTOUGH",
+    "toml",
+    "setuptools_scm",
+]
+dynamic = ["version"]
+
+[tool.setuptools_scm]
+# this allows pip install to create proper version in the metadata
+
+[tool.setuptools.packages.find]
+exclude = ["tests"]
+
+[project.scripts]
+gopest = "gopest.commands:gopest_cli"
+
+# TODO: https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html
+# ... other project metadata fields as specified in:
+#     https://packaging.python.org/en/latest/specifications/declaring-project-metadata/
+
+# to bump version, git tag (annotated) a version eg. 'v0.1.0'
+#
+# to build sdist and wheel, use: python -m build
+#
+# to upload to PyPI, use: python -m twine upload dist/xx.tar.gz dist/xx.whl
+# (this requires PyPI username and password)
