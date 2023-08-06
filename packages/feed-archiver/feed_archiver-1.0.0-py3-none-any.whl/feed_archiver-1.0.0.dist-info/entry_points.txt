@@ -1,0 +1,7 @@
+[console_scripts]
+feed-archiver = feedarchiver:main
+
+[feedarchiver.linkpaths]
+default = feedarchiver.linkpaths.template:TemplateLinkPathPlugin
+sonarr = feedarchiver.linkpaths.servarr:SonarrLinkPathPlugin
+template = feedarchiver.linkpaths.template:TemplateLinkPathPlugin
