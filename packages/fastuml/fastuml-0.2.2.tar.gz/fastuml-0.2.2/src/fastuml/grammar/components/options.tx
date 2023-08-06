@@ -1,0 +1,24 @@
+GraphDirection: 'TB' | 'LR' | 'BT' | 'RL';
+ColorScheme: 'blues' | 'greens' | 'greys' | 'oranges' | 'reds' | 'purples';
+OptSplines: 'none' | 'line' | 'polyline' | 'curved' | 'ortho' | 'spline';
+OptVisibility: 'hide' | 'show';
+
+GraphOptions: 
+    'graphOptions' '{'
+        (
+            ('direction' '=' direction=GraphDirection)?
+            ('concentrate' '=' concentrate=BOOL)?
+            ('colorScheme' '=' colorScheme=ColorScheme)?
+            ('splines' '=' splines=OptSplines)?
+        )#
+    '}'
+;
+
+NodeOptions:
+    'options' '{'
+        (
+            ('visible' '=' visible=OptVisibility)?
+            ('visibleConnections' '=' visibleConnections=OptVisibility)?
+        )#
+    '}'
+;
