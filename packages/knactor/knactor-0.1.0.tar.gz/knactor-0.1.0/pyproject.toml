@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "knactor"
+version = "0.1.0"
+description = ""
+authors = ["Ryan Teoh <ryanteoh01@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+inflection = "^0.5.1"
+PyYAML = "^6.0"
+python-box = "^6.1.0"
+kubernetes = "^25.3.0"
+kopf = "^1.36.0"
+dash = "^2.7.1"
+pyzed = "^1.3.0"
+pandas = "^1.5.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

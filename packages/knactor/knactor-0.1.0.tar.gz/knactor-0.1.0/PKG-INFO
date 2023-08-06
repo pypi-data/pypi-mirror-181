@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: knactor
+Version: 0.1.0
+Summary: 
+Author: Ryan Teoh
+Author-email: ryanteoh01@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: PyYAML (>=6.0,<7.0)
+Requires-Dist: dash (>=2.7.1,<3.0.0)
+Requires-Dist: inflection (>=0.5.1,<0.6.0)
+Requires-Dist: kopf (>=1.36.0,<2.0.0)
+Requires-Dist: kubernetes (>=25.3.0,<26.0.0)
+Requires-Dist: pandas (>=1.5.2,<2.0.0)
+Requires-Dist: python-box (>=6.1.0,<7.0.0)
+Requires-Dist: pyzed (>=1.3.0,<2.0.0)
+Description-Content-Type: text/markdown
+
+# Knactor 
+
