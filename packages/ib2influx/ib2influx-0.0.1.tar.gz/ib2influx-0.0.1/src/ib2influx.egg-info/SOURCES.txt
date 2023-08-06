@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/ib2influx/__init__.py
+src/ib2influx/loader.py
+src/ib2influx/opa.py
+src/ib2influx/utils.py
+src/ib2influx.egg-info/PKG-INFO
+src/ib2influx.egg-info/SOURCES.txt
+src/ib2influx.egg-info/dependency_links.txt
+src/ib2influx.egg-info/top_level.txt

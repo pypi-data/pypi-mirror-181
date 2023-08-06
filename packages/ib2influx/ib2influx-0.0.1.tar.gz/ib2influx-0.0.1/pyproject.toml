@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ib2influx"
+version = "0.0.1"
+authors = [
+  { name="Conrad Chan", email="conradchan@hotmail.com.au" },
+]
+description = "Collect IB statistics and push them to InfluxDB"
+readme = "README.md"
+requires-python = ">=3.6"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: OS Independent",
+    "Development Status :: 4 - Beta",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/conradtchan/ib2influx"
+"Bug Tracker" = "https://github.com/conradtchan/ib2influx/issues"
