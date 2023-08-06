@@ -1,0 +1,2 @@
+[console_scripts]
+cci = contributor_ci.client:run

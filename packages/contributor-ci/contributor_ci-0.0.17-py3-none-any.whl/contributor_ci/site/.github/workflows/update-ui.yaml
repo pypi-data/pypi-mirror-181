@@ -1,0 +1,29 @@
+name: Update Contributor CI Interface
+on:
+  schedule:
+    - cron:  '0 3 * * *'
+
+jobs:
+  extraction:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+    - name: Update Data
+      uses: vsoch/contributor-ci@main
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        update: true
+        update_random: 4
+
+    - name: Check that results exist
+      run: tree cci
+
+    - name: Push Results
+      run: |
+        git config --global user.name "github-actions"
+        git config --global user.email "github-actions@users.noreply.github.com"
+        git add cci/*
+        git commit -m "Automated push with new data results $(date '+%Y-%m-%d')" || exit 0
+        git push origin main || exit 0
