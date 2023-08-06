@@ -1,0 +1,18 @@
+PRPS
+-------------
+
+This is a package for connecting to a Pepper robot using ssh and paramiko to play the rock paper scissors game which can be found here:https://github.com/D7017E/Rock-Paper-Scissors/.
+This package is a part of the course D7017E at Luleå University of technology.
+
+Usage
+-------------------------
+
+To run this package you import server connection and then call its main function. 
+
+
+>>> from prps import server_connection
+>>> server_connection.main(ip, password, language)
+
+- ip: string, the ip address of Pepper. 
+- password: string, the password of the nao user on Pepper
+- language: string, the langauge Pepper will use, currently Swedish and English are supported
