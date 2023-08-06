@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: awsdf
+Version: 0.1.7
+Summary: AWS metadata as dataframes
+Author: Allan
+Author-email: allan.dsouza@gmail.com
+Requires-Python: >=3.7.2,<3.11
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Dist: awswrangler (>=2.14.0,<3.0.0)
+Requires-Dist: loguru (>=0.6.0,<0.7.0)
+Requires-Dist: tabulate (>=0.8.9,<0.9.0)
+Requires-Dist: tqdm (>=4.64.0,<5.0.0)
+Description-Content-Type: text/x-rst
+
+
+Welcome to awsdf’s documentation!
+*********************************
+
+
+Indices and tables
+******************
+
+*  `Index <genindex.rst>`_
+
+*  `Module Index <py-modindex.rst>`_
+
+*  `Search Page <search.rst>`_
+
