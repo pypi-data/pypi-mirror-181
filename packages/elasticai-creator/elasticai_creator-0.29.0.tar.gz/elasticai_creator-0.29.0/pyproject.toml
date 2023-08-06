@@ -1,0 +1,63 @@
+[tool.poetry]
+name = "elasticai.creator"
+version = "0.29.0"
+description = "Design, train and compile neural networks optimized specifically for FPGAs."
+readme = "README.md"
+repository = "https://github.com/es-ude/elastic-ai.creator"
+authors = ["Department Embedded Systems - University Duisburg Essen"]
+packages = [
+    { include = "elasticai/" }
+]
+
+[tool.poetry.dependencies]
+python = "~3.10"
+torch = "~1.11.0"
+torchvision = { version = "^0.12.0", optional = true }
+bitarray = "^2.3.5"
+vsg = "^3.9.0"
+numpy = "^1.23.0"
+matplotlib = {version = "^3.5.2", optional = true}
+
+[tool.poetry.extras]
+examples = ['torchvision', 'matplotlib']
+systemtests = ['torchvision']
+
+[tool.poetry.dev-dependencies]
+python-language-server = "^0.36.2"
+black = ">21.12"
+prospector = {extras = ["with_mypy"], version = "^1.7.7"}
+pre-commit = "^2.19.0"
+pydeps = "^1.11.0"
+mypy = "^0.991"
+
+
+
+
+[tool.pylint]
+max-line-length = 88
+
+[tool.black]
+preview = true
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.coverage.run]
+omit = ["elasticai/creator/examples/*py", "elasticai/creator/tests/*py", "elasticai/creator/*Tests/*py", "elasticai/**/__init__.py"]
+source = ["elasticai/creator"]
+command_line = "-m unittest discover ."
+
+[tool.semantic_release]
+version_toml = "pyproject.toml:tool.poetry.version"
+major_on_zero = false
+repository = "pypi"
+upload_to_release = true
+build_command = "python3 -m pip install poetry && poetry build"
+branch = "main"
+parser_angular_allowed_types="chore,docs,feat,style,fix,refactor,wip,perf,revert"
+parser_angular_minor_types="feat"
+parser_angular_patch_types="fix,perf"
+
+[tool.isort]
+profile = "black"
