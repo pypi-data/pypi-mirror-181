@@ -1,0 +1,15 @@
+# Include the common workspace defaults
+from: workspace-defaults
+
+# Cloud-provider specific configuration.
+provider:
+    type: gcp
+    region: us-west1
+    availability_zone: us-west1-a
+    # Globally unique project id
+    project_id: null
+    # Decide whether to require public IP for head node.
+    # When setting to False, Head node will require a public IP. Default to False
+    use_internal_ips: False
+    # Whether to create managed cloud storage of workspace.
+    managed_cloud_storage: True

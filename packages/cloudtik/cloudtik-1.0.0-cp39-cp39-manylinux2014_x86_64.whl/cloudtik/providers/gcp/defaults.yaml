@@ -1,0 +1,85 @@
+# Include the common defaults
+from: defaults
+
+# Cloud-provider specific configuration.
+provider:
+    type: gcp
+    region: us-west1
+    availability_zone: us-west1-a
+    project_id: null # Globally unique project id
+    # Whether to use managed cloud storage of workspace.
+    use_managed_cloud_storage: True
+
+# How will authenticate with newly launched nodes.
+auth:
+    ssh_user: ubuntu
+# By default we create a new private keypair, but you can also use your own.
+# If you do so, make sure to also set "KeyName" in the head and worker node
+# configurations below. This requires that you have added the key into the
+# project wide meta-data.
+#    ssh_private_key: /path/to/your/key.pem
+
+# Tell the cluster scaler the allowed node types and the resources they provide.
+# The key is the name of the node type, which is just for debugging purposes.
+# The node config specifies the launch config and physical instance type.
+available_node_types:
+    head-default:
+        # The resources provided by this node type.
+        resources: {}
+        # Provider-specific config for this node type, e.g. instance type. By default
+        # will auto-configure unspecified fields such as subnets and ssh-keys.
+        # For more documentation on available fields, see:
+        # https://cloud.google.com/compute/docs/reference/rest/v1/instances/insert
+        node_config:
+            machineType: n2-standard-4
+            # The sourceImage should under boot initializeParams
+            # We will put here better inheritance handling and will fix to the place at runtime
+            # See https://cloud.google.com/compute/docs/images for more images
+            sourceImage: projects/confidential-vm-images/global/images/ubuntu-2004-focal-v20220118
+            disks:
+              - boot: true
+                autoDelete: true
+                type: PERSISTENT
+                initializeParams:
+                  diskSizeGb: 100
+                  diskType: pd-balanced
+            # Additional options can be found in in the compute docs at
+            # https://cloud.google.com/compute/docs/reference/rest/v1/instances/insert
+
+            # If the network interface is specified as below in both head and worker
+            # nodes, the manual network config is used.  Otherwise an existing subnet is
+            # used.  To use a shared subnet, ask the subnet owner to grant permission
+            # for 'compute.subnetworks.use' to the cloudtik scaler account...
+            # networkInterfaces:
+            #   - kind: compute#networkInterface
+            #     subnetwork: path/to/subnet
+            #     aliasIpRanges: []
+    worker-default:
+        # The minimum number of nodes of this type to launch.
+        # This number should be >= 0.
+        min_workers: 1
+        # The resources provided by this node type.
+        resources: {}
+        # Provider-specific config for this node type, e.g. instance type. By default
+        # will auto-configure unspecified fields such as subnets and ssh-keys.
+        # For more documentation on available fields, see:
+        # https://cloud.google.com/compute/docs/reference/rest/v1/instances/insert
+        node_config:
+            machineType: n2-standard-4
+            # The sourceImage should under boot initializeParams
+            # We will put here better inheritance handling and will fix to the place at runtime
+            # See https://cloud.google.com/compute/docs/images for more images
+            sourceImage: projects/confidential-vm-images/global/images/ubuntu-2004-focal-v20220118
+            disks:
+              - boot: true
+                autoDelete: true
+                type: PERSISTENT
+                initializeParams:
+                  diskSizeGb: 100
+                  diskType: pd-balanced
+
+    # Additional options can be found in in the compute docs at
+    # https://cloud.google.com/compute/docs/reference/rest/v1/instances/insert
+
+# Specify the node type of the head node (as configured above).
+head_node_type: head-default

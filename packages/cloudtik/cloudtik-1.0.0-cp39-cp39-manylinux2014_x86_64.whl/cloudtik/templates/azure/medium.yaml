@@ -1,0 +1,25 @@
+# Cloud-provider specific configuration.
+provider:
+    type: azure
+
+# The instance configuration for a medium instance type
+available_node_types:
+    head.default:
+        node_config:
+            azure_arm_parameters:
+                vmSize: Standard_D16s_v4
+                osDiskSizeGB: 100
+    worker.default:
+        node_config:
+            azure_arm_parameters:
+                vmSize: Standard_D32s_v4
+                osDiskSizeGB: 100
+                dataDisks:
+                    - lun: 0
+                      diskName: datadisk1
+                      storageAccountType: Premium_LRS
+                      diskSizeGB: 200
+                    - lun: 1
+                      diskName: datadisk2
+                      storageAccountType: Premium_LRS
+                      diskSizeGB: 200

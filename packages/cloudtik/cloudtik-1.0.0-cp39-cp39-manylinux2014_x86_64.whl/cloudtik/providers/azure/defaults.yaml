@@ -1,0 +1,69 @@
+# Include the common defaults
+from: defaults
+
+# Cloud-provider specific configuration.
+provider:
+    type: azure
+    # https://azure.microsoft.com/en-us/global-infrastructure/locations
+    location: westus2
+    resource_group: cloudtik-resource-group
+    # set subscription id otherwise the default from az cli will be used
+    # subscription_id: 00000000-0000-0000-0000-000000000000
+    # Whether to use managed cloud storage of workspace.
+    use_managed_cloud_storage: True
+
+# How will authenticate with newly launched nodes.
+auth:
+    ssh_user: ubuntu
+    # you must specify paths to matching private and public key pair files
+    # use `ssh-keygen -t rsa -b 4096` to generate a new ssh key pair
+    ssh_private_key: ~/.ssh/id_rsa
+    # changes to this should match what is specified in file_mounts
+    ssh_public_key: ~/.ssh/id_rsa.pub
+
+# More specific customization to node configurations can be made using the ARM template azure-vm-template.json file
+# See documentation here: https://docs.microsoft.com/en-us/azure/templates/microsoft.compute/2019-03-01/virtualmachines
+# Changes to the local file will be used during deployment of the head node, however worker nodes deployment occurs
+# on the head node, so changes to the template must be included in the wheel file used in setup_commands section below
+
+# Tell the cluster scaler the allowed node types and the resources they provide.
+# The key is the name of the node type, which is just for debugging purposes.
+# The node config specifies the launch config and physical instance type.
+available_node_types:
+    head.default:
+        resources: {}
+        # Provider-specific config, e.g. instance type.
+        node_config:
+            azure_arm_parameters:
+                vmSize: Standard_D4s_v4
+                # List images https://docs.microsoft.com/en-us/azure/virtual-machines/linux/cli-ps-findimage
+                imagePublisher: canonical
+                imageOffer: 0001-com-ubuntu-server-focal
+                imageSku: 20_04-lts-gen2
+                imageVersion: latest
+                osDiskType: StandardSSD_LRS
+                osDiskSizeGB: 100
+                dataDisks: []
+
+    worker.default:
+        # The minimum number of nodes of this type to launch.
+        # This number should be >= 0.
+        min_workers: 1
+        # The resources provided by this node type.
+        resources: {}
+        # Provider-specific config, e.g. instance type.
+        node_config:
+            azure_arm_parameters:
+                vmSize: Standard_D4s_v4
+                # List images https://docs.microsoft.com/en-us/azure/virtual-machines/linux/cli-ps-findimage
+                imagePublisher: canonical
+                imageOffer: 0001-com-ubuntu-server-focal
+                imageSku: 20_04-lts-gen2
+                imageVersion: latest
+                osDiskType: StandardSSD_LRS
+                osDiskSizeGB: 100
+                dataDisks: []
+
+# Specify the node type of the head node (as configured above).
+head_node_type: head.default
+

@@ -1,0 +1,25 @@
+# Cloud-provider specific configuration.
+provider:
+    type: aws
+
+# The instance configuration for a small instance type
+available_node_types:
+    head.default:
+        node_config:
+            InstanceType: m5.xlarge
+            BlockDeviceMappings:
+                - DeviceName: /dev/sda1
+                  Ebs:
+                      VolumeSize: 100
+                      VolumeType: gp2
+                      DeleteOnTermination: True
+    worker.default:
+        node_config:
+            InstanceType: m5.xlarge
+            BlockDeviceMappings:
+                - DeviceName: /dev/sda1
+                  Ebs:
+                      VolumeSize: 200
+                      VolumeType: gp3
+                      DeleteOnTermination: True
+
