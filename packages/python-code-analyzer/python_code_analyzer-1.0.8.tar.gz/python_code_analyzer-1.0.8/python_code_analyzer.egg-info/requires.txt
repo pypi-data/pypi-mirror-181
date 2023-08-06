@@ -1,0 +1,8 @@
+colorama
+pandas
+rich
+
+[testing]
+mypy
+pytest
+tox
