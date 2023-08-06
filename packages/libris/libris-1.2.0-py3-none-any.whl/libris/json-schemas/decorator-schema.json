@@ -1,0 +1,27 @@
+{
+    "$schema": "http://json-schema.org/draft/2020-12/schema",
+    "$id": "https://raw.githubusercontent.com/lazy-scrivener-games/libris/main/libris/json-schemas/decorator-schema.json",
+    "title": "LibrisDecorator",
+    "description": "A decorator definition for a libris configuration file.",
+    "type": ["object"],
+    "properties": {
+        "template": {
+            "description": "HTML template to be used as the decorator template.",
+            "type": "string"
+        },
+        "stylesheet": {
+            "description": "CSS stylesheet to be used for this decorator.",
+            "type": "string"
+        },
+        "evenStylesheet": {
+            "description": "CSS stylesheet to be used for this decorator only on even pages.",
+            "type": "string"
+        },
+        "oddStylesheet": {
+            "description": "CSS stylesheet to be used for this decorator only on odd pages.",
+            "type": "string"
+        }
+    },
+    "required": ["template", "stylesheet"],
+    "additionalProperties": false
+}

@@ -1,0 +1,10 @@
+{
+    "$schema": "http://json-schema.org/draft/2020-12/schema",
+    "$id": "https://raw.githubusercontent.com/lazy-scrivener-games/libris/main/libris/json-schemas/styles-schema.json",
+    "title": "LibrisStyles",
+    "description": "A list of styles for an LibrisConfig.",
+    "type": "object",
+    "additionalProperties": {
+        "$ref": "./style-schema.json"
+    }
+}
