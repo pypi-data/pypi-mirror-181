@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+src/bidimensional/__init__.py
+src/bidimensional/coordinates.py
+src/bidimensional/operations.py
+src/bidimensional.egg-info/PKG-INFO
+src/bidimensional.egg-info/SOURCES.txt
+src/bidimensional.egg-info/dependency_links.txt
+src/bidimensional.egg-info/top_level.txt
+src/bidimensional/functions/__init__.py
+src/bidimensional/functions/spline.py
+src/bidimensional/polygons/__init__.py
+src/bidimensional/polygons/triangle.py
