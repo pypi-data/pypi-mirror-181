@@ -1,0 +1,25 @@
+{{ import_statement }}
+from IPython.display import display, Math, Markdown
+
+subtask = SubTask(task{{ subtask.task.task }}, "{{ subtask.subtask }}", points={{ subtask.points }})
+
+expression = None
+# IHR CODE HIER
+raise NotImplementedError()
+
+# DIESEN TEIL NICHT VERÄNDERN, SONST GIBT ES 0 Punkte
+
+# display expression in math mode
+display(Math(str(expression)))
+
+sql_expression = expression.to_sql()
+subtask.setSolution(expression)
+subtask.setData(expression)
+
+# display result table
+cursor = sql_con.execute(sql_expression)
+attributes = [description[0] for description in cursor.description]
+tuples = [list(row) for row in cursor.fetchall()]
+from tabulate import tabulate
+table = tabulate(tuples, attributes, tablefmt="github")
+display(Markdown(table))

@@ -1,0 +1,31 @@
+# Autograder, bitte ignorieren
+### BEGIN HIDDEN TESTS
+
+correct_solution = """{{ correct_solution }}"""
+cursor = sql_con.execute(correct_solution)
+correct_attributes = [description[0] for description in cursor.description]
+correct_rows = [tuple(row) for row in cursor.fetchall()]
+
+submission = subtask.getSolution()
+cursor = sql_con.execute(submission.to_sql())
+submission_attributes = [description[0] for description in cursor.description]
+submission_rows = [tuple(row) for row in cursor.fetchall()]
+
+score = 0
+max_score = subtask.points
+correct_attributes_score_perc = {{ correct_attributes_score_perc }}
+
+correct_len = len(correct_rows)
+
+if correct_attributes != submission_attributes:
+    subtask.setScore(0)
+else:
+    score = max_score * correct_attributes_score_perc
+    diff = set(correct_rows).symmetric_difference(set(submission_rows))
+    if len(diff) == 0:
+        score = max_score
+    else:
+        score += max_score * (1 - correct_attributes_score_perc) * (correct_len - len(diff)) / correct_len
+    subtask.setScore(score)
+
+### END HIDDEN TESTS
