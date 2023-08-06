@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: foo-cv
+Version: 0.1.0
+Summary: Separate content and style for CV generation
+License: MIT
+Author: Dror Atariah
+Author-email: drorata@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: jinja2 (>=3.1.2,<4.0.0)
+Requires-Dist: typer[all] (>=0.7.0,<0.8.0)
+Description-Content-Type: text/markdown
+
+# FOO CV
+
+> Separate content and design for CV
+
+We provide two files:
+- Content given as JSON and
+- a Jinja2 LaTeX template.
+
+The provided Python script merely connects the two and generates a TeX file that can then be processed using PDFLaTeX.
+
+[`json_resume`](https://github.com/prat0318/json_resume) is the main source of inspiration for this.
+
+## The profile picture
+
+The picture was created using [Dalle](https://labs.openai.com/) given the description:
+
+> Create a portrait of Elrond mixed with Worf
+
