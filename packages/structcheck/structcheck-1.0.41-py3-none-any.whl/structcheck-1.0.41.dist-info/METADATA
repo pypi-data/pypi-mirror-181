@@ -1,0 +1,67 @@
+Metadata-Version: 2.1
+Name: structcheck
+Version: 1.0.41
+Summary: 
+Author: vincentBenet
+Author-email: vincent.benet@outlook.fr
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: graphviz (>=0.20.1,<0.21.0)
+Description-Content-Type: text/markdown
+
+# structcheck
+[![Upload Python Package](https://github.com/vincentBenet/structcheck/actions/workflows/python-publish.yml/badge.svg)](https://github.com/vincentBenet/structcheck/actions/workflows/python-publish.yml)
+[![Python application](https://github.com/vincentBenet/structcheck/actions/workflows/python-app.yml/badge.svg)](https://github.com/vincentBenet/structcheck/actions/workflows/python-app.yml)
+[![Pylint](https://github.com/vincentBenet/structcheck/actions/workflows/pylint.yml/badge.svg)](https://github.com/vincentBenet/structcheck/actions/workflows/pylint.yml)
+
+
+## Installation
+### Pip installation
+
+	pip install structcheck
+	
+
+### Version check (linux)
+
+	pip freeze | grep structcheck
+
+### Check installation
+
+	python -m structcheck --help
+
+## Usage
+
+### Shell command
+
+#### No arguments
+
+	python -m structcheck
+	
+A popup windows will ask you for directory and config file
+	
+#### Arguments
+
+Path to scan:
+
+	python -m structcheck -p "/path/to/scan"
+	
+A popup windows will ask you for config file
+
+	python -m structcheck -p "/path/to/scan" -c "/path/to/config.json"
+
+### Python usage
+
+	import structcheck
+	
+	txt, reports, logs = structcheck.scan()  # Same as command 'python -m structcheck'
+	
+You can add arguments with:
+
+	txt, reports, logs = structcheck.scan([
+		"-p", "/path/to/scan",
+		"-c", "/path/to/config.json",
+	])
