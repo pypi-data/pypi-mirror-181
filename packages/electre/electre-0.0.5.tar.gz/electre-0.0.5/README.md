@@ -1,0 +1,3 @@
+# ELECTRE-I Solver
+
+Solving **ELECTRE OUTRANKING PROBLEM** MCDM.
