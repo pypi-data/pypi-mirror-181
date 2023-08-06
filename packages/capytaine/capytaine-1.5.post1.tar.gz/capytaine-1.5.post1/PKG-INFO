@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: capytaine
+Version: 1.5.post1
+Summary: Python BEM solver for linear potential flow, based on Nemoh
+Home-page: https://github.com/mancellin/capytaine
+Author: Matthieu Ancellin
+License: GPL-3.0
+Provides-Extra: develop
+Provides-Extra: ci
+Provides-Extra: extra
+License-File: LICENSE
