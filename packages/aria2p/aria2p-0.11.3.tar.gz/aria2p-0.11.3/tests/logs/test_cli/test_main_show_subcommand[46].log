@@ -1,0 +1,5 @@
+2020-11-14 00:53:34.621 | DEBUG    | aria2p.cli:main:64 - Checking arguments
+2020-11-14 00:53:34.622 | DEBUG    | aria2p.cli:main:67 - Instantiating API
+2020-11-14 00:53:34.622 | INFO     | aria2p.cli:main:77 - API instantiated: API(Client(host='http://localhost', port=15178, secret='********'))
+2020-11-14 00:53:34.622 | DEBUG    | aria2p.cli:main:80 - Testing connection
+2020-11-14 00:53:34.624 | DEBUG    | aria2p.cli:main:118 - Running subcommand show

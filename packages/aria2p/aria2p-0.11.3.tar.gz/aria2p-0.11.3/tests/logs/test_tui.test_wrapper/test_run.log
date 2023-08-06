@@ -1,0 +1,3 @@
+2021-04-22 21:11:28.421 | DEBUG    | aria2p.tui.wrapper:run:100 - Created new screen <tests.test_tui.helpers.MockedScreen object at 0x7fb71336a668>
+2021-04-22 21:11:28.422 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: 113
+2021-04-22 21:11:28.422 | DEBUG    | aria2p.tui.wrapper:run:117 - Received exit command

@@ -1,0 +1,8 @@
+2020-11-14 00:51:24.355 | DEBUG    | aria2p.client:listen_to_notifications:1723 - Notifications (ws://localhost:15963/jsonrpc): opening WebSocket with timeout=1
+2020-11-14 00:51:24.359 | DEBUG    | aria2p.client:listen_to_notifications:1742 - Notifications (ws://localhost:15963/jsonrpc): waiting for data over WebSocket
+2020-11-14 00:51:25.360 | DEBUG    | aria2p.client:listen_to_notifications:1749 - Notifications (ws://localhost:15963/jsonrpc): reached timeout (1s)
+2020-11-14 00:51:25.361 | DEBUG    | aria2p.client:listen_to_notifications:1742 - Notifications (ws://localhost:15963/jsonrpc): waiting for data over WebSocket
+2020-11-14 00:51:26.367 | DEBUG    | aria2p.client:listen_to_notifications:1749 - Notifications (ws://localhost:15963/jsonrpc): reached timeout (1s)
+2020-11-14 00:51:26.367 | DEBUG    | aria2p.client:listen_to_notifications:1742 - Notifications (ws://localhost:15963/jsonrpc): waiting for data over WebSocket
+2020-11-14 00:51:27.364 | ERROR    | aria2p.client:listen_to_notifications:1746 - Notifications (ws://localhost:15963/jsonrpc): connection to server was closed. Is the server running?
+2020-11-14 00:51:27.365 | DEBUG    | aria2p.client:listen_to_notifications:1770 - Notifications (ws://localhost:15963/jsonrpc): closing WebSocket

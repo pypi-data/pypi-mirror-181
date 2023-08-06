@@ -1,0 +1,3 @@
+2020-11-14 00:57:32.374 | DEBUG    | aria2p.api:remove:440 - Try to remove download result 0000000000000001
+2020-11-14 00:57:32.379 | SUCCESS  | aria2p.api:remove:447 - Removed download result 0000000000000001
+2020-11-14 00:57:32.380 | DEBUG    | aria2p.api:remove:479 - aria2 control file /tmp/pytest-of-pawamoy/pytest-67/popen-gw3/test_remove_files_method_8_0/100.aria2 was not found

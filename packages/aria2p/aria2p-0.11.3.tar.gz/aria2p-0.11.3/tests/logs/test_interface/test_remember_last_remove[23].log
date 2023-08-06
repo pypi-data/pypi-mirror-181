@@ -1,0 +1,730 @@
+2020-11-14 00:53:21.544 | DEBUG    | aria2p.interface:run:501 - Created new screen <tests.test_interface.MockedScreen object at 0x7fd4a1a35630>
+2020-11-14 00:53:21.544 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:53:21.544 | DEBUG    | aria2p.interface:run:532 - Tick! Updating data and rows
+2020-11-14 00:53:21.558 | DEBUG    | aria2p.interface:run:539 - Refresh! Printing text
+2020-11-14 00:53:21.564 | DEBUG    | aria2p.interface:run:516 - Got event KeyboardEvent: -102
+2020-11-14 00:53:21.564 | DEBUG    | aria2p.interface:process_keyboard_event_main:673 - Triggered removal
+2020-11-14 00:53:21.564 | DEBUG    | aria2p.interface:process_keyboard_event_main:674 - self.focused = 0
+2020-11-14 00:53:21.564 | DEBUG    | aria2p.interface:process_keyboard_event_main:675 - len(self.data) = 2
+2020-11-14 00:53:21.564 | DEBUG    | aria2p.interface:run:528 - Got event KeyboardEvent: -206
+2020-11-14 00:53:21.564 | DEBUG    | aria2p.interface:process_keyboard_event_remove_ask:836 - Moving side focus down: 1
+2020-11-14 00:53:21.565 | DEBUG    | aria2p.interface:run:528 - Got event KeyboardEvent: 10
+2020-11-14 00:53:21.565 | DEBUG    | aria2p.interface:process_keyboard_event_remove_ask:814 - Validate removal
+2020-11-14 00:53:21.565 | DEBUG    | aria2p.api:remove:450 - Try to remove download 0000000000000001
+2020-11-14 00:53:21.568 | SUCCESS  | aria2p.api:remove:457 - Removed download 0000000000000001
+2020-11-14 00:53:21.572 | DEBUG    | aria2p.api:remove:462 - Failed to remove download result 0000000000000001
+2020-11-14 00:53:21.573 | TRACE    | aria2p.api:remove:463 - GID 0000000000000001 is not found
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+  File "<string>", line 8, in <module>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/execnet/gateway_base.py", line 1554, in serve
+    SlaveGateway(io=io, id=id, _startcount=2).serve()
+    │               │      └ 'gw3-slave'
+    │               └ <execnet.gateway_base.Popen2IO object at 0x7fd4b09f1cf8>
+    └ <class 'execnet.gateway_base.SlaveGateway'>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/execnet/gateway_base.py", line 1060, in serve
+    self._execpool.integrate_as_primary_thread()
+    │    │         └ <function WorkerPool.integrate_as_primary_thread at 0x7fd4b09a8730>
+    │    └ <execnet.gateway_base.WorkerPool object at 0x7fd4b099aef0>
+    └ <execnet.gateway_base.SlaveGateway object at 0x7fd4b099a940>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/execnet/gateway_base.py", line 267, in integrate_as_primary_thread
+    self._perform_spawn(reply)
+    │    │              └ <execnet.gateway_base.Reply object at 0x7fd4b0943828>
+    │    └ <function WorkerPool._perform_spawn at 0x7fd4b09a88c8>
+    └ <execnet.gateway_base.WorkerPool object at 0x7fd4b099aef0>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/execnet/gateway_base.py", line 285, in _perform_spawn
+    reply.run()
+    │     └ <function Reply.run at 0x7fd4b09a8620>
+    └ <execnet.gateway_base.Reply object at 0x7fd4b0943828>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/execnet/gateway_base.py", line 220, in run
+    self._result = func(*args, **kwargs)
+    │              │     │       └ {}
+    │              │     └ ((<Channel id=1 open>, ('"""\n    This module is executed in remote subprocesses and helps to\n    control a remote testing s...
+    │              └ <bound method SlaveGateway.executetask of <execnet.gateway_base.SlaveGateway object at 0x7fd4b099a940>>
+    └ <execnet.gateway_base.Reply object at 0x7fd4b0943828>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/execnet/gateway_base.py", line 1084, in executetask
+    do_exec(co, loc)  # noqa
+    │       │   └ {'channel': <Channel id=1 open>, '__name__': '__channelexec__', '__builtins__': {'__name__': 'builtins', '__doc__': "Built-in...
+    │       └ <code object <module> at 0x7fd4b0945ed0, file "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/...
+    └ <built-in function exec>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/xdist/remote.py", line 237, in <module>
+    config.hook.pytest_cmdline_main(config=config)
+    │      │    │                          └ <_pytest.config.Config object at 0x7fd4ab57d320>
+    │      │    └ <_HookCaller 'pytest_cmdline_main'>
+    │      └ <pluggy.hooks._HookRelay object at 0x7fd4ab609e48>
+    └ <_pytest.config.Config object at 0x7fd4ab57d320>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/pluggy/hooks.py", line 286, in __call__
+    return self._hookexec(self, self.get_hookimpls(), kwargs)
+           │    │         │     │    │                └ {'config': <_pytest.config.Config object at 0x7fd4ab57d320>}
+           │    │         │     │    └ <function _HookCaller.get_hookimpls at 0x7fd4ab86d158>
+           │    │         │     └ <_HookCaller 'pytest_cmdline_main'>
+           │    │         └ <_HookCaller 'pytest_cmdline_main'>
+           │    └ <bound method PluginManager._hookexec of <_pytest.config.PytestPluginManager object at 0x7fd4b0079710>>
+           └ <_HookCaller 'pytest_cmdline_main'>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/pluggy/manager.py", line 93, in _hookexec
+    return self._inner_hookexec(hook, methods, kwargs)
+           │    │               │     │        └ {'config': <_pytest.config.Config object at 0x7fd4ab57d320>}
+           │    │               │     └ [<HookImpl plugin_name='main', plugin=<module '_pytest.main' from '/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-...
+           │    │               └ <_HookCaller 'pytest_cmdline_main'>
+           │    └ <function PluginManager.__init__.<locals>.<lambda> at 0x7fd4ab5737b8>
+           └ <_pytest.config.PytestPluginManager object at 0x7fd4b0079710>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/pluggy/manager.py", line 87, in <lambda>
+    firstresult=hook.spec.opts.get("firstresult") if hook.spec else False,
+                │    │    │    │                     │    └ <pluggy.hooks.HookSpec object at 0x7fd4ab56dd30>
+                │    │    │    │                     └ <_HookCaller 'pytest_cmdline_main'>
+                │    │    │    └ <method 'get' of 'dict' objects>
+                │    │    └ {'firstresult': True, 'historic': False, 'warn_on_impl': None}
+                │    └ <pluggy.hooks.HookSpec object at 0x7fd4ab56dd30>
+                └ <_HookCaller 'pytest_cmdline_main'>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/pluggy/callers.py", line 187, in _multicall
+    res = hook_impl.function(*args)
+          │         │         └ [<_pytest.config.Config object at 0x7fd4ab57d320>]
+          │         └ <function pytest_cmdline_main at 0x7fd4ab65a7b8>
+          └ <HookImpl plugin_name='main', plugin=<module '_pytest.main' from '/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-p...
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/_pytest/main.py", line 306, in pytest_cmdline_main
+    return wrap_session(config, _main)
+           │            │       └ <function _main at 0x7fd4ab65a950>
+           │            └ <_pytest.config.Config object at 0x7fd4ab57d320>
+           └ <function wrap_session at 0x7fd4ab65a840>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/_pytest/main.py", line 257, in wrap_session
+    session.exitstatus = doit(config, session) or 0
+    │       │            │    │       └ <Session tests exitstatus=<ExitCode.OK: 0> testsfailed=7 testscollected=23450>
+    │       │            │    └ <_pytest.config.Config object at 0x7fd4ab57d320>
+    │       │            └ <function _main at 0x7fd4ab65a950>
+    │       └ <ExitCode.OK: 0>
+    └ <Session tests exitstatus=<ExitCode.OK: 0> testsfailed=7 testscollected=23450>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/_pytest/main.py", line 313, in _main
+    config.hook.pytest_runtestloop(session=session)
+    │      │    │                          └ <Session tests exitstatus=<ExitCode.OK: 0> testsfailed=7 testscollected=23450>
+    │      │    └ <_HookCaller 'pytest_runtestloop'>
+    │      └ <pluggy.hooks._HookRelay object at 0x7fd4ab609e48>
+    └ <_pytest.config.Config object at 0x7fd4ab57d320>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/pluggy/hooks.py", line 286, in __call__
+    return self._hookexec(self, self.get_hookimpls(), kwargs)
+           │    │         │     │    │                └ {'session': <Session tests exitstatus=<ExitCode.OK: 0> testsfailed=7 testscollected=23450>}
+           │    │         │     │    └ <function _HookCaller.get_hookimpls at 0x7fd4ab86d158>
+           │    │         │     └ <_HookCaller 'pytest_runtestloop'>
+           │    │         └ <_HookCaller 'pytest_runtestloop'>
+           │    └ <bound method PluginManager._hookexec of <_pytest.config.PytestPluginManager object at 0x7fd4b0079710>>
+           └ <_HookCaller 'pytest_runtestloop'>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/pluggy/manager.py", line 93, in _hookexec
+    return self._inner_hookexec(hook, methods, kwargs)
+           │    │               │     │        └ {'session': <Session tests exitstatus=<ExitCode.OK: 0> testsfailed=7 testscollected=23450>}
+           │    │               │     └ [<HookImpl plugin_name='main', plugin=<module '_pytest.main' from '/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-...
+           │    │               └ <_HookCaller 'pytest_runtestloop'>
+           │    └ <function PluginManager.__init__.<locals>.<lambda> at 0x7fd4ab5737b8>
+           └ <_pytest.config.PytestPluginManager object at 0x7fd4b0079710>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/pluggy/manager.py", line 87, in <lambda>
+    firstresult=hook.spec.opts.get("firstresult") if hook.spec else False,
+                │    │    │    │                     │    └ <pluggy.hooks.HookSpec object at 0x7fd4ab577f60>
+                │    │    │    │                     └ <_HookCaller 'pytest_runtestloop'>
+                │    │    │    └ <method 'get' of 'dict' objects>
+                │    │    └ {'firstresult': True, 'historic': False, 'warn_on_impl': None}
+                │    └ <pluggy.hooks.HookSpec object at 0x7fd4ab577f60>
+                └ <_HookCaller 'pytest_runtestloop'>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/pluggy/callers.py", line 187, in _multicall
+    res = hook_impl.function(*args)
+          │         │         └ [<Session tests exitstatus=<ExitCode.OK: 0> testsfailed=7 testscollected=23450>]
+          │         └ <bound method WorkerInteractor.pytest_runtestloop of <__channelexec__.WorkerInteractor object at 0x7fd4aa2a26d8>>
+          └ <HookImpl plugin_name='140551364683480', plugin=<__channelexec__.WorkerInteractor object at 0x7fd4aa2a26d8>>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/xdist/remote.py", line 70, in pytest_runtestloop
+    self.run_one_test(torun)
+    │    │            └ [3843]
+    │    └ <function WorkerInteractor.run_one_test at 0x7fd4ab573268>
+    └ <__channelexec__.WorkerInteractor object at 0x7fd4aa2a26d8>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/xdist/remote.py", line 87, in run_one_test
+    self.config.hook.pytest_runtest_protocol(item=item, nextitem=nextitem)
+    │    │      │    │                            │              └ <Function test_move_focus[43]>
+    │    │      │    │                            └ <Function test_remember_last_remove[23]>
+    │    │      │    └ <_HookCaller 'pytest_runtest_protocol'>
+    │    │      └ <pluggy.hooks._HookRelay object at 0x7fd4ab609e48>
+    │    └ <_pytest.config.Config object at 0x7fd4ab57d320>
+    └ <__channelexec__.WorkerInteractor object at 0x7fd4aa2a26d8>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/pluggy/hooks.py", line 286, in __call__
+    return self._hookexec(self, self.get_hookimpls(), kwargs)
+           │    │         │     │    │                └ {'item': <Function test_remember_last_remove[23]>, 'nextitem': <Function test_move_focus[43]>}
+           │    │         │     │    └ <function _HookCaller.get_hookimpls at 0x7fd4ab86d158>
+           │    │         │     └ <_HookCaller 'pytest_runtest_protocol'>
+           │    │         └ <_HookCaller 'pytest_runtest_protocol'>
+           │    └ <bound method PluginManager._hookexec of <_pytest.config.PytestPluginManager object at 0x7fd4b0079710>>
+           └ <_HookCaller 'pytest_runtest_protocol'>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/pluggy/manager.py", line 93, in _hookexec
+    return self._inner_hookexec(hook, methods, kwargs)
+           │    │               │     │        └ {'item': <Function test_remember_last_remove[23]>, 'nextitem': <Function test_move_focus[43]>}
+           │    │               │     └ [<HookImpl plugin_name='runner', plugin=<module '_pytest.runner' from '/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgx...
+           │    │               └ <_HookCaller 'pytest_runtest_protocol'>
+           │    └ <function PluginManager.__init__.<locals>.<lambda> at 0x7fd4ab5737b8>
+           └ <_pytest.config.PytestPluginManager object at 0x7fd4b0079710>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/pluggy/manager.py", line 87, in <lambda>
+    firstresult=hook.spec.opts.get("firstresult") if hook.spec else False,
+                │    │    │    │                     │    └ <pluggy.hooks.HookSpec object at 0x7fd4ab577e10>
+                │    │    │    │                     └ <_HookCaller 'pytest_runtest_protocol'>
+                │    │    │    └ <method 'get' of 'dict' objects>
+                │    │    └ {'firstresult': True, 'historic': False, 'warn_on_impl': None}
+                │    └ <pluggy.hooks.HookSpec object at 0x7fd4ab577e10>
+                └ <_HookCaller 'pytest_runtest_protocol'>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/pluggy/callers.py", line 187, in _multicall
+    res = hook_impl.function(*args)
+          │         │         └ [<Function test_remember_last_remove[23]>, <Function test_move_focus[43]>]
+          │         └ <function pytest_runtest_protocol at 0x7fd4ab6531e0>
+          └ <HookImpl plugin_name='runner', plugin=<module '_pytest.runner' from '/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQ...
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/_pytest/runner.py", line 110, in pytest_runtest_protocol
+    runtestprotocol(item, nextitem=nextitem)
+    │               │              └ <Function test_move_focus[43]>
+    │               └ <Function test_remember_last_remove[23]>
+    └ <function runtestprotocol at 0x7fd4ab6532f0>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/_pytest/runner.py", line 127, in runtestprotocol
+    reports.append(call_and_report(item, "call", log))
+    │       │      │               │             └ True
+    │       │      │               └ <Function test_remember_last_remove[23]>
+    │       │      └ <function call_and_report at 0x7fd4ab653620>
+    │       └ <method 'append' of 'list' objects>
+    └ [<TestReport 'test_interface.py::test_remember_last_remove[23]' when='setup' outcome='passed'>]
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/_pytest/runner.py", line 216, in call_and_report
+    call = call_runtest_hook(item, when, **kwds)
+           │                 │     │       └ {}
+           │                 │     └ 'call'
+           │                 └ <Function test_remember_last_remove[23]>
+           └ <function call_runtest_hook at 0x7fd4ab653840>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/_pytest/runner.py", line 256, in call_runtest_hook
+    lambda: ihook(item=item, **kwds), when=when, reraise=reraise
+            │          │       │           │             └ (<class '_pytest.outcomes.Exit'>, <class 'KeyboardInterrupt'>)
+            │          │       │           └ 'call'
+            │          │       └ {}
+            │          └ <Function test_remember_last_remove[23]>
+            └ <_HookCaller 'pytest_runtest_call'>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/_pytest/runner.py", line 310, in from_call
+    result = func()  # type: Optional[TResult]
+             └ <function call_runtest_hook.<locals>.<lambda> at 0x7fd4a1c34ea0>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/_pytest/runner.py", line 256, in <lambda>
+    lambda: ihook(item=item, **kwds), when=when, reraise=reraise
+            │          │       └ {}
+            │          └ <Function test_remember_last_remove[23]>
+            └ <_HookCaller 'pytest_runtest_call'>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/pluggy/hooks.py", line 286, in __call__
+    return self._hookexec(self, self.get_hookimpls(), kwargs)
+           │    │         │     │    │                └ {'item': <Function test_remember_last_remove[23]>}
+           │    │         │     │    └ <function _HookCaller.get_hookimpls at 0x7fd4ab86d158>
+           │    │         │     └ <_HookCaller 'pytest_runtest_call'>
+           │    │         └ <_HookCaller 'pytest_runtest_call'>
+           │    └ <bound method PluginManager._hookexec of <_pytest.config.PytestPluginManager object at 0x7fd4b0079710>>
+           └ <_HookCaller 'pytest_runtest_call'>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/pluggy/manager.py", line 93, in _hookexec
+    return self._inner_hookexec(hook, methods, kwargs)
+           │    │               │     │        └ {'item': <Function test_remember_last_remove[23]>}
+           │    │               │     └ [<HookImpl plugin_name='runner', plugin=<module '_pytest.runner' from '/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgx...
+           │    │               └ <_HookCaller 'pytest_runtest_call'>
+           │    └ <function PluginManager.__init__.<locals>.<lambda> at 0x7fd4ab5737b8>
+           └ <_pytest.config.PytestPluginManager object at 0x7fd4b0079710>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/pluggy/manager.py", line 87, in <lambda>
+    firstresult=hook.spec.opts.get("firstresult") if hook.spec else False,
+                │    │    │    │                     │    └ <pluggy.hooks.HookSpec object at 0x7fd4ab577be0>
+                │    │    │    │                     └ <_HookCaller 'pytest_runtest_call'>
+                │    │    │    └ <method 'get' of 'dict' objects>
+                │    │    └ {'firstresult': False, 'historic': False}
+                │    └ <pluggy.hooks.HookSpec object at 0x7fd4ab577be0>
+                └ <_HookCaller 'pytest_runtest_call'>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/pluggy/callers.py", line 187, in _multicall
+    res = hook_impl.function(*args)
+          │         │         └ [<Function test_remember_last_remove[23]>]
+          │         └ <function pytest_runtest_call at 0x7fd4ab653488>
+          └ <HookImpl plugin_name='runner', plugin=<module '_pytest.runner' from '/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQ...
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/_pytest/runner.py", line 163, in pytest_runtest_call
+    item.runtest()
+    │    └ <function Function.runtest at 0x7fd4ab6190d0>
+    └ <Function test_remember_last_remove[23]>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/_pytest/python.py", line 1627, in runtest
+    self.ihook.pytest_pyfunc_call(pyfuncitem=self)
+    │    │                                   └ <Function test_remember_last_remove[23]>
+    │    └ <property object at 0x7fd4ab6ab778>
+    └ <Function test_remember_last_remove[23]>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/pluggy/hooks.py", line 286, in __call__
+    return self._hookexec(self, self.get_hookimpls(), kwargs)
+           │    │         │     │    │                └ {'pyfuncitem': <Function test_remember_last_remove[23]>}
+           │    │         │     │    └ <function _HookCaller.get_hookimpls at 0x7fd4ab86d158>
+           │    │         │     └ <_HookCaller 'pytest_pyfunc_call'>
+           │    │         └ <_HookCaller 'pytest_pyfunc_call'>
+           │    └ <bound method PluginManager._hookexec of <_pytest.config.PytestPluginManager object at 0x7fd4b0079710>>
+           └ <_HookCaller 'pytest_pyfunc_call'>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/pluggy/manager.py", line 93, in _hookexec
+    return self._inner_hookexec(hook, methods, kwargs)
+           │    │               │     │        └ {'pyfuncitem': <Function test_remember_last_remove[23]>}
+           │    │               │     └ [<HookImpl plugin_name='python', plugin=<module '_pytest.python' from '/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgx...
+           │    │               └ <_HookCaller 'pytest_pyfunc_call'>
+           │    └ <function PluginManager.__init__.<locals>.<lambda> at 0x7fd4ab5737b8>
+           └ <_pytest.config.PytestPluginManager object at 0x7fd4b0079710>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/pluggy/manager.py", line 87, in <lambda>
+    firstresult=hook.spec.opts.get("firstresult") if hook.spec else False,
+                │    │    │    │                     │    └ <pluggy.hooks.HookSpec object at 0x7fd4ab577940>
+                │    │    │    │                     └ <_HookCaller 'pytest_pyfunc_call'>
+                │    │    │    └ <method 'get' of 'dict' objects>
+                │    │    └ {'firstresult': True, 'historic': False, 'warn_on_impl': None}
+                │    └ <pluggy.hooks.HookSpec object at 0x7fd4ab577940>
+                └ <_HookCaller 'pytest_pyfunc_call'>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/pluggy/callers.py", line 187, in _multicall
+    res = hook_impl.function(*args)
+          │         │         └ [<Function test_remember_last_remove[23]>]
+          │         └ <function pytest_pyfunc_call at 0x7fd4ab60d2f0>
+          └ <HookImpl plugin_name='python', plugin=<module '_pytest.python' from '/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQ...
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/_pytest/python.py", line 184, in pytest_pyfunc_call
+    result = testfunction(**testargs)
+             │              └ {'tmp_path': PosixPath('/tmp/pytest-of-pawamoy/pytest-66/popen-gw3/test_remember_last_remove_23_0'), 'port': 15411, 'monkeypa...
+             └ <function test_remember_last_remove at 0x7fd4a6599e18>
+
+  File "/media/data/dev/pawamoy/aria2p/tests/test_interface.py", line 356, in test_remember_last_remove
+    events=[Event.pass_frame, Event.delete, Event.down, Event.enter, Event.delete, Event.esc],
+            │     │           │     │       │     │     │     │      │     │       │     └ KeyboardEvent: -1
+            │     │           │     │       │     │     │     │      │     │       └ <class 'tests.test_interface.Event'>
+            │     │           │     │       │     │     │     │      │     └ KeyboardEvent: -102
+            │     │           │     │       │     │     │     │      └ <class 'tests.test_interface.Event'>
+            │     │           │     │       │     │     │     └ KeyboardEvent: 10
+            │     │           │     │       │     │     └ <class 'tests.test_interface.Event'>
+            │     │           │     │       │     └ KeyboardEvent: -206
+            │     │           │     │       └ <class 'tests.test_interface.Event'>
+            │     │           │     └ KeyboardEvent: -102
+            │     │           └ <class 'tests.test_interface.Event'>
+            │     └ <tests.test_interface.SpecialEvent object at 0x7fd4a6886e48>
+            └ <class 'tests.test_interface.Event'>
+
+  File "/media/data/dev/pawamoy/aria2p/tests/test_interface.py", line 96, in run_interface
+    interface.run()
+    │         └ <function Interface.run at 0x7fd4a8c75510>
+    └ <aria2p.interface.Interface object at 0x7fd4a1a356a0>
+
+  File "/media/data/dev/pawamoy/aria2p/src/aria2p/interface.py", line 520, in run
+    self.process_event(event)
+    │    │             └ KeyboardEvent: 10
+    │    └ <function Interface.process_event at 0x7fd4a8c756a8>
+    └ <aria2p.interface.Interface object at 0x7fd4a1a356a0>
+
+  File "/media/data/dev/pawamoy/aria2p/src/aria2p/interface.py", line 584, in process_event
+    self.process_keyboard_event(event)
+    │    │                      └ KeyboardEvent: 10
+    │    └ <function Interface.process_keyboard_event at 0x7fd4a8c75730>
+    └ <aria2p.interface.Interface object at 0x7fd4a1a356a0>
+
+  File "/media/data/dev/pawamoy/aria2p/src/aria2p/interface.py", line 590, in process_keyboard_event
+    self.state_mapping[self.state]["process_keyboard_event"](event)
+    │    │             │    │                                └ KeyboardEvent: 10
+    │    │             │    └ 3
+    │    │             └ <aria2p.interface.Interface object at 0x7fd4a1a356a0>
+    │    └ {0: {'process_keyboard_event': <bound method Interface.process_keyboard_event_main of <aria2p.interface.Interface object at 0...
+    └ <aria2p.interface.Interface object at 0x7fd4a1a356a0>
+
+  File "/media/data/dev/pawamoy/aria2p/src/aria2p/interface.py", line 816, in process_keyboard_event_remove_ask
+    self.remove_ask_rows[self.side_focused][1](self.follow)
+    │    │               │    │                │    └ <aria2p.downloads.Download object at 0x7fd4a27fd9b0>
+    │    │               │    │                └ <aria2p.interface.Interface object at 0x7fd4a1a356a0>
+    │    │               │    └ 1
+    │    │               └ <aria2p.interface.Interface object at 0x7fd4a1a356a0>
+    │    └ [('Remove', <function Interface.<lambda> at 0x7fd4a8c75268>), ('Remove with files', <function Interface.<lambda> at 0x7fd4a8c...
+    └ <aria2p.interface.Interface object at 0x7fd4a1a356a0>
+
+  File "/media/data/dev/pawamoy/aria2p/src/aria2p/interface.py", line 434, in <lambda>
+    ("Remove with files", lambda d: d.remove(force=False, files=True)),
+                                 │  │ └ <function Download.remove at 0x7fd4aa282e18>
+                                 │  └ <aria2p.downloads.Download object at 0x7fd4a27fd9b0>
+                                 └ <aria2p.downloads.Download object at 0x7fd4a27fd9b0>
+
+  File "/media/data/dev/pawamoy/aria2p/src/aria2p/downloads.py", line 1025, in remove
+    result = self.api.remove([self], force=force, files=files)[0]
+             │    │   │       │            │            └ True
+             │    │   │       │            └ False
+             │    │   │       └ <aria2p.downloads.Download object at 0x7fd4a27fd9b0>
+             │    │   └ <function API.remove at 0x7fd4aa28d048>
+             │    └ API(Client(host='http://localhost', port=15411, secret='********'))
+             └ <aria2p.downloads.Download object at 0x7fd4a27fd9b0>
+
+> File "/media/data/dev/pawamoy/aria2p/src/aria2p/api.py", line 460, in remove
+    self.client.remove_download_result(download.gid)
+    │    │      │                      │        └ <property object at 0x7fd4aa27b3b8>
+    │    │      │                      └ <aria2p.downloads.Download object at 0x7fd4a27fd9b0>
+    │    │      └ <function Client.remove_download_result at 0x7fd4aa2fd158>
+    │    └ Client(host='http://localhost', port=15411, secret='********')
+    └ API(Client(host='http://localhost', port=15411, secret='********'))
+
+  File "/media/data/dev/pawamoy/aria2p/src/aria2p/client.py", line 1459, in remove_download_result
+    return self.call(self.REMOVE_DOWNLOAD_RESULT, [gid])
+           │    │    │    │                        └ '0000000000000001'
+           │    │    │    └ 'aria2.removeDownloadResult'
+           │    │    └ Client(host='http://localhost', port=15411, secret='********')
+           │    └ <function Client.call at 0x7fd4aa374c80>
+           └ Client(host='http://localhost', port=15411, secret='********')
+
+  File "/media/data/dev/pawamoy/aria2p/src/aria2p/client.py", line 261, in call
+    return self.res_or_raise(self.post(self.get_payload(method, params, msg_id=msg_id)))
+           │    │            │    │    │    │           │       │              └ None
+           │    │            │    │    │    │           │       └ ['0000000000000001']
+           │    │            │    │    │    │           └ 'aria2.removeDownloadResult'
+           │    │            │    │    │    └ <staticmethod object at 0x7fd4aa34f630>
+           │    │            │    │    └ Client(host='http://localhost', port=15411, secret='********')
+           │    │            │    └ <function Client.post at 0x7fd4aa374ea0>
+           │    │            └ Client(host='http://localhost', port=15411, secret='********')
+           │    └ <staticmethod object at 0x7fd4aa34f6a0>
+           └ Client(host='http://localhost', port=15411, secret='********')
+
+  File "/media/data/dev/pawamoy/aria2p/src/aria2p/client.py", line 391, in res_or_raise
+    raise Client.response_as_exception(response)
+          │      │                     └ {'id': -1, 'jsonrpc': '2.0', 'error': {'code': 1, 'message': 'GID 0000000000000001 is not found'}}
+          │      └ <staticmethod object at 0x7fd4aa38a7b8>
+          └ <class 'aria2p.client.Client'>
+
+aria2p.client.ClientException: GID 0000000000000001 is not found
+2020-11-14 00:53:21.596 | DEBUG    | aria2p.api:remove:479 - aria2 control file /tmp/pytest-of-pawamoy/pytest-66/popen-gw3/test_remember_last_remove_23_0/5m.aria2 was not found
+2020-11-14 00:53:21.597 | WARNING  | aria2p.downloads:root_files_paths:345 - Can't determine file path '.' relative to '/tmp/pytest-of-pawamoy/pytest-66/popen-gw3/test_remember_last_remove_23_0'
+2020-11-14 00:53:21.597 | TRACE    | aria2p.downloads:root_files_paths:346 - '.' does not start with '/tmp/pytest-of-pawamoy/pytest-66/popen-gw3/test_remember_last_remove_23_0'
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+  File "<string>", line 8, in <module>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/execnet/gateway_base.py", line 1554, in serve
+    SlaveGateway(io=io, id=id, _startcount=2).serve()
+    │               │      └ 'gw3-slave'
+    │               └ <execnet.gateway_base.Popen2IO object at 0x7fd4b09f1cf8>
+    └ <class 'execnet.gateway_base.SlaveGateway'>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/execnet/gateway_base.py", line 1060, in serve
+    self._execpool.integrate_as_primary_thread()
+    │    │         └ <function WorkerPool.integrate_as_primary_thread at 0x7fd4b09a8730>
+    │    └ <execnet.gateway_base.WorkerPool object at 0x7fd4b099aef0>
+    └ <execnet.gateway_base.SlaveGateway object at 0x7fd4b099a940>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/execnet/gateway_base.py", line 267, in integrate_as_primary_thread
+    self._perform_spawn(reply)
+    │    │              └ <execnet.gateway_base.Reply object at 0x7fd4b0943828>
+    │    └ <function WorkerPool._perform_spawn at 0x7fd4b09a88c8>
+    └ <execnet.gateway_base.WorkerPool object at 0x7fd4b099aef0>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/execnet/gateway_base.py", line 285, in _perform_spawn
+    reply.run()
+    │     └ <function Reply.run at 0x7fd4b09a8620>
+    └ <execnet.gateway_base.Reply object at 0x7fd4b0943828>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/execnet/gateway_base.py", line 220, in run
+    self._result = func(*args, **kwargs)
+    │              │     │       └ {}
+    │              │     └ ((<Channel id=1 open>, ('"""\n    This module is executed in remote subprocesses and helps to\n    control a remote testing s...
+    │              └ <bound method SlaveGateway.executetask of <execnet.gateway_base.SlaveGateway object at 0x7fd4b099a940>>
+    └ <execnet.gateway_base.Reply object at 0x7fd4b0943828>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/execnet/gateway_base.py", line 1084, in executetask
+    do_exec(co, loc)  # noqa
+    │       │   └ {'channel': <Channel id=1 open>, '__name__': '__channelexec__', '__builtins__': {'__name__': 'builtins', '__doc__': "Built-in...
+    │       └ <code object <module> at 0x7fd4b0945ed0, file "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/...
+    └ <built-in function exec>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/xdist/remote.py", line 237, in <module>
+    config.hook.pytest_cmdline_main(config=config)
+    │      │    │                          └ <_pytest.config.Config object at 0x7fd4ab57d320>
+    │      │    └ <_HookCaller 'pytest_cmdline_main'>
+    │      └ <pluggy.hooks._HookRelay object at 0x7fd4ab609e48>
+    └ <_pytest.config.Config object at 0x7fd4ab57d320>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/pluggy/hooks.py", line 286, in __call__
+    return self._hookexec(self, self.get_hookimpls(), kwargs)
+           │    │         │     │    │                └ {'config': <_pytest.config.Config object at 0x7fd4ab57d320>}
+           │    │         │     │    └ <function _HookCaller.get_hookimpls at 0x7fd4ab86d158>
+           │    │         │     └ <_HookCaller 'pytest_cmdline_main'>
+           │    │         └ <_HookCaller 'pytest_cmdline_main'>
+           │    └ <bound method PluginManager._hookexec of <_pytest.config.PytestPluginManager object at 0x7fd4b0079710>>
+           └ <_HookCaller 'pytest_cmdline_main'>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/pluggy/manager.py", line 93, in _hookexec
+    return self._inner_hookexec(hook, methods, kwargs)
+           │    │               │     │        └ {'config': <_pytest.config.Config object at 0x7fd4ab57d320>}
+           │    │               │     └ [<HookImpl plugin_name='main', plugin=<module '_pytest.main' from '/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-...
+           │    │               └ <_HookCaller 'pytest_cmdline_main'>
+           │    └ <function PluginManager.__init__.<locals>.<lambda> at 0x7fd4ab5737b8>
+           └ <_pytest.config.PytestPluginManager object at 0x7fd4b0079710>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/pluggy/manager.py", line 87, in <lambda>
+    firstresult=hook.spec.opts.get("firstresult") if hook.spec else False,
+                │    │    │    │                     │    └ <pluggy.hooks.HookSpec object at 0x7fd4ab56dd30>
+                │    │    │    │                     └ <_HookCaller 'pytest_cmdline_main'>
+                │    │    │    └ <method 'get' of 'dict' objects>
+                │    │    └ {'firstresult': True, 'historic': False, 'warn_on_impl': None}
+                │    └ <pluggy.hooks.HookSpec object at 0x7fd4ab56dd30>
+                └ <_HookCaller 'pytest_cmdline_main'>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/pluggy/callers.py", line 187, in _multicall
+    res = hook_impl.function(*args)
+          │         │         └ [<_pytest.config.Config object at 0x7fd4ab57d320>]
+          │         └ <function pytest_cmdline_main at 0x7fd4ab65a7b8>
+          └ <HookImpl plugin_name='main', plugin=<module '_pytest.main' from '/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-p...
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/_pytest/main.py", line 306, in pytest_cmdline_main
+    return wrap_session(config, _main)
+           │            │       └ <function _main at 0x7fd4ab65a950>
+           │            └ <_pytest.config.Config object at 0x7fd4ab57d320>
+           └ <function wrap_session at 0x7fd4ab65a840>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/_pytest/main.py", line 257, in wrap_session
+    session.exitstatus = doit(config, session) or 0
+    │       │            │    │       └ <Session tests exitstatus=<ExitCode.OK: 0> testsfailed=7 testscollected=23450>
+    │       │            │    └ <_pytest.config.Config object at 0x7fd4ab57d320>
+    │       │            └ <function _main at 0x7fd4ab65a950>
+    │       └ <ExitCode.OK: 0>
+    └ <Session tests exitstatus=<ExitCode.OK: 0> testsfailed=7 testscollected=23450>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/_pytest/main.py", line 313, in _main
+    config.hook.pytest_runtestloop(session=session)
+    │      │    │                          └ <Session tests exitstatus=<ExitCode.OK: 0> testsfailed=7 testscollected=23450>
+    │      │    └ <_HookCaller 'pytest_runtestloop'>
+    │      └ <pluggy.hooks._HookRelay object at 0x7fd4ab609e48>
+    └ <_pytest.config.Config object at 0x7fd4ab57d320>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/pluggy/hooks.py", line 286, in __call__
+    return self._hookexec(self, self.get_hookimpls(), kwargs)
+           │    │         │     │    │                └ {'session': <Session tests exitstatus=<ExitCode.OK: 0> testsfailed=7 testscollected=23450>}
+           │    │         │     │    └ <function _HookCaller.get_hookimpls at 0x7fd4ab86d158>
+           │    │         │     └ <_HookCaller 'pytest_runtestloop'>
+           │    │         └ <_HookCaller 'pytest_runtestloop'>
+           │    └ <bound method PluginManager._hookexec of <_pytest.config.PytestPluginManager object at 0x7fd4b0079710>>
+           └ <_HookCaller 'pytest_runtestloop'>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/pluggy/manager.py", line 93, in _hookexec
+    return self._inner_hookexec(hook, methods, kwargs)
+           │    │               │     │        └ {'session': <Session tests exitstatus=<ExitCode.OK: 0> testsfailed=7 testscollected=23450>}
+           │    │               │     └ [<HookImpl plugin_name='main', plugin=<module '_pytest.main' from '/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-...
+           │    │               └ <_HookCaller 'pytest_runtestloop'>
+           │    └ <function PluginManager.__init__.<locals>.<lambda> at 0x7fd4ab5737b8>
+           └ <_pytest.config.PytestPluginManager object at 0x7fd4b0079710>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/pluggy/manager.py", line 87, in <lambda>
+    firstresult=hook.spec.opts.get("firstresult") if hook.spec else False,
+                │    │    │    │                     │    └ <pluggy.hooks.HookSpec object at 0x7fd4ab577f60>
+                │    │    │    │                     └ <_HookCaller 'pytest_runtestloop'>
+                │    │    │    └ <method 'get' of 'dict' objects>
+                │    │    └ {'firstresult': True, 'historic': False, 'warn_on_impl': None}
+                │    └ <pluggy.hooks.HookSpec object at 0x7fd4ab577f60>
+                └ <_HookCaller 'pytest_runtestloop'>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/pluggy/callers.py", line 187, in _multicall
+    res = hook_impl.function(*args)
+          │         │         └ [<Session tests exitstatus=<ExitCode.OK: 0> testsfailed=7 testscollected=23450>]
+          │         └ <bound method WorkerInteractor.pytest_runtestloop of <__channelexec__.WorkerInteractor object at 0x7fd4aa2a26d8>>
+          └ <HookImpl plugin_name='140551364683480', plugin=<__channelexec__.WorkerInteractor object at 0x7fd4aa2a26d8>>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/xdist/remote.py", line 70, in pytest_runtestloop
+    self.run_one_test(torun)
+    │    │            └ [3843]
+    │    └ <function WorkerInteractor.run_one_test at 0x7fd4ab573268>
+    └ <__channelexec__.WorkerInteractor object at 0x7fd4aa2a26d8>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/xdist/remote.py", line 87, in run_one_test
+    self.config.hook.pytest_runtest_protocol(item=item, nextitem=nextitem)
+    │    │      │    │                            │              └ <Function test_move_focus[43]>
+    │    │      │    │                            └ <Function test_remember_last_remove[23]>
+    │    │      │    └ <_HookCaller 'pytest_runtest_protocol'>
+    │    │      └ <pluggy.hooks._HookRelay object at 0x7fd4ab609e48>
+    │    └ <_pytest.config.Config object at 0x7fd4ab57d320>
+    └ <__channelexec__.WorkerInteractor object at 0x7fd4aa2a26d8>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/pluggy/hooks.py", line 286, in __call__
+    return self._hookexec(self, self.get_hookimpls(), kwargs)
+           │    │         │     │    │                └ {'item': <Function test_remember_last_remove[23]>, 'nextitem': <Function test_move_focus[43]>}
+           │    │         │     │    └ <function _HookCaller.get_hookimpls at 0x7fd4ab86d158>
+           │    │         │     └ <_HookCaller 'pytest_runtest_protocol'>
+           │    │         └ <_HookCaller 'pytest_runtest_protocol'>
+           │    └ <bound method PluginManager._hookexec of <_pytest.config.PytestPluginManager object at 0x7fd4b0079710>>
+           └ <_HookCaller 'pytest_runtest_protocol'>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/pluggy/manager.py", line 93, in _hookexec
+    return self._inner_hookexec(hook, methods, kwargs)
+           │    │               │     │        └ {'item': <Function test_remember_last_remove[23]>, 'nextitem': <Function test_move_focus[43]>}
+           │    │               │     └ [<HookImpl plugin_name='runner', plugin=<module '_pytest.runner' from '/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgx...
+           │    │               └ <_HookCaller 'pytest_runtest_protocol'>
+           │    └ <function PluginManager.__init__.<locals>.<lambda> at 0x7fd4ab5737b8>
+           └ <_pytest.config.PytestPluginManager object at 0x7fd4b0079710>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/pluggy/manager.py", line 87, in <lambda>
+    firstresult=hook.spec.opts.get("firstresult") if hook.spec else False,
+                │    │    │    │                     │    └ <pluggy.hooks.HookSpec object at 0x7fd4ab577e10>
+                │    │    │    │                     └ <_HookCaller 'pytest_runtest_protocol'>
+                │    │    │    └ <method 'get' of 'dict' objects>
+                │    │    └ {'firstresult': True, 'historic': False, 'warn_on_impl': None}
+                │    └ <pluggy.hooks.HookSpec object at 0x7fd4ab577e10>
+                └ <_HookCaller 'pytest_runtest_protocol'>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/pluggy/callers.py", line 187, in _multicall
+    res = hook_impl.function(*args)
+          │         │         └ [<Function test_remember_last_remove[23]>, <Function test_move_focus[43]>]
+          │         └ <function pytest_runtest_protocol at 0x7fd4ab6531e0>
+          └ <HookImpl plugin_name='runner', plugin=<module '_pytest.runner' from '/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQ...
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/_pytest/runner.py", line 110, in pytest_runtest_protocol
+    runtestprotocol(item, nextitem=nextitem)
+    │               │              └ <Function test_move_focus[43]>
+    │               └ <Function test_remember_last_remove[23]>
+    └ <function runtestprotocol at 0x7fd4ab6532f0>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/_pytest/runner.py", line 127, in runtestprotocol
+    reports.append(call_and_report(item, "call", log))
+    │       │      │               │             └ True
+    │       │      │               └ <Function test_remember_last_remove[23]>
+    │       │      └ <function call_and_report at 0x7fd4ab653620>
+    │       └ <method 'append' of 'list' objects>
+    └ [<TestReport 'test_interface.py::test_remember_last_remove[23]' when='setup' outcome='passed'>]
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/_pytest/runner.py", line 216, in call_and_report
+    call = call_runtest_hook(item, when, **kwds)
+           │                 │     │       └ {}
+           │                 │     └ 'call'
+           │                 └ <Function test_remember_last_remove[23]>
+           └ <function call_runtest_hook at 0x7fd4ab653840>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/_pytest/runner.py", line 256, in call_runtest_hook
+    lambda: ihook(item=item, **kwds), when=when, reraise=reraise
+            │          │       │           │             └ (<class '_pytest.outcomes.Exit'>, <class 'KeyboardInterrupt'>)
+            │          │       │           └ 'call'
+            │          │       └ {}
+            │          └ <Function test_remember_last_remove[23]>
+            └ <_HookCaller 'pytest_runtest_call'>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/_pytest/runner.py", line 310, in from_call
+    result = func()  # type: Optional[TResult]
+             └ <function call_runtest_hook.<locals>.<lambda> at 0x7fd4a1c34ea0>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/_pytest/runner.py", line 256, in <lambda>
+    lambda: ihook(item=item, **kwds), when=when, reraise=reraise
+            │          │       └ {}
+            │          └ <Function test_remember_last_remove[23]>
+            └ <_HookCaller 'pytest_runtest_call'>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/pluggy/hooks.py", line 286, in __call__
+    return self._hookexec(self, self.get_hookimpls(), kwargs)
+           │    │         │     │    │                └ {'item': <Function test_remember_last_remove[23]>}
+           │    │         │     │    └ <function _HookCaller.get_hookimpls at 0x7fd4ab86d158>
+           │    │         │     └ <_HookCaller 'pytest_runtest_call'>
+           │    │         └ <_HookCaller 'pytest_runtest_call'>
+           │    └ <bound method PluginManager._hookexec of <_pytest.config.PytestPluginManager object at 0x7fd4b0079710>>
+           └ <_HookCaller 'pytest_runtest_call'>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/pluggy/manager.py", line 93, in _hookexec
+    return self._inner_hookexec(hook, methods, kwargs)
+           │    │               │     │        └ {'item': <Function test_remember_last_remove[23]>}
+           │    │               │     └ [<HookImpl plugin_name='runner', plugin=<module '_pytest.runner' from '/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgx...
+           │    │               └ <_HookCaller 'pytest_runtest_call'>
+           │    └ <function PluginManager.__init__.<locals>.<lambda> at 0x7fd4ab5737b8>
+           └ <_pytest.config.PytestPluginManager object at 0x7fd4b0079710>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/pluggy/manager.py", line 87, in <lambda>
+    firstresult=hook.spec.opts.get("firstresult") if hook.spec else False,
+                │    │    │    │                     │    └ <pluggy.hooks.HookSpec object at 0x7fd4ab577be0>
+                │    │    │    │                     └ <_HookCaller 'pytest_runtest_call'>
+                │    │    │    └ <method 'get' of 'dict' objects>
+                │    │    └ {'firstresult': False, 'historic': False}
+                │    └ <pluggy.hooks.HookSpec object at 0x7fd4ab577be0>
+                └ <_HookCaller 'pytest_runtest_call'>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/pluggy/callers.py", line 187, in _multicall
+    res = hook_impl.function(*args)
+          │         │         └ [<Function test_remember_last_remove[23]>]
+          │         └ <function pytest_runtest_call at 0x7fd4ab653488>
+          └ <HookImpl plugin_name='runner', plugin=<module '_pytest.runner' from '/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQ...
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/_pytest/runner.py", line 163, in pytest_runtest_call
+    item.runtest()
+    │    └ <function Function.runtest at 0x7fd4ab6190d0>
+    └ <Function test_remember_last_remove[23]>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/_pytest/python.py", line 1627, in runtest
+    self.ihook.pytest_pyfunc_call(pyfuncitem=self)
+    │    │                                   └ <Function test_remember_last_remove[23]>
+    │    └ <property object at 0x7fd4ab6ab778>
+    └ <Function test_remember_last_remove[23]>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/pluggy/hooks.py", line 286, in __call__
+    return self._hookexec(self, self.get_hookimpls(), kwargs)
+           │    │         │     │    │                └ {'pyfuncitem': <Function test_remember_last_remove[23]>}
+           │    │         │     │    └ <function _HookCaller.get_hookimpls at 0x7fd4ab86d158>
+           │    │         │     └ <_HookCaller 'pytest_pyfunc_call'>
+           │    │         └ <_HookCaller 'pytest_pyfunc_call'>
+           │    └ <bound method PluginManager._hookexec of <_pytest.config.PytestPluginManager object at 0x7fd4b0079710>>
+           └ <_HookCaller 'pytest_pyfunc_call'>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/pluggy/manager.py", line 93, in _hookexec
+    return self._inner_hookexec(hook, methods, kwargs)
+           │    │               │     │        └ {'pyfuncitem': <Function test_remember_last_remove[23]>}
+           │    │               │     └ [<HookImpl plugin_name='python', plugin=<module '_pytest.python' from '/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgx...
+           │    │               └ <_HookCaller 'pytest_pyfunc_call'>
+           │    └ <function PluginManager.__init__.<locals>.<lambda> at 0x7fd4ab5737b8>
+           └ <_pytest.config.PytestPluginManager object at 0x7fd4b0079710>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/pluggy/manager.py", line 87, in <lambda>
+    firstresult=hook.spec.opts.get("firstresult") if hook.spec else False,
+                │    │    │    │                     │    └ <pluggy.hooks.HookSpec object at 0x7fd4ab577940>
+                │    │    │    │                     └ <_HookCaller 'pytest_pyfunc_call'>
+                │    │    │    └ <method 'get' of 'dict' objects>
+                │    │    └ {'firstresult': True, 'historic': False, 'warn_on_impl': None}
+                │    └ <pluggy.hooks.HookSpec object at 0x7fd4ab577940>
+                └ <_HookCaller 'pytest_pyfunc_call'>
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/pluggy/callers.py", line 187, in _multicall
+    res = hook_impl.function(*args)
+          │         │         └ [<Function test_remember_last_remove[23]>]
+          │         └ <function pytest_pyfunc_call at 0x7fd4ab60d2f0>
+          └ <HookImpl plugin_name='python', plugin=<module '_pytest.python' from '/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQ...
+  File "/home/pawamoy/.cache/pypoetry/virtualenvs/aria2p-h4kgxQkF-py3.6/lib/python3.6/site-packages/_pytest/python.py", line 184, in pytest_pyfunc_call
+    result = testfunction(**testargs)
+             │              └ {'tmp_path': PosixPath('/tmp/pytest-of-pawamoy/pytest-66/popen-gw3/test_remember_last_remove_23_0'), 'port': 15411, 'monkeypa...
+             └ <function test_remember_last_remove at 0x7fd4a6599e18>
+
+  File "/media/data/dev/pawamoy/aria2p/tests/test_interface.py", line 356, in test_remember_last_remove
+    events=[Event.pass_frame, Event.delete, Event.down, Event.enter, Event.delete, Event.esc],
+            │     │           │     │       │     │     │     │      │     │       │     └ KeyboardEvent: -1
+            │     │           │     │       │     │     │     │      │     │       └ <class 'tests.test_interface.Event'>
+            │     │           │     │       │     │     │     │      │     └ KeyboardEvent: -102
+            │     │           │     │       │     │     │     │      └ <class 'tests.test_interface.Event'>
+            │     │           │     │       │     │     │     └ KeyboardEvent: 10
+            │     │           │     │       │     │     └ <class 'tests.test_interface.Event'>
+            │     │           │     │       │     └ KeyboardEvent: -206
+            │     │           │     │       └ <class 'tests.test_interface.Event'>
+            │     │           │     └ KeyboardEvent: -102
+            │     │           └ <class 'tests.test_interface.Event'>
+            │     └ <tests.test_interface.SpecialEvent object at 0x7fd4a6886e48>
+            └ <class 'tests.test_interface.Event'>
+
+  File "/media/data/dev/pawamoy/aria2p/tests/test_interface.py", line 96, in run_interface
+    interface.run()
+    │         └ <function Interface.run at 0x7fd4a8c75510>
+    └ <aria2p.interface.Interface object at 0x7fd4a1a356a0>
+
+  File "/media/data/dev/pawamoy/aria2p/src/aria2p/interface.py", line 520, in run
+    self.process_event(event)
+    │    │             └ KeyboardEvent: 10
+    │    └ <function Interface.process_event at 0x7fd4a8c756a8>
+    └ <aria2p.interface.Interface object at 0x7fd4a1a356a0>
+
+  File "/media/data/dev/pawamoy/aria2p/src/aria2p/interface.py", line 584, in process_event
+    self.process_keyboard_event(event)
+    │    │                      └ KeyboardEvent: 10
+    │    └ <function Interface.process_keyboard_event at 0x7fd4a8c75730>
+    └ <aria2p.interface.Interface object at 0x7fd4a1a356a0>
+
+  File "/media/data/dev/pawamoy/aria2p/src/aria2p/interface.py", line 590, in process_keyboard_event
+    self.state_mapping[self.state]["process_keyboard_event"](event)
+    │    │             │    │                                └ KeyboardEvent: 10
+    │    │             │    └ 3
+    │    │             └ <aria2p.interface.Interface object at 0x7fd4a1a356a0>
+    │    └ {0: {'process_keyboard_event': <bound method Interface.process_keyboard_event_main of <aria2p.interface.Interface object at 0...
+    └ <aria2p.interface.Interface object at 0x7fd4a1a356a0>
+
+  File "/media/data/dev/pawamoy/aria2p/src/aria2p/interface.py", line 816, in process_keyboard_event_remove_ask
+    self.remove_ask_rows[self.side_focused][1](self.follow)
+    │    │               │    │                │    └ <aria2p.downloads.Download object at 0x7fd4a27fd9b0>
+    │    │               │    │                └ <aria2p.interface.Interface object at 0x7fd4a1a356a0>
+    │    │               │    └ 1
+    │    │               └ <aria2p.interface.Interface object at 0x7fd4a1a356a0>
+    │    └ [('Remove', <function Interface.<lambda> at 0x7fd4a8c75268>), ('Remove with files', <function Interface.<lambda> at 0x7fd4a8c...
+    └ <aria2p.interface.Interface object at 0x7fd4a1a356a0>
+
+  File "/media/data/dev/pawamoy/aria2p/src/aria2p/interface.py", line 434, in <lambda>
+    ("Remove with files", lambda d: d.remove(force=False, files=True)),
+                                 │  │ └ <function Download.remove at 0x7fd4aa282e18>
+                                 │  └ <aria2p.downloads.Download object at 0x7fd4a27fd9b0>
+                                 └ <aria2p.downloads.Download object at 0x7fd4a27fd9b0>
+
+  File "/media/data/dev/pawamoy/aria2p/src/aria2p/downloads.py", line 1025, in remove
+    result = self.api.remove([self], force=force, files=files)[0]
+             │    │   │       │            │            └ True
+             │    │   │       │            └ False
+             │    │   │       └ <aria2p.downloads.Download object at 0x7fd4a27fd9b0>
+             │    │   └ <function API.remove at 0x7fd4aa28d048>
+             │    └ API(Client(host='http://localhost', port=15411, secret='********'))
+             └ <aria2p.downloads.Download object at 0x7fd4a27fd9b0>
+
+  File "/media/data/dev/pawamoy/aria2p/src/aria2p/api.py", line 484, in remove
+    self.remove_files([download], force=True)
+    │    │             └ <aria2p.downloads.Download object at 0x7fd4a27fd9b0>
+    │    └ <staticmethod object at 0x7fd4aa2c8748>
+    └ API(Client(host='http://localhost', port=15411, secret='********'))
+
+  File "/media/data/dev/pawamoy/aria2p/src/aria2p/api.py", line 695, in remove_files
+    for path in download.root_files_paths:
+                │        └ <property object at 0x7fd4aa27b368>
+                └ <aria2p.downloads.Download object at 0x7fd4a27fd9b0>
+
+> File "/media/data/dev/pawamoy/aria2p/src/aria2p/downloads.py", line 343, in root_files_paths
+    relative_path = file.path.relative_to(self.dir)
+                    │    │                │    └ <property object at 0x7fd4aa27bef8>
+                    │    │                └ <aria2p.downloads.Download object at 0x7fd4a27fd9b0>
+                    │    └ <property object at 0x7fd4aa27b048>
+                    └ <aria2p.downloads.File object at 0x7fd4a2806d68>
+
+  File "/home/pawamoy/.basher-packages/pyenv/pyenv/versions/3.6.9/lib/python3.6/pathlib.py", line 874, in relative_to
+    .format(str(self), str(formatted)))
+                │          └ '/tmp/pytest-of-pawamoy/pytest-66/popen-gw3/test_remember_last_remove_23_0'
+                └ PosixPath('.')
+
+ValueError: '.' does not start with '/tmp/pytest-of-pawamoy/pytest-66/popen-gw3/test_remember_last_remove_23_0'
+2020-11-14 00:53:21.621 | DEBUG    | aria2p.interface:run:528 - Got event KeyboardEvent: -102
+2020-11-14 00:53:21.621 | DEBUG    | aria2p.interface:process_keyboard_event_main:673 - Triggered removal
+2020-11-14 00:53:21.621 | DEBUG    | aria2p.interface:process_keyboard_event_main:674 - self.focused = 0
+2020-11-14 00:53:21.622 | DEBUG    | aria2p.interface:process_keyboard_event_main:675 - len(self.data) = 2
+2020-11-14 00:53:21.622 | DEBUG    | aria2p.interface:run:528 - Got event KeyboardEvent: -1
+2020-11-14 00:53:21.622 | DEBUG    | aria2p.interface:process_keyboard_event_remove_ask:808 - Canceling removal
+2020-11-14 00:53:21.622 | DEBUG    | aria2p.interface:run:528 - Got event KeyboardEvent: 113
+2020-11-14 00:53:21.622 | DEBUG    | aria2p.interface:run:522 - Received exit command

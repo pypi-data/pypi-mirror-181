@@ -1,0 +1,48 @@
+2021-04-22 21:11:26.345 | DEBUG    | aria2p.tui.wrapper:run:100 - Created new screen <tests.test_tui.helpers.MockedScreen object at 0x7f69e920cc88>
+2021-04-22 21:11:26.346 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: -204
+2021-04-22 21:11:26.346 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event <tests.test_tui.helpers.SpecialEvent object at 0x7f69e8fb2828>
+2021-04-22 21:11:26.346 | DEBUG    | aria2p.tui.wrapper:run:126 - Tick! Updating data and rows
+2021-04-22 21:11:26.353 | DEBUG    | aria2p.tui.wrapper:run:131 - Refresh! Printing text
+2021-04-22 21:11:26.451 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: -206
+2021-04-22 21:11:26.451 | DEBUG    | aria2p.tui.views.main:process_keyboard_event:192 - Move focus down: 1
+2021-04-22 21:11:26.452 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: -206
+2021-04-22 21:11:26.452 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: -206
+2021-04-22 21:11:26.452 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: -206
+2021-04-22 21:11:26.452 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: -206
+2021-04-22 21:11:26.452 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: -206
+2021-04-22 21:11:26.452 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: -206
+2021-04-22 21:11:26.452 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: -206
+2021-04-22 21:11:26.452 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: -206
+2021-04-22 21:11:26.452 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: -206
+2021-04-22 21:11:26.453 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: -206
+2021-04-22 21:11:26.453 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: -206
+2021-04-22 21:11:26.453 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: -206
+2021-04-22 21:11:26.453 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: -206
+2021-04-22 21:11:26.453 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: -206
+2021-04-22 21:11:26.453 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: -206
+2021-04-22 21:11:26.453 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: -206
+2021-04-22 21:11:26.453 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: -206
+2021-04-22 21:11:26.453 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: -206
+2021-04-22 21:11:26.454 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: -206
+2021-04-22 21:11:26.454 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: -206
+2021-04-22 21:11:26.454 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: -206
+2021-04-22 21:11:26.454 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: -206
+2021-04-22 21:11:26.454 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: -206
+2021-04-22 21:11:26.454 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: -206
+2021-04-22 21:11:26.454 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: -206
+2021-04-22 21:11:26.454 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: -206
+2021-04-22 21:11:26.454 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: -206
+2021-04-22 21:11:26.454 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: -206
+2021-04-22 21:11:26.454 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: -206
+2021-04-22 21:11:26.455 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event <tests.test_tui.helpers.SpecialEvent object at 0x7f69e8fb2828>
+2021-04-22 21:11:26.455 | DEBUG    | aria2p.tui.wrapper:run:131 - Refresh! Printing text
+2021-04-22 21:11:26.460 | DEBUG    | aria2p.tui.wrapper:run:126 - Tick! Updating data and rows
+2021-04-22 21:11:26.469 | DEBUG    | aria2p.tui.wrapper:run:131 - Refresh! Printing text
+2021-04-22 21:11:26.561 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: -204
+2021-04-22 21:11:26.561 | DEBUG    | aria2p.tui.views.main:process_keyboard_event:179 - Move focus up: 0
+2021-04-22 21:11:26.561 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: -204
+2021-04-22 21:11:26.562 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: -204
+2021-04-22 21:11:26.562 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: -204
+2021-04-22 21:11:26.562 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: -204
+2021-04-22 21:11:26.562 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: 113
+2021-04-22 21:11:26.562 | DEBUG    | aria2p.tui.wrapper:run:117 - Received exit command

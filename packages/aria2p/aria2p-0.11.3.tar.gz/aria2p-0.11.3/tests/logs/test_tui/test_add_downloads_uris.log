@@ -1,0 +1,14 @@
+2021-04-22 19:42:10.463 | DEBUG    | aria2p.tui.wrapper:run:100 - Created new screen <tests.test_tui.MockedScreen object at 0x7fb81a4e7438>
+2021-04-22 19:42:10.463 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event <tests.test_tui.SpecialEvent object at 0x7fb81a9bbe10>
+2021-04-22 19:42:10.463 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: 97
+2021-04-22 19:42:10.471 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: -1
+2021-04-22 19:42:10.471 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: 97
+2021-04-22 19:42:10.478 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: -206
+2021-04-22 19:42:10.478 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: 10
+2021-04-22 19:42:10.484 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: 10
+2021-04-22 19:42:10.490 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: -1
+2021-04-22 19:42:10.490 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event <tests.test_tui.SpecialEvent object at 0x7fb819f72240>
+2021-04-22 19:42:10.490 | DEBUG    | aria2p.tui.wrapper:run:126 - Tick! Updating data and rows
+2021-04-22 19:42:10.490 | DEBUG    | aria2p.tui.wrapper:run:131 - Refresh! Printing text
+2021-04-22 19:42:10.638 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: 113
+2021-04-22 19:42:10.638 | DEBUG    | aria2p.tui.wrapper:run:117 - Received exit command

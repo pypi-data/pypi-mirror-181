@@ -1,0 +1,8 @@
+2020-11-14 00:52:41.408 | DEBUG    | aria2p.interface:run:501 - Created new screen <tests.test_interface.MockedScreen object at 0x7fd4a1d2d2b0>
+2020-11-14 00:52:41.408 | DEBUG    | aria2p.interface:run:516 - Got event KeyboardEvent: 60
+2020-11-14 00:52:41.409 | DEBUG    | aria2p.interface:run:528 - Got event KeyboardEvent: 113
+2020-11-14 00:52:41.409 | DEBUG    | aria2p.interface:run:522 - Received exit command
+2020-11-14 00:52:41.409 | DEBUG    | aria2p.interface:run:501 - Created new screen <tests.test_interface.MockedScreen object at 0x7fd4a1b314e0>
+2020-11-14 00:52:41.409 | DEBUG    | aria2p.interface:run:516 - Got event KeyboardEvent: 62
+2020-11-14 00:52:41.409 | DEBUG    | aria2p.interface:run:528 - Got event KeyboardEvent: 113
+2020-11-14 00:52:41.409 | DEBUG    | aria2p.interface:run:522 - Received exit command

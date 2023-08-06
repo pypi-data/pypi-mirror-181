@@ -1,0 +1,12 @@
+2020-11-14 00:58:17.043 | DEBUG    | aria2p.client:listen_to_notifications:1723 - Notifications (ws://localhost:15318/jsonrpc): opening WebSocket with timeout=1
+2020-11-14 00:58:17.049 | DEBUG    | aria2p.client:listen_to_notifications:1742 - Notifications (ws://localhost:15318/jsonrpc): waiting for data over WebSocket
+2020-11-14 00:58:18.049 | INFO     | aria2p.client:listen_to_notifications:1753 - Notifications (ws://localhost:15318/jsonrpc): received aria2.onDownloadStart with gid=0000000000000001
+2020-11-14 00:58:18.049 | DEBUG    | aria2p.client:listen_to_notifications:1757 - Notifications (ws://localhost:15318/jsonrpc): calling functools.partial(<function test_listen_to_notifications_callbacks.<locals>.<lambda> at 0x7f4f3a9ee950>, API(Client(host='http://localhost', port=15318, secret='********'))) with gid=0000000000000001
+2020-11-14 00:58:18.050 | DEBUG    | aria2p.client:listen_to_notifications:1742 - Notifications (ws://localhost:15318/jsonrpc): waiting for data over WebSocket
+2020-11-14 00:58:19.051 | DEBUG    | aria2p.client:listen_to_notifications:1749 - Notifications (ws://localhost:15318/jsonrpc): reached timeout (1s)
+2020-11-14 00:58:19.052 | DEBUG    | aria2p.client:listen_to_notifications:1742 - Notifications (ws://localhost:15318/jsonrpc): waiting for data over WebSocket
+2020-11-14 00:58:20.054 | DEBUG    | aria2p.client:listen_to_notifications:1749 - Notifications (ws://localhost:15318/jsonrpc): reached timeout (1s)
+2020-11-14 00:58:20.054 | DEBUG    | aria2p.client:listen_to_notifications:1742 - Notifications (ws://localhost:15318/jsonrpc): waiting for data over WebSocket
+2020-11-14 00:58:21.056 | DEBUG    | aria2p.client:listen_to_notifications:1749 - Notifications (ws://localhost:15318/jsonrpc): reached timeout (1s)
+2020-11-14 00:58:21.057 | DEBUG    | aria2p.client:listen_to_notifications:1763 - Notifications (ws://localhost:15318/jsonrpc): stopped listening
+2020-11-14 00:58:21.057 | DEBUG    | aria2p.client:listen_to_notifications:1770 - Notifications (ws://localhost:15318/jsonrpc): closing WebSocket

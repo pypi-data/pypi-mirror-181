@@ -1,0 +1,9 @@
+2020-11-14 00:53:33.155 | DEBUG    | aria2p.client:listen_to_notifications:1723 - Notifications (ws://localhost:15398/jsonrpc): opening WebSocket with timeout=5
+2020-11-14 00:53:33.156 | DEBUG    | aria2p.utils:__init__:31 - Signal handler: handling signals SIGTERM, SIGINT
+2020-11-14 00:53:33.156 | DEBUG    | aria2p.client:listen_to_notifications:1742 - Notifications (ws://localhost:15398/jsonrpc): waiting for data over WebSocket
+2020-11-14 00:53:35.157 | INFO     | aria2p.client:listen_to_notifications:1753 - Notifications (ws://localhost:15398/jsonrpc): received aria2.onDownloadStart with gid=0000000000000001
+2020-11-14 00:53:35.157 | DEBUG    | aria2p.client:listen_to_notifications:1757 - Notifications (ws://localhost:15398/jsonrpc): calling functools.partial(<function on_download_start at 0x7f96b0242488>, API(Client(host='http://localhost', port=15398, secret='********'))) with gid=0000000000000001
+2020-11-14 00:53:35.157 | DEBUG    | aria2p.client:listen_to_notifications:1742 - Notifications (ws://localhost:15398/jsonrpc): waiting for data over WebSocket
+2020-11-14 00:53:40.161 | DEBUG    | aria2p.client:listen_to_notifications:1749 - Notifications (ws://localhost:15398/jsonrpc): reached timeout (5s)
+2020-11-14 00:53:40.161 | DEBUG    | aria2p.client:listen_to_notifications:1763 - Notifications (ws://localhost:15398/jsonrpc): stopped listening
+2020-11-14 00:53:40.161 | DEBUG    | aria2p.client:listen_to_notifications:1770 - Notifications (ws://localhost:15398/jsonrpc): closing WebSocket

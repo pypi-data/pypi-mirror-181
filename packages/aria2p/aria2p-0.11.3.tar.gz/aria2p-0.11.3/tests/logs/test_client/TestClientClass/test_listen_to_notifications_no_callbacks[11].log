@@ -1,0 +1,11 @@
+2020-11-14 00:50:25.198 | DEBUG    | aria2p.client:listen_to_notifications:1723 - Notifications (ws://localhost:15211/jsonrpc): opening WebSocket with timeout=1
+2020-11-14 00:50:25.215 | DEBUG    | aria2p.client:listen_to_notifications:1742 - Notifications (ws://localhost:15211/jsonrpc): waiting for data over WebSocket
+2020-11-14 00:50:25.216 | INFO     | aria2p.client:listen_to_notifications:1753 - Notifications (ws://localhost:15211/jsonrpc): received aria2.onDownloadStart with gid=0000000000000001
+2020-11-14 00:50:25.217 | DEBUG    | aria2p.client:listen_to_notifications:1760 - Notifications (ws://localhost:15211/jsonrpc): no callback given for type aria2.onDownloadStart
+2020-11-14 00:50:25.217 | DEBUG    | aria2p.client:listen_to_notifications:1742 - Notifications (ws://localhost:15211/jsonrpc): waiting for data over WebSocket
+2020-11-14 00:50:26.219 | DEBUG    | aria2p.client:listen_to_notifications:1749 - Notifications (ws://localhost:15211/jsonrpc): reached timeout (1s)
+2020-11-14 00:50:26.220 | DEBUG    | aria2p.client:listen_to_notifications:1742 - Notifications (ws://localhost:15211/jsonrpc): waiting for data over WebSocket
+2020-11-14 00:50:27.221 | DEBUG    | aria2p.client:listen_to_notifications:1749 - Notifications (ws://localhost:15211/jsonrpc): reached timeout (1s)
+2020-11-14 00:50:27.221 | DEBUG    | aria2p.client:listen_to_notifications:1742 - Notifications (ws://localhost:15211/jsonrpc): waiting for data over WebSocket
+2020-11-14 00:50:28.215 | ERROR    | aria2p.client:listen_to_notifications:1746 - Notifications (ws://localhost:15211/jsonrpc): connection to server was closed. Is the server running?
+2020-11-14 00:50:28.215 | DEBUG    | aria2p.client:listen_to_notifications:1770 - Notifications (ws://localhost:15211/jsonrpc): closing WebSocket

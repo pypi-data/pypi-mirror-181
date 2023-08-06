@@ -1,0 +1,48 @@
+2020-11-14 00:52:41.256 | DEBUG    | aria2p.interface:run:501 - Created new screen <tests.test_interface.MockedScreen object at 0x7fd4a1b31278>
+2020-11-14 00:52:41.256 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:41.256 | DEBUG    | aria2p.interface:run:532 - Tick! Updating data and rows
+2020-11-14 00:52:41.263 | DEBUG    | aria2p.interface:run:539 - Refresh! Printing text
+2020-11-14 00:52:41.269 | DEBUG    | aria2p.interface:run:516 - Got event KeyboardEvent: -102
+2020-11-14 00:52:41.269 | DEBUG    | aria2p.interface:process_keyboard_event_main:673 - Triggered removal
+2020-11-14 00:52:41.269 | DEBUG    | aria2p.interface:process_keyboard_event_main:674 - self.focused = 0
+2020-11-14 00:52:41.269 | DEBUG    | aria2p.interface:process_keyboard_event_main:675 - len(self.data) = 2
+2020-11-14 00:52:41.269 | DEBUG    | aria2p.interface:run:528 - Got event KeyboardEvent: -206
+2020-11-14 00:52:41.269 | DEBUG    | aria2p.interface:process_keyboard_event_remove_ask:836 - Moving side focus down: 1
+2020-11-14 00:52:41.269 | DEBUG    | aria2p.interface:run:528 - Got event KeyboardEvent: -204
+2020-11-14 00:52:41.270 | DEBUG    | aria2p.interface:process_keyboard_event_remove_ask:830 - Moving side focus up: 0
+2020-11-14 00:52:41.270 | DEBUG    | aria2p.interface:run:528 - Got event KeyboardEvent: -204
+2020-11-14 00:52:41.270 | DEBUG    | aria2p.interface:run:528 - Got event KeyboardEvent: -206
+2020-11-14 00:52:41.270 | DEBUG    | aria2p.interface:process_keyboard_event_remove_ask:836 - Moving side focus down: 1
+2020-11-14 00:52:41.270 | DEBUG    | aria2p.interface:run:528 - Got event KeyboardEvent: -206
+2020-11-14 00:52:41.270 | DEBUG    | aria2p.interface:process_keyboard_event_remove_ask:836 - Moving side focus down: 2
+2020-11-14 00:52:41.270 | DEBUG    | aria2p.interface:run:528 - Got event KeyboardEvent: -206
+2020-11-14 00:52:41.270 | DEBUG    | aria2p.interface:process_keyboard_event_remove_ask:836 - Moving side focus down: 3
+2020-11-14 00:52:41.270 | DEBUG    | aria2p.interface:run:528 - Got event KeyboardEvent: -206
+2020-11-14 00:52:41.270 | DEBUG    | aria2p.interface:run:528 - Got event KeyboardEvent: -1
+2020-11-14 00:52:41.270 | DEBUG    | aria2p.interface:process_keyboard_event_remove_ask:808 - Canceling removal
+2020-11-14 00:52:41.270 | DEBUG    | aria2p.interface:run:528 - Got event KeyboardEvent: 113
+2020-11-14 00:52:41.271 | DEBUG    | aria2p.interface:run:522 - Received exit command
+2020-11-14 00:52:41.271 | DEBUG    | aria2p.interface:run:501 - Created new screen <tests.test_interface.MockedScreen object at 0x7fd4a1b31b38>
+2020-11-14 00:52:41.271 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:41.271 | DEBUG    | aria2p.interface:run:532 - Tick! Updating data and rows
+2020-11-14 00:52:41.278 | DEBUG    | aria2p.interface:run:539 - Refresh! Printing text
+2020-11-14 00:52:41.284 | DEBUG    | aria2p.interface:run:516 - Got event KeyboardEvent: -7
+2020-11-14 00:52:41.284 | DEBUG    | aria2p.interface:run:528 - Got event KeyboardEvent: -204
+2020-11-14 00:52:41.284 | DEBUG    | aria2p.interface:run:528 - Got event KeyboardEvent: -204
+2020-11-14 00:52:41.284 | DEBUG    | aria2p.interface:run:528 - Got event KeyboardEvent: -204
+2020-11-14 00:52:41.284 | DEBUG    | aria2p.interface:run:528 - Got event KeyboardEvent: -204
+2020-11-14 00:52:41.284 | DEBUG    | aria2p.interface:run:528 - Got event KeyboardEvent: -204
+2020-11-14 00:52:41.284 | DEBUG    | aria2p.interface:run:528 - Got event KeyboardEvent: -204
+2020-11-14 00:52:41.284 | DEBUG    | aria2p.interface:run:528 - Got event KeyboardEvent: -204
+2020-11-14 00:52:41.285 | DEBUG    | aria2p.interface:run:528 - Got event KeyboardEvent: -204
+2020-11-14 00:52:41.285 | DEBUG    | aria2p.interface:run:528 - Got event KeyboardEvent: -206
+2020-11-14 00:52:41.285 | DEBUG    | aria2p.interface:run:528 - Got event KeyboardEvent: -206
+2020-11-14 00:52:41.285 | DEBUG    | aria2p.interface:run:528 - Got event KeyboardEvent: -206
+2020-11-14 00:52:41.285 | DEBUG    | aria2p.interface:run:528 - Got event KeyboardEvent: -206
+2020-11-14 00:52:41.285 | DEBUG    | aria2p.interface:run:528 - Got event KeyboardEvent: -206
+2020-11-14 00:52:41.285 | DEBUG    | aria2p.interface:run:528 - Got event KeyboardEvent: -206
+2020-11-14 00:52:41.285 | DEBUG    | aria2p.interface:run:528 - Got event KeyboardEvent: -206
+2020-11-14 00:52:41.285 | DEBUG    | aria2p.interface:run:528 - Got event KeyboardEvent: -206
+2020-11-14 00:52:41.285 | DEBUG    | aria2p.interface:run:528 - Got event KeyboardEvent: -1
+2020-11-14 00:52:41.285 | DEBUG    | aria2p.interface:run:528 - Got event KeyboardEvent: 113
+2020-11-14 00:52:41.286 | DEBUG    | aria2p.interface:run:522 - Received exit command

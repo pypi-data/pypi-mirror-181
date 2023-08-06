@@ -1,0 +1,15 @@
+2022-12-15 21:15:08.190 | DEBUG    | aria2p.client:listen_to_notifications:1724 - Notifications (ws://localhost:15253/jsonrpc): opening WebSocket with timeout=1
+2022-12-15 21:15:08.197 | DEBUG    | aria2p.client:listen_to_notifications:1743 - Notifications (ws://localhost:15253/jsonrpc): waiting for data over WebSocket
+2022-12-15 21:15:09.196 | INFO     | aria2p.client:listen_to_notifications:1753 - Notifications (ws://localhost:15253/jsonrpc): received aria2.onDownloadStart with gid=0000000000000001
+2022-12-15 21:15:09.196 | DEBUG    | aria2p.client:listen_to_notifications:1758 - Notifications (ws://localhost:15253/jsonrpc): calling functools.partial(<function test_listen_to_notifications_callbacks.<locals>.<lambda> at 0x7f107813c720>, API(Client(host='http://localhost', port=15253, secret='********'))) with gid=0000000000000001
+2022-12-15 21:15:09.196 | DEBUG    | aria2p.client:listen_to_notifications:1743 - Notifications (ws://localhost:15253/jsonrpc): waiting for data over WebSocket
+2022-12-15 21:15:09.196 | INFO     | aria2p.client:listen_to_notifications:1753 - Notifications (ws://localhost:15253/jsonrpc): received aria2.onDownloadStart with gid=0000000000000002
+2022-12-15 21:15:09.196 | DEBUG    | aria2p.client:listen_to_notifications:1758 - Notifications (ws://localhost:15253/jsonrpc): calling functools.partial(<function test_listen_to_notifications_callbacks.<locals>.<lambda> at 0x7f107813c720>, API(Client(host='http://localhost', port=15253, secret='********'))) with gid=0000000000000002
+2022-12-15 21:15:09.197 | DEBUG    | aria2p.client:listen_to_notifications:1743 - Notifications (ws://localhost:15253/jsonrpc): waiting for data over WebSocket
+2022-12-15 21:15:10.198 | DEBUG    | aria2p.client:listen_to_notifications:1750 - Notifications (ws://localhost:15253/jsonrpc): reached timeout (1s)
+2022-12-15 21:15:10.198 | DEBUG    | aria2p.client:listen_to_notifications:1743 - Notifications (ws://localhost:15253/jsonrpc): waiting for data over WebSocket
+2022-12-15 21:15:11.198 | DEBUG    | aria2p.client:listen_to_notifications:1750 - Notifications (ws://localhost:15253/jsonrpc): reached timeout (1s)
+2022-12-15 21:15:11.199 | DEBUG    | aria2p.client:listen_to_notifications:1743 - Notifications (ws://localhost:15253/jsonrpc): waiting for data over WebSocket
+2022-12-15 21:15:12.200 | DEBUG    | aria2p.client:listen_to_notifications:1750 - Notifications (ws://localhost:15253/jsonrpc): reached timeout (1s)
+2022-12-15 21:15:12.200 | DEBUG    | aria2p.client:listen_to_notifications:1764 - Notifications (ws://localhost:15253/jsonrpc): stopped listening
+2022-12-15 21:15:12.201 | DEBUG    | aria2p.client:listen_to_notifications:1771 - Notifications (ws://localhost:15253/jsonrpc): closing WebSocket

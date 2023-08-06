@@ -1,0 +1,30 @@
+2020-11-14 00:52:33.702 | DEBUG    | aria2p.interface:run:501 - Created new screen <tests.test_interface.MockedScreen object at 0x7fb4f58d7748>
+2020-11-14 00:52:33.702 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:33.702 | DEBUG    | aria2p.interface:run:532 - Tick! Updating data and rows
+2020-11-14 00:52:33.709 | DEBUG    | aria2p.interface:run:539 - Refresh! Printing text
+2020-11-14 00:52:33.715 | DEBUG    | aria2p.interface:run:516 - Got event KeyboardEvent: 99
+2020-11-14 00:52:33.715 | WARNING  | aria2p.api:autopurge:599 - Deprecation warning: API method 'autopurge' is deprecated, use 'purge' instead.
+2020-11-14 00:52:33.719 | DEBUG    | aria2p.interface:run:528 - Got event None
+2020-11-14 00:52:33.724 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:33.729 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:33.734 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:33.740 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:33.745 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:33.750 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:33.755 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:33.761 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:33.766 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:33.771 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:33.776 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:33.781 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:33.787 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:33.792 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:33.797 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:33.803 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:33.808 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:33.813 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:33.818 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:33.819 | DEBUG    | aria2p.interface:run:532 - Tick! Updating data and rows
+2020-11-14 00:52:33.826 | DEBUG    | aria2p.interface:run:539 - Refresh! Printing text
+2020-11-14 00:52:33.831 | DEBUG    | aria2p.interface:run:516 - Got event KeyboardEvent: 113
+2020-11-14 00:52:33.831 | DEBUG    | aria2p.interface:run:522 - Received exit command

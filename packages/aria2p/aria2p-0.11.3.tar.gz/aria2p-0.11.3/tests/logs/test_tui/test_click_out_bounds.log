@@ -1,0 +1,348 @@
+2021-04-22 19:42:14.599 | DEBUG    | aria2p.tui.wrapper:run:100 - Created new screen <tests.test_tui.MockedScreen object at 0x7fb81a34b208>
+2021-04-22 19:42:14.600 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event <tests.test_tui.SpecialEvent object at 0x7fb81a9bbe10>
+2021-04-22 19:42:14.600 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event MouseEvent (1000, 0) 1
+2021-04-22 19:42:14.600 | ERROR    | aria2p.tui.wrapper:run:121 - clicked outside of boundaries
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+  File "<string>", line 8, in <module>
+
+  File "/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/execnet/gateway_base.py", line 1554, in serve
+    WorkerGateway(io=io, id=id, _startcount=2).serve()
+    │                │      └ 'gw1-worker'
+    │                └ <execnet.gateway_base.Popen2IO object at 0x7fb8220a3630>
+    └ <class 'execnet.gateway_base.WorkerGateway'>
+
+  File "/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/execnet/gateway_base.py", line 1060, in serve
+    self._execpool.integrate_as_primary_thread()
+    │    │         └ <function WorkerPool.integrate_as_primary_thread at 0x7fb822090bf8>
+    │    └ <execnet.gateway_base.WorkerPool object at 0x7fb822077f98>
+    └ <execnet.gateway_base.WorkerGateway object at 0x7fb82201d6a0>
+
+  File "/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/execnet/gateway_base.py", line 267, in integrate_as_primary_thread
+    self._perform_spawn(reply)
+    │    │              └ <execnet.gateway_base.Reply object at 0x7fb822031eb8>
+    │    └ <function WorkerPool._perform_spawn at 0x7fb822090d90>
+    └ <execnet.gateway_base.WorkerPool object at 0x7fb822077f98>
+
+  File "/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/execnet/gateway_base.py", line 285, in _perform_spawn
+    reply.run()
+    │     └ <function Reply.run at 0x7fb822090a60>
+    └ <execnet.gateway_base.Reply object at 0x7fb822031eb8>
+
+  File "/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/execnet/gateway_base.py", line 220, in run
+    self._result = func(*args, **kwargs)
+    │              │     │       └ {}
+    │              │     └ ((<Channel id=1 open>, ('"""\n    This module is executed in remote subprocesses and helps to\n    control a remote testing s...
+    │              └ <bound method WorkerGateway.executetask of <execnet.gateway_base.WorkerGateway object at 0x7fb82201d6a0>>
+    └ <execnet.gateway_base.Reply object at 0x7fb822031eb8>
+
+  File "/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/execnet/gateway_base.py", line 1084, in executetask
+    do_exec(co, loc)  # noqa
+    │       │   └ {'channel': <Channel id=1 open>, '__name__': '__channelexec__', '__builtins__': {'__name__': 'builtins', '__doc__': "Built-in...
+    │       └ <code object <module> at 0x7fb8217e4540, file "/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/xdist/remote.py", line 7>
+    └ <built-in function exec>
+
+  File "/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/xdist/remote.py", line 244, in <module>
+    config.hook.pytest_cmdline_main(config=config)
+    │      │    │                          └ <_pytest.config.Config object at 0x7fb820b414a8>
+    │      │    └ <_HookCaller 'pytest_cmdline_main'>
+    │      └ <pluggy.hooks._HookRelay object at 0x7fb8217f82e8>
+    └ <_pytest.config.Config object at 0x7fb820b414a8>
+
+  File "/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/pluggy/hooks.py", line 286, in __call__
+    return self._hookexec(self, self.get_hookimpls(), kwargs)
+           │    │         │     │    │                └ {'config': <_pytest.config.Config object at 0x7fb820b414a8>}
+           │    │         │     │    └ <function _HookCaller.get_hookimpls at 0x7fb820f35840>
+           │    │         │     └ <_HookCaller 'pytest_cmdline_main'>
+           │    │         └ <_HookCaller 'pytest_cmdline_main'>
+           │    └ <bound method PluginManager._hookexec of <_pytest.config.PytestPluginManager object at 0x7fb8217dcb38>>
+           └ <_HookCaller 'pytest_cmdline_main'>
+
+  File "/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/pluggy/manager.py", line 93, in _hookexec
+    return self._inner_hookexec(hook, methods, kwargs)
+           │    │               │     │        └ {'config': <_pytest.config.Config object at 0x7fb820b414a8>}
+           │    │               │     └ [<HookImpl plugin_name='main', plugin=<module '_pytest.main' from '/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/_pyt...
+           │    │               └ <_HookCaller 'pytest_cmdline_main'>
+           │    └ <function PluginManager.__init__.<locals>.<lambda> at 0x7fb820b316a8>
+           └ <_pytest.config.PytestPluginManager object at 0x7fb8217dcb38>
+
+  File "/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/pluggy/manager.py", line 87, in <lambda>
+    firstresult=hook.spec.opts.get("firstresult") if hook.spec else False,
+                │    │    │    │                     │    └ <pluggy.hooks.HookSpec object at 0x7fb820b26d68>
+                │    │    │    │                     └ <_HookCaller 'pytest_cmdline_main'>
+                │    │    │    └ <method 'get' of 'dict' objects>
+                │    │    └ {'firstresult': True, 'historic': False, 'warn_on_impl': None}
+                │    └ <pluggy.hooks.HookSpec object at 0x7fb820b26d68>
+                └ <_HookCaller 'pytest_cmdline_main'>
+
+  File "/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/pluggy/callers.py", line 187, in _multicall
+    res = hook_impl.function(*args)
+          │         │         └ [<_pytest.config.Config object at 0x7fb820b414a8>]
+          │         └ <function pytest_cmdline_main at 0x7fb820d22b70>
+          └ <HookImpl plugin_name='main', plugin=<module '_pytest.main' from '/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/_pyte...
+
+  File "/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/_pytest/main.py", line 316, in pytest_cmdline_main
+    return wrap_session(config, _main)
+           │            │       └ <function _main at 0x7fb820d22d08>
+           │            └ <_pytest.config.Config object at 0x7fb820b414a8>
+           └ <function wrap_session at 0x7fb820d22bf8>
+
+  File "/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/_pytest/main.py", line 269, in wrap_session
+    session.exitstatus = doit(config, session) or 0
+    │       │            │    │       └ <Session tests exitstatus=<ExitCode.OK: 0> testsfailed=2 testscollected=475>
+    │       │            │    └ <_pytest.config.Config object at 0x7fb820b414a8>
+    │       │            └ <function _main at 0x7fb820d22d08>
+    │       └ <ExitCode.OK: 0>
+    └ <Session tests exitstatus=<ExitCode.OK: 0> testsfailed=2 testscollected=475>
+
+  File "/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/_pytest/main.py", line 323, in _main
+    config.hook.pytest_runtestloop(session=session)
+    │      │    │                          └ <Session tests exitstatus=<ExitCode.OK: 0> testsfailed=2 testscollected=475>
+    │      │    └ <_HookCaller 'pytest_runtestloop'>
+    │      └ <pluggy.hooks._HookRelay object at 0x7fb8217f82e8>
+    └ <_pytest.config.Config object at 0x7fb820b414a8>
+
+  File "/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/pluggy/hooks.py", line 286, in __call__
+    return self._hookexec(self, self.get_hookimpls(), kwargs)
+           │    │         │     │    │                └ {'session': <Session tests exitstatus=<ExitCode.OK: 0> testsfailed=2 testscollected=475>}
+           │    │         │     │    └ <function _HookCaller.get_hookimpls at 0x7fb820f35840>
+           │    │         │     └ <_HookCaller 'pytest_runtestloop'>
+           │    │         └ <_HookCaller 'pytest_runtestloop'>
+           │    └ <bound method PluginManager._hookexec of <_pytest.config.PytestPluginManager object at 0x7fb8217dcb38>>
+           └ <_HookCaller 'pytest_runtestloop'>
+
+  File "/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/pluggy/manager.py", line 93, in _hookexec
+    return self._inner_hookexec(hook, methods, kwargs)
+           │    │               │     │        └ {'session': <Session tests exitstatus=<ExitCode.OK: 0> testsfailed=2 testscollected=475>}
+           │    │               │     └ [<HookImpl plugin_name='main', plugin=<module '_pytest.main' from '/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/_pyt...
+           │    │               └ <_HookCaller 'pytest_runtestloop'>
+           │    └ <function PluginManager.__init__.<locals>.<lambda> at 0x7fb820b316a8>
+           └ <_pytest.config.PytestPluginManager object at 0x7fb8217dcb38>
+
+  File "/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/pluggy/manager.py", line 87, in <lambda>
+    firstresult=hook.spec.opts.get("firstresult") if hook.spec else False,
+                │    │    │    │                     │    └ <pluggy.hooks.HookSpec object at 0x7fb820b41048>
+                │    │    │    │                     └ <_HookCaller 'pytest_runtestloop'>
+                │    │    │    └ <method 'get' of 'dict' objects>
+                │    │    └ {'firstresult': True, 'historic': False, 'warn_on_impl': None}
+                │    └ <pluggy.hooks.HookSpec object at 0x7fb820b41048>
+                └ <_HookCaller 'pytest_runtestloop'>
+
+  File "/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/pluggy/callers.py", line 187, in _multicall
+    res = hook_impl.function(*args)
+          │         │         └ [<Session tests exitstatus=<ExitCode.OK: 0> testsfailed=2 testscollected=475>]
+          │         └ <bound method WorkerInteractor.pytest_runtestloop of <__channelexec__.WorkerInteractor object at 0x7fb81bcb2438>>
+          └ <HookImpl plugin_name='140428717007928', plugin=<__channelexec__.WorkerInteractor object at 0x7fb81bcb2438>>
+
+  File "/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/xdist/remote.py", line 72, in pytest_runtestloop
+    self.run_one_test(torun)
+    │    │            └ [285, 286, 287, 288]
+    │    └ <function WorkerInteractor.run_one_test at 0x7fb820b31158>
+    └ <__channelexec__.WorkerInteractor object at 0x7fb81bcb2438>
+
+  File "/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/xdist/remote.py", line 89, in run_one_test
+    self.config.hook.pytest_runtest_protocol(item=item, nextitem=nextitem)
+    │    │      │    │                            │              └ <Function test_remember_last_remove>
+    │    │      │    │                            └ <Function test_click_out_bounds>
+    │    │      │    └ <_HookCaller 'pytest_runtest_protocol'>
+    │    │      └ <pluggy.hooks._HookRelay object at 0x7fb8217f82e8>
+    │    └ <_pytest.config.Config object at 0x7fb820b414a8>
+    └ <__channelexec__.WorkerInteractor object at 0x7fb81bcb2438>
+
+  File "/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/pluggy/hooks.py", line 286, in __call__
+    return self._hookexec(self, self.get_hookimpls(), kwargs)
+           │    │         │     │    │                └ {'item': <Function test_click_out_bounds>, 'nextitem': <Function test_remember_last_remove>}
+           │    │         │     │    └ <function _HookCaller.get_hookimpls at 0x7fb820f35840>
+           │    │         │     └ <_HookCaller 'pytest_runtest_protocol'>
+           │    │         └ <_HookCaller 'pytest_runtest_protocol'>
+           │    └ <bound method PluginManager._hookexec of <_pytest.config.PytestPluginManager object at 0x7fb8217dcb38>>
+           └ <_HookCaller 'pytest_runtest_protocol'>
+
+  File "/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/pluggy/manager.py", line 93, in _hookexec
+    return self._inner_hookexec(hook, methods, kwargs)
+           │    │               │     │        └ {'item': <Function test_click_out_bounds>, 'nextitem': <Function test_remember_last_remove>}
+           │    │               │     └ [<HookImpl plugin_name='runner', plugin=<module '_pytest.runner' from '/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/...
+           │    │               └ <_HookCaller 'pytest_runtest_protocol'>
+           │    └ <function PluginManager.__init__.<locals>.<lambda> at 0x7fb820b316a8>
+           └ <_pytest.config.PytestPluginManager object at 0x7fb8217dcb38>
+
+  File "/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/pluggy/manager.py", line 87, in <lambda>
+    firstresult=hook.spec.opts.get("firstresult") if hook.spec else False,
+                │    │    │    │                     │    └ <pluggy.hooks.HookSpec object at 0x7fb820b37eb8>
+                │    │    │    │                     └ <_HookCaller 'pytest_runtest_protocol'>
+                │    │    │    └ <method 'get' of 'dict' objects>
+                │    │    └ {'firstresult': True, 'historic': False, 'warn_on_impl': None}
+                │    └ <pluggy.hooks.HookSpec object at 0x7fb820b37eb8>
+                └ <_HookCaller 'pytest_runtest_protocol'>
+
+  File "/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/pluggy/callers.py", line 187, in _multicall
+    res = hook_impl.function(*args)
+          │         │         └ [<Function test_click_out_bounds>, <Function test_remember_last_remove>]
+          │         └ <function pytest_runtest_protocol at 0x7fb8203a4378>
+          └ <HookImpl plugin_name='rerunfailures', plugin=<module 'pytest_rerunfailures' from '/media/data/dev/pawamoy/aria2p/__pypackage...
+
+  File "/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/pytest_rerunfailures.py", line 240, in pytest_runtest_protocol
+    reports = runtestprotocol(item, nextitem=nextitem, log=False)
+              │               │              └ <Function test_remember_last_remove>
+              │               └ <Function test_click_out_bounds>
+              └ <function runtestprotocol at 0x7fb820d1c6a8>
+
+  File "/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/_pytest/runner.py", line 126, in runtestprotocol
+    reports.append(call_and_report(item, "call", log))
+    │       │      │               │             └ False
+    │       │      │               └ <Function test_click_out_bounds>
+    │       │      └ <function call_and_report at 0x7fb820d1c9d8>
+    │       └ <method 'append' of 'list' objects>
+    └ [<TestReport 'test_tui.py::test_click_out_bounds' when='setup' outcome='passed'>]
+
+  File "/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/_pytest/runner.py", line 215, in call_and_report
+    call = call_runtest_hook(item, when, **kwds)
+           │                 │     │       └ {}
+           │                 │     └ 'call'
+           │                 └ <Function test_click_out_bounds>
+           └ <function call_runtest_hook at 0x7fb820d1cbf8>
+
+  File "/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/_pytest/runner.py", line 255, in call_runtest_hook
+    lambda: ihook(item=item, **kwds), when=when, reraise=reraise
+            │          │       │           │             └ (<class '_pytest.outcomes.Exit'>, <class 'KeyboardInterrupt'>)
+            │          │       │           └ 'call'
+            │          │       └ {}
+            │          └ <Function test_click_out_bounds>
+            └ <_HookCaller 'pytest_runtest_call'>
+
+  File "/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/_pytest/runner.py", line 311, in from_call
+    result: Optional[TResult] = func()
+            │        │          └ <function call_runtest_hook.<locals>.<lambda> at 0x7fb81a6c6ea0>
+            │        └ +TResult
+            └ typing.Optional
+
+  File "/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/_pytest/runner.py", line 255, in <lambda>
+    lambda: ihook(item=item, **kwds), when=when, reraise=reraise
+            │          │       └ {}
+            │          └ <Function test_click_out_bounds>
+            └ <_HookCaller 'pytest_runtest_call'>
+
+  File "/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/pluggy/hooks.py", line 286, in __call__
+    return self._hookexec(self, self.get_hookimpls(), kwargs)
+           │    │         │     │    │                └ {'item': <Function test_click_out_bounds>}
+           │    │         │     │    └ <function _HookCaller.get_hookimpls at 0x7fb820f35840>
+           │    │         │     └ <_HookCaller 'pytest_runtest_call'>
+           │    │         └ <_HookCaller 'pytest_runtest_call'>
+           │    └ <bound method PluginManager._hookexec of <_pytest.config.PytestPluginManager object at 0x7fb8217dcb38>>
+           └ <_HookCaller 'pytest_runtest_call'>
+
+  File "/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/pluggy/manager.py", line 93, in _hookexec
+    return self._inner_hookexec(hook, methods, kwargs)
+           │    │               │     │        └ {'item': <Function test_click_out_bounds>}
+           │    │               │     └ [<HookImpl plugin_name='runner', plugin=<module '_pytest.runner' from '/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/...
+           │    │               └ <_HookCaller 'pytest_runtest_call'>
+           │    └ <function PluginManager.__init__.<locals>.<lambda> at 0x7fb820b316a8>
+           └ <_pytest.config.PytestPluginManager object at 0x7fb8217dcb38>
+
+  File "/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/pluggy/manager.py", line 87, in <lambda>
+    firstresult=hook.spec.opts.get("firstresult") if hook.spec else False,
+                │    │    │    │                     │    └ <pluggy.hooks.HookSpec object at 0x7fb820b37c88>
+                │    │    │    │                     └ <_HookCaller 'pytest_runtest_call'>
+                │    │    │    └ <method 'get' of 'dict' objects>
+                │    │    └ {'firstresult': False, 'historic': False}
+                │    └ <pluggy.hooks.HookSpec object at 0x7fb820b37c88>
+                └ <_HookCaller 'pytest_runtest_call'>
+
+  File "/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/pluggy/callers.py", line 187, in _multicall
+    res = hook_impl.function(*args)
+          │         │         └ [<Function test_click_out_bounds>]
+          │         └ <function pytest_runtest_call at 0x7fb820d1c840>
+          └ <HookImpl plugin_name='runner', plugin=<module '_pytest.runner' from '/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/_...
+
+  File "/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/_pytest/runner.py", line 162, in pytest_runtest_call
+    item.runtest()
+    │    └ <function Function.runtest at 0x7fb820cf6b70>
+    └ <Function test_click_out_bounds>
+
+  File "/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/_pytest/python.py", line 1641, in runtest
+    self.ihook.pytest_pyfunc_call(pyfuncitem=self)
+    │    │                                   └ <Function test_click_out_bounds>
+    │    └ <property object at 0x7fb821792318>
+    └ <Function test_click_out_bounds>
+
+  File "/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/pluggy/hooks.py", line 286, in __call__
+    return self._hookexec(self, self.get_hookimpls(), kwargs)
+           │    │         │     │    │                └ {'pyfuncitem': <Function test_click_out_bounds>}
+           │    │         │     │    └ <function _HookCaller.get_hookimpls at 0x7fb820f35840>
+           │    │         │     └ <_HookCaller 'pytest_pyfunc_call'>
+           │    │         └ <_HookCaller 'pytest_pyfunc_call'>
+           │    └ <bound method PluginManager._hookexec of <_pytest.config.PytestPluginManager object at 0x7fb8217dcb38>>
+           └ <_HookCaller 'pytest_pyfunc_call'>
+
+  File "/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/pluggy/manager.py", line 93, in _hookexec
+    return self._inner_hookexec(hook, methods, kwargs)
+           │    │               │     │        └ {'pyfuncitem': <Function test_click_out_bounds>}
+           │    │               │     └ [<HookImpl plugin_name='python', plugin=<module '_pytest.python' from '/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/...
+           │    │               └ <_HookCaller 'pytest_pyfunc_call'>
+           │    └ <function PluginManager.__init__.<locals>.<lambda> at 0x7fb820b316a8>
+           └ <_pytest.config.PytestPluginManager object at 0x7fb8217dcb38>
+
+  File "/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/pluggy/manager.py", line 87, in <lambda>
+    firstresult=hook.spec.opts.get("firstresult") if hook.spec else False,
+                │    │    │    │                     │    └ <pluggy.hooks.HookSpec object at 0x7fb820b379e8>
+                │    │    │    │                     └ <_HookCaller 'pytest_pyfunc_call'>
+                │    │    │    └ <method 'get' of 'dict' objects>
+                │    │    └ {'firstresult': True, 'historic': False, 'warn_on_impl': None}
+                │    └ <pluggy.hooks.HookSpec object at 0x7fb820b379e8>
+                └ <_HookCaller 'pytest_pyfunc_call'>
+
+  File "/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/pluggy/callers.py", line 187, in _multicall
+    res = hook_impl.function(*args)
+          │         │         └ [<Function test_click_out_bounds>]
+          │         └ <function pytest_pyfunc_call at 0x7fb820cd2d90>
+          └ <HookImpl plugin_name='python', plugin=<module '_pytest.python' from '/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/_...
+
+  File "/media/data/dev/pawamoy/aria2p/__pypackages__/3.6/lib/_pytest/python.py", line 183, in pytest_pyfunc_call
+    result = testfunction(**testargs)
+             │              └ {'server': <tests.conftest._Aria2Server object at 0x7fb81a6df8d0>, 'monkeypatch': <_pytest.monkeypatch.MonkeyPatch object at ...
+             └ <function test_click_out_bounds at 0x7fb81a077840>
+
+  File "/media/data/dev/pawamoy/aria2p/tests/test_tui.py", line 387, in test_click_out_bounds
+    monkeypatch, server.api, events=[Event.pass_frame, MouseEvent(x=1000, y=0, buttons=MouseEvent.LEFT_CLICK)]
+    │            │      │            │     │           │                               │          └ 1
+    │            │      │            │     │           │                               └ <class 'asciimatics.event.MouseEvent'>
+    │            │      │            │     │           └ <class 'asciimatics.event.MouseEvent'>
+    │            │      │            │     └ <tests.test_tui.SpecialEvent object at 0x7fb81a9bbe10>
+    │            │      │            └ <class 'tests.test_tui.Event'>
+    │            │      └ API(Client(host='http://localhost', port=15597, secret='********'))
+    │            └ <tests.conftest._Aria2Server object at 0x7fb81a6df8d0>
+    └ <_pytest.monkeypatch.MonkeyPatch object at 0x7fb81a6df748>
+
+  File "/media/data/dev/pawamoy/aria2p/tests/test_tui.py", line 94, in run_interface
+    interface.run()
+    │         └ <function WrapperView.run at 0x7fb81a959488>
+    └ <aria2p.tui.wrapper.WrapperView object at 0x7fb81a6dfef0>
+
+> File "/media/data/dev/pawamoy/aria2p/src/aria2p/tui/wrapper.py", line 115, in run
+    self.process_event(event)
+    │    │             └ MouseEvent (1000, 0) 1
+    │    └ <function WrapperView.process_event at 0x7fb81a959510>
+    └ <aria2p.tui.wrapper.WrapperView object at 0x7fb81a6dfef0>
+
+  File "/media/data/dev/pawamoy/aria2p/src/aria2p/tui/wrapper.py", line 154, in process_event
+    self.current_view.process_mouse_event(event)
+    │    │            │                   └ MouseEvent (1000, 0) 1
+    │    │            └ <function MainView.process_mouse_event at 0x7fb81a956d08>
+    │    └ <aria2p.tui.views.main.MainView object at 0x7fb81a6df780>
+    └ <aria2p.tui.wrapper.WrapperView object at 0x7fb81a6dfef0>
+
+  File "/media/data/dev/pawamoy/aria2p/src/aria2p/tui/views/main.py", line 369, in process_mouse_event
+    new_sort = self.get_column_at_x(event.x)
+               │    │               │     └ 1000
+               │    │               └ MouseEvent (1000, 0) 1
+               │    └ <function MainView.get_column_at_x at 0x7fb81a956bf8>
+               └ <aria2p.tui.views.main.MainView object at 0x7fb81a6df780>
+
+  File "/media/data/dev/pawamoy/aria2p/src/aria2p/tui/views/main.py", line 173, in get_column_at_x
+    raise ClickedOutOfBounds("clicked outside of boundaries")
+          └ <class 'aria2p.tui.errors.ClickedOutOfBounds'>
+
+aria2p.tui.errors.ClickedOutOfBounds: clicked outside of boundaries
+2021-04-22 19:42:14.611 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: 113
+2021-04-22 19:42:14.612 | DEBUG    | aria2p.tui.wrapper:run:117 - Received exit command

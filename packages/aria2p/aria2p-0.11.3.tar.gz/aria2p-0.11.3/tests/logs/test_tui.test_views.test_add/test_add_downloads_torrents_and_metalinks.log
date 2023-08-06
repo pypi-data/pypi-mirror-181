@@ -1,0 +1,18 @@
+2021-04-22 21:11:35.678 | DEBUG    | aria2p.tui.wrapper:run:100 - Created new screen <tests.test_tui.helpers.MockedScreen object at 0x7fb713346c88>
+2021-04-22 21:11:35.678 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event <tests.test_tui.helpers.SpecialEvent object at 0x7fb71368a828>
+2021-04-22 21:11:35.679 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: 97
+2021-04-22 21:11:35.687 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: -1
+2021-04-22 21:11:35.687 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event <tests.test_tui.helpers.SpecialEvent object at 0x7fb71368a780>
+2021-04-22 21:11:35.687 | DEBUG    | aria2p.tui.wrapper:run:126 - Tick! Updating data and rows
+2021-04-22 21:11:35.688 | DEBUG    | aria2p.tui.wrapper:run:131 - Refresh! Printing text
+2021-04-22 21:11:35.790 | DEBUG    | aria2p.tui.wrapper:run:126 - Tick! Updating data and rows
+2021-04-22 21:11:35.797 | DEBUG    | aria2p.tui.wrapper:run:131 - Refresh! Printing text
+2021-04-22 21:11:35.844 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: 97
+2021-04-22 21:11:35.852 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: -206
+2021-04-22 21:11:35.852 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: -204
+2021-04-22 21:11:35.853 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: 10
+2021-04-22 21:11:35.861 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: 10
+2021-04-22 21:11:35.867 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event <tests.test_tui.helpers.SpecialEvent object at 0x7fb71368a780>
+2021-04-22 21:11:35.868 | DEBUG    | aria2p.tui.wrapper:run:131 - Refresh! Printing text
+2021-04-22 21:11:35.933 | DEBUG    | aria2p.tui.wrapper:run:126 - Tick! Updating data and rows
+2021-04-22 21:11:36.024 | DEBUG    | aria2p.tui.wrapper:run:112 - Got event KeyboardEvent: 113

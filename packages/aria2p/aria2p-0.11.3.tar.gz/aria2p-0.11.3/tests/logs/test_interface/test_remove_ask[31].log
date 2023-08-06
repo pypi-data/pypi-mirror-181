@@ -1,0 +1,62 @@
+2020-11-14 00:52:22.942 | DEBUG    | aria2p.interface:run:501 - Created new screen <tests.test_interface.MockedScreen object at 0x7fb4f58bfc88>
+2020-11-14 00:52:22.943 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:22.943 | DEBUG    | aria2p.interface:run:532 - Tick! Updating data and rows
+2020-11-14 00:52:22.951 | DEBUG    | aria2p.interface:run:539 - Refresh! Printing text
+2020-11-14 00:52:22.957 | DEBUG    | aria2p.interface:run:516 - Got event KeyboardEvent: -102
+2020-11-14 00:52:22.957 | DEBUG    | aria2p.interface:process_keyboard_event_main:673 - Triggered removal
+2020-11-14 00:52:22.957 | DEBUG    | aria2p.interface:process_keyboard_event_main:674 - self.focused = 0
+2020-11-14 00:52:22.957 | DEBUG    | aria2p.interface:process_keyboard_event_main:675 - len(self.data) = 1
+2020-11-14 00:52:22.957 | DEBUG    | aria2p.interface:run:528 - Got event None
+2020-11-14 00:52:22.957 | DEBUG    | aria2p.interface:run:539 - Refresh! Printing text
+2020-11-14 00:52:22.963 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:22.968 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:22.973 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:22.978 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:22.984 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:22.989 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:22.994 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:22.999 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:23.004 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:23.010 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:23.015 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:23.020 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:23.025 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:23.031 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:23.036 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:23.041 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:23.047 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:23.052 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:23.057 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:23.057 | DEBUG    | aria2p.interface:run:532 - Tick! Updating data and rows
+2020-11-14 00:52:23.065 | DEBUG    | aria2p.interface:run:539 - Refresh! Printing text
+2020-11-14 00:52:23.071 | DEBUG    | aria2p.interface:run:516 - Got event KeyboardEvent: -206
+2020-11-14 00:52:23.071 | DEBUG    | aria2p.interface:process_keyboard_event_remove_ask:836 - Moving side focus down: 1
+2020-11-14 00:52:23.071 | DEBUG    | aria2p.interface:run:528 - Got event KeyboardEvent: 10
+2020-11-14 00:52:23.071 | DEBUG    | aria2p.interface:process_keyboard_event_remove_ask:814 - Validate removal
+2020-11-14 00:52:23.071 | DEBUG    | aria2p.api:remove:440 - Try to remove download result 0000000000000001
+2020-11-14 00:52:23.074 | SUCCESS  | aria2p.api:remove:447 - Removed download result 0000000000000001
+2020-11-14 00:52:23.074 | DEBUG    | aria2p.api:remove:479 - aria2 control file /tmp/pytest-of-pawamoy/pytest-66/popen-gw0/test_remove_ask_31_0/100.aria2 was not found
+2020-11-14 00:52:23.074 | DEBUG    | aria2p.interface:run:528 - Got event None
+2020-11-14 00:52:23.075 | DEBUG    | aria2p.interface:run:532 - Tick! Updating data and rows
+2020-11-14 00:52:23.082 | DEBUG    | aria2p.interface:run:539 - Refresh! Printing text
+2020-11-14 00:52:23.088 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:23.094 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:23.099 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:23.105 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:23.110 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:23.116 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:23.121 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:23.126 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:23.131 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:23.137 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:23.142 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:23.147 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:23.152 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:23.158 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:23.163 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:23.168 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:23.173 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:23.179 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:23.184 | DEBUG    | aria2p.interface:run:516 - Got event None
+2020-11-14 00:52:23.189 | DEBUG    | aria2p.interface:run:516 - Got event KeyboardEvent: 113
+2020-11-14 00:52:23.189 | DEBUG    | aria2p.interface:run:522 - Received exit command

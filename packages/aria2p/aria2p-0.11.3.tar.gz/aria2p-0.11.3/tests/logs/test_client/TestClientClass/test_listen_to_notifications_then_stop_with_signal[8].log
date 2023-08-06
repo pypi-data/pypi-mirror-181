@@ -1,0 +1,3 @@
+2020-11-14 00:58:30.021 | DEBUG    | aria2p.client:listen_to_notifications:1723 - Notifications (ws://localhost:15812/jsonrpc): opening WebSocket with timeout=1
+2020-11-14 00:58:30.026 | DEBUG    | aria2p.utils:__init__:31 - Signal handler: handling signals SIGTERM, SIGINT
+2020-11-14 00:58:30.027 | DEBUG    | aria2p.client:listen_to_notifications:1742 - Notifications (ws://localhost:15812/jsonrpc): waiting for data over WebSocket

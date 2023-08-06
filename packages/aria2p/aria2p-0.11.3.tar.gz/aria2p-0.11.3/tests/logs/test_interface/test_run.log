@@ -1,0 +1,3 @@
+2022-12-15 21:15:13.301 | DEBUG    | aria2p.interface:run:506 - Created new screen <tests.test_interface.MockedScreen object at 0x7fbdeeb3ff10>
+2022-12-15 21:15:13.301 | DEBUG    | aria2p.interface:run:521 - Got event KeyboardEvent: 113
+2022-12-15 21:15:13.301 | DEBUG    | aria2p.interface:run:527 - Received exit command

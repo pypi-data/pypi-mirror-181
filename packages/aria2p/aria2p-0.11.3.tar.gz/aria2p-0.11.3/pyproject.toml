@@ -1,0 +1,146 @@
+[build-system]
+requires = [
+    "pdm-pep517",
+]
+build-backend = "pdm.pep517.api"
+
+[project]
+name = "aria2p"
+description = "Command-line tool and library to interact with an aria2c daemon process with JSON-RPC."
+authors = [
+    { name = "Timothée Mazzucotelli", email = "pawamoy@pm.me" },
+]
+license = "ISC"
+readme = "README.md"
+requires-python = ">=3.7"
+keywords = [
+    "aria2",
+    "aria2c",
+    "aria2-cli",
+]
+dynamic = []
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Utilities",
+    "Typing :: Typed",
+]
+dependencies = [
+    "appdirs>=1.4",
+    "loguru>=0.5",
+    "requests>=2.19",
+    "toml>=0.10",
+    "websocket-client>=0.58",
+]
+version = "0.11.3"
+
+[project.optional-dependencies]
+tui = [
+    "asciimatics>=1.13",
+    "pyperclip>=1.8",
+]
+
+[project.urls]
+Homepage = "https://pawamoy.github.io/aria2p"
+Documentation = "https://pawamoy.github.io/aria2p"
+Changelog = "https://pawamoy.github.io/aria2p/changelog"
+Repository = "https://github.com/pawamoy/aria2p"
+Issues = "https://github.com/pawamoy/aria2p/issues"
+Discussions = "https://github.com/pawamoy/aria2p/discussions"
+Gitter = "https://gitter.im/aria2p/community"
+Funding = "https://github.com/sponsors/pawamoy"
+
+[project.scripts]
+aria2p = "aria2p.cli.main:main"
+
+[tool.pdm.version]
+source = "scm"
+
+[tool.pdm.build]
+package-dir = "src"
+editable-backend = "editables"
+
+[tool.pdm.dev-dependencies]
+duty = [
+    "duty>=0.7",
+]
+docs = [
+    "mkdocs>=1.3",
+    "mkdocs-coverage>=0.2",
+    "mkdocs-gen-files>=0.3",
+    "mkdocs-literate-nav>=0.4",
+    "mkdocs-material>=7.3",
+    "mkdocs-section-index>=0.3",
+    "mkdocstrings[python]>=0.18",
+    "markdown-callouts>=0.2",
+    "markdown-exec>=0.5",
+    "toml>=0.10",
+]
+format = [
+    "autoflake>=1.4",
+    "black>=21.10b0",
+    "isort>=5.10",
+]
+maintain = [
+    "git-changelog>=0.4",
+]
+quality = [
+    "importlib-metadata<5; python_version < '3.8'",
+    "flake8>=4; python_version >= '3.8'",
+    "darglint>=1.8",
+    "flake8-bandit>=2.1",
+    "flake8-black>=0.2",
+    "flake8-bugbear>=21.9",
+    "flake8-builtins>=1.5",
+    "flake8-comprehensions>=3.7",
+    "flake8-docstrings>=1.6",
+    "flake8-pytest-style>=1.5",
+    "flake8-string-format>=0.3",
+    "flake8-tidy-imports>=4.5",
+    "flake8-variables-names>=0.0",
+    "pep8-naming>=0.12",
+    "wps-light>=0.15",
+]
+tests = [
+    "fastapi~=0.61",
+    "pytest>=6.2",
+    "pytest-cov>=3.0",
+    "pytest-randomly>=3.10",
+    "pytest-rerunfailures~=9.1",
+    "pytest-xdist>=2.4",
+    "responses~=0.10",
+    "uvicorn~=0.12",
+]
+typing = [
+    "mypy>=0.910",
+    "types-markdown>=3.3",
+    "types-toml>=0.10",
+    "types-setuptools",
+    "types-requests",
+]
+security = [
+    "safety>=2",
+]
+
+[tool.black]
+line-length = 120
+exclude = "tests/fixtures"
+
+[tool.isort]
+line_length = 120
+not_skip = "__init__.py"
+multi_line_output = 3
+force_single_line = false
+balanced_wrapping = true
+default_section = "THIRDPARTY"
+known_first_party = "aria2p"
+include_trailing_comma = true
