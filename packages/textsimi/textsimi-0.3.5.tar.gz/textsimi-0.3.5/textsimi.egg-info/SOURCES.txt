@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.py
+textsimi.egg-info/PKG-INFO
+textsimi.egg-info/SOURCES.txt
+textsimi.egg-info/dependency_links.txt
+textsimi.egg-info/requires.txt
+textsimi.egg-info/top_level.txt
+textsimilarity/__init__.py
+textsimilarity/ts.py
+textsimilarity/ts_model_based.py
+textsimilarity/TfIdf/__init__.py
+textsimilarity/TfIdf/_pipe.py
