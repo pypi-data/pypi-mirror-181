@@ -1,0 +1,5 @@
+# necessary for the setup.py to generate and extract version etc
+# TODO: this should not be necessary for unpacking, but I (@mPrinC) am not familiar enough with splitting the code per `setup` commands (build, unpack, ...)
+# NOTE: `setup()` will read `../package.json` and create `built_info.json` inside the project (next to this `MANIFEST.in` file)
+# its content will be based on the `../package.json` content together with collected requirements from `requirements.txt`
+include built_info.json
