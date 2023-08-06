@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: dman
+Version: 1.0
+Summary: Toolbox for experimental data management in Python.
+Keywords: data management,data
+Author-email: Peter Coppens <peter.coppens@kuleuven.be>
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: MacOS
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Software Development :: Version Control
+Classifier: Topic :: System :: Archiving
+Requires-Dist: typing_extensions
+Requires-Dist: numpy~=1.20 ; extra == "numpy"
+Requires-Dist: matplotlib~=3.5 ; extra == "plotting"
+Requires-Dist: pytest~=7.0 ; extra == "test"
+Requires-Dist: rich~=12.5 ; extra == "tui"
+Project-URL: Documentation, https://PeterCoppens.github.io/dman
+Project-URL: Source, https://github.com/PeterCoppens/dman
+Project-URL: Tracker, https://github.com/PeterCoppens/dman/issues
+Provides-Extra: numpy
+Provides-Extra: plotting
+Provides-Extra: test
+Provides-Extra: tui
+
+# The Data Manager Package
+
+The ``dman`` package is intended for enabling easy reproducibility of numerical experiments. Data is stored in a human-readable fashion (whenever possible).
+
+[Documentation](https://petercoppens.github.io/dman/docs/index.html) is provided in Sphinx. 
+A good place to start is the [Getting Started](https://petercoppens.github.io/dman/docs/usage/common.html) page.
+
+Documented [Examples](./examples/) are also provided. Especially check out those 
+in [Patterns](./examples/patterns/) for common use-cases.
+
