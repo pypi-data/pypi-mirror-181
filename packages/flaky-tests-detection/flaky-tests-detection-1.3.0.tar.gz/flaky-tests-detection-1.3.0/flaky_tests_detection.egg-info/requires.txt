@@ -1,0 +1,11 @@
+pandas
+junitparser
+seaborn
+matplotlib
+
+[dev]
+pytest
+pytest-cov
+black
+mypy
+python-semantic-release

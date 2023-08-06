@@ -1,0 +1,12 @@
+LICENSE.md
+README.md
+pyproject.toml
+setup.py
+flaky_tests_detection/__init__.py
+flaky_tests_detection/check_flakes.py
+flaky_tests_detection.egg-info/PKG-INFO
+flaky_tests_detection.egg-info/SOURCES.txt
+flaky_tests_detection.egg-info/dependency_links.txt
+flaky_tests_detection.egg-info/entry_points.txt
+flaky_tests_detection.egg-info/requires.txt
+flaky_tests_detection.egg-info/top_level.txt
