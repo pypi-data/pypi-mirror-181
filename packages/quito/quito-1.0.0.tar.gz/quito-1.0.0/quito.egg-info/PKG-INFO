@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: quito
+Version: 1.0.0
+Summary: A coverage guided test generator for quantum programs
+Home-page: https://github.com/Simula-COMPLEX/quito
+Author: Xinyi Wang
+Author-email: xinyi@simula.no
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE.py
+
+# Introduction
+Automation in quantum software testing is essential to support systematic and cost-effective testing. Towards this direction, we present a quantum software testing tool called Quito that can automatically generate test suites covering three coverage criteria defined on inputs and outputs of a quantum program coded in Qiskit, i.e., input coverage, output coverage, and input-output coverage. Quito also implements two types of test oracles based on program specifications, i.e., checking whether a quantum program produced a wrong output or checking a probabilistic test oracle with statistical test.
+
