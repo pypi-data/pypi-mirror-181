@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: interpals
+Version: 0.0.1
+Summary: Interpals API wrapper to make bots easier to use
+Home-page: https://github.com/forevercynical/interpals
+Author: forevercynical
+Author-email: me@cynical.gg
+License: MIT
+Keywords: interpals,interpals-bot,interpals-bots
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# interpals
+## A Python wrapper for interpals API
+### Library to create bots on Interpals.
+### Easily write your own bot with commands, tasks, and more.
+#
+## Installation
+```bash
+pip install interpals
+```
+#
+### WIP
