@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: synkka
+Version: 0.0.1
+Project-URL: Documentation, https://github.com/akx/synkka#readme
+Project-URL: Issues, https://github.com/akx/synkka/issues
+Project-URL: Source, https://github.com/akx/synkka
+Author-email: Aarni Koskela <akx@iki.fi>
+License-File: LICENSE.txt
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# synkka
+
+[![PyPI - Version](https://img.shields.io/pypi/v/synkka.svg)](https://pypi.org/project/synkka)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/synkka.svg)](https://pypi.org/project/synkka)
+
+Some `asyncio` helpers.
+
+-----
+
+**Table of Contents**
+
+- [Installation](#installation)
+- [License](#license)
+
+## Installation
+
+```console
+pip install synkka
+```
+
+## License
+
+`synkka` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
