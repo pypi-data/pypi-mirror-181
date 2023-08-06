@@ -1,0 +1,3 @@
+[console_scripts]
+gl-parser=gl_parser.cli.cli_commands:main
+
