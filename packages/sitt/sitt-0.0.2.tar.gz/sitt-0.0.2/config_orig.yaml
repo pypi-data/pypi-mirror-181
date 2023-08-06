@@ -1,0 +1,224 @@
+# This is an example configuration file for Si.T.T.
+# It demonstrates how to set all the existing variables to make your simulation work.
+
+# Note that command line arguments override the values set in the configuration file. This makes it easier to change the
+# behavior of your simulation without having to edit your configuration file.
+
+########################################################################################################################
+# runtime configuration
+
+# verbose output/logging
+verbose: false
+# suppress output/logging - will override quiet of set to true
+quiet: false
+
+# Skip certain steps in the simulation. Allowed values are none, simulation, output.
+# Naturally, setting the value to simulation will also skip the output.
+#skip_step: none
+
+# The following shorthands can be set, too:
+skip_simulation: false
+skip_output: false
+
+# Simulation start and end points
+simulation_start: &simulation_start STR-REC-SE-TEURN-1-22_02_18
+simulation_end: &simulation_end DOEBRIACH
+break_simulation_after: 100
+# used as global start date (e.g. in nc files), must be ISO date YYYY-MM-DD
+start_date: &start_date 1990-08-01
+
+########################################################################################################################
+# variables to use below - variables are normal YAML variables prefixed with &node anchors and aliased using *
+# example:
+# define using:
+#   psql_server: &psql_server 127.0.0.1
+# later use like this:
+#   server: *psql_server
+variables:
+  psql_port: &psql_port 5432
+
+########################################################################################################################
+# settings to use below
+settings:
+  connections:
+    psql_default:
+      server: !Env "${PSQL_SERVER}"
+      port: *psql_port
+      db: !Env "${PSQL_DB}"
+      user: !Env "${PSQL_USER}"
+      password: !Env "${PSQL_PASSWORD}"
+      roads_table_name: topology.recroads
+      roads_geom_col: geom
+      roads_index_col: recroadid
+      roads_coerce_float: true
+      roads_hub_a_id: hubaid
+      roads_hub_b_id: hubbid
+      hubs_table_name: topology.rechubs
+      hubs_geom_col: geom
+      hubs_index_col: rechubid
+      hubs_coerce_float: true
+      hubs_overnight: overnight
+      hubs_extra_fields:
+        - hubtypeid
+        - storage
+        - interchange
+        - market
+
+########################################################################################################################
+# preparation steps
+
+# These steps define the classes to load in the preparation step and which parameters to set
+# The classes are loaded and executed in the order of loading
+preparation:
+  - class: GraphLoad
+    module: modules.preparation
+    args:
+      filename: 'saved_graph.pkl'
+      skip: false
+    conditions:
+      file_must_exist: 'saved_graph.pkl'
+  - class: ConditionalModule
+    module: modules.preparation
+    submodules:
+      - class: PsqlReadRoadsAndHubs
+        module: modules.preparation
+        args:
+          connection: psql_default
+          strategy: merge
+      - class: GeoTIFFHeightForRoadsAndHubs
+        module: modules.preparation
+        args:
+          file: ./data/DTM Austria 10m v2 by Sonny.tif
+          crs_from: "EPSG:4326"
+          always_xy: true
+          overwrite: false
+      - class: PsqlSaveRoadsAndHubs
+        module: modules.preparation
+        args:
+          connection: psql_default
+      - class: CalculateRoadsAndHubs
+        module: modules.preparation
+        args:
+          crs_from: EPSG:4326
+          crs_to: EPSG:32633
+          always_xy: true
+          length_including_heights: true
+    conditions:
+      not_data_must_exist:
+        class: context
+        key: graph
+  - class: GraphSave
+    module: modules.preparation
+    args:
+      filename: 'saved_graph.pkl'
+      skip: false
+    conditions:
+      not_file_must_exist: 'saved_graph.pkl'
+  - class: PostCleanRawData
+    module: modules.preparation
+    args:
+      hubs_and_roads: true
+      force_gc: true
+      skip: false
+  - class: DebugDisplayRoadsAndHubs
+    module: modules.preparation
+    args:
+      draw_network: true
+      show_network: false
+      save_network: true
+      save_network_name: network
+      save_network_type: png
+      # possible values are eps, jpeg, jpg, pdf, pgf, png, ps, raw, rgba, svg, svgz, tif, tiff
+      display_routes: true
+      start: *simulation_start
+      end: *simulation_end
+      show_graphs: false
+      save_graphs: true
+      save_graphs_names: possible_routes
+      save_graphs_type: png
+      # possible values are eps, jpeg, jpg, pdf, pgf, png, ps, raw, rgba, svg, svgz, tif, tiff
+  - class: CreateRoutes
+    module: modules.preparation
+    args:
+      maximum_routes: 0
+      maximum_difference_from_shortest: 0.0
+  - class: LoadDataFromNETCDF
+    module: modules.preparation
+    args:
+      name: temperature
+      filename: ./data/era5_data_2m_temperature.nc
+      latitude: latitude
+      longitude: longitude
+      time: time
+      variables:
+        temperature:
+          variable: t2m
+          offset: -273.15
+  - class: LoadDataFromNETCDF
+    module: modules.preparation
+    args:
+      name: temperature
+      filename: ./data/era5_data.nc
+      latitude: latitude
+      longitude: longitude
+      time: time
+      variables:
+        temperature:
+          variable: t2m
+          offset: -273.15
+        rainfall:
+          variable: crr
+        snowfall:
+          variable: csfwe
+        snow_depth:
+          variable: sd
+
+########################################################################################################################
+# simulation - is a bit more complicated, because there are several hooks to add modules to
+
+# steps that are run at the start of each day
+simulation_prepare_day: []
+# steps that are run at each step to define the state
+simulation_define_state: []
+# steps run during simulation phase - these will update the state and calculate time taken, etc.
+# Often, you will only need one simulation module to work out all the time and stop factors.
+simulation_step:
+  - class: Simple
+    module: modules.simulation_step
+    args:
+      # speed per hour
+      speed: 5.0
+      ascend_slowdown_factor: 0.05
+      descend_slowdown_factor: 0.025
+
+# This is an alternative class which will take weather factors into account.
+# It will also take weather and environmental hazards into account, using a linear factor for slowdown in certain cases.
+# temperature_slowdown_factors is a list of minimum temperature keys to use this slowdown. It must be defined in
+# ascending order.
+#  - class: SimpleWithEnvironment
+#    module: modules.simulation_step
+#    args:
+#      # speed per hour
+#      speed: 4.0
+#      ascend_slowdown_factor: 0.05
+#      descend_slowdown_factor: 0.025
+#      rainfall_slowdown_factor: 1000.0
+#      snowfall_slowdown_factor: 10000.0
+#      snow_depth_slowdown_factor: 1.0
+#      temperature_slowdown_factors:
+#        -1000.0: 0.08
+#        -20.0: 0.05
+#        -10.0: 0.0
+#        25.0: 0.01
+#        30.0: 0.02
+#        35.0: 0.04
+#        40.0: 0.08
+
+########################################################################################################################
+# output steps
+
+# These steps define the classes to load in the output step and which parameters to set
+# The classes are loaded and executed in the order of loading
+output:
+  - class: JSONOutput
+    module: modules.output
