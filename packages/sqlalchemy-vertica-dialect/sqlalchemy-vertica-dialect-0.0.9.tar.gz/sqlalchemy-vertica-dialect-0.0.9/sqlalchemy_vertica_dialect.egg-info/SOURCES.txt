@@ -1,0 +1,13 @@
+LICENSE
+README.rst
+setup.cfg
+setup.py
+sqlalchemy_vertica/base.py
+sqlalchemy_vertica/dialect_pyodbc.py
+sqlalchemy_vertica/dialect_vertica_python.py
+sqlalchemy_vertica_dialect.egg-info/PKG-INFO
+sqlalchemy_vertica_dialect.egg-info/SOURCES.txt
+sqlalchemy_vertica_dialect.egg-info/dependency_links.txt
+sqlalchemy_vertica_dialect.egg-info/entry_points.txt
+sqlalchemy_vertica_dialect.egg-info/requires.txt
+sqlalchemy_vertica_dialect.egg-info/top_level.txt
