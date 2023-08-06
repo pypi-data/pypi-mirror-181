@@ -1,0 +1,8 @@
+[console_scripts]
+cd-analyseeprofile = pycaverdock.bin.analyseeprofile:main
+cd-analysis = pycaverdock.bin.analysis:main
+cd-energyprofile = pycaverdock.bin.energyprofile:main
+cd-extendtunnel = pycaverdock.bin.extendtunnel:main
+cd-prepareconf = pycaverdock.bin.prepareconf:main
+cd-reverseeprofile = pycaverdock.bin.reverseeprofile:main
+cd-screening = pycaverdock.screening:main

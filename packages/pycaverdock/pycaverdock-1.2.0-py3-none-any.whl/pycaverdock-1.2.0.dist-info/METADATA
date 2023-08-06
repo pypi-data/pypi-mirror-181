@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: pycaverdock
+Version: 1.2.0
+Summary: Python API for CaverDock
+Home-page: https://loschmidt.chemi.muni.cz/caverdock
+Author: CaverDock team
+Author-email: caver@caver.cz
+Keywords: CaverDock,protein,tunnel,docking,ligand
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Operating System :: POSIX
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Requires-Python: >=3.6
+License-File: LICENSE
+Requires-Dist: click (>=7)
+Requires-Dist: discretizer (>=1.1.0)
+Requires-Dist: pandas (>=1)
+Requires-Dist: seaborn (>=0.9)
+Requires-Dist: matplotlib (>=3)
+Requires-Dist: pyyaml (>=5)
+Requires-Dist: tqdm (>=4.28)
+Requires-Dist: pylru (>=1.2.0)
+Requires-Dist: dataclasses (>=0.8) ; python_version < "3.7"
+
+CaverDock is a software tool for rapid analysis of transport processes in proteins. It models the transportation of a ligand - a substrate, a product, an inhibitor, a co-factor or a co-solvent - from outside environment into the protein active or binding site and vice versa.
+
+The current version of CaverDock uses Caver for pathway identification and heavily modified Autodock Vina as a docking engine. The tool is much faster than molecular dynamic simulations (2-20 min per job), making it suitable even for virtual screening. The software is extremely easy to use as it requires in its minimalistic configuration the setup for AutoDock Vina and geometry of the tunnel.
+
+This API wraps all calculation steps to Python functions and enables the users to construct customized high throughput analysis pipelines.
