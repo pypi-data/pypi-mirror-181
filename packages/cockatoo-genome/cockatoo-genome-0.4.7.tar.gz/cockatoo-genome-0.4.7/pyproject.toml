@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cockatoo-genome"
+dynamic = ["version"]
+authors = [
+  { name="Samuel Aroney", email="samuel.aroney@outlook.com" },
+]
+description = "Cockatoo - intelligent clustering of metagenomic samples for coassembly"
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.7"
+dependencies = ["snakemake>=6.0.5",
+  "pandas",
+  "biopython",
+  "networkx",
+  "bird_tool_utils",
+  "extern",
+  "ruamel.yaml>=0.15.99"]
+classifiers = [
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/AroneyS/cockatoo"
+"Bug Tracker" = "https://github.com/AroneyS/cockatoo/issues"
+
+[project.scripts]
+cockatoo = "cockatoo.cockatoo:main"
+
+[tool.setuptools.dynamic]
+version = {attr = "cockatoo.__version__"}
