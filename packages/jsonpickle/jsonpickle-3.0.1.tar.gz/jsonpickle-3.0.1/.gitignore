@@ -1,0 +1,22 @@
+/.coverage
+/build
+/dist
+/docs/build
+/images/benchmark-*.svg
+/.eggs
+/env*
+/tags
+/.pytest_cache
+/.tox
+/.idea
+__pycache__
+*.py[cod]
+*.egg-info
+*.swp
+*#*
+*~
+*.tar.gz
+
+# Local benchmarking files for Theelx
+kern*.py
+*.lprof
