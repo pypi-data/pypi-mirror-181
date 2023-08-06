@@ -1,0 +1,4 @@
+[console_scripts]
+cuzzy=fuzzy_couscous.main:cli
+fuzzy-couscous=fuzzy_couscous.main:cli
+
