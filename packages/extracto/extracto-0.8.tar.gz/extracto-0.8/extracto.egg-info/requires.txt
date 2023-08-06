@@ -1,0 +1,8 @@
+selectolax
+
+[test]
+pytest
+pytest-watch
+wheel
+pytest-skip-slow
+pytest-profiling
