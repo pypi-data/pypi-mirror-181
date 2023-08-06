@@ -1,0 +1,85 @@
+@import url('base.css');
+
+.transformer-logo {
+    background-image: url('icons/toolbar/tree-view.svg');
+}
+
+.leftpanel-transformer-widget {
+    flex-direction: column;
+    min-width: var(--jp-sidebar-min-width);
+    color: var(--jp-ui-font-color1);
+    background: var(--jp-layout-color1);
+    font-size: var(--jp-ui-font-size1);
+    overflow: auto;
+    height: 100%;
+    display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox; /* TWEENER - IE 10 */
+    display: -webkit-flex; /* NEW - Chrome */
+    display: flex;
+}
+
+.leftpanel-transformer-widget-content {
+    min-width: var(--jp-sidebar-min-width);
+    /* height: calc(100% - 42px); */
+    overflow: auto;
+    /* border-bottom: 1px solid var(--jp-border-color2); */
+}
+
+.transformer-component.hidden {
+    display: none !important;
+}
+
+.transformer-metadata-editor-wrapper,
+.transformer-inline-cell-metadata {
+  /* FIXME: find a way to calculate margin */
+  margin-left: 73px;
+  margin-top: 8px;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.transformer-inline-cell-metadata {
+    position: absolute;
+    top: -40px;
+}
+.transformer-metadata-editor-wrapper {
+    display: inline-block;
+    position: absolute;
+    top: -60px;
+}
+
+.transformer-inline-cell-metadata.hidden,
+.transformer-metadata-editor-wrapper.hidden,
+.transformer-cell-metadata-editor.hidden {
+    display: none !important;
+}
+
+.transformer-metadata-editor-wrapper .transformer-cell-metadata-editor button {
+    padding: 8px;
+}
+
+.jp-Toolbar-item button[data-command="notebook:transformer"]:disabled { 
+    display: none;
+}
+
+.jp-Cell.with-transformer-editor {
+    margin-top: 52px;
+}
+.jp-Cell.with-transformer-chip {
+    margin-top: 38px;
+}
+
+.dialog-code-snippet {
+    padding: 0.8em 0.4em;
+    background-color: lightyellow;
+}
+
+.dialog-code-snippet.hidden {
+    display: none !important;
+}
+
+button.transformer-dialog.hidden {
+    display: none !important;
+}
