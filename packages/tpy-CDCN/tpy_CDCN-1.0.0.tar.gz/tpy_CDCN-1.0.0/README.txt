@@ -1,0 +1,1 @@
+This is a very simple that check string is empty or object is null
