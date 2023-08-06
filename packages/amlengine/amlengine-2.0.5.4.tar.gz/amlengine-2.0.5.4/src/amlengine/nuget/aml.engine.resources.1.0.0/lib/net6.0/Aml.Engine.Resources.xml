@@ -1,0 +1,241 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Aml.Engine.Resources</name>
+    </assembly>
+    <members>
+        <member name="T:Aml.Engine.Resources.AMLLibraries">
+            <summary>
+            Provides access to AML Library resources
+            </summary>
+        </member>
+        <member name="M:Aml.Engine.Resources.AMLLibraries.IsValidCAEXVersion(System.String,System.String@)">
+            <summary>
+            check if this is a valid caex version string
+            </summary>
+            <param name="schemaVersion">The schema version.</param>
+            <param name="caexFolder">The caex folder.</param>
+            <returns>A bool.</returns>
+        </member>
+        <member name="M:Aml.Engine.Resources.AMLLibraries.IsValidAMLVersion(System.String,System.String@)">
+            <summary>
+            Determines whether [is valid aml version] [the specified aml version].
+            </summary>
+            <param name="amlVersion">The aml version.</param>
+            <param name="amlFolder">The aml folder.</param>
+            <returns>
+              <c>true</c> if [is valid aml version] [the specified aml version]; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Aml.Engine.Resources.AMLLibraries.FullResourceName(System.String,System.String,System.String)">
+            <summary>
+            Gets the full resource name for the given resource
+            </summary>
+            <param name="AMLversion">The aml version.</param>
+            <param name="CAEXVersion">The caex version.</param>
+            <param name="resource">The resource.</param>
+            <returns>A string.</returns>
+        </member>
+        <member name="M:Aml.Engine.Resources.AMLLibraries.AutomationMLBaseAttributeTypeLib(System.String,System.String)">
+            <summary>
+            Gets the AutomationMLBaseAttributeTypeLib for the specified <paramref name="CAEXVersion"/> and <paramref name="AMLversion"/>.
+            </summary>
+            <param name="AMLversion"></param>
+            <param name="CAEXVersion"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Aml.Engine.Resources.AMLLibraries.AutomationMLBaseRoleClassLib(System.String,System.String)">
+            <summary>
+            Gets the AutomationMLBaseRoleClassLib for the specified <paramref name="CAEXVersion"/> and <paramref name="AMLversion"/>.
+            </summary>
+            <param name="AMLversion"></param>
+            <param name="CAEXVersion"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Aml.Engine.Resources.AMLLibraries.AutomationMLInterfaceClassLib(System.String,System.String)">
+            <summary>
+            Gets the AutomationMLInterfaceClassLib for the specified <paramref name="CAEXVersion"/> and <paramref name="AMLversion"/>.
+            </summary>
+            <param name="AMLversion"></param>
+            <param name="CAEXVersion"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Aml.Engine.Resources.AMLLibraries.AutomationMLBPRInterfaceClassLib(System.String,System.String)">
+            <summary>
+            Gets the AutomationMLBPRInterfaceClassLib for the specified <paramref name="CAEXVersion"/> and <paramref name="AMLversion"/>.
+            </summary>
+            <param name="AMLversion"></param>
+            <param name="CAEXVersion"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Aml.Engine.Resources.AMLLibraries.AutomationMLBPRRoleClassLib(System.String,System.String)">
+            <summary>
+            Gets the AutomationMLBPRRoleClassLib for the specified <paramref name="CAEXVersion"/> and <paramref name="AMLversion"/>.
+            </summary>
+            <param name="AMLversion"></param>
+            <param name="CAEXVersion"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Aml.Engine.Resources.AMLLibraries.ReadAutomationMLLibraryInformation(System.String)">
+            <summary>
+            Reads the AutomationML library information containing all AutomationML published
+            Library names. A <paramref name="catalogFile"/> has to be provided. The current
+            Catalog can be obtained from AutomationML.
+            </summary>
+            <returns>The AutomationML library catalog</returns>
+        </member>
+        <member name="T:Aml.Engine.Resources.PublicLibraryCatalog">
+            <summary>
+            The catalog of all published libraries of the AutomationML association. To load the
+            catalog the catalog file should be 
+            loaded with <see cref="M:Aml.Engine.Resources.AMLLibraries.ReadAutomationMLLibraryInformation(System.String)"/>
+            </summary>
+        </member>
+        <member name="P:Aml.Engine.Resources.PublicLibraryCatalog.Libraries">
+            <summary>
+            Gets the library data for all published libraries.
+            </summary>
+            <value>
+            The libraries.
+            </value>
+        </member>
+        <member name="P:Aml.Engine.Resources.PublicLibraryCatalog.Item(System.String)">
+            <summary>
+            Gets the LibraryType for the provided CAEX Type
+            </summary>
+            <param name="caexTagName"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Aml.Engine.Resources.PublicLibraryCatalog.Item(System.String,System.String)">
+            <summary>
+            Gets the Library for the provided CAEX Type and library name
+            </summary>
+            <param name="caexTagName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Aml.Engine.Resources.PublicLibraryCatalog.LibraryType">
+            <summary>
+            The library data for all libraries of a specific type
+            </summary>
+        </member>
+        <member name="P:Aml.Engine.Resources.PublicLibraryCatalog.LibraryType.CAEXType">
+            <summary>
+            Gets the CAEX typename of the library
+            </summary>
+        </member>
+        <member name="P:Aml.Engine.Resources.PublicLibraryCatalog.LibraryType.Libraries">
+            <summary>
+            Gets all libraries for the defined <see cref="P:Aml.Engine.Resources.PublicLibraryCatalog.LibraryType.CAEXType"></see>.
+            </summary>
+            <value>
+            The names.
+            </value>
+        </member>
+        <member name="P:Aml.Engine.Resources.PublicLibraryCatalog.LibraryType.Item(System.String)">
+            <summary>
+            Gets the Library with the provided name
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Aml.Engine.Resources.PublicLibraryCatalog.Library">
+            <summary>
+            The library data
+            </summary>
+        </member>
+        <member name="P:Aml.Engine.Resources.PublicLibraryCatalog.Library.Name">
+            <summary>
+            Gets the name of the library
+            </summary>
+        </member>
+        <member name="P:Aml.Engine.Resources.PublicLibraryCatalog.Library.Versions">
+            <summary>
+            Gets all library versions published for the defined libray with this <see cref="P:Aml.Engine.Resources.PublicLibraryCatalog.Library.Name"></see>.
+            </summary>
+            <value>
+            The versions.
+            </value>
+        </member>
+        <member name="P:Aml.Engine.Resources.PublicLibraryCatalog.Library.Item(System.String,System.String)">
+            <summary>
+            Gets the Version for the provided version string
+            </summary>
+            <param name="libVersion"></param>
+            <param name="caexVersion"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Aml.Engine.Resources.PublicLibraryCatalog.LibraryVersion">
+            <summary>
+            The library version data
+            </summary>
+        </member>
+        <member name="P:Aml.Engine.Resources.PublicLibraryCatalog.LibraryVersion.Version">
+            <summary>
+            Gets and sets the version string of the library
+            </summary>
+        </member>
+        <member name="M:Aml.Engine.Resources.PublicLibraryCatalog.LibraryVersion.AddSource(System.String)">
+            <summary>
+            Adds a source for this library
+            </summary>
+            <param name="fileName"></param>
+        </member>
+        <member name="P:Aml.Engine.Resources.PublicLibraryCatalog.LibraryVersion.CAEXVersion">
+            <summary>
+            Gets and sets the CAEX version of the library allowing different signatures for
+            libraries, supporting differen CAEX versions but have identical content
+            </summary>
+        </member>
+        <member name="P:Aml.Engine.Resources.PublicLibraryCatalog.LibraryVersion.Description">
+            <summary>
+            Gets and sets a description text to explain the library version
+            </summary>
+        </member>
+        <member name="P:Aml.Engine.Resources.PublicLibraryCatalog.LibraryVersion.DownloadLink">
+            <summary>
+            Gets and sets the download link where to load the library. The link
+            should be public availabe
+            </summary>
+        </member>
+        <member name="P:Aml.Engine.Resources.PublicLibraryCatalog.LibraryVersion.Sources">
+            <summary>
+            Gets and sets the sources, where this version is published
+            </summary>
+        </member>
+        <member name="P:Aml.Engine.Resources.PublicLibraryCatalog.LibraryVersion.Signature">
+            <summary>
+            Gets the sigbature (checksum) used to validate the library content
+            </summary>
+            <value>
+            The signature
+            </value>
+        </member>
+        <member name="M:Aml.Engine.Resources.PublicLibraryCatalog.LibraryVersionIsListed(System.String,System.String,System.String,System.String)">
+            <summary>
+            Determines, if a library with the proveded CAEX tagName and library name and version
+            is listed in the catalog.
+            </summary>
+            <param name="tagName"></param>
+            <param name="name"></param>
+            <param name="version"></param>
+            <param name="caexVersion"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Aml.Engine.Resources.PublicLibraryCatalog.LibVersion(System.String,System.String,System.String,System.String)">
+            <summary>
+            Gets the library version element
+            </summary>
+            <param name="tagName"></param>
+            <param name="name"></param>
+            <param name="version"></param>
+            <param name="caexVersion"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Aml.Engine.Resources.PublicLibraryCatalog.Save(System.String)">
+            <summary>
+            Save this catalog to the provided file
+            </summary>
+            <param name="fileName"></param>
+        </member>
+    </members>
+</doc>
