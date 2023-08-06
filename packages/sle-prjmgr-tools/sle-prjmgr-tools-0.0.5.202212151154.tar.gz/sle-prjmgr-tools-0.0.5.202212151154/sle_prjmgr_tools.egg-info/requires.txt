@@ -1,0 +1,17 @@
+requests
+PyYAML
+osc
+jira
+lxml
+keyring
+importlib_resources
+
+[lint]
+black
+pylint
+mypy
+types-PyYAML
+types-requests
+
+[test]
+pytest
