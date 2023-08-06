@@ -1,0 +1,10 @@
+
+[database]
+SQLAlchemy
+
+[full]
+SQLAlchemy
+kafka-python
+
+[kafka]
+kafka-python
