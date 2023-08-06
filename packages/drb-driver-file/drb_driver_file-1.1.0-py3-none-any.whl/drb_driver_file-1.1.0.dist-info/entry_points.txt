@@ -1,0 +1,6 @@
+[drb.driver]
+file = drb.drivers.file.file:DrbFileFactory
+
+[drb.topic]
+file = drb.topics.file
+
