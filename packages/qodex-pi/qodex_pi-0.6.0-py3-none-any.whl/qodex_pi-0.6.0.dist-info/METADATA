@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: qodex-pi
+Version: 0.6.0
+Author: PunchyArchy
+Author-email: ksmdrmvscthny@gmail.com
+License-File: LICENSE
+Requires-Dist: qsct
+Requires-Dist: qodex-dk
+
+QPI (Qodex Programming Interface) - Модуль API, используемый во всех программах Qodex.
+Предусмотрен механизм аутентификации клиента на стороне сервера, функционал в папке auth, однако, сервер может
+работать и без аутентификации, сразу исполняя команды клиента (если серверу передан параметр without_auth=True)
+
+
+3.33
+Удалены лишние данные, попадающие в стандартный поток вывода
+
+3.32
+Добавлено удаление зомби-подписчиков (тех subscribes, у которых при отправке на них возникает ошибка BrokenPipe)
