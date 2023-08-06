@@ -1,0 +1,15 @@
+LICENSE.md
+MANIFEST.in
+setup.py
+ephemerals_mongodb.egg-info/PKG-INFO
+ephemerals_mongodb.egg-info/SOURCES.txt
+ephemerals_mongodb.egg-info/dependency_links.txt
+ephemerals_mongodb.egg-info/requires.txt
+ephemerals_mongodb.egg-info/top_level.txt
+mongodb/__init__.py
+mongodb/connectionparams.py
+mongodb/dbmanager.py
+mongodb/dbmanagerprotocol.py
+mongodb/ephemeralmongodbcontext.py
+mongodb/ephemeralmongodbcontextbuilder.py
+mongodb/filesmanager.py
