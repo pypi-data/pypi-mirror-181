@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: pyfdupes
+Version: 0.1.0
+Summary: Find and delete duplicate files using fdupes
+Home-page: https://github.com/essembeh/pyfdupes
+License: Apache-2.0
+Author: Sébastien MB
+Author-email: seb@essembeh.org
+Requires-Python: >=3.9,<4.0
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Utilities
+Requires-Dist: colorama (>=0.4.5,<0.5.0)
+Description-Content-Type: text/markdown
+
+![Github](https://img.shields.io/github/tag/essembeh/pyfdupes.svg)
+![PyPi](https://img.shields.io/pypi/v/pyfdupes.svg)
+![Python](https://img.shields.io/pypi/pyversions/pyfdupes.svg)
+![CI](https://github.com/essembeh/pyfdupes/actions/workflows/poetry.yml/badge.svg)
+
+# pyfdupes
+
+Command line tool to find and delete duplicate files in folders using `fdupes`.
+
+# Install
+
+Install dependencies
+
+```sh
+$ sudo apt update
+$ sudo apt install fdupes
+```
+
+Install the latest release of _pyfdupes_ from [PyPI](https://pypi.org/project/pyfdupes/)
+
+```sh
+$ pip3 install pyfdupes
+$ pyfdupes --help
+```
+
+Or install _pyfdupes_ from the sources
+
+```sh
+$ pip3 install poetry
+$ pip3 install git+https://github.com/essembeh/pyfdupes
+$ pyfdupes --help
+```
+
