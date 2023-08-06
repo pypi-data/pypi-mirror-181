@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: ifreq
+Version: 0.2.0
+Summary: Control Network Interface In Object Oriented Method
+Author: skrab-sah
+Author-email: skrab.sah@gmail.com
+Classifier: Operating System :: POSIX :: Linux
+Classifier: License :: OSI Approved :: MIT License
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Control Network Interface In Object Oriented Method
+
+This package will help you in maintaining network interface in object oriented method.
+
+## How to install it?
+
+## On Linux
+
+``` pip install ifreq ```
+
+## How to use it?
+
+### Initialize Package
+
+``` from ifreq import ifreq ```
+
+# documentation is in it's script.
+
+
+## On any issue.
+### e-mail me on: skrab.sah@gmail.com
