@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: pvanalytics
+Version: 0.1.3
+Summary: PVAnalytics is a python library for the analysis of photovoltaic system-level data.
+Home-page: https://github.com/pvlib/pvanalytics
+Maintainer: Will Vining
+Maintainer-email: wfvinin@sandia.gov
+License: MIT
+Classifier: Development Status :: 4 - Beta
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering
+Provides-Extra: optional
+Provides-Extra: test
+Provides-Extra: doc
+Provides-Extra: all
+License-File: LICENSE
+
+
+PVAnalytics is a collection of functions for working with data
+from photovoltaic power systems. The library includes functions for
+general data quality tests such as outlier detection, validation that
+data is physically plausible, filtering data for specific conditions,
+and labeling specific features in the data.
+
+Documentation: https://pvanalytics.readthedocs.io
+
+Source code: https://github.com/pvlib/pvanalytics
