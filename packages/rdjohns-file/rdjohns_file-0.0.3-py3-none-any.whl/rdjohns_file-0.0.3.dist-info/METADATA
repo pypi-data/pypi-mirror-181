@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: rdjohns-file
+Version: 0.0.3
+Summary: search all directory available and list it in the array
+Home-page: https://github.com/RDJohns/rdjohns_file
+Author: David Johns
+Author-email: rakotonindrianajohns@email.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# rdjohns_pg
+
+
+Keep in mind that this tutorial showed you how to upload your package to Test PyPI, which isnâ€™t a permanent storage. The Test system occasionally deletes packages and accounts. It is best to use TestPyPI for testing and experiments like this tutorial.
+
+When you are ready to upload a real package to the Python Package Index you can do much the same as you did in this tutorial, but with these important differences:
+
