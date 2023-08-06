@@ -1,0 +1,6 @@
+natsort~=8.2.0
+rich~=12.6.0
+
+[test]
+tox
+pytest-cov
