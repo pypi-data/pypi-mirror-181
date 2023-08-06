@@ -1,0 +1,17 @@
+CHANGES.rst
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+macedon/__init__.py
+macedon/__main__.py
+macedon/_version.py
+macedon/entrypoint.py
+macedon.egg-info/PKG-INFO
+macedon.egg-info/SOURCES.txt
+macedon.egg-info/dependency_links.txt
+macedon.egg-info/entry_points.txt
+macedon.egg-info/requires.txt
+macedon.egg-info/top_level.txt

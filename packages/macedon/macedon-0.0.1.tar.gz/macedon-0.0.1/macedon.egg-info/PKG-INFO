@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: macedon
+Version: 0.0.1
+Summary: web service availability verifier
+Home-page: https://github.com/delameter/macedon
+Author: Aleksandr Shavykin
+Author-email: 0.delameter@gmail.com
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+<h1 align="center">
+  <img src="https://user-images.githubusercontent.com/50381946/167810957-14b78013-00cf-436e-b535-d2b89f881c44.png">
+  <br>
+  <code>
+    macedon
+  </code>
+  <br>
+</h1>
+
+Web-service availability verifier. Takes a list of endpoints with optional input dataset and expected output HTTP status codes/responses, performs series of HTTP requests and displays the results.
+
+## Motivation
+
+Necessity to have a fast and configurable endpoint testing tool at fingertips.
+
+## Installation
+
+    pipx install macedon
+
+## Basic usage
+
+    > macedon localhost:5000
+    200  4.16kb  0.204s  http://localhost:5000
+
+## Configuration / Advanced usage
+
+
+
+## Changelog
+
+### v0.0.1
+
+- Core
