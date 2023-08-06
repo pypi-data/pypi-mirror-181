@@ -1,0 +1,16 @@
+abc:
+- mn:
+    approvals: approvals.json
+    bind: bind-mn.txt
+    changes: changes.json
+    meta: meta-mn.yml
+- opq:
+    approvals: approvals.yml
+    bind: bind-opq.txt
+    changes: changes.yml
+    meta: meta-opq.md
+- missing:
+    approvals: approvals.xml
+    bind: bind-missing.txt
+    changes: changes.csv
+    meta: meta-missing.md

@@ -1,0 +1,90 @@
+# Changes
+
+## 2022.12.13
+
+* Added new example for showing no date in the header
+* Added new example for showing no date in the header and moving iss-rev field into that slot
+* Added meta data keys to show or hide the three sub header fields coined id, iss_rev, and date
+* Added workaround meta data key to disable the semantics of the header date field
+
+## 2022.12.12
+
+* Added info to error log from image parse
+* Fixed inventory (failed CPSR refactoring)
+
+## 2022.12.11
+
+* Enhanced the logging
+* Refactored markdown image text line rewrites for transformed images (formats)
+
+## 2022.12.10
+
+* Fixed silent failing svg-to-png conversion target path rename per ABYL ten times and extended logging
+
+## 2022.12.9
+
+* Fixed failing image parse cases where multiple spaces between src and alt as well as for empty caps
+
+## 2022.12.8
+
+* Fixed link to CycloneDX format SBOM (the cyclonedx python package still does not find the indirect dependencies)
+* Fixed transformation of relative upwards image source links
+* Implemented more robust (and chatty) markdown image text line parser
+
+## 2022.12.7
+
+* Added creation of inventory file as post action to the rendering
+* Added diff outputs in unified format for filter steps when rendering
+* Added foran (vcs) and taksonomia (taxonomy) services per dependencies
+* Added vcs info to renderer
+* Extended and enhanced the deep example
+* Fixed specific app SVG renaming (dangling ref) and extended to any app (naive parser)
+
+## 2022.12.6
+
+* Boosted test coverage above 80%
+
+## 2022.12.5
+
+* Added eject command for templates
+* Added user patching to render command
+* Increased the test coverage - way to go
+* Updated user documentation
+
+## 2022.12.4
+
+* Fixed broken console script
+
+## 2022.12.3
+
+* Added concat command with prototype level implementation (WIP) - works already with the example/deep prod_kind target and deep facet
+* Added meta weave for partial meta data
+* Added mixed processing of future simplified include strategy
+* Added more timely and more precise basic validation of request versus structure
+* Added template handling
+* Extended changes and approvals implementation to deal with channel dependent topologies
+* Migrated to treelib and streamlined intermediate logging
+* Removed outdated prototype code
+
+## 2022.11.3
+
+* Made the liitos.templates package an explicit member (YAGNI)
+
+## 2022.11.2
+
+* Added meta data parsing to verifier
+* Added verbosity flag
+
+## 2022.10.18
+
+* Added YAML format readers for approvals and changes
+
+## 2022.9.18
+
+* Added command line verification script
+* Added documentation
+* Added PyYAML dependency
+
+## 2022.8.1
+
+* Initial release on PyPI
