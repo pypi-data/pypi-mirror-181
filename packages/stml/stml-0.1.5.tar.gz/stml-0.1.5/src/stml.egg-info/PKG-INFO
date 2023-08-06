@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: stml
+Version: 0.1.5
+Summary: Implement HTML with Indentation
+Author: Vishal R
+Keywords: stml,STML,indent HTML
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# STML (Simple Text Markup Language)
+
+## Functionalities of the STML
+- Indentation Procedure in HTML
+- Good Looking while Programming
+- Better Implementation for Python Coders & others
+- Reduce usage of closing tags
+
+## Usage
+- Make sure you have installed Python in your system.
+- Run Following command in the CMD.
+  ```
+    pip install stml
+  ```
+  
