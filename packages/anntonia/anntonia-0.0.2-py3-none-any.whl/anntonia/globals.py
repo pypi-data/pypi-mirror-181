@@ -1,0 +1,2 @@
+currentVisualizer = None
+currentServer = None
