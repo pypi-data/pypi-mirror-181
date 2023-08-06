@@ -1,0 +1,12 @@
+README.md
+pyproject.toml
+setup.py
+tantaroba/__init__.py
+tantaroba/__version__.py
+tantaroba/logging.py
+tantaroba.egg-info/PKG-INFO
+tantaroba.egg-info/SOURCES.txt
+tantaroba.egg-info/dependency_links.txt
+tantaroba.egg-info/top_level.txt
+test/__init__.py
+test/test_functions.py
