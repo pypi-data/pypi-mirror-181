@@ -1,0 +1,19 @@
+from setuptools import setup, find_namespace_packages
+
+
+setup(
+    name='salure_helpers_salureconnect',
+    version='0.0.1',
+    description='SalureConnect wrapper from Salure',
+    long_description='SalureConnect wrapper from Salure',
+    author='D&A Salure',
+    author_email='support@salureconnnect.com',
+    packages=find_namespace_packages(where='salure_helpers_salureconnect',
+                                     include=['salure_helpers_salureconnect']),
+    license='Salure License',
+    # install_requires=[
+    #     'pandas>=1,<=1.35',
+    #     'requests>=2,<=3'
+    # ],
+    zip_safe=False,
+)
