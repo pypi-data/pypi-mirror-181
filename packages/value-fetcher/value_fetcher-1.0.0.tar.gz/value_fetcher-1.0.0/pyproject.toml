@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "value-fetcher"
+version = "1.0.0"
+description = "Fetch a value from various sources, e.g AWS Secrets Manager and SSM Parameter Store"
+authors = ["Voquis Limited <opensource@voquis.com>"]
+readme = "README.md"
+packages = [{include = "value_fetcher", from = "src"}]
+homepage = "https://github.com/voquis/value-fetcher"
+repository = "https://github.com/voquis/value-fetcher"
+keywords = ["parameters", "secrets", "configuration", "values"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+boto3 = "^1.26.27"
+pyyaml = "^6.0"
+
+[tool.pytest.ini_options]
+pythonpath = [
+  "src"
+]
+
+[tool.poetry.group.dev.dependencies]
+moto = "^4.0.11"
+pylint = "^2.15.8"
+pytest = "^7.2.0"
+coverage = "^6.5.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

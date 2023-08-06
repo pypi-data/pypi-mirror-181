@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: value-fetcher
+Version: 1.0.0
+Summary: Fetch a value from various sources, e.g AWS Secrets Manager and SSM Parameter Store
+Home-page: https://github.com/voquis/value-fetcher
+License: MIT
+Keywords: parameters,secrets,configuration,values
+Author: Voquis Limited
+Author-email: opensource@voquis.com
+Requires-Python: >=3.11,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: boto3 (>=1.26.27,<2.0.0)
+Requires-Dist: pyyaml (>=6.0,<7.0)
+Project-URL: Repository, https://github.com/voquis/value-fetcher
+Description-Content-Type: text/markdown
+
+# Value fetcher
+## Introduction
+Python module to fetch values from multiple sources including:
+- Environment variables
+- AWS Systems Manager (SSM) Parameter Store
+- AWS Secrets Manager
+
