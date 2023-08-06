@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: flake8-flask-openapi-docstring
+Version: 0.1.0.dev1
+Summary: A Flake8 plugin to enforce OpenAPI docstrings in Flask routes
+Home-page: https://github.com/expobrain/flake8-flask-openapi-docstring
+License: MIT
+Author: Daniele Esposti
+Author-email: daniele.esposti@gmail.com
+Requires-Python: >=3.7,<3.12
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: apispec (>3)
+Requires-Dist: pyyaml (>=6.0)
+Project-URL: Repository, https://github.com/expobrain/flake8-flask-openapi-docstring
+Description-Content-Type: text/markdown
+
+# flake8-flask-openapi-docstring
+
+This Flake8 plugin will check if your Flask route's docstrings are valid OpenAPI spec.
+
+Libraries like [APISpec](https://apispec.readthedocs.io/en/latest/) can generate OpenAPI spec from your Flask routes and docstrings and it's important to have present and in the correct format.
+
+for example, this routes:
+
+```python
+@app.route("/hello", methods=["GET"])
+def hello():
+    return "Hello World!"
+```
+
+will raise an error witht his plugin because not only the docstring is missing but also the OpenAPI spec is missing as well.
+
+However these route:
+
+```python
+@app.route("/hello", methods=["GET"])
+def hello():
+    """
+    Returns a greeting
+
+    ---
+    get:
+        responses:
+            200:
+    """
+    return "Hello World!"
+```
+
+will not raise any error because the docstring is present and the OpenAPI spec is present as well.
+
