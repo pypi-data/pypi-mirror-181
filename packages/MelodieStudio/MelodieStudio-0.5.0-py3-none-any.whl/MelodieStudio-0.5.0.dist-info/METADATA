@@ -1,0 +1,93 @@
+Metadata-Version: 2.1
+Name: MelodieStudio
+Version: 0.5.0
+Summary: A web-based toolbox for Melodie ABM package.
+Author: ABM4ALL
+Author-email: songmin.yu@isi.fraunhofer.de
+License: BSD 3
+Project-URL: Documentation, https://Melodie.readthedocs.io/en/latest/index.html
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Operating System :: Unix
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >3.5
+Description-Content-Type: text/markdown
+Requires-Dist: chardet
+Requires-Dist: websockets
+Requires-Dist: sqlalchemy
+Requires-Dist: flask
+Requires-Dist: flask-cors
+Requires-Dist: astunparse
+Requires-Dist: pprintast
+Requires-Dist: psutil
+Requires-Dist: watchdog
+Requires-Dist: flask-sock
+Requires-Dist: py-ts-interfaces
+Requires-Dist: jedi
+Requires-Dist: rpyc
+Requires-Dist: pywinpty ; os_name == "nt"
+
+# Melodie Studio
+The Frontend of Melodie, mainly implemented Visualizer page
+
+![Visualizer Page](docs/pics/visualizer-screenshot.jpg)
+
+The visualizer page can be divided into three parts: 
+![Functional Areas](docs/pics/function-areas.jpg)
+- Toolbar
+    - Toolbar has several components controlling the simulation, saving and loading custom parameter set.
+- Parameters Area
+    - Listing parameters that affect the model.
+    - Customizable in the custom subclass of `Melodie.Visualizer`.
+- Canvas
+    - Web-based visualization component for `Grid` and `Network`
+    - Web-based chart including Line chart, Bar chart.
+    - Customize visualization component and graph to show in the custom subclass of `Melodie.Visualizer`.
+    <!--
+        - Layout of visualization components and charts, together with chart styles, can be  configured by webpage, not coding. [Unstable]
+    -->
+
+
+## User Installation
+### PIP installation
+```sh
+pip install MelodieStudio
+```
+### Run MelodieStudio
+```sh
+python -m MelodieStudio
+```
+If you are running a visualizer, please start the MelodieStudio in the root path of your ABM project.
+
+## Developer Installation
+### Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Dist wheel with building webpage:
+```sh
+python build_web.py # build webpage
+python setup.py bdist_wheel # build wheel, and include the webpage.
+```
+
+
+## Technical Introduction
+
+This project is based on Vue, Element-Plus and Echarts. Besides, the structure of project is based on [Vue-Onepiece-Admin](https://github.com/Mstian/Vue-Onepiece-Admin).
+
+
