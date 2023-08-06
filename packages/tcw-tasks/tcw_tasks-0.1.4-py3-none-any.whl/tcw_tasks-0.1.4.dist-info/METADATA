@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: tcw-tasks
+Version: 0.1.4
+Summary: contest cleanup script for tcw app
+Author: J Leary
+Author-email: tinycontestwinners@gmail.com
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: tcw
+Requires-Dist: jinja2
+Requires-Dist: sendgrid
+
+# tcw-tasks
+Command line script ```tcwinners```, for the tcw contest app.
