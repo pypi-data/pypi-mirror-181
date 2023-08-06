@@ -1,0 +1,16 @@
+[project]
+name = "MSTR_Robotics_magerdaniel"
+version = "0.0.9"
+#description="MicroStrateg(P)ython"
+authors = [{name = "Daniel Mager", email = "danielmager@gmx.de"},]
+
+#[tool.poetry]
+description = "Demo Python scripts to automating MicroStrategy devOps processes"
+[poetry]
+packages=[    {include = "mstr_robotics/*.py"}
+]
+#[tool.poetry.dependencies]
+python_requires = ">=3.7"
+[project.urls]
+"Homepage" = "https://github.com/magerdaniel"
+
