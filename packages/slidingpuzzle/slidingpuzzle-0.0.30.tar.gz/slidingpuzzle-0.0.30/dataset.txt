@@ -1,0 +1,35 @@
+import gc; from slidingpuzzle import *; import slidingpuzzle.nn as nn
+worker_id = 3
+h, w = 4, 4
+num_examples = 100_000
+path = str(nn.paths.get_examples_path(h, w)) + f".{worker_id}"
+visited = set()
+examples = []
+start = worker_id * num_examples
+stop = start + num_examples
+generator = board_generator(h, w, start, stop)
+for board in generator:
+    if visit(visited, board):
+        continue
+    gc.collect()
+    # find a path to use as an accurate training reference
+    result = algorithms.search(board)
+    # we can use all intermediate boards as examples
+    while True:
+        solution = solution_as_tiles(result.board, result.solution)
+        examples.append((freeze_board(board), solution))
+        if not len(result.solution):
+            break
+        swap_tiles(board, result.solution.pop(0))
+        if visit(visited, board):
+            break
+    nn.save_examples(examples, path)
+
+
+
+
+seed = 0
+num_examples = 1000
+from slidingpuzzle import *; import slidingpuzzle.nn as nn
+nn.set_seed(seed)
+ex = make_examples(4, 4, num_examples)

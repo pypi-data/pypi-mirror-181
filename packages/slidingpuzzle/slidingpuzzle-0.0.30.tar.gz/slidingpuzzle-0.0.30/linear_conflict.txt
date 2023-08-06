@@ -1,0 +1,85 @@
+
+
+def linear_conflict_distance(board: Board) -> int:
+    r"""
+    This is the algorithm exactly as described by Hansson et al., 1985 in *Generating
+    Admissible Heuristics by Criticizing Solutions to Relaxed Models*. (It does not
+    include their discussed performance optimizations.) In short, each tile is compared 
+    with its neighbors in a line (row or col) and its conflicts are tallied. We then 
+    incrementally remove conflicts until there are none.
+
+    Args:
+        board: The board
+
+    Returns:
+        Estimated distance to goal.
+    """
+    board = np.copy(board)
+    h, w = board.shape
+    dist = manhattan_distance(board)
+
+    def is_goal_row(tile, y):
+        if BLANK_TILE == tile:
+            return False
+        goal_row = get_goal_y(h, w, tile)
+        return y == goal_row
+
+    def get_row_conflicts(y):
+        conflicts = np.zeros(w, dtype=int)
+        for x1 in range(w):
+            tile1 = board[y, x1]
+            if not is_goal_row(tile1, y):
+                continue
+            for x2 in range(x1 + 1, w):
+                tile2 = board[y, x2]
+                if not is_goal_row(tile2, y):
+                    continue
+                goal_col = get_goal_x(h, w, tile2)
+                if goal_col < x1:
+                    conflicts[x1] += 1
+                    conflicts[x2] += 1
+
+    # row conflicts
+    for y in range(h):
+        conflicts = get_row_conflicts(y)
+        while True:
+            max_conflict = np.argmax(conflicts)
+            if 0 == conflicts[max_conflict]:
+                break
+            dist += 2
+            board[max_conflict] = BLANK_TILE
+            conflicts = get_row_conflicts(y)
+            
+
+
+
+
+def prepare_lcd_table(h, w) -> dict:
+    table = {}
+
+    def compute_conflicts(line, goal_fn) -> int:
+        conflicts = [0 for _ in range(len(line))]
+        for v1 in line:
+            if BLANK_TILE == v1:
+                continue
+            target_v1 = goal_fn(h, w, v1)
+            for v2 in line[v1 + 1:]:
+                if BLANK_TILE == v2:
+                    continue
+                target_v2 = goal_fn(h, w, v2)
+
+
+    row_iter = zip(itertools.permutations(range(1, h * w), 2), itertools.cycle([get_goal_x]))
+    col_iter = zip(itertools.permutations(range(1, h * w), 2), itertools.cycle([get_goal_y]))
+    line_iter = itertools.chain(row_iter, col_iter)
+
+    # iterate over all lines, computing conflicts
+    for (line, row_line) in line_iter:
+        dist = 0
+        line = np.array(line)
+        while (conflicts := compute_conflicts(line, row_line)):
+            max_conflict = np.argmax(conflicts)
+            line[max_conflict] = BLANK_TILE
+            dist += 1
+
+    return table

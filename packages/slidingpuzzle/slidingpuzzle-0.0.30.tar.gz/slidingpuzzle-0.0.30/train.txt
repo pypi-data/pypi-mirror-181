@@ -1,0 +1,22 @@
+from slidingpuzzle import *; import slidingpuzzle.nn as nn
+device = "cuda"
+h, w = 3, 3
+seed = 0
+ds = nn.build_or_load_dataset(h, w)
+for i in range(len(ds)):
+    x, y = ds[i]
+    x, y = x.to(device), y.to(device)
+    ds.examples[i] = x, y
+
+nn.clear_training()
+nn.set_seed(seed)
+model = nn.Model_v1(h, w)
+nn.train(model, ds, seed=seed, lr=0.001, checkpoint_freq=0)
+
+
+
+Model 1
+Achieves a peak test accuracy of 60.85% after 4105 epochs.
+
+Model 2
+Achieves a peak test accuracy of 56.78% after 140 epochs.

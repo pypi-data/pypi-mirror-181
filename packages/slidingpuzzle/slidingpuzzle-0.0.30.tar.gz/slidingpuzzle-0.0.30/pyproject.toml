@@ -1,0 +1,43 @@
+[build-system]
+requires = ["hatchling", "hatch-requirements-txt"]
+build-backend = "hatchling.build"
+
+[project]
+name = "slidingpuzzle"
+authors = [
+  { name="Stephen Dunn", email="dunn.stephen@gmail.com" },
+]
+description = "Sliding Puzzle solver"
+dynamic = ["dependencies", "version"]
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/entangledloops/slidingpuzzle"
+"Bug Tracker" = "https://github.com/entangledloops/slidingpuzzle/issues"
+
+[tool.black]
+target-version = ["py310"]
+
+[tool.hatch.metadata.hooks.requirements_txt]
+files = ["requirements.txt"]
+
+[tool.hatch.version]
+path = "src/slidingpuzzle/__about__.py"
+
+[tool.pytest.ini_options]
+addopts = "-v -x --ignore tests/test_nn.py --strict-markers -m 'not slow'"
+markers = [
+    "slow",
+]
+minversion = "6.0"
+pythonpath = [
+    "src",
+]
