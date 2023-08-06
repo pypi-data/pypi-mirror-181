@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Web site created using create-pyscript-app"
+    />
+    <title>PyScript App</title>
+
+    <link rel="icon" href="favicon.ico" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+  </head>
+
+  <body>
+    <h1>
+      Create
+      <a href="https://pyscript.net/" target="_blank" rel="noreferrer noopener"
+        >PyScript</a
+      >
+      App
+    </h1>
+    <div id="message"></div>
+    <div id="app"></div>
+
+    <div id="link">
+      <a
+        href="https://docs.pyscript.net/latest/"
+        target="_blank"
+        rel="noreferrer noopener"
+        >Documentation</a
+      ><a
+        href="https://docs.pyscript.net/latest/tutorials/index.html"
+        target="_blank"
+        rel="noreferrer noopener"
+        >Tutorials</a
+      ><a
+        href="https://pyscript.net/examples/"
+        target="_blank"
+        rel="noreferrer noopener"
+        >Examples</a
+      >
+    </div>
+
+    <py-config type="json">{"packages": ["numpy", "matplotlib"]}</py-config>
+    <py-script>
+      msg_div = Element("message") 
+      msg_div.element.innerHTML = "edit <code>app.py</code> and reload this page."
+    </py-script>
+    <py-script src="app.py"></py-script>
+  </body>
+</html>
