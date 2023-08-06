@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: rangel
+Version: 0.0.7
+Summary: Range data manipulations and operations
+Author: Tariq Shihadah
+Author-email: <tariq.shihadah@gmail.com>
+License: UNKNOWN
+Keywords: python,range,numeric,interval
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+
+Module featuring RangeCollection object class for the management of range data and optimized performance of various simple and complex range operations, including range and point overlays, equitable and score-based separation of overlapping ranges, generation of random range data, and range data comparisons among others.
+
