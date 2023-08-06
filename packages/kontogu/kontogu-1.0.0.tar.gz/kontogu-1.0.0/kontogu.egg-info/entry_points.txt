@@ -1,0 +1,3 @@
+[console_scripts]
+kontogu = kontogu.cmdline:execute
+
