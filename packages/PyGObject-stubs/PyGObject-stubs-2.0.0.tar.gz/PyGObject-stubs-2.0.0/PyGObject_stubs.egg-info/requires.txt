@@ -1,0 +1,14 @@
+
+[all]
+mypy
+flake8
+flake8-pyi
+PyGObject
+
+[dev]
+mypy
+flake8
+flake8-pyi
+
+[generate]
+PyGObject
