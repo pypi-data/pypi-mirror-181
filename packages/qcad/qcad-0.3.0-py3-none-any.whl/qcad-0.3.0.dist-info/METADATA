@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: qcad
+Version: 0.3.0
+Author: PunchyArchy
+Author-email: ksmdrmvscthny@gmail.com
+License-File: LICENSE
+Requires-Dist: hikvisionapi
+
+WHIKoperator - фреймворк для работы с камерой HV в Gravity-core
