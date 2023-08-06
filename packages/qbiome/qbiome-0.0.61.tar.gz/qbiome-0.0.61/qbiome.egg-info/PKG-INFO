@@ -1,0 +1,63 @@
+Metadata-Version: 2.1
+Name: qbiome
+Version: 0.0.61
+Summary: Analyzing microbiome abundance data to infer deep structures
+Home-page: https://github.com/zeroknowledgediscovery/qbiome
+Author: zed.uchicago.edu
+Author-email: ishanu@uchicago.edu
+License: LICENSE
+Download-URL: https://github.com/zeroknowledgediscovery/qbiome/archive/0.0.61.tar.gz
+Keywords: microbiome,decision trees,machine learning,computational biology
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Software Development :: Libraries
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Requires-Python: >=3.6
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+
+===============
+Qbiome
+===============
+
+.. figure:: https://img.shields.io/pypi/dm/qbiome.svg
+   :alt: qbiome PyPI Downloads
+.. figure:: https://img.shields.io/pypi/v/qbiome.svg
+   :alt: qbiome curent version
+
+.. image:: http://zed.uchicago.edu/logo/qbiome.png
+   :height: 300px
+   :scale: 30 %
+   :alt: qbiome logo
+   :align: center
+
+.. class:: no-web no-pdf
+
+:Info: Draft link will be posted here
+:Author: ZeD@UChicago <zed.uchicago.edu>
+:Description: Application of quasinets (https://pypi.org/project/quasinet/) for microbiome analysis  for learning rules of organization, maturation, competition and succession in microbiome ecosystems. 
+:Documentation: https://zeroknowledgediscovery.github.io/qbiome/qbiome/index.html
+
+
+**Usage:**
+
+.. code-block::
+
+    import qbiome
+    from qbiome.data_formatter import DataFormatter
+    from qbiome.quantizer import Quantizer
+    from qbiome.qnet_orchestrator import QnetOrchestrator
+    from qbiome.forecaster import Forecaster
+
+
+.. image:: https://github.com/zeroknowledgediscovery/qbiome/raw/main/images/img2.png
+   :scale: 50 %
+   :alt: alternate text
+   :align: center 
+
+
