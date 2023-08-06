@@ -1,0 +1,21 @@
+[project]
+name = "hbsst"
+version = "1.0.1"
+authors = [
+  { name="heStudio", email="hestudio@hestudio.org" },
+]
+description = "本工具将百度站长API提交的命令集成优化，改成利于使用的Python函数，方便程序调用。"
+readme = "README.md"
+requires-python = ">=3.6"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
+    "Natural Language :: Chinese (Simplified)",
+    "Operating System :: POSIX :: Linux",
+    "Topic :: System :: Operating System Kernels :: Linux",
+]
+
+[project.urls]
+"Homepage" = "https://gitee.com/heStudio/baidu-search-submission-tool/"
+"Bug Tracker" = "https://www.hestudio.org/get-help"
+"Blog" = "https://www.hestudio.org/"
