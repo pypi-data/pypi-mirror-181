@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+src/__init__.py
+src/app/__init__.py
+src/app/main.py
+src/app/controller/__init__.py
+src/app/controller/commandlinecontroller.py
+src/app/generators/filegenerator.py
+src/app/generators/foldergenerator.py
+src/pyproject_initializr.egg-info/PKG-INFO
+src/pyproject_initializr.egg-info/SOURCES.txt
+src/pyproject_initializr.egg-info/dependency_links.txt
+src/pyproject_initializr.egg-info/entry_points.txt
+src/pyproject_initializr.egg-info/top_level.txt

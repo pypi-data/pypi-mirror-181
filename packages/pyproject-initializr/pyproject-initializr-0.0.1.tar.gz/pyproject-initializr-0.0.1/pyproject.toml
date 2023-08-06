@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "pyproject-initializr"
+version = "0.0.1"
+description = "Creates a project directory with some helpful default files and directories"
+readme = "README.md"
+authors = [{ name = "ans2ur", email = "ans2urgt@gmail.com" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+keywords = ["project", "initializer"]
+[project.urls]
+"Homepage" = "https://github.com/ans2urgt/PyProjectInitializr"
+
+[project.scripts]
+pyproject-initializr = "app.main:main"
