@@ -1,0 +1,112 @@
+# Faclon Data Extraction API
+Authentication
+For authenticating each request, use the api key provided by Faclon Labs. Use it in the header as apikey.
+​
+​
+## Where to get it
+The source code is currently hosted on GitHub at: https://github.com/pandas-dev/pandas
+​
+Binary installers for the latest released version are available at the Python Package Index (PyPI) and on Conda.
+​
+​
+ PyPI
+```
+pip install iosense
+```
+​
+​
+​
+# Features
+## Get Single Sensor Data
+Endpoint to retrive data of single device single sensor in a given time range.
+​
+This is a cursor based paginated request i.e. at one time the response will contain a maximum of 10000 data points only and a cursor pointing to the next start and end time. So this API will have to be called recursively until either the cursor.start or cursor.end is null.
+​
+start time - unix timestamp
+end time - unix timestamp
+deviceID - string
+sensorID - string
+Note- In the response, data is in descending order by time
+​
+​
+## GETGet Multiple Sensor Data
+Endpoint to retrive data of single device multiple sensors in a given time range.
+​
+This is a cursor based paginated request i.e. at one time the response will contain a maximum of 10000 data points only and a cursor pointing to the next start and end time. So this API will have to be called recursively until either the cursor.start or cursor.end is null.
+​
+start time - unix timestamp
+end time - unix timestamp
+deviceID - string
+sensorID - string (comma seperated list of sensorIDs)
+Note- In the response, data is in descending order by time
+​
+## GET All Sensor Data
+Endpoint to retrive data of single device and all sensors of that device in a given time range.
+​
+This is a cursor based paginated request i.e. at one time the response will contain a maximum of 10000 data points only and a cursor pointing to the next start and end time. So this API will have to be called recursively until either the cursor.start or cursor.end is null.
+​
+start time - unix timestamp
+end time - unix timestamp
+deviceID - string
+Note- In the response, data is in descending order by time
+​
+## GET Last Data Point
+Endpoint to retrive the value of the most recent data of a single device single sensor
+​
+deviceID - string
+sensorID - string
+​
+## Write One Data Point
+Endpoint to insert datapacket cointaining data of a single device, single timestamp and multiple sensors
+​
+device - string
+time - integer timestamp in milliseconds (13 digits) (optional)
+data - Array of objects {tag - sensorId, value - float value}
+​
+## GETGet Last n Data Points Before Time Multiple Sensor
+Endpoint to retrive last n data points of a single device single sensor with a given end time.
+​
+This is a cursor based paginated request i.e. at one time the response will contain a maximum of 10000 data points only and a cursor pointing to the end time and a new limit. So this API will have to be called recursively until either the cursor.end is null or limit is null.
+​
+end time - unix timestamp
+deviceID - string
+sensor - string (comma seperated list of sensorIDs)
+lim - integer
+Note- In the response, data is in descending order by time
+​
+Note- If limit>10000, in each response you will get new limit. So if limit is 25000, in the response the new limit is 15000 which will have to be used in the new request.
+​
+​
+## GETGet Device ID, DeviceType ID
+Endpoint to retrive deviceID and deviceTypeID of all devices added in user account
+​
+## GETGet Device metaData
+Endpoint to get all metadata of a single device
+​
+​
+## Dependencies
+1.pandas
+​
+2.requests
+​
+3.json
+​
+4.time
+​
+5.datetime
+​
+6.sys
+​
+​
+​
+## License
+MIT
+​
+## Documentation
+The official documentation is hosted on 
+​
+## Background
+Work on faclon started in 2022  has been under active development.
+​
+## Getting Help
+For usage questions, the best place to go to is StackOverflow. Further, general questions and discussions can also take place on 
