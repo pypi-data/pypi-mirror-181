@@ -1,0 +1,13 @@
+click==8.1.3
+pyside6==6.3.1
+
+[:sys_platform != "win32"]
+pexpect==4.8.0
+psutil==5.9.4
+
+[:sys_platform == "win32"]
+wexpect==4.0.0
+psutil==5.9.1
+
+[dev]
+black==22.*
