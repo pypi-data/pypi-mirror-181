@@ -1,0 +1,13 @@
+setup.py
+masterTestModule/__init__.py
+masterTestModule/add.py
+masterTestModule/subtract.py
+masterTestModule.egg-info/PKG-INFO
+masterTestModule.egg-info/SOURCES.txt
+masterTestModule.egg-info/dependency_links.txt
+masterTestModule.egg-info/top_level.txt
+masterTestModule/extras/__init__.py
+masterTestModule/extras/divide.py
+masterTestModule/extras/multiply.py
+masterTestModule/extras/squareNumber.py
+masterTestModule/extras/squareRoot.py
