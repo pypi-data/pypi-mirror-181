@@ -1,0 +1,4 @@
+
+[webapi]
+flask==2.0.3
+gunicorn<21.0.0,>=20.1.0
