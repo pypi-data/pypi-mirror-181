@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Awesome-pyecharts</title>
+    <!--    <script type="text/javascript" src="./templates/echarts.min.js"></script>-->
+    <script type="text/javascript" src="./echarts.min.js"></script>
+</head>
+<body>
+<div id="bar" style="width:1000px; height:600px;"></div>
+<div>
+    <input type="text" id="txt"/>
+    <input type="button" id="connect" value="连接" onclick="openConn()"/>
+    <input type="button" id="btn" value="提交" disabled="disabled" onclick="sendMsg(null);"/>
+    <input type="button" id="close" value="关闭连接" disabled="disabled" onclick="closeConn();"/>
+</div>
+<div id="content"></div>
+<div id="state"></div>
+<script>
+    var chart = echarts.init(document.getElementById('bar'), 'white', {renderer: 'canvas'});
+    var old_data = [];
+    let url;
+    url = "ws://127.0.0.1:10001/"
+    var socket;
+    function sendMsg(msg) {
+        if (msg === undefined || msg === null) {
+            let txt = document.getElementById('txt')
+            socket.send(txt.value)
+            console.log(txt.value)
+            txt.value = ""
+        } else {
+            socket.send(msg)
+            console.log(msg)
+        }
+    }
+    function openConn() {
+        socket = new WebSocket(url);
+        document.getElementById('connect').setAttribute("disabled", "disabled")
+        document.getElementById('btn').removeAttribute("disabled")
+        document.getElementById('close').removeAttribute("disabled")
+        socket.onopen = function () {
+            console.log("服务器连接成功")
+            document.getElementById('state').innerHTML = "【连接成功】"
+        }
+        socket.onmessage = function (event) {
+            // 接收到消息
+            if (event.data === "getSeries") {
+                if (chart.getOption() !== undefined) {
+                    let msg = JSON.stringify({"series": chart.getOption().series})
+                    sendMsg(msg)
+                } else {
+                    sendMsg("当前echarts中不包含数据！")
+                }
+                return
+            }
+            let response = JSON.parse(event.data);
+            let txt = document.getElementById('txt');
+            if (response.appendData !== undefined) {
+                let data_value = response.appendData;
+                txt.value = "追加数据";
+                old_data.push([data_value.name, data_value.value]);
+                chart.setOption({
+                    series: [{data: old_data}]
+                });
+                return;
+            } else if (response.updateData !== undefined) {
+                txt.value = "更新数据";
+                let updateData = response.updateData;
+                if (updateData.series !== undefined) {
+                    chart.setOption({series: updateData.series})
+                } else if (updateData.data !== undefined) {
+                    chart.setOption({
+                        series: [{data: updateData.data}]
+                    })
+                }
+                old_data = chart.getOption().series
+                return;
+            }
+            txt.value = "绘制图表"
+            chart.setOption(response);
+            old_data = chart.getOption().series
+        }
+    }
+    function closeConn() {
+        socket.send('close')
+        socket.close()
+        document.getElementById('btn').setAttribute("disabled", "disabled")
+        document.getElementById('close').setAttribute("disabled", "disabled")
+        document.getElementById('connect').removeAttribute("disabled")
+        document.getElementById('state').innerHTML = "【连接已关闭】"
+    }
+    openConn()
+    // function getDynamicData() {
+    //     $.ajax({
+    //         type: "GET",
+    //         url: "http://127.0.0.1:10001/lineDynamicData",
+    //         dataType: "json",
+    //         success: function (result) {
+    //             old_data.push([result.name, result.value]);
+    //             chart.setOption({
+    //                 series: [{data: old_data}]
+    //             });
+    //         }
+    //     });
+    // }
+</script>
+</body>
+</html>
