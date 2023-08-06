@@ -1,0 +1,3 @@
+[console_scripts]
+JuMonC = jumonc.start:start_jumonc
+jumonc = jumonc.start:start_jumonc
