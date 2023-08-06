@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: inels-mqtt-bus
+Version: 0.0.1
+Summary: Python library for iNels mqtt protocol, bus version
+Home-page: https://github.com/zed4805/inels-mqtt-bus
+Author: Elko EP s.r.o.
+Author-email: zed4805@gmail.com
+License: MIT
+Keywords: iNels,Elko EP,Home assistant integration
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+Inels-mqtt-bus
+========
+A Python library that handles communication with inels over mqtt, for bus devices
+[iNels](https://www.inels.com/) by ElkoEP company.
+
+Requirements
+============
+Requires Python 3.9 or higher.
+
+Install
+=======
+Use PyPI repository
+```
+pip install inels-mqtt-bus
+```
+
+Testing
+=======
+[tox](https://tox.readthedocs.io) testing.
+
+```
+$ pip install tox
+
+```
