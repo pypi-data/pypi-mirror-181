@@ -1,0 +1,14 @@
+[project]
+name = "Takamol-Custom-Library"
+version = "0.2"
+authors = [
+  { name="Haitham Al-Mughrabi", email="haitham.almughrabi@wareefunited.com" },
+]
+description = "Takamol Custom Library"
+readme = "README.md"
+requires-python = ">=3.6"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
