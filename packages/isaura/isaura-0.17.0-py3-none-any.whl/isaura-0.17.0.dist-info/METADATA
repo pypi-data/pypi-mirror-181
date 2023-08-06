@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: isaura
+Version: 0.17.0
+Summary: Isaura data lake for pre-computed Ersilia properties
+License: GPLv3
+Author: Ersilia 
+Requires-Python: >=3.7,<4.0
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: aws-lambda-powertools[pydantic] (>=2.2.0,<3.0.0)
+Requires-Dist: boto3 (>=1.26.8,<2.0.0)
+Requires-Dist: h5py (>=3.7.0,<4.0.0)
+Requires-Dist: loguru (>=0.6.0,<0.7.0)
+Requires-Dist: pydantic[dotenv] (>=1.10.2,<2.0.0)
+Requires-Dist: sqlalchemy (>=1.4.44,<2.0.0)
+Requires-Dist: xdg (>=5.1.1,<6.0.0)
