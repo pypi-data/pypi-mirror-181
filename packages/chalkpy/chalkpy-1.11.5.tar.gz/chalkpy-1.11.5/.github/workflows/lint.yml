@@ -1,0 +1,34 @@
+name: Linting
+
+on: [pull_request]
+
+jobs:
+  lint:
+    name: "Lint"
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install --upgrade -r requirements.txt -r requirements-dev.txt
+
+      - name: Run pre-commit
+        run: pre-commit run --all-files
+
+      - name: Fix lint errors if needed
+        if: ${{ failure() }}
+        run: |
+          git config --global user.name 'Linter'
+          git config --global user.email 'bot@chalk.ai'
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/chalk-ai/chalk
+          git fetch --all
+          git checkout $GITHUB_HEAD_REF
+          git commit -am "Fix linting"
+          git push
