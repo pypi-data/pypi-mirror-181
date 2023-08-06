@@ -1,0 +1,17 @@
+README.md
+pyproject.toml
+gradescope_auto_py/__init__.py
+gradescope_auto_py/assert_for_pts.py
+gradescope_auto_py/grader.py
+gradescope_auto_py/grader_config.py
+gradescope_auto_py/visibility.py
+gradescope_auto_py.egg-info/PKG-INFO
+gradescope_auto_py.egg-info/SOURCES.txt
+gradescope_auto_py.egg-info/dependency_links.txt
+gradescope_auto_py.egg-info/top_level.txt
+gradescope_auto_py/gradescope/__init__.py
+gradescope_auto_py/gradescope/build_auto.py
+test/test_assert_for_pts.py
+test/test_grader.py
+test/test_grader_config.py
+test/test_gradescope.py
