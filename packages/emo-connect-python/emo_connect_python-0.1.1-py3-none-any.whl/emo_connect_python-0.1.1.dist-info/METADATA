@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: emo-connect-python
+Version: 0.1.1
+Summary: Python library for connecting and interacting with an EMO pet
+Home-page: https://github.com/0xD34D/emo-connect-python
+Author: Clark Scheff
+Author-email: clark@scheffsblend.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: bleak
+Requires-Dist: bleak-retry-connector
+
+# emo-connect-python
+Python library for connecting and interacting with an EMO pet
+
+## Usage
+```bash
+pip install emo-connect-python
+```
+## Example
+```python
+import asyncio
+import json
+import logging
+
+from emoconnect.EmoConnectManager import EmoConnectManager
+from emoconnect.ble.request import StateRequest
+
+logging.basicConfig(format='[EMO] %(asctime)s %(levelname)s %(message)s')
+logger = logging.getLogger()
+# can be changed to logging.DEBUG for debugging issues
+logger.setLevel(logging.INFO)
+
+
+async def main():
+    ecm = EmoConnectManager()
+    await ecm.connectToEmo()
+
+    state = await ecm.sendRequest(StateRequest.everything())
+    print(state)
+
+    await ecm.disconnect()
+
+asyncio.run(main())
+```
