@@ -1,0 +1,22 @@
+{
+	"name": "mrftools",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": ".."
+	},
+
+	// To enable your local GPUs in container if they are on enabled by default
+	"runArgs": [ "--gpus=all" ],
+
+	"extensions": [
+		"ms-vscode.cpptools",
+		"ms-vscode.cmake-tools",
+		"eamodio.gitlens", 
+		"ms-python.python",
+		"ms-python.vscode-pylance", 
+		"ms-toolsai.jupyter"
+	],
+	
+	"postCreateCommand": "pip3 install -r 'requirements.txt'"
+
+}
