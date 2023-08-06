@@ -1,0 +1,7 @@
+pottery
+click
+pyyaml
+
+[:python_version < "3.7"]
+dataclasses
+redis<4.1.0
