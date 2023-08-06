@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: phe-cuda
+Version: 0.1.3
+Summary: Acceleration Paillier by cuda
+Home-page: https://github.com/gxx777/phe_cuda
+Author: Xiangxin Guo
+Author-email: xiangxinguo@mail.ustc.edu.cn
+License: MIT Licence
+Keywords: pip,cuda,phe,paillier,mage
+Platform: any
+
+Acceleration for Partially Homomorphic Encryption library by Cuda 
+
