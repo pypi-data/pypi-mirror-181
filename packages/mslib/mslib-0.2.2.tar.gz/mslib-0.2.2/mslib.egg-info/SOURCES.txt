@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+settings.ini
+setup.py
+mslib/__init__.py
+mslib/_modidx.py
+mslib/core.py
+mslib.egg-info/PKG-INFO
+mslib.egg-info/SOURCES.txt
+mslib.egg-info/dependency_links.txt
+mslib.egg-info/entry_points.txt
+mslib.egg-info/not-zip-safe
+mslib.egg-info/requires.txt
+mslib.egg-info/top_level.txt
+mslib/data/__init__.py
+mslib/data/cmc.py
