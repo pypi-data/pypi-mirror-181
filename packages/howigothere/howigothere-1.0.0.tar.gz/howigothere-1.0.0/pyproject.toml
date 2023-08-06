@@ -1,0 +1,45 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "howigothere"
+description = "Python module to create a condensed stack preview"
+readme = "README.md"
+requires-python = ">=3.6"
+authors = [
+    { name="Vedran Sego", email = "vsego@vsego.org" },
+]
+license = "MIT"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.6",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities",
+    "Typing :: Typed"
+]
+keywords = ["debugging"]
+dynamic = ["version"]
+dependencies = [
+  "settings-collector >= 1.2.1",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/vsego/howigothere"
+"Bug Tracker" = "https://github.com/vsego/howigothere/issues"
+"Changelog" = "https://github.com/vsego/howigothere/blob/master/CHANGELOG.md"
+
+[tool]
+
+[tool.hatch.version]
+path = "src/howigothere/version.py"
+
+[tool.hatch.build.targets.sdist]
+exclude = [
+  "/.github",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/howigothere"]
