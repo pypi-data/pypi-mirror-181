@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: hubspain
+Version: 1.0.1
+Summary: Esta es la descripcion de mi paquete
+Home-page: https://github.com/flowese/hubspain-tools
+Download-URL: https://github.com/flowese/hubspain-tools/tarball/1.0.0
+Author: flowese
+Author-email: flowese@gmail.com
+License: MIT
+Keywords: testing,logging,example
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# (PENDIENTE)
+
+# Setup
+## Requirements
+* Python 3.10.8
+
+
+```python
+
+from hubspain import generate
+
+
+generate("test")
+
+```
