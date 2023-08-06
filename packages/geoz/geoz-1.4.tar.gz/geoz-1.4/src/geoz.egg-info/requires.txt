@@ -1,0 +1,10 @@
+pandas
+mlxtend
+scikit-learn
+matplotlib
+geopandas
+
+[dev]
+pytest>=3.7
+check-manifest
+twine

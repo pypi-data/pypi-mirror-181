@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: geoz
+Version: 1.4
+Summary: A Library to convert Unsupervised Clustering Results into Geographical Maps
+Home-page: https://github.com/Ne-oL/geoz
+Author: Khalid ElHaj
+Author-email: KG.Khair@Gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Scientific/Engineering :: GIS
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+License-File: LICENSE
+
+## Geographic Decision Zones (GeoZ)
+
+
+GeoZ is a Python module integrating several machine learning libraries to create Geographic Maps based on the output of 
+Unsupervised Machine Learning techniques. The library is geared mainly toward delineating the output from Clustering 
+algorithms, but it can be used for other Machine Learning algorithms.
+
+See (https://github.com/Ne-oL/geoz) for complete documentation (under construction).
+
+
+
+
+Created By Khalid ElHaj, PhD Fellow
+
+Geosciences Department @ UAE University
+
+## License information
+
+See the file \"LICENSE.txt\" for information on the history of this software, terms & conditions for usage, and a DISCLAIMER OF ALL WARRANTIES.
+
