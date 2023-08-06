@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: yi-package
+Version: 0.1.0
+Summary: Option B2 
+Home-page: https://github.com/pjyi/yi_pacakge
+License: MIT
+Author: Paige Yi
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: ipykernel (>=6.19.2,<7.0.0)
+Requires-Dist: jupyter (>=1.0.0,<2.0.0)
+Requires-Dist: matplotlib (>=3.6.2,<4.0.0)
+Requires-Dist: nltk (>=3.8,<4.0)
+Requires-Dist: pandas (>=1.5.2,<2.0.0)
+Requires-Dist: praw (>=7.6.1,<8.0.0)
+Requires-Dist: seaborn (>=0.12.1,<0.13.0)
+Requires-Dist: spacy (>=3.4.4,<4.0.0)
+Requires-Dist: wordcloud (>=1.8.2.2,<2.0.0.0)
+Project-URL: Documentation, https://yi-package-columbia.readthedocs.io/en/latest/
+Project-URL: Repository, https://github.com/pjyi/yi_pacakge
+Description-Content-Type: text/markdown
+
+# yi_package
+
+Option B2 
+
+## Installation
+
+```bash
+$ pip install yi_package
+```
+
+## Usage
+
+- TODO
+
+## Contributing
+
+Interested in contributing? Check out the contributing guidelines. Please note that this project is released with a Code of Conduct. By contributing to this project, you agree to abide by its terms.
+
+## License
+
+`yi_package` was created by Paige Yi. It is licensed under the terms of the MIT license.
+
+## Credits
+
+`yi_package` was created with [`cookiecutter`](https://cookiecutter.readthedocs.io/en/latest/) and the `py-pkgs-cookiecutter` [template](https://github.com/py-pkgs/py-pkgs-cookiecutter).
+
