@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: voiceinvoiceout
+Version: 0.0.1
+Summary: A module which helps you take voice input, voice output and many more...
+Author: Vedant Barhate
+Author-email: vedant.barhate27@gmail.com
+Keywords: python,speech,speech-recognition,voice,audio,speak,sprint,text to speech,speech to text
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: License :: OSI Approved :: MIT License
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+
+
+# voiceinvoiceout
+
+
+```cmd
+pip install voiceinvoiceout
+```
+
+Developed by Vedant Barhate (c) 2022
+
+This package is useful when you want to take audio input through mic from user, give audio output, give audio+text output and audio repeating feature (like talking tom).
+
+## Example
+```python
+from voiceinvoiceout import *
+
+vin = voiceIn("Say something...")    # to take audio input 
+print(vin)
+
+vout = voiceOut("Hello world")    # to give audio output
+
+sp = sprint("Welcome")      # to give text+audio output (sprint=speak+print)
+
+speakOut()      # to repeat your words (like talking tom)
+```
