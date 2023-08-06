@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+mapreg/__init__.py
+mapreg/prep_for_registration.py
+mapreg/register_maps.py
+mapreg.egg-info/PKG-INFO
+mapreg.egg-info/SOURCES.txt
+mapreg.egg-info/dependency_links.txt
+mapreg.egg-info/entry_points.txt
+mapreg.egg-info/requires.txt
+mapreg.egg-info/top_level.txt
