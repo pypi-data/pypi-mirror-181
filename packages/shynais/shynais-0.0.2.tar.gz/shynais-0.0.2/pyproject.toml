@@ -1,0 +1,12 @@
+[build-system]
+requires = [
+    "setuptools",
+    "wheel",
+    "ShynaDatabase",
+    "Shynatime",
+    "ShynaWeather",
+    "python-telegram-bot",
+    "ShynaTelegramBotNotification",
+    "wget"
+]
+build-backend = "setuptools.build_meta"
