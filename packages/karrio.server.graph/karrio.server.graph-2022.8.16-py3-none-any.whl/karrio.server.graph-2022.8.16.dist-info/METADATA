@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: karrio.server.graph
+Version: 2022.8.16
+Summary: Multi-carrier shipping API Graph module
+Home-page: https://github.com/karrioapi/karrio
+Author: karrio
+Author-email: hello@karrio.io
+License: Apache License Version 2.0
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Description-Content-Type: text/markdown
+Requires-Dist: django-filter
+Requires-Dist: graphene-django
+Requires-Dist: karrio.server.core
+
+# karrio.server.graph
+
+This package is a module of the [karrio](https://pypi.org/project/karrio.server) universal shipping API.
+
+## Requirements
+
+`Python 3.7+`
+
+## Installation
+
+```bash
+pip install karrio.server.graph
+```
+
+Check the [karrio docs](https://docs.karrio.io) to get started.
+
+
