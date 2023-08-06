@@ -1,0 +1,2 @@
+[vdk.plugin.run]
+jupyterlab-extension = vdk.plugin.jupyterlab_extension.plugin_entry
