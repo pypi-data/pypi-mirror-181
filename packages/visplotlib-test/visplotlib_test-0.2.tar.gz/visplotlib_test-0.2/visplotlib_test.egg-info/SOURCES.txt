@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+visplotlib_test/__init__.py
+visplotlib_test/dims.py
+visplotlib_test/plotly.py
+visplotlib_test/pyplot.py
+visplotlib_test/seaborn.py
+visplotlib_test/visium.mplstyle
+visplotlib_test.egg-info/PKG-INFO
+visplotlib_test.egg-info/SOURCES.txt
+visplotlib_test.egg-info/dependency_links.txt
+visplotlib_test.egg-info/requires.txt
+visplotlib_test.egg-info/top_level.txt
