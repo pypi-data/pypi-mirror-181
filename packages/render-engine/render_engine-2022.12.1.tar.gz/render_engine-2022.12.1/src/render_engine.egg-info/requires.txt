@@ -1,0 +1,15 @@
+Jinja2
+markdown2
+pendulum
+more-itertools
+python-frontmatter
+python-slugify
+
+[dev]
+pytest
+pytest-cov
+
+[docs]
+mkdocs
+mkdocs-material
+mkdocstrings[python]
