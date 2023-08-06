@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: smhi-weather
+Version: 0.1.0
+Summary: Fetch weather data from SMHI open API.
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Provides-Extra: doc
+License-File: LICENSE
+
+# smhi-weather
+
+Provides some friendly functions to fetch data from SMHI:s open data api.
+
+The source off all data provided is [SMHI](http://opendata.smhi.se/apidocs/metfcst/index.html),
+use in accordance with SMHI:s guidelines and API policy.
