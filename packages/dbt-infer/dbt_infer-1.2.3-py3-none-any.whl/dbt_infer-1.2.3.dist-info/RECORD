@@ -1,0 +1,15 @@
+dbt/__init__.py,sha256=qEFeq3yuf3lQKVseALmL8aPM8fpCS54B_5pry00M3hk,76
+dbt/adapters/infer/__init__.py,sha256=PW0bg0r82nzfKBjvKYn1sBTDDFnlwL6N3bwXgvXdA10,402
+dbt/adapters/infer/__version__.py,sha256=cBL87poIDcMGF9hJw2uh-bWSeXv7smtEeazLw_H-a3g,18
+dbt/adapters/infer/connections.py,sha256=IzOpzJBD1I_IpfMHC2I_CB5aHx1hqmFeIo7Y6yevWeg,9407
+dbt/adapters/infer/impl.py,sha256=anvmV4irdEKkfc8taJA6uQ20EgBHGgglzpISCOzo_GE,11684
+dbt/include/infer/__init__.py,sha256=vBGWeG-dHHkimfnX8axBJ4IgAowFw8xADmo6Auzn2xc,52
+dbt/include/infer/dbt_project.yml,sha256=nszGQuh8EThUYPkHK2A9pYvRKnkOKgB1z5COHLUZLi0,74
+dbt/include/infer/profile_template.yml,sha256=PjmOTrbcwXsSoagbaJlHazeQe4rv-ERt6uS5pkeW31c,246
+dbt/include/infer/macros/adapters.sql,sha256=GbjSsvEGgDFtl91EpSePtST0C2tXqmyDoojxBuDV2Rw,903
+dbt/include/infer/macros/catalog.sql,sha256=d_hDGp0gTNSlmNmq7oEL_rf95HUF3M34e69lm7EfHAc,211
+dbt_infer-1.2.3.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+dbt_infer-1.2.3.dist-info/METADATA,sha256=UN7VjhrwEg5yxDAyVMB-BT4eh_tAVJoSx2b_ZntBfD0,4463
+dbt_infer-1.2.3.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+dbt_infer-1.2.3.dist-info/top_level.txt,sha256=B2YH4he17ajilEWOGCKHbRcEJlCuZKwCcgFcLPntLsE,4
+dbt_infer-1.2.3.dist-info/RECORD,,
