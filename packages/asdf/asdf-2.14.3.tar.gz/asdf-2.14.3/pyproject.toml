@@ -1,0 +1,176 @@
+[project]
+name = 'asdf'
+description = 'Python implementation of the ASDF Standard'
+readme = 'README.rst'
+requires-python = '>=3.8'
+license = { file = 'LICENSE' }
+authors = [{ name = 'The ASDF Developers', email = 'help@stsci.edu' }]
+classifiers = [
+    "License :: OSI Approved :: BSD License",
+    'Programming Language :: Python',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3.8',
+    'Programming Language :: Python :: 3.9',
+    'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11',
+    'Development Status :: 5 - Production/Stable',
+]
+dependencies = [
+    'asdf-standard >=1.0.1',
+    'asdf-transform-schemas >=0.3.0',
+    'asdf-unit-schemas >= 0.1.0',
+    'importlib_resources >=3; python_version <"3.9"',
+    'importlib-metadata >=4.11.4',
+    'jmespath >=0.6.2',
+    'jsonschema >=4.0.1',
+    'numpy >=1.18',
+    'packaging >=16.0',
+    'pyyaml >=3.10',
+    'semantic_version >=2.8',
+]
+dynamic = ['version']
+
+[project.optional-dependencies]
+all = [
+    'lz4 >=0.10',
+]
+docs = [
+    'tomli',
+    'sphinx-asdf >=0.1.4',
+]
+tests = [
+    'astropy >=5.0.4',
+    'gwcs',
+    'pytest >=6.0.0',
+    'pytest-doctestplus',
+    'pytest-remotedata',
+    'pytest-openfiles',
+    'psutil',
+    'lz4 >=0.10',
+    'fsspec[http] >=2022.8.2',
+]
+[project.urls]
+'tracker' = 'https://github.com/asdf-format/asdf/issues'
+'documentation' = 'https://asdf.readthedocs.io/en/stable'
+'repository' = 'https://github.com/asdf-format/asdf'
+
+[project.entry-points]
+console_scripts = { asdftool = 'asdf.commands.main:main' }
+asdf_extensions = { builtin = 'asdf.extension:BuiltinExtension' }
+'asdf.resource_mappings' = { asdf = 'asdf.resource:get_json_schema_resource_mappings' }
+pytest11 = { asdf_schema_tester = 'pytest_asdf.plugin' }
+
+[build-system]
+requires = [
+    'setuptools >=60',
+    'setuptools_scm[toml] >=3.4',
+    'wheel',
+]
+build-backend = 'setuptools.build_meta'
+
+[tool.setuptools_scm]
+write_to = "asdf/_version.py"
+
+[tool.setuptools.packages.find]
+include = ['asdf*', 'pytest_asdf*']
+
+[tool.setuptools.package-data]
+'asdf.commands.tests.data' = ["*"]
+'asdf.tags.core.tests.data' = ["*"]
+'asdf.tests.data' = ["*"]
+
+[tool.pytest.ini_options]
+testpaths = ['asdf', 'docs']
+minversion = 4.6
+norecursedirs = ['build', 'docs/_build', 'docs/sphinxext']
+doctest_plus = 'enabled'
+remote_data_strict = true
+open_files_ignore = ['test.fits', 'asdf.fits']
+# The asdf.asdftypes module emits a warning on import,
+# which pytest trips over during collection:
+filterwarnings = [
+    'error',
+    'ignore::asdf.exceptions.AsdfDeprecationWarning:asdf.asdftypes',
+    'ignore:numpy.ndarray size changed:RuntimeWarning',
+]
+# Configuration for pytest-doctestplus
+text_file_format = 'rst'
+addopts = '--color=yes --doctest-rst'
+
+[tool.coverage.run]
+omit = [
+    'asdf/_astropy_init*',
+    'asdf/conftest*',
+    'asdf/cython_version*',
+    'asdf/setup_package*',
+    'asdf/*/setup_package*',
+    'asdf/*/*/setup_package*',
+    'asdf/testing/*',
+    'asdf/tests/*',
+    'asdf/*/tests/*',
+    'asdf/*/*/tests/*',
+    'asdf/version.*',
+    'asdf/compat*',
+    'asdf/extern*',
+    # And again for running against installed version
+    '*/asdf/_astropy_init*',
+    '*/asdf/conftest*',
+    '*/asdf/cython_version*',
+    '*/asdf/setup_package*',
+    '*/asdf/*/setup_package*',
+    '*/asdf/*/*/setup_package*',
+    '*/asdf/testing/*',
+    '*/asdf/tests/*',
+    '*/asdf/*/tests/*',
+    '*/asdf/*/*/tests/*',
+    '*/asdf/version.*',
+    '*/asdf/compat*',
+    '*/asdf/extern*',
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    # Have to re-enable the standard pragma
+    'pragma: no cover',
+    # Don't complain about packages we have installed
+    'except ImportError',
+    # Don't complain if tests don't hit assertions
+    'raise AssertionError',
+    'raise NotImplementedError',
+    # Don't complain about script hooks
+    'def main\(.*\):',
+    # Ignore branches that don't pertain to this version of Python
+    'pragma: py{ ignore_python_version }',
+]
+
+[tool.black]
+line-length = 120
+force-exclude = '''
+^/(
+  (
+      \.eggs
+    | \.git
+    | \.pytest_cache
+    | \.tox
+    | asdf/extern
+    | build
+    | dist
+  )/
+)
+'''
+
+[tool.isort]
+profile = "black"
+filter_files = true
+line_length = 120
+extend_skip_glob = ["asdf/extern/*", ".eggs/*", ".tox/*"]
+
+[tool.ruff]
+line-length = 120
+extend-exclude = ["asdf/extern/*", "docs/*"]
+
+[tool.codespell]
+skip="*.pdf,*.fits,*.asdf,.tox,asdf/extern,build,./tags,.git,docs/_build"
+ignore-words-list="""
+fo,
+"""
