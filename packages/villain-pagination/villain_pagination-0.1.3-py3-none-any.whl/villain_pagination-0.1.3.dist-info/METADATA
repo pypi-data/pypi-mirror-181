@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: villain-pagination
+Version: 0.1.3
+Summary: A small pagination package
+Home-page: https://github.com/villain-pagination/villain-pagination
+Author: villain
+Author-email: mon2210@naver.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: fastapi (>=0.88.0)
+Requires-Dist: pydantic (>=1.8.2)
+Requires-Dist: starlette (>=0.14.2)
+
+# Welcome to villain-pagination
+
+
