@@ -1,0 +1,15 @@
+COPYING
+MANIFEST.in
+README.md
+pyproject.toml
+requirements.txt
+setup.py
+adventofcode_initializer.egg-info/PKG-INFO
+adventofcode_initializer.egg-info/SOURCES.txt
+adventofcode_initializer.egg-info/dependency_links.txt
+adventofcode_initializer.egg-info/entry_points.txt
+adventofcode_initializer.egg-info/requires.txt
+adventofcode_initializer.egg-info/top_level.txt
+src/__init__.py
+src/__main__.py
+src/__version__.py
