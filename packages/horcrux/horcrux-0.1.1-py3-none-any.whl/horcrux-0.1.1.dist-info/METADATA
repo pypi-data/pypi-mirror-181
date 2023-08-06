@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: horcrux
+Version: 0.1.1
+Summary: Horcrux - A Python implementation of Shamir's Secret Sharing.
+Home-page: https://github.com/reidhoch/horcrux
+License: MPL-2.0
+Author: Reid Hochstedler
+Author-email: reidhoch@gmail.com
+Requires-Python: >=3.9,<4.0
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Security
+Classifier: Topic :: Security :: Cryptography
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: cryptography (>=38.0.4,<39.0.0)
+Project-URL: Repository, https://github.com/reidhoch/horcrux
+Description-Content-Type: text/markdown
+
+Horcrux - A Python implemntation of Shamir's Secret Sharing, based of Hashicorp's implementation for Vault.
+
