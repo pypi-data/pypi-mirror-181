@@ -1,0 +1,13 @@
+{% if enable_tests is defined and enable_tests %}
+- test:
+{% if lxc_project == true %}
+    namespace: target
+{% endif %}
+    timeout:
+      minutes: {{ test_timeout }}
+{% if test_target_interactive is undefined %}
+    definitions:
+{% else %}
+    interactive:
+{% endif %}
+{% endif %}

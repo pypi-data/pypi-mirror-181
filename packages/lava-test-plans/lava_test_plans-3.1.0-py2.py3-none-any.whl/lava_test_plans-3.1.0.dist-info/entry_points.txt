@@ -1,0 +1,4 @@
+[console_scripts]
+lava-test-plans=lava_test_plans.__main__:main
+submit_for_testing.py=lava_test_plans.__main__:main
+

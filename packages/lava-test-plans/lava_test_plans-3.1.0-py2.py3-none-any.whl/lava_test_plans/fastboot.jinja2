@@ -1,0 +1,34 @@
+{% extends "include/fastboot.jinja2" %}
+
+{% block deploy_target %}
+{{ super() }}
+- deploy:
+    timeout:
+      minutes: {{ fastboot_deploy_timeout }}
+    to: fastboot
+    docker:
+      image: {{DOCKER_IMAGE}}
+    images:
+{% if rootfs == true %}
+{% if ptable == true %}
+      ptable:
+        url: downloads://{{DOCKER_PTABLE_FILE}}
+{% if reboot_reset == true %}
+        reboot: hard-reset
+{% endif %}
+{% endif %}
+{% endif %}
+{% if boot == true and BOOT_LABEL != "kernel" %}
+      boot:
+        url: downloads://{{DOCKER_BOOT_FILE}}
+{% if reboot_reset == true %}
+        reboot: hard-reset
+{% endif %}
+{% endif %}
+{% if rootfs == true %}
+      {{ rootfs_label }}:
+        url: downloads://{{DOCKER_ROOTFS_FILE}}
+        apply-overlay: true
+{% endif %}
+    os: {{DEPLOY_OS}}
+{% endblock deploy_target %}

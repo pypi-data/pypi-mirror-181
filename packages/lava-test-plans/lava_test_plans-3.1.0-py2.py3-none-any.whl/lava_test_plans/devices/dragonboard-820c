@@ -1,0 +1,10 @@
+{% set PROJECT = PROJECT|default("") %}
+{% extends PROJECT+"fastboot.jinja2" %}
+
+{% set BOOT_OS_PROMPT = BOOT_OS_PROMPT|default("dragonboard-820c:") %}
+{% set DEPLOY_OS = DEPLOY_OS|default("oe") %}
+{% set ROOTFS_URL_COMP = ROOTFS_URL_COMP|default("gz") %}
+
+{% set rootfs_label = 'rootfs' %}
+
+{% block device_type %}dragonboard-820c{% endblock %}

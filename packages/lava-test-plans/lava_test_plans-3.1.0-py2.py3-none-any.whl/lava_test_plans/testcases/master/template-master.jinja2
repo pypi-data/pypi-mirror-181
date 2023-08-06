@@ -1,0 +1,22 @@
+{% extends device_type %}
+
+{% set PROJECT_NAME = PROJECT_NAME|default("") %}
+{% set BUILD_NUMBER = BUILD_NUMBER|default("") %}
+{% set KERNEL_BRANCH = KERNEL_BRANCH|default("") %}
+{% set OS_INFO = OS_INFO|default("") %}
+
+{# with the BUILD_NUMBER in the middle, it's possible to get #}
+{# the sub job name(which is the test_name here) #}
+{# from this lava job name information #}
+{% block job_name %}{{PROJECT_NAME}}-{{OS_INFO}}-{{KERNEL_BRANCH}}-{{BUILD_NUMBER}}-{{test_name}}{% endblock job_name %}
+
+{% block context %}
+{{ super() }}
+  {%- if extra_kernel_args is defined %}
+  extra_kernel_args: '{{extra_kernel_args}}'
+  {%- endif %}
+{% endblock context %}
+
+{% block metadata %}
+  {{ super() }}
+{% endblock metadata %}
