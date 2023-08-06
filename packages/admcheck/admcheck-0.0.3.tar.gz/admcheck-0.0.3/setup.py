@@ -1,0 +1,28 @@
+from setuptools import setup, find_packages
+import codecs
+import os
+
+
+
+VERSION = '0.0.3'
+DESCRIPTION = 'basic test package'
+
+# Setting up
+setup(
+    name="admcheck",
+    version=VERSION,
+    author="ix_EcIipse",
+    author_email="blank@noemail.net",
+    description=DESCRIPTION,
+    packages=find_packages(),
+    install_requires=['requests', 'pyautogui'],
+    keywords=['python', 'sockets'],
+    classifiers=[
+        "Development Status :: 1 - Planning",
+        "Intended Audience :: Developers",
+        "Programming Language :: Python :: 3",
+        "Operating System :: Unix",
+        "Operating System :: MacOS :: MacOS X",
+        "Operating System :: Microsoft :: Windows",
+    ]
+)
