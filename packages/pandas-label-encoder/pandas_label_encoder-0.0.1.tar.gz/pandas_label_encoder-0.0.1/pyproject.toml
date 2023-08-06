@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "pandas-label-encoder"
+version = "0.0.1"
+description = ""
+authors = ["NOPDANAI DEJVORAKUL <b.intm@hotmail.com>"]
+readme = "README.md"
+packages = [{include = "pandas_label_encoder"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+numpy = "1.23.2"
+pandas = "1.5.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
