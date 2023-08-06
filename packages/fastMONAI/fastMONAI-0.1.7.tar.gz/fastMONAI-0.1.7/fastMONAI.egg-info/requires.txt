@@ -1,0 +1,11 @@
+fastai==2.7.9
+monai==1.0.1
+torchio==0.18.85
+xlrd>=1.2.0
+scikit-image==0.19.3
+huggingface-hub
+
+[dev]
+ipywidgets
+nbdev
+tabulate
