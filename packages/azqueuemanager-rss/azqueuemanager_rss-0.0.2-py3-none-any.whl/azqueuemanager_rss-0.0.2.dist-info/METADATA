@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: azqueuemanager-rss
+Version: 0.0.2
+Summary: rss-parser for AZQueueManager
+License: MIT
+Keywords: azqueuemanager,extension,rss,azure storage queues
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: azqueuemanager
+Requires-Dist: feedparser
+Requires-Dist: dateparser
+
+# AzQueueManager-RSS Extension
+RSS Extension  for [AZ Queue Manager](https://pypi.org/project/azqueuemanager/)
+
+|||
+---|---
+|Transform | RSSTransform | 
+|transform_in | ✅ |
+|transform_preview | 🚫 |
+|transform_out | 🚫 |
+
+
+to install:
+```bash
+pip install azqueuemanager-rss
+```
