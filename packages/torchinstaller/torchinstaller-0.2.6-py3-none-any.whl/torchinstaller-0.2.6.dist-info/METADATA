@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: torchinstaller
+Version: 0.2.6
+Summary: 
+Author: Daniel Capecci
+Author-email: capeccid@gmail.com
+Requires-Python: >=3.9,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Description-Content-Type: text/markdown
+
+# PyTorch Install Helper
+
+> _Only Linux and macOS Supported_
+
+Detects what cuda version is available and runs the pip command to install latest pytorch and compatible cuda version
+
