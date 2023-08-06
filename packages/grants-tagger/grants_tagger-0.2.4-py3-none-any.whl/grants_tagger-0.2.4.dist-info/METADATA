@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: grants-tagger
+Version: 0.2.4
+Summary: A machine learning model to tag grants
+Author: Nick Sorros
+Author-email: n.sorros@wellcome.ac.uk
+License-File: LICENSE
+Requires-Dist: sklearn
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: requests
+Provides-Extra: dev
+Requires-Dist: pandas ; extra == 'dev'
+Requires-Dist: xlrd ; extra == 'dev'
+Requires-Dist: scikit-learn (==0.23.2) ; extra == 'dev'
+Requires-Dist: matplotlib ; extra == 'dev'
+Requires-Dist: wellcomeml[core,tensorflow,torch,transformers] (==2.0.3) ; extra == 'dev'
+Requires-Dist: docutils (==0.15) ; extra == 'dev'
+Requires-Dist: scipy (==1.4.1) ; extra == 'dev'
+Requires-Dist: wasabi ; extra == 'dev'
+Requires-Dist: typer ; extra == 'dev'
+Requires-Dist: tqdm ; extra == 'dev'
+Requires-Dist: streamlit ; extra == 'dev'
+Requires-Dist: requests ; extra == 'dev'
+Requires-Dist: pygtrie (==2.3.3) ; extra == 'dev'
+Requires-Dist: openpyxl ; extra == 'dev'
+Provides-Extra: xlinear
+Requires-Dist: libpecos (==0.1.0) ; extra == 'xlinear'
+
