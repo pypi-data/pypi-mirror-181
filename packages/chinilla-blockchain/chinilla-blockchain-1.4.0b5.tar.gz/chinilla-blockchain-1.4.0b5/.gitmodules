@@ -1,0 +1,7 @@
+[submodule "mozilla-ca"]
+	path = mozilla-ca
+	url = https://github.com/Chinilla/mozilla-ca.git
+        branch = main
+[submodule "chinilla-blockchain-gui"]
+	path = chinilla-blockchain-gui
+	url = https://github.com/chinilla/chinilla-blockchain-gui
