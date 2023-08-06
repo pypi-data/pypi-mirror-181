@@ -1,0 +1,6 @@
+tickerdax:
+  routes:
+    predictions/ml-order-book-model-1: ["BTC"]
+  start: 2022-11-01T00:00:00
+  timeframe: 1h
+  fill_to_now: False
