@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: fplore
+Version: 0.4a1
+Summary: FPLO run evaluation
+Home-page: https://github.com/mueslo/fplore
+License: GPLv3
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Physics
+Classifier: Topic :: Scientific/Engineering :: Chemistry
+Requires-Python: >=3.8, <4
+Description-Content-Type: text/markdown
+Provides-Extra: tests
+Provides-Extra: docs
+License-File: LICENSE
+
+[![](https://img.shields.io/github/release/mueslo/fplore.svg?style=flat-square)](https://github.com/mueslo/fplore/releases)
+[![](https://img.shields.io/pypi/v/fplore.svg?style=flat-square)](https://pypi.org/project/fplore/)
+[![](https://img.shields.io/github/workflow/status/mueslo/fplore/Run%20tests/master?style=flat-square)](https://github.com/mueslo/fplore/actions/workflows/tests.yml)
+[![](https://img.shields.io/readthedocs/fplore.svg?style=flat-square)](https://fplore.readthedocs.io)
+[![](https://img.shields.io/github/license/mueslo/fplore.svg?style=flat-square)](https://github.com/mueslo/fplore/blob/master/LICENSE)
+
+
+# fplore
+A python library for [FPLO](https://www.fplo.de/) run evaluation.
+
+:construction: Still a work in progress, syntax may change without notice. :construction:
+
+:raising_hand: If you have completed FPLO runs, It'd be super helpful if you could send them to me so I can test various cases and implement new features. Thanks! Either drop me an e-mail or submit a pull request [here](https://github.com/mueslo/fplore_example_data/).
+
+## Installation
+
+The recommended way to install `fplore` is via the packages made available at PyPI by using the tool `pip`:
+ ``pip install fplore``.
+ 
+Ideally, you should never install packages from PyPI as system packages, rather you should use [virtual environments](https://realpython.com/python-virtual-environments-a-primer/). If for some reason `virtualenv` is unavailable to you, installing for your user only (`pip install --user`) is preferable to forced system-wide installation.
+
+## Gallery
+[
+![Brillouin zone](https://fplore.readthedocs.io/en/latest/_images/sphx_glr_brillouin_zone_thumb.png)
+![Band plot](https://fplore.readthedocs.io/en/latest/_images/sphx_glr_band_plot_thumb.png)
+![Band projection](https://fplore.readthedocs.io/en/latest/_images/sphx_glr_project_thumb.png)
+![Fermi surface projection](https://fplore.readthedocs.io/en/latest/_images/sphx_glr_proj_fermisurf_thumb.png)
+](https://fplore.readthedocs.io/en/latest/gallery/)
+
+## Usage
+
+See the documentation at [fplore.readthedocs.io](https://fplore.readthedocs.io/en/latest).
+
+

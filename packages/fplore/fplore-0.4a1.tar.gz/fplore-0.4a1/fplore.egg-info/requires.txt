@@ -1,0 +1,17 @@
+numpy~=1.21
+scipy~=1.7
+pymatgen~=2022.5.19
+orderedattrdict~=1.5
+logbook~=1.5
+pyparsing~=2.4
+progressbar2~=3.38
+matplotlib<3.6,~=3.4
+Pint~=0.17
+
+[docs]
+sphinx~=4.5
+sphinx-gallery~=0.10
+Pillow
+
+[tests]
+tox
