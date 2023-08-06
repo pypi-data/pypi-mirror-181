@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: pyschlage
+Version: 2022.12.13
+Summary: Python API for interacting with Schlage WiFi locks.
+Home-page: https://github.com/dknowles2/pyschlage
+Download-URL: https://github.com/dknowles2/pyschlage/tarball/2022.12.13
+Author: David Knowles
+Author-email: dknowles2@gmail.com
+License: Apache License 2.0
+Keywords: schlage,api,iot
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pycognito (>=2022.11.2)
+Requires-Dist: requests (>=2.22.0)
+
+# pyschlage
+Python 3 library for interacting with Schlage WiFi locks.
+
+*Note that this project has no official relationship with Schlage or Allegion. Use at your own risk.*
+
+## Usage
+
+```python
+from pyschlage import Auth, Schlage
+
+# Create a Schlage object and authenticate with your credentials.
+s = Schlage(Auth("username", "password"))
+
+# List the devices attached to your account.
+devices = s.get_devices()
+
+# Print the name of the first device
+print(devices[0].name)
+"My lock"
+
+# Lock the first device.
+devices[0].lock()
+```
