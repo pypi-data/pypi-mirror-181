@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: tweeds
+Version: 2.1
+Summary: An advanced Twitter scraping & OSINT tool.
+Home-page: https://github.com/achyuthjoism/Twitter-OSINT
+Author: Achyuth Jois M
+Author-email: developer.arjm@gmail.com
+License: MIT
+Platform: UNKNOWN
+
+"Scrape tweets from any Twitter user profile. Twitter API alternative to scrape Twitter hashtags, threads, images, videos, statistics,
+and Twitter history. Export data in JSON and CSV format. This project enables you to extract large amounts of data from Twitter.
+It lets you do much more than the Twitter API, because it doesn't have rate limits and you don't even need to have a **Twitter account, a registered app,
+or Twitter API key.**
+
