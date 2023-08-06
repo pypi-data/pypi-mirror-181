@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+czsc.egg-info/PKG-INFO
+czsc.egg-info/SOURCES.txt
+czsc.egg-info/dependency_links.txt
+czsc.egg-info/requires.txt
+czsc.egg-info/top_level.txt
+fsc/__init__.py
+fsc/base.py
+fsc/spreed_sheets.py
+test/test_base.py
