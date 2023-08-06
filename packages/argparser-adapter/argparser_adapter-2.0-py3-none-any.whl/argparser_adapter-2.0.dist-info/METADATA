@@ -1,0 +1,151 @@
+Metadata-Version: 2.1
+Name: argparser-adapter
+Version: 2.0
+Summary: Add argparser argument based on object heuristics
+Home-page: https://github.com/NMRbox/argparser_adapter
+Maintainer: gweatherby
+Maintainer-email: gweatherby@uchc.edu
+License: UNKNOWN
+Project-URL: Funding, https://nmrhub.org
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+
+argparser_adapter
+=================
+
+This package provides automatic adding of arguments to an argparser. ArgumentParser
+based on a simple method naming convention.
+
+Basic Usage
+-----------
+
+Write your class with methods you wish called from a command line decorated with *@CommandLine()*
+Create an **ArgparserAdapter**, passing your object as a constructor. Decorated methods
+will be added to an argparser via the *register* call as -- arguments. After parsing,
+*call_specified_methods* will call methods specified on command. ArgparseAdapter will
+attempt to convert command line strings to appropriate types if Python `type hints`_ are
+provided.
+
+CommandLine Options
+~~~~~~~~~~~~~~~~~~~
+Arguments may be designed as required using *@CommandLine(required=True).* Default values may
+be specified with *@CommandLine(default=10).* Note specifying both required and a default is possible
+but not useful.
+
+Logging
+~~~~~~~
+Logging is to: **logging.getLogger('argparser_adapter')**
+
+Example
+~~~~~~~
+
+::
+
+    import argparse
+    import logging
+    from ipaddress import IPv4Address
+
+    from argparser_adapter import ArgparserAdapter
+    from argparser_adapter.argparser_adapter import CommandLine
+
+
+    class Something:
+
+        @CommandLine()
+        def seven(self) -> int:
+            # no help for this argument
+            print(7)
+            return 7
+
+        @CommandLine()
+        def double(self, x):
+            """double a number"""
+            print(2 * int(x))
+
+        @CommandLine()
+        def sum(self, x: int, y: int):
+            """sum arguments"""
+            print(x + y)
+
+        @CommandLine(default=10)
+        def triple(self, x: int):
+            """triple a value"""
+            print(3 * int(x))
+
+        @CommandLine()
+        def ipv4address(self, x: IPv4Address):
+            """Print ip address"""
+            print(type(x))
+            print(x)
+
+        @CommandLine()
+        def binary(self, value: bool):
+            """True or false"""
+            print(value)
+
+        @CommandLine(required=True)
+        def happy(self, v: str):
+            """Report how happy we are"""
+            print(f"Happy is {v}")
+
+
+    def main():
+        something = Something()
+        adapter = ArgparserAdapter(something, group=False, required=False)
+        parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+        adapter.register(parser)
+        args = parser.parse_args()
+        adapter.call_specified_methods(args)
+
+
+    if __name__ == "__main__":
+        main()
+
+Note the *double* will receive a string and must convert it to an integer. The
+type hint in *triple* ensures the argument will be an integer.
+
+The resulting argument argparser help is:
+
+::
+
+    usage: decoratortest.py [-h] [--binary value] [--double x] --happy v
+                            [--ipv4address x] [--seven] [--sum x y] [--triple x]
+
+    optional arguments:
+      -h, --help       show this help message and exit
+      --binary value   True or false (default: None)
+      --double x       double a number (default: None)
+      --happy v        Report how happy we are (default: None)
+      --ipv4address x  Print ip address (default: None)
+      --seven
+      --sum x y        sum arguments (default: None)
+      --triple x       triple a value (default: 10)
+
+
+Docstrings, if present, become help arguments.
+
+Advanced usage
+______________
+When type conversion fails, the method
+
+::
+
+    def param_conversion_exception(self, e: Exception, method_name: str, parameter_name: str, parameter_type: type,
+                                   value: str) -> Any:
+
+is called. The default behavior is to raise a ValueError_ exception including the method and parameter names, the value
+passed and the original exception message. This method is provided for subclasses to override,
+if desired. An implementation should raise an Exception or return a suitable parameter for
+calling *method_name*.
+
+Alternative packages
+--------------------
+More complete packages are available for this purpose, such as Click_. This implementation is
+intended to be simple, lightweight and easy to use.
+
+.. _type hints: https://docs.python.org/3/library/typing.html
+.. _ValueError: https://docs.python.org/3/library/exceptions.html#ValueError
+.. _Click: https://click.palletsprojects.com/
+
+
+
