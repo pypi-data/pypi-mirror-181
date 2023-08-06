@@ -1,0 +1,100 @@
+Metadata-Version: 2.1
+Name: reverse_diagrams
+Version: 0.1.5
+Summary: Continuous Documentation Tool - Documentation as Code Tool - 
+ This package create reverse diagrams  based on your current state in your cloud environment
+Project-URL: Homepage, https://github.com/velez94/reverse_diagrams
+Project-URL: Bug Tracker, https://github.com/velez94/reverse_diagrams/issues
+Author-email: Alejandro Velez <wilmar.velezl@sophossolutions.com>
+License: MIT License
+        
+        Copyright (c) [2022] [Alejandro Velez]
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+Requires-Dist: boto3>=1.26.4
+Requires-Dist: colorama>=0.4.4
+Requires-Dist: diagrams>=0.22.0
+Requires-Dist: jsonschema>=3.2.0
+Description-Content-Type: text/markdown
+
+# Reverse Diagrams
+
+> Continuous Documentation Tool - Documentation as Code Tool
+
+This package create reverse diagrams  based on your current state in your cloud environment.
+
+# Use
+
+The following are the available options
+
+```commandline
+$ reverse_diagrams -h 
+
+usage: reverse_diagrams [-h] [-c CLOUD] [-p PROFILE] [-o] [-i] [-v]
+
+options:
+  -h, --help            show this help message and exit
+  -c CLOUD, --cloud CLOUD
+                        Cloud Provider, aws, gcp, azure
+  -p PROFILE, --profile PROFILE
+                        AWS cli profile for Access Analyzer Api
+  -o, --graph_organization
+                        Set if you want to create graph for your organization
+  -i, --graph_identity  Set if you want to create graph for your IAM Center
+  -v, --version         Show version
+
+```
+For example: 
+
+```commandline
+reverse_diagrams -c aws -p my-profile -o 
+```
+
+# Cloud Providers
+## AWS
+
+### Requirement
+
+AWS programmatic access using AWS CLI. :arrow_right: [Configuring the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)
+
+### Service supported
+
+#### AWS Organizations
+
+```commandline
+reverse_diagrams -c aws -p my-profile -o 
+```
+#### Identity and Access Manager Center (SSO)
+
+```commandline
+reverse_diagrams -c aws -p my-profile -i 
+```
+## Additional Commands
+
+### Combine the options
+
+```commandline
+reverse_diagrams -c aws -p my-profile -o -i
+```
+
