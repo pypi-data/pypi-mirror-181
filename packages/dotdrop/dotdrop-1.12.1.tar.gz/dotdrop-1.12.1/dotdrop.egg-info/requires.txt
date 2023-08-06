@@ -1,0 +1,16 @@
+docopt
+Jinja2
+ruamel.yaml
+python-magic
+packaging
+requests
+toml
+distro
+
+[dev]
+check-manifest
+
+[test]
+coverage
+pytest
+pytest-cov
