@@ -1,0 +1,3 @@
+[console_scripts]
+ssm-config-transformer=ssm_parameter_config.ssm_writer:cli
+
