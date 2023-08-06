@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: COSMO-TL
+Version: 0.0.1
+Summary: COSMO-TL: A Python package for the Transfer Learning of COSMO-SAC data from the Virginia Tech Database to the NIST THERMOML Database
+Author: Eric C. Fonseca
+Author-email: ericfonseca@ufl.edu
+License: BSD 2-clause
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Requires-Dist: dask
+Requires-Dist: matplotlib
+Requires-Dist: seaborn
+Requires-Dist: scipy
+Requires-Dist: numpy
+
