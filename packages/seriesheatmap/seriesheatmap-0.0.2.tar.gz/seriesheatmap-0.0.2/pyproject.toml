@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "seriesheatmap"
+version = "0.0.2"
+description = "Scraper and heatmap plotter for episode ratings of series on IMDB"
+license = {file = "LICENSE"}
+authors = [{ name="Florian Trautweiler", email="florian.trautweiler@hispeed.ch" }]
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "pandas",
+    "selenium",
+    "lxml",
+    "numpy",
+    "matplotlib",
+    "tqdm",
+]
+keywords = ["series", "heatmap", "scraper"]
+
+[project.urls]
+repository = "https://github.com/trflorian/imdb-scraper-heatmap"
