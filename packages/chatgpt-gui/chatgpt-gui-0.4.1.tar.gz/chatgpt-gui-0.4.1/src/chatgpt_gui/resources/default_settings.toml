@@ -1,0 +1,24 @@
+ignore_updates = false
+language = "en-US"
+
+[gui.window]
+x_size = 900 # Minimum value of 100
+y_size = 500 # Minimum value of 100
+
+[gui.themes]
+selected = "light"
+
+[gui.themes.dark]
+display_name = "Breeze Dark"
+path = "builtin::dark"
+
+[gui.themes.light]
+display_name = "Breeze Light"
+path = "builtin::light"
+
+[network.proxy]
+protocol = 0 # 0: No Proxy | 1: HTTP Proxy | 2: Socks5 Proxy
+host = "example.com" # Domain/IP to connect to
+port = 12345 # Port to connect to host with
+username = "" # Optional username to proxy server
+password = "" # Optional password to proxy server
