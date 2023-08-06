@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "sysinfop"
+version = "0.1.0"
+description = "Lightweight system info grabber"
+authors = ["Josh Burns <joshyburnss@gmail.com>"]
+readme = "README.rst"
+packages = [{include = "sysinfop", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+rich = "^12.6.0"
+psutil = "^5.9.4"
+
+[tool.poetry.scripts]
+sysinfop = { callable = "sysinfop:console.run" }
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
