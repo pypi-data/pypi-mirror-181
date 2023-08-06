@@ -1,0 +1,61 @@
+[tool.poetry]
+name = "gdshoplib"
+version = "1.1.4"
+description = ""
+authors = ["Nikolay Baryshnikov <root@k0d.ru>"]
+packages=[
+    { include = "gdshoplib" },
+]
+license="MIT"
+readme="README.md"
+homepage="https://github.com/p141592"
+repository="https://github.com/gdhorseshop/gdlib"
+classifiers=[
+    "License :: OSI Approved :: MIT License",
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "Natural Language :: Russian",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+]
+
+[tool.poetry.scripts]
+gdshoplib = "gdshoplib.core.cli:app"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+notion-client = "^1.0.0"
+pydantic = "^1.10.2"
+requests = "^2.28.1"
+twine = "^4.0.1"
+python-dateutil = "^2.8.2"
+Jinja2 = "^3.1.2"
+typer = {extras = ["all"], version = "^0.7.0"}
+rich = "^12.6.0"
+tqdm = "^4.64.1"
+Pillow = "^9.3.0"
+whatimage = "^0.0.3"
+pyheif = "^0.7.0"
+yadisk = "^1.2.16"
+isort = "^5.10.1"
+mypy = "^0.991"
+lxml = "^4.9.1"
+redis = "^4.3.5"
+orjson = "^3.8.3"
+
+[tool.poetry.dev-dependencies]
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^5.0.4"
+pytest = "^7.2.0"
+pytest-mock = "^3.10.0"
+pytest-cov = "^4.0.0"
+black = "^22.10.0"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
