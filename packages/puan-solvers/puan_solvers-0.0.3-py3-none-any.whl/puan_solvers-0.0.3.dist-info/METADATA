@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: puan-solvers
+Version: 0.0.3
+Summary: Wrappers for integer linear programming solvers.
+Author: ourstudio
+Author-email: moa@ourstudio.se
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy (>=1.22.3)
+Requires-Dist: puan (>=0.5.0)
+Requires-Dist: npycvx (>=0.0.2)
+Requires-Dist: maz (>=0.0.6)
+Requires-Dist: scipy (>=1.4.1)
+
+Wrappers for integer linear programming solvers.
