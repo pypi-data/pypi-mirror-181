@@ -1,0 +1,55 @@
+{% load static %}
+
+{% block departments %}
+<section id="departments" class="departments">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>{{ departments.title }}</h2>
+      <p>{{ departments.subtitle }}</p>
+    </div>
+
+    <div class="row gy-4">
+      <div class="col-lg-3">
+        <ul class="nav nav-tabs flex-column">
+          {% for item in departments.items %}
+            <li class="nav-item">
+            {% if forloop.first %}
+              <a class="nav-link active show" data-bs-toggle="tab" href="#tab-{{ forloop.counter }}">{{ item.title }}</a>
+            {% else %}
+              <a class="nav-link" data-bs-toggle="tab" href="#tab-{{ forloop.counter }}">{{ item.title }}</a>
+            {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="col-lg-9">
+        <div class="tab-content">
+          {% for item in departments.items %}
+            {% if forloop.first %}
+              <div class="tab-pane active show" id="tab-{{ forloop.counter }}">
+            {% else %}
+              <div class="tab-pane" id="tab-{{ forloop.counter }}">
+            {% endif %}
+              <div class="row gy-4">
+                <div class="col-lg-8 details order-2 order-lg-1">
+                  <h3>{{ item.title }}</h3>
+                  <p class="fst-italic">{{ item.subtitle }}</p>
+                  {% for p in item.desc %}
+                    <p>{{ p }}</p>
+                  {% endfor %}
+                </div>
+                <div class="col-lg-4 text-center order-1 order-lg-2">
+                  <img src="{% static 'img/departments/'|add:item.photo|add:'.jpg' %}" alt="" class="img-fluid">
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+

@@ -1,0 +1,100 @@
+{% load static %}
+{% load compress %}
+{% load sections %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ======= SEO ======= -->{% include 'medilab/seo.html' %}<!-- End SEO -->
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'medilab/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+  <link href="{% static 'medilab/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'medilab/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'medilab/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'medilab/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'medilab/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'medilab/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'medilab/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  {% compress css %}
+    <link type="text/x-scss" href="{% static 'medilab/scss/style.scss' %}" rel="stylesheet">
+  {% endcompress %}
+</head>
+
+<body>
+  {% load popup_tags %}
+  {% show_popup %}
+  <!-- ======= Top Bar ============= Header ======= -->{% include 'medilab/header.html' %}<!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->{% hero %}<!-- End Hero -->
+
+  <main id="main">
+    {% for component, is_use, _, _ in components %}
+      {% if is_use %}
+        {% if component == 'popup' %}
+              {% load popup_tags %}
+              {% show_popup %}
+        {% elif component == 'why-us' %}
+          <!-- ======= Why Us Section ======= -->{% why_us %}<!-- End Why Us Section -->
+        {% elif component == 'about' %}
+          <!-- ======= About Section ======= -->{% about %}<!-- End About Section -->
+        {% elif component == 'counts' %}
+          <!-- ======= Counts Section ======= -->{% counts %}<!-- End Counts Section -->
+        {% elif component == 'services' %}
+          <!-- ======= Services Section ======= -->{% services %}<!-- End Services Section -->
+        {% elif component == 'appointment' %}
+          <!-- ======= Appointment Section ======= -->{% appointment %}<!-- End Appointment Section -->
+        {% elif component == 'departments' %}
+          <!-- ======= Departments Section ======= -->{% departments %}<!-- End Departments Section -->
+        {% elif component == 'doctors' %}
+          <!-- ======= Doctors Section ======= -->{% doctors %}<!-- End Doctors Section -->
+        {% elif component == 'faq' %}
+          <!-- ======= Frequently Asked Questions Section ======= -->{% faq %}<!-- End Frequently Asked Questions Section -->
+        {% elif component == 'testimonials' %}
+          <!-- ======= Testimonials Section ======= -->{% testimonials %}<!-- End Testimonials Section -->
+        {% elif component == 'gallery' %}
+          <!-- ======= Gallery Section ======= -->{% gallery %}<!-- End Gallery Section -->
+        {% elif component == 'contact' %}
+          <!-- ======= Contact Section ======= -->{% contact %}<!-- End Contact Section -->
+        {% elif component == 'cta' %}
+          <!-- ======= cta Section ======= -->{% cta %}<!-- End cta Section -->
+        {% elif component == 'portfolio' %}
+          <!-- ======= Portfolio Section ======= -->{% portfolio %}<!-- End Portfolio Section -->
+        {% elif component == 'analytics' %}
+          {% load analytics_tags %}
+          {% make_analytics %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->{% include 'medilab/footer.html' %}<!-- End Footer -->
+
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'medilab/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'medilab/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'medilab/vendor/purecounter/purecounter.js' %}"></script>
+  <!-- 아래 purecounter가 신버전이지만 현재 작동하지 않는다.
+  <script src="{% static 'medilab/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+  -->
+  <script src="{% static 'medilab/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'medilab/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+
+
+  <!-- 우리는 php를 사용하지 않기 때문에 주석처리한다.
+  <script src="{% static 'medilab/vendor/php-email-form/validate.js' %}"></script>
+  -->
+  <!-- Template Main JS File -->
+  <script src="{% static 'medilab/js/main.js' %}"></script>
+  <script src="{% static 'medilab/js/portfolio.js' %}"></script>
+
+</body>
+
+</html>
