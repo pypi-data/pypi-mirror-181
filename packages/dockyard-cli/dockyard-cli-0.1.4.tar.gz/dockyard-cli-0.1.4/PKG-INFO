@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: dockyard-cli
+Version: 0.1.4
+Summary: CLI for dockyard
+Author: rsingh
+Author-email: rsingh@altoslabs.com
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: click (>=8.1.3,<9.0.0)
+Requires-Dist: requests (>=2.28.1,<3.0.0)
+Description-Content-Type: text/markdown
+
+Usage
+======
+
+1. Configure dockyard cli using `dcli configure`
+2. Connect to dockyard workspace using `dcli ssh <workspace name>`
+3. Transfer files/directories to/from workspace using `dcli scp <source> <target>`.
+
+    a) source/target could be a local path (including .)
+
+    b) source/target could be a remote relative path inside workspace directory `<workspace_name>:<path>`
+
+    c) source/target could be a remote full path inside workspace `<workspace_name>:/<path>` or `<workspace_name>:~/<path>`
+
+
