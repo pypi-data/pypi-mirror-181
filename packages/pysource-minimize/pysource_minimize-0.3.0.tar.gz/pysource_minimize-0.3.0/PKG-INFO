@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: pysource-minimize
+Version: 0.3.0
+Summary: find failing section in python source
+License: MIT
+Author: Frank Hoffmann
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: asttokens (>=2.0.8,<3.0.0)
+Requires-Dist: rich (>=12.6.0,<13.0.0)
+Description-Content-Type: text/markdown
+
+# minimize source code
+
+If you build a linter, formatter or any other tool which has to analyse python source code you might end up searching bugs in pretty large input files.
+
+
+`pysource_minimize` is able to remove everything from the python source which is not related to the problem.
+
+Example:
+``` pycon
+>>> from pysource_minimize import minimize
+
+>>> source = """
+... def f():
+...     print("bug"+"other string")
+...     return 1+1
+... f()
+... """
+
+>>> print(minimize(source, lambda new_source: "bug" in new_source))
+"""bug"""
+
+
+```
+
