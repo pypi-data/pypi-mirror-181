@@ -1,0 +1,12 @@
+requests
+pydantic
+
+[dev]
+black
+mypy
+isort
+
+[distribute]
+setuptools
+twine
+wheel
