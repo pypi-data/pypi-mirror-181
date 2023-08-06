@@ -1,0 +1,91 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {
+    "login_database": {
+      "type": "object",
+      "properties": {
+        "vendor": {
+          "type": "string"
+        },
+        "admin": {
+          "type": "string"
+        },
+        "user": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "database": {
+          "type": "string"
+        },
+        "port": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "vendor",
+        "user",
+        "address"
+      ],
+      "additionalProperties": true
+    },
+    "pipeline": {
+      "type": "object",
+      "properties": {
+        "provider": {
+          "type": "string",
+          "pattern": "^[a-zA-Z]{3}[a-zA-Z0-9-]*$"
+        },
+        "descriptor_path": {
+          "type": "string"
+        },
+        "output_path": {
+          "type": "string"
+        },
+        "databases": {
+          "type": "array",
+          "properties": {
+            "identifier": {
+              "type": "string"
+            },
+            "base": {
+              "type": "string"
+            },
+            "login_info": {
+              "$ref": "#definitions/login_database"
+            }
+          },
+          "required": [
+            "identifier",
+            "login_info",
+            "connector"
+          ],
+          "additionalProperties": false
+        },
+        "descriptor_schema_path": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "provider",
+        "databases",
+        "output_path"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "type": "object",
+  "properties": {
+    "pipeline": {
+      "$ref": "#/definitions/pipeline"
+    },
+    "modules": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true,
+  "required": [
+    "pipeline"
+  ]
+}
