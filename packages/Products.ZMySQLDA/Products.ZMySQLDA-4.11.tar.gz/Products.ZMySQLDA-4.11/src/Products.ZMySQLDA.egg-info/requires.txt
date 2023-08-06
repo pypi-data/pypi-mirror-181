@@ -1,0 +1,13 @@
+setuptools
+six
+Products.ZSQLMethods
+
+[:python_version < "3"]
+mysqlclient<2
+
+[:python_version >= "3"]
+mysqlclient
+
+[docs]
+Sphinx
+repoze.sphinx.autointerface
