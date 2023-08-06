@@ -1,0 +1,70 @@
+# Version 1.7.0
+
+Released on 2022-12-16
+
+Better handling of OpenSSL 3 errors when the server does not return a proper TLS close (#52)
+
+Support of SSLKEYLOGFILE, to dump the cryptographic keys in a file, for usage by Wireshark
+
+Should now work on Microsoft Windows (#53)
+
+# Version 1.6
+
+Released on 2021-11-29
+
+Test of close_notify (proper TLS shutdown) has been removed because it seems buggy. The field no_shutdown is no longer present. See #50
+
+Reorganisation of the command-line client "agunua" to make the git reposiroty usable on case-insensitive filesystems such as MacOS (#51). No consequence for the user, only for the developer.
+
+Fix a bug for some case of key file corruption.
+
+# Version 1.5
+
+Released on 2021-07-01
+
+The most important change is not in the library but in the command-line tool agunua. It no longer checks the certificate by default (the option --insecure is now the default). You can use --secure to get the old behaviour.
+
+Fix a bug preventing proper installation if dependencies were not already present (#47)
+
+Documentation now included in the package (#38)
+
+# Version 1.4
+
+Released on 2021-05-07
+
+geminitrack has now an option `--patch-links` to update links so that local reading will work (#40)
+
+Gempub support in geminitrack (you can make a gempub file from a capsule); gempub files can be read, for instance, with Lagrange >= 1.4 (#41)
+
+Support for client certificates, so you can use Agunua to go to "protected" capsules (#21)
+
+# Version 1.3
+
+Released on 2021-04-17
+
+New command-line client geminitrack, to download an entire capsule (#20)
+
+# Version 1.2
+
+Relased on 2021-03-25
+
+SOCKS5 support (allows to visit .onion capsules, among other things) (#25)
+
+No longer send binary files to the standard output if it's a terminal (#31)
+
+Assumes "gemini" as the default scheme for the CLI client (#30)
+
+# Version 1.1
+
+Released on 2021-03-04.
+
+Fixes a mild security issue with TOFU filenames (#34)
+
+Fixes a bug when merging relative links when there was a query in the base URL (the query was kept when it should not) #28
+
+New format for TOFU keys, with the expiration date (old format is still accepted)
+
+Now uses TLS 1.3 if possible. New field in the result: tls_version
+
+
+
