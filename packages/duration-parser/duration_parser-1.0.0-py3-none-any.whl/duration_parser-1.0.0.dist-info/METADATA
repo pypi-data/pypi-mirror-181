@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: duration-parser
+Version: 1.0.0
+Summary: Duration parser.
+Home-page: https://github.com/adriansahlman/duration-parser
+Author: Adrian Sahlman
+Author-email: adrian.sahlman@gmail.com
+License: MIT
+Keywords: duration parse parser parsing
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Intended Audience :: Developers
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# Duration Parser
+A simple python implementation of a duration parser.
+
+
+## Usage
+
+```python
+from duration_parser import parse
+
+seconds = parse('1d2h')
+seconds = parse('2 years 3 weeks')
+seconds = parse('1.234min')
+seconds = parse('1d, 2 weeks')
+```
+
+
