@@ -1,0 +1,22 @@
+matplotlib
+seaborn~=0.11.2
+numpy >= 1.20
+pandas
+flask
+flask-cors
+openpyxl
+xlrd==1.2.0
+networkx
+chardet~=4.0.0
+sqlalchemy
+astunparse
+pprintast
+websockets
+sphinx
+pytest
+termcolor;  python_version > '3.7'
+cython
+setuptools
+cloudpickle~=2.0
+scikit-opt~=0.6
+rpyc
