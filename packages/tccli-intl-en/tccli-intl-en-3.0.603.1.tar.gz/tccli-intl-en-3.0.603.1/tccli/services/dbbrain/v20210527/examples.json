@@ -1,0 +1,83 @@
+{
+  "actions": {
+    "CreateProxySessionKillTask": [
+      {
+        "document": "",
+        "input": "POST / HTTP/1.1\nHost: dbbrain.tencentcloudapi.com\nContent-Type: application/json\nX-TC-Action: CreateProxySessionKillTask\n<Common request parameters>\n\n{\n    \"InstanceId\": \"cdb-8jawylhf\",\n    \"Product\": \"redis\"\n}",
+        "output": "{\n    \"Response\": {\n        \"AsyncRequestId\": 123456,\n        \"RequestId\": \"xx\"\n    }\n}",
+        "title": "Creating an async task of killing all proxy node connection sessions based on instance ID"
+      }
+    ],
+    "DescribeDBDiagEvents": [
+      {
+        "document": "",
+        "input": "https://dbbrain.tencentcloudapi.com/?Action=DescribeDBDiagEvents\n&StartTime=2021-05-27T00:00:00+00:00\n&EndTime=2021-05-27T01:00:00+00:00\n&<Common request parameters>",
+        "output": "{\n    \"Response\": {\n        \"RequestId\": \"7a9a6ba0-5893-11ec-8ad2-ff04c623cbd9\",\n        \"TotalCount\": 1,\n        \"Items\": [\n            {\n                \"InstanceId\": \"cdb-test\",\n                \"EventId\": 330858512,\n                \"StartTime\": \"2021-05-27 00:01:10\",\n                \"EndTime\": \"2021-05-27 00:01:20\",\n                \"DiagItem\": \"Transaction uncommitted\",\n                \"DiagType\": \"Transaction uncommitted\",\n                \"Severity\": 1,\n                \"Outline\": \"There are uncommitted transactions\",\n                \"Metric\": \"\",\n                \"Region\": \"ap-guangzhou\"\n            }\n        ]\n    }\n}",
+        "title": "Obtaining diagnosis event list"
+      }
+    ],
+    "DescribeDiagDBInstances": [
+      {
+        "document": "This example shows you how to obtain the instance information list. You can query instance information by instance ID, instance name, and region.",
+        "input": "https://dbbrain.tencentcloudapi.com/?Action=DescribeDiagDBInstances\n&IsSupported=true\n&Offset=0\n&Limit=50\n&Product=mysql\n&<Common request parameters>",
+        "output": "{\n    \"Response\": {\n        \"TotalCount\": 2,\n        \"DbScanStatus\": 1,\n        \"Items\": [\n            {\n                \"GroupName\": “Group of four regions”,\n                \"EventCount\": 0,\n                \"Memory\": 4000,\n                \"Product\": \"MySQL\",\n                \"Cpu\": 2,\n                \"Source\": \"TENCENT_CLOUD\",\n                \"UniqSubnetId\": \"subnet-test\",\n                \"DeployMode\": \"CUSTOM\",\n                \"InstanceType\": 1,\n                \"AuditRunningStatus\": \"normal\",\n                \"Status\": 1,\n                \"EngineVersion\": \"5.6\",\n                \"InstanceId\": \"cdb-test\",\n                \"Vport\": 63492,\n                \"InitFlag\": 1,\n                \"TaskStatus\": 0,\n                \"UniqVpcId\": \"vpc-fstest\",\n                \"GroupId\": \"dg-0ttest\",\n                \"InstanceName\": “Long-term monitoring”\n                \"HealthScore\": 100,\n                \"InstanceConf\": {\n                    \"OverviewDisplay\": \"Yes\",\n                    \"DailyInspection\": \"Yes\"\n                },\n                \"AuditPolicyStatus\": \"UNBOUND\",\n                \"Volume\": 100,\n                \"DeadlineTime\": \"2021-02-25 16:33:26\",\n                \"SecAuditStatus\": \"ON\",\n                \"Region\": \"ap-guangzhou\",\n                \"Vip\": \"10.5.0.9\",\n                \"IsSupported\": true\n            }\n        ],\n        \"RequestId\": \"b2d08895-1cfe-48bc-b7f7-87fd7cb5d6f1\"\n    }\n}",
+        "title": "Obtaining instance information list"
+      }
+    ],
+    "DescribeMySqlProcessList": [
+      {
+        "document": "",
+        "input": "https://dbbrain.tencentcloudapi.com/?Action=DescribeMySqlProcessList\n&Product=mysql\n&InstanceId=cdb-test\n&User=root\n&<Common request parameters>",
+        "output": "{\n    \"Response\": {\n        \"RequestId\": \"24665720-8c93-11eb-bee6-e98cea0e6794\",\n        \"ProcessList\": [\n            {\n                \"Host\": \"127.0.0.1:42036\",\n                \"State\": \"\",\n                \"Command\": \"Sleep\",\n                \"Time\": \"1179\",\n                \"ID\": \"171588317\",\n                \"User\": \"root\",\n                \"Info\": \"\",\n                \"DB\": \"test\"\n            }\n        ]\n    }\n}",
+        "title": "Querying the list of real-time threads"
+      }
+    ],
+    "DescribeProxySessionKillTasks": [
+      {
+        "document": "",
+        "input": "POST / HTTP/1.1\nHost: dbbrain.tencentcloudapi.com\nContent-Type: application/json\nX-TC-Action: DescribeProxySessionKillTasks\n<Common request parameters>\n\n{\n    \"InstanceId\": \"xx\",\n    \"Product\": \"xx\",\n    \"AsyncRequestIds\": [\n        0\n    ]\n}",
+        "output": "{\n    \"Response\": {\n        \"RequestId\": \"xx\",\n        \"TotalCount\": 1,\n        \"Tasks\": [\n            {\n                \"Progress\": 100,\n                \"InstProxyList\": [\n                    \"6511ec503b047be913e30c1bbf1f2c8c861e8347\",\n                    \"2ce994dadc0e2b27e76ae13d04ab9eadd9665397\",\n                    \"db0fcd29867e65eb999ce99383d7a06cd21ca077\"\n                ],\n                \"AsyncRequestId\": 7677678,\n                \"EndTime\": \"2020-09-22T00:00:00+00:00\",\n                \"InstProxyCount\": 3,\n                \"InstanceId\": \"crs-o5chheqz\",\n                \"CreateTime\": \"2020-09-22T00:00:00+00:00\",\n                \"StartTime\": \"2020-09-22T00:00:00+00:00\",\n                \"TaskStatus\": \"finished\",\n                \"FinishedProxyList\": [\n                    \"6511ec503b047be913e30c1bbf1f2c8c861e8347\",\n                    \"2ce994dadc0e2b27e76ae13d04ab9eadd9665397\",\n                    \"db0fcd29867e65eb999ce99383d7a06cd21ca077\"\n                ],\n                \"FailedProxyList\": []\n            }\n        ]\n    }\n}",
+        "title": "Querying the execution result of the session killing task"
+      }
+    ],
+    "DescribeRedisTopKeyPrefixList": [
+      {
+        "document": "",
+        "input": "POST / HTTP/1.1\nHost: dbbrain.tencentcloudapi.com\nContent-Type: application/json\nX-TC-Action: DescribeRedisTopKeyPrefixList\n<Common request parameters>\n\n{\n    \"InstanceId\": \"cdb-test\",\n    \"Date\": \"2022-04-12\",\n    \"Product\": \"redis\"\n}",
+        "output": "{\n    \"Response\": {\n        \"RequestId\": \"8108c1c0-bbcc-11ec-adb9-eb9c1358e03a\",\n        \"Items\": [\n            {\n                \"AveElementSize\": 44,\n                \"Length\": 864,\n                \"KeyPreIndex\": \"2028567046\",\n                \"ItemCount\": 5,\n                \"Count\": 5,\n                \"MaxElementSize\": 66\n            }\n        ],\n        \"Timestamp\": 162072183\n    }\n}",
+        "title": "Querying the list of top key prefixes for Redis instances"
+      }
+    ],
+    "DescribeSlowLogUserHostStats": [
+      {
+        "document": "",
+        "input": "https://dbbrain.tencentcloudapi.com/?Action=DescribeSlowLogUserHostStats\n&Product=mysql\n&InstanceId=cdb-c1nl9rpv\n&StartTime=2020-09-21T00:00:00+00:00\n&EndTime=2020-09-22T00:00:00+00:00\n&<Common request parameters>",
+        "output": "{\n    \"Response\": {\n        \"TotalCount\": 2,\n        \"RequestId\": \"e2a51350-8c9f-11eb-bc0f-c9f5ab88d057\",\n        \"Items\": [\n            {\n                \"UserHost\": \"10.3.1.1\",\n                \"Ratio\": 50,\n                \"Count\": 29\n            },\n            {\n                \"UserHost\": \"10.3.1.2\",\n                \"Ratio\": 50,\n                \"Count\": 29\n            }\n        ]\n    }\n}",
+        "title": "Obtaining the statistical distribution chart of slow log source addresses."
+      }
+    ],
+    "DescribeTopSpaceSchemas": [
+      {
+        "document": "",
+        "input": "https://dbbrain.tencentcloudapi.com/?Action=DescribeTopSpaceSchemas\n&InstanceId=cdb-test\n&Limit=2\n&SortBy=TableRows\n&<Common request parameters>",
+        "output": "{\n    \"Response\": {\n        \"RequestId\": \"ed279d8b-a9d9-48d6-9429-e0fde000994a\",\n        \"Timestamp\": 1603819881,\n        \"TopSpaceSchemas\": [\n            {\n                \"DataFree\": 0,\n                \"TotalLength\": 0.1,\n                \"TableSchema\": \"test_bak\",\n                \"FragRatio\": 0,\n                \"DataLength\": 0.1,\n                \"PhysicalFileSize\": 0.1,\n                \"TableRows\": 9,\n                \"IndexLength\": 0\n            },\n            {\n                \"DataFree\": 0,\n                \"TotalLength\": 0.1,\n                \"TableSchema\": \"test_bak\",\n                \"FragRatio\": 0,\n                \"DataLength\": 0.1,\n                \"PhysicalFileSize\": 0.1,\n                \"TableRows\": 9,\n                \"IndexLength\": 0\n            }\n        ]\n    }\n}",
+        "title": "Obtaining space statistics of top databases"
+      }
+    ],
+    "DescribeUserSqlAdvice": [
+      {
+        "document": "",
+        "input": "https://dbbrain.tencentcloudapi.com/?Action=DescribeUserSqlAdvice\n&InstanceId=cdb-c1nl9rpv\n&SqlText=select * from t1 where id in ( ? )\n&<Common request parameters>",
+        "output": "{\n    \"Response\": {\n        \"RequestId\": \"e2a51350-8c9f-11eb-bc0f-c9f5ab88d057\",\n        \"Advices\": \"[{\\\"TableName\\\": \\\"t1\\\", \\\"TableSchema\\\": \\\"test\\\", \\\"Keys\\\": [{\\\"SqlText\\\": \\\"alter table `test`.`t1` add index index_0(`id`);\\\"}]}]\",\n        \"Comments\": \"[]\",\n        \"Schema\": \"test\",\n        \"Tables\": \"[{\\\"TableName\\\": \\\"t1\\\", \\\"TableSchema\\\": \\\"test\\\", \\\"TableDDL\\\": \\\"CREATE TABLE `test` (\\n  `id` varchar(36) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC\\\"}]\",\n        \"SqlText\": \"select * from t1 where id in ( ? )\",\n        \"SqlPlan\": \"{\\\"Before\\\": [{\\\"Format\\\": \\\"Table\\\", \\\"Data\\\": {\\\"Names\\\": [\\\"id\\\", \\\"select_type\\\", \\\"table\\\", \\\"partitions\\\", \\\"type\\\", \\\"possible_keys\\\", \\\"key\\\", \\\"key_len\\\", \\\"ref\\\", \\\"rows\\\", \\\"filtered\\\", \\\"Extra\\\"], \\\"Data\\\": [ [1, \\\"SIMPLE\\\", \\\"t1\\\", null, \\\"ALL\\\", null, null, null, null, 1530, 10, \\\"Using where\\\" ]]}}], \\\"After\\\": [{ \\\"Format\\\": \\\"Table\\\", \\\"Data\\\": {\\\"Names\\\": [\\\"id\\\", \\\"select_type\\\", \\\"table\\\", \\\"partitions\\\", \\\"type\\\", \\\"possible_keys\\\", \\\"key\\\", \\\"key_len\\\", \\\"ref\\\", \\\"rows\\\", \\\"filtered\\\", \\\"Extra\\\"], \\\"Data\\\": [[1, \\\"SIMPLE\\\", \\\"t1\\\", null, \\\"ref\\\", \\\"index_0\\\", \\\"index_0\\\", 1056, \\\"const\\\", 51, 100.00, null]]}}]}\",\n        \"Cost\": \"{\\\"Before\\\": 0.1, \\\"After\\\": 0.03, \\\"Ratio\\\": 90.61}\"\n    }\n}",
+        "title": "Obtaining SQL statement optimization suggestions"
+      },
+      {
+        "document": "",
+        "input": "https://dbbrain.tencentcloudapi.com/?Action=DescribeUserSqlAdvice\n&InstanceId=cdb-c1nl9rpv\n&SqlText=select * from t1 where id = ?\n&<Common request parameters>",
+        "output": "{\n    \"Response\": {\n        \"RequestId\": \"e2a51350-8c9f-11eb-bc0f-c9f5ab88d057\",\n        \"Advices\": \"\",\n        \"Comments\": \"\",\n        \"Schema\": \"test\",\n        \"Tables\": \"[{\\\"TableName\\\": \\\"t1\\\", \\\"TableSchema\\\": \\\"test\\\", \\\"TableDDL\\\": \\\"CREATE TABLE `test` (\\n  `id` varchar(36) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC\\\"}]\",\n        \"SqlText\": \"select * from t1 where id in ( ? )\",\n        \"SqlPlan\": \"\",\n        \"Cost\": \"\"\n    }\n}",
+        "title": "Obtaining a suggestion that there is no need to optimize SQL statements"
+      }
+    ]
+  },
+  "version": "1.0"
+}
