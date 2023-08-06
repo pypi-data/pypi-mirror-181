@@ -1,0 +1,23 @@
+attrs>=18.1.0
+colorlog
+csvw>=1.0
+lxml
+markdown
+pylatexenc
+python-dateutil
+tabulate>=0.7.7
+
+[:python_version < "3.8"]
+importlib_metadata
+
+[dev]
+build
+flake8
+twine
+wheel
+
+[test]
+pytest-cov
+pytest-mock
+pytest>=5
+tox
