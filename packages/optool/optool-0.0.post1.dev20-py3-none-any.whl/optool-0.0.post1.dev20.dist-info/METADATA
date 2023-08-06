@@ -1,0 +1,57 @@
+Metadata-Version: 2.1
+Name: optool
+Version: 0.0.post1.dev20
+Summary: Optimization tools
+Author: Andreas Ritter
+Author-email: anritter@idsc.mavt.ethz.ch
+License: MIT
+Project-URL: Source, https://gitlab.com/ocsept/optool
+Project-URL: Documentation, https://gitlab.com/ocsept/documentation
+Project-URL: API, https://ocsept.gitlab.io/optool
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Requires-Python: >=3.9
+Description-Content-Type: text/x-rst; charset=UTF-8
+License-File: LICENSE.txt
+Requires-Dist: casadi
+Requires-Dist: dataset
+Requires-Dist: humanize
+Requires-Dist: inflection
+Requires-Dist: loguru
+Requires-Dist: marshmallow
+Requires-Dist: marshmallow-dataclass
+Requires-Dist: marshmallow-enum
+Requires-Dist: marshmallow-oneofschema
+Requires-Dist: marshmallow-pyfields
+Requires-Dist: matplotlib
+Requires-Dist: mini-lambda
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: pint
+Requires-Dist: pint-pandas
+Requires-Dist: pyfields
+Requires-Dist: scipy
+Requires-Dist: sqlalchemy
+Requires-Dist: typeguard
+Requires-Dist: valid8
+Provides-Extra: testing
+Requires-Dist: setuptools ; extra == 'testing'
+Requires-Dist: pytest ; extra == 'testing'
+Requires-Dist: pytest-cov ; extra == 'testing'
+
+====================================================================
+OPTOOL - Optimization tools
+====================================================================
+
+Generally usable utilities related to optimization problems.
+
+The package version 0.1 is published in PyPI.
+
+https://pypi.org/project/optool/0.1/
+
+=========
+Changelog
+=========
+
+- No release available yet...
