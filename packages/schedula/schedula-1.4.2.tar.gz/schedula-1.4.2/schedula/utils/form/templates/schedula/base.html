@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    <meta charset="UTF-8">
+    {% block title %}
+    <title>{% block title_name %}{{ name }}{% endblock %}</title>
+    <link rel="shortcut icon"
+          href="{{ form.url_prefix + url_for('static', filename='favicon.ico') }}"/>
+    {% endblock %}
+    {% block js %}
+    <script src="{{ form.url_prefix + url_for('schedula.static', filename=main_js) }}"></script>
+    {% endblock %}
+    {% block css %}
+    <link href="{{ form.url_prefix + url_for('schedula.static', filename=main_css) }}"
+          rel="stylesheet">
+    {% endblock %}
+
+    {% block edit_on_change_func %}
+    <script>
+        const editOnChange = {{ form.get_edit_on_change_func() | safe }};
+        /*({
+             formData,
+             formContext,
+             schema,
+             uiSchema,
+             csrf_token,
+             setFormData,
+             ...props
+         }) => {
+            return false
+        }*/
+    </script>
+    {% endblock %}
+
+    {% block pre_submit_func %}
+    <script>
+        const preSubmit = {{ form.get_pre_submit_func() | safe }};
+        /*({
+             input,
+             formContext,
+             schema,
+             uiSchema,
+             csrf_token,
+             ...props
+         }) => (input)
+        */
+    </script>
+    {% endblock %}
+
+    {% block post_submit_func %}
+    <script>
+        const postSubmit = {{ form.get_post_submit_func() | safe }};
+        /*({
+             data,
+             input,
+             formContext,
+             schema,
+             uiSchema,
+             csrf_token,
+             ...props
+         }) => (data)
+        */
+    </script>
+    {% endblock %}
+    {% block js_onload %}
+    <script defer="defer">
+        function onLoad() {
+            let name = "{{ form_id or 'index' }}",
+                url = '{{ form.url_prefix + "/" }}',
+                element = document.getElementById('root'),
+                forms_url = "{{ form.url_prefix + url_for('schedula.static', filename='forms') }}",
+                csrf_token = "{{ form.generate_csrf() }}",
+                formContext = JSON.parse('{{ form.get_form_context() | tojson | safe}}'),
+                formData = JSON.parse('{{ form.get_form_data() | tojson | safe}}');
+            Promise.all([
+                fetch(`${forms_url}/${name}-schema.json`).then(v => v.json()),
+                fetch(`${forms_url}/${name}-ui.json`).then(v => v.json())
+            ]).then(([schema, uiSchema]) => {
+                schedula.renderForm({
+                    element,
+                    url,
+                    name,
+                    schema,
+                    uiSchema,
+                    csrf_token,
+                    formContext,
+                    formData,
+                    editOnChange,
+                    preSubmit,
+                    postSubmit
+                })
+            });
+        }
+    </script>
+    {% endblock %}
+    {% endblock %}
+</head>
+<body onload="onLoad()">
+<div id="content">
+    {% block content %}
+    <div id="root"></div>
+    {% endblock %}
+</div>
+</body>
+</html>
