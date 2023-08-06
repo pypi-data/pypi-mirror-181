@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: subhajit_engg_tools
+Version: 0.0.1
+Summary: Useful data engineering tools
+Home-page: https://github.com/subhajitsr/subhajit-engineering-tools
+Author: Subhajit Maji
+Author-email: subhajitsr@gmail.com
+Project-URL: Bug Tracker, https://github.com/subhajitsr/subhajit-engineering-tools
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# subhajit-engineering-tools
+This repository is to keep all the connectors and useful tools that can be published as package to Pypi
+
+Connector Available as of now
+
+1. Postgres
