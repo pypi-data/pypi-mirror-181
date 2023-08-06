@@ -1,0 +1,14 @@
+# JetBrains Files
+/.idea
+
+# Test
+/tests
+
+# Pypi Files
+pypi push.cmd
+pyproject.toml
+/dist
+
+# Git Files
+.gitignore
+/venv/
