@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: node-edge
+Version: 0.1.0b5
+Summary: A tool to run Node code from Python
+Home-page: https://github.com/ModelW/py-node-edge
+License: WTFPL
+Keywords: node,javascript,binding
+Author: Rémy Sanchez
+Author-email: remy.sanchez@hyperthese.net
+Requires-Python: >=3.10,<4.0
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Project-URL: Documentation, https://node-edge.rtfd.io
+Project-URL: Repository, https://github.com/ModelW/py-node-edge
+Description-Content-Type: text/markdown
+
+# node-edge
+
+![Unit Tests](https://github.com/ModelW/py-node-edge/actions/workflows/tests.yml/badge.svg)
+![Documentation](https://readthedocs.org/projects/node-edge/badge/?version=latest)
+
+This tool allows you to run Node code from Python, including dependency
+management:
+
+```python
+from node_edge import NodeEngine
+
+package = {
+    "dependencies": {
+        "axios": "^1.2.0",
+    },
+}
+
+
+with NodeEngine(package) as ne:
+    axios = ne.import_from("axios")
+    print(axios.get("https://httpbin.org/robots.txt").data)
+```
+
+## Documentation
+
+[✨ **Documentation is there** ✨](https://node-edge.rtfd.io)
+
