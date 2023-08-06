@@ -1,0 +1,11 @@
+setuptools
+nrn-glia>=0.3.9
+errr>=1.0.0
+numpy>=1.21.0
+
+[dev]
+sphinx
+pre-commit
+black>=22.1.0
+helveg--sphinx-code-tabs
+sphinx_rtd_theme
