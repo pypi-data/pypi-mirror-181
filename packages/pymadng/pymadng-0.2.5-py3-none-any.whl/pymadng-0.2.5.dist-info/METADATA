@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: pymadng
+Version: 0.2.5
+Summary: A python interface to MAD-NG running as subprocess
+Author-email: Joshua Gray <joshua.mark.gray@cern.ch>
+Project-URL: Homepage, https://github.com/MethodicalAcceleratorDesign/MADpy
+Project-URL: Bug Tracker, https://github.com/MethodicalAcceleratorDesign/MADpy/issues
+Project-URL: MAD Source, https://github.com/MethodicalAcceleratorDesign/MAD
+Project-URL: Documentation, https://pymadng.readthedocs.io/en/latest/
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: Unix
+Classifier: Development Status :: 3 - Alpha
+Classifier: Natural Language :: English
+Classifier: Topic :: Scientific/Engineering :: Physics
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy (>=1.11.0)
+
+# pymadng
+Python interface to MAD-NG running as subprocess
+
+Install using below, see [The Python Package Index (PyPi)](https://pypi.org/project/pymadng/);
+
+`pip install pymadng`
+
+Getting the examples working
+============================
+
+You can run the example with `python3 EXAMPLE_NAME.py`
+
+
+Documentation
+=============
+
+Documentation, including explanation of a couple of examples and the limitations of the API can be found [here](https://pymadng.readthedocs.io/en/latest/). 
+
+The API reference is also included in [this documentation](https://pymadng.readthedocs.io/en/latest/). You can also compile to documentation yourself by cloning the repository and running ``make html`` in the docs folder.
