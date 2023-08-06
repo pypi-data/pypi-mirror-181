@@ -1,0 +1,21 @@
+#!/bin/bash
+#SBATCH --job-name={{ job_name }}
+#SBATCH --partition={{ partition }}
+#SBATCH --nodes=1
+#SBATCH -w {{ node }}
+#SBATCH --cpus-per-task={{ cpus_per_task }}
+#SBATCH --error={{ log_dir }}/{{ job_name }}.err.log
+#SBATCH --output={{ log_dir }}/{{ job_name }}.out.log
+
+echo "Process will start at : "
+date
+echo "----------------------------------------"
+
+##############################
+{{ cmds }}
+wait
+##############################
+
+echo "========================================"
+echo "Process end at : "
+date
