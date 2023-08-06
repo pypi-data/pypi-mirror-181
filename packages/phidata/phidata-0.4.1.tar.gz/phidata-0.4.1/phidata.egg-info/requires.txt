@@ -1,0 +1,11 @@
+boto3
+phiterm>=0.4.1
+
+[aws]
+boto3
+
+[dev]
+mypy
+black
+pytest
+types-PyYAML
