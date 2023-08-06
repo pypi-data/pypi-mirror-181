@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    <meta charset="UTF-8">
+    {% block title %}
+    <title>{% block title_name %}{{ name }}{% endblock %}</title>
+    <link rel="shortcut icon"
+          href="{{ url_prefix + url_for('static', filename='favicon.ico') }}"/>
+    {% endblock %}
+    {% block js %}
+    <script src="{{ url_prefix + url_for('schedula.static', filename=main_js) }}"></script>
+    {% endblock %}
+    {% block css %}
+    <link href="{{ url_prefix + url_for('schedula.static', filename=main_css) }}" rel="stylesheet">
+    {% endblock %}
+    {% block js_onload %}
+    <script defer="defer">
+        function onLoad() {
+            let name = "{{ form_id or 'index' }}",
+                url = '{{ url_prefix + "/" }}',
+                element = document.getElementById('root'),
+                forms_url = "{{ url_prefix + url_for('schedula.static', filename='forms') }}",
+                csrf_token = "{{ csrf_token() }}",
+                formContext = JSON.parse('{{ get_form_context() | tojson | safe}}'),
+                formData = JSON.parse('{{ get_form_data() | tojson | safe}}');
+            Promise.all([
+                fetch(`${forms_url}/${name}-schema.json`).then(v => v.json()),
+                fetch(`${forms_url}/${name}-ui.json`).then(v => v.json())
+            ]).then(([schema, uiSchema]) => {
+                schedula.renderForm({
+                    element,
+                    url,
+                    name,
+                    schema,
+                    uiSchema,
+                    csrf_token,
+                    formContext,
+                    formData
+                })
+            });
+        }
+    </script>
+    {% endblock %}
+    {% endblock %}
+</head>
+<body onload="onLoad()">
+<div id="content">
+    {% block content %}
+    <div id="root"></div>
+    {% endblock %}
+</div>
+</body>
+</html>
