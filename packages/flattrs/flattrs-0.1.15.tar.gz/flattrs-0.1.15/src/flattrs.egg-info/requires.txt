@@ -1,0 +1,10 @@
+attrs
+flatbuffers==1.9
+numpy
+
+[dev]
+pytest
+hypothesis
+cython==0.29.32
+coverage
+tox==4.0.11
