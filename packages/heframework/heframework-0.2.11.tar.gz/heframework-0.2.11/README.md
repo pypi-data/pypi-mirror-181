@@ -1,0 +1,33 @@
+# heStudio Framework
+
+### 介绍
+heStudio自研公共框架。
+
+### 使用前注意
+请在使用框架的时候先查看它支持什么系统，关于图形界面的均不完全兼容Linux，所有框架均无法保证能在Mac OS上使用（没有Mac电脑）。
+
+### 如何安装
+```
+pip install heframework
+``` 
+
+### 如何调用
+点击下面框架名称查看各个框架的使用方法
+
+### 框架内容
+| 名称 | 功能 | 开坑时间 | 最近一次填坑时间 | 最后更新版本 | 最低支持版本 | 坑主 |
+|---|---|---|---|---|---|---|
+| [show](https://gitee.com/hestudio-framework/main-windows/blob/master/docs/show.md) | 弹出通知对话框 | 2022.12.14 | 2022.12.18 | 0.2.11 | 0.2.6 |[醉、倾城](https://www.hestudio.org/about) |
+| [list](https://gitee.com/hestudio-framework/main-windows/blob/master/docs/list.md) | 列举设定的程序组，并按照用户的输入值执行对应的程序 | 2022.12.14 | 2022.12.17 | 0.2.10 | 0.2.6 |[醉、倾城](https://www.hestudio.org/about) |
+
+### 报错查询
+如果你的程序在运行框架时返回了以25开头的报错代码时，你可能在[error.md](https://gitee.com/hestudio-framework/main-windows/blob/master/docs/error.md)找到解决方案，如果是其他的反馈，请通过[heStudio Talking](https://www.hestudio.org/talking)或者向本仓库提交issue反馈。
+
+### 参与人员
+[醉、倾城](https://www.hestudio.org/about)
+
+### 如何参与
+向本仓库提交PR即可。
+
+### 赞助
+[![](https://hestudio-server-image.oss-cn-hongkong.aliyuncs.com/2022/12/13/639873ce2d116.jpg)](https://afdian.net/a/hestudio)

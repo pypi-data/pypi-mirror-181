@@ -1,0 +1,20 @@
+[project]
+name = "heframework"
+version = "0.2.11"
+authors = [
+  { name="heStudio", email="hestudio@hestudio.org" },
+]
+description = "本次更新：修复show在不传入标题无法运行的问题"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: Chinese (Simplified)",
+    "Environment :: Win32 (MS Windows)",
+]
+
+[project.urls]
+"Homepage" = "https://gitee.com/hestudio-framework/main-windows/"
+"Bug Tracker" = "https://www.hestudio.org/get-help"
+"Blog" = "https://www.hestudio.org/"
