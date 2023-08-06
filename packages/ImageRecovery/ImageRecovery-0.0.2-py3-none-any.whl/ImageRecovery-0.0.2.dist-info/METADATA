@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: ImageRecovery
+Version: 0.0.2
+Summary: Recover images from proximity information.
+Home-page: UNKNOWN
+Author: David Fernandez Bonet
+Author-email: <dfb@kth.se>
+License: UNKNOWN
+Keywords: python,node embedding,structural embedding,graph representation learning,manifold learning,DNA sequencing-based microscopy,image reconstruction,image recovery
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: POSIX :: Linux
+Requires-Dist: setuptools (~=60.2.0)
+Requires-Dist: pandas (~=1.4.3)
+Requires-Dist: matplotlib (~=3.5.3)
+Requires-Dist: pycpd (~=2.0.0)
+Requires-Dist: scikit-learn (~=1.1.2)
+Requires-Dist: scipy (~=1.9.0)
+Requires-Dist: numpy (~=1.22.4)
+Requires-Dist: csrgraph (~=0.1.28)
+Requires-Dist: nodevectors (~=0.1.23)
+Requires-Dist: networkx (~=2.8.6)
+Requires-Dist: seaborn (~=0.11.2)
+Requires-Dist: umap-learn (~=0.5.3)
+Requires-Dist: gensim (==3.7.1)
+
+Staged Image Recovery uses a combination of structural embedding and manifold learning to recover images from proximity information. Such information is encoded in a graph, where edges denote proximity. Although the problemto be solved is quite general, it has special relevancein the context of DNA sequencing-based microscopy.For more information, please read our paper:https://www.biorxiv.org/content/10.1101/2022.09.29.510142v1
+
