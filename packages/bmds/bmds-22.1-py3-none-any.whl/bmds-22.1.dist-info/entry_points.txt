@@ -1,0 +1,2 @@
+[console_scripts]
+bmds-priors-report = bmds.cli.priors_report:main

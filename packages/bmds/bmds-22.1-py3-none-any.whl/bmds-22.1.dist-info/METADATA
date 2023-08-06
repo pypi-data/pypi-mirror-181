@@ -1,0 +1,56 @@
+Metadata-Version: 2.1
+Name: bmds
+Version: 22.1
+Summary: A Python interface for the US EPA Benchmark dose modeling software (BMDS)
+Author: Andy Shapiro
+Author-email: shapiromatron@gmail.com
+License: MIT
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+License-File: LICENSE
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: openpyxl
+Requires-Dist: pandas
+Requires-Dist: pydantic
+Requires-Dist: python-docx
+Requires-Dist: requests
+Requires-Dist: scipy
+Requires-Dist: simple-settings
+Requires-Dist: tabulate
+Requires-Dist: tqdm
+Provides-Extra: benchmarks
+Requires-Dist: SQLAlchemy ; extra == 'benchmarks'
+
+BMDS Python interface
+=====================
+
+.. image:: https://img.shields.io/pypi/v/bmds.svg
+        :target: https://pypi.python.org/pypi/bmds
+
+.. image:: https://github.com/shapiromatron/bmds/workflows/CI/badge.svg
+        :target: https://github.com/shapiromatron/bmds/actions
+
+.. image:: https://readthedocs.org/projects/bmds/badge/?version=latest
+        :target: https://bmds.readthedocs.io/en/latest/?badge=latest
+        :alt: Documentation Status
+
+.. image:: https://zenodo.org/badge/61229626.svg
+   :target: https://zenodo.org/badge/latestdoi/61229626
+
+This Python package is designed to run the U.S. EPA BMDS_ software from a python
+interface. The toolkit is currently used in the following projects:
+
+- The Health Assessment Workspace Collaborative (`HAWC`_)
+- `BMDS server`_
+
+It requires Python3.9+.
+
+.. _`BMDS`: https://www.epa.gov/bmds
+.. _`HAWC`: https://hawcproject.org
+.. _`BMDS server`: https://github.com/shapiromatron/bmds-server/
