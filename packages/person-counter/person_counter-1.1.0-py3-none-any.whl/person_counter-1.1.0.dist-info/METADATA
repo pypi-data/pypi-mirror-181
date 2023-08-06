@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: person-counter
+Version: 1.1.0
+Summary: Person Counter using torch
+Author: Olivier
+Author-email: luowensheng2018@gmail.com
+Keywords: python,person,cpunting,AI
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: opencv-python
+Requires-Dist: numpy
+Requires-Dist: opencv-stream
+Requires-Dist: gitpython
+Requires-Dist: ipython
+Requires-Dist: matplotlib
+Requires-Dist: Pillow
+Requires-Dist: psutil
+Requires-Dist: PyYAML
+Requires-Dist: requests
+Requires-Dist: scipy
+Requires-Dist: thop
+Requires-Dist: torch
+Requires-Dist: torchvision
+Requires-Dist: tqdm
+Requires-Dist: tensorboard
+Requires-Dist: pandas
+Requires-Dist: seaborn
+Requires-Dist: easydict
+Requires-Dist: gdown
+Requires-Dist: lap
+Requires-Dist: filterpy
+
+
+# Person counter
