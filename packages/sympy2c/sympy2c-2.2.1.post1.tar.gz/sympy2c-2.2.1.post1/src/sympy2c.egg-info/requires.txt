@@ -1,0 +1,25 @@
+Cython
+numpy
+portalocker
+requests
+sympy<1.4
+numba>=0.56
+
+[dev]
+twine
+pytest<7.2
+pytest-cov
+pytest-regtest
+tox
+flake8
+black@ git+https://github.com/psf/black
+isort
+sphinx
+sphinx-pynpoint-theme
+myst-parser
+scipy
+
+[docs]
+sphinx
+sphinx-pynpoint-theme
+myst-parser
