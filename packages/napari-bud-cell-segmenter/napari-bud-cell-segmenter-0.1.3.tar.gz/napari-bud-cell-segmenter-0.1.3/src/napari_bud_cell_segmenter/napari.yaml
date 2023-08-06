@@ -1,0 +1,72 @@
+name: napari-bud-cell-segmenter
+display_name: Bud Cell Segmenter
+contributions:
+  commands:
+    - id: napari-bud-cell-segmenter.get_reader
+      python_name: napari_bud_cell_segmenter._reader:napari_get_reader
+      title: Open data with Bud Cell Segmenter
+    - id: napari-bud-cell-segmenter.write_multiple
+      python_name: napari_bud_cell_segmenter._writer:write_multiple
+      title: Save multi-layer data with Bud Cell Segmenter
+    - id: napari-bud-cell-segmenter.write_single_image
+      python_name: napari_bud_cell_segmenter._writer:write_single_image
+      title: Save image data with Bud Cell Segmenter
+    - id: napari-bud-cell-segmenter.make_sample_data
+      python_name: napari_bud_cell_segmenter._sample_data:make_sample_data
+      title: Load sample data from Bud Cell Segmenter
+    - id: napari-bud-cell-segmenter.load_data
+      python_name: napari_bud_cell_segmenter._widget:load_data
+      title: Make example magic widget
+    - id: napari-bud-cell-segmenter.preprocessing
+      python_name: napari_bud_cell_segmenter._widget:Preprocessing
+      title: Make example QWidget
+    - id: napari-bud-cell-segmenter.manual_corrections
+      python_name: napari_bud_cell_segmenter._widget:ManualCorrections
+      title: Make manual corrections QWidget
+    - id: napari-bud-cell-segmenter.segmentation
+      python_name: napari_bud_cell_segmenter._widget:segmentation
+      title: Make Segmentation widget
+    - id: napari-bud-cell-segmenter.detect_blobs
+      python_name: napari_bud_cell_segmenter._widget:detect_blobs
+      title: Make Blob detection widget
+    - id: napari-bud-cell-segmenter.disp_statitics
+      python_name: napari_bud_cell_segmenter._widget:disp_statitics
+      title: Make disp statitics widget
+    - id: napari-bud-cell-segmenter.visualization
+      python_name: napari_bud_cell_segmenter._widget:visualization
+      title: Make visualization widget
+    - id: napari-bud-cell-segmenter.export_data
+      python_name: napari_bud_cell_segmenter._widget:export_data
+      title: Make export data widget
+  readers:
+    - command: napari-bud-cell-segmenter.get_reader
+      accepts_directories: false
+      filename_patterns: ['*.npy']
+  writers:
+    - command: napari-bud-cell-segmenter.write_multiple
+      layer_types: ['image*','labels*']
+      filename_extensions: []
+    - command: napari-bud-cell-segmenter.write_single_image
+      layer_types: ['image']
+      filename_extensions: ['.npy']
+  sample_data:
+    - command: napari-bud-cell-segmenter.make_sample_data
+      display_name: Bud Cell Segmenter
+      key: unique_id.1
+  widgets:
+    - command: napari-bud-cell-segmenter.load_data
+      display_name: Load Data
+    - command: napari-bud-cell-segmenter.preprocessing
+      display_name: Preprocessing
+    - command: napari-bud-cell-segmenter.segmentation
+      display_name: Segmentation
+    - command: napari-bud-cell-segmenter.manual_corrections
+      display_name: Manual Corrections Widget
+    - command: napari-bud-cell-segmenter.detect_blobs
+      display_name: Blob detection
+    - command: napari-bud-cell-segmenter.disp_statitics
+      display_name: Statistics
+    - command: napari-bud-cell-segmenter.visualization
+      display_name: Visualization
+    - command: napari-bud-cell-segmenter.export_data
+      display_name: Export Data
