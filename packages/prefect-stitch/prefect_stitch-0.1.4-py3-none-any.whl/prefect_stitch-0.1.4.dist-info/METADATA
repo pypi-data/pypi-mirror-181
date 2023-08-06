@@ -1,0 +1,108 @@
+Metadata-Version: 2.1
+Name: prefect-stitch
+Version: 0.1.4
+Summary: Prefect collection to interact with Stitch
+Home-page: https://github.com/AlessandroLollo/prefect-stitch
+Author: Alessandro Lollo
+Author-email: alessandro.lollo@gmail.com
+License: Apache License 2.0
+Keywords: prefect
+Classifier: Natural Language :: English
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Software Development :: Libraries
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: prefect (>=2.0a13)
+Provides-Extra: dev
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: flake8 ; extra == 'dev'
+Requires-Dist: mypy ; extra == 'dev'
+Requires-Dist: mkdocs ; extra == 'dev'
+Requires-Dist: mkdocs-material ; extra == 'dev'
+Requires-Dist: mkdocstrings[python] ; extra == 'dev'
+Requires-Dist: isort ; extra == 'dev'
+Requires-Dist: pre-commit ; extra == 'dev'
+Requires-Dist: pytest-asyncio ; extra == 'dev'
+Requires-Dist: mkdocs-gen-files ; extra == 'dev'
+Requires-Dist: interrogate ; extra == 'dev'
+Requires-Dist: coverage ; extra == 'dev'
+Requires-Dist: responses ; extra == 'dev'
+Requires-Dist: mock ; (python_version < "3.8") and extra == 'dev'
+
+# prefect-stitch
+
+## Welcome!
+
+Prefect collection to interact with Stitch
+
+## Getting Started
+
+### Python setup
+
+Requires an installation of Python 3.7+.
+
+We recommend using a Python virtual environment manager such as pipenv, conda or virtualenv.
+
+These tasks are designed to work with Prefect 2.0. For more information about how to use Prefect, please refer to the [Prefect documentation](https://orion-docs.prefect.io/).
+
+### Installation
+
+Install `prefect-stitch` with `pip`:
+
+```bash
+pip install prefect-stitch
+```
+
+### Write and run a flow
+
+```python
+from pydantic import SecretStr
+from prefect import flow
+from prefect_stitch.credentials import StitchCredentials
+from prefect_stitch.tasks import (
+    start_replication_job
+)
+
+
+@flow
+def example_flow():
+    creds = StitchCredentials(
+        access_token=SecretStr("my_secret_token")
+    )
+    start_replication_job(
+        credentials=creds,
+        source_id=1234
+    )
+
+example_flow()
+```
+
+## Resources
+
+If you encounter any bugs while using `prefect-stitch`, feel free to open an issue in the [prefect-stitch](https://github.com/AlessandroLollo/prefect-stitch) repository.
+
+If you have any questions or issues while using `prefect-stitch`, you can find help in either the [Prefect Discourse forum](https://discourse.prefect.io/) or the [Prefect Slack community](https://prefect.io/slack).
+
+## Development
+
+If you'd like to install a version of `prefect-stitch` for development, clone the repository and perform an editable install with `pip`:
+
+```bash
+git clone https://github.com/AlessandroLollo/prefect-stitch.git
+
+cd prefect-stitch/
+
+pip install -e ".[dev]"
+
+# Install linting pre-commit hooks
+pre-commit install
+```
