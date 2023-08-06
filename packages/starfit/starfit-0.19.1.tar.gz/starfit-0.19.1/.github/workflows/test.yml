@@ -1,0 +1,38 @@
+name: StarFit tests (pytest)
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: actions/setup-python@v2.2.1
+      with:
+        python-version: "3.10"
+
+    - name: Install gcc 11
+      run: |
+        sudo apt-get update
+        gfortran --version
+        sudo apt install -y gcc-11
+        sudo apt install -y gfortran-11
+        sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-11 100 --slave /usr/bin/gfortran gfortran /usr/bin/gfortran-11
+        sudo update-alternatives --set gcc /usr/bin/gcc-11
+        gfortran --version
+
+    - name: download starfit data
+      run: |
+        ./download-data.sh
+
+    - name: install starfit
+      run: |
+        pip install .[testing]
+
+    - name: run pytest
+      run: pytest

@@ -1,0 +1,125 @@
+10001
+Spite (2008) priv. com.
+Cayrel (2004) with updates from Spite (2008, priv. com.)
+Consistent abundances using log epsilon.
+1
+12
+14
+Na  -1.70  0.16
+Mg   0.00  0.10
+Al  -1.43  0.14
+Si   0.18  0.14
+K   -2.60  0.14
+Ca  -1.16  0.09
+Sc  -4.58  0.14
+Ti  -2.57  0.09
+Cr  -2.54  0.09
+Mn  -2.84  0.20
+Fe  -0.29  0.10
+Co  -2.53  0.17
+Ni  -1.56  0.13
+Zn  -2.83  0.19
+
+-----------------------------------------------------------------------
+
+Dear Alex and Stan,
+
+
+We have been very interested in your paper "Nucleosynthesis and
+evolution of massive metal-free stars".
+In the paper Cayrel et al. 2004 the NLTE effects in the resonnance lines
+of Na and Al had been taken into account only in a very crude way.  The
+correct NLTE determination of the abundance of these elements (star by
+star) has been done recently with the help of S. Andrievsky.
+
+The new mean values (for [Fe/H]<-3) are
+   [Na/Mg]=-0.45+-0.16
+   [Al/Mg]=-0.32+-0.14
+
+see:
+-NLTE determination of the sodium abundance in a homogeneous sample of
+extremely metal-poor stars 2007, AA 464, 1081
+-NLTE determination of the aluminum abundance in a homogeneous sample of
+extremely metal-poor stars 2008, AA 481,  481
+
+This new abundance of sodium in now completely compatible with your
+results.
+Unfortunately we have no explanation for chromium...
+
+Best wishes
+Monique Spite
+Dear Alexander,
+
+Since the 2004 paper we did not change the solar abundances we used (to
+keep an homogeneity between the different papers).
+they are
+C        8.52
+N        7.92
+O        8.77 (without 3D correction and only 8.69 when we have applied an
+approximated 3D correction)
+Na        6.33
+Mg        7.58
+Al        6.47
+Si        7.55
+S         7.33
+K         5.12
+Ca        6.36
+Sc        3.17
+Ti        5.02
+Cr        5.67
+Mn        5.39
+Fe        7.50
+Co        4.92
+Ni        6.25
+Zn        4.60
+These abundances correspond to Grevesse and Sauval 1998 (Space Sci. Rev.
+85, 161).
+Unfortunately this reference has been forgotten in Cayrel et al. (2004-
+First Stars V) but you could find it in Spite et al. (First Stars VI, 2005)
+With myt best regards,
+Monique
+
+Na  -0.45  0.16  Na        6.33  -1.25
+Mg  +0.00  0.10  Mg        7.58   0.00
+Al  -0.32  0.14  Al        6.47  -1.11
+Si  +0.21  0.14  Si        7.55  -0.03
+K   -0.14  0.14  K         5.12  -2.46
+Ca  +0.06  0.09  Ca        6.36  -1.22
+Sc  -0.17  0.14  Sc        3.17  -4.41
+Ti  -0.01  0.09  Ti        5.02  -2.56
+Cr  -0.63  0.09  Cr        5.67  -1.91
+Mn  -0.65  0.20  Mn        5.39  -2.19
+Fe  -0.21  0.10  Fe        7.50  -0.08
+Co  +0.13  0.17  Co        4.92  -2.66
+Ni  -0.23  0.13  Ni        6.25  -1.33
+Zn  +0.15  0.19  Zn        4.60  -2.98
+
+-0.45
++0.00
+-0.32
++0.21
+-0.14
++0.06
+-0.17
+-0.01
+-0.63
+-0.65
+-0.21
++0.13
+-0.23
++0.15
+
+-1.70
+ 0.00
+-1.43
+ 0.18
+-2.60
+-1.16
+-4.58
+-2.57
+-2.54
+-2.84
+-0.29
+-2.53
+-1.56
+-2.83

@@ -1,0 +1,335 @@
+; COMPUTER-GENERATED ABUNDANCE DATA FILE
+; VERSION 1.01.00
+; Mon Jun  6 09:37:47 AEST 2016
+; change N14/N15 (mol fraction) to 1:435 (Jupiter value, thanks to Amanda)
+;
+; VERSION 1.00.00
+; Fri Nov 23 03:17:06 2012 UTC
+;
+; Generated from file "/home/alex/Plots/solar/Asplund2009-isotopes_protosun.dat".
+; Original file comments follow:
+;
+; 20121123, Martin Aspund, priv. com.
+; Asplund et al. 2009, ARAA, 47, 481
+;
+; Here is an updated version of the proto-solar isotopic abundances
+; (logarithmic and linear) based on AGSS09 taking into account stellar
+; diffusion and radioactivity after having corrected a couple of
+; mistakes I did before. A few things to note:
+;
+; 1. While abundances are given with three decimals, it is only to
+; prevent round-off errors: the absolute abundances of an element have
+; an uncertainty of 0.01 dex (2%) at best and most often significantly
+; more.  The *relative* isotopic abundances for an element is of course
+; often much more precise.
+;
+; 2. I'm normalizing everything to H=10^12 while Lodders normalize to
+; Si=10^6.
+;
+; 3. I'm unable to reproduce exactly Lodders' values for the radioactive
+; elements, I think because for those she does not consider diffusion,
+; which she does for all other elements.
+;
+; 4. For some elements we have taken the isotopic ratios from Lodders as
+; described in our ARAA article while for CNO and noble gases in
+; particular we make different choices than she does. For the rest we
+; both use Rosman & Taylor 1997 but prefer different ratios: she uses
+; "best measurement from a single terrestrial source" while we adopt
+; "representative isotopic composition". I still believe ours is the
+; appropriate choice as also indicated by R&T stating "[these] should be
+; used to determine the average properties of material of unspecified
+; natural terrestrial origin"
+;
+; Apparently it is 238U->234Th->234Pa->234U so the ratio of 238U and 234U is
+; simply the ratio of their half-lives, 245500/4.468e9=5.4946e-5, since
+; the intermediate steps have vastly shorter half-lives.
+;
+;
+;----------------------------------------------------------------------
+h1     7.1489445E-01
+h2     2.8573813E-05
+he3    3.3909517E-05
+he4    2.7108890E-01
+li6    6.4599203E-10
+li7    9.1771443E-09
+be9    1.3987306E-10
+b10    9.5530170E-10
+b11    4.2287807E-09
+c12    2.4846895E-03
+c13    3.0115868E-05
+n14    7.3564433E-04
+n15    1.8119318E-06
+o16    6.0791298E-03
+o17    2.4538496E-06
+o18    1.3712395E-05
+f19    3.8865937E-07
+ne20   1.2301045E-03
+ne21   3.0960167E-06
+ne22   9.9493311E-05
+na23   3.3300222E-05
+mg24   4.9935036E-04
+mg25   6.5842984E-05
+mg26   7.5399550E-05
+al27   5.6479742E-05
+si28   6.4933690E-04
+si29   3.4161242E-05
+si30   2.3281571E-05
+p31    6.4836557E-06
+s32    3.3338410E-04
+s33    2.7527794E-06
+s34    1.6008649E-05
+s36    7.9039355E-08
+cl35   3.4999769E-06
+cl37   1.1825912E-06
+ar36   5.9446118E-05
+ar38   1.1406967E-05
+ar40   1.9205139E-08
+k39    3.3967918E-06
+k40    5.5023885E-09
+k41    2.5778499E-07
+ca40   5.8763780E-05
+ca42   4.1162348E-07
+ca43   8.7943737E-08
+ca44   1.3906079E-06
+ca46   2.7876927E-09
+ca48   1.3599130E-07
+sc45   3.9223713E-08
+ti46   2.3967997E-07
+ti47   2.2084507E-07
+ti48   2.2345607E-06
+ti49   1.6742403E-07
+ti50   1.6357121E-07
+v50    8.8574269E-10
+v51    3.6046440E-07
+cr50   7.3692148E-07
+cr52   1.4774315E-05
+cr53   1.7075405E-06
+cr54   4.3311691E-07
+mn55   1.2902955E-05
+fe54   6.9100682E-05
+fe56   1.1248458E-03
+fe57   2.6445257E-05
+fe58   3.5813953E-06
+co59   3.3978208E-06
+ni58   4.8616659E-05
+ni60   1.9376074E-05
+ni61   8.5620935E-07
+ni62   2.7745233E-06
+ni64   7.2963173E-07
+cu63   6.0217633E-07
+cu65   2.7684337E-07
+zn64   1.0316611E-06
+zn66   6.1027312E-07
+zn67   9.1055791E-08
+zn68   4.2255673E-07
+zn70   1.4384317E-08
+ga69   3.8741965E-08
+ga71   2.6458028E-08
+ge70   4.3092769E-08
+ge72   5.8568066E-08
+ge73   1.6666699E-08
+ge74   7.9282521E-08
+ge76   1.7082608E-08
+as75   1.1628163E-08
+se74   1.1195182E-09
+se76   1.2106115E-08
+se77   9.9849677E-09
+se78   3.1515046E-08
+se80   6.7459065E-08
+se82   1.2167628E-08
+br79   1.0787391E-08
+br81   1.0762026E-08
+kr78   3.9011209E-10
+kr80   2.5708094E-09
+kr82   1.3207226E-08
+kr83   1.3239173E-08
+kr84   6.6069540E-08
+kr86   2.0445424E-08
+rb85   1.0919999E-08
+rb87   4.5977443E-09
+sr84   2.7624842E-10
+sr86   5.0018897E-09
+sr87   3.5361450E-09
+sr88   4.2881741E-08
+y89    1.0229113E-08
+zr90   1.2193464E-08
+zr91   2.6883112E-09
+zr92   4.1540516E-09
+zr94   4.3011280E-09
+zr96   7.0753218E-10
+nb93   1.8571343E-09
+mo92   9.0423423E-10
+mo94   5.8211347E-10
+mo95   1.0185648E-09
+mo96   1.0830279E-09
+mo97   6.3013671E-10
+mo98   1.6174578E-09
+mo100  6.6489062E-10
+ru96   2.3783799E-10
+ru98   8.1949241E-11
+ru99   5.6484460E-10
+ru100  5.6338820E-10
+ru101  7.7016583E-10
+ru102  1.4391987E-09
+ru104  8.6602994E-10
+rh103  9.1901186E-10
+pd102  3.6114142E-11
+pd104  4.0212730E-10
+pd105  8.1408667E-10
+pd106  1.0058833E-09
+pd108  9.9197082E-10
+pd110  4.4749350E-10
+ag107  6.8317471E-10
+ag109  6.4651288E-10
+cd106  5.2804724E-11
+cd108  3.8308853E-11
+cd110  5.4758412E-10
+cd111  5.6626085E-10
+cd112  1.0771531E-09
+cd113  5.5036500E-10
+cd114  1.3056737E-09
+cd116  3.4629515E-10
+in113  2.1679766E-11
+in115  4.9221688E-10
+sn112  9.9223738E-11
+sn114  6.8692956E-11
+sn115  3.5699617E-11
+sn116  1.5398716E-09
+sn117  8.2045387E-10
+sn118  2.6093425E-09
+sn119  9.3368061E-10
+sn120  3.5696274E-09
+sn122  5.1580220E-10
+sn124  6.5558224E-10
+sb121  5.5050867E-10
+sb123  4.1855763E-10
+te120  1.2706944E-11
+te122  3.6594599E-10
+te123  1.2876690E-10
+te124  6.9134036E-10
+te125  1.0392802E-09
+te126  2.7926841E-09
+te128  4.7795636E-09
+te130  5.2119009E-09
+i127   3.5017353E-09
+xe124  2.0434862E-11
+xe126  1.8379878E-11
+xe128  3.7824327E-10
+xe129  4.7483653E-09
+xe130  7.6831543E-10
+xe131  3.8386955E-09
+xe132  4.7269238E-09
+xe134  1.7714696E-09
+xe136  1.4614990E-09
+cs133  1.2425532E-09
+ba130  1.6208876E-11
+ba132  1.5681668E-11
+ba134  3.8098216E-10
+ba135  1.0468980E-09
+ba136  1.2561320E-09
+ba137  1.8101919E-09
+ba138  1.1640846E-08
+la138  1.4712663E-12
+la139  1.5962243E-09
+ce136  7.4347468E-12
+ce138  1.0232261E-11
+ce140  3.6590178E-09
+ce142  4.6636910E-10
+pr141  6.3069694E-10
+nd142  8.4122703E-10
+nd143  3.7659769E-10
+nd144  7.4856532E-10
+nd145  2.7836300E-10
+nd146  5.4794259E-10
+nd148  1.8529566E-10
+nd150  1.8387129E-10
+sm144  2.9930761E-11
+sm147  1.5371443E-10
+sm148  1.1258180E-10
+sm149  1.3943620E-10
+sm150  7.4950470E-11
+sm152  2.7533529E-10
+sm154  2.3725632E-10
+eu151  1.8156369E-10
+eu153  2.0089334E-10
+gd152  2.6520564E-12
+gd154  2.9282831E-11
+gd155  2.0011589E-10
+gd156  2.7849682E-10
+gd157  2.1427760E-10
+gd158  3.4234072E-10
+gd160  3.0504894E-10
+tb159  2.5827064E-10
+dy156  9.1613553E-13
+dy158  1.5739190E-12
+dy160  3.9080751E-11
+dy161  3.1894215E-10
+dy162  4.3279916E-10
+dy163  4.2553790E-10
+dy164  4.8605937E-10
+ho165  3.7858709E-10
+er162  1.4564651E-12
+er164  1.6977196E-11
+er166  3.5969617E-10
+er167  2.4700788E-10
+er168  2.9303960E-10
+er170  1.6393803E-10
+tm169  1.7315787E-10
+yb168  1.3032042E-12
+yb170  3.2763362E-11
+yb171  1.5580962E-10
+yb172  2.4124085E-10
+yb173  1.8008345E-10
+yb174  3.6040015E-10
+yb176  1.4801728E-10
+lu175  1.6305840E-10
+lu176  4.7113455E-12
+hf174  1.1240218E-12
+hf176  3.6542304E-11
+hf177  1.3128720E-10
+hf178  1.9375271E-10
+hf179  9.7282300E-11
+hf180  2.5196920E-10
+ta180  1.1619490E-14
+ta181  9.7356768E-11
+w180   7.5016426E-13
+w182   1.6752485E-10
+w183   9.0959023E-11
+w184   1.9585717E-10
+w186   1.8361256E-10
+re185  9.7897884E-11
+re187  1.7637916E-10
+os184  6.4055361E-13
+os186  5.1746412E-11
+os187  4.1376162E-11
+os188  4.3650707E-10
+os189  5.3507288E-10
+os190  8.7463530E-10
+os192  1.3725602E-09
+ir191  1.1574776E-09
+ir193  1.9655552E-09
+pt190  8.6628783E-13
+pt192  4.8665862E-11
+pt194  2.0734244E-09
+pt195  2.1380727E-09
+pt196  1.6041353E-09
+pt198  4.5975898E-10
+au197  9.6656232E-10
+hg196  3.3820440E-12
+hg198  2.2706965E-10
+hg199  3.8615061E-10
+hg200  5.3135622E-10
+hg201  3.0478695E-10
+hg202  6.9384027E-10
+hg204  1.6118169E-10
+tl203  2.7442050E-10
+tl205  6.6155790E-10
+pb204  3.4739353E-10
+pb206  3.2640240E-09
+pb207  3.6293180E-09
+pb208  1.0439007E-08
+bi209  7.2607439E-10
+th232  2.5940134E-10
+u234   5.8105425E-15
+u235   3.3828900E-11
+u238   1.0754684E-10

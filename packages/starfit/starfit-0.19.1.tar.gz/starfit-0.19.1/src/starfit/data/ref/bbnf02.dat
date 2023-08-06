@@ -1,0 +1,44 @@
+; message from Brian Fields 20020624
+;
+; The numbers below are for a baryon-to-photon ratio
+; of eta=6.e-10, or Omega_B h2 = 0.022; this is
+; the value currently preferred by the CMB and
+; by D/H.  In fact, the other reliable light
+; elements, 4He and 7Li, prefer a lower value of eta.
+; For more on this, you can check out:
+;   Richard H. Cyburt, Brian D. Fields, and Keith A. Olive, New Astronomy
+; 6, 215-238 (2001) 
+; which describes how these are calculated.  An update
+; with more on the CMB-BBN comparison appears in 
+;   Richard H. Cyburt, Brian D. Fields, and Keith A. Olive Astroparticle
+; Phys. 17, 87-100, (2002) 
+; As these papers describe, the current situation is a bit
+; complex (because of 4He and 7Li), but for your purposes,
+; the simplest thing to do (which most people would find 
+; fine) is to just use the eta we've given.
+; Here are the abundances of all stable elements.  All significant
+; A=constant abundances have been summed,
+; e.g. X(He3) = X0(H3) + X0(He3)
+;         X(N14) = X0(N14) + X0(C14)
+; 
+; eta10 down to around 4.5 or so, but that relies only of the measured
+; abundances and not the CMB.
+;
+; \eta = 6.0E-10    \Omega_{\rm B}h2 = 0.022
+;
+h1    0.751276498  
+h2    4.31998E-05  
+he3   2.1300277E-05
+he4   0.248659     
+li6   5.96248E-14  
+li7   1.912209E-09 
+be9   1.72349E-18  
+b10   2.60398E-29  
+b11   2.44521E-15  
+c12   1.05273E-13  
+c13   1.73830E-14  
+n14   3.53864E-13  
+n15   8.63237E-17  
+o16   3.85413E-17  
+o17   1.93227E-22  
+o18   2.2583E-21   

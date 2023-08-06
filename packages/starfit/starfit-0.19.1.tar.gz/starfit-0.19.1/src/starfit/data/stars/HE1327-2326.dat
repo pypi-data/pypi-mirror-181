@@ -1,0 +1,81 @@
+10001
+HE1327-2326
+Anna Frebel, priv. com. (2006)
+subgiant solution for abundances
+1
+
+17
+Li  +1.50  -0.20
+C   +6.26   0.24
+N   +5.93   0.30
+O   +5.89   0.24
+Na  +2.86   0.08
+Mg  +3.73   0.07
+Al  +2.64   0.09
+Ca  +1.52   0.20
+Ti  -0.24   0.20
+Cr  +1.09  -0.20
+Mn  +0.87  -0.20
+Fe  +1.92   0.15
+Co  +1.34  -0.20
+Ni  +1.16  -0.20
+Zn  +2.02  -0.20
+Sr  -1.47   0.13
+Ba  -1.86  -0.20
+
+25/07/06
+
+for Alex Heger and Stan Woosley to compare with new SN models
+
+
+elm ion     log eps_sg log eps_dw obs_err ref               comment
+=====================================================================
+C    CH       6.26      5.96     0.24    Frebel et al. 06 ApJL 638, 17
+N    NH       5.93      5.43     0.30    Frebel et al. 06
+O    OH       5.89      5.59     0.24    Frebel et al. 06
+Li   1       <1.5      <1.5      ...     Aoki et al. 06 ApJ 639, 897
+Na   1        2.86      2.86     0.08    Aoki et al. 06
+Mg   1        3.73      3.74     0.07    Aoki et al. 06
+Al   1        2.64      2.65     0.09    Aoki et al. 06
+Ca   2        1.52      1.50     ...     Aoki et al. 06     
+Ca   1        0.95      0.97     0.17    Aoki et al. 06    CaI should be used
+Ti   2       -0.24      0.02     0.20    Aoki et al. 06
+Fe   1        1.92      1.93     0.15    Frebel et al. 06
+Fe   2       <2.051    <2.25     ...     Frebel et al. 06
+Sr   2       -1.47     -1.19     0.13    Aoki et al. 06
+			       				  
+Cr   1       <1.09     <1.11     ...     Aoki et al. 06		
+Mn   1       <0.87     <0.89     ...     Aoki et al. 06
+Co   1       <1.34     <1.33     ...     Aoki et al. 06
+Ni   1       <1.16     <1.15     ...     Aoki et al. 06
+Zn   1       <2.02     <2.11     ...     Aoki et al. 06
+Ba   2      <-1.86    <-1.58     ...     Aoki et al. 06
+
+
+Some comments: 
+
+* This are observational values (log eps) derived from 1D LTE
+models. Some values are already corrected for NLTE or 3D effects. See
+Aoki et al. if you want to know which one's (NLTE) and Frebel et
+al. (for 3D).
+
+You can choose between the subgiant and dwarf case. 
+
+* Collet et al. recently determined the abundance pattern from a 3D
+model and got results that are not hugely different from the above
+values (the largest differences are in CNO, but we already published
+values with approximate 3D corrections). So, I guess that paper should
+be cited as well. Apart from defending my own work :-) , I may be good
+though to use our values derived from 1D models since it eases the
+comparison with other stars for which no 3D models are available (and
+won't be for a while).
+
+* Concerning the upper limits, I had not yet time to write up the new
+results. However, depending on your results, it would be ok for me to
+hint in your paper that new upper limits for Cr, Co, and Ni are
+somewhat tighter than the Aoki et al. values, whereas no significant
+imrovement can be achieved for Mn, Zn and Ba (Frebel et al. 2007, in
+prep./or priv. comm.). Not sure though, if that would at all help
+you..?!?  I would then like to ask you to send a version of the paper
+before submission.
+

@@ -1,0 +1,112 @@
+10000
+HE1424-0241 abundances, Judy Cohen, priv. com., 20070717
+1
+
+20
+C       5.260 -0.15
+N       5.100 -0.15
+Na      2.322  0.15
+Mg      4.026  0.15
+Al      2.345  0.15
+Si      2.589  0.15
+Ca      1.980  0.15
+Sc     -0.947  0.15
+Ti      0.854  0.17
+V       0.641 -0.15 
+Cr      1.328  0.15
+Mn      1.500  0.15
+Fe      3.530  0.15
+Co      1.984  0.21
+Ni      2.524  0.15
+Cu     -0.413  0.15
+Sr     -2.747 -0.15
+Y      -1.460 -0.15
+Ba     -2.742  0.15
+Eu     -1.947 -0.15
+
+
+
+From - Wed Jul 18 08:35:05 2007
+X-Account-Key: account1
+X-UIDL: UID181958-1114993873
+X-Mozilla-Status: 0003
+X-Mozilla-Status2: 00000000
+X-Mozilla-Keys: $label1                                                                         
+Return-Path: <jlc@gringo.caltech.edu>
+X-Original-To: alex@ucolick.org
+Delivered-To: alex@ucolick.org
+Received: from smtp.ucolick.org (zilan.ucolick.org [128.114.23.234])
+	(using TLSv1 with cipher ADH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by delivery.ucolick.org (Postfix) with ESMTP id 92830549
+	for <alex@ucolick.org>; Tue, 17 Jul 2007 20:34:46 -0700 (PDT)
+Received: from smtp.ucolick.org (localhost [127.0.0.1])
+	by smtp.ucolick.org (Postfix) with ESMTP id 627306233
+	for <alex@ucolick.org>; Tue, 17 Jul 2007 20:34:46 -0700 (PDT)
+Received: from gringo.caltech.edu (gringo.caltech.edu [131.215.103.41])
+	by smtp.ucolick.org (Postfix) with ESMTP id 4B90B3953
+	for <alex@ucolick.org>; Tue, 17 Jul 2007 20:34:46 -0700 (PDT)
+Received: from gringo.caltech.edu (localhost [127.0.0.1])
+	by gringo.caltech.edu (8.13.8+Sun/8.13.8) with ESMTP id l6I3YfZl007244;
+	Tue, 17 Jul 2007 20:34:41 -0700 (PDT)
+Received: (from jlc@localhost)
+	by gringo.caltech.edu (8.13.8+Sun/8.13.8/Submit) id l6I3YfK5007243;
+	Tue, 17 Jul 2007 20:34:41 -0700 (PDT)
+Date: Tue, 17 Jul 2007 20:34:41 -0700 (PDT)
+From: Judy Cohen <jlc@gringo.caltech.edu>
+Message-Id: <200707180334.l6I3YfK5007243@gringo.caltech.edu>
+To: alex@ucolick.org
+Subject: To Alex Heger
+Cc: jlc@phobos.caltech.edu
+X-DSPAM-Result: Innocent
+X-DSPAM-Processed: Tue Jul 17 20:34:47 2007
+X-DSPAM-Confidence: 0.9978
+X-DSPAM-Probability: 0.0000
+X-DSPAM-Signature: 469d8a5722940021468
+
+
+Abundances for HE1424-0241
+
+Hope this is clear and what you need.
+
+--------------------------------------
+Judith Cohen
+Kate Van Nuys Page Professor of Astronomy
+Mail Code 105-24
+California Institute of Technology
+Pasadena, California 91125
+
+626-395-4005              http://www.astro.caltech.edu/~jlc/
+626-568-9352 (fax)        jlc@astro.caltech.edu
+--------------------------------------------
+
+
+=======================================
+  Ion    Epsilon(N(H)=12)  X/X(Sun)   [X/Fe] 
+                                        uncertainty
+                                               number of lines
+                                                     Solar abund
+  60    5.260     -3.330       0.619    ...     1    8.590  upper limit, CH
+  70    5.100     -2.830       1.119    ...     1    7.930  upper lmiit, NH
+ 110    2.322     -3.998      -0.051    0.15    2    6.320   -0.2 dex non-LTE correction
+ 120    4.026     -3.514       0.435    0.15    3    7.540
+ 130    2.345     -4.125      -0.176    0.150   2    6.470  +0.6 dex non-LTE correction
+ 140    2.589     -4.961      -1.012    0.15    1    7.550
+ 20     1.98                            0.15    2    6.36   Mean CaI, CaII
+ 211   -0.947     -4.047      -0.098    0.15    1    3.100
+ 221    0.854     -4.136      -0.174    0.170   8    4.990
+ 231    0.641     -3.359       0.590    ...     1    4.000  upper limit
+ 240    1.328     -4.342      -0.380    0.15    5    5.670
+ 25     1.5                             0.15    5    5.39   Mean MnI, MnII, slight bias toward MnII
+ 26     3.53                            0.15   44    7.45   Mean FeI, FeII
+ 270    1.984     -2.936       1.013    0.210   4    4.920 
+ 280    2.524     -3.726       0.223    0.15    2    6.250
+ 290   -0.413     -4.623      -0.674    0.15    1    4.210
+ 381   -2.747     -5.647      -1.698    ....    2    2.900   upper limit
+ 391   -1.460     -3.700       0.249    ...     2    2.24    upper limit
+ 561   -2.742     -4.872      -0.923    0.15    1    2.130   very marginal detection, upper limit ?
+ 631   -1.947     -2.457       1.492    ...     1    0.510   upper limit
+
+(Mn line repeated, problems with transmission)
+ 25     1.5                             0.15    5    5.39   Mean MnI, MnII, slight bias toward MnII
+
