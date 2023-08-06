@@ -1,0 +1,32 @@
+---
+- hosts: all
+  name: Postgres deployment playbook for DBT2 benchmarking against a variant of DB-RA-1
+  become: yes
+  gather_facts: yes
+  any_errors_fatal: True
+  max_fail_percentage: 0
+
+  collections:
+    - edb_devops.edb_postgres
+
+  pre_tasks:
+    - name: Define variables
+      set_fact:
+        disable_logging: false
+        enable_edb_repo: false
+
+  roles:
+    - role: setup_repo
+      when: "'setup_repo' in lookup('edb_devops.edb_postgres.supported_roles', wantlist=True)"
+    - role: install_dbserver
+      when: "'install_dbserver' in lookup('edb_devops.edb_postgres.supported_roles', wantlist=True)"
+    - role: init_dbserver
+      when: "'init_dbserver' in lookup('edb_devops.edb_postgres.supported_roles', wantlist=True)"
+    - role: setup_dbt2_driver
+      when: "'setup_dbt2_driver' in lookup('edb_devops.edb_postgres.supported_roles', wantlist=True)"
+    - role: setup_dbt2_client
+      when: "'setup_dbt2_client' in lookup('edb_devops.edb_postgres.supported_roles', wantlist=True)"
+    - role: setup_dbt2
+      when: "'setup_dbt2' in lookup('edb_devops.edb_postgres.supported_roles', wantlist=True)"
+    - role: autotuning
+      when: "'autotuning' in lookup('edb_devops.edb_postgres.supported_roles', wantlist=True)"
