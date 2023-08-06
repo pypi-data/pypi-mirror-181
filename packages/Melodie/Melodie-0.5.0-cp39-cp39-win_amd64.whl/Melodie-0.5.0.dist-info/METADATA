@@ -1,0 +1,67 @@
+Metadata-Version: 2.1
+Name: Melodie
+Version: 0.5.0
+Summary: A general framework that can be used to establish agent-based models for specific uses.
+Home-page: https://github.com/SongminYu/Melodie
+Author: Songmin Yu
+Author-email: songmin.yu@isi.fraunhofer.de
+License: BSD 3
+Project-URL: Documentation, http://docs.abm4all.com
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Operating System :: Unix
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: chardet
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: matplotlib
+Requires-Dist: seaborn
+Requires-Dist: networkx
+Requires-Dist: openpyxl
+Requires-Dist: websockets
+Requires-Dist: sqlalchemy
+Requires-Dist: astunparse
+Requires-Dist: pprintast
+Requires-Dist: cloudpickle
+Requires-Dist: cython (==3.0.0a10)
+Requires-Dist: scikit-opt (~=0.6)
+Requires-Dist: rpyc
+
+# Melodie: Agent-based Modeling in Python
+
+
+[![Build](https://github.com/ABM4ALL/Melodie/actions/workflows/wheels.yml/badge.svg?branch=dist)](https://github.com/ABM4ALL/Melodie/actions/workflows/wheels.yml)
+
+**Melodie** is a framework for developing agent-based models (ABMs) in Python.
+The package and its examples are maintained on [ABM4ALL](https://github.com/ABM4ALL).
+For introduction and tutorial of the package, please visit our documentation page.
+
+The package name **Melodie** comes from an example which poetically explains the core concept of complexity theory: **Emergence**.
+In his bold book *Emergent Evolution*, [C. Lloyd Morgan](https://en.wikipedia.org/wiki/C._Lloyd_Morgan) wrote:
+*The emergent step, though it may seem more or less saltatory [a leap], is best regarded as a qualitative change of direction,
+or critical turning-point, in the course of events.* Then, Morgan exemplified how melody emerges from chords by quoting *Abt Vogler* of
+[Robert Browning](https://en.wikipedia.org/wiki/Robert_Browning):
+
+*"And I know not if,*
+
+*save in this,*
+
+*such gift be allowed to man,*
+
+*That out of three sounds he frame,*
+
+*not a fourth sound,*
+
+*but a star."*
+
+Sitting in Karlsruhe, a lovely city in southern Germany,
+I take the German translation - ***Melodie*** - as the name of this package.
+
+![Karlsruhe](docs/source/image/karlsruhe.png)
