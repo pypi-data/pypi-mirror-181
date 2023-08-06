@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=61.0", "versioneer[toml]==0.28"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sastools"
+version = "0.0"
+description = "SAS-tools contains useful functions and classes for working with SAS data."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+authors = [
+    {name = "Torsten Giess", email = "torsten.giess@ibtb.uni-stuttgart.de"},
+    {name = "Selina Itzigehl", email = "selina.itzigehl@ipc.uni-stuttgart.de"},
+    {name = "Jan Range", email = "jan.range@simtech.uni-stuttgart.de"},
+    {name = "Richard Schoemig", email = "richard.schoemig@ibtb.uni-stuttgart.de"}
+]
+maintainers = [
+    {name = "FAIR Chemistry", email = "fairchemistry@ibtb.uni-stuttgart.de"}
+]
+keywords = ["RDM", "SAS", "SAXS"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Chemistry"
+]
+dependencies = [
+    "lxml",
+    "numpy",
+    "pandas",
+    "pyaniml"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/FAIRChemistry"
+"Repository" = "https://github.com/FAIRChemistry/SAS-tools"
+
+[tool.versioneer]
+VCS = "git"
+style = "pep440"
+versionfile_source = "sastools/_version.py"
+versionfile_build = "sastools/_version.py"
+tag_prefix = ""
+parentdir_prefix = "sastools-"
