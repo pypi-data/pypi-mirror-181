@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: nurses_2
+Version: 0.16.2
+Summary: A widgetful and async-centric library for terminal graphics.
+Author-email: salt-die <salt-die@protonmail.com>
+License: MIT
+Project-URL: repository, https://github.com/salt-die/nurses_2
+Project-URL: documentation, https://salt-die.github.io/nurses_2/index.html
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# nurses_2 - Terminal Graphics
+
+A widgetful and async-centric library for creating graphical applications in the terminal.
+
+Create games:
+
+![Tetris](https://raw.githubusercontent.com/salt-die/nurses_2/main/preview_images/tetris.png)
+
+Simulations:
+
+![Cloth](https://raw.githubusercontent.com/salt-die/nurses_2/main/preview_images/cloth.png)
+
+Or entire feature-filled applications:
+
+![Windows](https://raw.githubusercontent.com/salt-die/nurses_2/main/preview_images/windows.png)
+
+See it in action: [Video Preview](https://youtu.be/LLI6ANQ6MH4).
+
+[Read the docs](https://salt-die.github.io/nurses_2/index.html)
