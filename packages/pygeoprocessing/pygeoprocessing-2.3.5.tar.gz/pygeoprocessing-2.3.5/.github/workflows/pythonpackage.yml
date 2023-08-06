@@ -1,0 +1,96 @@
+name: Test PyGeoprocessing
+
+on: [push, pull_request]
+
+defaults:
+  run:
+    shell: bash -l {0}
+
+jobs:
+  Test:
+    runs-on: ${{ matrix.os }}
+    name: Test (py${{ matrix.python-version }}, GDAL ${{ matrix.gdal }}, ${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: [3.7, 3.8, 3.9]
+        gdal: ["3.2.2", "3.3.0", "3.4.3", "3.5"]
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+        include:
+          - python-version: "3.10"
+            gdal: "3.4.3"
+            os: ubuntu-latest
+
+          - python-version: "3.10"
+            gdal: "3.4.3"
+            os: windows-latest
+
+          - python-version: "3.10"
+            gdal: "3.4.3"
+            os: macos-latest
+
+          - python-version: "3.10"
+            gdal: "3.5"
+            os: ubuntu-latest
+
+          - python-version: "3.10"
+            gdal: "3.5"
+            os: windows-latest
+
+          - python-version: "3.10"
+            gdal: "3.5"
+            os: macos-latest
+
+          - python-version: "3.11"
+            gdal: "3.5"
+            os: ubuntu-latest
+
+          - python-version: "3.11"
+            gdal: "3.5"
+            os: windows-latest
+
+          - python-version: "3.11"
+            gdal: "3.5"
+            os: macos-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          # Fetch all history so that setuptool_scm can build the correct
+          # version string.
+          fetch-depth: 0
+
+      - name: setup-miniconda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: pyenv
+          auto-update-conda: true
+          python-version: ${{ matrix.python-version }}
+          channels: conda-forge
+
+      - name: Install dependencies
+        run: conda install flake8 pytest
+
+      - name: Lint with flake8
+        run: |
+          # stop the build if there are Python syntax errors or undefined names
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+          # exit-zero treats all errors as warnings. The GitHub editor is 127
+          # chars wide
+          flake8 . --count --exit-zero --max-complexity=10 \
+            --max-line-length=127 --statistics
+
+      - name: Install PyGeoprocessing
+        run: |
+            # Installing all of these in the same line will force conda to
+            # resolve all requirements at once, reducing the chance of DLL
+            # conflicts.
+            #
+            # Using single-equals to get whatever bugfix version satisfies the resolver.
+            conda install --file requirements.txt gdal=${{ matrix.gdal }} setuptools build
+            python -m build --wheel
+            python -m pip install $(find dist -name "*.whl")
+
+      - name: Test with pytest
+        run: python -m pytest tests
