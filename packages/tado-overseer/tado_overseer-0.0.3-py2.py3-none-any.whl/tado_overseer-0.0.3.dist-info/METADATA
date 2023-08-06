@@ -1,0 +1,53 @@
+Metadata-Version: 2.1
+Name: tado-overseer
+Version: 0.0.3
+Summary: Light automation for Tado home heating systems
+Home-page: https://github.com/mmcf/tado-overseer
+Author: Michael McFall
+Author-email: michaelcmcfall@gmail.com
+Project-URL: Documentation, https://tado-overseer.readthedocs.io
+Project-URL: Source, https://github.com/mmcf/tado-overseer
+Project-URL: Tracker, https://github.com/mmcf/tado-overseer/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: dictdiffer
+Requires-Dist: jsonpath-rw
+Requires-Dist: jsonpath-rw-ext
+Requires-Dist: pyfiglet
+Requires-Dist: pyyaml
+Requires-Dist: requests
+Requires-Dist: retry
+Provides-Extra: all
+Requires-Dist: pytest (>=7.2.0) ; extra == 'all'
+Requires-Dist: pycodestyle ; extra == 'all'
+Requires-Dist: pytest-cov ; extra == 'all'
+Requires-Dist: responses ; extra == 'all'
+Provides-Extra: test
+Requires-Dist: pytest (>=7.2.0) ; extra == 'test'
+Requires-Dist: pycodestyle ; extra == 'test'
+Requires-Dist: pytest-cov ; extra == 'test'
+Requires-Dist: responses ; extra == 'test'
+
+# tado-overseer
+Light automation and management for Tado systems
+
+## Documentation
+
+Full documentation can be found on [Read the Docs](https://tado-overseer.readthedocs.io/en/latest/).
+
+
+## Development
+
+### Pre-commit hooks
+This repo uses [pre-commit](https://pre-commit.com/#intro) to ensure that all code checked in follows proper Python styling guidelines.  The configuration used can be found [here](https://github.com/mmcf/tado-overseer/blob/main/.pre-commit-config.yaml).
+
+### Testing
+This repo uses [pytest](https://pytest.org/) to define and execute unit tests.  Tests can run using the `tests` Docker Compose service:
+
+```
+docker-compose run tests
+```
