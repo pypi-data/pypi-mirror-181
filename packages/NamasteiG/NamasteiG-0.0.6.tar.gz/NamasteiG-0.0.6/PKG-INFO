@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: NamasteiG
+Version: 0.0.6
+Summary: I Create This Program To Login Instagram Using Python.
+Author-email: Abhinav Bhardwaj <abhinav.bhardwaj.56614@gmail.com>
+Project-URL: Homepage, https://t.me/namastelibrary
+Project-URL: Bug Tracker, https://t.me/namastehackers
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+Best Instagram Python Library For Scrape Instagram Data
+
+from NamasteiG import Instagram
+
+#For Login IG Account
+UserName=''
+PassWord=''
+IG=Instagram(UserName,PassWord)
+IG.Login()
+
+#For Scrape Victim Followers
+#Category Is username, pk, full_name And More
+Category='username'
+VictimUserId=''
+data=IG.Scrape_Followers(VictimUserId,Category)
+print(data)
+
+#More Features Comming Soon And Tell Me Which Types Of Features You Want To Add In This Library
+# Drop Your Suggestion Here => https://t.me/namastehackersgroup
+
+
+
