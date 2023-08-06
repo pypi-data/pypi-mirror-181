@@ -1,0 +1,71 @@
+Metadata-Version: 2.1
+Name: mdsconnector
+Version: 1.8.0
+Summary: Remote call to MDSplus objects
+Author: MDSplus Core Development Team
+Author-email: mdsplus_dev@psfc.mit.edu
+License: MIT License
+        
+        Copyright (c) 2017 MDSplus Software Development project
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: Homepage, https://github.com/MDSplus/mdsConnector
+Keywords: MDSplus,Data Managment,Data Acquisition,Magnetic Fusion Energy,Remote Data Access
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Intended Audience :: Science/Research
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Internet
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Object Brokering
+Classifier: Topic :: System :: Clustering
+Classifier: Topic :: System :: Distributed Computing
+Classifier: Topic :: System :: Monitoring
+Classifier: Topic :: System :: Networking
+Classifier: Topic :: System :: Systems Administration
+Classifier: Topic :: Scientific/Engineering :: Physics
+Requires-Python: >2.5
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+License-File: LICENSE
+
+# mdsConnector
+Connect to remote MDSplus server via SSH in python and use MDSplus python objects remotely
+
+This module requires the rpyc module to be installed on the local host. The MDSplus software package
+is not needed on the local host but you can utilize all of the MDSplus python objects remotely on
+the server you connect to. The data remains on the remote system unless you retrieve an instance
+of a python primitive object or an numpy array.
+
+The following example demonstrates how this can be used.
+
+```
+>>> from mdsconnector import mdsConnector
+>>> c = mdsConnector('hostname')
+>>> t = c.Tree('mytree',42)
+>>> n = c.getNode('\top:signal')
+>>> rec = n.record
+>>> nmpyarray = rec.data()
+>>> ans = c.Data.execute('$ * 10',nmpyarray).data()
+```
