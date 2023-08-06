@@ -1,0 +1,10 @@
+channels:
+- conda-forge
+dependencies:
+- click
+- furo
+- python
+- pyyaml
+- sphinx
+- sphinx-argparse
+- tqdm
