@@ -1,0 +1,2 @@
+[pyodide.cli]
+pack = pyodide_pack.cli:main
