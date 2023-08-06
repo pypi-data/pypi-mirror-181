@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: flamapy-dn
+Version: 1.1.4
+Summary: This repo host the dependency network model concrete classes
+Home-page: https://github.com/GermanMT/dependency_network_metamodel
+Author: Antonio Germán Márquez Trujillo
+Author-email: amtrujillo@us.es
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+
+# Dependency Network Metamodel
+
+This repo host the dependency network model concrete classes and the transformation that allow to create this model from a dictionary.
