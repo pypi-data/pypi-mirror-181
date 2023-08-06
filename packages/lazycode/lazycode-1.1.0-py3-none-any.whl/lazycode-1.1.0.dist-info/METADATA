@@ -1,0 +1,66 @@
+Metadata-Version: 2.1
+Name: lazycode
+Version: 1.1.0
+Summary: My short description for my project.
+Home-page: https://gitee.com/SL1559100227
+Author: WSL
+Author-email: ttw5656@163.com
+License: MIT
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.9.12
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: async-timeout (==4.0.2)
+Requires-Dist: bcrypt (==4.0.1)
+Requires-Dist: bleach (==5.0.1)
+Requires-Dist: certifi (==2022.9.24)
+Requires-Dist: cffi (==1.15.1)
+Requires-Dist: charset-normalizer (==2.1.1)
+Requires-Dist: commonmark (==0.9.1)
+Requires-Dist: cryptography (==38.0.4)
+Requires-Dist: dnspython (==2.2.1)
+Requires-Dist: docutils (==0.19)
+Requires-Dist: idna (==3.4)
+Requires-Dist: importlib-metadata (==5.1.0)
+Requires-Dist: jaraco.classes (==3.2.3)
+Requires-Dist: keyring (==23.11.0)
+Requires-Dist: lxml (==4.9.1)
+Requires-Dist: more-itertools (==9.0.0)
+Requires-Dist: numpy (==1.23.5)
+Requires-Dist: pandas (==1.5.2)
+Requires-Dist: paramiko (==2.12.0)
+Requires-Dist: pip (==22.3.1)
+Requires-Dist: pkginfo (==1.9.2)
+Requires-Dist: pycparser (==2.21)
+Requires-Dist: Pygments (==2.13.0)
+Requires-Dist: pymongo (==4.3.3)
+Requires-Dist: PyMySQL (==1.0.2)
+Requires-Dist: PyNaCl (==1.5.0)
+Requires-Dist: python-dateutil (==2.8.2)
+Requires-Dist: pytz (==2022.6)
+Requires-Dist: pywin32-ctypes (==0.2.0)
+Requires-Dist: readme-renderer (==37.3)
+Requires-Dist: redis (==4.4.0)
+Requires-Dist: requests (==2.28.1)
+Requires-Dist: requests-toolbelt (==0.10.1)
+Requires-Dist: rfc3986 (==2.0.0)
+Requires-Dist: rich (==12.6.0)
+Requires-Dist: setuptools (==65.6.3)
+Requires-Dist: six (==1.16.0)
+Requires-Dist: twine (==4.0.2)
+Requires-Dist: urllib3 (==1.26.13)
+Requires-Dist: webencodings (==0.5.1)
+Requires-Dist: wheel (==0.38.4)
+Requires-Dist: zipp (==3.11.0)
+
+
+# 代码设计原则
+设计初衷: 简化代码
+
+安装: pip install lazycode -i https://pypi.org/simple
+
