@@ -1,0 +1,16 @@
+sanic_beskar/__init__.py,sha256=fOUN7zsGsSDFuhkWQ5ymaZlhB6XnR3njGTMDoIqupBk,653
+sanic_beskar/base.py,sha256=R50OpEMxOhMJ_cnPg80vk_D7R7s7bLElUQU6-elNJXg,72930
+sanic_beskar/constants.py,sha256=EebelR_pyKt6aMX2_LNT5qf-MITcHzn7VfTJ1RuJQyA,2353
+sanic_beskar/decorators.py,sha256=H3eE8jJT0T80xMeUFe34XUr3i6jYpsUjdjJQWS0hCSo,8467
+sanic_beskar/exceptions.py,sha256=nXTGFOsKRyJFVO-NVIk8Feo9nOJcM8vs6GbXQVWPs50,3817
+sanic_beskar/orm/__init__.py,sha256=BmHvOOrOBXTooEmrOylxz6qtzAMEzpeLtOTQhywcy8I,645
+sanic_beskar/orm/beanie_user_mixins.py,sha256=8rMjbaoBGV5u2VYzwgmVYChm7XUEssrz3aOZvuPtWdg,3547
+sanic_beskar/orm/tortoise_user_mixins.py,sha256=fhZz-mInigLr2Jbuzy6tAJBJFgwXM7TippzWX4a6Xp4,3453
+sanic_beskar/orm/umongo_user_mixins.py,sha256=95sbhcGZX9daL5B3ZJhdmiQTkGqfSHajQx6Xi5z6pqE,3793
+sanic_beskar/templates/registration_email.html,sha256=QKblb8d4YnyzsQ4esBJEYWM5zWsZ7JgBqNdmugV-zLc,6707
+sanic_beskar/templates/reset_email.html,sha256=b0DgAlFzEzj34v-rAyOG_cZ_mEjdP84mUfVdtK1pIEU,6721
+sanic_beskar/utilities.py,sha256=x-r4CREt3eF1L9cgUfTjh75asi87NZN0FcMLtnPocfw,8676
+sanic_beskar-2.2.4.dist-info/METADATA,sha256=_zj1ShOGzy2VxY8-MMjPId2W_Z43lj-52lsduwpQiSw,5863
+sanic_beskar-2.2.4.dist-info/WHEEL,sha256=vVCvjcmxuUltf8cYhJ0sJMRDLr1XsPuxEId8YDzbyCY,88
+sanic_beskar-2.2.4.dist-info/LICENSE.rst,sha256=PuDKZdRIY_bKU6m7q0J3NqucZM71aewMQRFxWvc2AFs,1083
+sanic_beskar-2.2.4.dist-info/RECORD,,
