@@ -1,0 +1,51 @@
+Metadata-Version: 2.1
+Name: policyengine-us
+Version: 0.188.6
+Summary: PolicyEngine tax and benefit system for the US
+Home-page: https://github.com/PolicyEngine/policyengine-us
+Author: PolicyEngine
+Author-email: hello@policyengine.org
+License: http://www.fsf.org/licensing/licenses/agpl-3.0.html
+Keywords: benefit microsimulation social tax
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Requires-Python: >=3.7,<3.10
+License-File: LICENSE
+Requires-Dist: h5py
+Requires-Dist: microdf-python
+Requires-Dist: policyengine-core (==1.10.18)
+Requires-Dist: pandas
+Requires-Dist: pathlib
+Requires-Dist: pytest
+Requires-Dist: pytest-dependency
+Requires-Dist: pyyaml
+Requires-Dist: requests
+Requires-Dist: synthimpute
+Requires-Dist: tables
+Requires-Dist: tqdm
+Requires-Dist: click (>=8.0.0)
+Requires-Dist: tabulate
+Provides-Extra: dev
+Requires-Dist: autopep8 (<2.0.0,>=1.5.4) ; extra == 'dev'
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: coverage ; extra == 'dev'
+Requires-Dist: jupyter-book ; extra == 'dev'
+Requires-Dist: plotly ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: setuptools ; extra == 'dev'
+Requires-Dist: wheel ; extra == 'dev'
+Requires-Dist: yaml-changelog (>=0.1.7) ; extra == 'dev'
+Requires-Dist: linecheck ; extra == 'dev'
+Requires-Dist: furo (<2023) ; extra == 'dev'
+Requires-Dist: markupsafe (==2.0.1) ; extra == 'dev'
+Requires-Dist: sphinx (<5,>=4.5.0) ; extra == 'dev'
+Requires-Dist: sphinx-argparse (<1,>=0.3.2) ; extra == 'dev'
+Requires-Dist: sphinx-math-dollar (<2,>=1.2.1) ; extra == 'dev'
+
+UNKNOWN
+
