@@ -1,0 +1,11 @@
+MANIFEST.in
+setup.py
+gsender/README.md
+gsender/__init__.py
+gsender/dingtalk.py
+gsender/send_mail.py
+gsender.egg-info/PKG-INFO
+gsender.egg-info/SOURCES.txt
+gsender.egg-info/dependency_links.txt
+gsender.egg-info/requires.txt
+gsender.egg-info/top_level.txt
