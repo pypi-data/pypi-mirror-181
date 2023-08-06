@@ -1,0 +1,2 @@
+[fs.opener]
+uftp = pyunicore.uftpfs:UFTPOpener
