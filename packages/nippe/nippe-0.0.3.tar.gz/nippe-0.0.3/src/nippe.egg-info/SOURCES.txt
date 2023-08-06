@@ -1,0 +1,11 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+src/nippe/__init__.py
+src/nippe/weather.py
+src/nippe.egg-info/PKG-INFO
+src/nippe.egg-info/SOURCES.txt
+src/nippe.egg-info/dependency_links.txt
+src/nippe.egg-info/requires.txt
+src/nippe.egg-info/top_level.txt
