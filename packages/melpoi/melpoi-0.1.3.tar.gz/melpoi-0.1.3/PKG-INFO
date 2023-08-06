@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: melpoi
+Version: 0.1.3
+Summary: 
+License: MIT
+Author: Melvin Low
+Author-email: la0bing07148@gmail.com
+Requires-Python: >=3.8.1,<3.11
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Dist: graphviz (>=0.20.1,<0.21.0)
+Requires-Dist: ipython (>=8.6.0,<9.0.0)
+Description-Content-Type: text/markdown
+
+# melpoi
+[![PyPI Latest Release](https://img.shields.io/pypi/v/melpoi.svg)](https://pypi.org/project/melpoi/)
+[![release](https://github.com/la0bing/melpoi/actions/workflows/release.yml/badge.svg?branch=master)](https://github.com/la0bing/melpoi/actions/workflows/release.yml)
+
+melpoi is a python library to mainly to speed up data discovery, data analyzing, etc.
+
+# Get Started
+```
+pip install melpoi
+```
+
+# Categories
+- [SQL](https://github.com/la0bing/melpoi/tree/master/melpoi/sql)
+
+
+# Categories working in progerss
+- Dataset auto analyzer
+- AutoML
+
