@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=43", "wheel"]
+build-backend = "setuptools.build_meta" 
+
+[project]
+name = "plotID"
+description = "The plotID toolkit supports researchers in tracking and storing relevant data in plots. Plots are labelled with an ID and the corresponding data is stored."
+readme = "README.md"
+license = {text = "Apache License, Version 2.0"}
+authors = [
+    {name = "Institut für Fluidsystemtechnik - TU Darmstadt", email = "nfdi4ing@fst.tu-darmstadt.de"},
+    {name = "Hannes Mayr", email = "hannes.mayr@stud.tu-darmstadt.de"},
+    {name = "Martin Hock", email = "Martin.Hock@fst.tu-darmstadt.de"},
+    {name = "Manuela Richter", email = "Manuela.Richter@fst.tu-darmstadt.de"},
+    
+]
+dynamic = ["version"]
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Visualization",
+]
+dependencies = [
+    "Pillow",
+    "matplotlib",
+    "numpy",
+    "qrcode",
+]
+
+[project.urls]
+Repository = "https://git.rwth-aachen.de/plotid/plotid_python"
+Documentation = "https://plotid.pages.rwth-aachen.de/plotid_python"
+"Bug Tracker" = "https://git.rwth-aachen.de/plotid/plotid_python/-/issues"
+
+[project.optional-dependencies]
+test = ["coverage"]
+docs = [
+    "sphinx",
+    "sphinx-autoapi",
+    "sphinx-rtd-theme",
+    "myst-parser",
+]
+
+[tool.setuptools]
+packages = ["plotid"]
+
+[tool.setuptools.dynamic]
+version = {attr = "plotid.__version__"}
