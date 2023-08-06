@@ -1,0 +1,119 @@
+Metadata-Version: 2.1
+Name: homewizard-climate-websocket
+Version: 0.0.7
+Summary: API/Websocket to control Homewizard Climate devices
+Home-page: https://github.com/mepla/homewizard_climate_websocket
+Author: Mepla
+Author-email: soheil.nasirian@gmail.com
+License: MIT license
+Keywords: homewizard_climate_websocket
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: dataclasses-json (>=0.5.7)
+Requires-Dist: requests (>=2.28.0)
+Requires-Dist: websocket-client (>=1.1.0)
+Provides-Extra: all
+Requires-Dist: dataclasses-json (>=0.5.7) ; extra == 'all'
+Requires-Dist: requests (>=2.28.0) ; extra == 'all'
+Requires-Dist: websocket-client (>=1.1.0) ; extra == 'all'
+Requires-Dist: pytest-runner (>=5.2) ; extra == 'all'
+Requires-Dist: black (>=19.10b0) ; extra == 'all'
+Requires-Dist: codecov (>=2.1.4) ; extra == 'all'
+Requires-Dist: flake8 (>=3.8.3) ; extra == 'all'
+Requires-Dist: flake8-debugger (>=3.2.1) ; extra == 'all'
+Requires-Dist: pytest (>=5.4.3) ; extra == 'all'
+Requires-Dist: pytest-cov (>=2.9.0) ; extra == 'all'
+Requires-Dist: pytest-raises (>=0.11) ; extra == 'all'
+Requires-Dist: bump2version (>=1.0.1) ; extra == 'all'
+Requires-Dist: coverage (>=5.1) ; extra == 'all'
+Requires-Dist: ipython (>=7.15.0) ; extra == 'all'
+Requires-Dist: m2r2 (>=0.2.7) ; extra == 'all'
+Requires-Dist: Sphinx (>=3.4.3) ; extra == 'all'
+Requires-Dist: sphinx-rtd-theme (>=0.5.1) ; extra == 'all'
+Requires-Dist: tox (>=3.15.2) ; extra == 'all'
+Requires-Dist: twine (>=3.1.1) ; extra == 'all'
+Requires-Dist: wheel (>=0.34.2) ; extra == 'all'
+Provides-Extra: dev
+Requires-Dist: pytest-runner (>=5.2) ; extra == 'dev'
+Requires-Dist: black (>=19.10b0) ; extra == 'dev'
+Requires-Dist: codecov (>=2.1.4) ; extra == 'dev'
+Requires-Dist: flake8 (>=3.8.3) ; extra == 'dev'
+Requires-Dist: flake8-debugger (>=3.2.1) ; extra == 'dev'
+Requires-Dist: pytest (>=5.4.3) ; extra == 'dev'
+Requires-Dist: pytest-cov (>=2.9.0) ; extra == 'dev'
+Requires-Dist: pytest-raises (>=0.11) ; extra == 'dev'
+Requires-Dist: bump2version (>=1.0.1) ; extra == 'dev'
+Requires-Dist: coverage (>=5.1) ; extra == 'dev'
+Requires-Dist: ipython (>=7.15.0) ; extra == 'dev'
+Requires-Dist: m2r2 (>=0.2.7) ; extra == 'dev'
+Requires-Dist: Sphinx (>=3.4.3) ; extra == 'dev'
+Requires-Dist: sphinx-rtd-theme (>=0.5.1) ; extra == 'dev'
+Requires-Dist: tox (>=3.15.2) ; extra == 'dev'
+Requires-Dist: twine (>=3.1.1) ; extra == 'dev'
+Requires-Dist: wheel (>=0.34.2) ; extra == 'dev'
+Provides-Extra: setup
+Requires-Dist: pytest-runner (>=5.2) ; extra == 'setup'
+Provides-Extra: test
+Requires-Dist: black (>=19.10b0) ; extra == 'test'
+Requires-Dist: codecov (>=2.1.4) ; extra == 'test'
+Requires-Dist: flake8 (>=3.8.3) ; extra == 'test'
+Requires-Dist: flake8-debugger (>=3.2.1) ; extra == 'test'
+Requires-Dist: pytest (>=5.4.3) ; extra == 'test'
+Requires-Dist: pytest-cov (>=2.9.0) ; extra == 'test'
+Requires-Dist: pytest-raises (>=0.11) ; extra == 'test'
+
+# homewizard-climate-websocket
+
+API/Websocket to control Homewizard Climate devices
+
+---
+
+This library allows you to control your Homewizard Climate devices. There are a multitude of brands that use Homewizard apps for their smart controls.
+
+This was developed in oder to be used in a [Home Assistant](https://www.home-assistant.io/) integration. It has not been thoroughly tested or worked with as a standalone code.
+
+### Supported Devices
+This library is in an early stage of development and only works for the following device types returned from the Homewizard Climate API:
+
+- `heaterfan`
+
+It has been tested on the following devices (even though it might work on others too):
+- [Princess Smart Heating and Cooling Tower (01.347000.01.001)](https://www.princesshome.eu/en-gb/princess-01-347000-01-001-smart-heating-and-01.347000.01.001)
+
+![](https://www.princesshome.eu/product/image/large/01.347000.01.001_3.jpg)
+
+## Quick start
+There's no separate `requirements.txt` file, the dependencies can be found and installed in `setup.py`
+
+```
+username = os.environ["HW_CLIMATE_USERNAME"]
+password = os.environ["HW_CLIMATE_PASSWORD"]
+api = HomeWizardClimateApi(username, password)
+api.login()
+devices = api.get_devices()
+ws = HomeWizardClimateWebSocket(api, devices[0])
+ws.connect_in_thread() # There's also a blocking `connect`
+time.sleep(5)
+```
+
+## Installation
+
+**Stable Release (PyPi):** `pip install homewizard_climate_websocket`<br>
+**Local Development:** `pip install .`
+
+## Development
+Any help to increase the number of supported devices is much appreciated as I only had access to the one mentioned above.
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for information related to developing the code.
+
+
