@@ -1,0 +1,75 @@
+{
+  "identification": {
+    "project": "POPPY",
+    "identifier": "poppy.pop",
+    "name": "POPPY Operation Plugin (POP)",
+    "description": "Main plugin to operate POPPY"
+  },
+  "release": {
+    "version": "0.10.0",
+    "date": "2022-12-15",
+    "author": "Xavier Bonnin <xavier.bonnin@obspm.fr>, ROC Team <roc.support@sympa.obspm.fr>",
+    "contact": "roc.support@sympa.obspm.fr",
+    "institute": "LESIA",
+    "modification": "Fix SQLAlembic warning (with close_all) | Remove downgrade_all",
+    "url": "https://gitlab.obspm.fr/POPPy/POP"
+  },
+  "tasks": [
+    {
+      "name": "execute",
+      "category": "Software execution",
+      "description": "To execute a script on the POPPy database",
+      "inputs": {},
+      "outputs": {}
+    },
+    {
+      "name": "makemigrations",
+      "category": "Software execution",
+      "description": "Create migration for the database",
+      "inputs": {},
+      "outputs": {}
+    },
+    {
+      "name": "execute_cli",
+      "category": "Software execution",
+      "description": "To execute a script on the POPPy database from the command line",
+      "inputs": {},
+      "outputs": {}
+    },
+    {
+      "name": "upgrade",
+      "category": "Software execution",
+      "description": "A task to apply the migration of the POPPy database",
+      "inputs": {},
+      "outputs": {}
+    },
+    {
+      "name": "downgrade",
+      "category": "Software execution",
+      "description": "A task to reverse the migration of the POPPy database",
+      "inputs": {},
+      "outputs": {}
+    },
+    {
+      "name": "show_current",
+      "category": "Software execution",
+      "description": "Show the status of the current revision",
+      "inputs": {},
+      "outputs": {}
+    },
+    {
+      "name": "call_alembic",
+      "category": "Software execution",
+      "description": "Call alembic directly",
+      "inputs": {},
+      "outputs": {}
+    },
+    {
+      "name": "run_admin_web_server",
+      "category": "Software execution",
+      "description": "Run the flask web server",
+      "inputs": {},
+      "outputs": {}
+    }
+  ]
+}
