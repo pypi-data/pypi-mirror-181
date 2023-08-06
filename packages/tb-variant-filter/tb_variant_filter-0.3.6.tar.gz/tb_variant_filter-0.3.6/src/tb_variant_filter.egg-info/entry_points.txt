@@ -1,0 +1,4 @@
+[console_scripts]
+tb_bed_to_region_list = tb_variant_filter.bed_to_regions_cli:main
+tb_region_list_to_bed = tb_variant_filter.regions_to_bed:main
+tb_variant_filter = tb_variant_filter.cli:main

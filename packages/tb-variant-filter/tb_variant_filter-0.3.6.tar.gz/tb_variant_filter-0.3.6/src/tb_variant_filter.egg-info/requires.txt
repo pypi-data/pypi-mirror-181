@@ -1,0 +1,9 @@
+intervaltree
+lxml
+pandas
+vcfpy
+requests
+neo4j-python-driver
+
+[test]
+pytest>=6
