@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: azqueuemanager-rss
+Version: 0.0.1
+Summary: rss-parser for AZQueueManager
+License: MIT
+Keywords: azqueuemanager,extension,rss,azure storage queues
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Base AzQueueManager  Extension Template
+teamplate for building extensions for AZ Queue Manager
+
+## Getting Started
+- Create a new repository from this template.
+- Update the pyproject.toml file
+  - add your requirements `project.dependencies`
