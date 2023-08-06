@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: django-extended-filters
+Version: 0.7
+Summary: Add checkbox, daterange, tree-descendants and autocomplete filters in django admin
+Home-page: https://github.com/legion-an/django-extended-filters
+Author: legion
+Author-email: legion.andrey.89@gmail.com
+Keywords: django admin,django date range,django checkbox filter,django tree descendants filterdjango admin filterdjango admin autocomplete filter
+Requires-Dist: Django (>=3.0)
+
+https://github.com/legion-an/django-extended-filters/blob/master/README.md
