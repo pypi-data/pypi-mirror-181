@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: nonebot-plugin-gpt3
+Version: 0.1.0
+Summary: 
+Author: chrisyy
+Author-email: 1017975501@qq.com
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: openai (>=0.25.0,<0.26.0)
+Description-Content-Type: text/markdown
+
+# nonebot-plugin-gpt3
+
+
