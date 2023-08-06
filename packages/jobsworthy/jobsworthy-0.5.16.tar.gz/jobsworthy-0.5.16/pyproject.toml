@@ -1,0 +1,53 @@
+[tool.poetry]
+name = "jobsworthy"
+version = "0.5.16"
+description = ""
+authors = ["Col Perks <wild.fauve@gmail.com>"]
+repository = 'https://github.com/wildfauve/jobsworth'
+readme = 'README.md'
+
+[tool.poetry.scripts]
+infra = "databricker.infra:cli"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+PyMonad = "^2.4.0"
+pino = "^0.6.0"
+pyspark = "^3.3.0"
+delta-spark = "^2.1.1"
+dependency-injector = "^4.40.0"
+validators = "^0.20.0"
+rdflib = "^6.2.0"
+azure-storage-file-datalake = "^12.9.1"
+azure-identity = "^1.11.0"
+
+[tool.poetry.dev-dependencies]
+databricker = {git = "https://github.com/wildfauve/databricker.git", rev = "main"}
+databricks-cli = "^0.17.3"
+
+[tool.poetry.group.dev.dependencies]
+pytest-env = "^0.6.2"
+pytest-mock = "^3.10.0"
+time-machine = "^2.8.2"
+pytest = "^7.2.0"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+python_classes = ["*Test", "Test*", "Describe*"]
+python_functions = ["test_*", "it_*"]
+xfail_strict = true
+log_cli = true
+log_cli_level = 20
+env = [
+    "ENVIRONMENT=test"
+]
+testpaths = [
+    "tests",
+    "integration",
+]
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
