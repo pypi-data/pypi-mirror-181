@@ -1,0 +1,107 @@
+Metadata-Version: 2.1
+Name: example-package-hchiam
+Version: 0.0.2
+Summary: A sample Python project
+Author-email: "A. Random Developer" <author@example.com>
+Maintainer-email: "A. Great Maintainer" <maintainer@example.com>
+License: Copyright (c) 2022 Howard Chiam
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy of
+        this software and associated documentation files (the "Software"), to deal in
+        the Software without restriction, including without limitation the rights to
+        use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+        of the Software, and to permit persons to whom the Software is furnished to do
+        so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: Homepage, https://github.com/pypa/example_package_hchiam
+Project-URL: Bug Reports, https://github.com/pypa/example_package_hchiam/issues
+Project-URL: Funding, https://donate.pypi.org
+Project-URL: Say Thanks!, http://saythanks.io/to/example
+Project-URL: Source, https://github.com/pypa/example_package_hchiam/
+Keywords: sample,setuptools,development
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Provides-Extra: test
+License-File: LICENSE.txt
+
+# My notes:
+
+Register for an account on test.pypi, and get an API token.
+
+https://packaging.python.org/en/latest/tutorials/packaging-projects/#generating-distribution-archives
+
+```sh
+# update the pyproject.toml [project] name (to be the package name)
+python3 -m pip install --upgrade build
+# go to folder that contains pyproject.toml and run this:
+python3 -m build
+```
+
+https://packaging.python.org/en/latest/tutorials/packaging-projects/#uploading-the-distribution-archives
+
+```sh
+python3 -m pip install --upgrade twine
+# go folder containing dist and run this:
+python3 -m twine upload --repository testpypi dist/*
+# for username, literally enter username as __token__
+# for password, use your API key from your test.pypi account, including pypi- prefix
+# https://test.pypi.org/search/?q=example_package_hchiam
+# https://test.pypi.org/project/example-package-hchiam/
+```
+
+(more steps if you want to test the test-only version of your package: https://test.pypi.org/project/example-package-hchiam/)
+
+To upload the production-ready version of your package: (pypi requires a separate registration and API key set up from the test.pypi site)
+
+```sh
+python3 -m twine upload dist/*
+# for username, still literaly enter __token__
+# for password, use your other API key from your pypi account, including pypi- prefix
+# https://pypi.org/search/?q=example_package_hchiam
+# https://pypi.org/project/example-package-hchiam/
+```
+
+```sh
+# python3 -m pip install [your-package]
+python3 -m pip install example_package_hchiam
+```
+
+`/tests/test_example.py` shows a good example of how the package will be used by users, where you can see a method from an inner/non-`__init__` file, e.g.:
+
+```py
+from example_package_hchiam.example import add_one
+```
+
+## Streamlined thereafter:
+
+```sh
+# update code
+# update pyproject.toml version number
+# remove the old .whl and .gz files
+python3 -m build
+python3 -m twine upload --repository testpypi dist/*
+python3 -m twine upload dist/*
+```
