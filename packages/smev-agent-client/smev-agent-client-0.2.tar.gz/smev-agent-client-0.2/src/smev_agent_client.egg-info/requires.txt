@@ -1,0 +1,4 @@
+pydantic<1.10.0,>=1.9.0
+requests<2.28.0,>=1.1.0
+django<4.1,>=1.11
+openapi-core==0.14.2
