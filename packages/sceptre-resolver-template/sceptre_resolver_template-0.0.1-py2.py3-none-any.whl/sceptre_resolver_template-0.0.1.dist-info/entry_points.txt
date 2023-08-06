@@ -1,0 +1,3 @@
+[sceptre.resolvers]
+custom_resolver = resolver.custom_resolver:CustomResolver
+
