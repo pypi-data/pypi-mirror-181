@@ -1,0 +1,20 @@
+
+[:python_version < "3.11"]
+typing_extensions
+
+[build]
+build
+twine
+
+[docs]
+sphinx
+myst-parser
+sphinx_rtd_theme
+
+[performance]
+attrs
+pydantic
+
+[testing]
+pytest
+pytest-cov
