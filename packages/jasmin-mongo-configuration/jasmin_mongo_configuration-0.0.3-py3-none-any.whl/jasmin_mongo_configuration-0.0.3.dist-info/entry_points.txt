@@ -1,0 +1,2 @@
+[console_scripts]
+jasminmongoconfd = jasmin_mongo_configuration.configurationstreamer:startFromConsole
