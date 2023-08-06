@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: s3prl-vc
+Version: 0.1.0
+Summary: Voice conversion toolkit based on S3PRL: Self-Supervised Speech/Sound Pre-training and Representation Learning Toolkit
+Author: Wen-Chin Huang
+Author-email: wen.chinhuang@g.sp.m.is.nagoya-u.ac.jp
+License: MIT
+Keywords: voice conversion,self-supervised learning
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: torch (>=1.12)
+Requires-Dist: librosa (>=0.8.0)
+Requires-Dist: soundfile (>=0.10.2)
+Requires-Dist: tensorboardX (>=1.8)
+Requires-Dist: matplotlib (>=3.1.0)
+Requires-Dist: PyYAML (>=3.12)
+Requires-Dist: tqdm (>=4.26.1)
+Requires-Dist: kaldiio (>=2.14.1)
+Requires-Dist: h5py (>=2.9.0)
+Requires-Dist: yq (>=2.10.0)
+Requires-Dist: gdown
+Requires-Dist: filelock
+Requires-Dist: protobuf (<=3.20.1)
+Requires-Dist: parallel-wavegan
+Requires-Dist: jiwer
+Requires-Dist: pyworld
+Requires-Dist: scipy
+Requires-Dist: pysptk
+Requires-Dist: transformers
+Requires-Dist: editdistance
+Requires-Dist: fastdtw
+Requires-Dist: s3prl
+
+README.md
