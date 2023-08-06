@@ -1,0 +1,11 @@
+Jinja2
+jsonschema
+ruamel.yaml
+llnl-scraper>=0.10.0
+
+[all]
+Jinja2
+jsonschema
+ruamel.yaml
+llnl-scraper>=0.10.0
+pytest>=4.6.2
