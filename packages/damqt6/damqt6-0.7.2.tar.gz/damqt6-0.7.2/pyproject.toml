@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=62"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "damqt6"
+version = "0.7.2"
+authors = [
+  { name="Dahmaloch", email="dahmaloch@gmail.com" },
+]
+description = "Dahmaloch's PyQt6 controls"
+readme = "README.rst"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    'PyQt6>=6.4.0',
+    'PyQt6-Qt6>=6.4.1',
+    'PyQt6-sip>=13.4.0',
+    'damstrings>=0.7.2',
+]
+
+#[project.urls]
+#"Homepage" = "https://github.com/pypa/sampleproject"
+#"Bug Tracker" = "https://github.com/pypa/sampleproject/issues"
