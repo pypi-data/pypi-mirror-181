@@ -1,0 +1,4 @@
+[console_scripts]
+cm=hm01.cm:entry_point
+cm2universal=hm01.to_universal:entry_point
+
