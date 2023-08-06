@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: pathlib-tree
+Version: 2.3.2
+Summary: Filesystem tree utilities
+License: BSD
+Author: Ilkka Tuohela
+Author-email: hile@iki.fi
+Requires-Python: >=3.9,<4.0
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: BSD License
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Utilities
+Requires-Dist: cli-toolkit (>=2.2,<3.0)
+Requires-Dist: filemagic (>=1.6,<2.0)
+Requires-Dist: pylint (>=2.14,<3.0)
+Requires-Dist: python-magic-bin (>=0.4.14,<0.5.0) ; sys_platform == "win32"
+Description-Content-Type: text/markdown
+
+![Unit Tests](https://github.com/hile/pathlib-tree/actions/workflows/unittest.yml/badge.svg)
+![Style Checks](https://github.com/hile/pathlib-tree/actions/workflows/lint.yml/badge.svg)
+
+# Tree extension for pathlib.Path
+
+This module implements an extensible tree-like object `pathlib_tree.Tree` that can be iterated
+and subclassed to use for various filesystem tree processing tasks.
+
