@@ -1,0 +1,49 @@
+LICENCE
+MANIFEST.in
+README.md
+install.json
+jupyter-sankey-widget.json
+pyproject.toml
+setup.cfg
+setup.py
+examples/Exporting Images.ipynb
+examples/Linking and Layout.ipynb
+examples/More examples.ipynb
+examples/Simple example.ipynb
+ipysankeywidget/__init__.py
+ipysankeywidget/_version.py
+ipysankeywidget/sankey_widget.py
+ipysankeywidget.egg-info/PKG-INFO
+ipysankeywidget.egg-info/SOURCES.txt
+ipysankeywidget.egg-info/dependency_links.txt
+ipysankeywidget.egg-info/not-zip-safe
+ipysankeywidget.egg-info/requires.txt
+ipysankeywidget.egg-info/top_level.txt
+ipysankeywidget/labextension/package.json
+ipysankeywidget/labextension/static/261.e530ed5c2616c1f88c7f.js
+ipysankeywidget/labextension/static/326.264552074d722a13b168.js
+ipysankeywidget/labextension/static/481.0947a4becffbd8ab12f7.js
+ipysankeywidget/labextension/static/496.d514729402713ae31d41.js
+ipysankeywidget/labextension/static/519.1d81e08630967685f511.js
+ipysankeywidget/labextension/static/602.ff7d8eee7de52628e2fc.js
+ipysankeywidget/labextension/static/614.cf15b8c59afdb2eb33a4.js
+ipysankeywidget/labextension/static/670.0084821cdfb2185bee20.js
+ipysankeywidget/labextension/static/670.0084821cdfb2185bee20.js.LICENSE.txt
+ipysankeywidget/labextension/static/815.f0a07ca71effd0891164.js
+ipysankeywidget/labextension/static/remoteEntry.f97f034d5a3230bd752e.js
+ipysankeywidget/labextension/static/style.js
+ipysankeywidget/labextension/static/third-party-licenses.json
+ipysankeywidget/nbextension/extension.js
+ipysankeywidget/nbextension/index.js
+ipysankeywidget/nbextension/index.js.LICENSE.txt
+js/README.md
+js/amd-public-path.js
+js/package.json
+js/webpack.config.js
+js/yarn.lock
+js/dist/index.js
+js/dist/index.js.LICENSE.txt
+js/lib/extension.js
+js/lib/index.js
+js/lib/labplugin.js
+js/lib/sankey_widget.js
