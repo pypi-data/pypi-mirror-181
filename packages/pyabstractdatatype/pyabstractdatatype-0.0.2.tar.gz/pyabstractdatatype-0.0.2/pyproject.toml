@@ -1,0 +1,49 @@
+[project]
+name = "pyabstractdatatype"
+version = "0.0.2"
+description = "Abstract Data Types for Python"
+readme = "README.md"
+requires-python = ">=3.7"
+keywords = ["adt", "data structure"]
+
+authors = [
+  {name = "Ángel Carvajal Ruiz", email = "angelcaru10+pyadt@gmail.com" }
+]
+
+maintainers = [
+  {name = "Ángel Carvajal Ruiz", email = "angelcaru10+pyadt@gmail.com" }
+]
+
+classifiers = [
+  # How mature is this project? Common values are
+  #   3 - Alpha
+  #   4 - Beta
+  #   5 - Production/Stable
+  "Development Status :: 3 - Alpha",
+
+  "Intended Audience :: Developers",
+  "Topic :: Software Development",
+
+  "License :: OSI Approved :: MIT License",
+
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3 :: Only",
+]
+
+dependencies = []
+
+[project.urls]  # Optional
+"Source Code" = "https://github.com/angelcaru/pyadt"
+"Issues" = "https://github.com/angelcaru/pyadt/issues"
+
+[tool.setuptools]
+package-data = {}
+
+[build-system]
+requires = ["setuptools>=43.0.0", "wheel"]
+build-backend = "setuptools.build_meta"

@@ -1,0 +1,68 @@
+Metadata-Version: 2.1
+Name: pyabstractdatatype
+Version: 0.0.2
+Summary: Abstract Data Types for Python
+Author-email: Ángel Carvajal Ruiz <angelcaru10+pyadt@gmail.com>
+Maintainer-email: Ángel Carvajal Ruiz <angelcaru10+pyadt@gmail.com>
+Project-URL: Source Code, https://github.com/angelcaru/pyadt
+Project-URL: Issues, https://github.com/angelcaru/pyadt/issues
+Keywords: adt,data structure
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+
+# PyAbstractDataType
+A simple library that adds [ADTs](https://en.wikipedia.org/wiki/Abstract_data_type) to Python.
+
+[Source Code](https://github.com/angelcaru/pyabstractdatatype/)
+
+## Documentation
+Basic usage:
+```python
+from adt import adt
+
+@adt
+class MyADT:
+    Variant1: (int, int)
+    Variant2: (int)
+    Variant3: (str, str, list[float])
+```
+
+Supports `match` statement!
+```python
+obj1 = MyADT.Variant1(2, 2)
+obj2 = MyADT.Variant3("hi", "foo", [2.3, 5.6, 3.1415])
+
+objs = obj1, obj2
+
+for obj in objs:
+    match obj1:
+        case MyADT.Variant1(a, b):
+            print(f"Found you! {a}, {b}")
+        case MyADT.Variant2(x):
+            print(":(")
+        case _:
+            raise ValueError("wtf")
+```
+
+Output:
+```python
+Found you! 2, 2
+Traceback (most recent call last):
+...
+ValueError: wtf
+```
+
+## Examples
+See [example.py](https://github.com/angelcaru/pyabstractdatatype/blob/main/example.py).
