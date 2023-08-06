@@ -1,0 +1,10 @@
+[console_scripts]
+snek-generate-config = snek5000.config:ensure_config_file
+snek-info = snek5000.util.console:print_versions
+snek-ipy-load = snek5000.util.console:start_ipython_load_sim
+snek-make = snek5000.make:snek_make
+snek-restart = snek5000.util.restart:main
+
+[snek5000.solvers]
+kth = snek5000.solvers.kth
+nek = snek5000.solvers.base
