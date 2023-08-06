@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: dovesnap
+Version: 1.1.5
+Summary: graphviz generator of dovesnap networks
+License: Apache-2.0
+Author: Charlie Lewis
+Author-email: clewis@iqt.org
+Requires-Python: >=3.8,<3.11
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: docker (==6.0.1)
+Requires-Dist: faucetconfrpc (==0.22.45)
+Requires-Dist: graphviz (==0.20.1)
+Project-URL: homepage, https://github.com/IQTLabs/dovesnap
