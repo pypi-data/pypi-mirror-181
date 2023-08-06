@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+cirmesh/__init__.py
+cirmesh/augment.py
+cirmesh/base.py
+cirmesh.egg-info/PKG-INFO
+cirmesh.egg-info/SOURCES.txt
+cirmesh.egg-info/dependency_links.txt
+cirmesh.egg-info/requires.txt
+cirmesh.egg-info/top_level.txt
+tests/__init__.py
+tests/test_base.py
