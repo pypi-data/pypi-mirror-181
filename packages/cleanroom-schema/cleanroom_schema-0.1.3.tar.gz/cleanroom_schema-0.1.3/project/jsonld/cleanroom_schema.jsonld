@@ -1,0 +1,662 @@
+{
+  "name": "cleanroom-schema",
+  "description": "Cleanroom reboot of NMDC schema",
+  "title": "cleanroom-schema",
+  "comments": [
+    "how will data be collected (DataHarmonizer?)",
+    "how will data be displayed?"
+  ],
+  "see_also": [
+    "https://microbiomedata.github.io/cleanroom-schema",
+    "https://github.com/microbiomedata/nmdc-schema/issues/518"
+  ],
+  "id": "https://example.com/cleanroom-schema/cleanroom-schema",
+  "imports": [
+    "linkml:types"
+  ],
+  "license": "MIT",
+  "prefixes": [
+    {
+      "prefix_prefix": "GOLD",
+      "prefix_reference": "http://identifiers.org/gold/"
+    },
+    {
+      "prefix_prefix": "OBI",
+      "prefix_reference": "https://purl.obolibrary.org/obo/OBI_"
+    },
+    {
+      "prefix_prefix": "cleanroom_schema",
+      "prefix_reference": "https://example.com/cleanroom-schema/"
+    },
+    {
+      "prefix_prefix": "linkml",
+      "prefix_reference": "https://w3id.org/linkml/"
+    },
+    {
+      "prefix_prefix": "rdf",
+      "prefix_reference": "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    },
+    {
+      "prefix_prefix": "schema",
+      "prefix_reference": "https://schema.org/"
+    },
+    {
+      "prefix_prefix": "xsd",
+      "prefix_reference": "http://www.w3.org/2001/XMLSchema#"
+    }
+  ],
+  "default_prefix": "cleanroom_schema",
+  "default_range": "string",
+  "types": [
+    {
+      "name": "string",
+      "definition_uri": "https://w3id.org/linkml/String",
+      "description": "A character string",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "integer",
+      "definition_uri": "https://w3id.org/linkml/Integer",
+      "description": "An integer",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "int",
+      "uri": "http://www.w3.org/2001/XMLSchema#integer",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "boolean",
+      "definition_uri": "https://w3id.org/linkml/Boolean",
+      "description": "A binary (true or false) value",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "Bool",
+      "uri": "http://www.w3.org/2001/XMLSchema#boolean",
+      "repr": "bool",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "float",
+      "definition_uri": "https://w3id.org/linkml/Float",
+      "description": "A real number that conforms to the xsd:float specification",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "float",
+      "uri": "http://www.w3.org/2001/XMLSchema#float",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "double",
+      "definition_uri": "https://w3id.org/linkml/Double",
+      "description": "A real number that conforms to the xsd:double specification",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "float",
+      "uri": "http://www.w3.org/2001/XMLSchema#double",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "decimal",
+      "definition_uri": "https://w3id.org/linkml/Decimal",
+      "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "Decimal",
+      "uri": "http://www.w3.org/2001/XMLSchema#decimal",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "time",
+      "definition_uri": "https://w3id.org/linkml/Time",
+      "description": "A time object represents a (local) time of day, independent of any particular day",
+      "notes": [
+        "URI is dateTime because OWL reasoners do not work with straight date or time"
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "XSDTime",
+      "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "date",
+      "definition_uri": "https://w3id.org/linkml/Date",
+      "description": "a date (year, month and day) in an idealized calendar",
+      "notes": [
+        "URI is dateTime because OWL reasoners don't work with straight date or time"
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "XSDDate",
+      "uri": "http://www.w3.org/2001/XMLSchema#date",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "datetime",
+      "definition_uri": "https://w3id.org/linkml/Datetime",
+      "description": "The combination of a date and time",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "XSDDateTime",
+      "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "date_or_datetime",
+      "definition_uri": "https://w3id.org/linkml/DateOrDatetime",
+      "description": "Either a date or a datetime",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "str",
+      "uri": "https://w3id.org/linkml/DateOrDatetime",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "uriorcurie",
+      "definition_uri": "https://w3id.org/linkml/Uriorcurie",
+      "description": "a URI or a CURIE",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "URIorCURIE",
+      "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "uri",
+      "definition_uri": "https://w3id.org/linkml/Uri",
+      "description": "a complete URI",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "URI",
+      "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "ncname",
+      "definition_uri": "https://w3id.org/linkml/Ncname",
+      "description": "Prefix part of CURIE",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "NCName",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "objectidentifier",
+      "definition_uri": "https://w3id.org/linkml/Objectidentifier",
+      "description": "A URI or CURIE that represents an object in the model.",
+      "comments": [
+        "Used for inheritence and type checking"
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "ElementIdentifier",
+      "uri": "http://www.w3.org/ns/shex#iri",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "nodeidentifier",
+      "definition_uri": "https://w3id.org/linkml/Nodeidentifier",
+      "description": "A URI, CURIE or BNODE that represents a node in a model.",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "NodeIdentifier",
+      "uri": "http://www.w3.org/ns/shex#nonLiteral",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    }
+  ],
+  "slots": [
+    {
+      "name": "id",
+      "definition_uri": "https://example.com/cleanroom-schema/id",
+      "description": "A unique identifier for a thing",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
+      "slot_uri": "https://example.com/cleanroom-schema/id",
+      "identifier": true,
+      "owner": "NamedThing",
+      "domain_of": [
+        "NamedThing"
+      ],
+      "range": "uriorcurie",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "name",
+      "definition_uri": "https://example.com/cleanroom-schema/name",
+      "description": "A human-readable name for a thing",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
+      "slot_uri": "https://example.com/cleanroom-schema/name",
+      "owner": "NamedThing",
+      "domain_of": [
+        "NamedThing"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "description",
+      "definition_uri": "https://example.com/cleanroom-schema/description",
+      "description": "A human-readable description for a thing",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
+      "slot_uri": "https://example.com/cleanroom-schema/description",
+      "owner": "NamedThing",
+      "domain_of": [
+        "NamedThing"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "type",
+      "definition_uri": "https://example.com/cleanroom-schema/type",
+      "description": "The type of a thing. Should be a local class name or an ontology class from a local enumeration",
+      "comments": [
+        "try designates_type (but wouldn't work for enumerated ontology classes)",
+        "be conservative about assigning rdf:type as the slot uri"
+      ],
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
+      "slot_uri": "https://example.com/cleanroom-schema/type",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "collected_from",
+      "definition_uri": "https://example.com/cleanroom-schema/collected_from",
+      "description": "The Site from which a Biosample was collected",
+      "todos": [
+        "add an OBO slot_uri ?"
+      ],
+      "comments": [
+        "this illustrates implementing a Biosample relation with a (binary) slot"
+      ],
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
+      "domain": "Biosample",
+      "slot_uri": "https://example.com/cleanroom-schema/collected_from",
+      "owner": "Biosample",
+      "domain_of": [
+        "Biosample"
+      ],
+      "range": "FieldResearchSite",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "has_inputs",
+      "definition_uri": "https://example.com/cleanroom-schema/has_inputs",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
+      "slot_uri": "https://example.com/cleanroom-schema/has_inputs",
+      "multivalued": true,
+      "owner": "CollectingBiosamplesFromSite",
+      "domain_of": [
+        "PlannedProcess",
+        "CollectingBiosamplesFromSite"
+      ],
+      "range": "NamedThing",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "has_outputs",
+      "definition_uri": "https://example.com/cleanroom-schema/has_outputs",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
+      "slot_uri": "https://example.com/cleanroom-schema/has_outputs",
+      "multivalued": true,
+      "owner": "CollectingBiosamplesFromSite",
+      "domain_of": [
+        "PlannedProcess",
+        "CollectingBiosamplesFromSite"
+      ],
+      "range": "NamedThing",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "participating_agent",
+      "definition_uri": "https://example.com/cleanroom-schema/participating_agent",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
+      "slot_uri": "https://example.com/cleanroom-schema/participating_agent",
+      "owner": "PlannedProcess",
+      "domain_of": [
+        "PlannedProcess"
+      ],
+      "range": "Agent",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "dataListCollection__biosample_list",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
+      "slot_uri": "https://example.com/cleanroom-schema/biosample_list",
+      "multivalued": true,
+      "alias": "biosample_list",
+      "owner": "DataListCollection",
+      "domain_of": [
+        "DataListCollection"
+      ],
+      "range": "Biosample",
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "dataListCollection__frs_list",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
+      "slot_uri": "https://example.com/cleanroom-schema/frs_list",
+      "multivalued": true,
+      "alias": "frs_list",
+      "owner": "DataListCollection",
+      "domain_of": [
+        "DataListCollection"
+      ],
+      "range": "FieldResearchSite",
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "dataListCollection__cbfs_list",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
+      "slot_uri": "https://example.com/cleanroom-schema/cbfs_list",
+      "multivalued": true,
+      "alias": "cbfs_list",
+      "owner": "DataListCollection",
+      "domain_of": [
+        "DataListCollection"
+      ],
+      "range": "CollectingBiosamplesFromSite",
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "dataListCollection__nt_list",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
+      "slot_uri": "https://example.com/cleanroom-schema/nt_list",
+      "multivalued": true,
+      "alias": "nt_list",
+      "owner": "DataListCollection",
+      "domain_of": [
+        "DataListCollection"
+      ],
+      "range": "NamedThing",
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CollectingBiosamplesFromSite_has_inputs",
+      "definition_uri": "https://example.com/cleanroom-schema/has_inputs",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
+      "is_a": "has_inputs",
+      "domain": "CollectingBiosamplesFromSite",
+      "slot_uri": "https://example.com/cleanroom-schema/has_inputs",
+      "multivalued": true,
+      "alias": "has_inputs",
+      "owner": "CollectingBiosamplesFromSite",
+      "domain_of": [
+        "CollectingBiosamplesFromSite"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "has_inputs",
+      "range": "Site",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CollectingBiosamplesFromSite_has_outputs",
+      "definition_uri": "https://example.com/cleanroom-schema/has_outputs",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
+      "is_a": "has_outputs",
+      "domain": "CollectingBiosamplesFromSite",
+      "slot_uri": "https://example.com/cleanroom-schema/has_outputs",
+      "multivalued": true,
+      "alias": "has_outputs",
+      "owner": "CollectingBiosamplesFromSite",
+      "domain_of": [
+        "CollectingBiosamplesFromSite"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "has_outputs",
+      "range": "Biosample",
+      "required": true,
+      "@type": "SlotDefinition"
+    }
+  ],
+  "classes": [
+    {
+      "name": "NamedThing",
+      "definition_uri": "https://example.com/cleanroom-schema/NamedThing",
+      "description": "A generic grouping for any identifiable entity",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
+      "mappings": [
+        "schema:Thing"
+      ],
+      "slots": [
+        "id",
+        "name",
+        "description"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://schema.org/Thing",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "MaterialEntity",
+      "definition_uri": "https://example.com/cleanroom-schema/MaterialEntity",
+      "title": "Material Entity",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
+      "aliases": [
+        "Material",
+        "Physical entity"
+      ],
+      "is_a": "NamedThing",
+      "slots": [
+        "id",
+        "name",
+        "description"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.com/cleanroom-schema/MaterialEntity",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Biosample",
+      "definition_uri": "https://example.com/cleanroom-schema/Biosample",
+      "title": "Biosample",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
+      "is_a": "MaterialEntity",
+      "slots": [
+        "id",
+        "name",
+        "description",
+        "collected_from"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.com/cleanroom-schema/Biosample",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "AnalyticalSample",
+      "definition_uri": "https://example.com/cleanroom-schema/AnalyticalSample",
+      "title": "Analytical Sample",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
+      "is_a": "MaterialEntity",
+      "slots": [
+        "id",
+        "name",
+        "description"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.com/cleanroom-schema/AnalyticalSample",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Site",
+      "definition_uri": "https://example.com/cleanroom-schema/Site",
+      "title": "Site",
+      "comments": [
+        "BCO sample collection site ?"
+      ],
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
+      "is_a": "MaterialEntity",
+      "slots": [
+        "id",
+        "name",
+        "description"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.com/cleanroom-schema/Site",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "FieldResearchSite",
+      "definition_uri": "https://example.com/cleanroom-schema/FieldResearchSite",
+      "description": "A site, outside of a laboratory, from which biosamples may be collected.",
+      "title": "Field Research Site",
+      "comments": [
+        "Provides grouping of biosamples at level that's more specific than belonging to the same study",
+        "be very clear that this could be part of a larger site",
+        "In Bioscales, one might say that rhizosphere soil and bulk soil from around the same plant were obtained at the same site. In this case, the site would correspond to one tree.",
+        "might correspond to GOLD's identifier on a page like https://gold.jgi.doe.gov/biosample?id=Gb0305833"
+      ],
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
+      "aliases": [
+        "research plot"
+      ],
+      "is_a": "Site",
+      "slots": [
+        "id",
+        "name",
+        "description"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.com/cleanroom-schema/FieldResearchSite",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "PlannedProcess",
+      "definition_uri": "https://example.com/cleanroom-schema/PlannedProcess",
+      "title": "Planned Process",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
+      "mappings": [
+        "OBI:0000011"
+      ],
+      "is_a": "NamedThing",
+      "slots": [
+        "id",
+        "name",
+        "description",
+        "has_inputs",
+        "has_outputs",
+        "participating_agent"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://purl.obolibrary.org/obo/OBI_0000011",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "CollectingBiosamplesFromSite",
+      "definition_uri": "https://example.com/cleanroom-schema/CollectingBiosamplesFromSite",
+      "title": "Collecting Biosamples From Site",
+      "comments": [
+        "this illustrates implementing a Biosample relation with a process class"
+      ],
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
+      "is_a": "PlannedProcess",
+      "slots": [
+        "id",
+        "name",
+        "description",
+        "participating_agent",
+        "CollectingBiosamplesFromSite_has_inputs",
+        "CollectingBiosamplesFromSite_has_outputs"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.com/cleanroom-schema/CollectingBiosamplesFromSite",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Agent",
+      "definition_uri": "https://example.com/cleanroom-schema/Agent",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
+      "is_a": "NamedThing",
+      "slots": [
+        "id",
+        "name",
+        "description"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.com/cleanroom-schema/Agent",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "DataListCollection",
+      "definition_uri": "https://example.com/cleanroom-schema/DataListCollection",
+      "description": "A datastructure that can contain lists of instances from any selected classes in the schema",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
+      "slots": [
+        "dataListCollection__biosample_list",
+        "dataListCollection__frs_list",
+        "dataListCollection__cbfs_list",
+        "dataListCollection__nt_list"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "biosample_list",
+          "multivalued": true,
+          "range": "Biosample",
+          "inlined_as_list": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "frs_list",
+          "multivalued": true,
+          "range": "FieldResearchSite",
+          "inlined_as_list": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "cbfs_list",
+          "multivalued": true,
+          "range": "CollectingBiosamplesFromSite",
+          "inlined_as_list": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "nt_list",
+          "multivalued": true,
+          "range": "NamedThing",
+          "inlined_as_list": true,
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://example.com/cleanroom-schema/DataListCollection",
+      "tree_root": true,
+      "@type": "ClassDefinition"
+    }
+  ],
+  "metamodel_version": "1.7.0",
+  "source_file": "cleanroom_schema.yaml",
+  "source_file_date": "2022-12-12T17:24:48",
+  "source_file_size": 4254,
+  "generation_date": "2022-12-13T09:28:53",
+  "@type": "SchemaDefinition",
+  "@context": [
+    "project/jsonld/cleanroom_schema.context.jsonld",
+    "https://w3id.org/linkml/types.context.jsonld",
+    {
+      "@base": "https://example.com/cleanroom-schema/"
+    }
+  ]
+}

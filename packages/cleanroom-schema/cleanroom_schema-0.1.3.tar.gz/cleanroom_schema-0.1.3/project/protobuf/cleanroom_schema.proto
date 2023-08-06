@@ -1,0 +1,71 @@
+message Agent
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+ }
+message AnalyticalSample
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+ }
+message Biosample
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  fieldResearchSite collectedFrom = 0
+ }
+message CollectingBiosamplesFromSite
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  agent participatingAgent = 0
+ repeated  site hasInputs = 0
+ repeated  biosample hasOutputs = 0
+ }
+// A datastructure that can contain lists of instances from any selected classes in the schema
+message DataListCollection
+ {
+ repeated  biosample biosampleList = 0
+ repeated  fieldResearchSite frsList = 0
+ repeated  collectingBiosamplesFromSite cbfsList = 0
+ repeated  namedThing ntList = 0
+ }
+// A site, outside of a laboratory, from which biosamples may be collected.
+message FieldResearchSite
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+ }
+message MaterialEntity
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+ }
+// A generic grouping for any identifiable entity
+message NamedThing
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+ }
+message PlannedProcess
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+ repeated  namedThing hasInputs = 0
+ repeated  namedThing hasOutputs = 0
+  agent participatingAgent = 0
+ }
+message Site
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+ }

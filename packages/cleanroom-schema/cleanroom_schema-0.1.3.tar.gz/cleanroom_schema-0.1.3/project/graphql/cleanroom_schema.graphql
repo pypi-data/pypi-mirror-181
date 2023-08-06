@@ -1,0 +1,78 @@
+type Agent
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+  }
+
+type AnalyticalSample
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+  }
+
+type Biosample
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    collectedFrom: FieldResearchSite
+  }
+
+type CollectingBiosamplesFromSite
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    participatingAgent: Agent
+    hasInputs: [Site]!
+    hasOutputs: [Biosample]!
+  }
+
+type DataListCollection
+  {
+    biosampleList: [Biosample]
+    frsList: [FieldResearchSite]
+    cbfsList: [CollectingBiosamplesFromSite]
+    ntList: [NamedThing]
+  }
+
+type FieldResearchSite
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+  }
+
+type MaterialEntity
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+  }
+
+type NamedThing
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+  }
+
+type PlannedProcess
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    hasInputs: [NamedThing]
+    hasOutputs: [NamedThing]
+    participatingAgent: Agent
+  }
+
+type Site
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+  }
+

@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: cleanroom-schema
+Version: 0.1.3
+Summary: Cleanroom reboot of NMDC schema
+License: MIT
+Author: Mark Andrew Miller
+Author-email: MAM@lbl.gov
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Provides-Extra: docs
+Requires-Dist: cruft (>=2.11.1,<3.0.0)
+Requires-Dist: deepdiff[cli] (>=6.2.2,<7.0.0)
+Requires-Dist: linkml-runtime (>=1.1.24,<2.0.0)
+Requires-Dist: schema-automator (>=0.2.10,<0.3.0)
+Description-Content-Type: text/markdown
+
+# cleanroom-schema
+
+Cleanroom reboot of NMDC schema
+
+## Website
+
+* [https://microbiomedata.github.io/cleanroom-schema](https://microbiomedata.github.io/cleanroom-schema)
+
+## Repository Structure
+
+* [examples/](examples/) - example data
+* [project/](project/) - project files (do not edit these)
+* [src/](src/) - source files (edit these)
+    * [cleanroom_schema](src/cleanroom_schema)
+        * [schema](src/cleanroom_schema/schema) -- LinkML schema (edit this)
+* [datamodel](src/cleanroom_schema/datamodel) -- Generated python datamodel
+* [tests](tests/) - python tests
+
+## Developer Documentation
+
+<details>
+Use the `make` command to generate project artefacts:
+
+- `make all`: make everything
+- `make deploy`: deploys site
+
+</details>
+
+## Credits
+
+this project was made with [linkml-project-cookiecutter](https://github.com/linkml/linkml-project-cookiecutter)
+

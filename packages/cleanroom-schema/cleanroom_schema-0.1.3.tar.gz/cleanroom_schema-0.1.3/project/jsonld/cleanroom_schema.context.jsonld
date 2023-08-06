@@ -1,0 +1,47 @@
+{
+   "_comments": "Auto generated from cleanroom_schema.yaml by jsonldcontextgen.py version: 0.1.1\n    Generation date: 2022-12-13T09:28:52\n    Schema: cleanroom-schema\n    metamodel version: 1.7.0\n    model version: None\n    \n    id: https://example.com/cleanroom-schema/cleanroom-schema\n    description: Cleanroom reboot of NMDC schema\n    license: MIT\n    ",
+   "@context": {
+      "GOLD": "http://identifiers.org/gold/",
+      "OBI": {
+         "@id": "https://purl.obolibrary.org/obo/OBI_",
+         "@prefix": true
+      },
+      "cleanroom_schema": "https://example.com/cleanroom-schema/",
+      "linkml": "https://w3id.org/linkml/",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "schema": "https://schema.org/",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "@vocab": "https://example.com/cleanroom-schema/",
+      "collected_from": {
+         "@type": "@id"
+      },
+      "biosample_list": {
+         "@type": "@id"
+      },
+      "cbfs_list": {
+         "@type": "@id"
+      },
+      "frs_list": {
+         "@type": "@id"
+      },
+      "nt_list": {
+         "@type": "@id"
+      },
+      "has_inputs": {
+         "@type": "@id"
+      },
+      "has_outputs": {
+         "@type": "@id"
+      },
+      "id": "@id",
+      "participating_agent": {
+         "@type": "@id"
+      },
+      "NamedThing": {
+         "@id": "schema:Thing"
+      },
+      "PlannedProcess": {
+         "@id": "OBI:0000011"
+      }
+   }
+}

@@ -1,0 +1,15 @@
+{
+   "GOLD": "http://identifiers.org/gold/",
+   "OBI": "https://purl.obolibrary.org/obo/OBI_",
+   "cleanroom_schema": "https://example.com/cleanroom-schema/",
+   "linkml": "https://w3id.org/linkml/",
+   "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+   "schema": "https://schema.org/",
+   "xsd": "http://www.w3.org/2001/XMLSchema#",
+   "NamedThing": {
+      "@id": "schema:Thing"
+   },
+   "PlannedProcess": {
+      "@id": "OBI:0000011"
+   }
+}

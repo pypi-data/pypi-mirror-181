@@ -1,0 +1,134 @@
+BASE <https://example.com/cleanroom-schema/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX linkml: <https://w3id.org/linkml/>
+PREFIX schema: <https://schema.org/>
+
+
+linkml:String xsd:string
+
+linkml:Integer xsd:integer
+
+linkml:Boolean xsd:boolean
+
+linkml:Float xsd:float
+
+linkml:Double xsd:double
+
+linkml:Decimal xsd:decimal
+
+linkml:Time xsd:dateTime
+
+linkml:Date xsd:date
+
+linkml:Datetime xsd:dateTime
+
+linkml:DateOrDatetime linkml:DateOrDatetime
+
+linkml:Uriorcurie IRI
+
+linkml:Uri IRI
+
+linkml:Ncname xsd:string
+
+linkml:Objectidentifier IRI
+
+linkml:Nodeidentifier NONLITERAL
+
+<Agent> CLOSED {
+    (  $<Agent_tes> (  &<NamedThing_tes> ;
+          rdf:type [ schema:Thing ] ?
+       ) ;
+       rdf:type [ <Agent> ]
+    )
+}
+
+<AnalyticalSample> CLOSED {
+    (  $<AnalyticalSample_tes> (  &<MaterialEntity_tes> ;
+          rdf:type [ <MaterialEntity> ] ?
+       ) ;
+       rdf:type [ <AnalyticalSample> ]
+    )
+}
+
+<Biosample> CLOSED {
+    (  $<Biosample_tes> (  &<MaterialEntity_tes> ;
+          rdf:type [ <MaterialEntity> ] ? ;
+          <collected_from> @<FieldResearchSite> ?
+       ) ;
+       rdf:type [ <Biosample> ]
+    )
+}
+
+<CollectingBiosamplesFromSite> CLOSED {
+    (  $<CollectingBiosamplesFromSite_tes> (  &<PlannedProcess_tes> ;
+          rdf:type [ <https://purl.obolibrary.org/obo/OBI_0000011> ] ? ;
+          <has_inputs> @<Site> + ;
+          <has_outputs> @<Biosample> +
+       ) ;
+       rdf:type [ <CollectingBiosamplesFromSite> ]
+    )
+}
+
+<DataListCollection> CLOSED {
+    (  $<DataListCollection_tes> (  <biosample_list> @<Biosample> * ;
+          <frs_list> @<FieldResearchSite> * ;
+          <cbfs_list> @<CollectingBiosamplesFromSite> * ;
+          <nt_list> @<NamedThing> *
+       ) ;
+       rdf:type [ <DataListCollection> ] ?
+    )
+}
+
+<FieldResearchSite> CLOSED {
+    (  $<FieldResearchSite_tes> (  &<Site_tes> ;
+          rdf:type [ <Site> ] ?
+       ) ;
+       rdf:type [ <FieldResearchSite> ]
+    )
+}
+
+<MaterialEntity>  (
+    CLOSED {
+       (  $<MaterialEntity_tes> (  &<NamedThing_tes> ;
+             rdf:type [ schema:Thing ] ?
+          ) ;
+          rdf:type [ <MaterialEntity> ]
+       )
+    } OR @<AnalyticalSample> OR @<Biosample> OR @<Site>
+)
+
+<NamedThing>  (
+    CLOSED {
+       (  $<NamedThing_tes> (  <name> @linkml:String ? ;
+             <description> @linkml:String ?
+          ) ;
+          rdf:type [ schema:Thing ]
+       )
+    } OR @<Agent> OR @<MaterialEntity> OR @<PlannedProcess>
+)
+
+<PlannedProcess>  (
+    CLOSED {
+       (  $<PlannedProcess_tes> (  &<NamedThing_tes> ;
+             rdf:type [ schema:Thing ] ? ;
+             <has_inputs> @<NamedThing> * ;
+             <has_outputs> @<NamedThing> * ;
+             <participating_agent> @<Agent> ?
+          ) ;
+          rdf:type [ <https://purl.obolibrary.org/obo/OBI_0000011> ]
+       )
+    } OR @<CollectingBiosamplesFromSite>
+)
+
+<Site>  (
+    CLOSED {
+       (  $<Site_tes> (  &<MaterialEntity_tes> ;
+             rdf:type [ <MaterialEntity> ] ?
+          ) ;
+          rdf:type [ <Site> ]
+       )
+    } OR @<FieldResearchSite>
+)
+
+

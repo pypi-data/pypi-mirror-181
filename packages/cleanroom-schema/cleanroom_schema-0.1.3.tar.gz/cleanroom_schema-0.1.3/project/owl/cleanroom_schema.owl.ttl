@@ -1,0 +1,232 @@
+@prefix IAO: <http://purl.obolibrary.org/obo/IAO_> .
+@prefix OBI: <https://purl.obolibrary.org/obo/OBI_> .
+@prefix cleanroom_schema: <https://example.com/cleanroom-schema/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix linkml: <https://w3id.org/linkml/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+cleanroom_schema:AnalyticalSample a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "AnalyticalSample" ;
+    dcterms:title "Analytical Sample" ;
+    rdfs:subClassOf cleanroom_schema:MaterialEntity .
+
+cleanroom_schema:cleanroom-schema a owl:Ontology ;
+    rdfs:label "cleanroom-schema" ;
+    IAO:0000700 cleanroom_schema:DataListCollection,
+        cleanroom_schema:NamedThing ;
+    dcterms:license "MIT" ;
+    dcterms:title "cleanroom-schema" ;
+    rdfs:seeAlso "https://github.com/microbiomedata/nmdc-schema/issues/518",
+        "https://microbiomedata.github.io/cleanroom-schema" ;
+    skos:note "how will data be collected (DataHarmonizer?)",
+        "how will data be displayed?" ;
+    linkml:generation_date "2022-12-13T09:29:00" ;
+    linkml:metamodel_version "1.7.0" ;
+    linkml:source_file "cleanroom_schema.yaml" ;
+    linkml:source_file_date "2022-12-12T17:24:48" ;
+    linkml:source_file_size 4254 .
+
+cleanroom_schema:type a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "type" ;
+    rdfs:range linkml:String ;
+    skos:definition "The type of a thing. Should be a local class name or an ontology class from a local enumeration" ;
+    skos:note "be conservative about assigning rdf:type as the slot uri",
+        "try designates_type (but wouldn't work for enumerated ontology classes)" .
+
+linkml:SubsetDefinition a owl:Class ;
+    rdfs:label "subset_definition" .
+
+linkml:TypeDefinition a owl:Class ;
+    rdfs:label "type_definition" .
+
+linkml:topValue a owl:DatatypeProperty ;
+    rdfs:label "value" .
+
+cleanroom_schema:DataListCollection a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "DataListCollection" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom cleanroom_schema:CollectingBiosamplesFromSite ;
+            owl:onProperty cleanroom_schema:cbfs_list ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom cleanroom_schema:NamedThing ;
+            owl:onProperty cleanroom_schema:nt_list ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom cleanroom_schema:Biosample ;
+            owl:onProperty cleanroom_schema:biosample_list ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom cleanroom_schema:FieldResearchSite ;
+            owl:onProperty cleanroom_schema:frs_list ] ;
+    skos:definition "A datastructure that can contain lists of instances from any selected classes in the schema" .
+
+cleanroom_schema:PlannedProcess a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "PlannedProcess" ;
+    dcterms:title "Planned Process" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass cleanroom_schema:Agent ;
+            owl:onProperty cleanroom_schema:participating_agent ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom cleanroom_schema:NamedThing ;
+            owl:onProperty cleanroom_schema:has_inputs ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom cleanroom_schema:NamedThing ;
+            owl:onProperty cleanroom_schema:has_outputs ],
+        cleanroom_schema:NamedThing ;
+    skos:exactMatch OBI:0000011 .
+
+cleanroom_schema:biosample_list a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "biosample_list" ;
+    rdfs:range cleanroom_schema:Biosample .
+
+cleanroom_schema:cbfs_list a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cbfs_list" ;
+    rdfs:range cleanroom_schema:CollectingBiosamplesFromSite .
+
+cleanroom_schema:collected_from a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "collected_from" ;
+    rdfs:domain cleanroom_schema:Biosample ;
+    rdfs:range cleanroom_schema:FieldResearchSite ;
+    skos:definition "The Site from which a Biosample was collected" ;
+    skos:note "this illustrates implementing a Biosample relation with a (binary) slot" .
+
+cleanroom_schema:description a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "description" ;
+    rdfs:range linkml:String ;
+    skos:definition "A human-readable description for a thing" .
+
+cleanroom_schema:frs_list a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "frs_list" ;
+    rdfs:range cleanroom_schema:FieldResearchSite .
+
+cleanroom_schema:id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "id" ;
+    rdfs:range linkml:Uriorcurie ;
+    skos:definition "A unique identifier for a thing" .
+
+cleanroom_schema:name a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "name" ;
+    rdfs:range linkml:String ;
+    skos:definition "A human-readable name for a thing" .
+
+cleanroom_schema:nt_list a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "nt_list" ;
+    rdfs:range cleanroom_schema:NamedThing .
+
+cleanroom_schema:participating_agent a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "participating_agent" ;
+    rdfs:range cleanroom_schema:Agent .
+
+cleanroom_schema:Agent a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Agent" ;
+    rdfs:subClassOf cleanroom_schema:NamedThing .
+
+cleanroom_schema:CollectingBiosamplesFromSite a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "CollectingBiosamplesFromSite" ;
+    dcterms:title "Collecting Biosamples From Site" ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:allValuesFrom cleanroom_schema:Site ;
+                        owl:onProperty cleanroom_schema:has_inputs ] [ a owl:Restriction ;
+                        owl:onProperty cleanroom_schema:has_inputs ;
+                        owl:someValuesFrom cleanroom_schema:Site ] ) ],
+        [ a owl:Class ;
+            owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:allValuesFrom cleanroom_schema:Biosample ;
+                        owl:onProperty cleanroom_schema:has_outputs ] [ a owl:Restriction ;
+                        owl:onProperty cleanroom_schema:has_outputs ;
+                        owl:someValuesFrom cleanroom_schema:Biosample ] ) ],
+        cleanroom_schema:PlannedProcess ;
+    skos:note "this illustrates implementing a Biosample relation with a process class" .
+
+cleanroom_schema:MaterialEntity a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "MaterialEntity" ;
+    dcterms:title "Material Entity" ;
+    rdfs:subClassOf cleanroom_schema:NamedThing ;
+    skos:altLabel "Material",
+        "Physical entity" .
+
+cleanroom_schema:Site a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Site" ;
+    dcterms:title "Site" ;
+    rdfs:subClassOf cleanroom_schema:MaterialEntity ;
+    skos:note "BCO sample collection site ?" .
+
+cleanroom_schema:has_inputs a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "has_inputs" ;
+    rdfs:range cleanroom_schema:NamedThing .
+
+cleanroom_schema:has_outputs a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "has_outputs" ;
+    rdfs:range cleanroom_schema:NamedThing .
+
+cleanroom_schema:FieldResearchSite a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "FieldResearchSite" ;
+    dcterms:title "Field Research Site" ;
+    rdfs:subClassOf cleanroom_schema:Site ;
+    skos:altLabel "research plot" ;
+    skos:definition "A site, outside of a laboratory, from which biosamples may be collected." ;
+    skos:note "In Bioscales, one might say that rhizosphere soil and bulk soil from around the same plant were obtained at the same site. In this case, the site would correspond to one tree.",
+        "Provides grouping of biosamples at level that's more specific than belonging to the same study",
+        "be very clear that this could be part of a larger site",
+        "might correspond to GOLD's identifier on a page like https://gold.jgi.doe.gov/biosample?id=Gb0305833" .
+
+cleanroom_schema:Biosample a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Biosample" ;
+    dcterms:title "Biosample" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass cleanroom_schema:FieldResearchSite ;
+            owl:onProperty cleanroom_schema:collected_from ],
+        cleanroom_schema:MaterialEntity .
+
+cleanroom_schema:NamedThing a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "NamedThing" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty cleanroom_schema:description ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:Uriorcurie ;
+            owl:onProperty cleanroom_schema:id ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty cleanroom_schema:name ] ;
+    skos:definition "A generic grouping for any identifiable entity" ;
+    skos:exactMatch schema:Thing .
+
+linkml:ClassDefinition a owl:Class ;
+    rdfs:label "class_definition" .
+
+linkml:SlotDefinition a owl:Class ;
+    rdfs:label "slot_definition" .
+
+
