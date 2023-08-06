@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: kptop
+Version: 0.0.3
+Summary: A CLI tool that provides Monitoring for Kubernetes resources on the terminal through Prometheus metircs
+Home-page: https://github.com/eslam-gomaa/kptop
+Author: Eslam Gomaa
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: rich
+Requires-Dist: requests
+Requires-Dist: tabulate
+Requires-Dist: argparse
+
