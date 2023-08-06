@@ -1,0 +1,11 @@
+matplotlib
+numpy
+opencv-python
+tifffile>=2022.2.2
+roifile
+scikit-image
+scikit-learn
+scipy
+tensorflow==2.8
+protobuf==3.19
+ipython
