@@ -1,0 +1,19 @@
+title: Post Message to Slack
+slug: slack-post-message
+description_file: docs/slack-post-message.md
+icon: slack.svg
+tags:
+- slack
+- communication
+- notifications
+- destination
+version: 5.0.2
+exposes:
+  inputs:
+  - messages
+  parameters:
+  - slack_webhook_url
+  - message_template
+  - message_format
+functions:
+- node_file: functions/post_message.py

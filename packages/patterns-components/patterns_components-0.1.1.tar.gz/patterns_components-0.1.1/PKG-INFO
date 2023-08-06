@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: patterns-components
+Version: 0.1.1
+Summary: Patterns open-source components
+License: BSD-3-Clause
+Requires-Python: >=3.8.1,<3.11
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Dist: PyYAML (>=6.0,<7.0)
+Requires-Dist: datacopy (>=0.2.1,<0.3.0)
+Requires-Dist: patterns-devkit (>=1.4.0,<2.0.0)
+Requires-Dist: requests-mock (>=1.9.3,<2.0.0)
+Requires-Dist: semver (>=2.13.0,<3.0.0)
+Description-Content-Type: text/markdown
+
+# Patterns Components
+
+Open-source Components for the [Patterns platform](https://www.patterns.app).
+
+For more information on developing components see the [component development docs](https://www.patterns.app/docs/dev/building-components).
+
+## Publishing components
+
+Components are published with the [Patterns Devkit](https://github.com/patterns-app/patterns-devkit).
+
+`patterns upload [path to component] --publish-component`
+
+
