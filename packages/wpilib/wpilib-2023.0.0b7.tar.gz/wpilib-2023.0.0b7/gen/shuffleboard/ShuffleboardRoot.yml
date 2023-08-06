@@ -1,0 +1,17 @@
+---
+
+extra_includes:
+- frc/shuffleboard/ShuffleboardTab.h
+
+classes:
+  ShuffleboardRoot:
+    rename: _ShuffleboardRoot
+    methods:
+      GetTab:
+      Update:
+      EnableActuatorWidgets:
+      DisableActuatorWidgets:
+      SelectTab:
+        overloads:
+          int:
+          std::string_view:

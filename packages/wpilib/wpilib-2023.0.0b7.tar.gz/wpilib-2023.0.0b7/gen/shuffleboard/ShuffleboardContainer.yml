@@ -1,0 +1,77 @@
+---
+
+extra_includes:
+- frc/shuffleboard/ComplexWidget.h
+- wpi/sendable/Sendable.h
+- frc/shuffleboard/ShuffleboardLayout.h
+- frc/shuffleboard/SimpleWidget.h
+
+classes:
+  ShuffleboardContainer:
+    # virtual base issue: robotpy-build/166
+    force_no_trampoline: true
+    attributes:
+      m_isLayout:
+    methods:
+      ShuffleboardContainer:
+      GetComponents:
+      GetLayout:
+        overloads:
+          std::string_view, BuiltInLayouts:
+          std::string_view, LayoutType&:
+          std::string_view, std::string_view:
+          std::string_view:
+      Add:
+        overloads:
+          std::string_view, wpi::Sendable&:
+          std::string_view, cs::VideoSource&:
+            ignore: true
+          wpi::Sendable&:
+          cs::VideoSource&:
+            ignore: true
+          std::string_view, nt::Value&:
+          std::string_view, bool:
+          std::string_view, double:
+          std::string_view, float:
+          std::string_view, int:
+          std::string_view, std::string_view:
+          std::string_view, char*:
+            ignore: true
+          std::string_view, std::span<const bool>:
+          std::string_view, std::span<const double>:
+          std::string_view, std::span<const float>:
+          std::string_view, std::span<const int64_t>:
+          std::string_view, std::span<const std::string>:
+      AddCamera:
+        ignore: true
+      AddString:
+      AddNumber:
+      AddDouble:
+      AddFloat:
+      AddInteger:
+      AddBoolean:
+      AddStringArray:
+      AddNumberArray:
+      AddDoubleArray:
+      AddFloatArray:
+      AddIntegerArray:
+      AddBooleanArray:
+      AddRaw:
+        overloads:
+          std::string_view, std::function<std::vector<uint8_t> ( )>:
+          std::string_view, std::string_view, std::function<std::vector<uint8_t> ( )>:
+      AddPersistent:
+        overloads:
+          std::string_view, nt::Value&:
+          std::string_view, bool:
+          std::string_view, double:
+          std::string_view, float:
+          std::string_view, int:
+          std::string_view, std::string_view:
+          std::string_view, std::span<const bool>:
+          std::string_view, std::span<const double>:
+          std::string_view, std::span<const float>:
+          std::string_view, std::span<const int64_t>:
+          std::string_view, std::span<const std::string>:
+      EnableIfActuator:
+      DisableIfActuator:

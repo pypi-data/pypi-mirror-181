@@ -1,0 +1,13 @@
+---
+
+extra_includes:
+- frc/shuffleboard/ShuffleboardRoot.h
+
+classes:
+  ShuffleboardTab:
+    # virtual base issue: robotpy-build/166
+    force_no_trampoline: true
+    methods:
+      ShuffleboardTab:
+      GetRoot:
+      BuildInto:
