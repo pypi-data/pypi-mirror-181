@@ -1,0 +1,4 @@
+[console_scripts]
+kon = kontogu.cmdline:execute
+kontogu = kontogu.cmdline:execute
+
