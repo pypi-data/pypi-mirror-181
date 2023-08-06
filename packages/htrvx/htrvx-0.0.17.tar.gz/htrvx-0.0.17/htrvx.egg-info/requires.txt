@@ -1,0 +1,6 @@
+click<=9.0
+lxml
+requests
+
+[:python_version<'3.8']
+typing_extensions
