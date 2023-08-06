@@ -1,0 +1,14 @@
+numpy>=1.18
+astropy>=4.0
+matplotlib>=3.2
+requests>=2.23
+tqdm>=4.48
+jupyter>=1.0
+
+[build]
+build
+twine
+pdoc3
+
+[dev]
+black
