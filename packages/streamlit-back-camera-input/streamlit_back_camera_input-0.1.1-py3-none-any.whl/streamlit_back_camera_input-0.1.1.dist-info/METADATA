@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: streamlit-back-camera-input
+Version: 0.1.1
+Summary: Custom camera_input with rear camera as default, just click on video to capture!
+Home-page: https://github.com/phamxtien/streamlit_back_camera_input
+Author: Pham Xuan Tien
+Author-email: phamxtien@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: streamlit (>=1.15)
+Requires-Dist: jinja2
+
+# streamlit-back-camera-input
+
+## Installation instructions
+
+```sh
+pip install streamlit-back-camera-input
+```
+
+## Usage instructions
+
+```python
+import streamlit as st
+
+from streamlit_back_camera_input import back_camera_input
+
+image = back_camera_input()
+
+st.image(image)
+```
+
+
