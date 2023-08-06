@@ -1,0 +1,35 @@
+# Refference: https://python-poetry.org/docs/pyproject/
+[tool.poetry]
+name = "thcrypto"
+version = "0.9.21"
+description = "TangledHub Cryptography Library"
+license = "BSD 3-clause"
+authors = ["TangledHub <info@tangledgroup.com>"]
+readme = "README.md"
+repository = "https://gitlab.com/tangledlabs/thcrypto"
+keywords = ["tangled", "tangledhub", "tangledlabs", "thcrypto"]
+# Classifiers reference: https://pypi.org/classifiers/
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "Topic :: Security :: Cryptography",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
+packages = [{ include = "thcrypto" }]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+bcrypt = "^4.0.1"
+cryptography = "^38.0.4"
+thresult = "^0.9.25"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.1.12"]
+build-backend = "poetry.core.masonry.api"
