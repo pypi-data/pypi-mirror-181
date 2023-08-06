@@ -1,0 +1,439 @@
+{
+    "locations": [
+        {
+            "id": 1,
+            "name": "Asgard",
+            "effect": "After turn 4, whoever is winning here draws 2 cards"
+        },
+        {
+            "id": 2,
+            "name": "Atlantis",
+            "effect": "If you only have one card here, it has +5 Power"
+        },
+        {
+            "id": 3,
+            "name":	"Attilan",
+            "effect": "After turn 3, shuffle your hand into your deck. Draw 3 cards."
+        },
+        {
+            "id": 4,
+            "name":	"Avengers Compound",	
+            "effect": "On turn 5, all cards must be played here"
+        },
+        {
+            "id": 5,
+            "name":	"Bar Sinister",
+            "effect": "When you play a card here, fill this location with copies of it"
+        },
+        {
+            "id": 6,
+            "name": "Baxter Building",
+            "effect": "Whoever is winning this location gets +3 Power at the others"
+        },
+        {
+            "id": 7,
+            "name":	"Bifrost",
+            "effect": "After turn 4, move all cards one location to the right"
+        },
+        {
+            "id": 8,
+            "name":	"Central Park",
+            "effect": "Add a Squirrel to each location"
+        },
+        {
+            "id": 9,
+            "name": "Cloning Vats",
+            "effect": "When you play a card here, add a copy to your hand"
+        },
+        {
+            "id": 10,
+            "name":	"Crimson Cosmos",
+            "effect": "Cards that cost 1, 2 or 3 can’t be placed here"
+        },
+        {
+            "id": 11,
+            "name":	"Daily Bugle",
+            "effect": "Get a copy of a card in your opponent’s hand"
+        },
+        {
+            "id": 12,
+            "name":	"Danger Room",
+            "effect": "Cards played here have a 25% chance to be destroyed"
+        },
+        {
+            "id": 13,
+            "name":	"Dark Dimension",
+            "effect": "Cards here are not revealed until the game ends"
+        },
+        {
+            "id": 14,
+            "name":	"District X",
+            "effect": "Replace both decks with 10 random cards"
+        },
+        {
+            "id": 15,
+            "name":	"Dream Dimension",
+            "effect": "On turn 5, cards cost 1 more"
+        },
+        {
+            "id": 16,
+            "name":	"Ego",
+            "effect": "Ego takes over and plays your cards for you"
+        },
+        {
+            "id": 17,
+            "name":	"Elysium",
+            "effect": "Cards cost 1 less"
+        },
+        {
+            "id": 18,
+            "name":	"Fisk Tower",
+            "effect": "When a card moves here, destroy it"
+        },
+        {
+            "id": 19,
+            "name":	"Flooding",
+            "effect": "This is the last turn cards can be played here"
+        },
+        {
+            "id": 20,
+            "name": "Flooded",
+            "effect": "Cards can’t be played here"
+        },
+        {
+            "id": 21,
+            "name": "Gamma Lab",
+            "effect": "After turn 3, transform all cards here into The Hulk"
+        },
+        {
+            "id": 22,
+            "name": "Grand Central",
+            "effect": "After turn 5, put a card from each player’s hand here"
+        },
+        {
+            "id": 23,
+            "name": "Hala",
+            "effect": "After turn 4, destroy all cards controlled by the player losing here"
+        },
+        {
+            "id": 24,
+            "name": "Hellfire Club",
+            "effect": "Cards that cost 1 can’t be played here"
+        },
+        {
+            "id": 25,
+            "name": "Hell’s Kitchen",
+            "effect": "Draw a 1-Cost card from your deck"
+        },
+        {
+            "id": 26,
+            "name": "Isle of Silence",
+            "effect": "Ongoing effects are disabled here"
+        },
+        {
+            "id": 27,
+            "name": "K’un-Lun",
+            "effect": "When a card moves here, give it +2 Power"
+        },
+        {
+            "id": 28,
+            "name": "Kamar-Taj",
+            "effect": "On Reveal effects happen twice at this location"
+        },
+        {
+            "id": 29,
+            "name": "Kyln",
+            "effect": "You can’t play cards here after turn 4"
+        },
+        {
+            "id": 30,
+            "name": "Knowhere",
+            "effect": "On Reveal effects do not happen at this location"
+        },
+        {
+            "id": 31,
+            "name": "Lemuria",
+            "effect": "No cards are revealed this turn"
+        },
+        {
+            "id": 32,
+            "name": "Lechuguilla",
+            "effect": "When you play a card here, shuffle 3 rocks into your deck"
+        },
+        {
+            "id": 33,
+            "name": "Limbo",
+            "effect": "There is a turn 7 this game"
+        },
+        {
+            "id": 34,
+            "name": "Los Diablos Base",
+            "effect": "After turn 3, ruin a random location"
+        },
+        {
+            "id": 35,
+            "name": "Luke’s Bar",
+            "effect": "When you play a card here, return it to your hand"
+        },
+        {
+            "id": 36,
+            "name": "Machineworld",
+            "effect": "When you play a card here, add a copy to the opponent’s hand"
+        },
+        {
+            "id": 37,
+            "name": "Mindscape",
+            "effect": "At the start of turn 6, swap hands"
+        },
+        {
+            "id": 38,
+            "name": "Miniaturized Lab",
+            "effect": "On turns 3, 4, and 5, no cards can be added here"
+        },
+        {
+            "id": 39,
+            "name": "Mirror Dimension",
+            "effect": "On turn 4, transform into one of the other locations"
+        },
+        {
+            "id": 40,
+            "name": "Mojoworld",
+            "effect": "Whoever has more cards here gets +100 Power"
+        },
+        {
+            "id": 41,
+            "name": "Monster Island",
+            "effect": "Add a 9-Power Monster here for each player"
+        },
+        {
+            "id": 42,
+            "name": "Monster Metropolis",
+            "effect": "The card(s) with the highest power here get +3 Power"
+        },
+        {
+            "id": 43,
+            "name": "Muir Island",
+            "effect": "After each turn, give cards here +1 Power"
+        },
+        {
+            "id": 44,
+            "name": "Murderworld",
+            "effect": "After turn 3, destroy all cards here"
+        },
+        {
+            "id": 45,
+            "name": "Necrosha",
+            "effect": "Cards here have -2 Power"
+        },
+        {
+            "id": 46,
+            "name": "Nidavellir",
+            "effect": "Cards here have +5 Power"
+        },
+        {
+            "id": 47,
+            "name": "Negative Zone",
+            "effect": "Cards here have -3 Power"
+        },
+        {
+            "id": 48,
+            "name": "New York",
+            "effect": "On turn 6, you can move cards to this location"
+        },
+        {
+            "id": 49,
+            "name": "Nova Roma",
+            "effect": "Draw a card"
+        },
+        {
+            "id": 50,
+            "name": "Olympia",
+            "effect": "Draw 2 cards"
+        },
+        {
+            "id": 51,
+            "name": "Onslaught’s Citadel",
+            "effect": "Ongoing effects here are doubled"
+        },
+        {
+            "id": 52,
+            "name": "Oscorp Tower",
+            "effect": "After turn 3, all cards here swap sides"
+        },
+        {
+            "id": 53,
+            "name": "Project Pegasus",
+            "effect": "Get +5 energy this turn"
+        },
+        {
+            "id": 54,
+            "name": "Ruins",
+            "effect": "No effect"
+        },
+        {
+            "id": 55,
+            "name": "Sakaar",
+            "effect": "Put a card from each player’s hand here"
+        },
+        {
+            "id": 56,
+            "name": "Sanctum Sanctorum",
+            "effect": "Cards can’t be played here"
+        },
+        {
+            "id": 57,
+            "name": "Savage Land",
+            "effect": "Add two Raptors on each side of this location"
+        },
+        {
+            "id": 58,
+            "name": "Shadowland",
+            "effect": "Add a Ninja to each side with -2 Power"
+        },
+        {
+            "id": 59,
+            "name": "Sewer System",
+            "effect": "Cards here have -1 Power"
+        },
+        {
+            "id": 60,
+            "name": "Shuri’s Lab",
+            "effect": "When you play a card here, double its power"
+        },
+        {
+            "id": 61,
+            "name": "Sinister London",
+            "effect": "When you play a card here, add a copy to another location"
+        },
+        {
+            "id": 62,
+            "name": "Sokovia",
+            "effect": "Discard a card from each player's hand"
+        },
+        {
+            "id": 63,
+            "name": "Stark Tower",
+            "effect": "After turn 5, give all cards here +2 Power"
+        },
+        {
+            "id": 64,
+            "name": "Strange Academy",
+            "effect": "After turn 5, move all cards here to other random locations"
+        },
+        {
+            "id": 65,
+            "name": "Subterranea",
+            "effect": "Shuffle 5 rocks into each deck"
+        },
+        {
+            "id": 66,
+            "name": "The Bar With No Name",
+            "effect": "Whoever has the least Power here wins"
+        },
+        {
+            "id": 67,
+            "name": "The Big House",
+            "effect": "Cards that cost 4, 5 or 6 can’t be played here"
+        },
+        {
+            "id": 68,
+            "name": "The Hub",
+            "effect": "Add a random card to each player’s hand"
+        },
+        {
+            "id": 69,
+            "name": "The Ice Box",
+            "effect": "Give a card in each player’s hand +1 cost"
+        },
+        {
+            "id": 70,
+            "name": "The Peak",
+            "effect": "Each card in your hand swaps its Power and Cost"
+        },
+        {
+            "id": 71,
+            "name": "The Raft",
+            "effect": "First to fill this draws a 6-cost card. It costs 0."
+        },
+        {
+            "id": 72,
+            "name": "The Space Throne",
+            "effect": "Only one card can be here for each player"
+        },
+        {
+            "id": 73,
+            "name": "The Superflow",
+            "effect": "If you have no cards here, +1 energy each turn"
+        },
+        {
+            "id": 74,
+            "name": "The Triskelion",
+            "effect": "Fill each player’s hand with random cards"
+        },
+        {
+            "id": 75,
+            "name": "The Vault",
+            "effect": "On turn 6, cards can’t be played here"
+        },
+        {
+            "id": 76,
+            "name": "Tinkerer’s Workshop",
+            "effect": "Get +1 energy this turn"
+        },
+        {
+            "id": 77,
+            "name": "Titan",
+            "effect": "6-Cost cards cost 1 less"
+        },
+        {
+            "id": 78,
+            "name": "TVA",
+            "effect": "After turn 4, end the game"
+        },
+        {
+            "id": 79,
+            "name": "Wakanda",
+            "effect": "Cards here can’t be destroyed"
+        },
+        {
+            "id": 80,
+            "name": "Wakandan Embassy",
+            "effect": "Give +2 Power to cards in players’ hands"
+        },
+        {
+            "id": 81,
+            "name": "Warrior Falls",
+            "effect": "After each turn, cards here FIGHT! Destroy the weakest one(s)"
+        },
+        {
+            "id": 82,
+            "name": "Washington D.C.",
+            "effect": "Cards here with no abilities have +3 Power"
+        },
+        {
+            "id": 83,
+            "name": "Weirdworld",
+            "effect": "Both players draw from their opponent’s decks"
+        },
+        {
+            "id": 84,
+            "name": "Westview",
+            "effect": "Turns into a new location on turn 4"
+        },
+        {
+            "id": 85,
+            "name": "Worldship",
+            "effect": "Destroy the other locations"
+        },
+        {
+            "id": 86,
+            "name": "X-Mansion",
+            "effect": "After turn 3, add a random card here for each player"
+        },
+        {
+            "id": 87,
+            "name": "Xandar",
+            "effect": "Cards here have +1 Power"
+        }
+    ]
+}
