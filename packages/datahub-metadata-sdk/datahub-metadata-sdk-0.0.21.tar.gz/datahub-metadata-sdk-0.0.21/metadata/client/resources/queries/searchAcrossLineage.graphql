@@ -1,0 +1,25 @@
+
+{
+  searchAcrossLineage (
+    input: {
+      urn: "${urn}",
+      # direction candidates : UPSTREAM / DOWNSTREAM
+      direction: ${direction}
+      # types candidates : MLMODEL/MLMODEL_GORUP/DATASET/CONTAINER
+      types: ${types}
+      start: ${start}
+      count: ${count}
+    }
+  ) {
+    start
+    count
+    total
+    searchResults {
+      entity {
+        urn
+        type
+      }
+    }
+
+  }
+}

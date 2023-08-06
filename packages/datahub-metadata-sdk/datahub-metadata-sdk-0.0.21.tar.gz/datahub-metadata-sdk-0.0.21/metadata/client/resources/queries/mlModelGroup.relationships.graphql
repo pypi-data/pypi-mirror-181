@@ -1,0 +1,22 @@
+{
+  mlModelGroup(urn: "$urn") {
+    relationships(input: {
+			types: "$types"
+      direction: $direction
+      start: $start
+      count: $count
+    }){
+      start
+      count
+      total
+      relationships {
+        type
+        direction
+        entity {
+          urn
+          type
+        }
+      }
+    }
+  }
+}

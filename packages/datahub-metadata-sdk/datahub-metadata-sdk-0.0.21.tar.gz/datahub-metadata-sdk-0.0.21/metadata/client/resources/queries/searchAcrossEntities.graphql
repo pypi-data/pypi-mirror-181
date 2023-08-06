@@ -1,0 +1,29 @@
+{
+  searchAcrossEntities(
+    input: {
+      types: $types
+      query: "$search"
+      start: $start
+      count: $count
+      orFilters: [
+        {
+        	and: [
+            $conditions
+          ]
+      	}
+      ]
+    }
+  ){
+    start
+    count
+    total
+    searchResults {
+      entity {
+        urn
+      }
+    }
+    facets {
+      field
+    }
+  }
+}

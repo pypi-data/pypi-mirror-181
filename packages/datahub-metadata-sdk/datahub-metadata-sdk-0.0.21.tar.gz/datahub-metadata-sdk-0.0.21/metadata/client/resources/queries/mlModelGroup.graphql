@@ -1,0 +1,104 @@
+
+{
+  mlModelGroup(urn: "${urn}") {
+    urn
+    type
+    lastIngested
+    name 
+    platform {
+      urn
+      type
+      name
+    }
+    origin
+    description
+    # MLModelGroupProperties, Additional read only properties about the ML Model Group
+    properties {
+      description
+      createdAt
+      version {
+        versionTag
+      }
+    }
+    ownership {
+      owners {
+        owner{
+          ... on CorpUser {
+            urn
+            type
+          }
+          ... on CorpGroup {
+            urn
+            type
+          }
+        }
+        type
+      }
+    }
+    status {
+      removed
+    }
+    deprecation {
+      deprecated
+      decommissionTime
+      note
+      actor
+    }
+    dataPlatformInstance {
+      urn 
+      type
+      instanceId
+    }
+    browsePaths {
+      path
+    }
+    tags {
+      tags {
+        tag {
+          urn
+          type
+          properties{
+            name
+            description
+          }
+        }
+      }
+    }
+    glossaryTerms {
+      terms {
+        term {
+          urn
+          type
+          properties{
+            name
+            description
+            customProperties {
+              key
+              value
+            }
+          }
+        }
+      }
+    }
+    domain {
+      domain {
+        urn
+        type
+        properties {
+          name
+          description
+        }
+        institutionalMemory {
+          elements {
+            url
+            label
+          }
+        }
+        
+      }
+    }
+    editableProperties {
+      description
+    }
+  }
+}

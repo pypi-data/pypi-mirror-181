@@ -1,0 +1,115 @@
+{
+  container(urn: "$urn"){
+    urn
+    type
+    lastIngested
+    platform {
+      urn
+      type
+      name
+    }
+    properties{
+        name,
+        qualifiedName
+        description
+        customProperties{
+            key,
+            value
+        }
+        externalUrl
+    },
+     
+    #  InstitutionalMemory, References to internal resources related to the mlmodel
+    institutionalMemory {
+      # [InstitutionalMemoryMetadata!]! List of records that represent the institutional memory or internal documentation of an entity
+      elements {
+        # String! Link to a document or wiki page or another internal resource 
+        url
+        # String! Label associated with the URL
+        label
+        # CorpUser! The author of this metadata
+        author {urn}
+      }
+    }    
+
+    # Deprecation, Deprecation
+    deprecation {
+      deprecated
+      decommissionTime
+      note
+      actor
+    }
+    # DataPlatformInstance, The specific instance of the data platform that this entity belongs to
+    dataPlatformInstance { urn }
+    
+    # GlobalTags, The standard tags for the ML Model
+    tags {
+      tags {
+        tag {
+          urn
+          type
+          properties{
+            name
+            description
+          }
+        }
+      }
+    }
+    # GlossaryTerms, The structured glossary terms associated with the entity
+    glossaryTerms {
+      terms {
+        term {
+          urn
+          type
+          properties{
+            name
+            description
+            customProperties {
+              key
+              value
+            }
+          }
+        }
+      }
+    }
+    # DomainAssociation, The Domain associated with the entity
+    domain {
+      domain {
+        urn
+        type
+        properties {
+          name
+          description
+        }
+      }
+    }
+    # MLModelEditableProperties, An additional set of of read write properties
+    editableProperties {
+      description
+    } 
+    
+    # Status, Status metadata of the mlmodel
+    status {
+      # Whether the entity is removed or not
+      removed
+    }       
+    # Ownership, Ownership metadata of the mlmodel
+    ownership {
+      owners {
+        owner{
+          ... on CorpUser {
+            urn
+            type
+          }
+          ... on CorpGroup {
+            urn
+            type
+          }
+        }
+        type
+      }
+    }
+    
+    
+  }
+}
