@@ -1,0 +1,9 @@
+OpenData:
+  host : "http://localhost"
+  port : 61336
+  hotstorage : "/api/HotStorage/"
+
+# OpenData:
+#  host : "http://10.127.82.25"
+#  port : 10335
+#  hotstorage : "/api/HotStorage/"
