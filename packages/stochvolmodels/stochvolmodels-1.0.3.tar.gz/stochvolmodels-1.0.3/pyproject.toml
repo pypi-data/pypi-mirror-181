@@ -1,0 +1,35 @@
+
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stochvolmodels"
+version = "1.0.3"  # Required
+description = "Implementation of Stochastic Volatility Models"
+readme = "README.md"
+requires-python = ">=3.7"
+keywords = ["volatility", "options"]
+license = {file = "LICENSE.txt"}
+authors = [
+  {name = "A. Artur Sepp", email = "artursepp@gmail.com" }
+]
+maintainers = [
+  {name = "A. Artur Sepp", email = "artursepp@gmail.com" } # Optional
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "requests",
+    'importlib-metadata; python_version<"3.11"',
+]
+
+
+[project.urls]  # Optional
+"Homepage" = "https://github.com/ArturSepp/StochVolModels"
+"Bug Reports" = "https://github.com/ArturSepp/StochVolModels/issues"
+"Funding" = "https://artursepp.com"
+"Say Thanks!" = "https://artursepp.com"
+"Source" = "https://github.com/ArturSepp/StochVolModels"
+
