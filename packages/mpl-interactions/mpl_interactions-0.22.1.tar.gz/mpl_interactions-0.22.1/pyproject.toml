@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm>=6.2"]
+
+
+[tool.setuptools_scm]
+write_to = "mpl_interactions/_version.py"
+
+[tool.black]
+line-length = 100
+
+[tool.isort]
+profile = "black"
+line_length = 100
+
+[tool.pytest.ini_options]
+testpaths = ["docs/examples", "tests"]
+norecursedirs = [
+    ".ipynb_checkpoints",
+    "devlop",
+    "docs/examples/gallery",
+    "node_modules",
+]
+addopts = [
+    "--current-env",
+    "--doctest-continue-on-failure",
+    "--doctest-modules",
+    "--ignore-glob=docs/examples/*.py",
+    "--mpl",
+    "--nbval",
+]
