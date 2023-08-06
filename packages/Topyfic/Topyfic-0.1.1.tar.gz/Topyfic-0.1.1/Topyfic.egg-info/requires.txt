@@ -1,0 +1,15 @@
+pandas
+numpy
+scipy
+scikit-learn>=0.24.2
+matplotlib
+seaborn
+joblib
+pytest
+scanpy
+anndata
+leidenalg
+networkx
+scanpy
+setuptools
+statsmodels
