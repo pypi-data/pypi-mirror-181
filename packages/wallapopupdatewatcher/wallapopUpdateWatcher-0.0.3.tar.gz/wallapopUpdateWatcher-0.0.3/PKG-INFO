@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: wallapopUpdateWatcher
+Version: 0.0.3
+Summary: A library to watch for new items at wallapop.es 
+Author: Adair Gondan
+Author-email: <adairyves@gmail.com>
+Project-URL: Source, https://github.com/Adair-GA/wallapopUpdateWatcher
+Project-URL: Tracker, https://github.com/Adair-GA/wallapopUpdateWatcher/issues
+Keywords: wallapop api updates
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Requires-Python: >=3
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Wallapop update notifier
+
+### This package can be use to provide updates when new products appear on Wallapop. Install it just by using:<br><br>
+`pip install wallapopUpdateWatcher`
+### Basic usage example
+```python
+from wallapopUpdateWatcher import updateWatcher,Query,Producto
+import asyncio
+async def callback(q: Query, l: list[Producto])
+    for prod in producto:
+        print(q.msg())
+
+
+async def main()
+    watcher = wallapopUpdateWatcher(callback)
+    await watcher.create("Keywords",(15,30))
+    # this creates a search for the product "Keywords"
+    # between 15â‚¬ and 30â‚¬. 
+
+    while(True):
+        await watcher.checkOperation()
+        await asyncio.sleep(5)
+
+asyncio.run(main())
+```
