@@ -1,0 +1,16 @@
+.gitignore
+LICENSE
+README.md
+pyproject.toml
+requirements.txt
+setup.py
+.github/workflows/python-publish.yml
+dubclub_allauth/__init__.py
+dubclub_allauth/provider.py
+dubclub_allauth/urls.py
+dubclub_allauth/views.py
+dubclub_allauth.egg-info/PKG-INFO
+dubclub_allauth.egg-info/SOURCES.txt
+dubclub_allauth.egg-info/dependency_links.txt
+dubclub_allauth.egg-info/requires.txt
+dubclub_allauth.egg-info/top_level.txt
