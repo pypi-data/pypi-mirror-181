@@ -1,0 +1,17 @@
+LICENSE
+README.md
+setup.py
+UniversalIMG.egg-info/PKG-INFO
+UniversalIMG.egg-info/SOURCES.txt
+UniversalIMG.egg-info/dependency_links.txt
+UniversalIMG.egg-info/requires.txt
+UniversalIMG.egg-info/top_level.txt
+pyimgedit/__init__.py
+pyimgedit/__main__.py
+pyimgedit/freimgedcs.exe
+pyimgedit/icon.png
+pyimgedit/gui/__init__.py
+pyimgedit/gui/archive_data_view.py
+pyimgedit/gui/archive_info_view.py
+pyimgedit/gui/archive_log_view.py
+pyimgedit/gui/custom_widgets.py
