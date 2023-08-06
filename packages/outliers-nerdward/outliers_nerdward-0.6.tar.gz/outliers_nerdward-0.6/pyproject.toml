@@ -1,0 +1,10 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "outliers_nerdward"
+version = "0.6"
+
+[tool.setuptools.packages]
+find = {}  # Scan the project directory with the default parameters
