@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: alembic-bot
+Version: 1.0
+Author: cmflynn, paunovic
+Requires-Dist: typer
+Requires-Dist: requests
+
