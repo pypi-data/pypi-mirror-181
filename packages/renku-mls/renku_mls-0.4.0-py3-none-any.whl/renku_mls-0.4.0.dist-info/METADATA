@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: renku-mls
+Version: 0.4.0
+Summary: Renku MLS plugin
+Home-page: UNKNOWN
+Author: Renku team @ SDSC
+Author-email: renku@datascience.ch
+License: Apache License 2.0
+Keywords: Renku MLS
+Platform: any
+Classifier: Environment :: Plugins
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Programming Language :: Python :: 3
+License-File: LICENSE
+Requires-Dist: deepdiff
+Requires-Dist: mlschema-converters
+Requires-Dist: prettytable
+Requires-Dist: pyld
+Requires-Dist: rdflib
+Requires-Dist: renku (>=1.2.0)
+
+UNKNOWN
+
