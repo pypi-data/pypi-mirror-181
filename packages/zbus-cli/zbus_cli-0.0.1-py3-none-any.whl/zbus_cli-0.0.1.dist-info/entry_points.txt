@@ -1,0 +1,14 @@
+[console_scripts]
+zbus = zbus_cli.cli:main
+
+[zbuscli.command]
+serivce = zbus_service.command.service:ServiceCommand
+topic = zbus_topic.command.topic:TopicCommand
+
+[zbusservice.verb]
+call = zbus_service.verb.call:CallVerb
+
+[zbustopic.verb]
+echo = zbus_topic.verb.echo:EchoVerb
+hz = zbus_topic.verb.hz:HzVerb
+pub = zbus_topic.verb.pub:PubVerb
