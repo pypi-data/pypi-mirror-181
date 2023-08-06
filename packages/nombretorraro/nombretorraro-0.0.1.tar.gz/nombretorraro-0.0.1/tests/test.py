@@ -1,0 +1,1 @@
+!pip install datasciencetbpy==0.0.2
