@@ -1,0 +1,59 @@
+Metadata-Version: 2.1
+Name: jtree
+Version: 0.1.4
+Summary: jtree is a command interface for displaying JSON (JavaScript Object Notation)
+Author-email: Oleksis Fraga Menéndez <oleksis.fraga@gmail.com>
+License: MIT License
+        
+        Copyright (c) 2022 Oleksis Fraga Menéndez
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+Project-URL: Homepage, https://github.com/oleksis/jtree
+Keywords: json,explorer,tui,viewer
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+License-File: LICENSE
+
+# jtree
+jtree is a command interface (CLI) for displaying JavaScript Object Notation (JSON) in a tree view powered by [Textual](https://textual.textualize.io/) a Text User Interface (TUI) framework for Python.
+
+## Install
+```bash
+➜ python -m pip install jtree
+```
+
+## Usage
+```pwsh
+➜ kubectl --kubeconfig .\napptive-kubeconfig get deployment -ojson > deployment.json
+
+➜ jtree tests/fixtures/deployment.json
+```
+
+![jtree TUI](https://raw.githubusercontent.com/oleksis/jtree/main/json-tree.svg)
+
+Pass the JSON content to standard input (`sys.stdin`)
+```bash
+➜ pipdeptree --json-tree -p textual | jtree
+```
