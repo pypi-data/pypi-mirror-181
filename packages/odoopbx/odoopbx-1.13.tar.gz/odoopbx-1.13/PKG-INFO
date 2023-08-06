@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: odoopbx
+Version: 1.13
+Summary: Odoo PBX management application.
+Home-page: https://gitlab.com/odoopbx
+Author: Odooist
+Author-email: odooist@gmail.com
+License: Odoo Enterprise Edition License v1.0
+Description: [![Build status](https://github.com/odoopbx/pbx/actions/workflows/docker.yml/badge.svg)](https://github.com/odoopbx/pbx/actions)
+        [![Build status](https://github.com/odoopbx/pbx/actions/workflows/pypi.yml/badge.svg)](https://github.com/odoopbx/pbx/actions)
+        
+        # PBX for Asterisk Plus odoo module
+        This repository contains PBX part for [Asterisk Plus] module.
+        
+        
+        Repository subfolders:
+        
+        * `salt`: salt-formulas to install all OdooPBX components
+          * `agent/files/etc` agent code
+        * `pillar`: configuration for salt-formulas
+        * `docker`: images for Docker Hub and docker-compose.yml example
+        * `cli`: management command-line tool [odoopbx]
+        
+        ## Agent
+        Agent is a middleware based on [saltstack] implementing the
+        API for [Asterisk Plus] to execute asterisk actions and an AMI proxy delivering asterisk events into [Asterisk Plus].
+        
+        Find out more information at [docs.odoopbx.com](https://docs.odoopbx.com/).
+        
+        
+        [asterisk]: https://www.asterisk.org/
+        [odoo]: https://www.odoo.com/
+        [saltstack]: https://docs.saltproject.io/en/master/topics/salt_system_architecture.html
+        [Asterisk Plus]: https://github.com/odoopbx/addons
+        [odoopbx]: https://pypi.org/project/odoopbx/
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/x-rst

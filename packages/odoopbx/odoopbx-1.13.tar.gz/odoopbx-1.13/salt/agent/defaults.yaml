@@ -1,0 +1,11 @@
+agent:
+  python: python3
+  log_file: ""
+  log_level_logfile: quiet
+  running: False
+  pkgs:
+    - ipset
+    - iptables
+    - logrotate
+    - python3-m2crypto
+  pypi_pkgs: []
