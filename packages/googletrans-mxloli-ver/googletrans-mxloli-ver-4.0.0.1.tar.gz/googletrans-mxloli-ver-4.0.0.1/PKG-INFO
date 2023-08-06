@@ -1,0 +1,67 @@
+Metadata-Version: 2.1
+Name: googletrans-mxloli-ver
+Version: 4.0.0.1
+Summary: Free Google Translate API for Python. Translates totally free of charge.
+Home-page: https://github.com/Lolimipsu/googletrans-mxloli
+Author: MxLoli04
+Author-email: development.mxloli@gmail.com
+License: MIT
+Keywords: google translate translator
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: Freeware
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Topic :: Education
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# googletrans-mxloli-ver
+
+This is a fork of the [googletrans](https://github.com/ssut/py-googletrans) which makes the original package compatible with the latest versions of `httpx`, `httpcore` and their dependencies. This compatibility makes it possible to use `httpx`'s newer versions than `0.13.3`.
+
+The base is taken from the [feature/rpc](https://github.com/ssut/py-googletrans/tree/feature/rpc) branch of googletrans which was the last version, including pre-releases.
+
+Comparing with PyPI, the base uses [v4.0.0rc1](https://pypi.org/project/googletrans/4.0.0rc1/) which was the last version on pypi, including pre-releases.
+
+> **Note**: I have no intention to add features or to maintain this project. I just made this modified fork in relation to my personal project and this is my temporary solution to a temporary problem, hopefully.
+
+As the original project ended with version `4.0.0rc1` (pre-release), this fork's versioning starts from `4.0.0` (stable release).
+
+### What's changed in this version:
+- modified the `pronunciation` to print the contents of `origin_pronunciation` . So basically instead of printing the contents of translated pronounciation, it instead prints out the contents of original language pronounciation. for example: if I translated to `JP -> EN:` it prints out the romanized version instead `小さな恋のうた -> Chīsanakoinōta` (like I've said this is intended for my personal project.)
+- fixed the incompatible typing annotation for Python < 3.10 
+
+## Installation
+
+### PyPI
+
+This project is available on [PyPI](https://pypi.org/project/googletrans-mxloli-ver) and can be installed using pip.
+
+```shell
+pip install googletrans-mxloli-ver
+```
+
+### Repository
+
+You can also install the project directly from this repository.
+
+```shell
+pip install git+https://github.com/Lolimipsu/googletrans-mxloli.git
+```
+
+## Credits
+
+Original Author - [Suhun Han](https://github.com/ssut)
+
+Original Repository - [googletrans](https://github.com/ssut/py-googletrans)
+
+Original Author of this fork - [ShivangKakkar](https://github.com/ShivangKakkar/googletrans)
