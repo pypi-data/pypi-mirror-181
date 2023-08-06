@@ -1,0 +1,4 @@
+[console_scripts]
+make-release=qorus_remote.tools.make_release:main
+qorus-remote-commands=qorus_remote.tools.qorus_remote_commands:main
+
