@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: mltz
+Version: 0.1.1
+Summary: Package for data science utilities
+Project-URL: Homepage, https://github.com/tzoght/machine-learning
+Project-URL: Bug Tracker, https://github.com/tzoght/machine-learning/issues
+Project-URL: Source, https://github.com/tzoght/machine-learning
+Author-email: Tony Zoght <tony@zoght.com>
+License-File: LICENSE
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.9
+Requires-Dist: pandas
+Requires-Dist: scikit-learn
+Description-Content-Type: text/markdown
+
+# MLTZ - A Machine Learning Package
+
+A machine learning package to help in reducing the toil of data science.
