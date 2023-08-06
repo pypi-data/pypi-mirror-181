@@ -1,0 +1,3 @@
+[console_scripts]
+InstagramProfilePhotosDownloader = ippd.__main__:main
+ippd = ippd.__main__:main
