@@ -1,0 +1,63 @@
+Metadata-Version: 2.1
+Name: unbored
+Version: 0.2.0
+Summary: A simple terminal-based client for the Bored API.
+Home-page: https://github.com/davep/unbored
+Author: Dave Pearson
+Author-email: davep@davep.org
+Maintainer: Dave Pearson
+Maintainer-email: davep@davep.org
+License: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Keywords: todo fun inspiration api-client terminal textual
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Environment :: Console
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Utilities
+Classifier: Topic :: Terminals
+Classifier: Typing :: Typed
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: textual (==0.6.0)
+Requires-Dist: bored-api
+Requires-Dist: xdg
+
+# Unbored
+
+[![PyPI version](https://badge.fury.io/py/unbored.svg)](https://badge.fury.io/py/unbored)
+
+## Introduction
+
+A simple terminal client for [the Bored API](https://www.boredapi.com/).
+Written in Python and with [Textual](https://textual.textualize.io/), using
+[async-bored-api](https://github.com/Damego/async-bored-api) as the API
+wrapper.
+
+The idea is, if you're feeling bored and need some inspiration for what to
+do with your day, fire this up and select one or more activities. Your
+selections are saved so, if you wish, you can treat the application almost
+like a TODO list; for when you're bored.
+
+## Installation
+
+Unbored can be installed using [`pipx`](https://pypa.github.io/pipx/):
+
+```sh
+$ pipx install unbored
+```
+
+## Warning
+
+This is still a bit of a work-in-progress, hence the low version number. The
+main things that need addressing are listed below.
+
+## TODO
+
+- [ ] Error checking. LOTS of error checking.
+- [X] Test on Windows.
+
+[//]: # (README.md ends here)

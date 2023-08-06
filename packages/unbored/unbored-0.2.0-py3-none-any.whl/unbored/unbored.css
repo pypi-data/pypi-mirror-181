@@ -1,0 +1,106 @@
+Screen {
+    layers: base filters warning;
+}
+
+Filters {
+    background: $panel-lighten-1;
+    layer: filters;
+    width: 50%;
+    border: round $primary-lighten-1;
+    height: 80%;
+    transition: offset 250ms in_out_cubic;
+    offset: 50% 10%;
+}
+
+Filters.hidden {
+    offset: -100% 10%;
+}
+
+Filters Label {
+    text-style: bold;
+    width: 100%;
+}
+
+Filters Label.h1 {
+    text-align: center;
+    border: hkey $primary;
+}
+
+Filters Label.h2 {
+    margin-top: 1;
+    margin-left: 1;
+}
+
+TypeChoices {
+    height: 6;
+    grid-size: 5;
+    grid-gutter: 0;
+}
+
+TypeChoices Button {
+    width: 100%;
+}
+
+#activities {
+    width: 100%;
+    height: 1fr;
+}
+
+Activity {
+    height: auto;
+    padding: 1;
+    border: wide $primary;
+    background: $panel;
+}
+
+Activity:focus-within {
+    background: $panel-lighten-1;
+    border: wide $primary-lighten-1;
+}
+
+Activity > Static {
+    height: auto;
+}
+
+Activity .buttons {
+    margin-top: 1;
+    height: 3;
+    align: right bottom;
+}
+
+Activity .timestamp {
+    text-style: italic;
+    text-align: right;
+}
+
+Activity Button {
+    margin-left: 1;
+}
+
+Activity #delete, WebLink {
+    width: 6;
+    min-width: 6;
+}
+
+Activity .mover {
+    width: 5;
+    min-width: 5;
+}
+
+NoMatchingActivities {
+    layer: warning;
+    background: red;
+    color: yellow;
+    text-style: bold;
+    border: solid yellow;
+    padding: 2;
+    width: 40%;
+    offset: 60% 100%;
+    transition: offset 250ms in_out_cubic;
+}
+
+NoMatchingActivities.hidden {
+    offset: 60% -100%;
+}
+
+/* unbored.css ends here */
