@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: pylint-pyspark
+Version: 1.0.50
+Summary: PySpark Style Guide
+Home-page: https://github.com/AstrumU/pylint-pyspark
+Author: Aman Ankit
+Author-email: aman@astrumu.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+Built on Palantir's PySpark Style Guide, this is a guide to PySpark code style presenting common situations and the associated best practices based on the most frequent recurring topics across the PySpark repos we've encountered.
