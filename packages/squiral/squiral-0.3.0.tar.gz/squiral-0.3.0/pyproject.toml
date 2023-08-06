@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "squiral"
+version = "0.3.0"
+description = "squiral - square spiral"
+authors = ["SADIK KUZU <sadikkuzu@hotmail.com>"]
+homepage = "https://github.com/sadikkuzu/squiral"
+readme = "README.md"
+license = "MIT"
+packages = [{include = "squiral"}]
+
+[tool.poetry.dependencies]
+python = "^3.8.1"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.1.1"
+pytest-cov = "^4.0.0"
+flake8 = "^6.0.0"
+pre-commit = "^2.16.0"
+
+[tool.poetry.scripts]
+squiral = "squiral.main:main_cli"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
