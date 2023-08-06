@@ -1,0 +1,21 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "moabdb"
+authors = [{name = "Jackson Coxson", email = "jkcoxson@gmail.com"}, {name = "Brian Roseman", email = "brian@roseman.dev"}]
+readme = "README.md"
+license = {file = "LICENSE"}
+classifiers = ["License :: OSI Approved :: MIT License"]
+dynamic = ["version", "description"]
+dependencies = [
+    "pandas",
+    "protobuf",
+    "requests",
+    "pyarrow"
+]
+
+[project.urls]
+Home = "https://moabdb.com"
+Source = "https://github.com/MoabDB/moabdb-py"
