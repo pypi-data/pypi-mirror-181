@@ -1,0 +1,20 @@
+LICENSE
+README.md
+pyproject.toml
+climate_module/__init__.py
+climate_module/__main__.py
+climate_module/core.py
+climate_module/options.py
+climate_module/provider.py
+climate_module/hansel2020/__init__.py
+climate_module/hansel2020/inputs.py
+climate_module/hansel2020/model.py
+climate_module/hansel2020/parameters.py
+climate_module/resources/SSP markers ratio non_CO2 to CO2.csv
+climate_module/resources/__init__.py
+climate_module/resources/hansel FFI.csv
+dice_climate_simulator.egg-info/PKG-INFO
+dice_climate_simulator.egg-info/SOURCES.txt
+dice_climate_simulator.egg-info/dependency_links.txt
+dice_climate_simulator.egg-info/entry_points.txt
+dice_climate_simulator.egg-info/top_level.txt
