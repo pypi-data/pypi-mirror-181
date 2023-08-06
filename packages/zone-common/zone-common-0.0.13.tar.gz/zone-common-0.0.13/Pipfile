@@ -1,0 +1,18 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+werkzeug = "*"
+setuptools = "*"
+zone-common = {editable = true, path = "."}
+check-manifest = "*"
+twine = "*"
+nats-py = "*"
+asyncio = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.10"
