@@ -1,0 +1,3 @@
+[console_scripts]
+generate-package-docs = pkgparser.bin.generate_package_docs:main
+parse-docs = pkgparser.bin.parse_docs:main
