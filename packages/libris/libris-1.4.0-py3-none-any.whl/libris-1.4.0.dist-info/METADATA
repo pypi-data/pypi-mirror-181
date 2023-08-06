@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: libris
+Version: 1.4.0
+Summary: PDF generator that uses Markdown sources.
+Home-page: https://github.com/lazy-scrivener-games/libris
+Download-URL: https://github.com/lazy-scrivener-games/libris/archive/refs/tags/v1.1.tar.gz
+Author: Chris Muller
+Author-email: chris@lazyscrivenergames.com
+License: MIT
+Keywords: utility,pdf,html,css,markdown,conversion,assembly,book
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Topic :: Text Processing :: Markup :: Markdown
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+License-File: LICENSE.txt
+Requires-Dist: beautifulsoup4 (==4.10.0)
+Requires-Dist: idna (==2.6)
+Requires-Dist: Jinja2 (==3.0.2)
+Requires-Dist: jsonpointer (==1.10)
+Requires-Dist: jsonschema (==4.0.0)
+Requires-Dist: markdown2 (==2.4.1)
+Requires-Dist: watchdog (==2.1.6)
+Requires-Dist: weasyprint (==52.5)
+

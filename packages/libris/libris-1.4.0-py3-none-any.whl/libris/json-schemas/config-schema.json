@@ -1,0 +1,39 @@
+{
+    "$schema": "http://json-schema.org/draft/2020-12/schema",
+    "$id": "https://lazyscrivenergames.com/jsons/config-schema.json",
+    "title": "LibrisConfig",
+    "description": "The overall configuration object for a libris run",
+    "type": "object",
+    "properties": {
+        "$schema": {
+            "description": "Schema used for config file.",
+            "type": "string"
+        },
+        "sources": {
+            "description": "Markdown files to be included in PDF output.",
+            "$ref": "https://lazyscrivenergames.com/jsons/sources-schema.json"
+        },
+        "styles": {
+            "description": "Style definitions for PDF.",
+            "$ref": "https://lazyscrivenergames.com/jsons/styles-schema.json"
+        },
+        "defaultStyle": {
+            "description": "Default style for markdown files.",
+            "type": "string"
+        },
+        "output": {
+            "description": "Where to write the resulting PDF.",
+            "type": "string"
+        },
+        "documentWrapperClass": {
+            "description": "Wraps the entire document in a div with the given class name.",
+            "type": "string"
+        },
+        "markdownPipe": {
+            "description": "Pipe to run all markdown files through.",
+            "type": "string"
+        }
+    },
+    "required": ["sources", "output"],
+    "additionalProperties": false
+}
