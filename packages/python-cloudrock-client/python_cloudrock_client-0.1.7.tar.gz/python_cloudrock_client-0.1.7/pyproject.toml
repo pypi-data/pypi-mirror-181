@@ -1,0 +1,18 @@
+[project]
+name = "python_cloudrock_client"
+version = "0.1.7"
+authors = [
+  { name="Cloudrock", email="support@cloudrock.ca" },
+]
+description = "Python API client for backend of Cloudrock project."
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/kubeworkz/python-cloudrock-client"
+"Bug Tracker" = "https://github.com/kubeworkz/python-cloudrock-client/issues"

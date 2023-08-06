@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: python_cloudrock_client
+Version: 0.1.7
+Summary: Python API client for backend of Cloudrock project.
+Home-page: https://cloudrock.ca
+Author: Cloudrock Team
+Author-email: Cloudrock <support@cloudrock.ca>
+License: MIT
+Project-URL: Homepage, https://github.com/kubeworkz/python-cloudrock-client
+Project-URL: Bug Tracker, https://github.com/kubeworkz/python-cloudrock-client/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE.md
+
+# Python Cloudrock Client
+
+Python API client for [backend](https://github.com/kubeworkz/cloudrock-metal) of [Cloudrock project](https://cloudrock.ca/).
+
+## Contributing
+
+Install `pre-commit`
+
+```bash
+pip install pre-commit
+pre-commit install
+```
