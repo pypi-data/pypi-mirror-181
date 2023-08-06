@@ -1,0 +1,25 @@
+{
+	"Alice":{
+      "keyring":{
+         "ecdh":"AxLMXkey00i2BD675vpMQ8WhP/CwEfmdRr+BtpuJ2rM="
+      },
+	  "myFirstNumber":87654321,
+      "myFirstString":"Hello World!",
+      "myFirstArray":[
+         "Hello World! N.1",
+         "Hello World! N.2",
+         "Hello World! N.3",
+         "Hello World! N.4"
+      ]
+   },
+	"theSecondObject":{
+      "theSecondNumber":12345678,
+	  "theSecondString":"Oh, hello again!",
+      "theSecondArray":[
+         "123",
+         "4.56",
+         "123.45678",
+         "12345678"
+      ]      
+   }   
+}
