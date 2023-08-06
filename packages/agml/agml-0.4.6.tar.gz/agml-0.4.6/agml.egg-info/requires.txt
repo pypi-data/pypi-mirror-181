@@ -1,0 +1,32 @@
+numpy
+matplotlib
+tqdm
+scikit-learn
+torch
+torchvision
+pyyaml>=5.4.1
+albumentations
+dict2xml
+pytorch-lightning
+effdet==0.2.4
+ensemble_boxes
+
+[:sys_platform != "linux"]
+opencv-python
+
+[:sys_platform == "linux"]
+opencv-python-headless
+
+[dev]
+Shapely
+semantics
+scikit-image
+boto3
+botocore
+pandas
+pytest>=6.0.0
+pytest-order==1.0.0
+
+[test]
+pytest>=6.0.0
+pytest-order==1.0.0
