@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: ml_leoxiang66
+Version: 0.4.3
+Summary: A package of RL algorithms
+Home-page: https://github.com/leoxiang66/machine-learning/tree/MLO
+Author: Tao Xiang
+Author-email: tao.xiang@tum.de
+License: UNKNOWN
+Description: # machine-learning
+        ML algorithms package.
+        
+        ## Usage
+        ```
+        pip install ml-leoxiang66
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: MIT License
+Description-Content-Type: text/markdown
