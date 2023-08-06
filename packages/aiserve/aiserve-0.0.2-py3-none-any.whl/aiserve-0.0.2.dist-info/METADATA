@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: aiserve
+Version: 0.0.2
+Summary: 
+Author: Kim Hakhyun
+Author-email: hyun24436@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: bentoml (>=1.0.12,<2.0.0)
+Requires-Dist: boto3 (>=1.26.31,<2.0.0)
+Requires-Dist: dependency-injector (>=4.40.0,<5.0.0)
+Requires-Dist: fastapi (>=0.88.0,<0.89.0)
+Requires-Dist: gitpython (>=3.1.29,<4.0.0)
+Requires-Dist: loguru (>=0.6.0,<0.7.0)
+Requires-Dist: pygithub (>=1.57,<2.0)
+Description-Content-Type: text/markdown
+
+
