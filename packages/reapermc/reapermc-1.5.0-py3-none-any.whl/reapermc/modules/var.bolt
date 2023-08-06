@@ -1,0 +1,65 @@
+from bolt_expressions import Data
+from ./scoreboard import scoreboard
+from ./event_handler import listener
+from ./event/on_server_load import on_server_load
+from ./defer import defer
+from ./util import parsed_project_name
+
+
+_scb = scoreboard(f"{parsed_project_name}.reaper_framework.var", _internal=True)
+_stge = Data.storage(f"{parsed_project_name}:reaper_framework.var").data
+
+_scb_id = -1
+_stge_id = -1
+
+
+def var(var_type=None, default_value=None):
+    global _scb, _stge, _scb_id, _stge_id
+
+    if var_type == int:
+        _scb_id += 1
+        expr = _scb[f"${_scb_id}"]
+    else:
+        _stge_id += 1
+        expr = _stge[_stge_id].v
+
+    # default_value value support
+    if default_value is not None:
+        append function generate_path('reaper_framework/__internal__/var/init_defaults'):
+            if var_type == int:
+                _scb[f"${_scb_id}"] = default_value
+            else:
+                _stge[_stge_id].v = default_value
+
+    return expr
+
+
+@defer
+def _flush_memory():
+    global _stge
+
+    fresh_list = []
+    for _ in range(_stge_id + 1):
+        fresh_list.append({})
+
+    function generate_path('reaper_framework/__internal__/var/flush_memory'):
+        _stge = fresh_list
+
+
+@defer
+def _create_vars():
+    global _stge
+
+    function generate_path('reaper_framework/var/u_n_i_n_s_t_a_l_l'):
+        _stge.remove()
+
+
+def uninstall_vars():
+    function generate_path('reaper_framework/var/u_n_i_n_s_t_a_l_l')
+
+
+
+@listener(on_server_load)
+def _init():
+    function generate_path('reaper_framework/__internal__/var/flush_memory')
+    function generate_path('reaper_framework/__internal__/var/init_defaults')
