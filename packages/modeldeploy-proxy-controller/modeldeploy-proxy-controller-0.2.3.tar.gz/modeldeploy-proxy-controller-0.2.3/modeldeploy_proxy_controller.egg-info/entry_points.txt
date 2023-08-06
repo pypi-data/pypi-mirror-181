@@ -1,0 +1,2 @@
+[console_scripts]
+modeldeploy_proxy_controller = src.cli:main

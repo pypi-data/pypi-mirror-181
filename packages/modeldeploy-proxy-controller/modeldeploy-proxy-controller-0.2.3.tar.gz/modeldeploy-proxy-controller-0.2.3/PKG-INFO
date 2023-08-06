@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: modeldeploy-proxy-controller
+Version: 0.2.3
+Summary: The JupyterLab backend component for modeldeploy-proxy.
+Author: ever cheng
+Author-email: ever_cheng@asus.com
+License: Apache License Version 2.0
+Requires-Python: >=3.7.0
+Provides-Extra: dev
