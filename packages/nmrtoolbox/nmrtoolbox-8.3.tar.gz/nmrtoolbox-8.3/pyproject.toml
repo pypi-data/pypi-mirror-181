@@ -1,0 +1,44 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "nmrtoolbox"
+description = "simple utility for parsing and working with NMR peak tables, including ROC analysis"
+# read version from class attribute __version__ from file defined in [tool.hatch.version]
+dynamic = ["version"]
+authors = [
+    { name="Adam Schuyler", email="schuyler@uchc.edu" },
+    { name="D Levi Craft", email="darcraft@uchc.edu" },
+]
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "numpy>=1.23",
+    "scipy>=1.9",
+    "matplotlib>=3.6",
+]
+
+[tool.hatch.build]
+exclude = [
+    "/tests",
+    "/.svn",
+    "requirements.txt",
+    "build.sh",
+]
+
+[project.scripts]
+nmrtoolbox-roc = "nmrtoolbox.roc:main"
+
+[project.urls]
+"Homepage" = "https://nmrbox.nmrhub.org/"
+
+[tool.hatch.version]
+# get the project version from __version__ attribute in this file
+path = "src/nmrtoolbox/__init__.py"
