@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: ephysvibe
+Version: 0.0.2
+Summary: .
+Home-page: https://github.com/camilosada/EphysVibe
+Download-URL: https://github.com/camilosada/EphysVibe
+Maintainer: Camila Losada
+Maintainer-email: camilaalosada@gmail.com
+Project-URL: Source, https://github.com/camilosada/EphysVibe
+Project-URL: Tracker, https://github.com/camilosada/EphysVibe/issues/
+Keywords: electrophysiology neuroscience
+Platform: any
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Human Machine Interfaces
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# EphysVibe
+Implementing pipeline analyses for electrophysiology data. 
+Spiking and LFP activity of 32 channels linear probes from LIP; 64 Utah Arrays channels from PFC; 64 Utah Arrays channels from V4?
+Animals perform a delay conjunction matching task, controlled by MonkeyLogic (Matlab): https://monkeylogic.nimh.nih.gov/
+Raw electrophysiology data are acquired with OpenEphys: https://github.com/open-ephys
+
+
+
