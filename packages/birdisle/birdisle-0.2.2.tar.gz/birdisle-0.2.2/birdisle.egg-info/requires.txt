@@ -1,0 +1,14 @@
+cffi>=1.0.0
+
+[aioredis]
+aioredis<2
+
+[redis]
+redis>=3.4.1
+
+[test]
+pytest
+pytest-forked
+redis
+pytest-asyncio
+aioredis

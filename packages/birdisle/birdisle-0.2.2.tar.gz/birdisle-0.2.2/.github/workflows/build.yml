@@ -1,0 +1,64 @@
+name: Build and test
+on: [push, pull_request]
+concurrency:
+  group: test-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version:
+          - "3.6"
+          - "3.7"
+          - "3.8"
+          - "3.9"
+          - "3.10"
+          - "3.11"
+          - "pypy3.7"
+          - "pypy3.8"
+          - "pypy3.9"
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+      - uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: sudo apt-get install -y libffi-dev
+      - run: pip install -U pip setuptools wheel
+      - run: pip install -r requirements.txt
+      - run: flake8
+      - run: pip install .
+      - run: pytest
+  sdist:
+    needs: test
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+      - run: pip install -U pip setuptools wheel
+      - run: pip install build==0.9.0
+      - run: python -m build --sdist .
+      - uses: actions/upload-artifact@v3
+        with:
+          name: sdist
+          path: ./dist/*.tar.gz
+  cibuildwheel:
+    needs: test
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+      - name: Build wheels
+        uses: pypa/cibuildwheel@v2.11.3
+      - uses: actions/upload-artifact@v3
+        with:
+          name: wheels
+          path: ./wheelhouse/*.whl

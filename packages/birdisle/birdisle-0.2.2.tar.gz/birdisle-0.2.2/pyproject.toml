@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools", "wheel", "cffi", "setuptools_scm"]
+
+[tool.cibuildwheel]
+build = [
+    "cp36-manylinux_*",
+    "cp37-manylinux_*",
+    "cp38-manylinux_*",
+    "cp39-manylinux_*",
+    "cp310-manylinux_*",
+    "cp311-manylinux_*",
+    "pp37-manylinux_*",
+    "pp38-manylinux_*",
+    "pp39-manylinux_*"
+]
+build-frontend = "build"
+
+[tool.cibuildwheel.linux]
+before-all = "yum install -y libffi-devel"
