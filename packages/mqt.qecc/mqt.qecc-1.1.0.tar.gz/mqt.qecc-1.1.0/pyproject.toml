@@ -1,0 +1,163 @@
+[build-system]
+requires = [
+    "setuptools>=61",
+    "setuptools_scm[toml]>=7",
+    "ninja>=1.10; sys_platform != 'win32'",
+    "cmake>=3.14",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mqt.qecc"
+description = "QECC - An MQT Tool for Quantum Error Correcting Codes"
+readme = "README.md"
+authors = [
+    { name = "Lucas Berent", email = "lucas.berent@tum.de" }
+]
+keywords = ["MQT", "quantum computing", "quantum error correction", "error-correcting codes", "decoding", "algorithms"]
+license = { file = "LICENSE" }
+
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: C++",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: MacOS",
+    "Operating System :: POSIX :: Linux",
+    "Intended Audience :: Science/Research",
+    "Natural Language :: English",
+    "Topic :: Scientific/Engineering :: Electronic Design Automation (EDA)",
+]
+requires-python = ">=3.7"
+dependencies = []
+dynamic = ["version"]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+coverage = ["mqt.qecc[test]", "coverage[toml]>=6.3", "pytest-cov>=3"]
+docs = [
+    "sphinx>=5",
+    "sphinx-rtd-theme",
+    "sphinx-rtd-dark-mode",
+    "sphinxcontrib-bibtex>=2.4.2",
+    "sphinx-copybutton",
+    "sphinx-hoverxref",
+    "pybtex>=0.24",
+    "importlib_metadata>=4.4; python_version < '3.10'",
+    "ipython",
+    "ipykernel",
+    "nbsphinx",
+    "sphinxext-opengraph",
+    "qiskit-terra[visualization]",
+]
+dev = ["mqt.qecc[coverage, docs]"]
+
+[project.urls]
+Homepage = "https://github.com/cda-tum/qecc"
+Documentation = "https://github.com/cda-tum/qecc"
+"Bug Tracker" = "https://github.com/cda-tum/qecc/issues"
+Discussions = "https://github.com/cda-tum/qecc/discussions"
+
+[tool.setuptools.packages.find]
+include = ["mqt.*"]
+
+[tool.setuptools_scm]
+
+[tool.cibuildwheel]
+build = "cp3*"
+archs = "auto64"
+skip = "*-musllinux*"
+test-skip = "*-macosx_arm64 *-musllinux* *aarch64"
+test-command = "python -c \"from mqt import qecc\""
+environment = { DEPLOY = "ON" }
+build-frontend = "build"
+build-verbosity = 3
+manylinux-x86_64-image = "manylinux_2_28"
+
+[tool.cibuildwheel.linux]
+before-all = [
+    "yum -y install mpfr-devel",
+    "git clone --branch trunk --depth 1 https://github.com/wbhart/flint2.git",
+    "cd flint2 && ./configure && make -j 3 && make install"
+]
+
+[tool.cibuildwheel.macos]
+archs = "x86_64"
+environment = { MACOSX_DEPLOYMENT_TARGET = "10.15", DEPLOY = "ON" }
+
+#[tool.cibuildwheel.windows] TODO
+#before-build = "pip install delvewheel"
+#repair-wheel-command = "delvewheel repair -v -w {dest_dir} {wheel}"
+#environment = { DEPLOY = "ON", CC = "clang", CXX = "clang++", FLINT_ROOT = "/clang64" }
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+testpaths = ["test/python"]
+addopts = ["-ra", "--strict-markers", "--strict-config", "--showlocals"]
+log_cli_level = "INFO"
+xfail_strict = true
+filterwarnings = ["error"]
+
+[tool.coverage.run]
+source = ["mqt.qecc"]
+
+[tool.coverage.report]
+show_missing = true
+skip_empty = true
+precision = 1
+
+[tool.check-manifest]
+ignore = [
+    "docs/**",
+    ".*",
+    ".*/**",
+    "noxfile.py"
+]
+
+[tool.black]
+line-length = 120
+
+[tool.isort]
+profile = "black"
+src_paths = ["mqt/qecc", "test/python"]
+
+[tool.mypy]
+files = ["mqt/qecc", "test/python", "setup.py"]
+python_version = "3.7"
+strict = true
+warn_unused_configs = true
+check_untyped_defs = true
+show_error_codes = true
+enable_error_code = ["ignore-without-code", "redundant-expr", "truthy-bool"]
+warn_unreachable = true
+explicit_package_bases = true
+
+[tool.pylint]
+master.py-version = "3.7"
+master.jobs = "0"
+reports.output-format = "colorized"
+similarities.ignore-imports = "yes"
+messages_control.enable = [
+    "useless-suppression",
+]
+messages_control.disable = [
+    "invalid-name",
+    "line-too-long",
+    "missing-module-docstring",
+    "no-member",
+    "protected-access",
+    "too-few-public-methods",
+    "too-many-arguments",
+    "too-many-branches",
+    "too-many-locals",
+    "too-many-statements",
+    "ungrouped-imports",
+    "wrong-import-order",
+    "wrong-import-position",
+]
