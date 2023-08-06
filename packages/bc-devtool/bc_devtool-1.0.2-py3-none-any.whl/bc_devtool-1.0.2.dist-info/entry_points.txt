@@ -1,0 +1,4 @@
+[console_scripts]
+bc-devtool = bc_devtool.dev_tools:main
+bc-devtool-ali = bc_devtool.ali_script:main
+bc-devtool-menu = bc_devtool.op_menu:main
