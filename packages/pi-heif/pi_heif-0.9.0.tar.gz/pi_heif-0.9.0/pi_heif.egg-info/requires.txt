@@ -1,0 +1,7 @@
+cffi>=1.14.6
+pillow>=8.3.0
+
+[tests]
+pytest
+defusedxml
+packaging
