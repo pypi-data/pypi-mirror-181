@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: oracula
+Version: 0.0.1
+Summary: Adaptive experimentation with the help of adaptive computations
+Project-URL: Homepage, https://github.com/oraculum-service/oraculum
+Project-URL: Bug Tracker, https://github.com/oraculum-service/oraculum/issues
+Author-email: Alexander Fedotov <alex.fedotov@aol.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+
+# oraculum
+
+oraculum python package
