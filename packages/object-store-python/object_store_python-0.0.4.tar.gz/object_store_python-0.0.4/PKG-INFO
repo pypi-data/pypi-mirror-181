@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: object-store-python
+Version: 0.0.4
+Requires-Dist: pyarrow>=7.0; extra == 'pyarrow'
+Provides-Extra: pyarrow
+Keywords: object-store,azure,aws,gcp
+Author: Robert Pack <robstar.pack@gmail.com>
+Author-email: Robert Pack <robstar.pack@gmail.com>
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+Project-URL: repository, https://github.com/roeap/object-store-python
+Project-URL: issues, https://github.com/roeap/object-store-python/issues
+
+# object-store
+
+A common abstraction for high performance access to various storage backends.
+
