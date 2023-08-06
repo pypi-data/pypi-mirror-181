@@ -1,0 +1,2 @@
+[console_scripts]
+filereader = examples.filereader:parse_invocation
