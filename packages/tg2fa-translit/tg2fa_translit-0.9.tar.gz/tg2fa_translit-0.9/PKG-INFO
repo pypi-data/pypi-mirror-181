@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: tg2fa_translit
+Version: 0.9
+Summary: Translate Tajik texts to Persian with the help of a seq2seq model
+Home-page: UNKNOWN
+Author: stibiumghost
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+
+# tg2fa_translit
+
+A Tajik-to-Persian transliteration model.
+
+## Installation
+```pip install tg2fa_translit```
+
+## Dependency
+- `numpy`
+- `keras`
+
+## API
+
+```py
+from tg2fa_translit.conversion import convert
+
+text = 'То ғами фардо нахӯрем'
+print(convert(text))  # can be printed in reverse order; in this case copy-paste the output or write directly to a file
+```
+
+## Datasets and Training Details
+
+The model shows a Levenshtein ratio of 0.96.
+See the dataset here: https://github.com/stibiumghost/tajik-persian-transliteration
+
+## Acknowledgment
+
+Based on https://github.com/bashartalafha/Arabizi-Transliteration.
+
+
