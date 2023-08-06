@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm>=6.2"]
+build-backend = "setuptools.build_meta"
+
+
+[tool.setuptools_scm]
+
+[tool.isort]
+profile = "black"
+
+[tool.pytest.ini_options]
+norecursedirs = [
+   "node_modules",
+   "examples"
+]
+doctest_optionflags = [
+  "NORMALIZE_WHITESPACE",
+  "ELLIPSIS",
+]
+addopts = [
+   "--doctest-modules",
+]
+testpaths = [
+   "pyodide_pack",
+]
