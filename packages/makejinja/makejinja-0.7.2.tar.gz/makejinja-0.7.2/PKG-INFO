@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: makejinja
+Version: 0.7.2
+Summary: Automatically generate files based on Jinja templates. Use it to easily generate complex Home Assistant dashboards!
+Home-page: https://github.com/mirkolenz/makejinja
+License: MIT
+Author: Mirko Lenz
+Author-email: mirko@mirkolenz.com
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: jinja2 (>=3.1.2,<4.0.0)
+Requires-Dist: python-simpleconf[all] (>=0.5.7,<0.6.0)
+Requires-Dist: rich (>=12.6.0,<13.0.0)
+Requires-Dist: typer (>=0.7.0,<0.8.0)
+Project-URL: Repository, https://github.com/mirkolenz/makejinja
+Description-Content-Type: text/markdown
+
+# MakeJinja
+
+## Installation
+
+MakeJinja is available via `pip` and can be installed via
+
+`pip install makejinja`
+
+Beware that depending on other packages installed on your system via pip, there may be incompatibilities.
+Thus, we advise leveraging [`pipx`](https://github.com/pypa/pipx) instead:
+
+`pipx install makejinja`
+
+## Usage
+
+In its default configuration, MakeJinja searches the input folder recursively for files ending in `.jinja`.
+Also, we copy all contents (except raw template files) of the input folder to the output folder and remove the `.jinja` ending during the render process.
+To get an overview of the remaining options, we advise you to run `makejinja --help`:
+
+<!-- Regenerate: COLUMNS=120 py makejinja --help | pbcopy -->
+
