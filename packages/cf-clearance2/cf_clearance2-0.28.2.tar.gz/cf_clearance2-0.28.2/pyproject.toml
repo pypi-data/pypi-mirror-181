@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "cf_clearance2"
+version = "0.28.2"
+description = "Purpose To make a cloudflare challenge pass successfully, Can be use cf_clearance bypassed by cloudflare, However, with the cf_clearance, make sure you use the same IP and UA as when you got it."
+authors = ["vvanglro", "acheong08"]
+readme = "README.md"
+homepage = "https://github.com/acheong08/cf_clearance"
+repository = "https://github.com/acheong08/cf_clearance"
+
+[tool.poetry.dependencies]
+python = ">=3.7,<4"
+playwright = "*"
+
+[tool.poetry.dev-dependencies]
+pre-commit = "^2.20.0"
+
+[tool.ruff]
+line-length = 120
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
