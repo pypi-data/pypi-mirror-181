@@ -1,0 +1,85 @@
+Metadata-Version: 2.1
+Name: fino
+Version: 1.0.0
+Summary: Output the Finnish word for a given integer
+Project-URL: Changelog, https://github.com/hugovk/fino/releases
+Project-URL: Homepage, https://github.com/hugovk/fino
+Project-URL: Source, https://github.com/hugovk/fino
+Author: hugovk
+Keywords: Finnish,integers,numbers,suomi
+Classifier: Development Status :: 6 - Mature
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: Natural Language :: English
+Classifier: Natural Language :: Finnish
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Artistic Software
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.7
+Provides-Extra: tests
+Requires-Dist: pytest; extra == 'tests'
+Requires-Dist: pytest-cov; extra == 'tests'
+Description-Content-Type: text/markdown
+
+# fino
+
+[![PyPI version](https://img.shields.io/pypi/v/fino.svg?logo=pypi&logoColor=FFE873)](https://pypi.org/project/fino/)
+[![Supported Python versions](https://img.shields.io/pypi/pyversions/fino.svg?logo=python&logoColor=FFE873)](https://pypi.org/project/fino/)
+[![PyPI downloads](https://img.shields.io/pypi/dm/fino.svg)](https://pypistats.org/packages/fino)
+[![GitHub Actions status](https://github.com/hugovk/fino/actions/workflows/test.yml/badge.svg)](https://github.com/hugovk/fino/actions/workflows/test.yml)
+[![codecov](https://codecov.io/gh/hugovk/fino/branch/main/graph/badge.svg)](https://codecov.io/gh/hugovk/fino)
+[![Licence](https://img.shields.io/github/license/hugovk/fino.svg)](LICENSE.txt)
+[![DOI](https://zenodo.org/badge/24323566.svg)](https://zenodo.org/badge/latestdoi/24323566)
+[![Code style: Black](https://img.shields.io/badge/code%20style-Black-000000.svg)](https://github.com/psf/black)
+
+Output the Finnish word for a given integer.
+
+- Used by [hugovk/everyfinnishno](https://github.com/hugovk/everyfinnishno) to tweet
+  [@EveryFinnishNo](https://twitter.com/EveryFinnishNo).
+
+## Installation
+
+### From PyPI
+
+```bash
+pip install fino
+```
+
+### From source
+
+```bash
+pip install -U git+https://github.com/hugovk/fino
+```
+
+### From requirements.txt
+
+```txt
+-e git://github.com/hugovk/fino.git#egg=pylast
+```
+
+## Usage
+
+```pycon
+>>> import fino
+>>> fino.to_finnish(123)
+'satakaksikymmentäkolme'
+>>> fino.to_finnish(123_456)
+'satakaksikymmentäkolmetuhattaneljäsataaviisikymmentäkuusi'
+>>> fino.to_finnish(123_456_789)
+'satakaksikymmentäkolmemiljoonaaneljäsataaviisikymmentäkuusituhattaseitsemänsataakahdeksankymmentäyhdeksän'
+>>> fino.to_finnish(123_456_789_012)
+'satakaksikymmentäkolmemiljardianeljäsataaviisikymmentäkuusimiljoonaaseitsemänsataakahdeksankymmentäyhdeksäntuhattakaksitoista'
+>>> fino.to_finnish(123_456_789_012_345)
+'satakaksikymmentäkolmebiljoonaaneljäsataaviisikymmentäkuusimiljardiaseitsemänsataakahdeksankymmentäyhdeksänmiljoonaakaksitoistatuhattakolmesataaneljäkymmentäviisi'
+>>> fino.to_finnish(123_456_789_012_345_678)
+'satakaksikymmentäkolmetuhattaneljäsataaviisikymmentäkuusibiljoonaaseitsemänsataakahdeksankymmentäyhdeksänmiljardiakaksitoistamiljoonaakolmesataaneljäkymmentäviisituhattakuusisataaseitsemänkymmentäkahdeksan'
+```
