@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: scarlet-schemata
+Version: 0.1.4
+Summary: 
+Author: Rutger Hartog
+Author-email: r.l.hartog92@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: mock (>=4.0.3,<5.0.0)
+Requires-Dist: orjson (>=3.8.3,<4.0.0)
+Requires-Dist: pydantic (>=1.10.2,<2.0.0)
+Requires-Dist: rich (>=12.6.0,<13.0.0)
+Description-Content-Type: text/markdown
+
+# Scarlet
+
+Schemata for scarlet
+
