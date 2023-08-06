@@ -1,0 +1,11 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+src/get_py_deps/__init__.py
+src/get_py_deps/get_py_deps.py
+src/get_py_deps.egg-info/PKG-INFO
+src/get_py_deps.egg-info/SOURCES.txt
+src/get_py_deps.egg-info/dependency_links.txt
+src/get_py_deps.egg-info/requires.txt
+src/get_py_deps.egg-info/top_level.txt
