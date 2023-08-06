@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: polywrap-client
+Version: 0.1.0a1
+Summary: 
+Author: Cesar
+Author-email: cesar@polywrap.io
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: polywrap-core (==0.1.0a1)
+Requires-Dist: polywrap-manifest (==0.1.0a1)
+Requires-Dist: polywrap-msgpack (==0.1.0a1)
+Requires-Dist: polywrap-result (==0.1.0a1)
+Requires-Dist: polywrap-uri-resolvers (==0.1.0a1)
+Requires-Dist: pycryptodome (>=3.14.1,<4.0.0)
+Requires-Dist: pysha3 (>=1.0.2,<2.0.0)
+Requires-Dist: result (>=0.8.0,<0.9.0)
+Requires-Dist: unsync (>=1.4.0,<2.0.0)
+Requires-Dist: wasmtime (>=1.0.1,<2.0.0)
+Description-Content-Type: text/markdown
+
+TODO
