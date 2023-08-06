@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: mkapi-fix-coz
+Version: 0.1.0
+Summary: An Auto API Documentation tool.
+Home-page: https://github.com/cityofzion/mkapi
+Author: coz
+Author-email: python@coz.io
+License: MIT
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Documentation
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# mkapi-fix-coz
+A fork of [mkapi-fix](https://github.com/pwwang/mkapi) to fit our needs and gives publishing control. Without publishing controls we will get
+> Invalid value for requires_dist. Error: Can't have direct dependency: 
+
+when trying to publish to PyPi with a dependency based on a Git commit hash. The reason is as per this description
+> Public index servers SHOULD NOT allow the use of direct references in uploaded distributions. Direct references are intended as a tool for software integrators rather than publishers.
+
+as described here https://peps.python.org/pep-0440/#direct-references
+
+## Install
+```bash
+pip install mkapi-fix-coz
+```
