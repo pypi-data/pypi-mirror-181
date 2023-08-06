@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: ctracing
+Version: 1.0.1
+Summary: custom tracing lib and helpers
+Author-email: Damien Degois <damien@degois.info>
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Programming Language :: Python :: 3 :: Only
+Provides-Extra: http
+Provides-Extra: otlp
+Provides-Extra: full
+Provides-Extra: tests

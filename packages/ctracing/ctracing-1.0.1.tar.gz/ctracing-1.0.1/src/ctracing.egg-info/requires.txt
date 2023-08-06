@@ -1,0 +1,15 @@
+opentelemetry-api
+opentelemetry-sdk
+
+[full]
+ctracing[http,otlp]
+
+[http]
+requests
+
+[otlp]
+opentelemetry-exporter-otlp
+
+[tests]
+ctracing[full]
+pytest
