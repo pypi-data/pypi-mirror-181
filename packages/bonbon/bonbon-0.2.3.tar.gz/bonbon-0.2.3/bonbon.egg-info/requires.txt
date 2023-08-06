@@ -1,0 +1,9 @@
+pipenv==2022.1.8
+numpy==1.19.3
+pydirectinput==1.0.4
+pandas
+pyarrow
+requests
+pyodbc
+azure-storage-blob
+twine
