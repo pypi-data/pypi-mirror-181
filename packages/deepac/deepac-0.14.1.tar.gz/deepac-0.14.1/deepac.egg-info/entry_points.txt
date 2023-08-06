@@ -1,0 +1,3 @@
+[console_scripts]
+deepac = deepac.__main__:main
+
