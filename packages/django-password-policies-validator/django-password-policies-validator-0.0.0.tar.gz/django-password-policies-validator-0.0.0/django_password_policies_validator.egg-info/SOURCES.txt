@@ -1,0 +1,17 @@
+.gitignore
+LICENSE
+README.rst
+pyproject.toml
+setup.py
+django_password_policies_validator.egg-info/PKG-INFO
+django_password_policies_validator.egg-info/SOURCES.txt
+django_password_policies_validator.egg-info/dependency_links.txt
+django_password_policies_validator.egg-info/top_level.txt
+password_policies/__init__.py
+password_policies/admin.py
+password_policies/apps.py
+password_policies/models.py
+password_policies/password_validation.py
+password_policies/tests.py
+password_policies/views.py
+password_policies/migrations/__init__.py
