@@ -1,0 +1,41 @@
+#!/usr/bin/env python
+from setuptools import find_packages, setup
+
+setup(
+    name='phalp',
+    version='0.1.3',    
+    description='PHALP: A Python package for People Tracking in 3D',
+    url='https://github.com/brjathu/PHALP',
+    author='Jathushan Rajasegaran',
+    author_email='jathushan@berkeley.edu',
+    license='MIT License',
+    packages=find_packages(),
+    python_requires='>=3.7',
+    install_requires=[
+        "hydra-core",
+        # "omegaconf",
+        # "opencv-python",
+        # "scikit-learn==0.22",
+        # "scenedetect[opencv]",
+        # "joblib",
+        # "gdown",
+        # "dill",
+        # "rich",
+        # "python-dotenv",
+        # "pyrootutils",
+        # "motmetrics",
+        # "pyrender==0.1.45",
+        # "pycocotools",
+        # "pyrootutils",
+        # "submitit",
+        # "colordict",
+        
+        # "cython",
+        # "scikit-image",
+        # "chumpy",
+        # "ipython",
+        # "pyopengl==3.1.6",
+        # "networkx==2.8.6",
+        # "hydra-colorlog",
+        ],
+)
