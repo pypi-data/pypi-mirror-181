@@ -1,0 +1,14 @@
+LICENCE
+README.md
+pyproject.toml
+aws_recommendations/__init__.py
+aws_recommendations/cost_estimations.py
+aws_recommendations/ec2.py
+aws_recommendations/rds.py
+aws_recommendations/recommendation.py
+aws_recommendations/truted_advisor.py
+aws_recommendations/utils.py
+aws_recommendations.egg-info/PKG-INFO
+aws_recommendations.egg-info/SOURCES.txt
+aws_recommendations.egg-info/dependency_links.txt
+aws_recommendations.egg-info/top_level.txt
