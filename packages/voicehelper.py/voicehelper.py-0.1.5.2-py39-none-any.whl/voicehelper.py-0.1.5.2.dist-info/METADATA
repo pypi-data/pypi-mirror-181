@@ -1,0 +1,99 @@
+Metadata-Version: 2.1
+Name: voicehelper.py
+Version: 0.1.5.2
+Summary: These are two neural networks connected by the same module. One for recognition, the other for voice generation.
+Home-page: https://github.com/romanin-rf/voicehelper.py
+Author: Romanin
+Author-email: semina054@gmail.com
+License: MIT
+Platform: UNKNOWN
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: sounddevice
+Requires-Dist: pysoundfile
+Requires-Dist: requests
+Requires-Dist: wget
+Requires-Dist: torch
+Requires-Dist: vosk
+Requires-Dist: silero
+Requires-Dist: vbml
+Requires-Dist: rich
+
+# voicehelper.py
+## Описание
+[voicehelper.py](https://github.com/romanin-rf/voicehelper.py) - это модуль соединивший в себе две нейронные сети. Одна нейросеть для генерации голоса, другая для распознования речи. По умолчанию стоят модели для `Русской речи`.
+
+## Установка
+- **Windows**:
+```cmd
+pip install https://github.com/romanin-rf/voicehelper.py/releases/download/v0.1.5/voicehelper.py-0.1.5-py39-none-win_amd64.whl
+```
+
+## Название моделей для загрузки
+- Для [SpeechSynthesizer](https://github.com/snakers4/silero-models#v3)
+- Для [SpeechRecognition](https://github.com/romanin-rf/voicehelper.py-models#for-speechrecognition)
+
+## Примеры
+- `SpeechSynthesizer`
+```python
+import VoiceHelper
+
+ss = VoiceHelper.SpeechSynthesizer(sample_rate=48000)
+
+with open("temp.wav", "rb") as f:
+    f.write(ss.get_audio_bytes("Привет!", "WAV", "PCM_32"))
+```
+
+- `__main__.py`
+```python
+import VoiceHelper
+from rich.console import Console
+
+# Initialising the console (just to create a CUI)
+c = Console()
+
+# Класс нейросети
+c.clear()
+c.rule("Запуск")
+
+# Процесс иницализации
+try:
+    ssynth = VoiceHelper.SpeechSynthesizer(
+        device_type="cuda"
+    )
+except:
+    ssynth = VoiceHelper.SpeechSynthesizer(
+        device_type="cpu"
+    )
+vh = VoiceHelper.VoiceHelper(
+    ssynth,
+    VoiceHelper.SpeechRecognition()
+)
+
+# Команды
+@vh.add_command("привет")
+def Hello(event: VoiceHelper.Event):
+    vh.say("Ага, я здесь!")
+
+@vh.add_command(["скажи <text>"])
+def cSay(event: VoiceHelper.Event, text: str):
+    vh.say(text)
+
+@vh.add_command("пока")
+def cGoodBye(event: VoiceHelper.Event):
+    vh.say("До свидания!")
+    vh.stop()
+
+@vh.add_command("<text>")
+def cLogger(event: VoiceHelper.Event, text: str) -> None:
+    c.print(f"[red]You[/] [green]->[/] [yellow]{text}[/]")
+
+# Запуск
+if __name__ == "__main__":
+    c.rule("Логи")
+    vh.start()
+```
+
+
