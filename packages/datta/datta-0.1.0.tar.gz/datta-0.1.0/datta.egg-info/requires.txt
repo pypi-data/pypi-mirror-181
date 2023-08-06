@@ -1,0 +1,8 @@
+basicco<9,>=8.7
+estruttura<2,>=1.1.2
+pyrsistent<1,>=0
+six<2,>=1
+tippo<4,>=3.9
+
+[:python_version < "3.4"]
+enum34
