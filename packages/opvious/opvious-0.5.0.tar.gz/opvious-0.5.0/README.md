@@ -1,0 +1,71 @@
+# Opvious Python SDK  [![CI](https://github.com/opvious/sdk.py/actions/workflows/ci.yml/badge.svg)](https://github.com/opvious/sdk.py/actions/workflows/ci.yml) [![Pypi badge](https://badge.fury.io/py/opvious.svg)](https://pypi.python.org/pypi/opvious/)
+
+This package provides a lightweight SDK for solving optimization models with the
+[Opvious API][api]. Its main features are:
+
++ Seamless data import/export via native support for [`pandas`][pandas]
++ Powerful built-in debugging capabilities: automatic infeasibility relaxation,
+  variable pinning, and more
++ Non-blocking APIs for performant parallel calls
+
+
+## Quickstart
+
+First, install this package and have an API access token handy (these can be
+generated [here][token]).
+
+```sh
+pip install opvious[aio] # aio is recommended for improved performance
+```
+
+With these steps out of the way, you are ready to solve any formulation:
+
+```python
+import opvious
+
+# Instantiate an API client from an API token
+client = opvious.Client.from_token(TOKEN)
+
+# Assemble and validate inputs for a registered formulation
+inputs = await client.assemble_inputs(
+    formulation_name='my-formulation',
+    parameters={
+        # Formulation parameters...
+    }
+)
+
+# Start an attempt and wait for it to complete
+attempt = await client.start_attempt(inputs)
+
+# Wait for the attempt to complete
+outcome = await client.wait_for_outcome(attempt)
+```
+
+
+## Environments
+
+Clients are compatible with Pyodide environments, for example [JupyterLite][]
+kernels. Simply install the package as usual in a notebook, omitting the `aio`
+optional dependencies:
+
+```python
+import piplite
+await piplite.install('opvious')
+```
+
+In other environments, prefer using the `aiohttp`-powered clients as they are
+more performant (this is the default if the `aio` dependencies were specified).
+
+
+## Next steps
+
+This SDK is focused on solving optimization models. For convenient access to the
+rest of Opvious API's functionality, consider using the [TypeScript SDK and
+CLI][cli].
+
+
+[api]: https://www.opvious.io
+[cli]: https://www.opvious.io/sdk.ts
+[JupyterLite]: https://jupyterlite.readthedocs.io/
+[token]: https://hub.beta.opvious.io/authorizations
+[pandas]: https://pandas.pydata.org
