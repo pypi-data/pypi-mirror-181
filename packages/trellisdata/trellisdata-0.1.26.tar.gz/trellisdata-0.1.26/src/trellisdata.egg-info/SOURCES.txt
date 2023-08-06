@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/trellisdata/__init__.py
+src/trellisdata/database_query.py
+src/trellisdata/database_trigger.py
+src/trellisdata/job_launcher.py
+src/trellisdata/messages.py
+src/trellisdata/operation_grapher.py
+src/trellisdata/utils.py
+src/trellisdata.egg-info/PKG-INFO
+src/trellisdata.egg-info/SOURCES.txt
+src/trellisdata.egg-info/dependency_links.txt
+src/trellisdata.egg-info/requires.txt
+src/trellisdata.egg-info/top_level.txt
