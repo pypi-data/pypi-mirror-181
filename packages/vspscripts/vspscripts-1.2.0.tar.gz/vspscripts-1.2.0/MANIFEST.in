@@ -1,0 +1,5 @@
+recursive-include vspscripts/viewer/icons *.png
+global-include *.so
+global-exclude *.cpp *.c
+prune vspscripts/alignment/build
+prune vspscripts/alignment/Clibrary
