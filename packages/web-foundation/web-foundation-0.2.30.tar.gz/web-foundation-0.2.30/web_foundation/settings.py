@@ -1,0 +1,2 @@
+DEBUG = False
+METRICS_ENABLE = False
