@@ -1,0 +1,3 @@
+[mkdocs.plugins]
+encriptmail = src:encriptMailPlugin
+
