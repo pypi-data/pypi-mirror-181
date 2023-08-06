@@ -1,0 +1,107 @@
+# flake8_iw
+
+### IW01: Use of patch
+
+Lint check to prevent the use of `patch` directly.
+Recommendation: Use `PatchingTestCase` / `PatchingTransactionTestCase` instead
+
+#### Correct
+
+```python
+from instawork.tests import PatchingTestCase
+
+
+class SignUpUpdatedTests(PatchingTestCase):
+    def setUp(self):
+        self.mock_call = self.patch("apps.auth.signals.task_send_email.delay")
+
+    def test_email(self):
+        expect(self.mock_call).to(have_been_called_once)
+
+    def test_sms(self):
+        mock_sms = self.patch("apps.auth.signals.task_send_sms.delay")
+        expect(mock_sms).to(have_been_called_once)
+
+```
+
+#### Wrong
+
+```python
+from unittest.mock import patch
+
+
+class SignUpUpdatedTests(TestCase):
+    def setUp(self):
+        self.patcher = patch("apps.auth.signals.task_send_email.delay")
+        self.mock_email = self.patcher.start()
+
+    def tearDown(self):
+        self.patcher.stop()
+
+    def test_email(self):
+        ...
+        expect(self.mock_email).to(have_been_called_once)
+
+    @patch("apps.auth.signals.task_send_sms.delay")
+    def test_sms(self, mock_sms):
+        ...
+        expect(mock_sms).to(have_been_called_once)
+```
+
+### IW02: Use of patch for time freeze
+
+Lint check to prevent the use of `patch` to freeze time.
+Recommendation: Use `freeze_time` from `PatchingTestCase` / `PatchingTransactionTestCase` or use `freeze_time` decorator or context manager from `freezegun` package.
+
+#### Correct
+
+```python
+from django.utils import timezone
+from instawork.tests import PatchingTestCase
+
+
+class UserFeatureViewTests(PatchingTestCase):
+    def setUp(self):
+        self.now = timezone.now()
+
+    def test_feature_view(self):
+        ufv = None
+
+        # Option 1
+        with freeze_time(self.now):
+            ufv = UserFeatureView.objects.get_or_create(
+                user=self.shift.worker, feature=UserFeatureView.FEATURE_1
+            )
+
+        # Option 2
+        self.freeze_time(self.now)
+        ufv = UserFeatureView.objects.get_or_create(
+            user=self.shift.worker, feature=UserFeatureView.FEATURE_1
+        )
+
+        ...
+
+        expect(ufv.date_created).to(equal(self.now))
+```
+
+#### Wrong
+
+```python
+from django.utils import timezone
+from instawork.tests import PatchingTestCase
+
+
+class UserFeatureViewTests(PatchingTestCase):
+    def setUp(self):
+        self.now = timezone.now()
+        self.mock_call = self.patch("django.utils.timezone.now", return_value=self.now)
+
+    def test_feature_view(self):
+        ufv = UserFeatureView.objects.get_or_create(
+            user=self.shift.worker, feature=UserFeatureView.FEATURE_1
+        )
+
+        ...
+
+        expect(ufv.date_created).to(equal(self.now))
+```
