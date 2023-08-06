@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: dronevis
+Version: 0.0.3
+Summary: Full compatible drone library to automate computer vision algorithms on parrot drones.
+Author-email: Ahmed Heakl <ahmed.heakl@ejust.edu.eg>
+Project-URL: repository, https://github.com/ahmedheakl/drone-vis
+Keywords: drones,computer vision,human tracking,object recognition,YOLO
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: gluoncv (>=0.10.5)
+Requires-Dist: matplotlib (>=3.5.3)
+Requires-Dist: mxnet (>=1.9.1)
+Requires-Dist: numpy (>=1.17.4)
+Requires-Dist: opencv-python (>=4.6.0.66)
+Requires-Dist: Pillow (>=9.3.0)
+Requires-Dist: setuptools (>=45.2.0)
+Requires-Dist: torch (>=1.13.0)
+Requires-Dist: torchvision (>=0.14.0)
+Provides-Extra: build
+Requires-Dist: build ; extra == 'build'
+Requires-Dist: twine ; extra == 'build'
+Provides-Extra: dev
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: bumpver ; extra == 'dev'
+
+# DroneVis: Full compatible drone library to automate computer vision algorithms on parrot drones.
+
