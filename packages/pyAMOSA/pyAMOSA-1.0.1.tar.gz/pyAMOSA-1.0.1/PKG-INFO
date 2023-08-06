@@ -1,0 +1,18 @@
+Metadata-Version: 1.2
+Name: pyAMOSA
+Version: 1.0.1
+Summary: Python implementation of the Archived Multi-Objective Simulated Annealing optimization heuristic
+Home-page: https://github.com/SalvatoreBarone/pyAMOSA
+Author: Salvatore Barone
+Author-email: salvatore.barone@unina.it
+License: UNKNOWN
+Project-URL: Bug Reports, https://github.com/SalvatoreBarone/pyAMOSA/issues
+Project-URL: Source, https://github.com/SalvatoreBarone/pyAMOSA
+Description: Python implementation of the Archived Multi-Objective Simulated Annealing optimization heuristic. Take a look at https://github.com/SalvatoreBarone/pyAMOSA.
+Keywords: Verilator Wrapper Verilog
+Platform: UNKNOWN
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3.9
