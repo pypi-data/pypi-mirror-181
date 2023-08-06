@@ -1,0 +1,111 @@
+Metadata-Version: 2.1
+Name: graphql-query
+Version: 0.0.2
+Summary: Python classes for generate of GraphQL queries.
+Home-page: https://github.com/denisart/graphql-query
+Author: Denis A. Artyushin
+Maintainer: Denis A. Artyushin
+Maintainer-email: artyushinden@gmail.com
+License: MIT
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: graphql-core (<3.3,>=3.2)
+Requires-Dist: jinja2 (<3.2,>=3.1)
+Requires-Dist: pydantic (<1.11,>=1.10)
+Provides-Extra: dev
+Requires-Dist: furo (<2022.10,>=2022.9) ; extra == 'dev'
+Requires-Dist: isort (<5.11,>=5.10) ; extra == 'dev'
+Requires-Dist: mypy (<0.992,>=0.991) ; extra == 'dev'
+Requires-Dist: pylint-pydantic (<0.2,>=0.1) ; extra == 'dev'
+Requires-Dist: pylint (<2.16,>=2.15) ; extra == 'dev'
+Requires-Dist: sphinx (<5.4,>=5.3) ; extra == 'dev'
+Requires-Dist: wheel (<0.39,>=0.38) ; extra == 'dev'
+Provides-Extra: test
+Requires-Dist: pytest-cov (<3.1,>=3.0) ; extra == 'test'
+Requires-Dist: pytest-mock (<3.11,>=3.10) ; extra == 'test'
+Requires-Dist: pytest (<7.3,>=7.2) ; extra == 'test'
+
+# GraphQL-Query
+
+[![Build](https://img.shields.io/github/workflow/status/denisart/graphql-query/Code%20checking)](https://github.com/denisart/graphql-query/actions)
+[![tag](https://img.shields.io/github/v/tag/denisart/graphql-query)](https://github.com/denisart/graphql-query)
+[![last-commit](https://img.shields.io/github/last-commit/denisart/graphql-query/master)](https://github.com/denisart/graphql-query/commits/master)
+[![license](https://img.shields.io/github/license/denisart/graphql-query)](https://github.com/denisart/graphql-query/blob/master/LICENSE)
+
+**graphql_query** is python classes for generating GraphQL queries.
+The documentation for **graphql_query** can be found at [https://denisart.github.io/graphql-query/](https://denisart.github.io/graphql-query/).
+
+## Quickstart
+
+Install with pip
+
+```bash
+pip install graphql_query
+```
+
+For generation of the following query
+
+```graphql
+query Hero($episode: Episode, $withFriends: Boolean!) {
+  hero(episode: $episode) {
+    name
+    friends @include(if: $withFriends) {
+      name
+    }
+  }
+}
+```
+
+we have
+
+```python
+from graphql_query import Argument, Directive, Field, Operation, Query, Variable
+
+episode = Variable(name="episode", type="Episode")
+withFriends = Variable(name="withFriends", type="Boolean!")
+
+arg_episode = Argument(name="episode", value=episode)
+arg_if = Argument(name="if", value=withFriends)
+
+hero = Query(
+    name="hero",
+    arguments=[arg_episode],
+    fields=[
+        "name",
+        Field(
+            name="friends",
+            fields=["name"],
+            directives=[
+                Directive(
+                    name="include",
+                    arguments=[arg_if]
+                )
+            ]
+        )
+    ]
+)
+operation = Operation(
+    type="query",
+    name="Hero",
+    variables=[episode, withFriends],
+    queries=[hero]
+)
+print(operation.render())
+# query Hero(
+#   $episode: Episode
+#   $withFriends: Boolean!
+# ) {
+#   hero(
+#     episode: $episode
+#   ) {
+#     name
+#     friends @include(
+#       if: $withFriends
+#     ) {
+#       name
+#     }
+#   }
+# }
+```
+
