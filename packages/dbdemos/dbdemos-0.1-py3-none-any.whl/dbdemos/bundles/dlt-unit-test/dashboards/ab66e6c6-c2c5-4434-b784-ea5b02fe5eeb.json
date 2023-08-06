@@ -1,0 +1,1032 @@
+{
+    "queries": [
+        {
+            "id": "018fad12-5954-4e00-b326-3d9d411b1f3e",
+            "name": "Customer satisfaction evolution",
+            "description": null,
+            "query": "select * from field_demos_retail.customer_satisfaction",
+            "options": {
+                "parent": "folders/145370659771002",
+                "folder_node_status": "ACTIVE",
+                "folder_node_internal_name": "tree/145370659804973",
+                "parameters": []
+            },
+            "visualizations": [
+                {
+                    "id": "a0f401f7-f31e-4ac5-abc9-0ffe2bf65965",
+                    "type": "TABLE",
+                    "name": "Table",
+                    "description": "",
+                    "options": {}
+                },
+                {
+                    "id": "f0569e10-fb43-4655-98be-17bbe1f18701",
+                    "type": "CHART",
+                    "name": "Satisfaction evolution",
+                    "description": "",
+                    "options": {
+                        "version": 2,
+                        "globalSeriesType": "line",
+                        "sortX": true,
+                        "legend": {
+                            "enabled": true,
+                            "placement": "auto",
+                            "traceorder": "normal"
+                        },
+                        "xAxis": {
+                            "type": "-",
+                            "labels": {
+                                "enabled": true
+                            },
+                            "title": {
+                                "text": "date"
+                            }
+                        },
+                        "yAxis": [
+                            {
+                                "type": "-",
+                                "title": {
+                                    "text": "Customer satisfaction (%)"
+                                }
+                            },
+                            {
+                                "type": "-",
+                                "opposite": true,
+                                "title": {
+                                    "text": null
+                                }
+                            }
+                        ],
+                        "alignYAxesAtZero": false,
+                        "error_y": {
+                            "type": "data",
+                            "visible": true
+                        },
+                        "series": {
+                            "stacking": null,
+                            "error_y": {
+                                "type": "data",
+                                "visible": true
+                            }
+                        },
+                        "seriesOptions": {
+                            "satisfaction": {
+                                "yAxis": 0
+                            },
+                            "medium_spender": {
+                                "color": "#86B4C2"
+                            },
+                            "large_spender": {
+                                "color": "#FCEC9E"
+                            },
+                            "small_spender": {
+                                "color": "#AB506F"
+                            }
+                        },
+                        "valuesOptions": {},
+                        "direction": {
+                            "type": "counterclockwise"
+                        },
+                        "sizemode": "diameter",
+                        "coefficient": 1,
+                        "numberFormat": "0,0[.]0",
+                        "percentFormat": "0[.]00%",
+                        "textFormat": "",
+                        "missingValuesAsZero": true,
+                        "useAggregationsUi": false,
+                        "swappedAxes": false,
+                        "showDataLabels": false,
+                        "dateTimeFormat": "YYYY-MM-DD HH:mm",
+                        "columnConfigurationMap": {
+                            "x": {
+                                "column": "date"
+                            },
+                            "y": [
+                                {
+                                    "column": "satisfaction"
+                                }
+                            ],
+                            "series": {
+                                "column": "segment"
+                            }
+                        },
+                        "showPlotlyControls": true
+                    }
+                }
+            ]
+        },
+        {
+            "id": "bd222601-c5ae-4752-83b7-5124412727ca",
+            "name": "Misclassified product",
+            "description": null,
+            "query": "select '6% (345)'",
+            "options": {
+                "parent": "folders/145370659771002",
+                "folder_node_status": "ACTIVE",
+                "folder_node_internal_name": "tree/145370659804978",
+                "parameters": []
+            },
+            "visualizations": [
+                {
+                    "id": "81fff692-10f7-4f91-a12a-e74c00eb2f0b",
+                    "type": "COUNTER",
+                    "name": "Missclassified Product",
+                    "description": "",
+                    "options": {
+                        "counterLabel": "Misclassified Products",
+                        "counterColName": "6% (345)",
+                        "rowNumber": 1,
+                        "targetRowNumber": 1,
+                        "stringDecimal": 0,
+                        "stringDecChar": ".",
+                        "stringThouSep": ",",
+                        "tooltipFormat": "0,0.000",
+                        "showPlotlyControls": true,
+                        "targetColName": "",
+                        "formatTargetValue": false
+                    }
+                }
+            ]
+        },
+        {
+            "id": "e4d62394-7f3e-4d16-b046-814053d695fd",
+            "name": "Sales Counters",
+            "description": null,
+            "query": "select count(*), sum(payment_value), avg(payment_value), 13.3 as growth, 10 as target from field_demos_retail.payments; ",
+            "options": {
+                "parent": "folders/145370659771002",
+                "folder_node_status": "ACTIVE",
+                "folder_node_internal_name": "tree/145370659804981",
+                "parameters": []
+            },
+            "visualizations": [
+                {
+                    "id": "3966e474-5775-49c8-8556-25e0420aaf6a",
+                    "type": "COUNTER",
+                    "name": "Average basket size",
+                    "description": "",
+                    "options": {
+                        "counterLabel": "",
+                        "counterColName": "avg(payment_value)",
+                        "rowNumber": 1,
+                        "targetRowNumber": 1,
+                        "stringDecimal": 0,
+                        "stringDecChar": ".",
+                        "stringThouSep": ",",
+                        "tooltipFormat": "0,0.000",
+                        "showPlotlyControls": true,
+                        "stringPrefix": "$"
+                    }
+                },
+                {
+                    "id": "46305f15-ff21-4a64-a40d-534ee0969ed5",
+                    "type": "TABLE",
+                    "name": "Table",
+                    "description": "",
+                    "options": {}
+                },
+                {
+                    "id": "77250bd2-36cc-4edf-b043-41bcc48c7c07",
+                    "type": "COUNTER",
+                    "name": "Monthly growth",
+                    "description": "",
+                    "options": {
+                        "counterLabel": "",
+                        "counterColName": "growth",
+                        "rowNumber": 1,
+                        "targetRowNumber": 1,
+                        "stringDecimal": 0,
+                        "stringDecChar": ".",
+                        "stringThouSep": ",",
+                        "tooltipFormat": "0,0.000",
+                        "showPlotlyControls": true,
+                        "stringSuffix": "%",
+                        "formatTargetValue": true,
+                        "targetColName": "target"
+                    }
+                },
+                {
+                    "id": "ab7968ba-e202-4bf9-858d-851c74af2fa5",
+                    "type": "COUNTER",
+                    "name": "Counter",
+                    "description": "",
+                    "options": {
+                        "counterLabel": "Cash generated",
+                        "counterColName": "sum(payment_value)",
+                        "rowNumber": 1,
+                        "targetRowNumber": 1,
+                        "stringDecimal": 0,
+                        "stringDecChar": ".",
+                        "stringThouSep": ",",
+                        "tooltipFormat": "0,0.000",
+                        "showPlotlyControls": true,
+                        "stringPrefix": "$"
+                    }
+                },
+                {
+                    "id": "b4153396-4312-4e1c-9e98-4c282fb2a8a3",
+                    "type": "COUNTER",
+                    "name": "Orders",
+                    "description": "",
+                    "options": {
+                        "counterLabel": "Orders",
+                        "counterColName": "count(1)",
+                        "rowNumber": 1,
+                        "targetRowNumber": 1,
+                        "stringDecimal": 0,
+                        "stringDecChar": ".",
+                        "stringThouSep": ",",
+                        "tooltipFormat": "0,0.000",
+                        "showPlotlyControls": true
+                    }
+                }
+            ]
+        },
+        {
+            "id": "20c8c5ff-d71b-469c-a86e-f55aab3af195",
+            "name": "Top resellers",
+            "description": null,
+            "query": "select round(sum(price)) as amount, count(price) as ct, product_category_name from field_demos_retail.items i \ninner join field_demos_retail.products p on p.product_id = i.product_id  group by p.product_category_name order by amount limit 50;",
+            "options": {
+                "parent": "folders/145370659771002",
+                "folder_node_status": "ACTIVE",
+                "folder_node_internal_name": "tree/145370659804992",
+                "parameters": []
+            },
+            "visualizations": [
+                {
+                    "id": "5f53857d-2e60-4816-b0d2-09547d9fd53c",
+                    "type": "TABLE",
+                    "name": "Table",
+                    "description": "",
+                    "options": {}
+                },
+                {
+                    "id": "612ba963-5b22-42a9-8673-f8d0d7ad0814",
+                    "type": "CHART",
+                    "name": "Amount per reseller",
+                    "description": "",
+                    "options": {
+                        "version": 2,
+                        "globalSeriesType": "column",
+                        "sortX": false,
+                        "legend": {
+                            "enabled": true,
+                            "placement": "auto",
+                            "traceorder": "normal"
+                        },
+                        "xAxis": {
+                            "type": "-",
+                            "labels": {
+                                "enabled": false
+                            },
+                            "title": {
+                                "text": "Product"
+                            }
+                        },
+                        "yAxis": [
+                            {
+                                "type": "linear",
+                                "title": {
+                                    "text": "Amount ($)"
+                                }
+                            },
+                            {
+                                "type": "linear",
+                                "opposite": true,
+                                "title": {
+                                    "text": null
+                                }
+                            }
+                        ],
+                        "alignYAxesAtZero": false,
+                        "error_y": {
+                            "type": "data",
+                            "visible": true
+                        },
+                        "series": {
+                            "stacking": null,
+                            "error_y": {
+                                "type": "data",
+                                "visible": true
+                            }
+                        },
+                        "seriesOptions": {},
+                        "valuesOptions": {},
+                        "direction": {
+                            "type": "counterclockwise"
+                        },
+                        "sizemode": "diameter",
+                        "coefficient": 1,
+                        "numberFormat": "0,0[.]00000",
+                        "percentFormat": "0[.]00%",
+                        "textFormat": "{{product_category_name}}:  ${{amount}} ",
+                        "missingValuesAsZero": true,
+                        "useAggregationsUi": false,
+                        "showDataLabels": false,
+                        "dateTimeFormat": "YYYY-MM-DD HH:mm",
+                        "columnConfigurationMap": {
+                            "x": {
+                                "column": "product_category_name"
+                            },
+                            "y": [
+                                {
+                                    "column": "amount"
+                                }
+                            ]
+                        },
+                        "showPlotlyControls": true,
+                        "reverseX": true,
+                        "hideXAxis": false
+                    }
+                }
+            ]
+        },
+        {
+            "id": "8a6e54b5-7a6a-4fe9-9f87-eb0701745ed2",
+            "name": "Customer Churn - risk",
+            "description": null,
+            "query": "select 18, 5",
+            "options": {
+                "parent": "folders/145370659771002",
+                "folder_node_status": "ACTIVE",
+                "folder_node_internal_name": "tree/145370659804986",
+                "parameters": []
+            },
+            "visualizations": [
+                {
+                    "id": "78712cf1-fa8e-49fc-8a1a-42c885c844a3",
+                    "type": "COUNTER",
+                    "name": "Missclassified Product",
+                    "description": "",
+                    "options": {
+                        "counterLabel": "Strategic customers at churn risk",
+                        "counterColName": "18",
+                        "rowNumber": 1,
+                        "targetRowNumber": 1,
+                        "stringDecimal": 0,
+                        "stringDecChar": ".",
+                        "stringThouSep": ",",
+                        "tooltipFormat": "0,0.000",
+                        "showPlotlyControls": true,
+                        "targetColName": "",
+                        "formatTargetValue": false,
+                        "stringPrefix": "",
+                        "stringSuffix": "%"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "66b8c7da-b178-4765-a27b-dcebbe041c80",
+            "name": "Product categories distribution",
+            "description": null,
+            "query": "select sum(price) as amount, product_category_name from field_demos_retail.items i\ninner join field_demos_retail.products p on p.product_id = i.product_id  group by product_category_name order by amount desc limit 5;",
+            "options": {
+                "parent": "folders/145370659771002",
+                "folder_node_status": "ACTIVE",
+                "folder_node_internal_name": "tree/145370659804994",
+                "parameters": []
+            },
+            "visualizations": [
+                {
+                    "id": "abb0bca7-8217-4b6b-8498-4567482583d0",
+                    "type": "TABLE",
+                    "name": "Table",
+                    "description": "",
+                    "options": {}
+                },
+                {
+                    "id": "d920c756-7a77-4486-8dc7-e7fb3e13fd89",
+                    "type": "CHART",
+                    "name": "Top 10 categories sold",
+                    "description": "",
+                    "options": {
+                        "version": 2,
+                        "globalSeriesType": "pie",
+                        "sortX": true,
+                        "legend": {
+                            "enabled": true,
+                            "placement": "auto",
+                            "traceorder": "normal"
+                        },
+                        "xAxis": {
+                            "type": "-",
+                            "labels": {
+                                "enabled": true
+                            },
+                            "title": {
+                                "text": "product_category_name"
+                            }
+                        },
+                        "yAxis": [
+                            {
+                                "type": "linear",
+                                "title": {
+                                    "text": "amount"
+                                }
+                            },
+                            {
+                                "type": "linear",
+                                "opposite": true,
+                                "title": {
+                                    "text": null
+                                }
+                            }
+                        ],
+                        "alignYAxesAtZero": false,
+                        "error_y": {
+                            "type": "data",
+                            "visible": true
+                        },
+                        "series": {
+                            "stacking": null,
+                            "error_y": {
+                                "type": "data",
+                                "visible": true
+                            }
+                        },
+                        "seriesOptions": {},
+                        "valuesOptions": {
+                            "beleza_saude": {
+                                "color": "#50F5ED"
+                            },
+                            "relogios_presentes": {
+                                "color": "#00B6EB"
+                            },
+                            "cama_mesa_banho": {
+                                "color": "#799CFF"
+                            },
+                            "esporte_lazer": {
+                                "color": "#604FE9"
+                            },
+                            "informatica_acessorios": {
+                                "color": "#C63FA9"
+                            }
+                        },
+                        "direction": {
+                            "type": "counterclockwise"
+                        },
+                        "sizemode": "diameter",
+                        "coefficient": 1,
+                        "numberFormat": "0,0[.]00000",
+                        "percentFormat": "0[.]00%",
+                        "textFormat": "",
+                        "missingValuesAsZero": true,
+                        "useAggregationsUi": false,
+                        "showDataLabels": true,
+                        "dateTimeFormat": "YYYY-MM-DD HH:mm",
+                        "columnConfigurationMap": {
+                            "x": {
+                                "column": "product_category_name"
+                            },
+                            "y": [
+                                {
+                                    "column": "amount"
+                                }
+                            ]
+                        },
+                        "showPlotlyControls": true,
+                        "swappedAxes": false
+                    }
+                }
+            ]
+        },
+        {
+            "id": "d1a5e094-d2d3-4ce6-9fa2-65254059a169",
+            "name": "Sales per day of week",
+            "description": null,
+            "query": "select sum(payment_value) as weekly_sum, weekofyear(day) as weekofy, concat(dayofweek(day), \"-\", date_format(day, 'E')) as dayofweek from (\nselect payment_value, TO_DATE(CAST(UNIX_TIMESTAMP(order_purchase_timestamp, 'yyyy-MM-dd HH:mm:ss') AS TIMESTAMP)) as day from field_demos_retail.payments p\ninner join field_demos_retail.orders o on o.order_id = p.order_id  \ninner join field_demos_retail.customers c on c.customer_id = o.customer_id ) \nwhere day > '2018-01-01'\ngroup by weekofy, dayofweek ; \n",
+            "options": {
+                "parent": "folders/145370659771002",
+                "folder_node_status": "ACTIVE",
+                "folder_node_internal_name": "tree/145370659804984",
+                "parameters": []
+            },
+            "visualizations": [
+                {
+                    "id": "14779c6d-816b-4333-86c1-c6ff51abf33c",
+                    "type": "TABLE",
+                    "name": "Table",
+                    "description": "",
+                    "options": {}
+                },
+                {
+                    "id": "c01d081e-e64c-4755-8120-068c53c5dd28",
+                    "type": "CHART",
+                    "name": "Sales per day of week",
+                    "description": "",
+                    "options": {
+                        "version": 2,
+                        "globalSeriesType": "heatmap",
+                        "sortX": true,
+                        "legend": {
+                            "enabled": true,
+                            "placement": "auto",
+                            "traceorder": "normal"
+                        },
+                        "xAxis": {
+                            "type": "category",
+                            "labels": {
+                                "enabled": true
+                            },
+                            "title": null
+                        },
+                        "yAxis": [
+                            {
+                                "type": "linear",
+                                "title": {
+                                    "text": "weekofy"
+                                }
+                            },
+                            {
+                                "type": "linear",
+                                "opposite": true,
+                                "title": {
+                                    "text": null
+                                }
+                            }
+                        ],
+                        "alignYAxesAtZero": false,
+                        "error_y": {
+                            "type": "data",
+                            "visible": true
+                        },
+                        "series": {
+                            "stacking": null,
+                            "error_y": {
+                                "type": "data",
+                                "visible": true
+                            }
+                        },
+                        "seriesOptions": {},
+                        "valuesOptions": {},
+                        "direction": {
+                            "type": "counterclockwise"
+                        },
+                        "sizemode": "diameter",
+                        "coefficient": 1,
+                        "numberFormat": "0,0[.]00000",
+                        "percentFormat": "0[.]00%",
+                        "textFormat": "",
+                        "missingValuesAsZero": true,
+                        "useAggregationsUi": false,
+                        "swappedAxes": false,
+                        "dateTimeFormat": "YYYY-MM-DD HH:mm",
+                        "showDataLabels": false,
+                        "columnConfigurationMap": {
+                            "x": {
+                                "column": "dayofweek"
+                            },
+                            "y": [
+                                {
+                                    "column": "weekofy"
+                                }
+                            ],
+                            "zVal": {
+                                "column": "weekly_sum"
+                            }
+                        },
+                        "showPlotlyControls": true,
+                        "colorScheme": "Blues",
+                        "reverseX": false,
+                        "hideXAxis": false,
+                        "sortY": true,
+                        "reverseY": false
+                    }
+                }
+            ]
+        },
+        {
+            "id": "479583f6-4dda-4771-8046-117dcc9bbe82",
+            "name": "Sales per day",
+            "description": null,
+            "query": "select TO_DATE(CAST(UNIX_TIMESTAMP(order_purchase_timestamp, 'yyyy-MM-dd HH:mm:ss') AS TIMESTAMP)) as day, sum(payment_value) as amount from field_demos_retail.payments p\ninner join field_demos_retail.orders o on o.order_id = p.order_id \ngroup by day having day < '2018-08-01' and day > '2017-01-01' order by day ;  ",
+            "options": {
+                "parent": "folders/145370659771002",
+                "folder_node_status": "ACTIVE",
+                "folder_node_internal_name": "tree/145370659804975",
+                "parameters": []
+            },
+            "visualizations": [
+                {
+                    "id": "679f37e3-c7a7-4c54-9a77-c86f4193052b",
+                    "type": "CHART",
+                    "name": "Sales volume",
+                    "description": "",
+                    "options": {
+                        "version": 2,
+                        "globalSeriesType": "area",
+                        "sortX": true,
+                        "legend": {
+                            "enabled": true,
+                            "placement": "auto",
+                            "traceorder": "normal"
+                        },
+                        "xAxis": {
+                            "type": "-",
+                            "labels": {
+                                "enabled": true
+                            },
+                            "title": {
+                                "text": "date"
+                            }
+                        },
+                        "yAxis": [
+                            {
+                                "type": "linear",
+                                "title": {
+                                    "text": "Daily amount ($)"
+                                }
+                            },
+                            {
+                                "type": "linear",
+                                "opposite": true,
+                                "title": {
+                                    "text": null
+                                }
+                            }
+                        ],
+                        "alignYAxesAtZero": false,
+                        "error_y": {
+                            "type": "data",
+                            "visible": true
+                        },
+                        "series": {
+                            "stacking": null,
+                            "error_y": {
+                                "type": "data",
+                                "visible": true
+                            }
+                        },
+                        "seriesOptions": {},
+                        "valuesOptions": {},
+                        "direction": {
+                            "type": "counterclockwise"
+                        },
+                        "sizemode": "diameter",
+                        "coefficient": 1,
+                        "numberFormat": "0,0[.]00000",
+                        "percentFormat": "0[.]00%",
+                        "textFormat": "",
+                        "missingValuesAsZero": true,
+                        "useAggregationsUi": false,
+                        "showDataLabels": false,
+                        "dateTimeFormat": "YYYY-MM-DD HH:mm",
+                        "columnConfigurationMap": {
+                            "x": {
+                                "column": "day"
+                            },
+                            "y": [
+                                {
+                                    "column": "amount"
+                                }
+                            ]
+                        },
+                        "showPlotlyControls": true,
+                        "swappedAxes": false
+                    }
+                },
+                {
+                    "id": "69645f16-eba8-4e1f-be35-3a99b69be532",
+                    "type": "TABLE",
+                    "name": "Table",
+                    "description": "",
+                    "options": {}
+                }
+            ]
+        },
+        {
+            "id": "2235ee2c-9899-4777-a5ae-08fdc6617451",
+            "name": "Customers - geo repartition",
+            "description": null,
+            "query": "select count(*) as customer_count, customer_state from field_demos_retail.customers group by customer_state;",
+            "options": {
+                "parent": "folders/145370659771002",
+                "folder_node_status": "ACTIVE",
+                "folder_node_internal_name": "tree/145370659804989",
+                "parameters": []
+            },
+            "visualizations": [
+                {
+                    "id": "31eb4ca0-8410-49f6-9e88-cafe890948df",
+                    "type": "TABLE",
+                    "name": "Table",
+                    "description": "",
+                    "options": {}
+                },
+                {
+                    "id": "7514d029-274d-4115-ad0a-629dd0a3ec57",
+                    "type": "CHOROPLETH",
+                    "name": "Customer repartition",
+                    "description": "",
+                    "options": {
+                        "mapType": "countries",
+                        "keyColumn": "customer_state",
+                        "targetField": "iso_a3",
+                        "valueColumn": "customer_count",
+                        "clusteringMode": "e",
+                        "steps": 5,
+                        "valueFormat": "0,0.00",
+                        "noValuePlaceholder": "N/A",
+                        "colors": {
+                            "min": "#799CFF",
+                            "max": "#002FB4",
+                            "background": "#ffffff",
+                            "borders": "#ffffff",
+                            "noValue": "#dddddd"
+                        },
+                        "legend": {
+                            "visible": true,
+                            "position": "bottom-left",
+                            "alignText": "right"
+                        },
+                        "tooltip": {
+                            "enabled": true,
+                            "template": "<b>{{ @@name }}</b>: {{ @@value }}"
+                        },
+                        "popup": {
+                            "enabled": true,
+                            "template": "Country: <b>{{ @@name_long }} ({{ @@iso_a2 }})</b>\n<br>\nValue: <b>{{ @@value }}</b>"
+                        },
+                        "showPlotlyControls": true
+                    }
+                }
+            ]
+        }
+    ],
+    "dashboard": {
+        "id": "ab66e6c6-c2c5-4434-b784-ea5b02fe5eeb",
+        "name": "Global Sales report",
+        "widgets": [
+            {
+                "id": "056a6969-033c-4528-b2ea-9d3e8f3d04b1",
+                "width": 1,
+                "options": {
+                    "parameterMappings": {},
+                    "title": "ML - Churn detection",
+                    "description": "",
+                    "isHidden": false,
+                    "position": {
+                        "autoHeight": false,
+                        "sizeX": 2,
+                        "sizeY": 3,
+                        "minSizeX": 1,
+                        "maxSizeX": 6,
+                        "minSizeY": 1,
+                        "maxSizeY": 1000,
+                        "col": 2,
+                        "row": 0
+                    }
+                },
+                "dashboard_id": "ab66e6c6-c2c5-4434-b784-ea5b02fe5eeb",
+                "text": "",
+                "visualization_id": "78712cf1-fa8e-49fc-8a1a-42c885c844a3"
+            },
+            {
+                "id": "1c0682e0-48fd-4f47-b237-ef2b393e24e7",
+                "width": 1,
+                "options": {
+                    "parameterMappings": {},
+                    "title": "Sales per day of week",
+                    "description": "",
+                    "isHidden": false,
+                    "position": {
+                        "autoHeight": false,
+                        "sizeX": 2,
+                        "sizeY": 8,
+                        "minSizeX": 1,
+                        "maxSizeX": 6,
+                        "minSizeY": 5,
+                        "maxSizeY": 1000,
+                        "col": 2,
+                        "row": 10
+                    }
+                },
+                "dashboard_id": "ab66e6c6-c2c5-4434-b784-ea5b02fe5eeb",
+                "text": "",
+                "visualization_id": "c01d081e-e64c-4755-8120-068c53c5dd28"
+            },
+            {
+                "id": "497c65ac-1c2c-4f92-9078-944d9a80e011",
+                "width": 1,
+                "options": {
+                    "parameterMappings": {},
+                    "title": "Sales volume",
+                    "description": "",
+                    "isHidden": false,
+                    "position": {
+                        "autoHeight": false,
+                        "sizeX": 2,
+                        "sizeY": 8,
+                        "minSizeX": 1,
+                        "maxSizeX": 6,
+                        "minSizeY": 5,
+                        "maxSizeY": 1000,
+                        "col": 4,
+                        "row": 10
+                    }
+                },
+                "dashboard_id": "ab66e6c6-c2c5-4434-b784-ea5b02fe5eeb",
+                "text": "",
+                "visualization_id": "679f37e3-c7a7-4c54-9a77-c86f4193052b"
+            },
+            {
+                "id": "5d59d94c-2e8a-4211-9194-b2105ddcd536",
+                "width": 1,
+                "options": {
+                    "parameterMappings": {},
+                    "title": "Top resellers",
+                    "description": "",
+                    "isHidden": false,
+                    "position": {
+                        "autoHeight": false,
+                        "sizeX": 2,
+                        "sizeY": 8,
+                        "minSizeX": 1,
+                        "maxSizeX": 6,
+                        "minSizeY": 5,
+                        "maxSizeY": 1000,
+                        "col": 0,
+                        "row": 10
+                    }
+                },
+                "dashboard_id": "ab66e6c6-c2c5-4434-b784-ea5b02fe5eeb",
+                "text": "",
+                "visualization_id": "612ba963-5b22-42a9-8673-f8d0d7ad0814"
+            },
+            {
+                "id": "66d27803-404e-4226-8810-497a4f420aa8",
+                "width": 1,
+                "options": {
+                    "parameterMappings": {},
+                    "title": "",
+                    "description": "",
+                    "isHidden": false,
+                    "position": {
+                        "autoHeight": false,
+                        "sizeX": 1,
+                        "sizeY": 3,
+                        "minSizeX": 1,
+                        "maxSizeX": 6,
+                        "minSizeY": 1,
+                        "maxSizeY": 1000,
+                        "col": 1,
+                        "row": 0
+                    }
+                },
+                "dashboard_id": "ab66e6c6-c2c5-4434-b784-ea5b02fe5eeb",
+                "text": "",
+                "visualization_id": "ab7968ba-e202-4bf9-858d-851c74af2fa5"
+            },
+            {
+                "id": "7149de36-05bb-4058-88c2-6eac9552adfc",
+                "width": 1,
+                "options": {
+                    "parameterMappings": {},
+                    "title": "ML - Automated Product classification",
+                    "description": "",
+                    "isHidden": false,
+                    "position": {
+                        "autoHeight": false,
+                        "sizeX": 2,
+                        "sizeY": 3,
+                        "minSizeX": 1,
+                        "maxSizeX": 6,
+                        "minSizeY": 1,
+                        "maxSizeY": 1000,
+                        "col": 4,
+                        "row": 0
+                    }
+                },
+                "dashboard_id": "ab66e6c6-c2c5-4434-b784-ea5b02fe5eeb",
+                "text": "",
+                "visualization_id": "81fff692-10f7-4f91-a12a-e74c00eb2f0b"
+            },
+            {
+                "id": "9c352bfa-941d-4187-9b7b-0daf7e525af1",
+                "width": 1,
+                "options": {
+                    "parameterMappings": {},
+                    "title": "Top 10 categories sold",
+                    "description": "",
+                    "isHidden": false,
+                    "position": {
+                        "autoHeight": false,
+                        "sizeX": 2,
+                        "sizeY": 8,
+                        "minSizeX": 1,
+                        "maxSizeX": 6,
+                        "minSizeY": 5,
+                        "maxSizeY": 1000,
+                        "col": 0,
+                        "row": 18
+                    }
+                },
+                "dashboard_id": "ab66e6c6-c2c5-4434-b784-ea5b02fe5eeb",
+                "text": "",
+                "visualization_id": "d920c756-7a77-4486-8dc7-e7fb3e13fd89"
+            },
+            {
+                "id": "d42c8031-8367-4d08-b4de-a35db9875884",
+                "width": 1,
+                "options": {
+                    "isHidden": false,
+                    "position": {
+                        "autoHeight": false,
+                        "sizeX": 6,
+                        "sizeY": 1,
+                        "minSizeX": 1,
+                        "maxSizeX": 6,
+                        "minSizeY": 1,
+                        "maxSizeY": 1000,
+                        "col": 0,
+                        "row": 26
+                    }
+                },
+                "dashboard_id": "ab66e6c6-c2c5-4434-b784-ea5b02fe5eeb",
+                "text": "Field Demo dashboard. Please do not edit\n![tracking_img](https://www.google-analytics.com/collect?v=1&gtm=GTM-NKQ8TT7&tid=UA-163989034-1&cid=555&aip=1&t=event&ec=field_demos&ea=display&dp=%2F42_field_demos%2Fretail%2Fnotebook&dt=DASHBOARD_RETAIL_GLOBAL)"
+            },
+            {
+                "id": "e5a9426d-4542-411a-b333-b117ad8477ce",
+                "width": 1,
+                "options": {
+                    "parameterMappings": {},
+                    "title": "Customer repartition",
+                    "description": "",
+                    "isHidden": false,
+                    "position": {
+                        "autoHeight": false,
+                        "sizeX": 3,
+                        "sizeY": 7,
+                        "minSizeX": 2,
+                        "maxSizeX": 6,
+                        "minSizeY": 1,
+                        "maxSizeY": 1000,
+                        "col": 0,
+                        "row": 3
+                    }
+                },
+                "dashboard_id": "ab66e6c6-c2c5-4434-b784-ea5b02fe5eeb",
+                "text": "",
+                "visualization_id": "7514d029-274d-4115-ad0a-629dd0a3ec57"
+            },
+            {
+                "id": "ed14aeab-25a1-4521-a70c-bd57b30c770b",
+                "width": 1,
+                "options": {
+                    "parameterMappings": {},
+                    "title": "ML - Satisfaction evolution per customer segment",
+                    "description": "",
+                    "isHidden": false,
+                    "position": {
+                        "autoHeight": false,
+                        "sizeX": 3,
+                        "sizeY": 7,
+                        "minSizeX": 1,
+                        "maxSizeX": 6,
+                        "minSizeY": 5,
+                        "maxSizeY": 1000,
+                        "col": 3,
+                        "row": 3
+                    }
+                },
+                "dashboard_id": "ab66e6c6-c2c5-4434-b784-ea5b02fe5eeb",
+                "text": "",
+                "visualization_id": "f0569e10-fb43-4655-98be-17bbe1f18701"
+            },
+            {
+                "id": "fcd6780b-2116-4c8b-bd47-33b9d1684d3d",
+                "width": 1,
+                "options": {
+                    "parameterMappings": {},
+                    "title": "",
+                    "description": "",
+                    "isHidden": false,
+                    "position": {
+                        "autoHeight": false,
+                        "sizeX": 1,
+                        "sizeY": 3,
+                        "minSizeX": 1,
+                        "maxSizeX": 6,
+                        "minSizeY": 1,
+                        "maxSizeY": 1000,
+                        "col": 0,
+                        "row": 0
+                    }
+                },
+                "dashboard_id": "ab66e6c6-c2c5-4434-b784-ea5b02fe5eeb",
+                "text": "",
+                "visualization_id": "b4153396-4312-4e1c-9e98-4c282fb2a8a3"
+            }
+        ],
+        "tags": [
+            "field_demos",
+            "field_demos_retail"
+        ],
+        "color_palette": null,
+        "dashboard_filters_enabled": false,
+        "is_archived": false
+    },
+    "version": "1.0"
+}
