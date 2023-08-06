@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: kiera
+Version: 0.0.19
+Summary: 
+Author: Tom Dörr
+Author-email: tomdoerr96@gmail.com
+Requires-Python: >=3.3,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: colored
+Requires-Dist: getch
+Requires-Dist: requests (>=2.28.1)
+Requires-Dist: rich
+Requires-Dist: tomli
+Requires-Dist: tomli_w
+Description-Content-Type: text/markdown
+
+
