@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: lazycode
+Version: 1.1.0
+Summary: My short description for my project.
+Home-page: https://gitee.com/SL1559100227
+Author: WSL
+Author-email: ttw5656@163.com
+License: MIT
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.9.12
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+
+# 代码设计原则
+设计初衷: 简化代码
+
+安装: pip install lazycode -i https://pypi.org/simple
+
