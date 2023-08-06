@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["src/README.md"]
+exclude = []
+namespaces = false
+
+[project]
+name = "piquelang"
+version = "0.0.1"
+authors = [
+  { name="Brett Slatkin", email="brett@haxor.com" },
+]
+description = "Details to come"
+readme = "src/README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Compilers",
+    "Topic :: Software Development :: Interpreters",
+]
+# license = { file="../LICENSE" }
+# TODO: Add entrypoints for various tools
+# TODO: Add search keywords
+
+[project.urls]
+# "Homepage" = "https://piquelang.org"
+# "Source code" = "https://github.com/bslatkin/pique"
+# "Bug Tracker" = "https://github.com/bslatkin/pique/issues"
+# TODO: Add documentation link
+# TODO: Add playground link
