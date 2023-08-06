@@ -1,0 +1,16 @@
+tripper/__init__.py,sha256=v9euw-gnkGCEep57af0AvXz3ntWs7WL5c4s3lcsBz68,663
+tripper/errors.py,sha256=NyCN-9W7vIOSLhV7-YN-B9bueGOXU-aNRCC3LSxA7ac,362
+tripper/interface.py,sha256=PkaY_sPBiwJRdrpKWbYIzVk-E9suE1ZTV9TWnbo_xJU,5379
+tripper/literal.py,sha256=IKz_-jdH0DrrUBP5DGzzGbR1Z5MSt9e5t0AdZQx--dE,5216
+tripper/namespace.py,sha256=LsOC7zn6Lo_ZMP6E9ccgqOGPgtjM6Bx6YYHUxjEn9WE,6902
+tripper/triplestore.py,sha256=UC9iMcOrHZGbklXepadEgNdTXDycCdSi_qeINUsoEqI,22321
+tripper/utils.py,sha256=TH9QIGAlkEOuxWUM0w8AV1yO36kcmKec-zLmCHqiv2s,7168
+tripper/backends/__init__.py,sha256=xlF43aQF25abqrpTxdzntfwU2CG8iLk_5Cmsb69x6zg,1330
+tripper/backends/collection.py,sha256=cXY_ehAFogTz-KXGNDy1fah6nEHGctHWZQs6C7ivLUE,2482
+tripper/backends/ontopy.py,sha256=4aJh_Zdn75l7ltB-Fv1M6xjhG-uMB4djFb4hSgg1aDs,9100
+tripper/backends/rdflib.py,sha256=DBDpcsY2GuNo2ptlSJkFng2JG5KNbHZ6lKNLNxsuQiI,7204
+tripper/backends/sparqlwrapper.py,sha256=OulcDJ8w6zeKCfwdVw2DxQcNF9_MAscrXAwPoq8nxz4,4112
+tripper-0.2.0.dist-info/LICENSE,sha256=Mu1rY6Cyv5ok6vHed1_EuINL9t16JY7Zf3YN0mgMhdE,1063
+tripper-0.2.0.dist-info/WHEEL,sha256=rSgq_JpHF9fHR1lx53qwg_1-2LypZE_qmcuXbVUq948,81
+tripper-0.2.0.dist-info/METADATA,sha256=Kc_gWK3b3HBbwu5WM4h_vrsh_CVVDJgTBB_l05Kl_b8,5295
+tripper-0.2.0.dist-info/RECORD,,
