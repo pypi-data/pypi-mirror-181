@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: autofac
+Version: 0.1.1
+Summary: AutoFac is a library for using Dependency Inversion Principle in Python
+License: MIT
+Author: Aditya Gudimella
+Author-email: aditya.gudimella@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Provides-Extra: all
+Provides-Extra: test
+Requires-Dist: attrs (>=22.1.0,<23.0.0)
+Requires-Dist: autoflake (>=1.4,<2.0); extra == "test" or extra == "all"
+Requires-Dist: black (>=22.3.0,<23.0.0); extra == "test" or extra == "all"
+Requires-Dist: isort (>=5.10.1,<6.0.0); extra == "test" or extra == "all"
+Requires-Dist: mkdocs (>=1.4.2,<2.0.0); extra == "test" or extra == "all"
+Requires-Dist: mkdocs-material (>=8.5.11,<9.0.0); extra == "test" or extra == "all"
+Requires-Dist: mypy (>=0.961,<0.962); extra == "test" or extra == "all"
+Requires-Dist: pydantic (>=1.10.2,<2.0.0)
+Requires-Dist: pytest (>=7.2.0,<8.0.0); extra == "test" or extra == "all"
+Requires-Dist: pytest-vscodedebug (>=0.1.0,<0.2.0); extra == "test" or extra == "all"
+Requires-Dist: pyupgrade (>=2.37.3,<3.0.0); extra == "test" or extra == "all"
+Requires-Dist: rich (>=12.6.0,<13.0.0)
+Requires-Dist: toml (>=0.10.2,<0.11.0); extra == "test" or extra == "all"
+Requires-Dist: typer[all] (>=0.7.0,<0.8.0)
+Requires-Dist: xdoctest[all] (>=1.1.0,<2.0.0); extra == "test" or extra == "all"
+Description-Content-Type: text/markdown
+
+# AutoFac
+
+AutoFac is a library that allows you to use Dependency Inversion Principle in Python.
+
+## Python environment
+
+Create your python environment using `poetry install -E all`
+
+## Adding documentation
+
+1. Run `mkdocs new .` to create the documentation structure (after customizing template)
+2. Change theme in `mkdocs.yml` to `material`
+
+### Useful resources
+
+1. [Material for MkDocs](https://jamstackthemes.dev/demo/theme/mkdocs-material/)
+2. [MkDocs](https://www.mkdocs.org/)
+3. [Blog post](https://blog.elmah.io/creating-a-documentation-site-with-mkdocs/)
+
