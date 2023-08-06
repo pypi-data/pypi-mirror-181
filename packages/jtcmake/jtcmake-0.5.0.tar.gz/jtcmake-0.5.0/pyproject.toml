@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=42"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jtcmake"
+license = { file = "LICENSE" }
+description = "Simple but effective general purpose build tool for Python"
+readme = "README.md"
+authors = [
+    { name = "Amane Sugiyama", email = "sugi98765@gmail.com" },
+]
+urls = { repo = "https://github.com/sugi-a/jtcmake" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+requires-python = ">=3.8"
+dependencies = ["typing_extensions"]
+dynamic = ["version"]
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.package-data]
+jtcmake = ["py.typed"]
+
+[tool.setuptools.dynamic]
+version = { attr = "jtcmake.VERSION" }
+
+
+[tool.black]
+include = '(src|tests)/.+\.pyi?$'
+line-length = 80
+
+[tool.pyright]
+include = ["src/jtcmake"]
+pythonVersion = "3.8"
+typeCheckingMode = "strict"
+reportUnknownArgumentType = "none"
+
+[tool.pytest.ini_options]
+testpaths = [ "tests" ]
+
+[tool.mypy]
+python_version = "3.8"
+files = ["src/jtcmake"]
+
+[[tool.mypy.overrides]]
+module = "IPython.*"
+ignore_missing_imports = true
