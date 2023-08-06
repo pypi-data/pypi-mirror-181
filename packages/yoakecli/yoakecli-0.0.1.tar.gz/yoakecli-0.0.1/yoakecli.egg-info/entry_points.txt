@@ -1,0 +1,3 @@
+[console_scripts]
+ycli = yoakecli.yoakeCLI:main
+yoakecli = yoakecli.yoakeCLI:main
