@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: amber-automl
+Version: 0.1.4
+Summary: Automated Modelling in Biological Evidence-based Research
+Download-URL: https://github.com/zj-zhang/AMBER
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: tqdm
+Requires-Dist: packaging
+
