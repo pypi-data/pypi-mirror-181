@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: libSDT9
+Version: 0.0.0
+Summary: Local packages for development
+Home-page: http://pypi.python.org/pypi/libSDT9/0.0.0
+Author: hypothesisbase
+Author-email: support@hypothesisbase.com
+License: MIT
+Requires-Dist: bs4
+Requires-Dist: leveldb
+Requires-Dist: selenium
+Requires-Dist: requests
+Requires-Dist: pandas
+
