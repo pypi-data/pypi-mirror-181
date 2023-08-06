@@ -1,0 +1,16 @@
+pype-base==0.1.1
+pyspark>=3.2.1
+
+[dev]
+pype-base==0.1.1
+pyspark==3.2.1
+pandas
+
+[strict]
+pype-base==0.1.1
+pyspark==3.2.1
+
+[test]
+pype-base==0.1.1
+pyspark==3.2.1
+pandas
