@@ -1,0 +1,17 @@
+# Cloud-provider specific configuration.
+provider:
+    type: azure
+
+# The instance configuration for a small instance type
+available_node_types:
+    head.default:
+        node_config:
+            azure_arm_parameters:
+                vmSize: Standard_D4s_v4
+                osDiskSizeGB: 100
+    worker.default:
+        node_config:
+            azure_arm_parameters:
+                vmSize: Standard_D4s_v4
+                osDiskType: Premium_LRS
+                osDiskSizeGB: 200
