@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: nonebot-plugin-zyk-novelai
+Version: 2.9
+Home-page: https://github.com/ZYKsslm/nonebot_plugin_zyk_novelai
+Author: ZSSLM
+Author-email: 3119964735@qq.com
+License: MIT License
+Requires: fake_useragent
+Requires: httpx
+Requires: colorama
+Requires: nonebot2
+Requires: nonebot_adapter_onebot
+License-File: LICENSE
+
+This is a simple plugin that is to send your image made by your NovelAI for nonebot2
