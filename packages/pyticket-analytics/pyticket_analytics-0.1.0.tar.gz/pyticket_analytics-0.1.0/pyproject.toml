@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "pyticket_analytics"
+version = "0.1.0"
+description = "A python package to access ticketmaster data using python, and to provide tools for simple data analytics for the accessed data."
+authors = ["Ega Kurnia Yazid"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pandas = "^1.5.2"
+numpy = "^1.23.5"
+requests = "^2.28.1"
+python-dotenv = "^0.21.0"
+dotenv = "^0.0.5"
+
+[tool.poetry.dev-dependencies]
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.0"
+myst-nb = "^0.17.1"
+sphinx-autoapi = "^2.0.0"
+sphinx-rtd-theme = "^1.1.1"
+pytest-cov = "^4.0.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
