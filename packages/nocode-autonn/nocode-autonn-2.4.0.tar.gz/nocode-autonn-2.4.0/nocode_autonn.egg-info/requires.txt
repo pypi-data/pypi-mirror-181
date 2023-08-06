@@ -1,0 +1,14 @@
+torch
+torchvision
+torchaudio
+ttkbootstrap==0.5.1
+pytorchsummary
+sklearn
+pandas
+dask
+dask-ml
+tqdm
+psutil
+matplotlib
+tensorflow-gpu==2.8.0
+protobuf==3.19.0
