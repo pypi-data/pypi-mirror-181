@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: mltz
+Version: 0.1.0
+Summary: Package for data science utilities
+Project-URL: Homepage, https://github.com/tzoght/machine-learning
+Project-URL: Bug Tracker, https://github.com/tzoght/machine-learning/issues
+Author-email: Tony Zoght <tony@zoght.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+
+# MLTZ - A Machine Learning Package
+
+A machine learning package to help in reducing the toil of data science.

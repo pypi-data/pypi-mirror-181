@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling","scikit-learn","pandas"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mltz"
+version = "0.1.0"
+authors = [
+  { name="Tony Zoght", email="tony@zoght.com" },
+]
+description = "Package for data science utilities"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/tzoght/machine-learning"
+"Bug Tracker" = "https://github.com/tzoght/machine-learning/issues"
