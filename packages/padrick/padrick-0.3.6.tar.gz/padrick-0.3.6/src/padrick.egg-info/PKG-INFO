@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: padrick
+Version: 0.3.6
+Summary: A padframe controller/multiplexer generator for SoCs
+Home-page: https://github.com/pulp-platform/padrick
+Author: Manuel Eggimann
+Author-email: manuel.eggimann@gmail.com
+License: apache
+Project-URL: Documentation, https://padrick.readthedocs.io/en/latest/
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering :: Electronic Design Automation (EDA)
+Requires-Python: >=3.7
+Description-Content-Type: text/x-rst; charset=UTF-8
+Provides-Extra: DOC
+Provides-Extra: testing
+Provides-Extra: binary_build
+License-File: LICENSE.txt
+License-File: AUTHORS.rst
