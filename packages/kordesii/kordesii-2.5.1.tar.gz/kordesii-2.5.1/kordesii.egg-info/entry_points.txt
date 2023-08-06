@@ -1,0 +1,5 @@
+[console_scripts]
+kordesii = kordesii.cli:main
+
+[kordesii.decoders]
+kordesii = kordesii.decoders
