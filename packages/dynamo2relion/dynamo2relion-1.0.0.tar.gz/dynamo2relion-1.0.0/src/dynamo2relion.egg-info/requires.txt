@@ -1,0 +1,9 @@
+starfile
+dynamotable
+eulerangles
+typer
+pandas
+
+[test]
+pytest>=6.0
+pytest-cov

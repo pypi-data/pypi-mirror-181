@@ -1,0 +1,15 @@
+.gitignore
+LICENSE.txt
+README.md
+pyproject.toml
+src/dynamo2relion/__init__.py
+src/dynamo2relion/_utils.py
+src/dynamo2relion/_version.py
+src/dynamo2relion/dynamo2relion.py
+src/dynamo2relion.egg-info/PKG-INFO
+src/dynamo2relion.egg-info/SOURCES.txt
+src/dynamo2relion.egg-info/dependency_links.txt
+src/dynamo2relion.egg-info/entry_points.txt
+src/dynamo2relion.egg-info/not-zip-safe
+src/dynamo2relion.egg-info/requires.txt
+src/dynamo2relion.egg-info/top_level.txt
