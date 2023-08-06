@@ -1,0 +1,4 @@
+[console_scripts]
+notecoin_server = notecoin.server.script:notecoin_server
+notecoin_worker = notecoin.server.script:notecoin_worker
+
