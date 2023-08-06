@@ -1,0 +1,22 @@
+[project]
+name = "NoApi"
+version = "0.8.1"
+description = "Use a part of your program remotely without making an api (in beta)"
+readme = "README.md"
+
+dependencies = [
+    "requests",
+    "fastapi",
+    "uvicorn",
+    "pydantic"
+]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Development Status :: 3 - Alpha"
+]
+
+license = {text="MIT License"}
+urls = {"Homepage"="https://github.com/MrHole/NoApi"}
