@@ -1,0 +1,24 @@
+Metadata-Version: 1.1
+Name: azure-storage-utils
+Version: 1.0.29
+Summary: A utility for tracking volume in and out of azure storage containers
+Home-page: https://msazure.visualstudio.com/One/_git/RepoDepot
+Author: Matthew Warren
+Author-email: mawarren@microsoft.com
+License: MIT
+Description: # azure-storage-utils
+        
+        Azure Storage Utilities performs several linked functions for azure storage accounts:
+        
+        1. It enables translation of the flat storage format of blobs to the hierarchical format human users expect when navigating through storage accounts in the Azure Web Portal or Azure Storage Explorer application. This translated hierarchical storage is returned as a dictionary that can be saved locally or written back to the storage container.
+        
+        2. It compares hierarchical maps of storage containers to produce a differential map that tracks gains and losses in file count and byte size, or the overall difference between two maps.
+Keywords: maps flat blob storage accounts as if hierchical and compares changes between different mappings
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Quality Assurance
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.8
