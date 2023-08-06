@@ -1,0 +1,40 @@
+import valueTerminal
+
+CreateNew:
+	'create' 'new' formName=ID createNewValues=CreateNewValues |
+	'create' formName=ID createNewValues=CreateNewValues
+;
+
+CreateNewValues:
+	'values' '(' valueList+=ValueTerminal[','] ')' |
+	'(' keyValueEntryList+=KeyValueEntry[','] ')'
+;
+
+KeyValueEntry:
+	KeyValueEntryComplex |
+	KeyValueSimple
+;
+
+KeyValueSimple:
+	key=ID '=' valueTerminal=ValueTerminal
+;
+
+KeyValueEntryComplex:
+	KeysSeparatesWithDots |
+	KeyValueSimpleWithFqlIdAndVersion
+;
+
+KeyValueSimpleWithFqlIdAndVersion:
+	'FQL_ID' '=' fqlIdValue=FqlIdValue |
+	'FQL_VERSION' '=' version=INT
+;
+
+KeysSeparatesWithDots[noskipws]:
+	/\s*/-
+	attribute=ID '.' keyValueEntryComplex=KeyValueEntryComplex
+	/\s*/- 
+;
+
+FqlIdValue:
+	INT | 'null'
+;
