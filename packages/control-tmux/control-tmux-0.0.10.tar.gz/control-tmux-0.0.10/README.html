@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!-- Generated from README.md by `gendoc` for control-tmux -->
+<html>
+<head>
+  <title>control-tmux</title>
+  <style type="text/css">
+    body {
+      font-family: sans-serif;
+    }
+    h1, h2, h3 {
+      background-color: #f2f2f2;
+      font-weight: bold;
+      border-bottom: 1px solid #eee;
+    }
+    h2, h3 {
+      margin-top: 1.5em;
+    }
+    pre {
+      margin-left: 30px;
+      margin-right: 30px;
+      background-color: #f8f8f8;
+      border: 1px solid #ddd;
+      border-radius: 3px 3px 3px 3px;
+    }
+    p > code {
+      background-color: #f8f8f8;
+      border: 1px solid #ddd;
+      border-radius: 3px 3px 3px 3px;
+    }
+  </style>
+</head>
+  <body>
+<h1>control-tmux</h1>
+
+<p>This is a wrapper around <a href="https://github.com/tmux/tmux">tmux</a> that allows you to quickly
+switch between sessions, save sessions while preserving bash history.</p>
+
+<h2>Requirements</h2>
+
+<ul>
+<li>Python 3.6 or higher with PIP. On Ubuntu, run <code>sudo apt install python3-pip</code>.</li>
+<li>Tmux 3.0a or higher. On Ubuntu, run <code>sudo apt install tmux</code>.</li>
+<li>Bash 4.0 or higher (probably works with older versions, but not tested)</li>
+</ul>
+
+<h2>Installation</h2>
+
+<p><code>control-tmux</code> can be installed using PIP:</p>
+
+<p><code>
+python3 -m pip install control-tmux
+</code></p>
+
+<p>In order to use the save and restore features, you must set it up in <code>.bashrc</code> for each
+user. Simply run:</p>
+
+<p><code>
+python3 -m controltmux --setup t
+</code></p>
+
+<p>This will install <code>tmux.setup.sh</code> and <code>tmux.default.conf</code> in your home directory, and add
+references to them to <code>.bashrc</code> and <code>.tmux.conf</code>.</p>
+
+<p>You can specify one or more aliases to set up for <code>control-tmux</code>. I recommend <code>t</code> because
+it is short and easy to type, but power users might already have an alias configured. I
+use <code>scn</code> as an alias because this project started out many years ago as a wrapper for GNU
+<code>screen</code>. Aliases will only apply to terminals opened in the future, but you can run <code>exec
+bash</code> to reload your aliases in an existing terminal.</p>
+
+<p>The installer will also create a default .tmux.conf if you don't have one. This
+configuration is not necessary for <code>control-tmux</code> to run, but includes many bindings that
+make tmux easier to use.</p>
+
+<h2>Simple usage</h2>
+
+<p>These usage examples all assume you have aliased <code>t</code> to <code>control-tmux</code> during installatin</p>
+
+<p>If run without arguments, <code>t</code> or <code>control-tmux</code> will list all your current sessions:</p>
+
+<p><img src="help-img/ctmux-list.gif" alt="" title="" /></p>
+
+<p>To start or switch to a session named <code>blah</code>, just run <code>t blah</code>:</p>
+
+<p><img src="help-img/ctmux-switch.gif" alt="" title="" /></p>
+
+<p>This works whether you are running from within tmux or outside of it. If run from outside,
+this runs either <code>tmux attach -t blah</code> or <code>tmux new-session -s blah</code> (if <code>blah</code> doesn't
+exist) . If run from inside tmux, then it does <code>tmux switch-client -t blah</code>, which
+switches your current client to the session named <code>blah</code>.</p>
+
+<p>In either case, this will detach any other terminals that are connected to <code>blah</code>, unless
+you prefix the session name with <code>n</code> (e.g. <code>t n blah</code>)</p>
+
+<p><img src="help-img/ctmux-double-window.gif" alt="" title="" /></p>
+
+<p>To save the <code>blah</code> session to <code>~/.tmuxsave/blah.zip</code>, run <code>t s blah</code>. To restore, run <code>t r
+blah</code>. Restore only works when the session doesn't already exist. You can save all open
+sessions by running <code>t s all</code>:</p>
+
+<p><img src="help-img/ctmux-save-restore.gif" alt="" title="" /></p>
+
+<p>Restoring a session restores the current working directory and the command history of the
+shell running within it. It does not automatically restart any commands that were running.</p>
+
+<h2>Recovering from a crash</h2>
+
+<p>The bash hooks in <code>.tmux.setup.sh</code> write your history to disk as soon as you launch a
+command. In most cases, after a power failure or crash, the session data will be
+recoverable. All you need to do is run <code>t s all</code> before running tmux.</p>
+
+<p>If you forget and try to run <code>t &lt;session&gt;</code> before <code>t s all</code>, then it will start a new
+instance of tmux and running <code>t s all</code> will save the sessions from the new index. However,
+the data for the old session is still present in <code>~/.tmuxsave</code>. Run <code>ls -ld
+~/.tmuxsave/tmux-default-*</code> to see all previous sessions. Each directory will have a
+timestamp indicating when that particular instance of tmux was started. Once you have that
+directory, just run <code>t -s ~/.tmuxsave/tmux-default-2018-XX-XX__XX-XX-XX s all</code> and it will
+save the sessions from the previous instance.</p>
+  </body>
+</html>
