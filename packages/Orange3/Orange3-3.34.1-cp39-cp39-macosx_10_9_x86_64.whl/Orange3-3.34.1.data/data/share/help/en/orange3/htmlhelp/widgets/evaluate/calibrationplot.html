@@ -1,0 +1,101 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="english">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calibration Plot</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Confusion Matrix" href="confusionmatrix.html" />
+    <link rel="prev" title="Save Model" href="../model/savemodel.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="calibration-plot">
+<h1>Calibration Plot</h1>
+<p>Shows the match between classifiers' probability predictions and actual class probabilities.</p>
+<p><strong>Inputs</strong></p>
+<ul class="simple">
+<li>Evaluation Results: results of testing classification algorithms</li>
+</ul>
+<p><strong>Outputs</strong></p>
+<ul class="simple">
+<li>Calibrated Model: a model with calibrated probabilities or a model with the same probabilities but different classification threshold</li>
+</ul>
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Calibration_curve" target="_blank">Calibration Plot</a> plots probabilities predicted by the classifier(s) against actual class probabilities. We would use this widget to see whether a classifier is overly optimistic (gives predominantly positive results) or pessimistic (gives predominantly negative results). The widget can also output a calibrated model, where the user sets his/her own probability threshold.</p>
+<p><img alt="../../_images/Calibration-Plot.png" src="../../_images/Calibration-Plot.png" /></p>
+<ol class="simple">
+<li>Select the desired target class from the drop down menu.<ul>
+<li><em>Show rug</em>: If enabled, ticks are displayed at the bottom and the top of the graph, which represent negative and positive examples respectively. Their position corresponds to the classifier's probability prediction. Different colors represent different classifiers. At the bottom of the graph, the points to the left are those which are (correctly) assigned a low probability of the target class, and those to the right are incorrectly assigned high probabilities. At the top of the graph, the instances to the right are correctly assigned high probabilities and vice versa.</li>
+<li>Curves for individual folds: a curve is displayed for each fold from the <a class="reference internal" href="testandscore.html"><span class="doc">Test and Score</span></a> widget.</li>
+</ul>
+</li>
+<li>Choose which classifiers to plot. Colors in the list of classifiers correspond to colors used in the plot. The diagonal represents optimal behavior when <em>Calibration curve</em> is selected; the closer the classifier's curve gets, the more accurate its prediction probabilities are.</li>
+<li>Select the metric to calibrate:<ul>
+<li><em>calibration curve</em>: displays calibration curves for multiple models. The options for smoothing functions are <a class="reference external" href="https://en.wikipedia.org/wiki/Sigmoid_function" target="_blank">Sigmoid</a> or <a class="reference external" href="https://en.wikipedia.org/wiki/Isotonic_regression" target="_blank">Isotonic</a> function.</li>
+<li><em>classification accuracy</em>: displays classification accurracy at changing probability thresholds. Threshold can be set by dragging the vertical line left or right.</li>
+<li><em>F1</em>: displays F1 score at changing probability thresholds. Threshold can be set by dragging the vertical line left or right.</li>
+<li><em>sensitivity and specificity</em>: displays the relationship between <a class="reference external" href="https://en.wikipedia.org/wiki/Sensitivity_and_specificity" target="_blank">sensitivity and specificity</a> at changing probability thresholds.</li>
+<li><em>precision and recall</em>: displays the relationship between <a class="reference external" href="https://en.wikipedia.org/wiki/Precision_and_recall" target="_blank">precision and recall</a> at changing probability thresholds.</li>
+<li><em>pos and neg predictive value</em>: displays the relationship between <a class="reference external" href="https://en.wikipedia.org/wiki/Positive_and_negative_predictive_values" target="_blank">positive and negative predictive values</a> at changing probability thresholds.</li>
+<li><em>true and false positive rate</em>: displays the relationship between <a class="reference external" href="https://en.wikipedia.org/wiki/False_positives_and_false_negatives" target="_blank">TP and FP rate</a> at changing probability thresholds.</li>
+</ul>
+</li>
+<li>If <em>Apply Automatically</em> is ticked, changes are communicated automatically. Alternatively, click <em>Apply</em>.</li>
+</ol>
+<p>When the widget shows the calibration curve, it outputs a calibrated model, whose predicted probabilities are tuned to better match the actual probabilities.</p>
+<p>When showing other curves (such as F1), the widget outputs a model that gives the same probabilities, but class predictions are made at thresholds different from 0.5. For instance, if we drag the vertical line shown in the graph to 0.3, the widget outputs a model that predicts a positive class when its probability exceeds 30%.</p>
+<p>The widget cannot output a model if the input data contains models obtained from multiple runs (for instance from cross validation or repeated sampling). If multiple models and on the input, only a single one must be chosen in order to have it on the output. The widget also cannot output calibrated model for non-binary classes.</p>
+<div class="section" id="examples">
+<h2>Examples</h2>
+<p>At the moment, the only widget which gives the right type of signal needed by the <strong>Calibration Plot</strong> is <a class="reference internal" href="testandscore.html"><span class="doc">Test and Score</span></a>. The Calibration Plot will hence always follow Test and Score.</p>
+<p>Here is a typical example on the iris data, where we compare two classifiers (namely <a class="reference internal" href="../model/logisticregression.html"><span class="doc">Logistic Regression</span></a> and <a class="reference internal" href="../model/randomforest.html"><span class="doc">Random Forest</span></a>) and input them into <a class="reference internal" href="testandscore.html"><span class="doc">Test and Score</span></a>. Test and Score displays evaluation results for each classifier. Then we draw <strong>Calibration Plot</strong> to further analyze the performance of the classifiers. <strong>Calibration Plot</strong> enables you to see prediction accuracy of class probabilities in a plot.</p>
+<p>Judging by the observed curve, the classifier is overly &quot;cautious&quot;. Even when it predicts probabilities of around 0.4, the actual class probability is still 0. Conversely, when the classifier is only 0.6 certain that the class is positive, the actual probability of positive class is already almost 1.</p>
+<p>The widget is set to optimize F1 score. The user can drag the vertical black line left or right to set the probability threshold for the select target value. The information on the calibrated classifier are displayed in the info box on the left.</p>
+<p><img alt="../../_images/Calibration-Plot-Example1.png" src="../../_images/Calibration-Plot-Example1.png" /></p>
+<p>In the second example, we show how to use the widget to output a calibrated model. We use <a class="reference internal" href="../data/datasampler.html"><span class="doc">Data Sampler</span></a> to split the data into training and test subsets. We pass both the training and test subsets to <strong>Test and Score</strong> and train a <a class="reference internal" href="../model/logisticregression.html"><span class="doc">Logistic Regression</span></a> model, which we pass to <strong>Calibration Plot</strong>. Note that only a single calibrated model can be on the output, hence the user must select a single model from the classifier list.</p>
+<p>Once the model is calibrated, we can pass it to <a class="reference internal" href="predictions.html"><span class="doc">Predictions</span></a> and use it on training data.</p>
+<p><img alt="../../_images/Calibration-Plot-Example2.png" src="../../_images/Calibration-Plot-Example2.png" /></p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/evaluate/calibrationplot.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
