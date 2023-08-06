@@ -1,0 +1,68 @@
+Metadata-Version: 2.1
+Name: orpc-client
+Version: 0.1.3
+Summary: Open RPC client.
+Home-page: UNKNOWN
+Author: zencore
+Author-email: dobetter@zencore.cn
+License: MIT
+Keywords: orpc,rpc,orpc client
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Description-Content-Type: text/markdown
+Requires-Dist: zenutils (>=0.3.19)
+Requires-Dist: pooling (>=0.1.8)
+Requires-Dist: msgpack
+
+# orpc-client
+
+Open RPC client.
+
+## Install
+
+```
+pip install orpc-client
+```
+
+## Server Install
+
+```
+pip install orpc
+```
+
+## About Connection Login sm3utils deps
+
+For most newly installed python, `sm3 hash method` is already provided. If your python installation doesn't support `sm3 hash method`, you need to install it via `pip install sm3utils` by yourself.
+
+## Protocol
+
+### oRPC request
+
+- request_package = 4bytes-length-byteorder-big + msgstack.dumps(request_body)
+- request_body = {"event": "xxx", "args": [], "kwargs": {}}
+
+### oRPC response
+
+- response_package = 4bytes-length-byteorder-big + msgstack.dumps(response_body)
+- response_body = {"result": xx, "code": 0, "message": "xxx"}
+
+## Releases
+
+### v0.1.0
+
+- First release.
+
+### v0.1.2
+
+- Add oRPC connection auto login support.
+
+## v0.1.3
+
+- Add auto_reconnect support for orpc-client.
+
+
