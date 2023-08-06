@@ -1,0 +1,305 @@
+# About
+The Python Package Index Project (pypipr)
+
+
+pypi : https://pypi.org/project/pypipr
+
+
+
+# Setup
+Install with pip
+```
+python -m pip install pypipr
+```
+
+Import with * for fastest access
+```
+from pypipr.pypipr import *
+```
+
+Test with
+```python
+Pypipr.test_print()
+```
+
+
+# Pypipr Class
+`test_print()` memastikan module sudah terinstal dan dapat dijalankan
+
+```python
+Pypipr.test_print()
+```
+
+
+# functions
+`sets_ordered()` Hanya mengambil nilai unik dari suatu list
+
+```python
+array = [2, 3, 12, 3, 3, 42, 42, 1, 43, 2, 42, 41, 4, 24, 32, 42, 3, 12, 32, 42, 42]
+print([i for i in sets_ordered(array)])
+```
+
+
+`list_unique()` sama seperti `sets_ordered()`
+
+```python
+array = [2, 3, 12, 3, 3, 42, 42, 1, 43, 2, 42, 41, 4, 24, 32, 42, 3, 12, 32, 42, 42]
+print([i for i in list_unique(array)])
+```
+
+
+`chunck_array()` membagi array menjadi potongan dengan besaran yg diinginkan
+
+```python
+array = [2, 3, 12, 3, 3, 42, 42, 1, 43, 2, 42, 41, 4, 24, 32, 42, 3, 12, 32, 42, 42]
+print([i for i in chunck_array(array, 5)])
+```
+
+
+`print_colorize()` print ke console dengan warna
+
+```python
+print_colorize("Print some text")
+```
+
+
+`@Log()` / `Log decorator` akan melakukan print ke console. Mempermudah pembuatan log karena tidak perlu mengubah fungsi yg sudah ada. Berguna untuk memberikan informasi proses program yg sedang berjalan.
+
+```python
+@log("Calling some function")
+def some_function():
+    ...
+    return
+```
+
+
+`print_log` akan melakukan print ke console. Berguna untuk memberikan informasi proses program yg sedang berjalan.
+
+```python
+print_log("Standalone Log")
+```
+
+
+`input_char()` meminta masukan satu huruf tanpa menekan enter. Char tidak ditampilkan.
+
+```python
+input_char("Input Char without print : ")
+```
+
+
+`input_char()` meminta masukan satu huruf tanpa menekan enter. Char ditampilkan.
+
+```python
+input_char_echo("Input Char n : ")
+```
+
+
+`datetime_now()` memudahkan dalam membuat tanggal dan waktu untuk suatu timezone
+
+```python
+datetime_now("Asia/Jakarta")
+datetime_now("GMT")
+datetime_now("Etc/GMT+7")
+```
+
+
+`WINDOWS` True apabila berjalan di platform Windows
+
+```python
+print(WINDOWS)
+```
+
+
+`LINUX` True apabila berjalan di platform Linux
+
+```python
+print(LINUX)
+```
+
+
+`file_put_contents()` membuat file kemudian menuliskan contents ke file. Apabila file memiliki contents, maka contents akan di overwrite.
+
+```python
+file_put_contents("ifile_test.txt", "Contoh menulis content")
+```
+
+
+`file_get_contents()` membaca contents file ke memory.
+
+```python
+print(file_get_contents("ifile_test.txt"))
+```
+
+
+
+`write_file()` sama seperti `file_put_contents()`
+
+```python
+write_file("ifile_test.txt", "Contoh menulis content")
+```
+
+
+`read_file()` Sama seperti `file_get_contents()`
+
+```python
+print(file_get_contents("ifile_test.txt"))
+```
+
+
+`create_folder()` membuat folder secara recursive.
+
+```python
+create_folder("contoh_membuat_folder")
+create_folder("contoh/membuat/folder/recursive")
+create_folder("./contoh_membuat_folder/secara/recursive")
+```
+
+
+`iscandir()` scan folder, subfolder, dan file
+
+```python
+for i in iscandir():
+    print(i)
+```
+
+
+`scan_folder()` scan folder dan subfolder
+
+```python
+for i in scan_folder():
+    print(i)
+```
+
+
+`scan_file()` scan file dalam folder dan subfolder
+
+```python
+for i in scan_file():
+    print(i)
+```
+
+
+`regex_multiple_replace()` Melakukan multiple replacement untuk setiap list regex. 
+
+```python
+regex_replacement_list = [
+    {"regex": r"\{\{\s*(ini)\s*\}\}", "replacement": r"itu dan \1"},
+    {"regex": r"\{\{\s*sini\s*\}\}", "replacement": r"situ"},
+]
+data = "{{ ini }} adalah ini. {{sini}} berarti kesini."
+data = regex_multiple_replace(data, regex_replacement_list, re.IGNORECASE)
+print(data)
+```
+
+
+`github_push()` simple github push dengan auto commit message
+
+```python
+github_push('Commit Message')
+```
+
+
+`github_pull()` simple github pull
+
+```python
+github_pull()
+```
+
+
+`html_get_contents()` Mengambil content html dari url
+
+```python
+# Using XPATH
+a = html_get_contents("https://google.com/", xpath="//a")
+for i in a:
+    print(i.text)
+    print(i.attrib.get('href'))
+
+# Using REGEX
+a = html_get_contents("https://google.com/", regex=r"(<a.[^>]+>(?:(?:\s+)?(.[^<]+)(?:\s+)?)<\/a>)")
+for i in a:
+    print(i)
+
+# Using cssselect
+a = html_get_contents("https://google.com/", css_select="a")
+for i in a:
+    print(i.text)
+    print(i.attrib.get('href'))
+
+```
+
+
+`get_filesize()` Mengambil informasi file size dalam bytes
+
+```python
+print(get_filesize(__file__))
+```
+
+
+`get_filemtime()` Mengambil informasi last modification time file dalam nano seconds
+
+```python
+print(get_filemtime(__file__))
+```
+
+
+`datetime_from_string()` Mengubah human datetime string menjadi python standard datetime.
+Masih memerlukan perbaikan dan peningkatan.
+Kode yg di comment masih belum dapat dikenali.
+Yg belum dapat dikenali:
+- AM/PM
+- Kata yg berupa angka berdiri sendiri, karena ambigu antara tahun/bulan/tanggal/jam/menit/detik/mikrodetik
+
+```python
+print(datetime_from_string("13-10-1993"))
+print(datetime_from_string("1-Jan-2001"))
+print(datetime_from_string("5-5-5"))
+print(datetime_from_string("12:56 31-10-2022"))
+# print(datetime_from_string("12:56 PM 31-10-2022"))
+# print(datetime_from_string("2022 13 10"))
+print(datetime_from_string("11:59 Monday, October 31, 2022 (GMT+7)"))
+print(datetime_from_string("oct 1"))
+print(datetime_from_string("10:50"))
+print(datetime_from_string("10:50:22"))
+print(datetime_from_string("10:50", default_year=2022))
+print(datetime_from_string("10:50", overwrite={"hour": 21}))
+print(datetime_from_string("-056033"))
+print(datetime_from_string("GMT+7"))
+print(datetime_from_string("+0700"))
+print(datetime_from_string("+112233445566"))
+print(datetime_from_string("+7:07"))
+print(datetime_from_string("Asia/Jakarta"))
+print(datetime_from_string("Africa/Addis_Ababa"))
+print(datetime_from_string("Etc/GMT"))
+print(datetime_from_string("Etc/GMT-5"))
+print(datetime_from_string("jakarta"))
+print(datetime_from_string("asia"))
+print(datetime_from_string("africa"))
+print(datetime_from_string("europe/jakarta"))
+print(datetime_from_string("2022-05-12T05:04:03+07:07:12"))
+print(datetime_from_string("2022-05-12 05:04:03+07:07:12"))
+print(datetime_from_string("2022-05-12 05:04:03 +07:07:12"))
+print(datetime_from_string("05:04:03 2022-05-12 +07:07:12"))
+print(datetime_from_string("05:04:03 12-05-2022 +07:07:12"))
+print(datetime_from_string("Jakarta, 13-10-1993"))
+# print(datetime_from_string("Jakarta, 13 October 1993"))
+```
+
+
+`dict_first()` Mengambil nilai (key, value) pertama dari dictionary dalam bentuk tuple
+
+```python
+d = {
+    "key1": "value1",
+    "key2": "value2",
+    "key3": "value3",
+}
+print(dict_first(d))
+```
+
+
+`random_bool()` Menghasilkan nilai random antara 1 atau 0
+
+```python
+print(random_bool())
+```
