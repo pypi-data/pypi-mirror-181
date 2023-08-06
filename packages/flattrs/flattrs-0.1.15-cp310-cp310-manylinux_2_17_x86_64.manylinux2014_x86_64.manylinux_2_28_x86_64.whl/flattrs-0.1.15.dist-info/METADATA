@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: flattrs
+Version: 0.1.15
+License: MIT license
+License-File: LICENSE
+Requires-Dist: attrs
+Requires-Dist: flatbuffers (==1.9)
+Requires-Dist: numpy
+Provides-Extra: dev
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: hypothesis ; extra == 'dev'
+Requires-Dist: cython (==0.29.32) ; extra == 'dev'
+Requires-Dist: coverage ; extra == 'dev'
+Requires-Dist: tox (==4.0.11) ; extra == 'dev'
+
