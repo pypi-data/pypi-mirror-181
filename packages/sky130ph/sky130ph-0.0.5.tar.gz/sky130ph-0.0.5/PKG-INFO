@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: sky130ph
+Version: 0.0.5
+Summary: Skywater photonics PDK for the 130nm fab foundry
+Home-page: https://github.com/joamatab/cookiecutter-pypackage-minimal
+Author: SkandanC
+Author-email: s39chand@uwaterloo.ca
+License: MIT
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# sky130ph v0.0.5
+
+Skywater photonics PDK for the SKY130 process node. The documentation is at https://byucamacholab.github.io/sky130ph/
+
+## Installation
+
+`pip install sky130ph`
+
+## TODO
+
+- Add component library
+- Add tests
+- Test components
+
+## Authors
+
+- Skandan Chandrasekar
+- Sequoia Ploeg
+- Elise Bangerter
+- Joel Kartchner
