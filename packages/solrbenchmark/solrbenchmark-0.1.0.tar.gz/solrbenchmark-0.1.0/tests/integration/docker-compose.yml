@@ -1,0 +1,9 @@
+version: '3'
+services:
+  solr:
+    image: solr:8.11.1
+    volumes:
+      - ./solrconf:/test_core_config/conf
+    ports:
+      - "${TEST_SOLR_HOST:-127.0.0.1}:${TEST_SOLR_PORT:-8983}:8983"
+    command: solr-precreate "${TEST_SOLR_CORE:-test_core}" /test_core_config

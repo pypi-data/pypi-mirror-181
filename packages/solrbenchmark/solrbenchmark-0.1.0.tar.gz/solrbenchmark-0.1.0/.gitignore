@@ -1,0 +1,11 @@
+*.pyc
+.env
+dist/
+*.egg-info
+*.egg
+.eggs/
+.python-version
+.cache/
+__pycache__/
+.pytest_cache/
+.tox/
