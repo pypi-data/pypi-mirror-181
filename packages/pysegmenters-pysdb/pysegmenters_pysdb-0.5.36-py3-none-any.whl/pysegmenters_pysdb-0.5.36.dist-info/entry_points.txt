@@ -1,0 +1,6 @@
+[pyprocessors.plugins]
+pysdb=pysegmenters_pysdb.pysdb_segmenter:PySDBSegmenter
+
+[pysegmenters.plugins]
+pysdb=pysegmenters_pysdb.pysdb_segmenter:PySDBSegmenter
+
