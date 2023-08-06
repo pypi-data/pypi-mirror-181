@@ -1,0 +1,60 @@
+Metadata-Version: 2.1
+Name: Ekpenisi
+Version: 0.1.0
+Summary: semantics ibrary
+Home-page: UNKNOWN
+Author: Ekpenisi Christabell
+License: MIT
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+Semantic library:
+    used to extract numbers,convert units and solve equations from text. Three modules are used for the library; number,units and solver modules
+     number module:
+         used to extract numbers from text. its white space and comma sensitive
+         '''
+         example :
+             from semantics import Number
+             
+             result = 'three hundred and fifty'
+             b = Number()
+             b.converts(result)
+             
+         it prints 350 to the terminal 
+         '''
+     solve module:
+         used to extract equations and solve them from text. all number should be written in text and not digits
+         '''
+         example:
+             from semantics import Solver           
+             result = 'three hundred and fifty minus two'
+             b = Solver()
+             b.solve(result)
+        # it prints 348 to the terminal
+        '''
+        look more at the documention in the code to see more operations to perform
+        unit module:
+            used to convert between units. its syntax is : convert {magnitude} {unit} to {unit} 
+            it contains different units of three quantities; area,length,time
+            #look into the code to see the various units 
+             '''
+             example:
+                 from semantics import Units
+                 
+                 b = Units()
+                 result= 'convert twelve cm to m'
+                 b.convert(unit)
+                 
+               this prints 0.12m in the terminal
+                 '''
+            
+
