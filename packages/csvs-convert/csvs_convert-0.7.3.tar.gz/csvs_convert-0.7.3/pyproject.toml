@@ -1,0 +1,15 @@
+[project]
+name="csvs_convert"
+description = "Convert your csvs fast"
+
+dependencies = []
+readme="README.md"
+repository="https://github.com/kindly/csvs_convert_py"
+
+[build-system]
+requires = ["maturin>=0.13,<0.14"]
+build-backend = "maturin"
+
+
+[project.optional-dependencies]
+dev = ["openpyxl", "pandas", "pyarrow", "sphynx", "furo==2022.4.7", "myst_parser"]
