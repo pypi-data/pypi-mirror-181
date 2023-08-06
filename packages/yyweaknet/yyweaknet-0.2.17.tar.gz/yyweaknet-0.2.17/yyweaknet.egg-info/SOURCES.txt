@@ -1,0 +1,11 @@
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+yyweaknet/__init__.py
+yyweaknet/stf.py
+yyweaknet/weaknet.py
+yyweaknet.egg-info/PKG-INFO
+yyweaknet.egg-info/SOURCES.txt
+yyweaknet.egg-info/dependency_links.txt
+yyweaknet.egg-info/top_level.txt
