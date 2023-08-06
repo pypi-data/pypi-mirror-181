@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+src/polycons/__init__.py
+src/polycons/py.typed
+src/polycons.egg-info/PKG-INFO
+src/polycons.egg-info/SOURCES.txt
+src/polycons.egg-info/dependency_links.txt
+src/polycons.egg-info/requires.txt
+src/polycons.egg-info/top_level.txt
+src/polycons/_jsii/__init__.py
+src/polycons/_jsii/polycons@0.1.6.jsii.tgz
