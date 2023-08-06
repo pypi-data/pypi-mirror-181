@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: certdeploy
+Version: 0.2.1
+Summary: A tool to automatically sync certificates and update services.
+Home-page: https://github.com/haxwithaxe/certdeploy/
+Author: haxwithaxe
+Author-email: spam@haxwithaxe.net
+License: GPL-3.0-only
+Project-URL: Documentation, https://certdeploy.readthedocs.org/
+Project-URL: Source, https://github.com/haxwithaxe/certdeploy/
+Project-URL: Tracker, https://github.com/haxwithaxe/certdeploy/issues
+Project-URL: Download, https://pypi.org/project/certdeploy/#files
+Platform: any
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python
+Classifier: Environment :: No Input/Output (Daemon)
+Classifier: Topic :: System :: Systems Administration
+Classifier: Topic :: Utilities
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown; charset=UTF-8
+License-File: LICENSE.txt
+Requires-Dist: docker (==5.0.3)
+Requires-Dist: paramiko (==2.11.0)
+Requires-Dist: PyYAML (==6.0)
+Requires-Dist: schedule (==1.1.0)
+Requires-Dist: typer (==0.6.1)
+Provides-Extra: docs
+Requires-Dist: sphinx ; extra == 'docs'
+Requires-Dist: myst-parser ; extra == 'docs'
+Provides-Extra: testing
+Requires-Dist: setuptools ; extra == 'testing'
+Requires-Dist: pytest ; extra == 'testing'
+Requires-Dist: pytest-cov ; extra == 'testing'
+
