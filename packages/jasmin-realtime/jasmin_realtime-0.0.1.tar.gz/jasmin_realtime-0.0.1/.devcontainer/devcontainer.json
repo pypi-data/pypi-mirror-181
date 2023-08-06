@@ -1,0 +1,15 @@
+{
+	"name": "jasmin-realtime",
+	"image": "docker.io/blackorder/priv:jasmin-realtime",
+	"runArgs": [
+		"--env-file",
+		".devcontainer/devcontainer.env",
+		"--network=local_containers"
+	],
+	"mounts": [
+		"source=vscode-extensions-alpine-root,target=/root/.vscode-server/extensions,type=volume",
+		"source=vscode-insiders-alpine-root,target=/root/.vscode-server-insiders/extensions,type=volume",
+		"source=jasmin-service_tmp,target=/tmp,type=volume"
+	],
+	"postCreateCommand": "apk add --update git; /usr/local/bin/python -m pip install -U autopep8"
+}

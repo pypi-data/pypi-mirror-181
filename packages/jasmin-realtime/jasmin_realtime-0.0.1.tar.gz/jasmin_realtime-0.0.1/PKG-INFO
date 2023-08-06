@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: jasmin_realtime
+Version: 0.0.1
+Summary: Apply Jasmin SMS Gateway's configurations from MongoDB in realtime.
+Project-URL: Homepage, https://github.com/BlackOrder/jasmin_realtime
+Project-URL: Bug Tracker, https://github.com/BlackOrder/jasmin_realtime/issues
+Author-email: BlackOrder <4302157+BlackOrder@users.noreply.github.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.11
+Requires-Dist: pexpect>=0.0.1
+Requires-Dist: python-dotenv
+Description-Content-Type: text/markdown
+
+# Jasmin Realtime
