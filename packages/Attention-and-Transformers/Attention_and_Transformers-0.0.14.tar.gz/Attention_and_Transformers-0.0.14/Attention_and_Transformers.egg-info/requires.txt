@@ -1,0 +1,17 @@
+tensorflow-datasets
+livelossplot
+Pillow
+opencv-contrib-python
+pandas
+scikit-learn
+matplotlib
+scikit-image
+
+[:platform_machine != "aarch64" and platform_machine != "aarch32"]
+tensorflow-addons
+
+[:platform_system != "Darwin"]
+tensorflow>=2.10.0
+
+[:platform_system == "Darwin"]
+tensorflow-macos
