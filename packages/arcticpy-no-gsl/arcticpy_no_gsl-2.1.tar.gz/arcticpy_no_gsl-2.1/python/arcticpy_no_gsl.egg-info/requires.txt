@@ -1,0 +1,6 @@
+autoconf
+numpy~=1.21
+
+[pytest]
+coverage
+pytest

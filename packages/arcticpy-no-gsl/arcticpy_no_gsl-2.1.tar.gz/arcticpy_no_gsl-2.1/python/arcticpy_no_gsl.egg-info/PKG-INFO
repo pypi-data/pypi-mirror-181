@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: arcticpy-no-gsl
+Version: 2.1
+Summary: This is the python module for the arCTIc code (No GSL requirement)
+Author-email: Richard Massey <r.j.massey@durham.ac.uk>
+Requires-Python: >=3.8
+Provides-Extra: pytest
