@@ -1,0 +1,69 @@
+Metadata-Version: 2.1
+Name: django-google-sheets
+Version: 0.1.0
+Summary: Não é oficial do google
+Author: issei momonge
+Author-email: mggyggf@gmail.com
+License: MIT License
+Keywords: django google sheets
+Description-Content-Type: text/markdown
+License-File: LICENCE
+
+# django-google-sheets
+
+essa biblioteca foi feito para uso proprio mas estÃ¡ sendo disponibilizado em varios projetos
+devido a isso nÃ£o existe uma documentaÃ§Ã£o
+
+Essa biblioteca Ã© utilizada para alimentar benÃ§Ã£o de dados entre vÃ¡rios programadores entre si sem ter conteÃºdo repetindo ou faltando
+
+O funcionamento Ã© simples a cada post feito ele Ã© adicionado uma cÃ³pia no Google sheets mas antes de adicionar
+Os posts sÃ£o restaurados vendo se nÃ£o existe repetido e apÃ³s isso o prÃ³prio Django verifica se nÃ£o Ã© um post repetido de acordo com as suas caracterÃ­sticas Ãºnicasa
+ApÃ³s a confirmaÃ§Ã£o o banco de dados no Google sheets Ã© pagado em preenchimento com todos os dados do seu db assim podendo trabalhar em conjunto
+
+Exemplo:
+
+    from googlesheets import google_sheets
+
+    class sb(models.Model):
+        sbm = models.CharField(max_length=200)
+
+        def __str__(self):
+            return self.sbm
+    
+        def save(self, *args, **kwargs):
+            google_sheets.add(self)
+            super().save(*args, **kwargs)
+            google_sheets.enviar(self)
+            return self
+    
+        def delete(self, *args, **kwargs):
+            google_sheets.delete(self)
+            super().delete(*args, **kwargs)
+    
+        def restaurar():
+            return google_sheets.restaurar(__class__.__name__)
+
+
+Os principais comandos sÃ£o os de
+Adicionar ou atualizar os posts devem ser adicionado dentro do "def save(self, *args, **kwargs):"
+O google_sheets.add(self) vai verificar se o posto Ã© novo ou uma alteraÃ§Ã£o
+O google_sheets.enviar(self) vai enviar o post
+
+Apagar um post
+O google_sheets.delete(self) vai apagar o post
+
+para funcionar deve conter a variavel "SHEETS_KEY" com o ID de sua tabela e um arquivo "service_account.json" na raiz do seu projeto
+o service_account.json Ã© uma autorizaÃ§Ã£o retirada do site do google para poder alterar a tabela exemplo de como Ã© o service_account.json
+
+    {
+      "type": "service_account",
+      "project_id": "",
+      "private_key_id": "",
+      "private_key": "",
+      "client_email": "",
+      "client_id": "",
+      "auth_uri": "",
+      "token_uri": "",
+      "auth_provider_x509_cert_url": "",
+      "client_x509_cert_url": ""
+    }
