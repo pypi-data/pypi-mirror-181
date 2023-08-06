@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: BradleyChess_RL_Chess_Engine
+Version: 0.0.1
+Summary: A simple chess engine build using the reinforced learning SARSA algorithm
+Project-URL: Homepage, https://github.com/pypa/BradleyChess_RL_Chess_Engine
+Project-URL: Bug Tracker, https://github.com/pypa/BradleyChess_RL_Chess_Engine/issues
+Author-email: Abraham Borg <abrahamborg@gmail.com>
+License-File: LICENSE.txt
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# example package
+This is a simple example package.
