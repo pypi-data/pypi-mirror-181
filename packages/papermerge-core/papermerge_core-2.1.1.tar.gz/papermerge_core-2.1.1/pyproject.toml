@@ -1,0 +1,156 @@
+[tool.poetry]
+name = "papermerge-core"
+version = "2.1.1"
+description = "Open source document management system for digital archives"
+authors = ["Eugen Ciur <eugen@papermerge.com>"]
+maintainers = ["Eugen Ciur <eugen@papermerge.com>"]
+license = "Apache 2.0"
+readme = "README.md"
+homepage = "https://www.papermerge.com/"
+documentation = "https://docs.papermerge.io/"
+classifiers = [
+    "Environment :: Web Environment",
+    "Framework :: Django",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3"
+]
+keywords = [
+  "PDF",
+  "OCR",
+  "optical character recognition",
+  "PDF/A",
+  "scanning",
+  "dms",
+  "document-management",
+  "paperless",
+  "archives"
+]
+packages = [
+    { include = "papermerge/core" },
+    { include = "papermerge/conf" },
+    { include = "papermerge/notifications" },
+    { include = "papermerge/search" },
+]
+[tool.poetry.group.dev.dependencies]
+towncrier = "^22.8.0"
+pytest = "^7.1.2"
+pytest-django = "^4.4"
+pycodestyle = "^2.8"
+django-extensions = "^3.1"
+ipython = "^8.0.1"
+model-bakery = "^1.5.0"
+taskipy = "^1.10.2"
+"pdfminer.six" = "^20220524"
+pre-commit = "^2.20.0"
+
+[project.urls]
+Tracker = "https://github.com/ciur/papermerge/issues"
+Source = "https://github.com/papermerge/papermerge-core"
+
+[tool.poetry.dependencies]
+python = ">=3.8, <3.11"
+django = "^4.0"
+djangorestframework = "^3.13.1"
+django-cors-headers = "^3.9.0"
+djangorestframework-jsonapi = "^5.0.0"
+django_filter = "^21.1"
+channels = "^3.0"
+channels-redis = "^3.2"
+redis = "^4.3.3"
+ocrmypdf = "^13.5.0"
+ocrmypdf-papermerge = "^0.4.5"
+django-dynamic-preferences = "^1.13"
+celery = {version = "^5.2", extras = ["gevent", "redis"]}
+django-taggit = "^3.0.0"
+pyyaml = "^6.0"
+lxml = "^4.9.0"
+django-celery-results = "^2.2"
+django-polymorphic = "^3.0"
+django-mptt = "^0.13.4"
+django-polymorphic-tree = "^2.0"
+django-modelcluster = "^6.0"
+persisting-theory = "^1.0"
+python-magic = "^0.4"
+uritemplate = "^4.1.1"
+configula = "~0.5"
+uWSGI = "^2.0.20"
+psycopg2 = "^2.9.2"
+psycopg2-binary = "^2.9.2"
+daphne = "^3.0.2"
+django-rest-knox = "^4.2.0"
+drf-spectacular = "^0.22.0"
+drf-spectacular-sidecar = "^2022.3.21"
+elasticsearch = ">=7,<8"
+django-haystack = "^3.2.1"
+# This is NOT a typo! It is indeed yapian-haystack instead of xapian-haystack.
+# For details see https://github.com/ciur/papermerge/issues/486
+yapian-haystack = "^3.1.0"  # It is indeed "yapian", not "xapian"!
+Whoosh = "^2.7.4"
+pdf2image = "^1.16.0"
+
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE="tests.config.settings"
+django_find_project = false
+
+[tool.taskipy.tasks]
+test = "task test-core && task test-search-w && task test-search"
+test-co = "DJANGO_SETTINGS_MODULE=tests.config.core.settings python -m pytest tests/core/"
+test-core = "DJANGO_SETTINGS_MODULE=tests.config.core.settings python -m pytest tests/core/ tests/notifications/ --disable-warnings"
+# include warnings
+test-core-w = "DJANGO_SETTINGS_MODULE=tests.config.core.settings python -m pytest tests/core/ tests/notifications/"
+test-se = "DJANGO_SETTINGS_MODULE=tests.config.search.elastic_settings python -m pytest"
+test-search = "DJANGO_SETTINGS_MODULE=tests.config.search.elastic_settings python -m pytest tests/search/ --disable-warnings"
+# include warnings
+test-search-w = "DJANGO_SETTINGS_MODULE=tests.config.search.whoosh_settings python -m pytest tests/search/  --disable-warnings"
+test-search-x = "DJANGO_SETTINGS_MODULE=tests.config.search.xapian_settings python -m pytest tests/search/ --disable-warnings"
+lint = "pycodestyle papermerge/ tests/"
+# run following commands from docker/dev only
+worker = "celery -A config worker -c 5"
+server = "./manage.py runserver"
+spectacular = "./manage.py spectacular"
+
+[tool.towncrier]
+directory = "changelog.d"
+filename = "changelog.md"
+start_string = "<!-- towncrier release notes start -->\n"
+underlines = ["", "", ""]
+template = "changelog.d/changelog_template.jinja"
+title_format = "## [{version}] - {project_date}"
+issue_format = "[issue#{issue}](https://github.com/ciur/papermerge/issues/{issue})"
+
+[[tool.towncrier.type]]
+directory = "security"
+name = "Security"
+showcontent = true
+
+[[tool.towncrier.type]]
+directory = "removed"
+name = "Removed"
+showcontent = true
+
+[[tool.towncrier.type]]
+directory = "deprecated"
+name = "Deprecated"
+showcontent = true
+
+[[tool.towncrier.type]]
+directory = "added"
+name = "Added"
+showcontent = true
+
+[[tool.towncrier.type]]
+directory = "changed"
+name = "Changed"
+showcontent = true
+
+[[tool.towncrier.type]]
+directory = "fixed"
+name = "Fixed"
+showcontent = true
+
+[build-system]
+requires = ["setuptools >= 61.0", "wheel"]
+build-backend = "setuptools.build_meta"
