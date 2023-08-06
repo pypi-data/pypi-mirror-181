@@ -1,0 +1,25 @@
+name: CI/CD - New updates to 'master'
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  update-dependencies-branch:
+    name: Call external workflow
+    if: github.repository_owner == 'H2020-OpenModel'
+    uses: SINTEF/ci-cd/.github/workflows/ci_cd_updated_default_branch.yml@v2.0.0
+    with:
+      # General
+      git_username: "TEAM 4.0[bot]"
+      git_email: "TEAM4.0@SINTEF.no"
+
+      # Permanent dependencies branch
+      permanent_dependencies_branch: ci/dependency-updates
+      default_repo_branch: master
+
+      # Documentation
+      # This is done by `cd_docs.yml`
+      update_docs: false
+    secrets:
+      PAT: ${{ secrets.RELEASE_PAT }}

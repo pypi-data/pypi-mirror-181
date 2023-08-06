@@ -1,0 +1,77 @@
+"""AiiDA Data Node classes
+
+Important:
+   These classes are auto-generated and should be checked and updated
+   according the needs of the plugin.
+
+"""
+from typing import TYPE_CHECKING
+
+from aiida.common.exceptions import ModificationNotAllowed
+from aiida.orm import Data
+
+if TYPE_CHECKING:  # pragma: no cover
+    from typing import Any, Optional
+
+
+class {{ entity.description }}(Data):
+    """{{ entity.description }}
+
+    AiiDA DataNode generated from SOFT/DLite datamodels.
+
+    Important:
+        This class was auto-generated and should be checked and updated
+        according to the needs of the plugin.
+
+    Args:{% for property in entity.properties %}
+        {{ property }}: {{ entity.properties[property].description }}{% endfor %}
+
+    """
+
+    def __init__(
+        self,{% for property in entity.properties %}
+        {{ property }}: "Optional[{{ entity.properties[property].type_.value }}]" = None,{% endfor %}
+        **kwargs: "Any",
+    ) -> None:
+        """
+        {{ entity.description }} initialization.
+        """
+        super().__init__(**kwargs)
+
+        attr_dict = {
+{% for property in entity.properties %}            "{{ property }}": {{ property }},
+{% endfor %}        }
+
+        self.base.attributes.set_many(attr_dict)
+
+    def _check_setter(self, attrkey: str, value: "Any") -> None:
+        """
+        Prevents modifications if object has been stored. Otherwise update attributes.
+        """
+        if self.is_stored:
+            raise ModificationNotAllowed(
+                "The ResourceConfigData object cannot be modified, "
+                "it has already been stored."
+            )
+        self.base.attributes.set(attrkey, value)
+{% for property in entity.properties %}
+    @property
+    def {{ property }}(self) -> "Optional[{{ entity.properties[property].type_.value }}]":
+        """Getter method for {{ property }}
+
+        {{ entity.properties[property].description }}
+{% if entity.properties[property].unit %}
+        Unit: {{ entity.properties[property].unit }}{% endif %}
+        """
+        return self.base.attributes.get("{{ property }}")
+
+    @{{ property }}.setter
+    def {{ property }}(self, value: "Optional[{{ entity.properties[property].type_.value }}]") -> None:
+        """Setter method for {{ property }}
+
+        {{ entity.properties[property].description }}
+{% if entity.properties[property].unit %}
+        Unit: {{ entity.properties[property].unit }}{% endif %}
+        """
+        self._check_setter("{{ property }}", value)
+{% endfor %}

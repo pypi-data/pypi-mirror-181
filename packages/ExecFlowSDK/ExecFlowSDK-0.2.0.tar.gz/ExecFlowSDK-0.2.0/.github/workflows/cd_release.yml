@@ -1,0 +1,32 @@
+name: CD - Publish
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  update-and-publish:
+    name: Call external workflow
+    uses: SINTEF/ci-cd/.github/workflows/cd_release.yml@v2.0.0
+    if: github.repository == 'H2020-OpenModel/WP3-WrapperSDK' && startsWith(github.ref, 'refs/tags/v')
+    with:
+      # General
+      git_username: "TEAM 4.0[bot]"
+      git_email: "TEAM4.0@SINTEF.no"
+
+      # Publish to PyPI
+      python_package: true
+      package_dirs: execflow
+      release_branch: master
+      python_version_build: "3.9"
+      install_extras: "[dev]"
+      build_cmd: "pip install -U flit && flit build"
+      publish_on_pypi: true
+
+      # Documentation
+      # This is done by `cd_docs.yml`
+      update_docs: false
+    secrets:
+      PyPI_token: ${{ secrets.PYPI_TOKEN }}
+      PAT: ${{ secrets.RELEASE_PAT }}
