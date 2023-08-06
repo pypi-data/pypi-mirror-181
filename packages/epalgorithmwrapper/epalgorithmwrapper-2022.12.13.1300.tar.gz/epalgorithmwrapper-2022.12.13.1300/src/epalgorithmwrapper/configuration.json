@@ -1,0 +1,8 @@
+{
+    "input-directory": "./input",
+    "output-directory": "./output",
+    "output-report-location": "./output/report.json",
+    "report-template-location": "./epalgorithmwrapper/assets/report_template.txt",
+    "rabbitmq-status-update-exchange": "ep.algorithm-internal",
+    "rabbitmq-status-update-routing": "algorithm-status"
+}
