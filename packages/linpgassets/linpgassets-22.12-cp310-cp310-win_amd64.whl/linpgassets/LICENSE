@@ -1,0 +1,3 @@
+- Any digital content in this project can only be used in the projects created by Tigeia Workshop.
+- You are not allowed to use them in any way unless you obtain authorization from their corresponding creators.
+- Secondary distribution of any part is strictly prohibited!
