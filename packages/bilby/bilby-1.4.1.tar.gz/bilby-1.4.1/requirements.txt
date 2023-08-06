@@ -1,0 +1,12 @@
+bilby.cython>=0.3.0
+dynesty>=2
+emcee
+corner
+numpy
+matplotlib>=2.1
+scipy>=1.5
+pandas
+dill
+tqdm
+h5py
+attrs
