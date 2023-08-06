@@ -1,0 +1,66 @@
+Metadata-Version: 2.1
+Name: testpackageforjoblibsigma
+Version: 0.1.9
+Summary: test to make package and set up python environment
+Home-page: https://github.com/tk-tanab/testpackage
+License: Apache-2.0
+Author: tk-tanab
+Author-email: tk-tanab@ist.osaka-u.ac.jp
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: joblib (>=1.2.0,<2.0.0)
+Project-URL: Repository, https://github.com/tk-tanab/testpackage
+Description-Content-Type: text/markdown
+
+# Testpackage
+
+[![Apache2.0 License](https://img.shields.io/badge/License-Apatch2.0-green.svg?style=for-the-badge)](https://choosealicense.com/licenses/apache-2.0/)
+
+vscode, Github, poetryを使ったpythonの環境設定とパッケージ作成のテスト
+
+## Acknowledgements
+
+参考にしたWebページの詳細はNotionにまとめている
+
+ - [Notion: Python環境設定](https://pool-laser-119.notion.site/Python-343c10792d3744c6b6c8ccf12335d5bb)
+
+## Documentation
+
+Sphinxで作成したドキュメント
+
+- [Documentation](https://linktodocumentation)
+
+
+## Usage/Examples
+
+```python
+import testpackageforjoblibsigma
+
+function App() {
+  return <Component />
+}
+```
+
+
+## Running Tests
+
+To run tests, run the following command
+
+```bash
+  npm run test
+```
+
+
+## Authors
+
+- [@tk-tanab](https://github.com/tk-tanab)
+
+
+## License
+
+- [Apatch2.0](https://choosealicense.com/licenses/apache-2.0/)
+
+
