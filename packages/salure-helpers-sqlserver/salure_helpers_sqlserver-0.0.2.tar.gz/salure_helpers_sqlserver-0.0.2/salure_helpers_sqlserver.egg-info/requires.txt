@@ -1,0 +1,4 @@
+salure-helpers-salureconnect>=1
+pandas<=1.35,>=1
+pymysql<=2,>=1
+requests<=3,>=2
