@@ -1,0 +1,16 @@
+build/*
+dadi_cli.egg-info/*
+dist/*
+examples/snakepipe/*/.snakemake/*
+examples/snakepipe/*/1KG.*
+*/.DS_Store
+*__pycache__*
+.coverage
+tests/test_results/
+wq-factory-*
+.terraform.lock.hcl
+.terraform/
+ssh-key
+ssh-key.pub
+terraform.tfstate
+terraform.tfstate.backup
