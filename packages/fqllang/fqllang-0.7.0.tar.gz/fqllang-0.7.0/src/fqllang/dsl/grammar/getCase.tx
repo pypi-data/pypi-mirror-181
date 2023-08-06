@@ -1,0 +1,34 @@
+import valueTerminal
+
+GetCase:
+	'get' formName=ID '(' extendedLabelsList+=ExtendedLabel[','] ')' 'with' conditions+=Condition['and'] |
+	'get' formName=ID '(' extendedLabelsList+=ExtendedLabel[','] ')' |
+	'get' formName=ID 'with' conditions+=Condition['and'] |
+	'get' formName=ID 
+;
+
+Condition:
+	ConditionTerminal	|
+	PropertyDotCondition
+;
+
+PropertyDotCondition[noskipws]:
+	/\s*/-
+	attribute=ID '.' condition=Condition
+	/\s*/- 
+;
+
+ConditionTerminal:
+	reservedLabel=ReservedLabel '=' value=INT |
+	attribute=ID '=' valueTerminal=ValueTerminal
+;
+
+ReservedLabel:
+	'FQL_ID' |
+	'FQL_VERSION'
+;
+
+ExtendedLabel:
+	ReservedLabel |
+	ID
+;
