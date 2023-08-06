@@ -1,0 +1,3093 @@
+openapi: 3.0.1
+info:
+  title: Server API
+  description: Kraken Server REST API
+  version: "1"
+
+servers:
+- url: /bk/api
+
+security:
+  - bearerAuth: []  # by default all functions require this security
+
+paths:
+  /version:
+    get:
+      tags:
+      - Management
+      summary: Get server version
+      description: Get server version
+      operationId: get_server_version
+      responses:
+        200:
+          description: Successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerVersion'
+  /sessions:
+    post:
+      tags:
+        - Users
+      summary: Create a session ie. log in.
+      operationId: login
+      security: []  # no security, it is used to login
+      requestBody:
+        description: project
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: string
+                password:
+                  type: string
+                method:
+                  type: string
+                oidc_provider:
+                  type: string
+      responses:
+        201:
+          description: Successfully created session.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Session'
+  /sessions/{session_token}:
+    get:
+      tags:
+      - Users
+      summary: Get session data
+      description: Get user session data
+      operationId: get_session
+      parameters:
+      - name: session_token
+        in: path
+        description: session token
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Successfully created session.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Session'
+    delete:
+      tags:
+      - Users
+      summary: Logout
+      description: Logut
+      operationId: logout
+      parameters:
+      - name: session_token
+        in: path
+        description: session token
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Successfully deleted session
+          content: {}
+  /users:
+    get:
+      tags:
+      - Users
+      summary: List users
+      description: List users
+      operationId: get_users
+      parameters:
+      - name: start
+        in: query
+        description: How many items to return at one time (max 100)
+        schema:
+          type: integer
+          format: int32
+      - name: limit
+        in: query
+        description: How many items to return at one time (max 100)
+        schema:
+          type: integer
+          format: int32
+      - name: sort_field
+        in: query
+        schema:
+          type: string
+      - name: sort_dir
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Users'
+    post:
+      tags:
+      - Users
+      summary: Create a user
+      description: Create a new user
+      operationId: create_user
+      requestBody:
+        description: group
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        201:
+          description: Successfully created user
+          content: {}
+  /users/{user_id}:
+    get:
+      tags:
+      - Users
+      summary: Get user details
+      description: Get user details
+      operationId: get_user
+      parameters:
+      - name: user_id
+        in: path
+        description: ID of user
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: Successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+    patch:
+      tags:
+      - Users
+      summary: Change user details
+      description: Change user details
+      operationId: change_user_details
+      parameters:
+      - name: user_id
+        in: path
+        description: ID of user
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: secret
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: false
+      responses:
+        201:
+          description: Successfully
+          content: {}
+  /users/{user_id}/password:
+    put:
+      tags:
+      - Users
+      summary: Change user password
+      description: Change user password
+      operationId: change_password
+      parameters:
+      - name: user_id
+        in: path
+        description: ID of user
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: secret
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserPassword'
+        required: false
+      responses:
+        201:
+          description: Successfully
+          content: {}
+  /systems:
+    get:
+      tags:
+      - Management
+      summary: Get systems
+      description: Get systems
+      operationId: get_systems
+      responses:
+        200:
+          description: An array of system
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Systems'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+  /projects:
+    get:
+      tags:
+      - Management
+      summary: Get projects
+      description: Get projects
+      operationId: get_projects
+      responses:
+        201:
+          description: Successfully created run
+          content: {}
+    post:
+      tags:
+      - Management
+      summary: Create a project
+      description: Create a new project
+      operationId: create_project
+      requestBody:
+        description: project
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Project'
+        required: false
+      responses:
+        201:
+          description: Successfully created run
+          content: {}
+  /projects/{project_id}:
+    get:
+      tags:
+      - Management
+      summary: Get project
+      description: Get project details
+      operationId: get_project
+      parameters:
+      - name: project_id
+        in: path
+        description: ID of project
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: with_results
+        in: query
+        description: with results
+        schema:
+          type: boolean
+      responses:
+        200:
+          description: Project details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+    put:
+      tags:
+      - Management
+      summary: Update a project
+      description: Update project settings
+      operationId: update_project
+      parameters:
+      - name: project_id
+        in: path
+        description: ID of project
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: project
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Project'
+        required: false
+      responses:
+        200:
+          description: Successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+    delete:
+      tags:
+      - Management
+      summary: Delete a project
+      description: Delete a project
+      operationId: delete_project
+      parameters:
+      - name: project_id
+        in: path
+        description: ID of project
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: Successfully deleted project
+          content: {}
+  /projects/{project_id}/secrets:
+    post:
+      tags:
+      - Management
+      summary: Create a secret
+      description: Create a new secret
+      operationId: create_secret
+      parameters:
+      - name: project_id
+        in: path
+        description: ID of project
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: secret
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Secret'
+        required: false
+      responses:
+        201:
+          description: Successfully created run
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Secret'
+  /secrets/{secret_id}:
+    put:
+      tags:
+      - Management
+      summary: Update a secret
+      description: Update secret settings
+      operationId: update_secret
+      parameters:
+      - name: secret_id
+        in: path
+        description: ID of secret
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: secret
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Secret'
+        required: false
+      responses:
+        201:
+          description: Successfully
+          content: {}
+    delete:
+      tags:
+      - Management
+      summary: Delete a secret
+      description: Delete a secret
+      operationId: delete_secret
+      parameters:
+      - name: secret_id
+        in: path
+        description: ID of secret
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: Successfully deleted secret
+          content: {}
+  /projects/{project_id}/branches:
+    post:
+      tags:
+      - Management
+      summary: Create a branch
+      description: Create a new branch
+      operationId: create_branch
+      parameters:
+      - name: project_id
+        in: path
+        description: ID of pet to return
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: branch
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Branch'
+        required: false
+      responses:
+        201:
+          description: Successfully created run
+          content: {}
+  /workflow-schema:
+    get:
+      tags:
+      - Management
+      summary: Get workflow schema
+      operationId: get_workflow_schema
+      responses:
+        200:
+          description: Workflow schema
+          content:
+            application/json:
+              schema:
+                type: object
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+  /branches/{branch_id}:
+    put:
+      tags:
+      - Management
+      summary: Update a branch
+      description: Update branch
+      operationId: update_branch
+      parameters:
+      - name: branch_id
+        in: path
+        description: ID of branch
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: branch
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Branch'
+        required: false
+      responses:
+        200:
+          description: Successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Branch'
+    delete:
+      tags:
+      - Management
+      summary: Delete a branch
+      description: Delete a branch
+      operationId: delete_branch
+      parameters:
+      - name: branch_id
+        in: path
+        description: ID of branch
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: Successfully deleted branch
+          content: {}
+  /branches/{branch_id}/cfg:
+    get:
+      tags:
+      - Management
+      summary: List all results
+      operationId: get_branch
+      parameters:
+      - name: branch_id
+        in: path
+        description: ID of pet to return
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: A paged array of runs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Branch'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+  /branches/{branch_id}/sequences:
+    get:
+      tags:
+      - Management
+      summary: List branch sequences
+      operationId: get_branch_sequences
+      parameters:
+      - name: branch_id
+        in: path
+        description: ID of branch
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: An array of branch sequences
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BranchSequences'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+  /branches/{branch_id}/stats:
+    get:
+      tags:
+      - Management
+      summary: Stats of a branch
+      operationId: get_branch_stats
+      parameters:
+      - name: branch_id
+        in: path
+        description: ID of branch
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: Branch stats
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BranchStats'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+  /branches/{branch_id}/flows/{kind}:
+    get:
+      tags:
+      - Execution
+      summary: List all runs
+      operationId: get_flows
+      parameters:
+      - name: branch_id
+        in: path
+        description: ID of pet to return
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: kind
+        in: path
+        description: ID of pet to return
+        required: true
+        schema:
+          type: string
+      - name: start
+        in: query
+        description: How many items to return at one time (max 100)
+        schema:
+          type: integer
+          format: int32
+      - name: limit
+        in: query
+        description: How many items to return at one time (max 100)
+        schema:
+          type: integer
+          format: int32
+      - name: middle
+        in: query
+        description: Middle
+        schema:
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: A paged array of runs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Flows'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+    post:
+      tags:
+      - Execution
+      summary: Create a run
+      description: Create a new run
+      operationId: create_flow
+      parameters:
+      - name: branch_id
+        in: path
+        description: ID of pet to return
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: kind
+        in: path
+        description: ID of pet to return
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: flow
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Flow'
+        required: false
+      responses:
+        201:
+          description: Successfully created run
+          content: {}
+  /branches/{branch_id}/stages:
+    post:
+      tags:
+      - Management
+      summary: Create a stage
+      description: Create a new stage
+      operationId: create_stage
+      parameters:
+      - name: branch_id
+        in: path
+        description: ID of pet to return
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: stage
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Stage'
+        required: false
+      responses:
+        201:
+          description: Successfully created run
+          content: {}
+  /branches/{branch_id}/project_id:
+    put:
+      tags:
+      - Management
+      summary: Move a branch to another project
+      description: Move a branch to another project
+      operationId: move_branch
+      parameters:
+      - name: branch_id
+        in: path
+        description: ID of branch
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: project id
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                project_id:
+                  type: integer
+                  format: int64
+      responses:
+        201:
+          description: Successfully created run
+          content: {}
+  /flows/{flow_id}:
+    get:
+      tags:
+      - Execution
+      summary: List all results
+      operationId: get_flow
+      parameters:
+      - name: flow_id
+        in: path
+        description: ID of pet to return
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: A paged array of runs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Flow'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+  /flows/{flow_id}/runs:
+    get:
+      tags:
+      - Execution
+      summary: List all results
+      operationId: get_flow_runs
+      parameters:
+      - name: flow_id
+        in: path
+        description: ID of pet to return
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: A paged array of runs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Runs'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+    post:
+      tags:
+      - Execution
+      summary: Create a run
+      description: Create a new run
+      operationId: create_run
+      parameters:
+      - name: flow_id
+        in: path
+        description: ID of pet to return
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: run
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Run'
+        required: false
+      responses:
+        201:
+          description: Successfully created run
+          content: {}
+  /flows/{flow_id}/artifacts:
+    get:
+      tags:
+      - Execution
+      summary: List artifacts of given flow
+      operationId: get_flow_artifacts
+      parameters:
+      - name: flow_id
+        in: path
+        description: ID of pet to return
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: A paged array of runs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Artifacts'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+  /flows/{flow_id}/analysis:
+    get:
+      tags:
+      - Results
+      summary: Results analysis of given flow
+      operationId: get_flow_analysis
+      parameters:
+      - name: flow_id
+        in: path
+        description: ID of pet to return
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: A paged array of runs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FlowAnalysis'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+  /flows/{flow_id}/history:
+    get:
+      tags:
+      - Results
+      summary: Results history of till given flow
+      operationId: get_branch_history
+      parameters:
+      - name: flow_id
+        in: path
+        description: ID of pet to return
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: limit
+        in: query
+        description: number of flows to return
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: An array of flows
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BranchHistory'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+  /stages/{stage_id}:
+    get:
+      tags:
+      - Management
+      summary: Get a stage
+      description: Get stage settings
+      operationId: get_stage
+      parameters:
+      - name: stage_id
+        in: path
+        description: ID of pet to return
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        201:
+          description: Successfully created run
+          content: {}
+    put:
+      tags:
+      - Management
+      summary: Update a stage
+      description: Update stage settings
+      operationId: update_stage
+      parameters:
+      - name: stage_id
+        in: path
+        description: ID of pet to return
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: stage
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Stage'
+      responses:
+        201:
+          description: Successfully created run
+          content: {}
+    delete:
+      tags:
+      - Management
+      summary: Delete a stage
+      description: Delete a stage
+      operationId: delete_stage
+      parameters:
+      - name: stage_id
+        in: path
+        description: ID of pet to return
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: Successfully deleted stage
+          content: {}
+  /stages/{stage_id}/schema:
+    put:
+      tags:
+      - Management
+      summary: Execute schema_code and return schema in JSON format
+      operationId: get_stage_schema_as_json
+      parameters:
+      - name: stage_id
+        in: path
+        description: ID of pet to return
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: Schema code to execute
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StageSchemaCode'
+        required: false
+      responses:
+        200:
+          description: A paged array of runs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StageSchemaJson'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+  /stages/{stage_id}/schedule:
+    get:
+      tags:
+      - Management
+      summary: Get schedule info for stage if there are time triggers configured.
+      operationId: get_stage_schedule
+      parameters:
+      - name: stage_id
+        in: path
+        description: Stage ID
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: An array of schedules
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StageSchedule'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+  /stages/{stage_id}/runs:
+    get:
+      tags:
+      - Execution
+      summary: List all runs
+      operationId: get_runs
+      parameters:
+      - name: stage_id
+        in: path
+        description: ID of pet to return
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: limit
+        in: query
+        description: How many items to return at one time (max 100)
+        schema:
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: A paged array of runs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Runs'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+  /runs/{run_id}/results:
+    get:
+      tags:
+      - Results
+      summary: List all results
+      operationId: get_run_results
+      parameters:
+      - name: run_id
+        in: path
+        description: ID of pet to return
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: start
+        in: query
+        description: How many items to return at one time (max 100)
+        schema:
+          type: integer
+          format: int32
+      - name: limit
+        in: query
+        description: How many items to return at one time (max 100)
+        schema:
+          type: integer
+          format: int32
+      - name: sort_field
+        in: query
+        schema:
+          type: string
+      - name: sort_dir
+        in: query
+        schema:
+          type: string
+      - name: statuses
+        in: query
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: integer
+      - name: changes
+        in: query
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: integer
+      - name: min_age
+        in: query
+        schema:
+          type: integer
+      - name: max_age
+        in: query
+        schema:
+          type: integer
+      - name: min_instability
+        in: query
+        schema:
+          type: integer
+      - name: max_instability
+        in: query
+        schema:
+          type: integer
+      - name: test_case_text
+        in: query
+        schema:
+          type: string
+      - name: job
+        in: query
+        schema:
+          type: string
+      - name: systems
+        in: query
+        schema:
+          type: array
+          items:
+            type: integer
+      - name: groups
+        in: query
+        schema:
+          type: array
+          items:
+            type: integer
+      responses:
+        200:
+          description: A paged array of runs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Results'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+  /runs/{run_id}/jobs:
+    get:
+      tags:
+      - Execution
+      summary: List jobs
+      operationId: get_run_jobs
+      parameters:
+      - name: run_id
+        in: path
+        description: ID of pet to return
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: start
+        in: query
+        description: How many items to return at one time (max 100)
+        schema:
+          type: integer
+          format: int32
+      - name: limit
+        in: query
+        description: How many items to return at one time (max 100)
+        schema:
+          type: integer
+          format: int32
+      - name: include_covered
+        in: query
+        description: Include covered jobs
+        schema:
+          type: boolean
+      responses:
+        200:
+          description: A paged array of runs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Jobs'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+  /runs/{run_id}/issues:
+    get:
+      tags:
+      - Execution
+      summary: List run issues
+      operationId: get_run_issues
+      parameters:
+      - name: run_id
+        in: path
+        description: ID of pet to return
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: start
+        in: query
+        description: How many items to return at one time (max 100)
+        schema:
+          type: integer
+          format: int32
+      - name: limit
+        in: query
+        description: How many items to return at one time (max 100)
+        schema:
+          type: integer
+          format: int32
+      - name: issue_types
+        in: query
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: integer
+      - name: location
+        in: query
+        schema:
+          type: string
+      - name: message
+        in: query
+        schema:
+          type: string
+      - name: symbol
+        in: query
+        schema:
+          type: string
+      - name: min_age
+        in: query
+        schema:
+          type: integer
+      - name: max_age
+        in: query
+        schema:
+          type: integer
+      - name: job
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: A paged array of runs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Issues'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+  /runs/{run_id}/artifacts:
+    get:
+      tags:
+      - Execution
+      summary: List artifacts of given run
+      operationId: get_run_artifacts
+      parameters:
+      - name: run_id
+        in: path
+        description: ID of pet to return
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: start
+        in: query
+        description: How many items to return at one time (max 100)
+        schema:
+          type: integer
+          format: int32
+      - name: limit
+        in: query
+        description: How many items to return at one time (max 100)
+        schema:
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: A paged array of runs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Artifacts'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+  /runs/{run_id}:
+    get:
+      tags:
+      - Execution
+      summary: List all results
+      operationId: get_run
+      parameters:
+      - name: run_id
+        in: path
+        description: ID of pet to return
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: A paged array of runs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Run'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+    put:
+      tags:
+      - Execution
+      summary: Start manual run or replay existing run ie. start again same jobs
+      operationId: run_run_jobs
+      parameters:
+      - name: run_id
+        in: path
+        description: ID of pet to return
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: A paged array of runs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Run'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+    delete:
+      tags:
+      - Execution
+      summary: Cancel a run
+      description: Cancel a run
+      operationId: cancel_run
+      parameters:
+      - name: run_id
+        in: path
+        description: ID of run
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: Successfully deleted job
+          content: {}
+  /test_case_results/{test_case_result_id}:
+    get:
+      tags:
+      - Results
+      summary: List all results
+      operationId: get_result
+      parameters:
+      - name: test_case_result_id
+        in: path
+        description: ID of pet to return
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: A paged array of runs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Result'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+  /test_case_results/{test_case_result_id}/history:
+    get:
+      tags:
+      - Results
+      summary: List all results
+      operationId: get_result_history
+      parameters:
+      - name: test_case_result_id
+        in: path
+        description: ID of pet to return
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: start
+        in: query
+        description: How many items to return at one time (max 100)
+        schema:
+          type: integer
+          format: int32
+      - name: limit
+        in: query
+        description: How many items to return at one time (max 100)
+        schema:
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: A paged array of runs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Results'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+  /test_case_results/{test_case_result_id}/comment:
+    post:
+      tags:
+      - Results
+      summary: Create or update a comment to the result
+      description: Create or update a comment to the result
+      operationId: create_or_update_test_case_comment
+      parameters:
+      - name: test_case_result_id
+        in: path
+        description: ID of test case result
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: Comment to create
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+                author:
+                  type: string
+                state:
+                  type: integer
+                  format: int64
+      responses:
+        201:
+          description: Successfully created comment
+          content: {}
+  /jobs:
+    post:
+      tags:
+      - Execution
+      summary: Create a job
+      description: Create a new job
+      operationId: create_job
+      requestBody:
+        description: Job to create
+        content:
+          application/json:
+            schema:
+              required:
+              - run
+              type: object
+              properties:
+                run:
+                  type: integer
+        required: false
+      responses:
+        201:
+          description: Successfully created run
+          content: {}
+  /jobs/{job_id}:
+    put:
+      tags:
+      - Execution
+      summary: Rerun a job
+      operationId: job_rerun
+      parameters:
+      - name: job_id
+        in: path
+        description: ID of pet to return
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: A paged array of runs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+    delete:
+      tags:
+      - Execution
+      summary: Cancel a job
+      description: Cancel a job
+      operationId: delete_job
+      parameters:
+      - name: job_id
+        in: path
+        description: ID of job
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: Successfully deleted job
+          content: {}
+  /jobs/{job_id}/logs:
+    get:
+      tags:
+      - Execution
+      summary: Get a job logs
+      description: Get a job logs
+      operationId: get_job_logs
+      parameters:
+      - name: job_id
+        in: path
+        description: ID of pet to return
+        required: true
+        schema:
+          type: integer
+      - name: start
+        in: query
+        description: ID of pet to return
+        required: true
+        schema:
+          type: integer
+      - name: limit
+        in: query
+        description: ID of pet to return
+        required: true
+        schema:
+          type: integer
+      - name: order
+        in: query
+        description: ID of pet to return
+        schema:
+          type: string
+      - name: internals
+        in: query
+        description: ID of pet to return
+        schema:
+          type: boolean
+      - name: filters
+        in: query
+        description: ID of pet to return
+        schema:
+          type: string
+      responses:
+        200:
+          description: A paged array of logs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Logs'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+  /last-rq-jobs:
+    get:
+      tags:
+      - Management
+      summary: Get rq logs
+      description: Get last rq jobs names
+      operationId: get_last_rq_jobs_names
+      responses:
+        200:
+          description: A paged array of logs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RQJobNames'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+  /services-logs:
+    get:
+      tags:
+      - Management
+      summary: Get services logs
+      description: Get services logs
+      operationId: get_services_logs
+      parameters:
+      - name: services
+        in: query
+        description: ID of pet to return
+        schema:
+          type: array
+          items:
+            type: string
+      - name: level
+        in: query
+        description: log level
+        schema:
+          type: string
+      responses:
+        200:
+          description: A paged array of logs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServicesLogs'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+  /live-data:
+    get:
+      tags:
+      - Management
+      summary: Get errors in logs count in the last hour
+      description: Get errors in logs count in the last hour
+      operationId: get_live_data
+      responses:
+        200:
+          description: A paged array of logs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LiveData'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+  /agents:
+    get:
+      tags:
+      - Management
+      summary: Get agents
+      description: Get agents
+      operationId: get_agents
+      parameters:
+      - name: unauthorized
+        in: query
+        description: ID of pet to return
+        schema:
+          type: boolean
+      - name: start
+        in: query
+        description: How many items to return at one time (max 100)
+        schema:
+          type: integer
+          format: int32
+      - name: limit
+        in: query
+        description: How many items to return at one time (max 100)
+        schema:
+          type: integer
+          format: int32
+      - name: sort_field
+        in: query
+        schema:
+          type: string
+      - name: sort_dir
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: A paged array of logs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Agents'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+    patch:
+      tags:
+      - Management
+      summary: Update agents
+      description: Update agents
+      operationId: update_agents
+      requestBody:
+        description: List of modified agents
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Agent'
+        required: false
+      responses:
+        200:
+          description: A paged array of logs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Agents'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+  /agents/{agent_id}:
+    get:
+      tags:
+      - Management
+      summary: Get agent
+      description: Get agent details
+      operationId: get_agent
+      parameters:
+      - name: agent_id
+        in: path
+        description: ID of agent
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: Agent details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Agent'
+    put:
+      tags:
+      - Management
+      summary: Update a agent
+      description: Update agent settings
+      operationId: update_agent
+      parameters:
+      - name: agent_id
+        in: path
+        description: ID of agent
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: agent
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Agent'
+        required: false
+      responses:
+        200:
+          description: Successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Agent'
+    delete:
+      tags:
+      - Management
+      summary: Delete a agent
+      description: Delete a agent
+      operationId: delete_agent
+      parameters:
+      - name: agent_id
+        in: path
+        description: ID of agent
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: Successfully deleted agent
+          content: {}
+  /agents/{agent_id}/jobs:
+    get:
+      tags:
+      - Execution
+      summary: List jobs executed by given agent
+      operationId: get_agent_jobs
+      parameters:
+      - name: agent_id
+        in: path
+        description: ID of agent
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: start
+        in: query
+        description: How many items to return at one time (max 100)
+        schema:
+          type: integer
+          format: int32
+      - name: limit
+        in: query
+        description: How many items to return at one time (max 100)
+        schema:
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: A paged array of runs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Jobs'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+  /groups:
+    get:
+      tags:
+      - Management
+      summary: Get groups
+      description: Get groups
+      operationId: get_groups
+      parameters:
+      - name: start
+        in: query
+        description: How many items to return at one time (max 100)
+        schema:
+          type: integer
+          format: int32
+      - name: limit
+        in: query
+        description: How many items to return at one time (max 100)
+        schema:
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: Successfully
+          content: {}
+    post:
+      tags:
+      - Management
+      summary: Create a group
+      description: Create a new group
+      operationId: create_group
+      requestBody:
+        description: group
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Group'
+        required: false
+      responses:
+        201:
+          description: Successfully created group
+          content: {}
+  /groups/{group_id}:
+    get:
+      tags:
+      - Management
+      summary: Get group
+      description: Get group details
+      operationId: get_group
+      parameters:
+      - name: group_id
+        in: path
+        description: ID of group
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: Group details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Group'
+    put:
+      tags:
+      - Management
+      summary: Update a group
+      description: Update group settings
+      operationId: update_group
+      parameters:
+      - name: group_id
+        in: path
+        description: ID of group
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: group
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Group'
+        required: false
+      responses:
+        200:
+          description: Successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Group'
+    delete:
+      tags:
+      - Management
+      summary: Delete a group
+      description: Gelete group settings
+      operationId: delete_group
+      parameters:
+      - name: group_id
+        in: path
+        description: ID of group
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: Successfully
+          content: {}
+  /aws-ec2-regions:
+    get:
+      tags:
+      - Management
+      summary: Get settings
+      description: Get settings details
+      operationId: get_aws_ec2_regions
+      responses:
+        200:
+          description: Settings details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AwsEc2Regions'
+  /aws-ec2-instance-types/{region}:
+    get:
+      tags:
+      - Management
+      summary: Get settings
+      description: Get settings details
+      operationId: get_aws_ec2_instance_types
+      parameters:
+      - name: region
+        in: path
+        description: ID of group
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Settings details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AwsEc2InstanceTypes'
+  /azure-locations:
+    get:
+      tags:
+      - Management
+      summary: Get settings
+      description: Get settings details
+      operationId: get_azure_locations
+      responses:
+        200:
+          description: Settings details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AzureLocations'
+  /azure-vm-sizes/{location}:
+    get:
+      tags:
+      - Management
+      summary: Get settings
+      description: Get settings details
+      operationId: get_azure_vm_sizes
+      parameters:
+      - name: location
+        in: path
+        description: ID of group
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Settings details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AzureVmSizes'
+  /settings:
+    get:
+      tags:
+      - Management
+      summary: Get settings
+      description: Get settings details
+      operationId: get_settings
+      security:
+        - bearerAuth: []
+        - {}  # no security, it is used to get public settings
+      responses:
+        200:
+          description: Settings details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Settings'
+    put:
+      tags:
+      - Management
+      summary: Update a project
+      description: Update project settings
+      operationId: update_settings
+      requestBody:
+        description: settings details
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Settings'
+        required: false
+      responses:
+        200:
+          description: Successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Settings'
+  /settings/{resource}/working-state:
+    get:
+      tags:
+      - Management
+      summary: Check if email or AWS settings are working
+      description: Check if email or AWS settings are working
+      operationId: get_settings_working_state
+      parameters:
+      - name: resource
+        in: path
+        description: ID of pet to return
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SettingsWorkingState'
+  /diagnostics:
+    get:
+      tags:
+      - Management
+      summary: Get health status of Kraken services.
+      description: Get health status of Kraken services.
+      operationId: get_diagnostics
+      responses:
+        200:
+          description: Successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Diagnostics'
+  /tools:
+    get:
+      tags:
+      - Management
+      summary: List tools
+      description: List tools
+      operationId: get_tools
+      parameters:
+      - name: start
+        in: query
+        description: How many items to return at one time (max 100)
+        schema:
+          type: integer
+          format: int32
+      - name: limit
+        in: query
+        description: How many items to return at one time (max 100)
+        schema:
+          type: integer
+          format: int32
+      - name: sort_field
+        in: query
+        schema:
+          type: string
+      - name: sort_dir
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tools'
+    post:
+      tags:
+      - Management
+      summary: Create or update a tool
+      description: Create a new tool or update existing version
+      operationId: create_or_update_tool
+      requestBody:
+        description: group
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Tool'
+      responses:
+        201:
+          description: Successfully created group
+          content: {}
+  /tools/{tool_id}:
+    delete:
+      tags:
+      - Management
+      summary: Delete tool
+      description: List tools
+      operationId: delete_tool
+      parameters:
+      - name: tool_id
+        in: path
+        description: ID of tool
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: Successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tools'
+  /tools/{name}:
+    get:
+      tags:
+      - Management
+      summary: List tools
+      description: List tools
+      operationId: get_tool_versions
+      parameters:
+      - name: name
+        in: path
+        description: Name of tool
+        required: true
+        schema:
+          type: string
+      - name: start
+        in: query
+        description: How many items to return at one time (max 100)
+        schema:
+          type: integer
+          format: int32
+      - name: limit
+        in: query
+        description: How many items to return at one time (max 100)
+        schema:
+          type: integer
+          format: int32
+      - name: sort_field
+        in: query
+        schema:
+          type: string
+      - name: sort_dir
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tools'
+  /tools/{name}/zip:
+    post:
+      tags:
+      - Management
+      summary: Upload new tool or existing one
+      description: Upload code of a tool and create new one or overwrite existing version
+      operationId: upload_new_or_overwrite_tool
+      parameters:
+      - name: name
+        in: path
+        description: Name of tool
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                meta:
+                  $ref: '#/components/schemas/Tool'
+                file:
+                  type: string
+                  format: binary
+            encoding:
+              meta:
+                contentType: application/json
+              file:
+                contentType: application/zip
+      responses:
+        201:
+          description: Successfully created group
+          content: {}
+
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      x-bearerInfoFunc: kraken.server.users.check_auth_token
+
+  schemas:
+    Session:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        token:
+          type: string
+    Users:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+        total:
+          type: integer
+          format: int64
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        password:
+          type: string
+        enabled:
+          type: boolean
+        email:
+          type: string
+        superadmin:
+          type: boolean
+    UserPassword:
+      type: object
+      properties:
+        password_old:
+          type: string
+        password_new:
+          type: string
+    Flow:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        label:
+          type: string
+        branch_id:
+          type: integer
+          format: int64
+        created:
+          type: string
+          format: date-time
+        project_id:
+          type: integer
+          format: int64
+        project_name:
+          type: string
+        base_branch_name:
+          type: string
+        branch_name:
+          type: string
+        runs:
+          type: object
+          properties: {}
+        stages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Stage'
+        args:
+          type: object
+          properties: {}
+        kind:
+          type: string
+        artifacts:
+          type: object
+          properties:
+            public:
+              type: object
+              properties:
+                count:
+                  type: integer
+                  format: int64
+        report_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReportEntry'
+    Flows:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Flow'
+        total:
+          type: integer
+          format: int64
+    Run:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        label:
+          type: string
+        project_id:
+          type: integer
+          format: int64
+        project_name:
+          type: string
+        branch_id:
+          type: integer
+          format: int64
+        branch_name:
+          type: string
+        flow_id:
+          type: integer
+          format: int64
+        flow_kind:
+          type: string
+        flow_label:
+          type: string
+        stage_id:
+          type: integer
+          format: int64
+        stage_name:
+          type: string
+        args:
+          type: object
+          properties: {}
+        created:
+          type: string
+          format: date-time
+        started:
+          type: string
+          format: date-time
+        duration:
+          type: string
+        state:
+          type: string
+        jobs_error:
+          type: integer
+        jobs_rerun:
+          type: integer
+        jobs_waiting:
+          type: integer
+        jobs_executing:
+          type: integer
+        jobs_processing:
+          type: integer
+        jobs_total:
+          type: integer
+        tests_not_run:
+          type: integer
+        tests_passed:
+          type: integer
+        tests_total:
+          type: integer
+        issues_total:
+          type: integer
+        issues_new:
+          type: integer
+        artifacts_total:
+          type: integer
+        report_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReportEntry'
+        fix_cnt:
+          type: integer
+        regr_cnt:
+          type: integer
+        repo_data:
+          type: object
+          properties: {}
+        reason:
+          type: string
+    Runs:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Run'
+        total:
+          type: integer
+          format: int64
+    Result:
+      required:
+      - id
+      - job_id
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        job_id:
+          type: integer
+          format: int64
+        values:
+          type: object
+          properties: {}
+    Results:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Result'
+        total:
+          type: integer
+          format: int64
+    Issue:
+      required:
+      - id
+      - job_id
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        job_id:
+          type: integer
+          format: int64
+        job_name:
+          type: string
+    Issues:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Issue'
+        total:
+          type: integer
+          format: int64
+    Artifact:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        flow_id:
+          type: integer
+          format: int64
+        run_id:
+          type: integer
+          format: int64
+        size:
+          type: integer
+        path:
+          type: string
+    Artifacts:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Artifact'
+        total:
+          type: integer
+          format: int64
+    FlowAnalysis:
+      type: object
+      properties:
+        stats:
+          type: object
+        recs_map:
+          type: object
+        total_tests:
+          type: integer
+    BranchHistory:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+        total:
+          type: integer
+    ReportEntry:
+      type: object
+      properties:
+        name:
+          type: string
+        url:
+          type: string
+    Log:
+      type: object
+      properties:
+        time:
+          type: string
+        message:
+          type: string
+        service:
+          type: string
+        host:
+          type: string
+        level:
+          type: string
+        job:
+          type: integer
+        tool:
+          type: string
+        step:
+          type: integer
+    Logs:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Log'
+        total:
+          type: integer
+          format: int64
+        bookmarks:
+          type: object
+          properties:
+            first:
+              type: string
+            last:
+              type: string
+        job:
+          $ref: '#/components/schemas/Job'
+    RQJobNames:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              time:
+                type: string
+              name:
+                type: string
+              lines:
+                type: integer
+                format: int64
+    ServicesLog:
+      type: object
+      properties:
+        time:
+          type: string
+        message:
+          type: string
+        service:
+          type: string
+        host:
+          type: string
+        level:
+          type: string
+        tool:
+          type: string
+    ServicesLogs:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServicesLog'
+        total:
+          type: integer
+          format: int64
+    LiveData:
+      type: object
+      properties:
+        error_logs_count:
+          type: integer
+          format: int64
+        authorized_agents:
+          type: integer
+          format: int64
+        non_authorized_agents:
+          type: integer
+          format: int64
+    Job:
+      type: object
+      properties:
+        id:
+          type: integer
+        created:
+          type: string
+          format: date-time
+        started:
+          type: string
+          format: date-time
+        finished:
+          type: string
+          format: date-time
+        completed:
+          type: string
+          format: date-time
+        duration:
+          type: string
+        timeout:
+          type: integer
+        name:
+          type: string
+        state:
+          type: integer
+        completion_status:
+          type: integer
+        notes:
+          type: string
+        run_id:
+          type: integer
+        steps:
+          type: array
+          items:
+            type: object
+            properties: {}
+        agents_group_id:
+          type: integer
+        agents_group_name:
+          type: string
+        agent_id:
+          type: integer
+        agent_name:
+          type: string
+        executor:
+          type: string
+        system:
+          type: string
+    Jobs:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Job'
+        total:
+          type: integer
+          format: int64
+    Project:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        webhooks:
+          type: object
+          properties: {}
+        branches:
+          type: array
+          items:
+            type: object
+            properties: {}
+    Projects:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Project'
+        total:
+          type: integer
+          format: int64
+    Secret:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        project_id:
+          type: integer
+          format: int64
+        project_name:
+          type: string
+        kind:
+          type: string
+        username:
+          type: string
+        key:
+          type: string
+    Branch:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        branch_name:
+          type: string
+        project_id:
+          type: integer
+          format: int64
+        project_name:
+          type: string
+        forking_model:
+          type: string
+        stages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Stage'
+        flows:
+          type: object
+          properties: {}
+    BranchSequence:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        branch_name:
+          type: string
+        branch_id:
+          type: integer
+          format: int64
+        stage_name:
+          type: string
+        stage_id:
+          type: integer
+          format: int64
+        kind:
+          type: integer
+          format: int64
+        value:
+          type: integer
+          format: int64
+    BranchSequences:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/BranchSequence'
+        total:
+          type: integer
+          format: int64
+    BranchStats:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        ci:
+          $ref: '#/components/schemas/BranchStatsByKind'
+        dev:
+          $ref: '#/components/schemas/BranchStatsByKind'
+    BranchStatsByKind:
+      type: object
+      properties:
+        flows_total:
+          type: integer
+          format: int64
+        flows_last_week:
+          type: integer
+          format: int64
+        flows_last_month:
+          type: integer
+          format: int64
+        # TODO: failures stats
+        avg_duration_last_month:
+          type: integer
+          format: int64
+        avg_duration_last_week:
+          type: integer
+          format: int64
+        durations:
+          type: array
+          items:
+            type: object
+            properties:
+              flow_label:
+                type: string
+              duration:
+                type: integer
+                format: int64
+        # TODO: failures array
+    Stage:
+      required:
+      - name
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        branch_id:
+          type: integer
+          format: int64
+        branch_name:
+          type: string
+        schema:
+          type: object
+          properties:
+            parent:
+              type: string
+            triggers:
+              type: object
+              properties:
+                parent:
+                  type: boolean
+            parameters:
+              type: array
+              items:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  default:
+                    type: string
+        schema_code:
+          type: string
+        enabled:
+          type: boolean
+    StageSchemaJson:
+      type: object
+      properties:
+        stage_id:
+          type: integer
+          format: int64
+        schema:
+          type: string
+        error:
+          type: string
+    StageSchemaCode:
+      required:
+      - schema_code
+      type: object
+      properties:
+        schema_code:
+          type: string
+    StageSchedule:
+      type: object
+      properties:
+        schedules:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              job_id:
+                type: string
+              next_run_time:
+                type: string
+    Agent:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        address:
+          type: string
+        authorized:
+          type: boolean
+        ip_address:
+          type: string
+        state:
+          type: integer
+        disabled:
+          type: boolean
+        groups:
+          type: array
+          items:
+            type: object
+            properties: {}
+        job:
+          type: object
+          properties: {}
+        last_seen:
+          type: string
+          format: date-time
+        host_info:
+          type: object
+          properties: {}
+        user_attrs:
+          type: object
+          properties: {}
+    Agents:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Agent'
+        total:
+          type: integer
+          format: int64
+    Group:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        project_name:
+          type: string
+        project_id:
+          type: integer
+        agents_count:
+          type: integer
+    Groups:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Group'
+        total:
+          type: integer
+          format: int64
+    System:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        executor:
+          type: string
+    Systems:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/System'
+        total:
+          type: integer
+          format: int64
+    AwsEc2Regions:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              Endpoint:
+                type: string
+              RegionName:
+                type: string
+              OptInStatus:
+                type: string
+        total:
+          type: integer
+          format: int64
+    AwsEc2InstanceTypes:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              InstanceType:
+                type: string
+        total:
+          type: integer
+          format: int64
+    AzureLocations:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: string
+        total:
+          type: integer
+          format: int64
+    AzureVmSizes:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: string
+        total:
+          type: integer
+          format: int64
+    Settings:
+      type: object
+      properties:
+        general:
+          type: object
+          properties: {}
+        notification:
+          type: object
+          properties: {}
+        monitoring:
+          type: object
+          properties: {}
+    SettingsWorkingState:
+      type: object
+      properties:
+        state:
+          type: string
+    Diagnostics:
+      type: object
+    Tools:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tool'
+        total:
+          type: integer
+          format: int64
+    Tool:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+    ServerVersion:
+      type: object
+      properties:
+        version:
+          type: string
+    ApiError:
+      required:
+      - code
+      - message
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string

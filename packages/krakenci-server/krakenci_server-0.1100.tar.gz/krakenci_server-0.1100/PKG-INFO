@@ -1,0 +1,135 @@
+Metadata-Version: 2.1
+Name: krakenci-server
+Version: 0.1100
+Summary: Kraken CI server.
+Home-page: https://kraken.ci/
+License: Apache-2.0
+Keywords: building,testing,continuous-integration,ci,cd,cicd
+Author: Michal Nowikowski
+Author-email: godfryd@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Topic :: Software Development :: Quality Assurance
+Classifier: Topic :: Software Development :: Testing
+Requires-Dist: Authlib (>=1.1.0,<2.0.0)
+Requires-Dist: Flask (>=1.1.4,<2.0.0)
+Requires-Dist: Flask-SQLAlchemy (>=2.5.1,<3.0.0)
+Requires-Dist: MarkupSafe (==2.0.1)
+Requires-Dist: RestrictedPython (==5.0)
+Requires-Dist: SQLAlchemy (>=1.4.25,<2.0.0)
+Requires-Dist: alembic (>=1.7.3,<2.0.0)
+Requires-Dist: apscheduler (>=3.8.0,<4.0.0)
+Requires-Dist: azure-identity (>=1.6.1,<2.0.0)
+Requires-Dist: azure-mgmt-compute (>=23.0.0,<24.0.0)
+Requires-Dist: azure-mgmt-monitor (>=2.0.0,<3.0.0)
+Requires-Dist: azure-mgmt-network (>=19.0.0,<20.0.0)
+Requires-Dist: azure-mgmt-resource (>=19.0.0,<20.0.0)
+Requires-Dist: azure-mgmt-storage (>=18.0.0,<19.0.0)
+Requires-Dist: azure-mgmt-subscription (>=1.0.0,<2.0.0)
+Requires-Dist: boto3 (>=1.18.52,<2.0.0)
+Requires-Dist: casbin (>=1.17.1,<2.0.0)
+Requires-Dist: clickhouse-driver (>=0.2.2,<0.3.0)
+Requires-Dist: connexion (>=2.13.1,<3.0.0)
+Requires-Dist: giturlparse (>=0.10.0,<0.11.0)
+Requires-Dist: gunicorn (>=20.1.0,<21.0.0)
+Requires-Dist: jsonschema (>=4.5.0,<5.0.0)
+Requires-Dist: kubernetes (>=20.13.0,<21.0.0)
+Requires-Dist: minio (>=7.1.0,<8.0.0)
+Requires-Dist: passlib (>=1.7.4,<2.0.0)
+Requires-Dist: psycopg2-binary (>=2.9.1,<3.0.0)
+Requires-Dist: python-dateutil (>=2.8.2,<3.0.0)
+Requires-Dist: python-ldap (>=3.4.3,<4.0.0)
+Requires-Dist: pytimeparse (>=1.1.8,<2.0.0)
+Requires-Dist: redis (>=3.5.3,<4.0.0)
+Requires-Dist: requests (>=2.26.0,<3.0.0)
+Requires-Dist: rq (>=1.10.0,<2.0.0)
+Requires-Dist: sentry-sdk[flask] (>=1.5.0,<2.0.0)
+Requires-Dist: swagger-ui-bundle (>=0.0.9,<0.0.10)
+Requires-Dist: tzlocal (==2.1)
+Project-URL: Documentation, https://kraken.ci/docs
+Project-URL: Repository, https://github.com/kraken-ci/kraken
+Description-Content-Type: text/markdown
+
+# Kraken CI
+
+![Release Version](https://img.shields.io/github/v/release/Kraken-CI/kraken)
+![Release Date](https://img.shields.io/github/release-date/Kraken-CI/kraken)
+
+![Kraken Build](https://lab.kraken.ci/bk/branch-badge/2)
+![Kraken Tests](https://lab.kraken.ci/bk/branch-badge/2/tests)
+![Kraken Issues](https://lab.kraken.ci/bk/branch-badge/2/issues)
+
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/be770bd29e374ece9e6f2782a1de99fc)](https://www.codacy.com/gh/Kraken-CI/kraken/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Kraken-CI/kraken&amp;utm_campaign=Badge_Grade)
+[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/Kraken-CI/kraken.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Kraken-CI/kraken/context:python)
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/Kraken-CI/kraken.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Kraken-CI/kraken/context:javascript)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/Kraken-CI/kraken.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Kraken-CI/kraken/alerts/)
+[![codebeat badge](https://codebeat.co/badges/556ac028-2390-4093-839e-a509f5678cf1)](https://codebeat.co/projects/github-com-kraken-ci-kraken-master)
+
+[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/4758/badge)](https://bestpractices.coreinfrastructure.org/projects/4758)
+[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/kraken-ci)](https://artifacthub.io/packages/search?repo=kraken-ci)
+
+
+<!-- ABOUT THE PROJECT -->
+## About Kraken CI
+
+![Kraken CI Results Page](https://kraken.ci/img/slide-branch-results.png)
+
+Kraken CI is a modern, open-source, on-premise CI/CD system
+that is highly scalable and focused on testing.
+
+More information can be found on https://kraken.ci
+
+
+<!-- GETTING STARTED -->
+## Getting Started
+
+Quick start guide is here: https://kraken.ci/docs/quick-start
+
+Full installation manual: https://kraken.ci/docs/installation
+
+And here is developers guide: https://kraken.ci/docs/dev-guide
+
+
+<!-- USAGE EXAMPLES -->
+## Usage
+
+Guides can be found here: https://kraken.ci/docs/guide-intro
+
+Demo site is available here: https://lab.kraken.ci/
+
+
+<!-- ROADMAP -->
+## Roadmap
+
+See the [open issues](https://github.com/kraken-ci/kraken/issues) for a list of proposed features (and known issues).
+
+
+<!-- CONTRIBUTING -->
+## Contributing
+
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+Details on https://kraken.ci/docs/contrib-kraken
+
+
+<!-- LICENSE -->
+## License
+
+Distributed under the Apache 2.0 License. See `LICENSE` for more information.
+
+
+<!-- CONTACT -->
+## Contact
+
+Michal Nowikowski - godfryd@gmail.com
+
+Project Link: [https://kraken.ci](https://kraken.ci)
+
