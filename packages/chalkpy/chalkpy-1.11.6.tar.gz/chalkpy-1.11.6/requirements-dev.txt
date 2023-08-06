@@ -1,0 +1,9 @@
+aiosqlite>=0.17.0
+duckdb==0.6.0
+pre-commit
+pytest
+sqlglot
+types-PyMySQL>=1.0.19.1,<1.1
+types-PyYAML
+types-requests
+types-setuptools>=65.5.0.2,<65.7
