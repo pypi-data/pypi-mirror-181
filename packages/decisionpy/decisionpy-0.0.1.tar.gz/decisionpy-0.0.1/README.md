@@ -1,0 +1,3 @@
+# MCDM SOLVER
+
+Solving **MULTI-CRITERIA DECISIONS PROBLEMS** with python.

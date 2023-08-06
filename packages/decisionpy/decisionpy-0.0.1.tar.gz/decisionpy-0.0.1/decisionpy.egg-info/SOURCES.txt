@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+decisionpy.egg-info/PKG-INFO
+decisionpy.egg-info/SOURCES.txt
+decisionpy.egg-info/dependency_links.txt
+decisionpy.egg-info/top_level.txt
+mcdm/__init__.py
+mcdm/electre.py
