@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: tensorrt
+Version: 8.5.2.2
+Summary: A high performance deep learning inference library
+Home-page: https://developer.nvidia.com/tensorrt
+Author: NVIDIA Corporation
+License: Proprietary
+Download-URL: https://github.com/nvidia/tensorrt/tags
+Keywords: nvidia tensorrt deeplearning inference
+Platform: UNKNOWN
+Classifier: License :: Other/Proprietary License
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+License-File: LICENSE.txt
+Requires-Dist: nvidia-cuda-runtime-cu11
+Requires-Dist: nvidia-cudnn-cu11
+Requires-Dist: nvidia-cublas-cu11
+Provides-Extra: numpy
+Requires-Dist: numpy ; extra == 'numpy'
+
+A high performance deep learning inference library
+
