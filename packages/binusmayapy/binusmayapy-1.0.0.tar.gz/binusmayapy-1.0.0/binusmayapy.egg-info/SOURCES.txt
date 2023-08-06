@@ -1,0 +1,17 @@
+README.md
+setup.py
+binusmayapy/__init__.py
+binusmayapy/bimay.py
+binusmayapy.egg-info/PKG-INFO
+binusmayapy.egg-info/SOURCES.txt
+binusmayapy.egg-info/dependency_links.txt
+binusmayapy.egg-info/requires.txt
+binusmayapy.egg-info/top_level.txt
+binusmayapy/modules/__init__.py
+binusmayapy/modules/academic_period.py
+binusmayapy/modules/classes.py
+binusmayapy/modules/forums.py
+binusmayapy/modules/resources.py
+binusmayapy/modules/schedules.py
+binusmayapy/modules/token_grabber.py
+binusmayapy/modules/user_profile.py
