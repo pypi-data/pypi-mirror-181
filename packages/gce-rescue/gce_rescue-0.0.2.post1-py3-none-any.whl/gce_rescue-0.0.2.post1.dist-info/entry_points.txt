@@ -1,0 +1,2 @@
+[console_scripts]
+gce-rescue = gce_rescue.bin.rescue:main
