@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=42","wheel","opencv-python","numpy"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "SurfaceDefects"
+version = "1.0.0"
+authors = [
+  { name="Amir Hamza", email="19pwciv5384@uetpeshawar.edu.pk" },
+]
+description = "A package for detecting and analysing defects/pores in concrete, steel or similar surfaces."
+readme = "README.md"
+requires-python = ">=3.7"
+keywords = ["Computer Vision","Contours","Pores Detection in concrete","Pores Detection in Steel"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/engr-amir-hamza/SurfaceDefects.git"
+"Bug Tracker" = "https://github.com/engr-amir-hamza/SurfaceDefects/issues"
