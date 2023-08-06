@@ -1,0 +1,8 @@
+
+[render]
+mkdpdf==0.2.1
+
+[test]
+mkdpdf
+pytest
+pytest-cov

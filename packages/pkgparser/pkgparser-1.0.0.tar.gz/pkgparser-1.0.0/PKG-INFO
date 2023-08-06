@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: pkgparser
+Version: 1.0.0
+Summary: Python package for parsing metadata from classes and functions in a python package.
+Home-page: https://gitlab.com/lgensinger/pkgparser
+License: MIT
+Description-Content-Type: text/markdown
+Provides-Extra: render
+Provides-Extra: test
+License-File: LICENSE
+
+# pkgparser
+
+[![PyPI version](https://badge.fury.io/py/pkgparser.svg)](https://pypi.org/project/pkgparser/)
+
+Python package for parsing metadata from classes and functions in a python package.
