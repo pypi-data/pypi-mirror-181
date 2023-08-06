@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: polywrap-uri-resolvers
+Version: 0.1.0a1
+Summary: 
+Author: Cesar
+Author-email: cesar@polywrap.io
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: polywrap-core (==0.1.0a1)
+Requires-Dist: polywrap-result (==0.1.0a1)
+Requires-Dist: polywrap-wasm (==0.1.0a1)
+Requires-Dist: wasmtime (>=1.0.1,<2.0.0)
+Description-Content-Type: text/markdown
+
+TODO
