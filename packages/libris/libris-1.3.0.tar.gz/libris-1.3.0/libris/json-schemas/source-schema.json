@@ -1,0 +1,50 @@
+{
+    "$schema": "http://json-schema.org/draft/2020-12/schema",
+    "$id": "https://lazyscrivenergames.com/jsons/source-schema.json",
+    "title": "LibrisSource",
+    "description": "A markdown source definition for an libris configuration file.",
+    "type": ["object", "string"],
+    "properties": {
+        "source": {
+            "description": "Markdown file to be included in PDF output.",
+            "type": "string"
+        },
+        "sources": {
+            "description": "Markdown files to include in PDF output.",
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "sourceDirectory": {
+            "description": "Directory of markdown files to put together alphabetically.",
+            "type": "string"
+        },
+        "style": {
+            "description": "Style definition to be used for this markdown file.",
+            "type": "string"
+        },
+        "variables": {
+            "description": "Variables to be passed to decorator templates.",
+            "type": "object"
+        }
+    },
+    "oneOf": [
+        {
+            "type": "string"
+        },
+        {
+            "type": "object",
+            "required": ["source"]
+        },
+        {
+            "type": "object",
+            "required": ["sources"]
+        },
+        {
+            "type": "object",
+            "required": ["sourceDirectory"]
+        }
+    ],
+    "additionalProperties": false
+}
