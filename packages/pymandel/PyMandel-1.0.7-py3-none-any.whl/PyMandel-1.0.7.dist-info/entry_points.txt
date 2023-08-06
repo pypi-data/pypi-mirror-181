@@ -1,0 +1,4 @@
+[console_scripts]
+make_colormap = colormaps.make_colormap:main
+pymandel = pymandel.__main__:main
+pymandelcli = pymandel.mandelcli:main
