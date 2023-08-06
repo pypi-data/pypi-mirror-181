@@ -1,0 +1,138 @@
+Metadata-Version: 2.1
+Name: nibabies
+Version: 22.2.0
+Summary: NeuroImaging Babies provides processing tools for magnetic resonance images of the brain in infants.
+Home-page: https://github.com/nipreps/nibabies
+Author: The NiPreps Developers
+Author-email: nipreps@gmail.com
+License: Apache License, 2.0
+Project-URL: Documentation, https://nibabies.readthedocs.io/en/latest/
+Project-URL: Source Code, https://github.com/nipreps/nibabies
+Project-URL: Bug Tracker, https://github.com/nipreps/nibabies/issues
+Project-URL: Docker, https://hub.docker.com/r/nipreps/nibabies
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Image Recognition
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown; charset=UTF-8
+License-File: LICENSE
+Requires-Dist: attrs
+Requires-Dist: migas (>=0.3.0)
+Requires-Dist: nibabel (>=3.0.1)
+Requires-Dist: nipype (>=1.8.1)
+Requires-Dist: nitime
+Requires-Dist: niworkflows (~=1.7.0)
+Requires-Dist: numpy (>=1.21.0)
+Requires-Dist: pybids (>=0.12.1)
+Requires-Dist: sdcflows (~=2.2.1)
+Requires-Dist: smriprep (~=0.10.0)
+Requires-Dist: tedana (~=0.0.12)
+Requires-Dist: templateflow (>=0.6.0)
+Requires-Dist: toml
+Requires-Dist: scipy (~=1.6.0) ; python_version < "3.8"
+Provides-Extra: all
+Requires-Dist: future ; extra == 'all'
+Requires-Dist: sphinx ; extra == 'all'
+Requires-Dist: sphinx-rtd-theme ; extra == 'all'
+Requires-Dist: sphinxcontrib-apidoc ; extra == 'all'
+Requires-Dist: sphinxcontrib-napoleon ; extra == 'all'
+Requires-Dist: myst-nb ; extra == 'all'
+Requires-Dist: sphinx-argparse ; extra == 'all'
+Requires-Dist: duecredit ; extra == 'all'
+Requires-Dist: citeproc-py (!=0.5.0) ; extra == 'all'
+Requires-Dist: fuzzywuzzy ; extra == 'all'
+Requires-Dist: python-Levenshtein ; extra == 'all'
+Requires-Dist: pyntcloud ; extra == 'all'
+Requires-Dist: black (~=22.3.0) ; extra == 'all'
+Requires-Dist: isort (~=5.10.1) ; extra == 'all'
+Requires-Dist: coverage (<5) ; extra == 'all'
+Requires-Dist: pytest (>=4.4) ; extra == 'all'
+Requires-Dist: pytest-cov ; extra == 'all'
+Requires-Dist: pytest-xdist (>=1.28) ; extra == 'all'
+Provides-Extra: aroma
+Requires-Dist: future ; extra == 'aroma'
+Provides-Extra: doc
+Requires-Dist: sphinx ; extra == 'doc'
+Requires-Dist: sphinx-rtd-theme ; extra == 'doc'
+Requires-Dist: sphinxcontrib-apidoc ; extra == 'doc'
+Requires-Dist: sphinxcontrib-napoleon ; extra == 'doc'
+Requires-Dist: myst-nb ; extra == 'doc'
+Requires-Dist: sphinx-argparse ; extra == 'doc'
+Provides-Extra: docs
+Requires-Dist: sphinx ; extra == 'docs'
+Requires-Dist: sphinx-rtd-theme ; extra == 'docs'
+Requires-Dist: sphinxcontrib-apidoc ; extra == 'docs'
+Requires-Dist: sphinxcontrib-napoleon ; extra == 'docs'
+Requires-Dist: myst-nb ; extra == 'docs'
+Requires-Dist: sphinx-argparse ; extra == 'docs'
+Provides-Extra: duecredit
+Requires-Dist: duecredit ; extra == 'duecredit'
+Requires-Dist: citeproc-py (!=0.5.0) ; extra == 'duecredit'
+Provides-Extra: maint
+Requires-Dist: fuzzywuzzy ; extra == 'maint'
+Requires-Dist: python-Levenshtein ; extra == 'maint'
+Provides-Extra: pointclouds
+Requires-Dist: pyntcloud ; extra == 'pointclouds'
+Provides-Extra: style
+Requires-Dist: black (~=22.3.0) ; extra == 'style'
+Requires-Dist: isort (~=5.10.1) ; extra == 'style'
+Provides-Extra: test
+Requires-Dist: coverage (<5) ; extra == 'test'
+Requires-Dist: pytest (>=4.4) ; extra == 'test'
+Requires-Dist: pytest-cov ; extra == 'test'
+Requires-Dist: pytest-xdist (>=1.28) ; extra == 'test'
+Provides-Extra: tests
+Requires-Dist: coverage (<5) ; extra == 'tests'
+Requires-Dist: pytest (>=4.4) ; extra == 'tests'
+Requires-Dist: pytest-cov ; extra == 'tests'
+Requires-Dist: pytest-xdist (>=1.28) ; extra == 'tests'
+
+Magnetic resonance imaging (MRI) requires a set of preprocessing steps before
+any statistical analysis. In an effort to standardize preprocessing,
+we developed [fMRIPrep](https://fmriprep.org/en/stable/) (a preprocessing tool
+for functional MRI, fMRI), and generalized its standardization approach to
+other neuroimaging modalities ([NiPreps](https://www.nipreps.org/)). NiPreps
+brings standardization and ease of use to the researcher, and effectively
+limits the methodological variability within preprocessing. fMRIPrep is designed
+to be used across wide ranges of populations; however it is designed for (and
+evaluated with) human adult datasets. Infant MRI (i.e., 0-2 years) presents
+unique challenges due to head size (e.g., reduced SNR and increased partial
+voluming and rapid shifting in tissue contrast due to myelination. These and
+other challenges require a more specialized workflow. *NiBabies*, an open-source
+pipeline extending from fMRIPrep for infant structural and functional MRI
+preprocessing, aims to address this need.
+
+The workflow is built atop [Nipype](https://nipype.readthedocs.io) and encompases a large
+set of tools from well-known neuroimaging packages, including
+[FSL](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/),
+[ANTs](https://stnava.github.io/ANTs/),
+[FreeSurfer](https://surfer.nmr.mgh.harvard.edu/),
+[AFNI](https://afni.nimh.nih.gov/),
+[Connectome Workbench](https://humanconnectome.org/software/connectome-workbench),
+and [Nilearn](https://nilearn.github.io/).
+This pipeline was designed to provide the best software implementation for each state of
+preprocessing, and will be updated as newer and better neuroimaging software becomes
+available.
+
+*NiBabies* performs basic preprocessing steps (coregistration, normalization, unwarping,
+segmentation, skullstripping etc.) providing outputs that can be
+easily submitted to a variety of group level analyses, including task-based or resting-state
+fMRI, graph theory measures, surface or volume-based statistics, etc.
+*NiBabies* allows you to easily do the following:
+
+  * Take fMRI data from *unprocessed* (only reconstructed) to ready for analysis.
+  * Implement tools from different software packages.
+  * Achieve optimal data processing quality by using the best tools available.
+  * Generate preprocessing-assessment reports, with which the user can easily identify problems.
+  * Receive verbose output concerning the stage of preprocessing for each subject, including
+    meaningful errors.
+  * Automate and parallelize processing steps, which provides a significant speed-up from
+    typical linear, manual processing.
+
+[Repository](https://github.com/nipreps/nibabies)
+[Documentation](https://nibabies.readthedocs.io/en/stable/)
