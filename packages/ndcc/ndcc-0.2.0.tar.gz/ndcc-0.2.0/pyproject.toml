@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "ndcc"
+version = "0.2.0"
+description = "tba"
+authors = ["iron3oxide <jason.hottelet@tuta.io>"]
+license = "MIT"
+readme = "README.md"
+include = ["ndcc.data"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+rich = "^12.5.1"
+pandas = "^1.4.3"
+prompt-toolkit = "^3.0.30"
+
+[tool.poetry.scripts]
+ndcc = "ndcc.main:main"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
