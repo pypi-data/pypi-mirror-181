@@ -1,0 +1,6 @@
+__version__ = '0.0.1'
+__author__ = 'Raju K'
+__description__ = 'Python based API to Forcepoint NGFW Management Center'
+__url__ = ''
+__author_email__ = 'raju.kvn0694@gmail.com'
+__license__ = 'Apache 2.0'
