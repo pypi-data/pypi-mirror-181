@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: air-pollution-check
+Version: 0.1.4
+Summary: A package for looking into the air pollution data, which can transfer the data into dataframe, add in the overall air pollution to the dataframe, visualize the air pollution data, and output the pollution level comparison from the past to the future for a specific location.
+License: MIT
+Author: Yazhao Huang
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Dist: pandas (>=1.5.2,<2.0.0)
+Description-Content-Type: text/markdown
+
+# air_pollution_check
+
+A package for looking into the air pollution data, which can transfer the data into dataframe, add in the overall air pollution to the dataframe, visualize the air pollution data, and output the pollution level comparison from the past to the future for a specific location.
+
+## Installation
+
+```bash
+$ pip install air_pollution_check
+```
+
+## Usage
+
+- TODO
+
+## Contributing
+
+Interested in contributing? Check out the contributing guidelines. Please note that this project is released with a Code of Conduct. By contributing to this project, you agree to abide by its terms.
+
+## License
+
+`air_pollution_check` was created by Yazhao Huang. It is licensed under the terms of the MIT license.
+
+## Credits
+
+`air_pollution_check` was created with [`cookiecutter`](https://cookiecutter.readthedocs.io/en/latest/) and the `py-pkgs-cookiecutter` [template](https://github.com/py-pkgs/py-pkgs-cookiecutter).
+
