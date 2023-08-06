@@ -1,0 +1,87 @@
+Metadata-Version: 2.1
+Name: replenigo
+Version: 0.1.0
+Summary: Script that utilizes Sbanken's Open Banking API to refill accounts to specified balances
+Home-page: https://github.com/mathiazom/replenigo
+Author: Mathias Oterhals Myklebust
+Author-email: mathias@oterbust.no
+Requires-Python: >=3.10,<4.0
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.10
+Requires-Dist: oauthlib (>=3.2.2,<4.0.0)
+Requires-Dist: pyyaml (>=6.0,<7.0)
+Requires-Dist: requests-oauthlib (>=1.3.1,<2.0.0)
+Requires-Dist: rich (>=12.6.0,<13.0.0)
+Requires-Dist: termcolor (>=2.1.1,<3.0.0)
+Requires-Dist: typer[all] (>=0.3.0,<0.4.0)
+Project-URL: Bug Tracker, https://github.com/mathiazom/replenigo/issues
+Project-URL: Repository, https://github.com/mathiazom/replenigo
+Description-Content-Type: text/markdown
+
+# replenigo
+
+[![PyPI](https://img.shields.io/pypi/v/replenigo)](https://pypi.org/project/replenigo/)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/replenigo)
+[![PyPI - License](https://img.shields.io/pypi/l/replenigo)](https://github.com/mathiazom/replenigo/blob/main/LICENSE)
+
+Script that utilizes Sbanken's Open Banking API to refill accounts to specified balances
+
+## Usage
+
+> I recommend you to check out Sbanken's [developer portal](https://sbanken.no/bruke/utviklerportalen/) and read the [documentation](https://github.com/Sbanken/api-examples#swagger) for the Sbanken API before using this app
+
+1. Retrieve credentials required to use the API at https://sbanken.no/bruke/utviklerportalen/
+
+2. Install `replenigo`
+```shell
+pip install replenigo
+```
+
+3. Use [`replenigo.template.yaml`](replenigo.template.yaml) to create your own `replenigo.yaml` config file with required credentials, source account and refill parameters. Some defaults are provide (see [`replenigo.defaults.yml`](replenigo/replenigo.defaults.yaml)), if not specified in `replenigo.yaml`.
+4. See below for use of the `replenigo` CLI
+
+# `replenigo`
+
+Script that utilizes Sbanken's Open Banking API to refill accounts to specified balances
+
+**Usage**:
+
+```console
+$ replenigo [OPTIONS] COMMAND [ARGS]...
+```
+
+**Options**:
+
+* `--install-completion`: Install completion for the current shell.
+* `--show-completion`: Show completion for the current shell, to copy it or customize the installation.
+* `--help`: Show this message and exit.
+
+**Commands**:
+
+* `refill`: Refill accounts to specified balances
+
+## `replenigo refill`
+
+Refill accounts to specified balances
+
+**Usage**:
+
+```console
+$ replenigo refill [OPTIONS]
+```
+
+**Options**:
+
+* `-c, --config-file FILENAME`: Configurations file  [default: replenigo.yaml]
+* `-r, --reverse-if-above-goal / -R, --no-reverse-if-above-goal`: If refill goal has been exceeded, decide if the surplus should be transferred back to the source account
+* `-m, --transfer-message TEXT`: Message to be displayed in the bank transfer (max 30 chars)
+* `-p, --write-checkpoints / -P, --no-checkpoints`: Enable or disable "checkpointing", which creates an empty checkpoint file on each successful refill
+* `-d, --checkpoints-dir DIRECTORY`: Directory to store checkpoint files
+* `--help`: Show this message and exit.
+
