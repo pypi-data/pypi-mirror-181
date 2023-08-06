@@ -1,0 +1,5 @@
+[distutils.commands]
+ftest = zope.testrunner.eggsupport:ftest
+
+[zope2.initialize]
+Products.DCWorkflow = Products.DCWorkflow:initialize
