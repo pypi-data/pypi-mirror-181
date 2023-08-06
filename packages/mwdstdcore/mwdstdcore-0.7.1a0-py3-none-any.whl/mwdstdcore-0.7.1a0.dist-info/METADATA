@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: mwdstdcore
+Version: 0.7.1a0
+Summary: Core project for basic measurement-while-drilling corrections
+License: AGPL-3.0-or-later
+Author: MWD STD Inc.
+Author-email: info@mwdstd.com
+Requires-Python: >=3.8,<3.12
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Provides-Extra: gunicorn
+Requires-Dist: attrs (==21.4.0)
+Requires-Dist: click (==8.1.3)
+Requires-Dist: colorama (==0.4.5)
+Requires-Dist: flask (==2.2.2)
+Requires-Dist: gunicorn (==19.10.0); extra == "gunicorn"
+Requires-Dist: itsdangerous (==2.1.2)
+Requires-Dist: jinja2 (==3.1.2)
+Requires-Dist: jsons (==1.6.3)
+Requires-Dist: markupsafe (==2.1.1)
+Requires-Dist: numpy (==1.23.2)
+Requires-Dist: typish (==1.9.3)
+Requires-Dist: werkzeug (==2.2.2)
+Description-Content-Type: text/markdown
+
+# mwdstdcore
+Core project for basic measurement-while-drilling corrections
+
+## License
+
+    Copyright (C) 2022  MWD STD Inc.
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published
+    by the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
