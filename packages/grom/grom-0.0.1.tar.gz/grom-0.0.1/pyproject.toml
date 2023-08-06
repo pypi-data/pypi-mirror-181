@@ -1,0 +1,37 @@
+[tool.poetry]
+name = "grom"
+version = "0.0.1"
+description = "A nice set of extensions and stylings for prompt_toolkit"
+authors = ["Jakob Vad Nielsen <jakobvadnielsen@gmail.com>"]
+license = "BSD"
+readme = "README.md"
+packages = [{ include = "grom" }]
+repository = "https://github.com/lazee/grom"
+classifiers = [
+    "Development Status :: 1 - Planning",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python",
+    "Topic :: Software Development",
+    "Environment :: Console",
+]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+prompt-toolkit = "^3.0.36"
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^6.0.0"
+pylint = "^2.15.8"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

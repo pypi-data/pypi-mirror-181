@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: grom
+Version: 0.0.1
+Summary: A nice set of extensions and stylings for prompt_toolkit
+Home-page: https://github.com/lazee/grom
+License: BSD
+Author: Jakob Vad Nielsen
+Author-email: jakobvadnielsen@gmail.com
+Requires-Python: >=3.6,<4.0
+Classifier: Development Status :: 1 - Planning
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Software Development
+Requires-Dist: prompt-toolkit (>=3.0.36,<4.0.0)
+Project-URL: Repository, https://github.com/lazee/grom
+Description-Content-Type: text/markdown
+
+# Grom - Delightful command line tools for Python
+
+These are the early days for Grom. Please check back later...
+

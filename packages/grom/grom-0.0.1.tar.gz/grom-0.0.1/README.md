@@ -1,0 +1,3 @@
+# Grom - Delightful command line tools for Python
+
+These are the early days for Grom. Please check back later...
