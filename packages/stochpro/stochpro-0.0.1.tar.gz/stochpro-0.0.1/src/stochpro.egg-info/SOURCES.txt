@@ -1,0 +1,16 @@
+LICENCE
+README.rst
+setup.py
+src/stochpro/__init__.py
+src/stochpro/_version.py
+src/stochpro/base.py
+src/stochpro/brownian.py
+src/stochpro/gaussian.py
+src/stochpro/itoprocess.py
+src/stochpro/utils.py
+src/stochpro.egg-info/PKG-INFO
+src/stochpro.egg-info/SOURCES.txt
+src/stochpro.egg-info/dependency_links.txt
+src/stochpro.egg-info/not-zip-safe
+src/stochpro.egg-info/requires.txt
+src/stochpro.egg-info/top_level.txt
