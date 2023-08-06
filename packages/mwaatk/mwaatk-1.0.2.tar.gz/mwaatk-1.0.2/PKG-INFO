@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: mwaatk
+Version: 1.0.2
+Summary: mwaatk - MWAA ToolKit - Perform the analysis of MWAA data
+Author-email: Tommaso Isolabella <tisolabella@ge.infn.it>
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python
+Requires-Dist: numpy
+Requires-Dist: enlighten
+Requires-Dist: matplotlib
+Requires-Dist: openpyxl
+Requires-Dist: pandas
+Requires-Dist: scipy
+Requires-Dist: xlrd
+
+# mwaa-toolkit MWAAT - Multi-Wavelength Absorbance Analyzer Toolkit: a data analysis software for the MWAA.  
+Checkout the manual for installation & usage instructions.
+
