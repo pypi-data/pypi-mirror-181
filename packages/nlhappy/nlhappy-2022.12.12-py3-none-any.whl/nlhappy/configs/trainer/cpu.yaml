@@ -1,0 +1,6 @@
+defaults:
+  - default.yaml
+  
+precision: 32
+accelerator: cpu
+devices: 1
