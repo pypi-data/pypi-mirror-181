@@ -1,0 +1,77 @@
+repos:
+  - repo: https://github.com/pycqa/isort
+    rev: 5.10.1
+    hooks:
+      - id: isort
+  - repo: https://github.com/asottile/yesqa
+    rev: v1.4.0
+    hooks:
+      - id: yesqa
+  - repo: https://github.com/asottile/pyupgrade
+    rev: v3.2.2
+    hooks:
+      - id: pyupgrade
+        args: ['--py37-plus']
+  - repo: https://github.com/ambv/black
+    rev: 22.10.0
+    hooks:
+      - id: black
+  - repo: https://github.com/pycqa/flake8
+    rev: 5.0.4
+    hooks:
+      - id: flake8
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.3.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-ast
+      - id: check-case-conflict
+      - id: check-docstring-first
+      - id: check-executables-have-shebangs
+      - id: check-merge-conflict
+      - id: check-symlinks
+      - id: check-json
+      - id: check-toml
+      - id: check-yaml
+      - id: debug-statements
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+      - id: name-tests-test
+        args: ['--django']
+      - id: requirements-txt-fixer
+      - id: trailing-whitespace
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.2.2
+    hooks:
+      - id: codespell
+        exclude_types: [json]
+  - repo: https://github.com/marco-c/taskcluster_yml_validator
+    rev: v0.0.9
+    hooks:
+      - id: taskcluster_yml
+  - repo: https://github.com/MozillaSecurity/orion
+    rev: v0.0.6
+    hooks:
+      - id: orion_ci
+  - repo: meta
+    hooks:
+      - id: check-useless-excludes
+  - repo: https://github.com/python-jsonschema/check-jsonschema
+    rev: 0.18.3
+    hooks:
+      - id: check-jsonschema
+        name: "Check prefpicker template schema"
+        files: ^src/prefpicker/templates/
+        types: [yaml]
+        args: ["--schemafile", "./src/prefpicker/templates/schema.json"]
+  - repo: local
+    hooks:
+      - id: pylint
+        name: pylint
+        entry: tox -e pylint --
+        language: system
+        require_serial: true
+        types: [python]
+
+default_language_version:
+  python: python3
