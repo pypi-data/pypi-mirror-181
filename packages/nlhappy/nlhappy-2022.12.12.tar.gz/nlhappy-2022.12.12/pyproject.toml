@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "nlhappy"
+version = "2022.12.12"
+description = "自然语言处理(NLP)"
+authors = ["wangmengdi <790990241@qq.om>"]
+license = "MIT"
+readme = "README.md"
+documentation = "https://wangmengdi.notion.site/NLHAPPY-264f05d1084848efa42068c83539904a"
+
+[tool.poetry.dependencies]
+python = ">=3.7"
+torch = ">=1.8.0"
+# pl>1.6.5,<=1.7.7的版本,会出现checkpoint无法加载的问题,原因是实例化model的时候会有datamodule的hparams,暂时无法解决
+pytorch-lightning = ">=1.6.5" 
+datasets = ">=2.0.0"
+transformers = ">=4.17.0"
+hydra-core = "1.1"
+hydra-colorlog = ">=1.1.0"
+rich = "^12.4.3"
+srsly = ">=2.4.5"
+pydantic = "1.10.2"
+
+# extras
+googletrans = "4.0.0rc1"
+wandb = ">=0.12.18"
+
+[tool.poetry.extras] 
+# pip install nlhappy[all]
+all = [ "googletrans", "wandb"]
+
+
+[tool.poetry.scripts]
+nlhappy = "nlhappy.run:train"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,10 @@
+_target_: nlhappy.models.GlobalPointerForEntityExtraction
+
+lr: 3e-5 
+scheduler: linear_warmup
+threshold: 0.0
+hidden_size: 64 
+weight_decay: 0.0
+adv: ''
+
+name: globalpointer4ner
