@@ -1,0 +1,14 @@
+LICENSE.GPLv3
+MANIFEST.in
+Makefile
+README.md
+changelog.txt
+setup.py
+convert_to_requests/__init__.py
+convert_to_requests/py.typed
+convert_to_requests.egg-info/PKG-INFO
+convert_to_requests.egg-info/SOURCES.txt
+convert_to_requests.egg-info/dependency_links.txt
+convert_to_requests.egg-info/entry_points.txt
+convert_to_requests.egg-info/requires.txt
+convert_to_requests.egg-info/top_level.txt
