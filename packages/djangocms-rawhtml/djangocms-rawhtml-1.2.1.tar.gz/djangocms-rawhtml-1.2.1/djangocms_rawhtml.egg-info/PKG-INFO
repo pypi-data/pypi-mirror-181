@@ -1,0 +1,73 @@
+Metadata-Version: 2.1
+Name: djangocms-rawhtml
+Version: 1.2.1
+Summary: Raw HTML Plugin for DjangoCMS with HTML code editor.
+Home-page: https://github.com/ketaro/djangocms-rawhtml
+Author: Nick Avgerinos
+Author-email: nicka@axcella.com
+License: BSD License
+Description: djangcms-rawhtml
+        ================
+        
+        DjangoCMS Plugin that lets you insert raw HTML code into a page.
+        
+        A raw HTML plugin may be a bit of a CMS anti-pattern, but every now and then there are times when inserting a little block of HTML code is needed to get a job done quickly.
+        
+        This Plugin combines the ideas of `cmsplugin-raw-html <https://github.com/makukha/cmsplugin-raw-html>`_
+        with `code-editor-django-admin <https://mr-coffee.net/blog/code-editor-django-admin>`_ by giving 
+        you a nice HTML editor `CodeMirror <http://codemirror.net/>`_ to edit the code in rather than 
+        a default ``TextField``.
+        
+        Installation
+        ------------
+        
+        1. Install via pip:
+        
+        ::
+        
+            pip install djangocms-rawhtml
+        
+        2. Add to your ``INSTALLED_APPS`` (in ``settings.py``):
+        
+        ::
+        
+            INSTALLED_APPS = (
+                ...
+                'djangocms_rawhtml',
+                ...
+            )
+        
+        3. Run migrations:
+        
+        ::
+        
+            python manage.py migrate djangocms_rawhtml
+        
+        4. "Raw HTML" should now be available as a plugin in the CMS!
+        
+        
+        Configuration
+        -------------
+        
+        In your `settings.py` you can set:
+        
+          ``CODEMIRROR_THEME`` : (Optional) The name of the codemirror theme you would like to use (just the name, don't include the ``.css`` part).  Will use ``default`` if not set.  See: https://codemirror.net/theme/ for a list of themes.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 3.0
+Classifier: Framework :: Django :: 3.1
+Classifier: Framework :: Django :: 3.2
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Description-Content-Type: text/markdown
