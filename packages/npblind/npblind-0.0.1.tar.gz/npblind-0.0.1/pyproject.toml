@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "npblind"
+version = "0.1.0"
+description = ""
+authors = ["noppGithub <n.phantawee@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+npgbq = "^2.0.5"
+npgcs = "^1.0.3"
+google-cloud-datacatalog = "^3.9.3"
+google-cloud-dlp = "^3.9.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
