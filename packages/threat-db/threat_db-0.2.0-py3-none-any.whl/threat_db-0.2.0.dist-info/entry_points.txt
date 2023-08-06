@@ -1,0 +1,4 @@
+[console_scripts]
+threat_db=threat_db.cli:main
+threat_db_admin=threat_db.admincli:main
+
