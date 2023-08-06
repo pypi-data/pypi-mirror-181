@@ -1,0 +1,23 @@
+name: napari-conidie
+display_name: Conidie
+contributions:
+  commands:
+    - id: napari-conidie.segmentation
+      title: Say hello, world!
+      python_name: napari_conidie._widget:process_function_segmentation
+
+    - id: napari-conidie.save_label
+      title: Say hello, world!
+      python_name: napari_conidie._widget:save_modification
+
+    - id: napari-conidie.table_csv
+      title: Say hello, world!
+      python_name: napari_conidie._widget:quantitative_data_for_all
+  
+  widgets:
+    - command: napari-conidie.segmentation  # note, same as command.id above
+      display_name: Run segmentation
+    - command: napari-conidie.save_label  # note, same as command.id above
+      display_name: Save label
+    - command: napari-conidie.table_csv  # note, same as command.id above
+      display_name: Download data

@@ -1,0 +1,16 @@
+numpy
+magicgui
+qtpy
+pandas
+h5py
+scikit-image
+napari
+matplotlib
+
+[testing]
+tox
+pytest
+pytest-cov
+pytest-qt
+napari
+pyqt5

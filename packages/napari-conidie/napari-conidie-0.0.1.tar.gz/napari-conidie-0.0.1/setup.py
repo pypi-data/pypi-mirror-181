@@ -1,0 +1,37 @@
+"""Setup for the python package.""" 
+from setuptools import setup, find_packages
+with open("README.md", "r", encoding="utf-8") as fh: 
+     long_description = fh.read() 
+setup(    
+    author="Herearii Metuarea",    
+    author_email="herearii.metuarea@gmail.com",
+    name='napari-conidie', 
+    description='A segmentation tool to get conidie and hyphe',  
+    version="0.0.1",    
+    long_description=long_description, 
+    long_description_content_type="text/markdown",  
+    url='https://github.com/hereariim/napari-conidie', 
+    packages=find_packages(),
+    python_requires=">=3.8",
+    install_requires=['numpy',
+    'magicgui',
+    'qtpy',
+    'pandas',
+    'h5py',
+    'scikit-image',
+    'napari',
+    'matplotlib' ], 
+    classifiers=[ 'Development Status :: 2 - Pre-Alpha',
+                     'Framework :: napari',
+    'Intended Audience :: Developers',
+    'License :: OSI Approved :: BSD License',
+    'Operating System :: OS Independent',
+    'Programming Language :: Python',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3 :: Only',
+    'Programming Language :: Python :: 3.8',
+    'Programming Language :: Python :: 3.9',
+    'Programming Language :: Python :: 3.10',
+    'Topic :: Scientific/Engineering :: Image Processing',
+                ],
+     )
