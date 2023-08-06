@@ -1,0 +1,12 @@
+.vscode
+.vs*
+.DS_Store
+__pycache__
+archive
+out
+*.ipynb
+build/*
+dadi_ml.egg-info/*
+dist/*
+*split_mig_1500
+dadinet/data/*
