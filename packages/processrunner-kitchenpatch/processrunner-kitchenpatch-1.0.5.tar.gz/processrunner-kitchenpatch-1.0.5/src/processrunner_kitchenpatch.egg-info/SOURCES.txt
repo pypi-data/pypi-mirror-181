@@ -1,0 +1,14 @@
+CONTRIBUTING.rst
+COPYING
+MANIFEST.in
+README.rst
+pyproject.toml
+requirements.txt
+setup.py
+src/kitchenpatch/__init__.py
+src/kitchenpatch/kitchenpatch.py
+src/processrunner_kitchenpatch.egg-info/PKG-INFO
+src/processrunner_kitchenpatch.egg-info/SOURCES.txt
+src/processrunner_kitchenpatch.egg-info/dependency_links.txt
+src/processrunner_kitchenpatch.egg-info/requires.txt
+src/processrunner_kitchenpatch.egg-info/top_level.txt
