@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: sagemaker-mlops-toolkit
+Version: 0.1.0.dev1
+Summary: A short description of the package.
+License: MIT
+Author: Ernane Sena
+Author-email: ernane.sena@gmail.com
+Requires-Python: >=3.8.1
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: pre-commit (>=2.20.0,<3.0.0)
+Requires-Dist: sagemaker (==2.124.0)
+Description-Content-Type: text/markdown
+
+
