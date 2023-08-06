@@ -1,0 +1,9 @@
+ansible-core
+ansible-runner
+receptorctl
+
+[doc]
+sphinx
+
+[test]
+pytest
