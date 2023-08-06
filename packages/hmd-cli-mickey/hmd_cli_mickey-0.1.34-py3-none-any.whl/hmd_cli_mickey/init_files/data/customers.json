@@ -1,0 +1,13 @@
+{
+  "name": "customers",
+  "columns": [
+    { "name": "id", "datatype": "int" },
+    { "name": "cust_name", "datatype": "varchar" },
+    { "name": "cust_address", "datatype": "varchar" },
+    { "name": "cust_city", "datatype": "varchar" },
+    { "name": "cust_state", "datatype": "varchar" },
+    { "name": "is_deleted", "datatype": "int" },
+    { "name": "created_at", "datatype": "timestamp" },
+    { "name": "updated_at", "datatype": "timestamp" }
+  ]
+}
