@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: lz-drip
+Version: 0.0.6
+Summary: Provides the LZ specific code to run a drip-drip
+Author-email: Simon Patton <sjpatton@lbl.gov>
+License: BSD-3-Clause-LBNL
+Keywords: LZ,drip,drip feed,drip-drip
+Classifier: Development Status :: 1 - Planning 
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Scientific/Engineering
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: <4,>=3.10.6
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt

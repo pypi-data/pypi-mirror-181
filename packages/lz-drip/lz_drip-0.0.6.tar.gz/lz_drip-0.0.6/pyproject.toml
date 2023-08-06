@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lz_drip"
+version = "0.0.6"
+description = "Provides the LZ specific code to run a drip-drip"
+readme = "README.md"
+authors = [
+    { "name"="Simon Patton", "email" ="sjpatton@lbl.gov"}
+]
+license = { text = "BSD-3-Clause-LBNL" }
+classifiers=[  # Optional
+    "Development Status :: 1 - Planning ",
+    "Intended Audience :: Developers",
+    "Topic :: Scientific/Engineering",
+    "Programming Language :: Python :: 3.10",
+]
+keywords=["LZ", "drip", "drip feed", "drip-drip"]  # Optional
+dependencies = [ # Optional
+    "drip-drip",
+]
+requires-python = ">=3.10.6, <4"
+
+# Note the quotes around drip.dropper in order to escape the dot .
+[project.entry-points."drip.dropper"]
+salt_arrival = "lz_drip:SaltArrival"
+spade_reception = "lz_drip:SpadeReception"
+
+[tool.setuptools.packages.find]
+# All the following settings are optional:
+where = ["src/main/python/drip_pkg"]  # ["."] by default
+# include = # ["*"] by default
+# exclude = # [] by default
+
+[tool.setuptools.package-data]
+mypkg = ["py.typed"]
