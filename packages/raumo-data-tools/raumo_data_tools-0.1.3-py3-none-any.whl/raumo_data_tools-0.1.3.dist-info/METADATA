@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: raumo-data-tools
+Version: 0.1.3
+Summary: Package containing core functions for data ETL workloads.
+Home-page: https://github.com/raumobil/data_toolbox
+License: MIT
+Keywords: influxdb,pandas
+Author: Tanja Klopper
+Author-email: t.klopper@raumobil.com
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Dist: influxdb-client (>=1.28.0,<2.0.0)
+Requires-Dist: pandas (>=1.4.0,<2.0.0)
+Requires-Dist: sqlalchemy (>=1.4,<2.0)
+Project-URL: Repository, https://github.com/raumobil/data_toolbox
+Description-Content-Type: text/markdown
+
+# data_toolbox
+Package containing core functions for data ETL workloads.
+
+# Installation
+Inside poetry project:
+`poetry add raumo-data-tools`
+
+With pip:
+`pip install raumo-data-tools`
+
+# Package contents
+### Config handler
+Reading configuration files for databases and servers
+
+### influx writer
+Functions for writing to InfluxDB
+
+### pipelines
+Simple pipeline class
+
