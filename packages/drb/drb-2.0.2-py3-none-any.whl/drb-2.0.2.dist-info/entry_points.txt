@@ -1,0 +1,12 @@
+[console_scripts]
+cortex-validator = drb.core.cortex_validator:main
+wallet = drb.utils.keyring:keyring
+
+[drb.signature]
+attributes = drb.signatures.core:AttributesSignature
+children = drb.signatures.core:ChildrenSignature
+name = drb.signatures.core:NameSignature
+namespace = drb.signatures.core:NamespaceSignature
+path = drb.signatures.core:PathSignature
+python = drb.signatures.core:PythonSignature
+
