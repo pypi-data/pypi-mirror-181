@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "datek_app_utils"
+version = "0.3.5"
+description = "Utilities for building applications"
+authors = ["Attila Dudas <dudasa7@gmail.com>"]
+license = "MIT"
+include = ["README.md"]
+readme = "README.md"
+repository = "https://github.com/DAtek/datek-app-utils/"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.dev-dependencies]
+pytest = ">=6.2.1"
+pytest-cov = ">=2.10.1"
+black = ">=22.1.0"
+mypy = ">=0.942"
+unimport = ">=0.9.5"
+pytest-asyncio = ">=0.18.3"
+libcst = ">=0.4.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+addopts = [
+    "--cov=datek_app_utils",
+    "--cov-report=xml",
+    "--cov-report=term",
+]
