@@ -1,0 +1,30 @@
+{
+  "model_type": "type3",
+  "filters": [
+      "MobileNetV2",
+      "block_11_add"
+  ],
+  "latents": [
+    128,
+    32,
+    12
+  ],
+  "disc_latents": [
+    12,
+    8
+  ],
+  "l1": 0.01,
+  "l2": 0.05,
+  "enable_dropout": false,
+  "dropout_rate": 0.5,
+  "epoch": 60,
+  "early_stop_patient": 100,
+  "decay_type": "decay_only",
+  "initial_rate": 0.001,
+  "last_ratio": 0.01,
+  "decay_rate": 1.00,
+  "cycle": 20,
+  "cycle_decay_rate": 0.4,
+  "warmup_epoch": 3,
+  "label_smoothing": 0.01
+}
