@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: openvk-api
+Version: 0.0.2a0
+Summary: openvk api based on httpx
+Home-page: https://github.com/NoPlagiarism/openvk-api
+License: MIT
+Keywords: openvk,httpx
+Author: NoPlagiarism
+Author-email: 37241775+NoPlagiarism@users.noreply.github.com
+Requires-Python: >=3.9,<4.0
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: httpx (>=0.23.1,<0.24.0)
+Project-URL: Repository, https://github.com/NoPlagiarism/openvk-api
+Description-Content-Type: text/markdown
+
+# OpenVk-API
+
+Raw API for [OpenVK](https://github.com/openvk/openvk)
+
+```
+pip install openvk-api
+```
+
+Use [OpenVk Docs](https://docs.openvk.su/openvk_engine/api/description/) to use `OpenVkApiMethod`
+
+## Quick example
+
+```python
+from openvk_api import OpenVkClient
+# Use token
+client = OpenVkClient(token="sdflksdfkljssldkjgsdg-jill")
+# Use login and password
+client = OpenVkClient()
+client = client.auth_with_password(login="fckptn@gg.su", password="Hydra")
+
+api = client.get_api()
+print(api.messages.send(user_id=10484, message="Hello, developer"))
+```
+
+## Links
+[Dev's OpenVk.uk profile](https://openvk.su/id10484)
+
