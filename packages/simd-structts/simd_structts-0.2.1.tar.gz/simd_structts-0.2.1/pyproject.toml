@@ -1,0 +1,64 @@
+[tool.poetry]
+name = "simd_structts"
+version = "0.2.1"
+description = "SIMD StuctTS Model with various backends"
+authors = [
+    "Vladimir Shulyak <vladimir@shulyak.net>"
+]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/vshulyak/simd-structts"
+repository = "https://github.com/vshulyak/simd-structts"
+documentation = "https://github.com/vshulyak/simd-structts"
+keywords = ["simd", "kalman", "time-series", "forecasting"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+include = ["CHANGELOG.md"]
+
+[tool.poetry.urls]
+"Changelog" = "https://github.com/vshulyak/simd-structts/tree/main/CHANGELOG.rst"
+
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\.pyi?$'
+
+[tool.poetry.dependencies]
+python = "^3.7"
+statsmodels = "^0.13.0"
+simdkalman = "^1.0.1"
+
+[tool.poetry.dev-dependencies]
+pre-commit = "*"
+autoflake = "*"
+reorder-python-imports = "*"
+black = "19.10b0"
+pytest = "^5.4.3"
+coverage = {extras = ["toml"], version = "^5.1"}
+pytest-cov = "^2.10.0"
+pytest-mock = "^3.1.1"
+twine = "^3.2.0"
+requests = "*"
+tox = "^3.21.0"
+detect-secrets = "^0.14.3"
+hypothesis = "^5.43.4"
+
+[tool.coverage.paths]
+source = ["src"]
+
+[tool.coverage.run]
+branch = true
+source = ["simd_structts"]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 10
+exclude_lines = ["pragma: no cover"]
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

@@ -1,0 +1,59 @@
+Metadata-Version: 2.1
+Name: simd-structts
+Version: 0.2.1
+Summary: SIMD StuctTS Model with various backends
+Home-page: https://github.com/vshulyak/simd-structts
+License: MIT
+Keywords: simd,kalman,time-series,forecasting
+Author: Vladimir Shulyak
+Author-email: vladimir@shulyak.net
+Requires-Python: >=3.7,<4.0
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: simdkalman (>=1.0.1,<2.0.0)
+Requires-Dist: statsmodels (>=0.13.0,<0.14.0)
+Project-URL: Changelog, https://github.com/vshulyak/simd-structts/tree/main/CHANGELOG.rst
+Project-URL: Documentation, https://github.com/vshulyak/simd-structts
+Project-URL: Repository, https://github.com/vshulyak/simd-structts
+Description-Content-Type: text/markdown
+
+# simd-structts
+[![pypi](https://img.shields.io/pypi/v/simd-structts)](https://pypi.org/project/simd-structts/)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/simd-structts)
+[![Build Status](https://travis-ci.org/vshulyak/simd-structts.svg?branch=master)](https://travis-ci.org/vshulyak/simd-structts)
+[![codecov](https://codecov.io/github/vshulyak/simd-structts/branch/master/graph/badge.svg)](https://codecov.io/github/vshulyak/simd-structts)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![License: MIT](https://img.shields.io/github/license/vshulyak/simd_structts)](https://github.com/vshulyak/simd-structts/blob/master/LICENSE)
+[![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/vshulyak/simd-structts/issues)
+Multivariate forecasting using StructTS/Unobserved Components model without MLE param estimation.
+
+## 🤦🏾‍ Motivation
+
+I love structts model and Kalman filters for forecasting. Sometimes you just want a model that works out of the box
+without *designing* a model with a Kalman filter, especially if you need to use long seasonalites and exog variables.
+Defining all these state space matrices gets tedious pretty quickly...
+
+The code in this repo is an attempt to bring a familiar API to multivariate StructTS model, currently with the simdkalman library as a backend.
+
+## 👩🏾‍🚀 Installation
+
+      pip install simd-structts
+
+
+## 📋 WIP:
+- [x] Statsmodels and simdkalman backend implementation.
+- [x] Equal filtered/smoothed/predicted states for level/trend models.
+- [x] Proper testing for multiple python versions.
+- [x] Equal filtered/smoothed/predicted states for exog components.
+- [x] Equal filtered/smoothed/predicted states for long seasonal fourier components.
+- [x] Passing tests for statsmodels-like initialization of model.
+- [ ] Pretty API with ABC and stuff.
+- [ ] Example notebook
+- [ ] Gradient methods for finding optimal params
+
