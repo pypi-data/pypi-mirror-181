@@ -1,0 +1,128 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {
+    "release": {
+      "type": "object",
+      "properties": {
+        "author": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "string",
+          "format": "email"
+        },
+        "date": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "string",
+              "format": "date"
+            }
+          ]
+        },
+        "file": {
+          "type": "string"
+        },
+        "institute": {
+          "type": "string"
+        },
+        "reference": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^(\\d+\\.)?(\\d+\\.)?(\\d+)$"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "modification": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "version",
+        "date",
+        "modification",
+        "author"
+      ],
+      "additionalProperties": true
+    },
+    "database": {
+      "type": "object",
+      "properties": {
+        "identifier": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "release": {
+          "$ref": "#definitions/release"
+        }
+      },
+      "required": [
+        "identifier",
+        "name"
+      ],
+      "additionalProperties": true
+    },
+    "pipeline": {
+      "type": "object",
+      "properties": {
+        "identifier": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "release": {
+          "$ref": "#definitions/release"
+        },
+        "databases": {
+          "type": "array",
+          "items": {
+            "$ref": "#definitions/database"
+          }
+        },
+        "modules": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "external_software": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true,
+      "required": [
+        "databases",
+        "release",
+        "identifier",
+        "name",
+        "description"
+      ]
+    }
+  },
+  "type": "object",
+  "properties": {
+    "pipeline": {
+      "$ref": "#definitions/pipeline"
+    }
+  },
+  "additionalProperties": true
+}
