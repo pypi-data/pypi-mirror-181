@@ -1,0 +1,15 @@
+README.md
+setup.py
+src/atactools/__init__.py
+src/atactools.egg-info/PKG-INFO
+src/atactools.egg-info/SOURCES.txt
+src/atactools.egg-info/dependency_links.txt
+src/atactools.egg-info/entry_points.txt
+src/atactools.egg-info/requires.txt
+src/atactools.egg-info/top_level.txt
+src/atactools/peaks/__init__.py
+src/atactools/peaks/intervals.py
+src/atactools/peaks/normalize.py
+src/scripts/__init__.py
+src/scripts/annotateTSS.py
+src/scripts/selectFWPeaks.py
