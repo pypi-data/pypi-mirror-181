@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: macml
+Version: 0.0.1
+Summary: A wrapper around the CoreML, Latent Semantic Mapping, ML Compute, Natural Language, Speech, Sound Analysis, and Vision frameworks for macOS.
+Home-page: https://github.com/SKaplanOfficial/macml
+Author: Stephen Kaplan
+Author-email: stephen.kaplan@maine.edu
+Project-URL: Bug Tracker, https://github.com/SKaplanOfficial/macml/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# macml
+ Python wrapper around Apple's CoreML, Latent Semantic Mapping, ML Compute, Natural Language, SpeechRecognition, Sound Analysis, and Vision frameworks for macOS.
