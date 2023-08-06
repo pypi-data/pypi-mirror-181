@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: devcloud
+Version: 0.0.2
+Summary: Devcloud™ Python* library
+Home-page: https://github.com/intel/DevCloudContent-dockerfile
+Author: Intel® Corporation
+Author-email: openvino_pushbot@intel.com
+License: OSI Approved :: Apache Software License
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests
+Requires-Dist: pyjwt
+Requires-Dist: typer
+Requires-Dist: pandas
+Requires-Dist: tabulate
+Requires-Dist: Pillow
+Requires-Dist: importlib-resources (==5.10.0)
+
+# Intel Devcloud - Developer Cloud for the Edge
+
+This contains set of Python API which helps in deploying containerized application in the cloud and validate it against Intel's latest and greatest processors
+
+
