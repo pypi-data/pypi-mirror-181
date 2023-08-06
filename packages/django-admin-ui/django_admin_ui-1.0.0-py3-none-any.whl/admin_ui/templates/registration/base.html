@@ -1,0 +1,84 @@
+{% load i18n static admin_ui admin_urls %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+{% get_admin_ui_settings request as admin_ui_settings %}
+{% get_admin_ui_tweaks as admin_ui_tweaks %}
+
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE|default:"en-us" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>{% block title %}{{ title }} | {{ admin_ui_settings.site_title }}{% endblock %}</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="{% static "vendor/fontawesome-free/css/all.min.css" %}">
+
+    <!-- Bootstrap and adminLTE -->
+    <link rel="stylesheet" href="{% static "vendor/adminlte/css/adminlte.min.css" %}">
+
+    <!-- Bootswatch theme -->
+    {% if admin_ui.theme.name != 'default' %}
+        <link rel="stylesheet" href="{{ admin_ui_tweaks.theme.src }}" id="admin-ui-theme" />
+    {% endif %}
+
+    {% if admin_ui.dark_mode_theme %}
+        <link rel="stylesheet" href="{{ admin_ui_tweaks.dark_mode_theme.src }}" id="admin-ui-dark-mode-theme" media="(prefers-color-scheme: dark)"/>
+    {% endif %}
+
+    <!-- Custom fixes for django -->
+    <link rel="stylesheet" href="{% static "admin_ui/css/main.css" %}">
+
+    {% if admin_ui_settings.custom_css %}
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="{% static admin_ui_settings.custom_css %}">
+    {% endif %}
+
+    <!-- favicons -->
+    <link rel="shortcut icon" href="{% static admin_ui_settings.site_icon %}" type="image/png">
+    <link rel="icon" href="{% static admin_ui_settings.site_icon %}" sizes="32x32" type="image/png">
+
+    {% if admin_ui_settings.use_google_fonts_cdn %}
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    {% endif %}
+
+    {% block extrastyle %} {% endblock %}
+    {% block extrahead %} {% endblock %}
+</head>
+<body class="hold-transition admin_ui-login-page">
+
+<div class="login-box">
+    <div class="login-logo">
+        <h1>
+            <picture>
+                <source
+                    srcset="{% static admin_ui_settings.login_logo_dark %}"
+                    media="(prefers-color-scheme: dark)">
+                 <img src="{% static admin_ui_settings.login_logo %}" alt="{{ admin_ui_settings.site_header }}">
+            </picture>
+        </h1>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            {% block content %} {% endblock %}
+        </div>
+    </div>
+</div>
+
+<!-- jQuery -->
+<script src="{% static "admin/js/vendor/jquery/jquery.js" %}"></script>
+<!-- Bootstrap 4 -->
+<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!-- AdminLTE App -->
+<script src="{% static 'vendor/adminlte/js/adminlte.min.js' %}"></script>
+
+{% if admin_ui_settings.custom_js %}
+    <script src="{% static admin_ui_settings.custom_js %}"></script>
+{% endif %}
+
+</body>
+</html>
