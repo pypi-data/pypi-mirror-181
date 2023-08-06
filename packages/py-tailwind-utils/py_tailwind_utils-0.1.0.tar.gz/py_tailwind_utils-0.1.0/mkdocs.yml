@@ -1,0 +1,15 @@
+site_name: py-tailwind-utils
+site_description: Library to expose tailwind utilities and expressions as python native expressions 
+site_author: Kabira K
+
+repo_name: addict-tracking-changes
+repo_url: https://github.com/Monallabs-org/py-tailwind-utils
+
+extra:
+    blog_url: https://webworks.monallabs.in/apps/py-tailwind-utils
+
+nav:
+    - Introduction: 'README.md'
+
+theme:
+    name: readthedocs
