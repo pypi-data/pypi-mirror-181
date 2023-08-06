@@ -1,0 +1,7 @@
+
+recursive-include src *.py
+global-exclude *.pyc
+global-exclude __pycache__
+
+include install_spice.sh
+recursive-include examples *.csv
