@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: grants-tagger
+Version: 0.2.4
+Summary: A machine learning model to tag grants
+Author: Nick Sorros
+Author-email: n.sorros@wellcome.ac.uk
+Provides-Extra: xlinear
+Provides-Extra: dev
+License-File: LICENSE
