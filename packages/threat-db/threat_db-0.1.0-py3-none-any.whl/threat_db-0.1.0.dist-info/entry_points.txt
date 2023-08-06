@@ -1,0 +1,3 @@
+[console_scripts]
+threat_db=threat_db.cli:main
+
