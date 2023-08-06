@@ -1,0 +1,101 @@
+Metadata-Version: 2.1
+Name: bunkatopics
+Version: 0.27
+Summary: 
+Author: Charles De Dampierre
+Author-email: charles.de-dampierre@hec.edu
+Requires-Python: >=3.8,<3.11
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Dist: hdbscan (==0.8.28)
+Requires-Dist: jupyterlab (>=3.5.1,<4.0.0)
+Requires-Dist: numpy (==1.21.5)
+Requires-Dist: pandas (==1.4.1)
+Requires-Dist: plotly (==5.6.0)
+Requires-Dist: requests (>=2.28.1,<3.0.0)
+Requires-Dist: scikit-learn (==1.1.3)
+Requires-Dist: sentence-transformers (==2.2.0)
+Requires-Dist: spacy (==3.2.3)
+Requires-Dist: textacy (==0.12.0)
+Requires-Dist: tqdm (==4.63.0)
+Requires-Dist: umap-learn (==0.5.3)
+Requires-Dist: xgboost (==1.6.2)
+Description-Content-Type: text/markdown
+
+# BunkaTopics
+
+BunkaTopics is a Topic Modeling package that leverages Embeddings and focuses on Topic Representation to extract meaningful and interpretable topics from a list of documents.
+
+## Installation
+
+Before installing bunkatopics, please install the following packages:
+
+Load the spacy language models
+
+```bash
+python -m spacy download fr_core_news_lg
+```
+
+```bash
+python -m spacy download en_core_web_sm
+```
+
+Eventually, install bunkatopic using pip
+
+```bash
+pip install bunkatopics
+```
+
+## Quick Start with BunkaTopics
+
+```python
+from bunkatopics import BunkaTopics
+import pandas as pd
+
+data = pd.read_csv('data/imdb.csv', index_col = [0])
+data = data.sample(2000, random_state = 42)
+
+# Instantiate the model, extract ther terms and Embed the documents
+
+model = BunkaTopics(data, # dataFrame
+                    text_var = 'description', # Text Columns
+                    index_var = 'imdb',  # Index Column (Mandatory)
+                    extract_terms=True, # extract Terms ?
+                    terms_embeddings=True, # extract terms Embeddings?
+                    docs_embeddings=True, # extract Docs Embeddings?
+                    embeddings_model="distiluse-base-multilingual-cased-v1", # Chose an embeddings Model
+                    multiprocessing=True, # Multiprocessing of Embeddings
+                    language="en", # Chose between English "en" and French "fr"
+                    sample_size_terms = len(data),
+                    terms_limit=10000, # Top Terms to Output
+                    terms_ents=True, # Extract entities
+                    terms_ngrams=(1, 2), # Chose Ngrams to extract
+                    terms_ncs=True, # Extract Noun Chunks
+                    terms_include_pos=["NOUN", "PROPN", "ADJ"], # Include Part-of-Speech
+                    terms_include_types=["PERSON", "ORG"]) # Include Entity Types
+
+# Extract the topics
+
+topics = model.get_clusters(topic_number= 15, # Number of Topics
+                    top_terms_included = 1000, # Compute the specific terms from the top n terms
+                    top_terms = 5, # Most specific Terms to describe the topics
+                    term_type = "lemma", # Use "lemma" of "text"
+                    ngrams = [1, 2], # N-grams for Topic Representation
+                    clusterer = 'hdbscan') # Chose between Kmeans and HDBSCAN
+
+# Visualize the clusters. It is adviced to choose less that 5 terms - top_terms = 5 - to avoid overchanging the Figure
+
+fig = model.visualize_clusters(search = None, 
+width=1000, 
+height=1000, 
+fit_clusters=True,  # Fit Umap to well visually separate clusters
+density_plot=False) # Plot a density map to get a territory overview
+
+fig.show()
+
+
+centroid_documents = model.get_centroid_documents(top_elements=2)
+```
+
