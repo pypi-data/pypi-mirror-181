@@ -1,0 +1,53 @@
+[tool.poetry]
+name = "pydra-freesurfer"
+version = "0.0.2"
+description = "Pydra tasks for FreeSurfer"
+authors = ["The Aramis Lab"]
+license = "Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/aramis-lab/pydra-freesurfer"
+documentation = "https://aramis-lab.github.io/pydra-freesurfer/"
+keywords = ["pydra", "freesurfer", "neuroimaging"]
+packages = [{include = "pydra"}]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+pydra = "^0.21"
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.3.0"
+isort = "^5.10.1"
+codespell = {extras = ["toml"], version = "^2.2.2"}
+
+[tool.poetry.group.docs.dependencies]
+sphinx = "^5.0.0"
+numpydoc = "^1.5.0"
+pydata-sphinx-theme = "^0.11.0"
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.1.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = [
+  "--doctest-modules",
+  "--doctest-continue-on-failure",
+]
+testpaths = ["pydra"]
+
+[tool.black]
+target-version = ["py37"]
+
+[tool.isort]
+py_version = 37
+profile = "black"
+
+[tool.codespell]
+summary = ''
+skip = ".git"
+quiet-level = 3
+
