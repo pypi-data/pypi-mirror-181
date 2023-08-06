@@ -1,0 +1,85 @@
+[tool.poetry]
+name = "fuzzy-couscous"
+version = "2.5.0"
+description = "A cli tool to bootstrap your django projects and enhance your development experience."
+authors = ["Tobi-De <tobidegnon@proton.me>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/Tobi-De/fuzzy-couscous"
+homepage = "https://tobi-de.github.io/fuzzy-couscous/"
+documentation = "https://tobi-de.github.io/fuzzy-couscous"
+keywords = ["django", "python", "cookiecutter", "project-template"]
+packages = [{ include = "fuzzy_couscous" }]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+    "Framework :: Django :: 4",
+    "Framework :: Django :: 4.0",
+    "Framework :: Django :: 4.1",
+    "Intended Audience :: Developers",
+    "Natural Language :: English",
+]
+exclude = ["templates", "docs"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+python-dotenv = "^0.21.0"
+dict-deep = "^4.1.2"
+tomli = { version = "^2.0.1", markers = "python_version < '3.11'" }
+tomli-w = "^1.0.0"
+typer = "^0.7.0"
+rich = "^12.6.0"
+httpx = "^0.23.1"
+
+[tool.poetry.group.dev.dependencies]
+ipython = "^8.7.0"
+pre-commit = "^2.20.0"
+poethepoet = "^0.16.5"
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.2.0"
+
+[tool.poetry.group.docs]
+optional = true
+
+[tool.poetry.group.docs.dependencies]
+mkdocs = "^1.4.2"
+mkdocs-material = "^8.5.11"
+mkdocs-material-extensions = "^1.1.1"
+mkdocs-include-markdown-plugin = "3.9.1"
+
+[tool.poetry.scripts]
+fuzzy-couscous = "fuzzy_couscous.main:cli"
+cuzzy = "fuzzy_couscous.main:cli"
+
+[tool.poe.tasks]
+t = "poetry export -f requirements.txt --output tests/requirements.txt --without-hashes --with test"
+
+[tool.ruff]
+line-length = 120
+select = [
+    "E", # https://github.com/charliermarsh/ruff#pycodestylet
+    "F", # https://github.com/charliermarsh/ruff#pyflakes
+    "U", # https://github.com/charliermarsh/ruff#pyupgrade
+    "N", # https://github.com/charliermarsh/ruff#pep8-naming
+    "S", # https://github.com/charliermarsh/ruff#flake8-bandit
+    "C", # https://github.com/charliermarsh/ruff#flake8-comprehensions
+    "B", # https://github.com/charliermarsh/ruff#flake8-bugbear
+    "T" # https://github.com/charliermarsh/ruff#flake8-print
+]
+extend-exclude = [
+    "templates/*",
+    "tests/*",
+    "docs/*"
+]
+ignore = ["B008"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
