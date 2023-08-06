@@ -1,0 +1,78 @@
+Metadata-Version: 2.1
+Name: hypothesis-requests
+Version: 0.1.0
+Summary: You can use hypothesis-requests to create a new GitHub repository.
+Home-page: https://github.com/alunduil/hypothesis-requests
+License: MPL-2.0
+Keywords: python,template,vscode,devcontainers
+Author: alunduil
+Author-email: alunduil@gmail.com
+Requires-Python: >=3.7.2,<4.0.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: Framework :: Hypothesis
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved
+Classifier: License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Software Development
+Classifier: Typing :: Typed
+Requires-Dist: hypothesis (>=6.61.0,<7.0.0)
+Requires-Dist: requests (>=2.28.1,<3.0.0)
+Project-URL: Repository, https://github.com/alunduil/hypothesis-requests
+Description-Content-Type: text/markdown
+
+# hypothesis-requests
+
+[Homepage][repository]
+
+By Alex Brandt <alunduil@gmail.com>
+
+## Description
+
+You can use hypothesis-requests to generate [request] objects for hypothesis
+based tests.
+
+## Terms of use
+
+See the [LICENCE] file for details.
+
+## Prerequisites
+
+1. Hypothesis property based tests
+
+## How to use this template
+
+1. Add hypothesis-requests to your project dependencies.
+1. Utilise hypothesis_requests.strategies to generate Requests, Responses, etc.
+
+## Documentation
+
+* [LICENSE]: The license governing use of template.py
+
+## Getting Help
+
+* [GitHub Issues][issues]: Support requests, bug reports, and feature requests
+
+## How to Help
+
+* Submit [issues] for problems or questions
+* Submit [pull requests] for proposed changes
+
+[create a repo]: https://docs.github.com/en/get-started/quickstart/create-a-repo
+[issues]: https://github.com/alunduil/hypothesis-requests/issues
+[LICENSE]: ./LICENSE
+[pull requests]: https://github.com/alunduil/hypothesis-requests/pulls
+[repository]: https://github.com/alunduil/hypothesis-requests
+[Cookiecutter]: https://github.com/cookiecutter/cookiecutter
+

@@ -1,0 +1,52 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+profile = "black"
+
+[tool.poetry]
+name = "hypothesis_requests"
+version = "0.1.0"
+description = "You can use hypothesis-requests to create a new GitHub repository."
+authors = ["alunduil <alunduil@gmail.com>"]
+license = "MPL-2.0"
+readme = "README.md"
+repository = "https://github.com/alunduil/hypothesis-requests"
+keywords = ["python", "template", "vscode", "devcontainers"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Framework :: Hypothesis",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development",
+    "Typing :: Typed"
+]
+
+[tool.poetry.dependencies]
+python = "^3.7.2"
+requests = "^2.28.1"
+hypothesis = "^6.61.0"
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^2.20.0"
+pylint = "^2.15.5"
+pytest = "^7.2.0"
+pytest-cov = "^4.0.0"
+coveralls = "^3.3.1"
+pytest-xdist = {extras = ["psutil"], version = "^3.1.0"}
+
+[tool.pytest.ini_options]
+addopts = "--doctest-modules --cov=hypothesis_requests --cov-report=term-missing -n logical"
+testpaths = ["hypothesis_requests_test"]
+enable_assertion_pass_hook = true
+
+[tool.vulture]
+paths = ["hypothesis_requests", "hypothesis_requests_test"]
