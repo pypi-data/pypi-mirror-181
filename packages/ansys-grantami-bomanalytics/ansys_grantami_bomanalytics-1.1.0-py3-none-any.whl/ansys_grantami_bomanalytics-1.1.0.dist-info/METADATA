@@ -1,0 +1,114 @@
+Metadata-Version: 2.1
+Name: ansys-grantami-bomanalytics
+Version: 1.1.0
+Summary: Perform compliance analysis on materials data stored in Granta MI.
+Home-page: https://github.com/pyansys/grantami-bomanalytics
+License: MIT
+Keywords: Ansys,Granta MI,Bill of Materials
+Author: ANSYS, Inc.
+Maintainer: PyAnsys Maintainers
+Maintainer-email: pyansys.maintainers@ansys.com
+Requires-Python: >=3.7.1,<4.0.0
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Provides-Extra: examples
+Requires-Dist: ansys-grantami-bomanalytics-openapi (==1.0.0)
+Requires-Dist: ansys-openapi-common (<2.0.0)
+Requires-Dist: importlib_metadata (>=1.0) ; python_version < "3.8"
+Requires-Dist: jupyterlab (==3.5.0) ; extra == "examples"
+Requires-Dist: lxml (==4.9.1) ; extra == "examples"
+Requires-Dist: pandas (==1.3.5) ; extra == "examples"
+Requires-Dist: tabulate (==0.9.0) ; extra == "examples"
+Project-URL: Documentation, https://grantami.docs.pyansys.com
+Project-URL: Repository, https://github.com/pyansys/grantami-bomanalytics
+Description-Content-Type: text/x-rst
+
+ansys-grantami-bomanalytics
+###########################
+
+Project Overview
+----------------
+Granta MI BoM Analytics is part of the larger `PyAnsys <https://github.com/pyansys>`_
+effort to facilitate the use of Ansys technologies directly from Python.
+
+The Granta MI Restricted Substances solution includes a REST API for
+evaluating compliance of products, assemblies, specifications, and
+materials against legislations. This package abstracts automatically-
+generated code into an easy-to-use client library.
+
+
+Installation
+------------
+Install the ``ansys-grantami-bomanalytics`` package with this code:
+
+.. code::
+
+   pip install ansys-grantami-bomanalytics
+
+Alternatively, clone and install thie package with this code:
+
+.. code::
+
+   git clone https://github.com/pyansys/grantami-bomanalytics
+   cd grantami-bomanalytics
+   pip install .
+
+
+Documentation
+-------------
+The `Granta MI BoM Analytics Documentation <https://grantami.docs.pyansys.com>`_
+provides comprehensive installation and usage information.
+
+
+Usage
+-----
+Here's a brief example of how to use Granta MI BoM Analytics:
+
+.. code:: python
+
+    # Connect and query the Granta service.
+
+    >>> from pprint import pprint
+    >>> from ansys.grantami.bomanalytics import Connection, queries
+    >>> cxn = Connection("http://my_grantami_server/mi_servicelayer").with_autologon().connect()
+    >>> query = (
+    ...     queries.MaterialImpactedSubstancesQuery()
+    ...     .with_material_ids(['plastic-abs-pvc-flame'])
+    ...     .with_legislations(['REACH - The Candidate List'])
+    ... )
+
+    # Print out the result from the query.
+
+    >>> result = cxn.run(query)
+    >>> pprint(result.impacted_substances)
+    [<ImpactedSubstance: {"cas_number": 10108-64-2, "percent_amount": 1.9}>,
+     <ImpactedSubstance: {"cas_number": 107-06-2, "percent_amount": None}>,
+     <ImpactedSubstance: {"cas_number": 115-96-8, "percent_amount": 15.0}>,
+    ...
+
+
+Testing
+-------
+For information on testing, see `Contributing <https://grantami.docs.pyansys.com/contributing>`_.
+
+
+License
+-------
+Granta MI BoM Analytics is provided under the terms of the MIT license. You can find
+this license in the LICENSE file at the root of the repository.
+
