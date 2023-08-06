@@ -1,0 +1,168 @@
+Metadata-Version: 2.1
+Name: tepe
+Version: 0.6.4
+Summary: A concise and unified toolkit for Anomaly Detection's Training, Evalutation, Prediction and Export (AD-TEPE).
+Author: Lenovo Reaserch SD&S
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: albumentations
+Requires-Dist: loguru
+Requires-Dist: addict
+Requires-Dist: tabulate
+Requires-Dist: PyYAML
+Requires-Dist: lxml
+
+## 异物检测AD-TEPE
+A concise and unified toolkit for **A**nomaly **D**etection's **T**raining, **E**valutation, **P**rediction and **E**xport (**AD-TEPE**).
+
+The supported algorithms are as follows, 
+
+- anomaly detection:
+    - [x] CFA
+    - [x] RD
+
+## 环境安装
+
+可以直接运行下列命令，本地conda环境配置和服务器docker使用详见：[环境安装](./docs/Installation.md)
+
+```bash
+## step1 克隆仓库到ad-tepe文件夹下
+git clone -b anomaly_detection git@10.106.249.57:SD/tepe.git ad-tepe
+## step2 转到ad-tepe目录下
+cd ad-tepe
+## step3 安装相关依赖
+pip install -r requirements.txt
+## step4 将tepe依赖安装到环境中
+pip install -v -e .  # or "python setup.py develop"
+```
+
+## 异物检测数据集格式
+
+**参考公开数据集MVTec格式**
+
+    data_root
+    ├── scene1
+    │   ├── train
+    │   │   └── good
+    │   │       ├── 000000000001.jpg
+    │   │       ├── 000000000002.jpg
+    │   │       ...
+    │   │       └── 000000001111.jpg
+    │   └── test
+    │       ├── good
+    │       │   ├── 000000002222.jpg
+    │       │   ├── 000000002223.jpg
+    │       │   ...
+    │       │   └── 000000004444.jpg
+    │       ├── bad1
+    │       │   ├── 000000003333.jpg
+    │       │   ├── 000000003334.jpg
+    │       │   ...
+    │       │   └── 000000005555.jpg
+    │       ├── bad2
+    │       ...
+    ├── scene2
+    │   ├── train
+    │   │   └── good
+    │   │       │
+    │   │       ...
+    │   └── test
+    │       ├── good
+    │       │   │
+    │       │   ...
+    │       ├── bad1
+    │       │   │
+    │       │   ...
+    │       ├── bad2
+    │       ...
+    └── scene3
+        │
+        ...
+
+
+## 快速使用
+
+### 1. 创建配置文件
+
+参考`configs/anomaly_detection`目录下的配置文件，**复制/创建**一个自己需要的config.py文件，它既可以当作配置文件，也可以当作程序运行的入口。它里面包含一个任务配置类，这个类需要继承一个默认的配置类，默认配置类在`tepe/tasks/*/task.py`中实现。
+
+以cfa检测算法为例：
+
+```python
+## config.py
+from tepe.tasks.cfa import CFAConfig
+
+class TaskConfig(CFAConfig):
+  def __init__(self):
+    super(TaskConfig, self).__init__()
+    self.task_name = 'cfa_eguo'  # 任务名称，输出文件夹以这个命名
+    self.data_root = '/home/zepei/DATA/yiwushuju/image'  # 数据集路径
+    self.scene = 'eguo'  # 数据集中场景名称
+    self.max_epoch = 30  # 最大迭代轮数
+    self.input_size = [320, 512]  # 输入分辨率
+    self.batch_size = 4  
+    self.keep_ratio = False
+```
+
+### 2. 调用配置文件
+
+有两种调用方式：
+
+**方法一：使用命令行**
+
+```bash
+# 训练 (train)
+tepe train -t {config.py}
+
+# 验证 (evaluate)
+tepe eval -t {config.py} -w {trained_weights}
+
+# 预测 (predict)
+tepe predict -t {config.py} -s {img|fold|video} -w {trained_weights}
+
+# 导出 (export)
+tepe export -t {config.py} -w {trained_weights}
+```
+
+**方法二：直接运行config.py**
+
+只需要在config.py中实现main入口，去实例化你的任务类，
+
+```python
+## config.py
+
+from tepe.tasks.cfa import CFAConfig
+
+class TaskConfig(CFAConfig):
+    ...
+
+# 运行此py文件入口
+if __name__ == '__main__':
+    task = TaskConfig()
+    # 训练
+    task.train()
+
+    # 评估
+    task.eval()
+
+    # 导出
+    task.export()
+
+    # 预测
+    task.weights = ""  # 模型文件
+    source = ""  # 图片/文件/视频/等
+    view_img = True  # 是否可视化结果
+    save_img = True  # 是否保存预测结果
+    task.predict(source=source, view_img=view_img, save_img=save_img)
+```
+
+## 更新日志：
+
+**[2022/09/22]** 新的功能: 可以通过http请求来进行存图片,训练,导出,预测等操作
+
+**[2022/09/14]** 实现了异常检测(anomaly detection)知识蒸馏算法rd的训练train和导出export
+
+---
