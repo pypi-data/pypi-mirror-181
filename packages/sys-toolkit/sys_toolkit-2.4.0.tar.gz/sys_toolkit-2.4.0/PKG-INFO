@@ -1,0 +1,61 @@
+Metadata-Version: 2.1
+Name: sys-toolkit
+Version: 2.4.0
+Summary: Classes for operating system utilities
+License: BSD
+Author: Ilkka Tuohela
+Author-email: hile@iki.fi
+Requires-Python: >=3.9,<4.0
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: BSD License
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Utilities
+Requires-Dist: PyYAML (>=6.0,<7.0)
+Requires-Dist: inflection (>=0.5,<0.6)
+Description-Content-Type: text/markdown
+
+![Unit Tests](https://github.com/hile/sys-toolkit/actions/workflows/unittest.yml/badge.svg)
+![Style Checks](https://github.com/hile/sys-toolkit/actions/workflows/lint.yml/badge.svg)
+
+# Python system utility toolkit
+
+This module contains various small utility methods and common classes for working in python.
+
+These classes have moved from *systematic* and *cli-toolkit* modules to this module.
+
+## Installing
+
+This module has minimal dependencies (PyYAML) and should install with *pip* on any recent
+python version. The module has been tested with python 3.9 and python 3.10.
+
+## Running unit tests and linters
+
+All tests are run with *tox*.
+
+Run unit tests, flake8 and pylint:
+
+```bash
+make
+```
+
+Run unit tests:
+
+```bash
+make test
+```
+
+Run flake8 and pylint:
+
+```bash
+make lint
+```
+
