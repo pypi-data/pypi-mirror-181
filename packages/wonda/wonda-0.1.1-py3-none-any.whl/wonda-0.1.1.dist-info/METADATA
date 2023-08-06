@@ -1,0 +1,86 @@
+Metadata-Version: 2.1
+Name: wonda
+Version: 0.1.1
+Summary: Asynchronous, feature-rich, high performant Telegram Bot API framework for building stunning bots
+Home-page: https://pypi.org/project/wonda/
+License: MIT
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Provides-Extra: auto-reload
+Provides-Extra: power-ups
+Requires-Dist: aiohttp (>=3.8.1,<4.0.0)
+Requires-Dist: certifi (>=2022.6.15,<2023.0.0)
+Requires-Dist: choicelib (>=0.1.5,<0.2.0)
+Requires-Dist: orjson (>=3.7.11,<4.0.0); extra == "power-ups"
+Requires-Dist: pydantic (>=1.9.0,<2.0.0)
+Requires-Dist: typing-extensions (>=4.3.0,<5.0.0)
+Requires-Dist: uvloop (>=0.16.0,<0.17.0); extra == "power-ups"
+Requires-Dist: vbml (>=1.1.post1,<2.0)
+Requires-Dist: watchfiles (>=0.16.0,<0.17.0); extra == "auto-reload"
+Description-Content-Type: text/markdown
+
+# Wonda ✨
+
+[//]: # (Links to examples)
+[text formatting]: https://github.com/wondergram-org/wonda/blob/main/examples/high_level/formatting_example.py
+[middleware]: https://github.com/wondergram-org/wonda/blob/main/examples/high_level/setup_middleware.py
+[file uploading]: https://github.com/wondergram-org/wonda/blob/main/examples/high_level/file_upload_example.py
+[blueprints]: https://github.com/wondergram-org/wonda/blob/main/examples/high_level/load_blueprints.py
+[FSM]: https://github.com/wondergram-org/wonda/blob/main/examples/high_level/use_state_dispenser.py
+[awesome examples]: https://github.com/wondergram-org/wonda/tree/main/examples/high_level
+
+![Version](https://img.shields.io/pypi/v/wonda?label=version&style=flat-square)
+![Package downloads](https://img.shields.io/pypi/dw/wonda?label=downloads&style=flat-square)
+![Supported Python versions](https://img.shields.io/pypi/pyversions/wonda?label=supported%20python%20versions&style=flat-square)
+
+## Why
+
+Wonda empowers you to build powerful bots using simple extensible tools while not sacrifing any performance. It has all batteries included: [text formatting], [file uploading], [blueprints], [middleware] and [FSM] are all built-in.
+
+## Install
+
+To install stable version, use
+
+```shell script
+pip install -U wonda
+```
+
+If you decide to go beta, use the same command with `--pre` option or update from dev branch .zip [archive](https://github.com/wondergram-org/wonda/archive/refs/heads/dev.zip).
+
+You can make Wonda perform even better by installing power-ups. They're optional, but highly recommended.
+
+```shell script
+pip install --force wonda[power-ups]
+```
+
+To see the full list of packages, refer to our [project file](https://github.com/wondergram-org/wonda/blob/main/pyproject.toml).
+
+## Usage
+
+It's easy to build an echo bot with Wonda — it's ready in *six* lines of code. And expanding it further is a piece of cake too.
+
+```python
+from wonda import Bot
+
+bot = Bot("your-token")
+
+
+@bot.on.message()
+async def handler(_) -> str:
+    return "Hello world!"
+
+bot.run_forever()
+```
+
+Isn't it beautiful how little code is needed to achieve something this big? To get started on Wonda, check out our [awesome examples].
+
+## License
+
+This project is MIT licensed. Big thanks to maintainers and contributors of [vkbottle](https://github.com/vkbottle/vkbottle) upon which it is built!
+
+© **timoniq** (2019-2021), **feeeek** (2022), **exthrempty** (2022)
+
