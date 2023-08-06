@@ -1,0 +1,75 @@
+# Codegpt
+
+## 0.2.10
+
+A tool for using GPT just a little quicker. A nearly truly automated footgun. Learn how to revert with git before trying please.
+
+Posting about progress here:
+
+[![Twitter Follow](https://img.shields.io/twitter/follow/_JohnPartee?style=social)](https://twitter.com/_JohnPartee)
+
+## Getting Started
+
+`pip install codegpt --upgrade`
+
+And set your openapi API key as an environment variable like they recommend:
+[In their docs here](https://help.openai.com/en/articles/5112595-best-practices-for-api-key-safety)
+
+Windows users can also use `setx` like:
+
+`$ setx OPENAI_SECRET_KEY=<YOUR_API_KEY>`
+
+from an admin console.
+
+## Be careful! But try this
+
+Usage
+To try Codegpt, you can run the following command:
+
+```bash
+codegpt do <instructions (quoted)> <filenames>
+```
+
+It will prompt you for directions to follow, and it'll do whatever you want. Write new docs, add comments to code, just make sure to ask it to "edit" or "comment" or whatever so it knows to change files or not.
+
+Or use the quick command to do some neat stuff, like:
+
+Generate docs
+
+```bash
+codegpt quick docs <filenames>
+```
+
+Change variable names to be more readable
+
+```bash
+codegpt quick varnames <filenames>
+```
+
+Add comments to your code automatically
+
+```bash
+codegpt quick comment <filenames>
+```
+
+Check for bugs (iffy, but worth a shot)
+
+```bash
+codegpt quick bugs <filenames>
+```
+
+Check for vulnerabilities (even more iffy, but worth a shot)
+
+```bash
+codegpt quick vulns <filenames>
+```
+
+Try to make code less miserable
+
+```bash
+codegpt quick ugh <filenames>
+```
+
+Keep in mind that using GPT-3 for code generation is paid, with a cost of 2 cents per 1,000 tokens.
+
+Just like with a Jr Dev, it's best to break up your tasks into smaller pieces to improve the results.
