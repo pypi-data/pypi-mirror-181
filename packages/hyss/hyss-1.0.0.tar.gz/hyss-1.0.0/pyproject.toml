@@ -1,0 +1,32 @@
+[build-system]
+requires = ['setuptools>=61.0.0', 'wheel']
+build-backend = 'setuptools.build_meta'
+
+[project]
+name = 'hyss'
+version = '1.0.0'
+requires-python = '>=3.6'
+description = 'High impact style sheets, empowered by python'
+readme = 'README.md'
+authors = [{ name = 'Charlie Paterson', email = 'Charlieed.paterson@googlemail.com'}]
+license = { file = "LICENSE" }
+classifiers = [
+	"License :: OSI Approved :: MIT License",
+	"Development Status :: 5 - Production/Stable",
+	"Operating System :: OS Independent"
+]
+keywords = [
+	'css',
+	'hyss',
+	'styles',
+	'stylesheets',
+	'animations',
+	'web',
+	'full stack'
+]
+
+[project.urls]
+Homepage = "https://github.com/CpaterCodes/Hyss"
+
+[project.optional-dependencies]
+dev = ["pipenv", "pytest"]
