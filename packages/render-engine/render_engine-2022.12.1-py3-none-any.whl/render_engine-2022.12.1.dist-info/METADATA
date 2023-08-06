@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: render-engine
+Version: 2022.12.1
+Summary: A Flexible Static Site Generator for Python
+Description-Content-Type: text/markdown
+Requires-Dist: Jinja2
+Requires-Dist: markdown2
+Requires-Dist: pendulum
+Requires-Dist: more-itertools
+Requires-Dist: python-frontmatter
+Requires-Dist: python-slugify
+Provides-Extra: dev
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+Provides-Extra: docs
+Requires-Dist: mkdocs ; extra == 'docs'
+Requires-Dist: mkdocs-material ; extra == 'docs'
+Requires-Dist: mkdocstrings[python] ; extra == 'docs'
+
