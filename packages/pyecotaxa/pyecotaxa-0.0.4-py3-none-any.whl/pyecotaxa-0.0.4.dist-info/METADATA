@@ -1,0 +1,73 @@
+Metadata-Version: 2.1
+Name: pyecotaxa
+Version: 0.0.4
+Summary: Query EcoTaxa and process its output
+Home-page: https://github.com/ecotaxa/pyecotaxa
+Author: Simon-Martin Schroeder
+Author-email: sms@informatik.uni-kiel.de
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: python-dotenv
+Requires-Dist: requests
+Requires-Dist: tqdm
+Requires-Dist: werkzeug
+Requires-Dist: semantic-version
+Requires-Dist: atomicwrites
+Provides-Extra: dev
+Requires-Dist: black ; extra == 'dev'
+Provides-Extra: docs
+Requires-Dist: sphinx (>=1.4) ; extra == 'docs'
+Requires-Dist: sphinx-rtd-theme ; extra == 'docs'
+Requires-Dist: sphinx-autodoc-typehints (>=1.10.0) ; extra == 'docs'
+Provides-Extra: test
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: pytest-cov ; extra == 'test'
+Requires-Dist: flake8 ; extra == 'test'
+
+# pyecotaxa
+
+[![Documentation Status](https://readthedocs.org/projects/pyecotaxa/badge/?version=stable)](https://pyecotaxa.readthedocs.io/en/stable/?badge=stable)
+[![Tests](https://github.com/ecotaxa/pyecotaxa/workflows/Tests/badge.svg)](https://github.com/ecotaxa/pyecotaxa/actions?query=workflow%3ATests)
+[![PyPI](https://img.shields.io/pypi/v/pyecotaxa)](https://pypi.org/project/pyecotaxa)
+
+Python package to query EcoTaxa and process its output.
+
+## `pyecotaxa.archive`: Read and write EcoTaxa archives
+
+```python
+from pyecotaxa.archive import read_tsv, write_tsv
+
+# Read a .tsv file into a pandas DataFrame
+# In contrast to pd.read_csv, this function transparently handles the type header
+df = read_tsv(path_to_file)
+
+# Write pandas DataFrame into a .tsv file
+# In contrast to df.to_csv, this function can generate the type header
+write_tsv(df, path_to_file)
+```
+
+
+## `pyecotaxa.remote`: Interact with a remote EcoTaxa server
+
+```python
+from pyecotaxa.remote import Remote
+
+r = Remote()
+
+# Login
+r.login(username, password)
+
+# Pull one or more project archives by project_id
+r.pull(project_ids)
+```
