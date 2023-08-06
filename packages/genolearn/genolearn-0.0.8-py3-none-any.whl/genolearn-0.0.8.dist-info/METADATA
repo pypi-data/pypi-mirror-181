@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: genolearn
+Version: 0.0.8
+Summary: A machine learning toolkit for genome sequence data
+Home-page: https://github.com/jordan-wei-taylor/genolearn
+Author: Jordan Taylor
+Author-email: jt2006@bath.ac.uk
+License: BSD-3-Clause
+Project-URL: Bug Tracker, https://github.com/jordan-wei-taylor/genolearn/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: click (>=8.1.3)
+Requires-Dist: numpy (>=1.22.3)
+Requires-Dist: pandas (>=1.4.2pathos>=0.3.0)
+Requires-Dist: psutil (>=5.9.0)
+Requires-Dist: scikit-learn (>=1.1.2)
+Requires-Dist: scipy (>=1.8.0)
+
+# GenoLearn
+
+For documentation, see [genolearn.readthedocs.io](https://genolearn.readthedocs.io).
