@@ -1,0 +1,10 @@
+remoto>=1.1.4
+python-graphql-client
+ramda
+
+[:python_version < "3.0"]
+configparser
+setuptools<45.0.0
+
+[:python_version >= "3.0"]
+setuptools
