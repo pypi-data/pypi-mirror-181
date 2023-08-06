@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: python-rriot
+Version: 0.0.3
+Summary: Python RRIOT is a library written in Python 3 for interfacing with Roborock's IoT API
+Author-email: Grant Le Roux <grant.leroux+rriot@gmail.com>
+Project-URL: Homepage, https://github.com/cram42/python-rriot
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Python RRIOT
+Python RRIOT is a library written in Python 3 for interfacing with Roborock's IoT API
