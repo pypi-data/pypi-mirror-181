@@ -1,0 +1,9 @@
+datetime
+json5==0.9.5
+pandas
+requests
+shimoku-components-catalog
+
+[testing]
+pytest
+pytest-cov
