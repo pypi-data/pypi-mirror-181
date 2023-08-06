@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: python-ssdb
+Version: 1.0.1
+Summary: Python implementation of SSDB client
+Home-page: https://github.com/lsh918/python-ssdb
+Author: lsh918
+Author-email: vx0918@gmail.com
+Requires-Python: >=3.6,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Project-URL: Repository, https://github.com/lsh918/python-ssdb
+Description-Content-Type: text/markdown
+
+# python-ssdb
+Python implementation of SSDB Client
+
+## Features
+- Use connection pool
+- Support both sync & async clients
+    - Sync: `ssdb.SSDB`
+    - Async: `ssdb.asyncio.SSDB`
+
