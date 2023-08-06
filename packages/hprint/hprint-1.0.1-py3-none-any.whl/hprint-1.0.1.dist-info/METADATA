@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: hprint
+Version: 1.0.1
+Summary: Print python object in table/json format
+Home-page: https://github.com/ruanhao/hprint
+Author: Hao Ruan
+Author-email: ruanhao1116@gmail.com
+License: MIT
+Keywords: utils,print,json
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Software Development :: Libraries
+Requires-Python: >=3.7, <4
+License-File: LICENSE
+Requires-Dist: tabulate
+
