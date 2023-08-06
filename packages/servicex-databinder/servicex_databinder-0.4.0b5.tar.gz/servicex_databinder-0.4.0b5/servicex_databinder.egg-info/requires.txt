@@ -1,0 +1,8 @@
+servicex>=2.5
+tcut-to-qastle>=0.7
+nest-asyncio>=1.5.1
+tqdm>=4.60.0
+pyarrow>=3.0.0
+backoff>=1.11.1
+func_adl_servicex>=1.1
+aioshutil>=1.2
