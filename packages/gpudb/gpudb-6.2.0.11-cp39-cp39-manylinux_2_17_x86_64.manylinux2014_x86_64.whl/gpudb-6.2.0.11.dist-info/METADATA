@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: gpudb
+Version: 6.2.0.11
+Summary: Python client for GPUdb
+Home-page: http://www.kinetica.com
+Download-URL: https://github.com/kineticadb/kinetica-api-python/archive/v6.2.0.11.tar.gz
+Author: Kinetica DB Inc.
+Author-email: mmahmud@kinetica.com
+License-File: LICENSE
+Requires-Dist: future
+
+The client-side Python API for Kinetica.  Create, store, retrieve, and query data with ease and speed.
