@@ -1,0 +1,72 @@
+# PoetryUp
+
+![build](https://github.com/MousaZeidBaker/poetryup/workflows/Publish/badge.svg)
+![test](https://github.com/MousaZeidBaker/poetryup/workflows/Test/badge.svg)
+[![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
+![python_version](https://img.shields.io/badge/python-%3E=3.6-blue)
+[![pypi_v](https://img.shields.io/pypi/v/poetryup)](https://pypi.org/project/poetryup)
+[![pypi_dm](https://img.shields.io/pypi/dm/poetryup)](https://pypi.org/project/poetryup)
+
+
+> __Warning__
+>
+> This package has been deprecated and is no longer maintained, `poetryup` has moved to [poetry-plugin-up](https://github.com/MousaZeidBaker/poetry-plugin-up)
+
+PoetryUp updates dependencies and bumps their version in both `poetry.lock` as
+well as in `pyproject.toml` file. Dependencies version constraints are
+respected, unless the `--latest` flag is passed, in which case dependencies will
+be updated to their latest available version. PoetryUp runs
+[poetry](https://github.com/python-poetry/poetry) commands, thus it's required
+to be installed. The difference between running `poetry update` and `poetryup`,
+is that the latter also modifies the `pyproject.toml` file.
+
+![poetryup_demo](https://raw.githubusercontent.com/MousaZeidBaker/poetryup/master/media/poetryup_demo.gif)
+
+## Usage
+
+Show help message and exit
+```shell
+poetryup --help
+```
+
+Update all dependencies with respect to their version constraints specified in the
+`pyproject.toml` file
+```shell
+poetryup
+```
+
+Update all dependencies to their latest available version
+```shell
+poetryup --latest
+```
+
+Update all dependencies to their latest available version except for packages
+with an exact version
+```shell
+poetryup --latest --skip-exact
+```
+
+Update dependencies in the `default` and `dev` group to their latest available version
+```shell
+poetryup --latest --group default --group dev
+```
+
+Update the `foo` and `bar` dependencies to their latest available version
+```shell
+poetryup --latest --name foo --name bar
+```
+
+Update all dependencies to their latest available version except the `foo` and `bar` dependencies
+```shell
+poetryup --latest --exclude-name foo --exclude-name bar
+```
+
+## Contributing
+
+Contributions are welcome! See the [Contributing Guide](https://github.com/MousaZeidBaker/poetryup/blob/master/CONTRIBUTING.md).
+
+## Issues
+
+If you encounter any problems, please file an
+[issue](https://github.com/MousaZeidBaker/poetryup/issues) along with a
+detailed description.
