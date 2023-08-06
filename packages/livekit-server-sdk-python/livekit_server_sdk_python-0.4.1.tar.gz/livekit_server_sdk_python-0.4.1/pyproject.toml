@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=42"]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+target-version = ["py37"]
+exclude = "/(protocol|env|[.]tox|[.]pytest_cache)"
+
+[tool.isort]
+profile = "black"
+skip = ["protocol", "env", ".tox", ".pytest_cache"]
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+envlist = py37,py38,py39
+isolated_build = true
+
+[testenv]
+deps = pytest
+commands =
+    pip install --editable .
+    pytest
+"""

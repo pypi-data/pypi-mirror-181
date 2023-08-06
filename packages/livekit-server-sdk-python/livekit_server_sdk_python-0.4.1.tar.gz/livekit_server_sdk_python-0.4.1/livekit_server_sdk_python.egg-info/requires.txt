@@ -1,0 +1,12 @@
+pyjwt<3.0.0,>=2.0.0
+twirp<0.1.0,>=0.0.5
+
+[dev]
+black
+build
+coverage
+isort
+pre-commit
+pytest
+pytest-cov
+twine
