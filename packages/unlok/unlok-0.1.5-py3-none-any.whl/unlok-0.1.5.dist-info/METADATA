@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: unlok
+Version: 0.1.5
+Summary: 
+Author: jhnnsrs
+Author-email: jhnnsrs@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Dist: koil (>=0.2.10)
+Requires-Dist: rath (>=0.3.3)
