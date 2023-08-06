@@ -1,0 +1,60 @@
+[tool.poetry]
+name = "dsmanager"
+version = "1.0.8"
+description = "Template to Kickstart Data Science projects that follows Sklearn standards and brings usefull tools to handle data and models quickly and easily"
+authors = ["Rayane AMROUCHE <rayaneamrouche@gmail.com>"]
+license = "GPL-3.0-or-later"
+readme = "README.md"
+
+packages = [
+    { include = "dsmanager" },
+    { include = "dsmanager/**/*.py" },
+]
+
+[tool.poetry.dependencies]
+#python version
+python = ">=3.8,<3.11"
+
+#main libs
+pandas = "^1.5.0"
+numpy = "^1.23.3"
+scikit-learn = "^1.2.0"
+sqlalchemy = "^1.4.41" #Sql Dbs
+SharePlum = "^0.5.1" #Sharepoint
+explainerdashboard = "^0.4.0" #Model Explaining
+sweetviz = "^2.1.4" #EDA
+
+
+#features lib
+#Save/Load
+pickle-mixin = "^1.0.2"
+#notebook libs
+ipython = "^8.5.0"
+#pandas libs
+numexpr = "^2.8.3"
+openpyxl = "^3.0.10"
+#Account in env
+python-dotenv = "^0.21.0"
+#Sharepoints libs
+azure-storage-blob = "^12.14.0"
+azure-common = "^1.1.28"
+azure-storage-common = "^2.1.0"
+#Snowflake libs
+snowflake-sqlalchemy = "^1.4.2"
+snowflake-connector-python = "^2.8.0"
+paramiko = "^2.12.0"
+psycopg2-binary = "^2.9.5"
+simple-salesforce = "^1.12.2"
+
+[tool.poetry.dev-dependencies]
+autopep8 = "^1.7.0"
+pylint = "^2.15.4"
+pytest = "^7.1.3"
+mypy = "^0.982"
+notebook = "^6.5.1"
+pdoc = "^12.2.0"
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
