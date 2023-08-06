@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: JaxUtils
+Version: 0.0.2
+Summary: Utility functions for JaxGaussianProcesses
+Author: Daniel Dodd and Thomas Pinder
+Author-email: tompinder@live.co.uk
+License: LICENSE
+Project-URL: Documentation, https://JaxUitls.readthedocs.io/en/latest/
+Project-URL: Source, https://github.com/JaxGaussianProcesses/JaxUitls
+Keywords: gaussian-processes jax machine-learning bayesian
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: jax (>=0.1.67)
+Requires-Dist: jaxlib (>=0.1.47)
+Provides-Extra: cuda
+Requires-Dist: jax[cuda] ; extra == 'cuda'
+Provides-Extra: dev
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: isort ; extra == 'dev'
+Requires-Dist: pylint ; extra == 'dev'
+Requires-Dist: flake8 ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+
+<h1 align='center'>JAXUtils</h1>
+<h2 align='center'>Utility functions for JAX Gaussian Processes.</h2>
