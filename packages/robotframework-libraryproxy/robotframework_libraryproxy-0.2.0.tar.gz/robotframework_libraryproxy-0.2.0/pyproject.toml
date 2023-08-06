@@ -1,0 +1,139 @@
+[tool.poetry]
+name = "robotframework-libraryproxy"
+version = "0.2.0"
+description = "Call RobotFramework keywords from Python"
+authors = ["Daniel Biehl <dbiehl@live.de>"]
+readme = "README.md"
+license = "Apache-2.0"
+homepage = 'https://github.com/d-biehl/robotframework-libraryproxy'
+repository = 'https://github.com/d-biehl/robotframework-libraryproxy'
+
+keywords = ["Test", "Testing", "RobotFramework"]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "License :: OSI Approved :: Apache Software License",
+  "Framework :: Robot Framework",
+  "Framework :: Robot Framework :: Tool",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: Implementation",
+  "Topic :: Software Development :: Testing",
+  "Topic :: Software Development :: Testing :: Acceptance",
+  "Typing :: Typed",
+]
+
+packages = [{ include = "robotlibraryproxy", from = "src" }]
+
+
+[build-system]
+requires = ["poetry-core", "poetry-dynamic-versioning"]
+#build-backend = "poetry.core.masonry.api"
+build-backend = "poetry_dynamic_versioning.backend"
+
+
+[tool.poetry-dynamic-versioning.substitution]
+folders = [{ path = "src" }]
+
+
+[tool.poetry-dynamic-versioning]
+enable = true
+vcs = "git"
+style = "semver"
+
+
+[tool.semantic_release]
+version_variable = [
+  "src/robotlibraryproxy/__version__.py:__version__",
+  "pyproject.toml:version",
+]
+branch = "main"
+upload_to_pypi = true
+upload_to_release = true
+build_command = "pip install poetry && poetry build"
+
+
+[tool.poetry.dependencies]
+python = "^3.8.1"
+robotframework = "*"
+
+
+[tool.poetry.group.dev.dependencies]
+robotframework = { version = "~4.1.0", allow-prereleases = false }
+isort = "*"
+mypy = "*"
+flake8 = "*"
+black = "*"
+pep8-naming = "*"
+python-semantic-release = "*"
+
+
+[tool.poetry.group.test.dependencies]
+pytest = "*"
+pytest-html = "*"
+robotframework-browser = "*"
+
+
+[tool.black]
+line-length = 120
+target-version = ['py38']
+exclude = '''
+(
+  /(
+      \.eggs         # exclude a few common directories in the
+    | \.git          # root of the project
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | build
+    | dist
+    | out
+    | playground
+  )/
+)
+'''
+
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -vv"
+filterwarnings = "ignore:.*Using or importing the ABCs from 'collections' instead of from 'collections.abc'.*:DeprecationWarning"
+testpaths = ["tests"]
+junit_suite_name = "robotcode"
+# log_cli = true
+# log_cli_level = 4
+# log_cli_format = "%(levelname)s %(name)s: %(message)s"
+pythonpath = ["./tests/testdata/robot/lib"]
+
+
+[tool.isort]
+profile = "black"
+src_paths = ["robotcode", "tests"]
+#skip_gitignore = true
+skip = ['external', '.venv']
+
+
+[tool.coverage.run]
+omit = ["*tests*"]
+source = ["robotcode"]
+
+
+[tool.mypy]
+# MyPy config
+# File reference here - http://mypy.readthedocs.io/en/latest/config_file.html#config-file
+python_version = 3.8
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_return_any = true
+warn_unused_configs = true
+strict = true
+disallow_subclassing_any = false
+#ignore_missing_imports = true
+exclude = ["\\.mypy_cache", "\\.venv", "build", "playground"]
+
+
+[[tool.mypy.overrides]]
+module = ["robot.*", "robotremoteserver.*", "debugpy.*", "Browser.*"]
+ignore_missing_imports = true
