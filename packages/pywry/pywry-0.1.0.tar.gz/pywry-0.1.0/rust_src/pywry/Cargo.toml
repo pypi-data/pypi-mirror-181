@@ -1,0 +1,19 @@
+[package]
+name = "pywry"
+version = "0.1.0"
+edition = "2021"
+include = ["assets/"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "pywry"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.17", features = ["extension-module"] }
+wry = "0.23"
+image = {version="0.24.5", default-features = false, features = ["png"] }
+futures = "0.3"
+async-tungstenite = "0.19"
+async-std = "1.12"
+futures-util = { version="0.3.25", feautres=["stream"]}
