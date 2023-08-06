@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: scrapy-prometheus-extensions
+Version: 1.1.5
+Summary: scrapy_prometheus_extensions
+Home-page: https://github.com/boyLong/scrapy-prometheus-extensions
+Author: wenlong_gao
+Author-email: g1310669621@gmail.com
+Project-URL: Bug Tracker, https://github.com/boyLong/scrapy-prometheus-extensions/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+pip install scrapy_prometheus_extensions
+
+在settings中配置:
+##### SCRAPROM_PUSHGATEWAY_URL = ''
+##### SCRAPROM_JOB_NAME = ""
+##### SCRAPROM_PUSH_TIMEOUT = 3
+##### SCRAPROM_METRICS_BASE = ""
