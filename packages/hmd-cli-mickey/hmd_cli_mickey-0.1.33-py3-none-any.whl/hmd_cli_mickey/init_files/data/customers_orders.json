@@ -1,0 +1,12 @@
+{
+  "name": "customers_orders",
+  "columns": [
+    { "name": "id", "datatype": "int" },
+    { "name": "cust_id", "datatype": "int" },
+    { "name": "order_id", "datatype": "int" },
+    { "name": "invoice_num", "datatype": "varchar" },
+    { "name": "is_deleted", "datatype": "int" },
+    { "name": "created_at", "datatype": "timestamp" },
+    { "name": "updated_at", "datatype": "timestamp" }
+  ]
+}

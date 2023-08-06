@@ -1,0 +1,13 @@
+{
+  "name": "orders",
+  "columns": [
+    { "name": "id", "datatype": "int" },
+    { "name": "order_number", "datatype": "varchar" },
+    { "name": "amount", "datatype": "double" },
+    { "name": "due_date", "datatype": "timestamp" },
+    { "name": "overdue", "datatype": "int" },
+    { "name": "is_deleted", "datatype": "int" },
+    { "name": "created_at", "datatype": "timestamp" },
+    { "name": "updated_at", "datatype": "timestamp" }
+  ]
+}
