@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/simple_lama_inpainting/__init__.py
+src/simple_lama_inpainting/cli.py
+src/simple_lama_inpainting.egg-info/PKG-INFO
+src/simple_lama_inpainting.egg-info/SOURCES.txt
+src/simple_lama_inpainting.egg-info/dependency_links.txt
+src/simple_lama_inpainting.egg-info/entry_points.txt
+src/simple_lama_inpainting.egg-info/requires.txt
+src/simple_lama_inpainting.egg-info/top_level.txt
+src/simple_lama_inpainting/models/__init__.py
+src/simple_lama_inpainting/models/model.py
+src/simple_lama_inpainting/utils/__init__.py
+src/simple_lama_inpainting/utils/util.py
