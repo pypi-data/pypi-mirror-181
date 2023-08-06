@@ -1,0 +1,12 @@
+rdkit-pypi
+
+[dev]
+flake8
+mock
+pytest
+pytest-cov
+pytest-rerunfailures
+
+[eda]
+jupyter
+py3Dmol
