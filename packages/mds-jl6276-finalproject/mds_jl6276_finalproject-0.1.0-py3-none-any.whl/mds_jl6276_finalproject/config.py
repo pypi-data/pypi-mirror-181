@@ -1,0 +1,3 @@
+api_key = "pLCaTI_7LSGNfQLum2ASCJ0gK1t6zBvFFKRX1xi1PPR0o4eCGeSFIx77fYq8MSwezXLgzDr2bEuFnf_4UJYeeBk0GLIkxCp51YSUSo8ezE3REXgDlkbrnUr3zE-aY3Yx"
+
+client_id = "a16P9K6PS60xec-8_bWXDA"
