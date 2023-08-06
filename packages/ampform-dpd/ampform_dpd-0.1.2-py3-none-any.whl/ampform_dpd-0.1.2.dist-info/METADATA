@@ -1,0 +1,111 @@
+Metadata-Version: 2.1
+Name: ampform-dpd
+Version: 0.1.2
+Summary: Symbolic expressions for Dalitz-Plot Decomposition
+Author: Mikhail Mikhasenko, Remco de Boer
+License: GPLv3 or later
+Project-URL: Tracker, https://github.com/ComPWA/ampform-dpd/issues
+Project-URL: Changelog, https://github.com/ComPWA/ampform-dpd/releases
+Project-URL: Documentation, https://compwa.github.io/ampform-dpd
+Project-URL: Source, https://github.com/ComPWA/ampform-dpd
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: ampform (~=0.14.4)
+Requires-Dist: attrs (>=20.1.0)
+Requires-Dist: cloudpickle
+Requires-Dist: sympy (>=1.10)
+Requires-Dist: tensorwaves[jax]
+Requires-Dist: typing-extensions ; python_version < "3.8.0"
+Provides-Extra: dev
+Requires-Dist: ipywidgets ; extra == 'dev'
+Requires-Dist: matplotlib ; extra == 'dev'
+Requires-Dist: myst-nb (>=0.14) ; extra == 'dev'
+Requires-Dist: sphinx-book-theme ; extra == 'dev'
+Requires-Dist: sphinx-codeautolink[ipython] ; extra == 'dev'
+Requires-Dist: sphinx-copybutton ; extra == 'dev'
+Requires-Dist: sphinx-design ; extra == 'dev'
+Requires-Dist: sphinx-togglebutton ; extra == 'dev'
+Requires-Dist: tensorwaves[jax] ; extra == 'dev'
+Requires-Dist: tqdm ; extra == 'dev'
+Requires-Dist: aquirdturtle-collapsible-headings ; extra == 'dev'
+Requires-Dist: jupyterlab (>=3.0) ; extra == 'dev'
+Requires-Dist: jupyterlab-code-formatter ; extra == 'dev'
+Requires-Dist: jupyterlab-myst ; extra == 'dev'
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: isort ; extra == 'dev'
+Requires-Dist: nbmake (<=1.3.0) ; extra == 'dev'
+Requires-Dist: numpy ; extra == 'dev'
+Requires-Dist: pytest (>=6.0) ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+Requires-Dist: pytest-xdist ; extra == 'dev'
+Requires-Dist: pre-commit (>=1.4.0) ; extra == 'dev'
+Requires-Dist: sphinx-autobuild ; extra == 'dev'
+Requires-Dist: tox (>=1.9) ; extra == 'dev'
+Requires-Dist: importlib-metadata ; (python_version < "3.8.0") and extra == 'dev'
+Provides-Extra: doc
+Requires-Dist: ipywidgets ; extra == 'doc'
+Requires-Dist: matplotlib ; extra == 'doc'
+Requires-Dist: myst-nb (>=0.14) ; extra == 'doc'
+Requires-Dist: sphinx-book-theme ; extra == 'doc'
+Requires-Dist: sphinx-codeautolink[ipython] ; extra == 'doc'
+Requires-Dist: sphinx-copybutton ; extra == 'doc'
+Requires-Dist: sphinx-design ; extra == 'doc'
+Requires-Dist: sphinx-togglebutton ; extra == 'doc'
+Requires-Dist: tensorwaves[jax] ; extra == 'doc'
+Requires-Dist: tqdm ; extra == 'doc'
+Requires-Dist: importlib-metadata ; (python_version < "3.8.0") and extra == 'doc'
+Provides-Extra: format
+Requires-Dist: black ; extra == 'format'
+Requires-Dist: isort ; extra == 'format'
+Provides-Extra: jax
+Requires-Dist: tensorwaves[jax] ; extra == 'jax'
+Provides-Extra: jupyter
+Requires-Dist: ipywidgets ; extra == 'jupyter'
+Requires-Dist: matplotlib ; extra == 'jupyter'
+Requires-Dist: myst-nb (>=0.14) ; extra == 'jupyter'
+Requires-Dist: sphinx-book-theme ; extra == 'jupyter'
+Requires-Dist: sphinx-codeautolink[ipython] ; extra == 'jupyter'
+Requires-Dist: sphinx-copybutton ; extra == 'jupyter'
+Requires-Dist: sphinx-design ; extra == 'jupyter'
+Requires-Dist: sphinx-togglebutton ; extra == 'jupyter'
+Requires-Dist: tensorwaves[jax] ; extra == 'jupyter'
+Requires-Dist: tqdm ; extra == 'jupyter'
+Requires-Dist: aquirdturtle-collapsible-headings ; extra == 'jupyter'
+Requires-Dist: jupyterlab (>=3.0) ; extra == 'jupyter'
+Requires-Dist: jupyterlab-code-formatter ; extra == 'jupyter'
+Requires-Dist: jupyterlab-myst ; extra == 'jupyter'
+Requires-Dist: importlib-metadata ; (python_version < "3.8.0") and extra == 'jupyter'
+Provides-Extra: numba
+Requires-Dist: tensorwaves[numba] ; extra == 'numba'
+Provides-Extra: sty
+Requires-Dist: black ; extra == 'sty'
+Requires-Dist: isort ; extra == 'sty'
+Requires-Dist: nbmake (<=1.3.0) ; extra == 'sty'
+Requires-Dist: numpy ; extra == 'sty'
+Requires-Dist: pytest (>=6.0) ; extra == 'sty'
+Requires-Dist: pytest-cov ; extra == 'sty'
+Requires-Dist: pytest-xdist ; extra == 'sty'
+Requires-Dist: pre-commit (>=1.4.0) ; extra == 'sty'
+Provides-Extra: tensorflow
+Requires-Dist: tensorwaves[tf] ; extra == 'tensorflow'
+Provides-Extra: test
+Requires-Dist: nbmake (<=1.3.0) ; extra == 'test'
+Requires-Dist: numpy ; extra == 'test'
+Requires-Dist: pytest (>=6.0) ; extra == 'test'
+Requires-Dist: pytest-cov ; extra == 'test'
+Requires-Dist: pytest-xdist ; extra == 'test'
+Provides-Extra: tf
+Requires-Dist: tensorwaves[tf] ; extra == 'tf'
+
+# Symbolic Dalitz-Plot Decomposition
+
+[![GPLv3+ license](https://img.shields.io/badge/License-GPLv3+-blue.svg)](https://www.gnu.org/licenses/gpl-3.0-standalone.html)
+
+[![Documentation build status](https://github.com/ComPWA/ampform-dpd/workflows/CI-docs/badge.svg)](https://github.com/ComPWA/ampform-dpd/actions/workflows/ci-docs.yml?query=branch%3Amain+workflow%3Aci-docs)
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/ComPWA/ampform-dpd/main.svg)](https://results.pre-commit.ci/latest/github/ComPWA/ampform-dpd/main)
+[![Test coverage](https://codecov.io/gh/ComPWA/ampform-dpd/branch/main/graph/badge.svg)](https://codecov.io/gh/ComPWA/ampform-dpd)
+
+This repository is a (temporary) extension of [AmpForm](https://ampform.rtfd.io) and provides a symbolic implementation of Dalitz-plot decomposition ([10.1103/PhysRevD.101.034033](https://journals.aps.org/prd/abstract/10.1103/PhysRevD.101.034033)) with [SymPy](https://www.sympy.org/en/index.html). It has been extracted from the [ComPWA/polarimetry](https://github.com/ComPWA/polarimetry) repository, which is not yet public.
+
+Installation instructions can be found [here](https://compwa.github.io/ampform-dpd/#installation).
