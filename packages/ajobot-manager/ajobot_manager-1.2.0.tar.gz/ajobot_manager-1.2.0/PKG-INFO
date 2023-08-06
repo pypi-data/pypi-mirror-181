@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: ajobot-manager
+Version: 1.2.0
+Summary: An interface for the different ajobots
+License: MIT
+Author: Axel Amigo Arnold
+Author-email: axl89@users.noreply.github.com
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: aioredis (>=2.0.1,<3.0.0)
+Requires-Dist: loguru (>=0.6.0,<0.7.0)
