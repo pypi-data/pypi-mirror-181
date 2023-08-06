@@ -1,0 +1,11 @@
+include url_observer/url_observer.min.js
+include url_observer/url_observer.min.js.map
+include url_observer/async-*.js
+include url_observer/async-*.js.map
+include url_observer/*-shared.js
+include url_observer/*-shared.js.map
+include url_observer/metadata.json
+include url_observer/package-info.json
+include README.md
+include LICENSE
+include package.json
