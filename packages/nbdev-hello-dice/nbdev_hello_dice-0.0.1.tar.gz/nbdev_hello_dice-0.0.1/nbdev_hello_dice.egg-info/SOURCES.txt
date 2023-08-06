@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+settings.ini
+setup.py
+nbdev_hello_dice.egg-info/PKG-INFO
+nbdev_hello_dice.egg-info/SOURCES.txt
+nbdev_hello_dice.egg-info/dependency_links.txt
+nbdev_hello_dice.egg-info/entry_points.txt
+nbdev_hello_dice.egg-info/not-zip-safe
+nbdev_hello_dice.egg-info/requires.txt
+nbdev_hello_dice.egg-info/top_level.txt
+nbdev_hello_world/__init__.py
+nbdev_hello_world/_modidx.py
+nbdev_hello_world/core.py
+nbdev_hello_world/dice.py
