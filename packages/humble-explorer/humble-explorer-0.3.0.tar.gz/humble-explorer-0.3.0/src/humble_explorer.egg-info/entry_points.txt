@@ -1,0 +1,2 @@
+[console_scripts]
+humble-explorer = humble_explorer.__main__:run
