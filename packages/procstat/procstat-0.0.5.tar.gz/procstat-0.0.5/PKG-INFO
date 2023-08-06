@@ -1,0 +1,101 @@
+Metadata-Version: 2.1
+Name: procstat
+Version: 0.0.5
+Summary: Tool to count runtime metrics
+Home-page: https://github.com/lorien/procstat
+Download-URL: https://github.com/lorien/procstat/releases
+Author: Gregory Petukhov
+Author-email: Gregory Petukhov <lorien@lorien.name>
+Maintainer: Gregory Petukhov
+Maintainer-email: lorien@lorien.name
+License: The MIT License (MIT)
+        
+        Copyright (c) 2021-2023, Gregory Petukhov
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in
+        all copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+        THE SOFTWARE.
+        
+Project-URL: homepage, http://github.com/lorien/procstat
+Keywords: stat,stats,statistics,metrics
+Classifier: Typing :: Typed
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Procstat Documentation
+
+[![Tests Status](https://github.com/lorien/procstat/actions/workflows/test.yml/badge.svg)](https://github.com/lorien/procstat/actions/workflows/test.yml)
+[![Code Quality Status](https://github.com/lorien/procstat/actions/workflows/check.yml/badge.svg)](https://github.com/lorien/procstat/actions/workflows/test.yml)
+[![Types Check Status](https://github.com/lorien/procstat/actions/workflows/mypy.yml/badge.svg)](https://github.com/lorien/procstat/actions/workflows/mypy.yml)
+[![Test Coverage Status](https://coveralls.io/repos/github/lorien/procstat/badge.svg)](https://coveralls.io/github/lorien/procstat)
+[![Documentation Status](https://readthedocs.org/projects/procstat/badge/?version=latest)](http://user-agent.readthedocs.org)
+
+This library helps to count runtime metrics. For specific events you increment manually the
+corresponding counters. By default the library dumps all counters into stderr each 3 seconds.
+It also can display the speed of metric is changing.
+
+It also can dump metrics into influxdb, will be documented later, see source code for details.
+
+# Installation
+
+```shell
+pip install -U procstat
+```
+
+# Usage
+
+```python
+import time
+from procstat import Stat
+
+stat = Stat(speed_keys=['foo', 'bar'])
+while True:
+    stat.inc('foo') # default increment is 1
+    stat.inc('bar', 100)
+    stat.inc('baz', 500)
+    time.sleep(1)
+```
+
+That code will produce output like:
+```
+DEBUG:procstat:EPS: bar: 0.0, foo: 0.0 | TOTAL:
+DEBUG:procstat:EPS: bar: 1.0, foo: 0.0+ | TOTAL: bar: 40, baz: 80, foo: 4
+DEBUG:procstat:EPS: bar: 2.0, foo: 0.0+ | TOTAL: bar: 70, baz: 140, foo: 7
+DEBUG:procstat:EPS: bar: 3.0, foo: 0.0+ | TOTAL: bar: 100, baz: 200, foo: 10
+DEBUG:procstat:EPS: bar: 4.0, foo: 0.0+ | TOTAL: bar: 130, baz: 260, foo: 13
+DEBUG:procstat:EPS: bar: 5.0, foo: 0.0+ | TOTAL: bar: 160, baz: 320, foo: 16
+DEBUG:procstat:EPS: bar: 6.0, foo: 0.0+ | TOTAL: bar: 190, baz: 380, foo: 19
+DEBUG:procstat:EPS: bar: 7.0, foo: 0.0+ | TOTAL: bar: 220, baz: 440, foo: 22
+DEBUG:procstat:EPS: bar: 8.0, foo: 0.0+ | TOTAL: bar: 250, baz: 500, foo: 25
+DEBUG:procstat:EPS: bar: 9.0, foo: 0.0+ | TOTAL: bar: 280, baz: 560, foo: 28
+DEBUG:procstat:EPS: bar: 10.0, foo: 1.0 | TOTAL: bar: 310, baz: 620, foo: 31
+DEBUG:procstat:EPS: bar: 10.0, foo: 1.0 | TOTAL: bar: 340, baz: 680, foo: 34
+DEBUG:procstat:EPS: bar: 10.0, foo: 1.0 | TOTAL: bar: 370, baz: 740, foo: 37
+...
+```
