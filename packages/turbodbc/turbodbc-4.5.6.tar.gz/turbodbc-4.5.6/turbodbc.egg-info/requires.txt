@@ -1,0 +1,6 @@
+
+[arrow]
+pyarrow<11,>=1.0
+
+[numpy]
+numpy>=1.19.0
