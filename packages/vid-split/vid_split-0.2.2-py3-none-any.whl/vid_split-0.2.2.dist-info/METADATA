@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: vid-split
+Version: 0.2.2
+Summary: A utility for splitting video based on silence.
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: natsort (~=8.2.0)
+Requires-Dist: rich (~=12.6.0)
+Provides-Extra: test
+Requires-Dist: tox ; extra == 'test'
+Requires-Dist: pytest-cov ; extra == 'test'
+
+vid-split
+---------
+A command line utility for splitting a video file, based on silences found.
