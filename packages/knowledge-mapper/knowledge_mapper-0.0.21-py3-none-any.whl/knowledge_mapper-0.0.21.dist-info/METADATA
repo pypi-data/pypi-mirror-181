@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: knowledge-mapper
+Version: 0.0.21
+Requires-Dist: requests
+Requires-Dist: mysql-connector-python
+Requires-Dist: json5
+
