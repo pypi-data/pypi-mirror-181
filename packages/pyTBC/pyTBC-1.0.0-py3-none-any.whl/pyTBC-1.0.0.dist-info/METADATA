@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: pyTBC
+Version: 1.0.0
+Summary: pyTBC is a python library which implements Trace-based clustering technique
+Home-page: https://github.com/antoniolopezmc/subgroups
+Author: Antonio López Martínez-Carrasco
+Author-email: antoniolopezmc1995@gmail.com
+Maintainer: Antonio López Martínez-Carrasco
+Maintainer-email: antoniolopezmc1995@gmail.com
+License: BSD-3-Clause
+Keywords: python,data-mining,data-science,machine-learning,clustering,trace-based-clustering
+Platform: any
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pandas (>=1.5.2)
+Requires-Dist: sklearn (>=1.2.0)
+Requires-Dist: seaborn (>=0.12.1)
+Requires-Dist: matplotlib (>=3.6.2)
+
+# pyTBC
+
+pyTBC is a python library which implements Trace-based clustering technique [1].
+
+## Installation
+
+The source code is currently hosted on: https://github.com/antoniolopezmc/pyTBC
+
+To install pyTBC library from pip, it is neccesary to execute:
+
+```sh
+pip install pyTBC
+```
+
+## Generating the documentation
+
+The python package documentation in html, latex and pdf formats can be generated as follows:
+
+```sh
+cd docs
+make
+```
+
+## References
+
+[1] A. Lopez-Martinez-Carrasco, J. M. Juarez, M. Campos, and B. Canovas-Segura, "A methodology based on trace-based clustering for patient phenotyping", Knowledge-Based Systems,vol. 232, no. 2, article 107469, 2021.
