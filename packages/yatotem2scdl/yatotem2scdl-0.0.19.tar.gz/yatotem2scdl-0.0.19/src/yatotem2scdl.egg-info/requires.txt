@@ -1,0 +1,12 @@
+lxml
+
+[dev]
+build
+black
+mypy
+twine
+
+[test]
+pytest
+pytest-watch
+csv-diff
