@@ -1,0 +1,17 @@
+CHANGELOG.txt
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+PrimeBot/__init__.py
+PrimeBotFramework.egg-info/PKG-INFO
+PrimeBotFramework.egg-info/SOURCES.txt
+PrimeBotFramework.egg-info/dependency_links.txt
+PrimeBotFramework.egg-info/requires.txt
+PrimeBotFramework.egg-info/top_level.txt
+PrimeBot/DeathByCaptcha/__init__.py
+PrimeBot/Documents/__init__.py
+PrimeBot/Elastic/__init__.py
+PrimeBot/ExchangeGraph/__init__.py
+PrimeBot/Mongo/__init__.py
+PrimeBot/Vault/__init__.py

@@ -1,0 +1,30 @@
+Change Log
+==========
+
+0.0.1 (2022-11-01)
+------------------
+- First Release
+
+0.0.3 (2022-11-01)
+------------------
+- Fixed ChangeLog
+
+0.0.3 (2022-11-07)
+------------------
+- DeathByCaptcha: Implementação da quebra de captcha por imagem.
+
+0.0.4 (2022-11-10)
+------------------
+- Documents: Ajuste na funcao de cpf para verificar '0001'
+
+0.0.5 (2022-11-17)
+------------------
+- DeathByCaptcha: foi inserido uma persistencia de 30s em captcha por imagem
+
+0.0.6 (2022-12-08)
+------------------
+- Documents: Ajuste na funcao de cpf para verificar checar se a matriz está correta
+
+0.0.7 (2022-12-13)
+------------------
+- DeathByCaptcha: Alterações nos retornos das exceptions
