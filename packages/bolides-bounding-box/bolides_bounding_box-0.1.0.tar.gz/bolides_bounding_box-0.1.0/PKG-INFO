@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: bolides_bounding_box
+Version: 0.1.0
+Summary: A package to get bounding box images from GOES satellites.
+Home-page: http://pypi.python.org/pypi/bolides-bounding-box/
+Author: yajucb
+Author-email: yajucb@berkely.edu
+License: LICENSE.txt
+Platform: UNKNOWN
+License-File: LICENSE
+
+# bolides-bounding-box
+A package to get bounding box images from GOES satellites (currently only 16 and 17 are supported).
+
+
