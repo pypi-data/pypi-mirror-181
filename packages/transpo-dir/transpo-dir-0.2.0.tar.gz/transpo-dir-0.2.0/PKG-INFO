@@ -1,0 +1,109 @@
+Metadata-Version: 2.1
+Name: transpo-dir
+Version: 0.2.0
+Summary: Transpose the directory structure.
+Home-page: https://github.com/tos-kamiya/transpo
+Author: Toshihiro Kamiya
+Author-email: kamiya@mbj.nifty.com
+License: BSD 2-Clause License
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX :: Linux
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# transpo-dir
+
+`transpo` is a tool to "transpose" directory structure.
+
+Have you ever needed to create a directory that looks like a two-dimensional spreadsheet?
+For example, let's say you have product sales data stored in a directory where the first level is the product name and the second level is the month.
+Now you want to convert this to a directory structure where the first level is the month and the second level is the product name. The tool `transpo` supports such a change of directory structure.
+
+## Installation
+
+By installing the package `transpo-dir` with pip, an executable `transpo` will be installed on your system.
+
+```sh
+pip install git+https://github.com/tos-kamiya/transpo-dir
+```
+
+## Usage
+
+```
+transpo [options] <src> -d DEST
+```
+
+### Options
+
+```
+-d DEST       Destination directory.
+-i INDICES, --index-order=INDICES     The order of indices for transpose [default: 21].
+```
+
+### Walkthrough
+
+```sh
+$ cd test-data/test-depth-2
+
+$ tree
+.
+├── a
+│   ├── 1
+│   │   └── a-1.txt
+│   └── 2
+│       └── a-2.txt
+└── b
+    ├── 1
+    │   └── b-1.txt
+    └── 2
+        └── b-2.txt
+
+6 directories, 4 files
+
+$ transpo . -d hoge
+#!/bin/bash
+set -ex
+
+mkdir hoge
+mkdir -p hoge/1
+mv ./a/1 hoge/1/a
+mkdir -p hoge/2
+mv ./a/2 hoge/2/a
+mv ./b/1 hoge/1/b
+mv ./b/2 hoge/2/b
+rm -rf ./a
+rm -rf ./b
+
+$ transpo . -d hoge | bash -
++ mkdir hoge
++ mkdir -p hoge/1
++ mv ./a/1 hoge/1/a
++ mkdir -p hoge/2
++ mv ./a/2 hoge/2/a
++ mv ./b/1 hoge/1/b
++ mv ./b/2 hoge/2/b
++ rm -rf ./a
++ rm -rf ./b
+
+$ tree
+.
+└── hoge
+    ├── 1
+    │   ├── a
+    │   │   └── a-1.txt
+    │   └── b
+    │       └── b-1.txt
+    └── 2
+        ├── a
+        │   └── a-2.txt
+        └── b
+            └── b-2.txt
+```
+
+
+
