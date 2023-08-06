@@ -1,0 +1,5 @@
+[console_scripts]
+MLatomF = MLatom.shell_cmd:MLatomF
+mlatom = MLatom.shell_cmd:mlatom
+mlatom-gui = MLatom.mlatom_gui:main
+mlatom_gui = MLatom.mlatom_gui:main
