@@ -1,0 +1,20 @@
+name: test_env_intake-axds
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  ############## These will have to be adjusted to your specific project
+  - cf_pandas
+  - pandas
+  - requests
+  - shapely
+  ##############
+  - pytest
+  - pip:
+    - codecov
+    - pytest-cov
+    - coverage[toml]
+    - git+https://github.com/intake/intake
+    - intake-parquet
+    - intake-xarray
+    # - "dask[complete]"
