@@ -1,0 +1,13 @@
+packaging
+dessia_common>=0.7.0
+Cython
+numpy
+matplotlib
+scipy
+geomdl
+jsonschema
+networkx
+triangle
+plot_data>=0.8.5
+kaitaistruct
+binaryornot
