@@ -1,0 +1,3 @@
+[console_scripts]
+rosbag-topic-remove=rosbag_topic_remove.__main__:main
+
