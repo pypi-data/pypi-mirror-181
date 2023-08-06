@@ -1,0 +1,17 @@
+argparse
+dataclasses
+python-dotenv
+loguru
+aiohttp
+requests
+
+[dev]
+build
+coverage
+coverage-badge
+black
+pydeps
+pylint
+sphinx>=4.4.0
+sphinx-rtd-theme
+twine
