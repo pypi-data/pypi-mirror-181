@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: MovingClock
+Version: 1.0.6
+Summary: This is a package which can make a MovingClock
+Home-page: https://github.com/Jason4zh/MovingClock
+Author: Jason4zh
+Author-email: 13640817984@163.com
+Maintainer: Jason4zh
+Maintainer-email: 13640817984@163.com
+License: BSD License
+Platform: all
+Classifier: Development Status :: 4 - Beta
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: Implementation
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Software Development :: Libraries
+License-File: LICENSE.txt
+
+MovingClock
+===========
+
+
+**This is a package which can make a MovingClock**
+
+
+How to use:
+import MovingClock
+MovingClock.main()
+
+
+Install Requires:
+1.zhdate
+2.datetime
+
+
+*Author:Jason4zh*
+*email:13640817984@163.com*
+*Made In China*
+
