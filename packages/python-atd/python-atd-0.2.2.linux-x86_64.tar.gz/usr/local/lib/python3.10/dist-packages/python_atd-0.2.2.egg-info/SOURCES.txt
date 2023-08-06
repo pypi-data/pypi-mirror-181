@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+./atd/__init__.py
+./atd/atd.py
+./atd/atq.py
+./atd/config.py
+./atd/tests.py
+python_atd.egg-info/PKG-INFO
+python_atd.egg-info/SOURCES.txt
+python_atd.egg-info/dependency_links.txt
+python_atd.egg-info/top_level.txt
