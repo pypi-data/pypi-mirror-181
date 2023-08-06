@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: evd-sdk-lotr
+Version: 0.0.1
+Summary: A LOTR API SDK
+Home-page: https://gitlab.com/ericadippold/erica-dippold-sdk
+Author: Erica
+Author-email: ericavdippold@gmail.com
+Project-URL: Bug Tracker, https://gitlab.com/ericadippold/erica-dippold-sdk
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Erica Dippold-SDK
+
+Access token: tgK15-7oOpFF8eN-OdM3
+
+## Usage
+
+```python
+from lotr_sdk import lotr_sdk
+
+# Generate "Hello, World!"
+say_hello()
+
+# Generate "Hello, Everybody!"
+say_hello("Everybody")
+```
+
+# Developing with LOTR SDK
+
+To install LOTRSDK, along with the tools you need to develop and run tests, run the following in your virtualenv:
+
+```bash
+$ pip install -e .
+```
