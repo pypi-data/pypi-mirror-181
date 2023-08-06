@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: ploomber-engine
+Version: 0.0.13
+License-File: LICENSE
+Requires-Dist: ploomber-core (>=0.0.4)
+Requires-Dist: papermill
+Requires-Dist: ipykernel
+Requires-Dist: debuglater
+Requires-Dist: nbclient
+Requires-Dist: ipython
+Requires-Dist: parso
+Requires-Dist: nbformat
+Requires-Dist: click
+Provides-Extra: dev
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: flake8 ; extra == 'dev'
+Requires-Dist: invoke ; extra == 'dev'
+Requires-Dist: twine ; extra == 'dev'
+Requires-Dist: matplotlib ; extra == 'dev'
+Requires-Dist: pandas ; extra == 'dev'
+Requires-Dist: sklearn-evaluation ; extra == 'dev'
+Requires-Dist: jupytext ; extra == 'dev'
+
