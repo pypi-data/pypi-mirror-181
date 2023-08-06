@@ -1,0 +1,2 @@
+[console_scripts]
+ext-json-validate = extended_json_schema_validator.__main__:main
