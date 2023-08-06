@@ -1,0 +1,95 @@
+[tool.poetry]
+name = "ampel-nuclear"
+version = "0.8.3a1"
+license = "BSD-3-Clause"
+readme = "README.md"
+description = "Astronomy units for the Ampel system to analyze nuclear events like TDEs"
+homepage = "https://ampelproject.github.io"
+repository = "https://github.com/AmpelProject/Ampel-nuclear"
+authors = [
+    "Valery Brinnel",
+    "Jakob Nordin",
+    "Simeon Reusch",
+    "Robert Stein",
+    "Jakob van Santen <jakob.van.santen@desy.de>",
+    "Sjoert van Velzen",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Typing :: Typed",
+]
+packages = [
+    {include = "ampel"}
+]
+include = [
+    'conf/*/*.json',
+    'conf/*/*/*.json',
+    'conf/*/*.yaml',
+    'conf/*/*/*.yaml',
+    'conf/*/*.yml',
+    'conf/*/*/*.yml',
+]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.11"
+ampel-ztf = {version = ">=0.8.3a4,<0.8.4", source = "pypi"}
+ampel-hu-astro = {version = ">=0.8.3a2,<0.8.4", source = "pypi", extras = ["slack", "sncosmo"]}
+dropbox = "^11.36.0"
+corner = "^2.2.1"
+
+[tool.poetry.dev-dependencies]
+mypy = "^0.971"
+pytest = "^6.2.5"
+pytest-cov = "^2.12.1"
+pytest-mock = "^3.6.1"
+types-requests = "^2.25.9"
+types-pytz = "^2021.1.2"
+pre-commit = "^2.20.0"
+# duplicate to add a dev extra without further constraining the version
+ampel-ztf = {version = "*", extras = ["kafka"]}
+
+[tool.conda-lock]
+channels = ["conda-forge"]
+platforms = ["linux-64", "osx-64", "osx-arm64"]
+
+[tool.conda-lock.dependencies]
+python-confluent-kafka = "1.7"
+matplotlib-base = "3.*"
+pip = "*"
+
+[build-system]
+requires = ["poetry-core>=1.0.0", "setuptools>=40.8.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.mypy]
+namespace_packages = true
+show_error_codes = true
+
+[[tool.mypy.overrides]]
+module = [
+  "numpy.*",
+  "scipy.*",
+  "pymongo.*",
+  "bson.*",
+  "matplotlib.*",
+  "pandas.*",
+  "seaborn.*",
+  "astropy.*",
+  "ampel.model.PlotProperties",
+  "ampel.plot.utils",
+  "dl.*",
+  "lcdata.*",
+  "timeout_decorator.*",
+  "parsnip.*",
+  "sncosmo.*",
+  "requests_toolbelt.*",
+  "adjustText.*",
+  "extcats.*",
+  "voeventparse.*",
+]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+addopts = "--cov=ampel --showlocals -ra"
