@@ -1,0 +1,7 @@
+requests
+xmldiff
+from_root
+setuptools-scm
+
+[:python_version > "3.8"]
+importlib-metadata

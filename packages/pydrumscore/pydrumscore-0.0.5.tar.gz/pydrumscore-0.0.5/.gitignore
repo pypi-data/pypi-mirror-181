@@ -1,0 +1,27 @@
+# User environment
+venv/
+.venv/
+.vs/
+*.mscbackup/
+.vscode/
+
+# Local binaries
+*.qmlc
+*.pyc
+
+# Generated data from test runs
+_generated/
+
+# Packaging artifacts (not cleaned by setuptools...)
+build/
+dist/
+pydrumscore.egg-info/
+
+# Locally generated documentation (html and rst)
+public/
+docs/html
+docs/source/
+
+pydrumscore/__version__.py
+
+pydrumscore/_exported/

@@ -1,0 +1,42 @@
+div.body h1 {
+    color:darkorange
+}
+
+div.sphinxsidebar ul li.toctree-l1 > a {
+    font-size: 100%;
+}
+
+div.sphinxsidebar hr {
+    height: 8px;
+    width: 100%;
+}
+
+div.sphinxsidebar h1 {
+    color: darkorange
+}
+
+div.sphinxsidebar h3 a,
+div.sphinxsidebar h3 {
+    color: #666;
+}
+
+.class,
+.function {
+    padding: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color:rgb(253, 245, 235);  /* For some reason this value gets way darker...*/
+    background-blend-mode: normal;
+}
+
+.attribute {
+    margin-top: 10px;
+}
+
+/* nav.contents {
+    padding: 7px;
+    margin: 10px 0 10px 0;
+}
+nav.ul {
+    margin-top: 0;
+} */

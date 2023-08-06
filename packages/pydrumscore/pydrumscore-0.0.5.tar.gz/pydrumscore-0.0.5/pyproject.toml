@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=45", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pydrumscore"
+description = "A python interface for generating drum sheet music through code"
+authors = [{name="Rémy Lapointe"}]
+urls = {Documentation="https://www.remylapointe.com/PyDrumScore", GitHub="https://github.com/dual-wield-ray/PyDrumScore"}
+readme = "README.md"
+license = {text = "GNU GPL"}
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "requests",
+    'importlib-metadata; python_version>"3.8"',
+    'xmldiff',
+    'from_root',
+    'setuptools-scm',
+]
+dynamic = ["version"]
+
+[project.scripts]
+pydrumscore = "pydrumscore.export:main"
+
+# Gets version number from source control
+[tool.setuptools_scm]
+write_to = "pydrumscore/__version__.py"
+local_scheme = "no-local-version"

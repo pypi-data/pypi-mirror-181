@@ -1,0 +1,115 @@
+.gitignore
+.pylintrc
+LICENSE.md
+README.md
+logo.glsl
+mypy.ini
+pyproject.toml
+setup.cfg
+.github/workflows/main.yml
+docs/.nojekyll
+docs/Makefile
+docs/conf.py
+docs/contentheader.rst
+docs/contributing.rst
+docs/drumset.rst
+docs/gettingstarted.rst
+docs/hybridtoc.rst
+docs/index.html
+docs/index.rst
+docs/license.rst
+docs/make.bat
+docs/musescore.rst
+docs/philosophy.rst
+docs/requirements.txt
+docs/_static/custom.css
+docs/_static/logo.png
+docs/_static/python-logo-only.png
+docs/_templates/hybridtoc.html
+docs/images/about_musescore_versions.png
+docs/images/example_song_result_1.png
+docs/images/example_song_result_2.png
+docs/images/example_song_result_3.png
+docs/images/plugin_manager_tab.png
+docs/images/plugin_manager_window.png
+docs/images/plugin_path.png
+docs/images/preferences_tab.png
+pydrumscore/__init__.py
+pydrumscore/__main__.py
+pydrumscore/__version__.py
+pydrumscore/api.py
+pydrumscore/beats.py
+pydrumscore/default_config.ini
+pydrumscore/export.py
+pydrumscore/requirements.txt
+pydrumscore.egg-info/PKG-INFO
+pydrumscore.egg-info/SOURCES.txt
+pydrumscore.egg-info/dependency_links.txt
+pydrumscore.egg-info/entry_points.txt
+pydrumscore.egg-info/requires.txt
+pydrumscore.egg-info/top_level.txt
+pydrumscore/msplugins/RefreshScorePlugin.qml
+pydrumscore/refxml/PartXML.xml
+pydrumscore/test/__init__.py
+pydrumscore/test/test_base.py
+pydrumscore/test/cases/__init__.py
+pydrumscore/test/cases/beats/__init__.py
+pydrumscore/test/cases/beats/test_beats.py
+pydrumscore/test/cases/beats/data/Bd_1_and_3.mscx
+pydrumscore/test/cases/beats/data/Flam_1b.mscx
+pydrumscore/test/cases/beats/data/Ghost_1b.mscx
+pydrumscore/test/cases/beats/data/MoneyBeat_1b.mscx
+pydrumscore/test/cases/beats/data/MoneyBeat_Accents_1b.mscx
+pydrumscore/test/cases/beats/data/RockBeatWOpen_1b.mscx
+pydrumscore/test/cases/beats/data/RockBeat_1b.mscx
+pydrumscore/test/cases/beats/data/Sextuplets.mscx
+pydrumscore/test/cases/beats/data/ShuffleBeat_1b.mscx
+pydrumscore/test/cases/beats/data/Silence_1b.mscx
+pydrumscore/test/cases/beats/songs/__init__.py
+pydrumscore/test/cases/beats/songs/bd_1_and_3.py
+pydrumscore/test/cases/beats/songs/flam_1b.py
+pydrumscore/test/cases/beats/songs/ghost_1b.py
+pydrumscore/test/cases/beats/songs/sextuplets.py
+pydrumscore/test/cases/beats/songs/song_money_beat.py
+pydrumscore/test/cases/beats/songs/song_money_beat_accents.py
+pydrumscore/test/cases/beats/songs/song_rock_beat.py
+pydrumscore/test/cases/beats/songs/song_rock_beat_wopen.py
+pydrumscore/test/cases/beats/songs/song_shuffle_beat.py
+pydrumscore/test/cases/cli/__init__.py
+pydrumscore/test/cases/cli/song_accented_metadata.py
+pydrumscore/test/cases/cli/song_no_measures.py
+pydrumscore/test/cases/cli/song_no_metadata.py
+pydrumscore/test/cases/cli/song_no_metadata_or_measures.py
+pydrumscore/test/cases/cli/song_silence.py
+pydrumscore/test/cases/cli/test_cli.py
+pydrumscore/test/cases/cli/data/Rémy's Wonderful Song.mscx
+pydrumscore/test/cases/cli/data/Silence_1b.mscx
+pydrumscore/test/cases/exercises/__init__.py
+pydrumscore/test/cases/exercises/test_permutations_songs.py
+pydrumscore/test/cases/exercises/data/Bass drum permutations.mscx
+pydrumscore/test/cases/exercises/data/Hi-hat open permutations.mscx
+pydrumscore/test/cases/exercises/songs/__init__.py
+pydrumscore/test/cases/exercises/songs/bass_drum_permutations.py
+pydrumscore/test/cases/exercises/songs/bass_drum_permutations_random.py
+pydrumscore/test/cases/exercises/songs/hihat_open_permutations.py
+pydrumscore/test/cases/full_songs/__init__.py
+pydrumscore/test/cases/full_songs/test_full_songs.py
+pydrumscore/test/cases/full_songs/data/Highway to Hell.mscx
+pydrumscore/test/cases/full_songs/data/King Nothing.mscx
+pydrumscore/test/cases/full_songs/data/Uptown Funk (feat. Bruno Mars).mscx
+pydrumscore/test/cases/full_songs/songs/__init__.py
+pydrumscore/test/cases/full_songs/songs/song_highway_to_hell.py
+pydrumscore/test/cases/full_songs/songs/song_king_nothing.py
+pydrumscore/test/cases/full_songs/songs/song_uptown_funk.py
+pydrumscore/test/cases/utilities/__init__.py
+pydrumscore/test/cases/utilities/test_time_signatures.py
+pydrumscore/test/cases/utilities/test_utilities.py
+pydrumscore/test/cases/utilities/data/Eighth Note Denominator.mscx
+pydrumscore/test/cases/utilities/data/Test tempo change.mscx
+pydrumscore/test/cases/utilities/data/Text on first measure.mscx
+pydrumscore/test/cases/utilities/data/Time Signature Simple Change.mscx
+pydrumscore/test/cases/utilities/songs/__init__.py
+pydrumscore/test/cases/utilities/songs/song_tempo_change.py
+pydrumscore/test/cases/utilities/songs/song_text.py
+pydrumscore/test/cases/utilities/songs/time_eighth_note_denominator.py
+pydrumscore/test/cases/utilities/songs/time_sig_simple_change.py

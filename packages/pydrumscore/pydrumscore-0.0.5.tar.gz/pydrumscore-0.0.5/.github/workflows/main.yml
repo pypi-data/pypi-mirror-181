@@ -1,0 +1,172 @@
+name: main
+
+on: [push]
+
+jobs:
+
+  build-documentation:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/setup-python@v3
+    - uses: actions/checkout@main
+      with:
+        fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
+
+    - name: Building documentation
+      run: |
+        pip install -r docs/requirements.txt
+        sphinx-apidoc --module-first -o docs/source/ pydrumscore/ *test -e
+        sphinx-build docs public -b dirhtml
+
+    - name: Upload doc artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: doc-artifacts
+        path: public
+
+
+  publish-documentation:
+    if: github.ref_name == 'main' || startsWith(github.ref, 'refs/tags/')
+
+    needs: build-documentation
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download doc artifacts
+      uses: actions/download-artifact@v3
+      with:
+        name: doc-artifacts
+        path: public
+
+    - name: Publish to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v2.3.1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        PUBLISH_BRANCH: gh-pages
+        PUBLISH_DIR: public
+
+
+  code-quality:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.8", "3.9", "3.10"]
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r pydrumscore/requirements.txt  # Note: Needed for import error analysis
+        pip install pylint flake8
+        pip install mypy
+        pip install pycodestyle
+    - name: Lint with flake8
+      run: |
+        # stop the build if there are Python syntax errors or undefined names
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+
+    - name: Pylint
+      run: |
+        pylint $(git ls-files '*.py')
+      continue-on-error: true
+
+    - name: Mypy
+      run: |
+        mypy pydrumscore
+      continue-on-error: true
+
+    - name: pycodestyle
+      run: |
+        pycodestyle pydrumscore
+      continue-on-error: true
+
+
+  unit-tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.8", "3.9", "3.10"]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r pydrumscore/requirements.txt
+      - name: Test with unittest
+        run: |
+          python -m unittest -v
+
+
+  build-package:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install build
+
+    - name: Build package
+      run: python -m build
+
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: build-artifacts
+        path: dist
+
+
+  publish-package:
+    needs: build-package
+
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: build-artifacts
+          path: dist
+
+      # Note: TestPyPI does not allow "node" tag names, such as "+g1234.d0000" at the end of versions.
+      #       Therefore, we only use dev versions for snapshot versions (ex. 1.2.3.dev5). This, however, can cause name clashes.
+      #       There is an option to force an overwrite of packages on TestPyPI on name clash, but this can cause unpredictability as to package content.
+      #       The job is thus set on "allow to fail", with the dev package being a courtesy upload that may or may not work depending on success/failure
+      #
+      #       This workflow might become unviable if the project gets a decent amount of contributors. In this case, remove this section.
+      - name: Publish package to TestPyPI
+        uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
+        with:
+          user: __token__
+          password: ${{ secrets.TEST_PYPI_API_TOKEN }}
+          repository_url: https://test.pypi.org/legacy/
+          verify_metadata: false
+          verbose: true
+          continue-on-error: true
+
+      - name: Publish Package to Official
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
+        with:
+          user: __token__
+          password: ${{ secrets.PYPI_API_TOKEN }}
