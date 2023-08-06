@@ -1,0 +1,12 @@
+from . import Host, inspect, regex
+
+typedef LinuxFileMode str if regex.match("[0-7]{3}", self)
+
+@index(["host.target", "path"])
+resource File:
+    host: Host
+    path: Path
+    content: str
+    owner: Optional[str] = None
+    group: Optional[str] = None
+    mode: LinuxFileMode = "664"
