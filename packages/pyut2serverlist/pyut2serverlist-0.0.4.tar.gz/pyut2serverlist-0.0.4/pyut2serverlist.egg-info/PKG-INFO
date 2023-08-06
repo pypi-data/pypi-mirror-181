@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: pyut2serverlist
+Version: 0.0.4
+Summary: Simple Python library for querying Unreal Engine 2 based principal servers and their game servers
+Home-page: https://github.com/cetteup/pyut2serverlist
+Author: cetteup
+Author-email: me@cetteup.com
+License: MIT
+Project-URL: Bug Tracker, https://github.com/cetteup/pyut2serverlist/issues
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# pyut2serverlist
+Simple Python library for querying Unreal Engine 2 based principal servers and their game servers
