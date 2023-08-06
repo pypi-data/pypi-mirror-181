@@ -1,0 +1,12 @@
+pandas
+joblib
+biocframe>=0.2.4
+numpy
+
+[:python_version < "3.8"]
+importlib-metadata
+
+[testing]
+setuptools
+pytest
+pytest-cov
