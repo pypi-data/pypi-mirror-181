@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: rho-crypto
+Version: 0.5.0
+Summary: Crypto utilities
+Home-page: https://bitbucket.org/pitrho/rho-crypto
+Maintainer: Rho AI Corporation
+License: Commercial
+Platform: UNKNOWN
+Requires-Dist: pycryptodome (>=3.16.0)
+Provides-Extra: deploy
+Requires-Dist: Cython (<0.30,>=0.29) ; extra == 'deploy'
+Requires-Dist: wheel (<0.33,>=0.32) ; extra == 'deploy'
+Requires-Dist: twine (<2,>=1.12) ; extra == 'deploy'
+Provides-Extra: test
+Requires-Dist: coverage (==4.0a5) ; extra == 'test'
+Requires-Dist: mock (<2,>=1) ; extra == 'test'
+Requires-Dist: pytest (<5,>=4) ; extra == 'test'
+Requires-Dist: tox (<4,>=3) ; extra == 'test'
+
+# Rho-Crypto
+
+Cryptographic utilties.
+
+
