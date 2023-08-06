@@ -1,0 +1,2 @@
+[console_scripts]
+secrets = secrets_guard.__main__:main
