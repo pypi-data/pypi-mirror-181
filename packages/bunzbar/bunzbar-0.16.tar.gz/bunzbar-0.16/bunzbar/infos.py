@@ -1,0 +1,16 @@
+import time, psutil
+
+class infos: 
+    def __init__(self):
+        pass
+
+    def clck(self):
+        return(time.strftime("%H:%M:%S", time.localtime()))
+
+    def battery(self):
+        return(round(psutil.sensors_battery().percent), 3)
+        
+    def cpu(self):
+        return(psutil.cpu_percent())
+
+    
