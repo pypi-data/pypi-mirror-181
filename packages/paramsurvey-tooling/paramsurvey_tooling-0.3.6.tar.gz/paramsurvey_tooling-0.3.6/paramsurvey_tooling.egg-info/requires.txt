@@ -1,0 +1,13 @@
+paramsurvey[ray]
+psutil
+
+[package]
+twine
+setuptools
+setuptools-scm[toml]
+
+[test]
+pytest
+pytest-cov
+coveralls
+pyfakefs
