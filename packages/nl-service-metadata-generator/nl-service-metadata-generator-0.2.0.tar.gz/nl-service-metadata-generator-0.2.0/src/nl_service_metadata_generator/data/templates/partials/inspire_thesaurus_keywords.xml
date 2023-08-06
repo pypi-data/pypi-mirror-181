@@ -1,0 +1,33 @@
+<gmd:descriptiveKeywords>
+    <gmd:MD_Keywords>
+        <!-- Voorbeeld van een keyword afkomstig uit een Thesaurus -->
+        <gmd:keyword>
+            <!-- https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#trefwoord -->
+            <!-- Moet overeenkomen met element WMS_Capabilities/Capability/inspire_vs:ExtendedCapability/inspire_common:Keyword in het Capabilities bestand-->
+            <!-- waarin het INSPIRE thema zoals gedefinieerd in de GEMET Thesaurus is opgenomen-->
+            <!-- Naam van het INSPIRE thema zoals gedefinieerd in de GEMET Thesaurus en geschreven in de taal van dit metadata document -->
+            <gmx:Anchor xlink:href="{{inspire_theme_uri}}">{{inspire_theme_label}}</gmx:Anchor>
+        </gmd:keyword>
+        <gmd:thesaurusName>
+            <!-- https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#thesaurus -->
+            <!-- De GEMET Thesaurus waarin het INSPIRE thema is gedefinieerd -->
+            <gmd:CI_Citation>
+                <gmd:title>
+                    <gmx:Anchor xlink:href="http://www.eionet.europa.eu/gemet/nl/inspire-themes/">GEMET - INSPIRE themes, version 1.0</gmx:Anchor>
+                </gmd:title>
+                <gmd:date>
+                    <gmd:CI_Date>
+                        <gmd:date>
+                            <!-- https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#thesaurusdatum -->
+                            <gco:Date>2008-06-01</gco:Date>
+                        </gmd:date>
+                        <gmd:dateType>
+                            <!-- https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#thesaurusdatum-type -->
+                            <gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode" codeListValue="publication">publication</gmd:CI_DateTypeCode>
+                        </gmd:dateType>
+                    </gmd:CI_Date>
+                </gmd:date>
+            </gmd:CI_Citation>
+        </gmd:thesaurusName>
+    </gmd:MD_Keywords>
+</gmd:descriptiveKeywords>
