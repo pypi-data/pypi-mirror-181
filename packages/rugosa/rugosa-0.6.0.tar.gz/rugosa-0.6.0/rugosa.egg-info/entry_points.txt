@@ -1,0 +1,5 @@
+[pyhidra.pre_launch]
+rugosa = rugosa.ghidra_plugin.install:pre_launch
+
+[pyhidra.setup]
+rugosa = rugosa.ghidra_plugin.install:setup

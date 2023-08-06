@@ -1,0 +1,8 @@
+dragodis>=0.5.2
+click
+hexdump
+pyhidra>=0.3.0
+yara-python
+
+[testing]
+pytest>=3.0.0
