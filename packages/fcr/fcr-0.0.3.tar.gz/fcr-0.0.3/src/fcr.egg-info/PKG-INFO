@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: fcr
+Version: 0.0.3
+Summary: Fuzzy Clustering Regression Python package, implements the estimator proposed in Lewis et al. (2022)
+Home-page: https://github.com/yasin-simsek/fcr
+Project-URL: Homepage, https://github.com/yasin-simsek/fcr
+Project-URL: Bug Tracker, https://github.com/yasin-simsek/fcr/issues
+Project-URL: Changelog, https://github.com/yasin-simsek/fcr/releases
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE

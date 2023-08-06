@@ -1,0 +1,16 @@
+.gitignore
+LICENSE
+README.md
+Replication.ipynb
+final_data.mat
+pyproject.toml
+requirements.txt
+setup.cfg
+.github/scripts/release.py
+.github/workflows/publish.yml
+src/fcr/__init__.py
+src/fcr/fcr.py
+src/fcr.egg-info/PKG-INFO
+src/fcr.egg-info/SOURCES.txt
+src/fcr.egg-info/dependency_links.txt
+src/fcr.egg-info/top_level.txt
