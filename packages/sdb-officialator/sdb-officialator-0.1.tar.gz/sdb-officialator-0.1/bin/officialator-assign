@@ -1,0 +1,30 @@
+#!/usr/bin/env python
+
+__author__ = "Damon May"
+
+import argparse
+from officialator.io.loadsheets import load_nso_or_so_signups
+from officialator.assignment.assignment import assign_game_nso_roles
+
+
+parser = argparse.ArgumentParser()
+parser.add_argument('xlsxfile', type=argparse.FileType('r'),
+                    help='XLSX file of signups')
+parser.add_argument('worksheet', type=str,
+                    help="Worksheet to load signups from")
+parser.add_argument('game_number', type=int,
+                    help="Row number of game to assign (1-based)")
+parser.add_argument('out', type=argparse.FileType('w'),
+                    help='.xlsx file to write')
+args = parser.parse_args()
+
+assert(args.game_number > 0)
+game_idx_0based = args.game_number - 1
+
+print(f"Loading signups from {args.xlsxfile.name}...")
+pdf_nso_signups = load_nso_or_so_signups(args.xlsxfile.name, args.worksheet, "NSO")
+print(f"Assigning roles for game {args.game_number}...")
+pdf_game_nso_assignments = assign_game_nso_roles(pdf_nso_signups, game_idx_0based)
+print(f"Writing assignments...")
+pdf_game_nso_assignments.to_excel(args.out.name, sheet_name=f'game{args.game_number}') 
+print(f"Wrote {args.out.name}.")

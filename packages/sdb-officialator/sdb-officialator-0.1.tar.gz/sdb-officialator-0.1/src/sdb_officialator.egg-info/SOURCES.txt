@@ -1,0 +1,14 @@
+README.md
+setup.py
+bin/officialator-assign
+src/officialator/__init__.py
+src/officialator/assignment/__init__.py
+src/officialator/assignment/assignment.py
+src/officialator/io/__init__.py
+src/officialator/io/loadsheets.py
+src/officialator/io/xlsxio.py
+src/sdb_officialator.egg-info/PKG-INFO
+src/sdb_officialator.egg-info/SOURCES.txt
+src/sdb_officialator.egg-info/dependency_links.txt
+src/sdb_officialator.egg-info/requires.txt
+src/sdb_officialator.egg-info/top_level.txt
