@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "azqueuemanager-json"
+description = "JSON for AZQueueManager"
+dependencies = ['azqueuemanager']
+readme = "README.md"
+license = { text = "MIT"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+keywords = ["azqueuemanager", "extension", "json"]
+requires-python = ">=3.10"
+version = "0.0.1"
