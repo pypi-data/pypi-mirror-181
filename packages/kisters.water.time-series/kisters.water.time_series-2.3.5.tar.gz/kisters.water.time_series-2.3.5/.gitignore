@@ -1,0 +1,16 @@
+**/.pytest_cache
+**/__pycache__
+*.egg-info/
+*.pyc
+.configuration
+.coverage
+.eggs
+.husky
+.idea
+.mypy_cache
+.project
+.tox
+.vscode
+build
+dist
+venv

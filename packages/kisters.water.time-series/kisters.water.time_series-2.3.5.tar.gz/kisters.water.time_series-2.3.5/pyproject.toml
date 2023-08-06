@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm>=6.2"]
+
+[tool.black]
+line-length = 108
+
+[tool.coverage.run]
+command_line = "-m pytest -vxs"
+source = ["kisters"]
+
+[tool.isort]
+profile = "black"
+line_length = 108
+known_first_party = "kisters"
+
+[tool.mypy]
+# --strict
+disallow_any_generics = true
+disallow_subclassing_any = true
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+namespace_packages = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_return_any = true
+implicit_reexport = false
+strict_equality = true
+# --strict end
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"

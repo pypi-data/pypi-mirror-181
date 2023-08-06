@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: kisters.water.time-series
+Version: 2.3.5
+Summary: KISTERS WATER Time Series Access library
+Home-page: https://gitlab.com/kisters/kisters.water.time_series
+Author: Alberto Sabater
+Author-email: alberto.sabatermorales@kisters.de
+License: LGPL
+Keywords: kisters water time series
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Library or Lesser General Public License (LGPL)
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.9
+Provides-Extra: test
+Provides-Extra: docs
+License-File: LICENSE.txt
+
+# KISTERS Python Time Series API
+
+This is the KISTERS Python Time Series API, 
+a common client API for all time series backends at KISTERS.
+
+## Installation
+
+To install, simply use pip:
+
+```bash
+pip install kisters.water.time_series
+```
+
+# Documentation
+
+Documentation is available at https://kisterswatertime-series.readthedocs.io/en/latest/ .
+

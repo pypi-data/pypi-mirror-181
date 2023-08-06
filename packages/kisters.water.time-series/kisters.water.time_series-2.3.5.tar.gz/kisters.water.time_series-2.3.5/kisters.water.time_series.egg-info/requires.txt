@@ -1,0 +1,12 @@
+orjson
+pandas
+pyarrow
+pydantic
+
+[docs]
+sphinx
+sphinx_rtd_theme
+
+[test]
+pytest
+pytest-asyncio
