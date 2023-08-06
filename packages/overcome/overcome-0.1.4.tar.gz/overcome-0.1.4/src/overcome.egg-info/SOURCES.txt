@@ -1,0 +1,15 @@
+LICENSE.txt
+README.md
+pyproject.toml
+setup.cfg
+src/overcome/__init__.py
+src/overcome/overcome.py
+src/overcome/stack.py
+src/overcome.egg-info/PKG-INFO
+src/overcome.egg-info/SOURCES.txt
+src/overcome.egg-info/dependency_links.txt
+src/overcome.egg-info/requires.txt
+src/overcome.egg-info/top_level.txt
+src/overcome/position/__init__.py
+src/overcome/position/evaluation.py
+src/overcome/position/positions.py
