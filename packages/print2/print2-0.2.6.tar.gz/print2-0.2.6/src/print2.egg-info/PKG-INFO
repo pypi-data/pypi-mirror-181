@@ -1,0 +1,63 @@
+Metadata-Version: 2.1
+Name: print2
+Version: 0.2.6
+Summary: Print2 helps print beautiful message
+Author-email: Jeremie Robert <appydo@gmail.com>
+Project-URL: Homepage, https://github.com/jerob/print2
+Project-URL: documentation, https://github.com/jerob/print2/README.md
+Project-URL: Bug Tracker, https://github.com/jerob/print2/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+License-File: LICENCE
+
+# PrettyPrint
+
+## Simple Example
+
+```python
+from src.prettyprint.PrettyPrint import prett_print
+
+pretty_print("Hello world !", prefix="### ", indent="\t", color="green", level=2)
+```
+
+### Result
+
+<span style="color:green;padding:30pt;">
+                ### Hello world !
+</span>
+
+## Advanced example
+
+```python
+from src.prettyprint.PrettyPrint import PrettyPrint
+
+pp = PrettyPrint(prefix="* ", level=1)
+
+pp.print(
+    """LINE 1
+LINE 2
+"""
+)
+
+pp.set_level(2)
+pp.set_prefix("# ")
+
+pp.print(
+    """AAAA
+BBB
+CCC
+DDD
+EEE
+FFF
+"""
+)
+
+pp.inc_level()
+
+pp.print("Final")
+
+```
