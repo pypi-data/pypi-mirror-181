@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: rs_versions
+Version: 0.2.0
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+
+# rs_versions
+Python (PyO3) wrapper of Rust's [versions](https://docs.rs/versions/3.0.3/versions/index.html) crate.
+
+# API
+## `rs_versions.parse_version(str) -> RsVersion`
+Parses a given version string if possible, throws `ValueError` if it could not be parsed.
+
+## `RsVersion`
+All comparison and equality operations are implemented.
+
+# Build
+```bash
+python3 -m venv .venv
+. .venv/bin/activate
+pip install maturin
+maturin build --release
+# or
+maturin develop
+```
