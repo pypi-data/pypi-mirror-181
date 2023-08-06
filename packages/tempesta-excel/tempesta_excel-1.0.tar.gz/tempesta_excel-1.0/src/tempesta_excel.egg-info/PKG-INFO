@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: tempesta-excel
+Version: 1.0
+Summary: A small package to manipulate Excel files
+Author-email: Jose Tempesta <zetempesta@gmail.com>
+Project-URL: Homepage, https://github.com/zetempesta/excel
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+Esta é uma biblioteca simples para uso do Excel, ela usa a bilioteca openpyxl como base
