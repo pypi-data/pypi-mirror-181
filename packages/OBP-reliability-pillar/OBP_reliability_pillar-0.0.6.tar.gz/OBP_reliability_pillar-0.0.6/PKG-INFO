@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: OBP_reliability_pillar
+Version: 0.0.6
+Summary: Provides AWS compliance details
+Author-email: "dheeraj.banodha" <dheerajmbanodha@gmail.com>
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENCE
+
+# OBP_Reliability_Pillar
+
+OBP_Reliability_Pillar package can be used to get the compliance details of Operational Best Practices for AWS Well Architected Reliability Pillar.
+
+Release Notes:
+# v0.0.4
+1. Added Description column on Compliance Data set
+2. Added method for S3 Bucket replication compliance
+3. Fixes bugs
