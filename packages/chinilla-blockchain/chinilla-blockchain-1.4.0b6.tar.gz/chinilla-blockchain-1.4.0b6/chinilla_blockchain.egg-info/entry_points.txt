@@ -1,0 +1,15 @@
+[console_scripts]
+chinilla = chinilla.cmds.chinilla:main
+chinilla_crawler = chinilla.seeder.start_crawler:main
+chinilla_daemon = chinilla.daemon.server:main
+chinilla_data_layer = chinilla.server.start_data_layer:main
+chinilla_data_layer_http = chinilla.data_layer.data_layer_server:main
+chinilla_farmer = chinilla.server.start_farmer:main
+chinilla_full_node = chinilla.server.start_full_node:main
+chinilla_full_node_simulator = chinilla.simulator.start_simulator:main
+chinilla_harvester = chinilla.server.start_harvester:main
+chinilla_introducer = chinilla.server.start_introducer:main
+chinilla_seeder = chinilla.seeder.dns_server:main
+chinilla_timelord = chinilla.server.start_timelord:main
+chinilla_timelord_launcher = chinilla.timelord.timelord_launcher:main
+chinilla_wallet = chinilla.server.start_wallet:main
