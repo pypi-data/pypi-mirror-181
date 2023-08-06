@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/xganalyzer/__init__.py
+src/xganalyzer/events_aggregator.py
+src/xganalyzer/final_aggregator.py
+src/xganalyzer/season_aggregator.py
+src/xganalyzer.egg-info/PKG-INFO
+src/xganalyzer.egg-info/SOURCES.txt
+src/xganalyzer.egg-info/dependency_links.txt
+src/xganalyzer.egg-info/requires.txt
+src/xganalyzer.egg-info/top_level.txt

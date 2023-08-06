@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: xganalyzer
+Version: 0.1.11
+Summary: Package for xG statistics aggregation
+Home-page: https://github.com/oRastor/xganalyzer
+Author: Orest Bduzhak
+Author-email: doom4eg@gmail.com
+License: MIT
+Keywords: football soccer xg expected-goals aggregation
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+License-File: LICENSE
+
+# xG Analyzer
+
+Package for xG (expected goals) statistics aggregation
