@@ -1,0 +1,15 @@
+{
+	"name": "jasmin-realtime",
+	"image": "docker.io/blackorder/priv:jasmin-realtime",
+	"runArgs": [
+		"--env-file",
+		".devcontainer/devcontainer.env",
+		"--network=local_containers"
+	],
+	"mounts": [
+		"source=vscode-extensions-alpine2-root,target=/root/.vscode-server/extensions,type=volume",
+		"source=vscode-insiders-alpine2-root,target=/root/.vscode-server-insiders/extensions,type=volume",
+		"source=jasmin-service_tmp,target=/tmp,type=volume"
+	],
+	"postCreateCommand": "apk add --update git; /usr/local/bin/python -m pip install -U autopep8; /usr/local/bin/python -m pip install --upgrade build; /usr/local/bin/python -m pip install --upgrade twine; echo \"alias build='rm -rf dist/*; python3 -m build'; alias push='python3 -m twine upload -u __token__ -p \\$PYPI_TOKEN dist/*'; export PYPI_TOKEN=pypi-AgEIcHlwaS5vcmcCJDU0YzcxNWQ5LTVmNzktNDk2ZC05NzdjLWM3OTQ1MDYzNDJiNQACIlsxLFsiamFzbWluLW1vbmdvLWNvbmZpZ3VyYXRpb24iXV0AAixbMixbIjYyMDY3NGY3LTY3NWYtNDI5NS1hY2RiLTNhMGEzZTliYWE5MiJdXQAABiChD7W6AEiAkQqqIM0p1xoXQcO5OBDWG5OQkJL4DxdkJA\" > ~/.bashrc "
+}
