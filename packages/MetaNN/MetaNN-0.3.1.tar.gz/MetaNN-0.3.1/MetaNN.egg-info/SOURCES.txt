@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.rst
+pyproject.toml
+setup.py
+MetaNN.egg-info/PKG-INFO
+MetaNN.egg-info/SOURCES.txt
+MetaNN.egg-info/dependency_links.txt
+MetaNN.egg-info/requires.txt
+MetaNN.egg-info/top_level.txt
+metann/__init__.py
+metann/dependentmodule.py
+metann/meta.py
+metann/proto.py
+metann/utils/__init__.py
+metann/utils/containers.py
+metann/utils/numpy.py
