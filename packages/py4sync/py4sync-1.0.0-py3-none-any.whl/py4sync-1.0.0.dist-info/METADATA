@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: py4sync
+Version: 1.0.0
+Summary: python synchronisation module
+Author: glofma
+Author-email: <glofma@pornhub.com>
+Keywords: sync
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: httpx
+Requires-Dist: pyotp
+Requires-Dist: psutil
+Requires-Dist: pypiwin32
+Requires-Dist: pycryptodome
+Requires-Dist: PIL-tools
+
+NigaSuS
