@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Visual Sponge</title>
+        <meta charset="UTF-8">
+        <script>{{ translation | safe }}</script>
+        <script>{{ myCodeMirrorCommands | safe}}</script>
+        <script src="/static/3dmol.js" async></script>
+        <link rel="stylesheet" href="/static/codemirror.css">
+        <script src="/static/codemirror.js"></script>
+        <script src="/static/myCodeMirror.js"></script>
+        <link rel="stylesheet" href="/static/navi.css"/>
+        <link rel="stylesheet" href="/static/button.css">
+    </head>
+    <body>
+        <div class="pop-up" id="gray-warp"></div>
+        <div class="pop-up centered" id="pop-upper"></div>
+        <div class="nav hint">
+            <ul class="navbar">
+                <li><a>{{"File" | localization}}</a>
+                  <ul>
+                    <li><a title='{{"Open Model File" | localization}}' onclick="open_model_file_click()">{{"Open Model File" | localization}}</a></li>
+                    <li><a title='{{"Open Trajectory File" | localization}}' onclick="open_traj_file_click()">{{"Open Trajectory File" | localization}}</a></li>
+                    <li><a title='{{"Append Trajectory" | localization}}' onclick="append_traj_file_click()">{{"Append Trajectory" | localization}}</a></li>
+                    <li><a title='{{"Print Screen" | localization}}' onclick="print_screen_click()">{{"Print Screen" | localization}}</a></li>
+                    <li><a title='{{"Make Movie" | localization}}' onclick="make_movie_click()">{{"Make Movie" | localization}}</a></li>
+                    <!--<li><a title='{{"Save Configuration" | localization}}'>{{"Save Configuration" | localization}}</a></li>-->
+                  </ul>
+                </li>
+                <li><a>{{"Display" | localization}}</a>
+                  <ul>
+                    <li><a title='{{"Background Color" | localization}}' onclick="bg_color_click()">{{"Background Color" | localization}}</a></li>
+                    <li><a title='{{"Display Style" | localization}}' onclick="display_style_click(0)">{{"Display Style" | localization}}</a></li>
+                  </ul>
+                </li>
+                <li><a>{{"Settings" | localization}}</a>
+                  <ul>
+                    <li><a title='{{"Language" | localization}}' onclick="language_click()">{{"Language" | localization}}</a></li>
+                  </ul>
+                </li>
+                <li><a>{{"Help" | localization}}</a>
+                  <ul>
+                    <li><a title='{{"Command Help" | localization}}' onclick=vs_backend_command("HELP()")>{{"Command Help" | localization}}</a></li>
+                  </ul>
+                </li>
+                <li><a>{{"Contact Us" | localization}}</a>
+                  <ul>
+                    <li><a target="_blank" title='{{"Official Website" | localization}}' href="https://spongemm.cn">{{"Official Website" | localization}}</a></li>
+                    <li><a target="_blank" title='{{"Gitee Page" | localization}}' href="https://gitee.com/gao_hyp_xyj_admin/visual-sponge">{{"Gitee Page" | localization}}</a></li>
+                    <li><a target="_blank" title='{{"Group Page" | localization}}' href="https://www.chem.pku.edu.cn/gaoyq/">{{"Group Page" | localization}}</a></li>
+                  </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="box1">
+                <textarea id="show_code">{{ "WelcomeHint" | localization}}</textarea>
+                <div id="input_box">
+                <p class="hint">cmd ></p>
+                <textarea id="write_code"></textarea>
+                </div>
+            </div>
+            <div class="box2 centered">
+                <div class="box2_frame" style="height:100px">
+                <p class="hint">{{"Frame" | localization}}:
+                <input type="number" id="curframe" min="0" max="0" value="0" oninput="frame_change(value)" style="width:20%">
+                /
+                <input type="number" id="maxframe" value="0" disabled="disabled" style="width:20%"></p>
+                <input type="range" value="0" min="0" max="0" id="curframeRange" oninput="frame_change(value)" style="width:90%">
+                <select id="play_select" class="small button" disabled="disabled">
+                    <option value="forward">{{ "forward" | localization}}</option>
+                    <option value="backward">{{ "backward" | localization}}</option>
+                    <option value="backAndForth">{{ "backAndForth" | localization}}</option>
+                </select>
+                <button class="blue button" id="play_button" onclick="play_click()" disabled="disabled">{{ "Play" | localization}}</button>
+                </div>
+                <div class="box2_frame" style="height:calc(100% - 140px);overflow: auto;">
+                <p class="hint">{{"Model" | localization}}:</p>
+                <div id="models">
+                </div>
+                </div>
+            </div>
+            <div id="3dmol_viewer" class="box3 viewer_3Dmoljs" data-backgroundcolor='0x000000'></div>
+        </div>
+        <div id="clickRightMenu" class="clickRightMenu hint">
+            <ul>
+                <li class="labelMenu">{{"Click function" | localization}}
+                    <ul>
+                        <li><input type="radio" checked=true name="label_radio" value=0 onchange="label_radio_check()"><label>{{"None"|localization}}</label></li>
+                        <li><input type="radio" name="label_radio" value=1 onchange="label_radio_check()"><label>{{"Label atom"|localization}}</label></li>
+                        <li><input type="radio" name="label_radio" value=2 onchange="label_radio_check()"><label>{{"Label bond"|localization}}</label></li>
+                        <li><input type="radio" name="label_radio" value=3 onchange="label_radio_check()"><label>{{"Label angle"|localization}}</label></li>
+                        <li><input type="radio" name="label_radio" value=4 onchange="label_radio_check()"><label>{{"Label dihedral"|localization}}</label></li>
+                    </ul>
+                </li>
+                <li class="labelMenu2">{{"Label info" | localization}}
+                    <ul>
+                        <li><input type="checkbox" checked=true id="labelMenu2ResIndex"><label>{{"Residue index"|localization}}</label></li>
+                        <li><input type="checkbox" checked=true id="labelMenu2ResName"><label>{{"Residue name"|localization}}</label></li>
+                        <li><input type="checkbox" checked=true id="labelMenu2AtomName"><label>{{"Atom name"|localization}}</label></li>
+                        <li><input type="checkbox" id="labelMenu2Coordinate"><label>{{"Atom coordinate"|localization}}</label></li>
+                        <li><input type="checkbox" id="labelMenu2AngleRad"><label>{{"Angle in radians"|localization}}</label></li>
+                        <li><input type="checkbox" checked=true id="labelMenu2AuxLine"><label>{{"Auxiliary line"|localization}}</label></li>
+                    </ul>
+                </li>
+                <li onclick="v.removeAllLabels();v.removeAllShapes();global_labels={};$('#clickRightMenu').css('display', 'none');global_label_atoms=[];v.render();">{{"Clear labels" | localization}}</li>
+            </ul>
+        </div>
+        </div>
+    </body>
+    <script type="text/javascript">
+    var debug;
+    var v;
+    var global_styles = [];
+    var sm;
+    var working_m;
+    var global_label_atoms = [];
+    var global_labels = {};
+    function vs_wait(time)
+    {
+        return new Promise(resolve => setTimeout(resolve, time));
+    }
+    function label_atom(atom, mj="")
+    {
+        let key = mj + "-" + atom.index;
+        if (global_labels[key])
+        {
+            v.removeLabel(global_labels[key]);
+            delete global_labels[key];
+            v.render();
+        }
+        else
+        {
+            let temp = ""
+            if ($("#labelMenu2ResIndex").prop("checked"))
+            {
+                temp += "Res" + atom.resi
+            }
+            if ($("#labelMenu2ResName").prop("checked"))
+            {
+                temp += "(" + atom.resn + ")"
+            }
+            if ($("#labelMenu2AtomName").prop("checked"))
+            {
+                temp += ":" + atom.atom
+            }
+            if ($("#labelMenu2Coordinate").prop("checked"))
+            {
+                temp += "(" + atom.x.toFixed(2) + "," + atom.y.toFixed(2) + "," + atom.z.toFixed(2) + ")"
+            }
+            global_labels[key] = v.addLabel(temp, {position: atom, backgroundOpacity: 0})
+            v.render();
+        }
+    }
+    function refresh_models()
+    {
+        $('#models').empty();
+        let v = $3Dmol.viewers["3dmol_viewer"];
+        let ms = v.addModels();
+        $(".default_button").attr("disabled", false);
+        for (let i = 0; i < ms.length; i++)
+        {
+            if (ms[i])
+            {
+                let j = ms[i].getID();
+                $('#models').append("<div class='model_present centered' id='model_div_" + j + "'></div>");
+                let that = $('#model_div_' + j)
+                that.append("<p class='hint'>{{ "Model" | localization }} " + j + ": " + ms[i].name + "</p>");
+                that.append("<div class='three-grid-div' id='three-grid-div-" + j + "'></div>");
+                tthatt = $('#three-grid-div-' + j);
+                tthatt.append("<p class='hint'>#{{ "Atom" | localization }}: " + ms[i].getNumAtoms() + "</p>");
+                tthatt.append("<p class='hint'>|</p>");
+                tthatt.append("<p class='hint'>#{{ "Frame" | localization }}: " + ms[i].getNumFrames() + "</p>");
+                that.append("<div class='two-grid-div' id='two-grid-div-" + j + "'></div>");
+                that.append('<ul class="button-group">' + 
+                             '<li><button id="default_button_' + j + '" class="small button default_button" onclick="vs_backend_command(' + "'DEFAULT(" + j + ")'" + ')">{{ "Default" | localization}}</button></li>' + 
+                             '<li><button id="show_hide_button_' + j + '" class="small button show_hide_button" onclick="show_hide_button(' + j + ')">{{ "Hide" | localization}}</button></li>' +
+                             '<li><button class="small red button" onclick="vs_backend_command(' + "'DELETE(Model, " + j + ")'" + ')">{{ "Delete" | localization}}</button></li>' +
+                             '</ul>');
+                if (ms[i].isHidden())
+                {
+                    $("#show_hide_button_"+j).addClass("checked")
+                                             .addClass("green")
+                                             .text('{{"Show" | localization}}');;
+                }
+                if (ms[i] == working_m)
+                {
+                    $("#default_button_" + j).attr("disabled", true);
+                }
+                let temp_shape;
+                switch ($("input[name='label_radio']:checked").val())
+                {
+                    case "0":
+                        v.setClickable({}, false);
+                        break;
+                    case "1":
+                        v.setClickable({}, true, function(atom){label_atom(atom, j)});
+                        break;
+                    case "2":
+                        v.setClickable({}, true, function(atom)
+                        {
+                            if (atom == global_label_atoms[0])
+                            {
+                                return;
+                            }
+                            label_atom(atom, j);
+                            if (global_label_atoms.length != 1)
+                            {
+                                global_label_atoms.push(atom);
+                            }
+                            else
+                            {
+                                let atom1 = global_label_atoms.pop();
+                                let key;
+                                if (atom1.index < atom.index)
+                                {
+                                    key = j + "-" + atom1.index + "+" + atom.index;
+                                }
+                                else
+                                {
+                                    key = j + "-" + atom.index + "+" + atom1.index;
+                                }
+                                if (global_labels[key])
+                                {
+                                    v.removeLabel(global_labels[key]);
+                                    delete global_labels[key];
+                                    if (global_labels[key + "aux"])
+                                    {
+                                        v.removeShape(global_labels[key + "aux"]);
+                                        delete global_labels[key + "aux"];
+                                    }
+                                    v.render();
+                                }
+                                else
+                                {
+                                    let distance = (atom.x - atom1.x) * (atom.x - atom1.x) + (atom.y - atom1.y) * (atom.y - atom1.y)
+                                        + (atom.z - atom1.z) * (atom.z - atom1.z);
+                                    distance = Math.sqrt(distance);
+                                    global_labels[key] = v.addLabel(distance.toFixed(3), {position: new $3Dmol.Vector3((atom.x + atom1.x)/2, (atom.y + atom1.y)/2, (atom.z + atom1.z)/2), backgroundOpacity: 0});
+                                    if ($("#labelMenu2AuxLine").prop("checked"))
+                                    {
+                                        global_labels[key + "aux"] = v.addLine({dashed:true, color:'white', start:atom, end:atom1});
+                                        v.render();
+                                    }
+                                }
+                            }
+                        });
+                        break;
+                    case "3":
+                        v.setClickable({}, true, function(atom)
+                        {
+                            if (global_label_atoms.includes(atom))
+                            {
+                                return;
+                            }
+                            label_atom(atom, j);
+                            if (global_label_atoms.length != 2)
+                            {
+                                global_label_atoms.push(atom);
+                            }
+                            else
+                            {
+                                let atom2 = global_label_atoms.pop();
+                                let atom1 = global_label_atoms.pop();
+                                let key;
+                                if (atom1.index < atom.index)
+                                {
+                                    key = j + "-" + atom1.index + "+" + atom2.index + "+" + atom.index;
+                                }
+                                else
+                                {
+                                    key = j + "-" + atom.index + "+" + atom2.index + "+" + atom1.index;
+                                }
+                                if (global_labels[key])
+                                {
+                                    v.removeLabel(global_labels[key]);
+                                    if (global_labels[key + "aux"])
+                                    {
+                                        v.removeShape(global_labels[key + "aux"]);
+                                        v.removeShape(global_labels[key + "aux1"]);
+                                        delete global_labels[key + "aux"];
+                                        delete global_labels[key + "aux1"];
+                                    }
+                                    v.render();
+                                    delete global_labels[key];
+                                }
+                                else
+                                {
+                                    let d1 = (atom.x - atom2.x) * (atom.x - atom2.x) + (atom.y - atom2.y) * (atom.y - atom2.y)
+                                        + (atom.z - atom2.z) * (atom.z - atom2.z);
+                                    d1 = Math.sqrt(d1);
+                                    let d2 = (atom1.x - atom2.x) * (atom1.x - atom2.x) + (atom1.y - atom2.y) * (atom1.y - atom2.y)
+                                        + (atom1.z - atom2.z) * (atom1.z - atom2.z);
+                                    d2 = Math.sqrt(d2);
+                                    let angle = (atom1.x - atom2.x) * (atom.x - atom2.x) + (atom1.y - atom2.y) * (atom.y - atom2.y)
+                                        + (atom1.z - atom2.z) * (atom.z - atom2.z);
+                                    angle = Math.acos(angle / d1 / d2);
+                                    if (!$("#labelMenu2AngleRad").prop("checked"))
+                                    {
+                                        angle *= 180.0 / 3.1415926;
+                                    }
+                                    if ($("#labelMenu2AuxLine").prop("checked"))
+                                    {
+                                        global_labels[key + "aux"] = v.addLine({dashed:true, color:'white', start:atom, end:atom2});
+                                        global_labels[key + "aux1"] = v.addLine({dashed:true, color:'white', start:atom2, end:atom1});
+                                        v.render();
+                                    }
+                                    global_labels[key] = v.addLabel(angle.toFixed(2), {position: new $3Dmol.Vector3((atom.x+atom2.x*3+atom1.x)/5, (atom.y+atom2.y*3+atom1.y)/5, (atom.z+atom2.z*3+atom1.z)/5), backgroundOpacity: 0});
+                                }
+                            }
+                        });
+                        break;
+                    case "4":
+                        v.setClickable({model:j}, true, function(atom)
+                        {
+                            if (global_label_atoms.includes(atom))
+                            {
+                                return;
+                            }
+                            label_atom(atom, j);
+                            if (global_label_atoms.length != 3)
+                            {
+                                global_label_atoms.push(atom);
+                            }
+                            else
+                            {
+                                let atom3 = global_label_atoms.pop();
+                                let atom2 = global_label_atoms.pop();
+                                let atom1 = global_label_atoms.pop();
+                                let key;
+                                if (atom1.index < atom.index)
+                                {
+                                    key = j + "-" + atom1.index + "+" + atom2.index + "+" + atom3.index + "+" + atom.index;
+                                }
+                                else
+                                {
+                                    key = j + "-" + atom.index + "+" + atom3.index + "+" + atom2.index + "+" + atom1.index;
+                                }
+                                if (global_labels[key])
+                                {
+                                    v.removeLabel(global_labels[key]);
+                                    if (global_labels[key + "aux"])
+                                    {
+                                        v.removeShape(global_labels[key + "aux"]);
+                                        v.removeShape(global_labels[key + "aux1"]);
+                                        v.removeShape(global_labels[key + "aux2"]);
+                                        delete global_labels[key + "aux"];
+                                        delete global_labels[key + "aux1"];
+                                        delete global_labels[key + "aux2"];
+                                    }
+                                    v.render();
+                                    delete global_labels[key];
+                                }
+                                else
+                                {
+                                    let ABx = atom1.x - atom2.x;
+                                    let ABy = atom1.y - atom2.y;
+                                    let ABz = atom1.z - atom2.z;
+                                    let ACx = atom1.x - atom3.x;
+                                    let ACy = atom1.y - atom3.y;
+                                    let ACz = atom1.z - atom3.z;
+                                    let DBx = atom.x - atom2.x;
+                                    let DBy = atom.y - atom2.y;
+                                    let DBz = atom.z - atom2.z;
+                                    let DCx = atom.x - atom3.x;
+                                    let DCy = atom.y - atom3.y;
+                                    let DCz = atom.z - atom3.z;
+                                    let ABxACx = ABy * ACz - ABz * ACy;
+                                    let ABxACy = ABz * ACx - ABx * ACz;
+                                    let ABxACz = ABx * ACy - ABy * ACx;
+                                    let DBxDCx = DBy * DCz - DBz * DCy;
+                                    let DBxDCy = DBz * DCx - DBx * DCz;
+                                    let DBxDCz = DBx * DCy - DBy * DCx;
+                                    let d1 = ABxACx * ABxACx + ABxACy * ABxACy + ABxACz * ABxACz;
+                                    d1 = Math.sqrt(d1);
+                                    let d2 = DBxDCx * DBxDCx + DBxDCy * DBxDCy + DBxDCz * DBxDCz;
+                                    d2 = Math.sqrt(d2);
+                                    let angle = ABxACx * DBxDCx + ABxACy * DBxDCy + ABxACz * DBxDCz;
+                                    angle = Math.acos(angle / d1 / d2);
+                                    if (!$("#labelMenu2AngleRad").prop("checked"))
+                                    {
+                                        angle *= 180.0 / 3.1415926
+                                    }
+                                    if ($("#labelMenu2AuxLine").prop("checked"))
+                                    {
+                                        global_labels[key + "aux"] = v.addLine({dashed:true, color:'white', start:atom, end:atom3});
+                                        global_labels[key + "aux1"] = v.addLine({dashed:true, color:'white', start:atom3, end:atom2});
+                                        global_labels[key + "aux2"] = v.addLine({dashed:true, color:'white', start:atom2, end:atom1});
+                                        v.render();
+                                    }
+                                    global_labels[key] = v.addLabel(angle.toFixed(2), {position: new $3Dmol.Vector3((atom.x+atom3.x*3+atom2.x*3+atom1.x)/8, (atom.y+atom3.y*3+atom2.y*3+atom1.y)/8, (atom.z+atom3.z*3+atom2.z*3+atom1.z)/8), backgroundOpacity: 0});
+                                }
+                            }
+                        });
+                        break;
+                }
+            }
+        }
+        let max_frame = v.getNumFrames() - 1;
+        if (max_frame > 0)
+        {
+            $('#curframe').attr("disabled", false);
+            $('#curframeRange').attr("disabled", false);
+            $('#play_button').attr("disabled", false);
+            $('#play_select').attr("disabled", false);
+            $('#maxframe').val(max_frame);
+            $('#curframe').val(v.getFrame());
+            $('#curframe').attr("max",max_frame);
+            $('#curframeRange').attr("max",max_frame);
+        }
+        else
+        {
+            $('#play_button').attr("disabled", true);
+            $('#play_select').attr("disabled", true);
+            $('#maxframe').val(0);
+            $('#curframe').val(0);
+            $('#curframe').attr("disabled", true);
+            $('#curframeRange').attr("disabled", true);
+        }
+        v.setStyle({}, {})
+        for (let i = 0; i < global_styles.length; i += 1)
+        {
+            v.addStyle(global_styles[i].sel, global_styles[i].style);
+        }
+        v.render();
+    }
+    function vs_initialize()
+    {
+        $3Dmol.elementColors.defaultColor = {{ Configure.GENERAL.defaultAtomColor }};
+        {% for element, color in Configure.ELEMENT_COLOR.items() %}
+        $3Dmol.elementColors.defaultColors["{{element}}"] = {{ color }};
+        {% endfor %}
+        vs_backend_command("VERSION()", false)
+        {% if ini_mfile %}
+        .then(function(){vs_backend_command("MODEL('{{ini_mfile}}')")})
+        {% endif %}
+        {% for traj_file in ini_tfile %}
+        .then(function(){vs_backend_command("TRAJ({{traj_file | safe}})")})
+        {% endfor %}
+
+        v = $3Dmol.viewers["3dmol_viewer"];
+        
+        var canvas = v.getCanvas();
+        canvas.oncontextmenu = e => {
+            var event = event || window.event;
+            $(".clickRightMenu").css("display", "block");
+            $("#clickRightMenu").css("left", e.clientX + "px");
+            $("#clickRightMenu").css("top", e.clientY + "px");
+            return false;
+        };
+        function child_display_block(e)
+        {
+            let that=$(e.delegateTarget);
+            let child = that.children();
+            child.css("display", "block");
+        }
+        function child_display_none(e)
+        {
+            let that=$(e.delegateTarget);
+            let child = that.children();
+            child.css("display", "none");
+        }
+        function click_father_as_child(e)
+        {
+            if (!$(e.target).is("input"))
+            {
+                $(e.delegateTarget).children("input").click();
+            }
+        }
+        $("#clickRightMenu .labelMenu").hover(child_display_block, child_display_none);
+        $("#clickRightMenu .labelMenu li").click(click_father_as_child);
+        $("#clickRightMenu .labelMenu2").hover(child_display_block, child_display_none);
+        $("#clickRightMenu .labelMenu2 li").click(click_father_as_child);
+        $(document).bind('click', e => {
+            if ($(e.target).closest(".clickRightMenu").length == 0)
+            {
+                $(".clickRightMenu").css("display", "none");
+            }
+        });
+    }
+    function vs_finalize()
+    {
+        navigator.sendBeacon('exit', {});
+    }
+    function pngURLToFile(dataurl)
+    {
+        let bstr = atob(dataurl.split(',')[1]);
+        let n = bstr.length;
+        let u8arr = new Uint8Array(n);
+        while (n--)
+        {
+          u8arr[n] = bstr.charCodeAt(n);
+        }
+        return new File([u8arr], "temp.png", {type:"image/png"});
+    }
+    function videoBlobToFile(Blob)
+    {
+        return new File([Blob], "temp.webm", {type:"video/webm"});
+    }
+    function vs_frontend_command(command)
+    {
+        try
+        {
+            let m;
+            switch (command.cmd)
+            {
+                case "MODEL":
+                    m = v.addModel();
+                    m.addAtoms(command.atoms);
+                    m.name = command.name;
+                    global_styles.push({sel: {model: m.getID()}, style: {line:{}}})
+                    refresh_models();
+                    break;
+                case "TRAJ":
+                    m = v.getModel(command.mid);
+                    frame_change(v.getNumFrames() - 1);
+                    refresh_models();
+                    break;
+                case "DEFAULT":
+                    working_m = v.getModel(command.mid);
+                    v.zoomTo({"model":working_m});
+                    refresh_models();
+                    break;
+                case "SHOW":
+                    switch (command.obj)
+                    {
+                        case "Model":
+                            m = v.getModel(command.id);
+                            m.show();
+                            v.render();
+                            that = $("#show_hide_button_" + command.id);
+                            that.removeClass("checked");
+                            that.removeClass("green");
+                            that.text('{{"Hide" | localization}}');
+                            break;
+                        default:
+                            editor.setValue(editor.getValue() + "\nFrontendError: "+ "ValueError: " + command.obj + " is not a valid value for SHOW");
+                            editor.scrollTo(0, editor.getScrollInfo()["height"]);
+                    }
+                    break;
+                case "PRINTSCREEN":
+                    m = v.getCanvas();
+                    let url = m.toDataURL();
+                    let file = pngURLToFile(url);
+                    let form = new FormData();
+                    form.append("file", file);
+                    form.append("suffix", command.suffix);
+                    form.append("fname", command.png);
+                    $.ajax({type:"POST", url:"/get_png", data:form, contentType:false, processData:false, 
+                            success: result => {editor.setValue(editor.getValue() + "\n" + result); editor.scrollTo(0, editor.getScrollInfo()["height"]);}});
+                    break;
+                case "MOVIE":
+                    m = v.getCanvas();
+                    let chunks = [];
+                    let mediaStream = m.captureStream(command.fps);
+                    let mediaRecord = new MediaRecorder(mediaStream, {mimeType:'video/webm', videoBitsPerSecond: command.bitRate});
+                    mediaRecord.ondataavailable = (e) => {chunks.push(e.data)};
+                    v.setFrame(command.start);
+                    if (command.stop < 0)
+                    {
+                        command.stop = v.getNumFrames() + command.stop;
+                    }
+                    let runTime = command.interval * ((command.stop - command.start + 1) / command.stride + 0.9);
+                    mediaRecord.start();
+                    v.animate({"stride": command.stride, "interval":command.interval});
+                    vs_wait(runTime).then(function()
+                        {
+                            v.stopAnimate();
+                            mediaRecord.stop();
+                            vs_wait(500).then(function()
+                                {
+                                    let blob = chunks[0];
+                                    let file = new File([blob], "temp.webm", {type:"video/webm"});
+                                    let form = new FormData();
+                                    form.append("file", file);
+                                    form.append("suffix", command.suffix);
+                                    form.append("fname", command.webm);
+                                    $.ajax({type:"POST", url:"/get_webm", data:form, contentType:false, processData:false, 
+                                            success: result => {editor.setValue(editor.getValue() + "\n" + result); editor.scrollTo(0, editor.getScrollInfo()["height"]);}});
+                                }
+                            );
+                        }
+                    );
+                    break;
+                case "HIDE":
+                    switch (command.obj)
+                    {
+                        case "Model":
+                            m = v.getModel(command.id);
+                            m.hide();
+                            v.render();
+                            that = $("#show_hide_button_" + command.id);
+                            that.addClass("checked");
+                            that.addClass("green");
+                            that.text('{{"Show" | localization}}');
+                            break;
+                        default:
+                            editor.setValue(editor.getValue() + "\nFrontendError: "+ "ValueError: " + command.obj + " is not a valid value for HIDE");
+                            editor.scrollTo(0, editor.getScrollInfo()["height"]);
+                    }
+                    break;
+                case "DELETE":
+                    switch (command.obj)
+                    {
+                        case "Model":
+                            for (key in global_labels)
+                            {
+                                if (key.startsWith(command.id + "-"))
+                                {
+                                    if (global_labels[key].addLine)
+                                        v.removeShape(global_labels[key]);
+                                    else
+                                        v.removeLabel(global_labels[key]);
+                                    delete global_labels[key];
+                                }
+                            }
+                            for (let i = 0; i < global_styles.length; i += 1)
+                            {
+                                if (global_styles[i].sel.model == command.id)
+                                {
+                                    delete global_styles[i];
+                                }
+                            }
+                            while (global_styles.length > 0
+                                && typeof (global_styles[global_styles.length - 1]) === "undefined")
+                            global_styles.pop();
+                            v.removeModel(command.id);
+                            refresh_models();
+                            break;
+                        default:
+                            editor.setValue(editor.getValue() + "\nFrontendError: "+ "ValueError: " + command.obj + " is not a valid value for HIDE");
+                            editor.scrollTo(0, editor.getScrollInfo()["height"]);
+                    }
+                    break;
+                default:
+                    editor.setValue(editor.getValue() + "\nFrontendError: "+ "CommandNotFoundError: " + command.cmd + " is not a valid command");
+                    editor.scrollTo(0, editor.getScrollInfo()["height"]);
+            }
+        }
+        catch (error)
+        {
+            editor.setValue(editor.getValue() + "\nFrontendError: "+ error);
+            editor.scrollTo(0, editor.getScrollInfo()["height"]);
+        }
+    }
+    function vs_backend_command(command, show_command=true) 
+    {
+        return new Promise((resolve, reject) =>
+        {
+            if (command && show_command)
+            {
+                editor.setValue(editor.getValue() + "\ncmd> "+ command);
+                editor.scrollTo(0, editor.getScrollInfo()["height"]);
+            }
+            if (command)
+            {
+                $.ajax({type:'post',
+                        url:'cmd',
+                        data: {value: command},
+                        async: false,
+                        success: function(result)
+                        {
+                            editor.setValue(editor.getValue() + "\n"+ result["text"]);
+                            if (result["cmd"])
+                            {
+                                for (let cmdi = 0; cmdi < result["cmd"].length; cmdi += 1)
+                                {
+                                    vs_frontend_command(result["cmd"][cmdi]);
+                                }
+                            }
+                            editor.scrollTo(0, editor.getScrollInfo()["height"]);
+                        }
+                    }
+                );
+            }
+            resolve();
+        });
+    }
+    var editor = CodeMirror.fromTextArea(document.getElementById("show_code"),
+    {
+        lineNumbers: true,
+        lineWrapping: true,
+        mode: "text/x-python",
+        readOnly: 'true',
+        firstLineNumber: 0,
+        scrollbarStyle: "native",
+    });
+    editor.setSize('auto','130px');
+    var editor2 = CodeMirror.fromTextArea(document.getElementById("write_code"),
+    {
+        mode: "text/x-python",
+        scrollbarStyle: "null",
+    });
+    editor2.setSize('auto','25px');
+    editor2.setOption("extraKeys",
+    {
+        Enter: function(cm)
+        {
+            vs_backend_command(cm.getValue());
+            if (cm.getValue())
+            {
+                cm.setValue("");
+                editor2_flag = false;
+            }
+        }
+    });
+    setTimeout(vs_initialize, 100);
+    window.onbeforeunload = function () {return "{{ 'Really quit?' | localization }}"}
+    window.onunload = vs_finalize;
+    function frame_change(value)
+    {
+        $('#curframe').val(Number(value));
+        $('#curframeRange').val(Number(value));
+        v.setFrame(Number(value));
+        v.render();
+    }
+    function label_radio_check()
+    {
+        global_label_atoms = [];
+        $("#clickRightMenu").css("display", "none");
+        refresh_models();
+    }
+    function play_click()
+    {
+        that = $("#play_button")
+        if (that.hasClass("checked"))
+        {
+            that.text(' {{ "Play" | localization }}')
+            $('#curframe').attr("disabled", false);
+            $('#curframeRange').attr("disabled", false);
+            v.stopAnimate();
+            that.removeClass("checked")
+        }
+        else
+        {
+            that.text(' {{ "Stop" | localization }}')
+            $('#curframe').attr("disabled", true);
+            $('#curframeRange').attr("disabled", true);
+            v.animate({"loop":$("#play_select").val()});
+            that.addClass("checked")
+        }
+    }
+    function show_hide_button(j)
+    {
+        that = $("#show_hide_button_" + j);
+        if (that.hasClass("checked"))
+        {
+            vs_backend_command("SHOW(Model, " + j + ")");
+        }
+        else
+        {
+            vs_backend_command("HIDE(Model, " + j + ")");
+        }
+    }
+    var click_function;
+    function ask_for_file(folder=".", special="")
+    {
+        $.post('file',
+            {folder: folder, special: special},
+            result => 
+            {
+                $("#pop-upper").append(result);
+            }
+        );
+
+    }
+    function ask_for_setting(title, head, main, foot, heights, title_style, head_style, main_style, foot_style)
+    {
+        return new Promise((resolve, reject) =>
+        {
+            $.post('setting',
+                {title:title, head:head, main:main, foot:foot, heights:heights,
+                title_style:title_style, head_style:head_style,
+                main_style:main_style, foot_style:foot_style},
+                result => 
+                {
+                    let that = $("#pop-upper").children();
+                    $("#pop-upper").append(result);
+                    that.remove();
+                    resolve();
+                }
+            );
+        });
+    }
+    function open_model_file_click()
+    {
+        $(".pop-up").css("display", "block");
+        click_function = function()
+        {
+            vs_backend_command("MODEL('" + $("#file_temp_p").text() + "/" + $("#file_name_input").val() + "','" + $("#file_format_input").val() + "')");
+            pop_up_cancel();
+        }
+        ask_for_file();
+    }
+    function pop_up_cancel()
+    {
+        $("#pop-upper").empty();
+        $(".pop-up").css("display", "none");
+    }
+    function open_traj_file_click()
+    {
+        $(".pop-up").css("display", "block");
+        click_function = function()
+        {
+            vs_backend_command("TRAJ('" + $("#file_temp_p").text() + "/" + $("#file_name_input").val() + "','" + $("#file_format_input").val() + "', m=" + working_m.getID() + ")");
+            pop_up_cancel();
+        }
+        ask_for_file();
+    }
+    function append_traj_file_click()
+    {
+        $(".pop-up").css("display", "block");
+        click_function = function()
+        {
+            vs_backend_command("TRAJ('" + $("#file_temp_p").text() + "/" + $("#file_name_input").val() + "','" + $("#file_format_input").val() + "', m=" + working_m.getID() + ", append=True)");
+            pop_up_cancel();
+        }
+        ask_for_file();
+    }
+    function print_screen_click()
+    {
+        $(".pop-up").css("display", "block");
+        click_function = function()
+        {
+            vs_backend_command("PRINTSCREEN('" + $("#file_temp_p").text() + "/" + $("#file_name_input").val() + "')");
+            pop_up_cancel();
+        }
+        ask_for_file();
+    }
+    function make_movie_click()
+    {
+        $(".pop-up").css("display", "block");
+        click_function = function()
+        {
+            vs_backend_command("MOVIE('" + $("#file_temp_p").text() + "/" + $("#file_name_input").val() + "',interval=100, start=0, stop=-1, stride=1)");
+            pop_up_cancel();
+        }
+        ask_for_file();
+    }
+    function bg_color_click()
+    {
+        $(".pop-up").css("display", "block");
+        click_function = function()
+        {
+            backgroundRGBA = $("#bgRGBAinput").val()
+            v.render();
+            pop_up_cancel();
+        }
+        ask_for_setting('{{"Background Color" | localization}}',
+            "{{ 'bgSelectHint' | localization }}",
+            "<p>{{'Top Color' | localization}}<input type='color' id='top_color_selector' onchange=bg_color_change()></p>" +
+        "<p style='margin:10px;'>{{'Top Opacity' | localization}}<input id='top_color_opacity_selector' type=number value=1 min=0 max=1 step=0.01 onchange=bg_color_change()></p>" +
+        "<ul class='button-group'><button class='button' onclick=color_selector_change('top','#FFFFFF',1)>{{'White' | localization}}</button>" +
+        "<button class='button' onclick=color_selector_change('top','#000000',1)>{{'Black' | localization}}</button>" +
+        "<button class='button' onclick=color_selector_change('top','#33BBBB',1)>{{'Cyan' | localization}}</button>" +
+        "<button class='button' onclick=color_selector_change('top','#FFFFFF',0)>{{'Clear' | localization}}</button></ul>" +
+        "<p>{{'Bottom Color' | localization}}<input type='color' id='bottom_color_selector' onchange=bg_color_change()></p>" +
+        "<p style='margin:10px;'>{{'Bottom Opacity' | localization}}<input id='bottom_color_opacity_selector' type=number value=1 min=0 max=1 step=0.01 onchange=bg_color_change()></p>" +
+        "<ul class='button-group'><button class='button' onclick=color_selector_change('bottom','#FFFFFF',1)>{{'White' | localization}}</button>" +
+        "<button class='button' onclick=color_selector_change('bottom','#000000',1)>{{'Black' | localization}}</button>" +
+        "<button class='button' onclick=color_selector_change('bottom','#33BBBB',1)>{{'Cyan' | localization}}</button>" +
+        "<button class='button' onclick=color_selector_change('bottom','#FFFFFF',0)>{{'Clear' | localization}}</button></ul>",
+            "{{ 'RGBA function:' | localization }}<input style='width:80%' id='bgRGBAinput' value='" + backgroundRGBA + "'>",
+        "auto auto auto auto auto",
+        "text-align:center;", "text-align:center;", "text-align:center;", "text-align:center;");
+    }
+    function display_style_delete(todelete)
+    {
+        delete global_styles[todelete];
+        while (global_styles.length > 0
+                && typeof (global_styles[global_styles.length - 1]) === "undefined")
+            global_styles.pop();
+        display_style_click();
+    }
+    function display_style_checkbox_change()
+    {
+        let style;
+        eval("style = " + $("#display_style_style").val());
+        if ($("#display_style_line").prop('checked') == true)
+        {
+            if (style.line == undefined)
+            {
+                style.line = {};
+            }
+        }
+        else
+        {
+            delete style.line;
+        }
+        if ($("#display_style_stick").prop('checked') == true)
+        {
+            if (style.stick == undefined)
+            {
+                style.stick = {};
+            }
+        }
+        else
+        {
+            delete style.stick;
+        }
+        if ($("#display_style_cross").prop('checked') == true)
+        {
+            if (style.cross == undefined)
+            {
+                style.cross = {};
+            }
+        }
+        else
+        {
+            delete style.cross;
+        }
+        if ($("#display_style_sphere").prop('checked') == true)
+        {
+            if (style.sphere == undefined)
+            {
+                style.sphere = {};
+            }
+            style.sphere.scale = Number($("#display_style_sphere_scale").val())
+        }
+        else
+        {
+            delete style.sphere;
+        }
+        if ($("#display_style_cartoon").prop('checked') == true)
+        {
+            if (style.cartoon == undefined)
+            {
+                style.cartoon = {};
+            }
+            style.cartoon.thichness = Number($("#display_style_cartoon_thichness").val())
+            style.cartoon.tubes = $("#display_style_cartoon_tube").prop('checked');
+            style.cartoon.arrows = $("#display_style_cartoon_arrow").prop('checked');
+            style.cartoon.ribbon = $("#display_style_cartoon_ribbon").prop('checked');
+        }
+        else
+        {
+            delete style.cartoon;
+        }
+        $("#display_style_style").val(JSON.stringify(style));
+    }
+    function display_style_input_change()
+    {
+        let style;
+        eval("style = " + $("#display_style_style").val());
+        if (style.line)
+        {
+            $("#display_style_line").prop('checked', true);
+        }
+        else
+        {
+            $("#display_style_line").prop('checked', false);
+        }
+        if (style.cross)
+        {
+            $("#display_style_cross").prop('checked', true);
+        }
+        else
+        {
+            $("#display_style_cross").prop('checked', false);
+        }
+        if (style.stick)
+        {
+            $("#display_style_stick").prop('checked', true);
+        }
+        else
+        {
+            $("#display_style_stick").prop('checked', false);
+        }
+        if (style.sphere)
+        {
+            $("#display_style_sphere").prop('checked', true);
+            if (style.sphere.scale)
+            {
+                $("#display_style_sphere_scale").val(style.sphere.scale);
+            }
+        }
+        else
+        {
+            $("#display_style_sphere").prop('checked', false);
+        }
+        if (style.cartoon)
+        {
+            $("#display_style_cartoon").prop('checked', true);
+            $("#display_style_cartoon_tube").prop('checked', style.cartoon.tubes);
+            $("#display_style_cartoon_ribbon").prop('checked', style.cartoon.ribbon);
+            $("#display_style_cartoon_arrow").prop('checked', style.cartoon.arrows);
+            if (style.cartoon.thichness)
+            {
+                $("#display_style_cartoon_thichness").val(style.cartoon.thichness);
+            }
+        }
+        else
+        {
+            $("#display_style_cartoon").prop('checked', false);
+        }
+    }
+    function display_style_click(active=0)
+    {
+        $(".pop-up").css("display", "block");
+        if (active == global_styles.length)
+        {
+            click_function = function()
+            {
+                let sel;
+                eval("sel = " + $("#display_style_selection").val());
+                let style;
+                eval("style = " + $("#display_style_style").val());
+                global_styles.push({sel: sel, style: style});
+                display_style_click(active=global_styles.length-1);
+                refresh_models();
+            }
+        }
+        else
+        {
+            click_function = function()
+            {
+                let sel;
+                eval("sel = " + $("#display_style_selection").val());
+                let style;
+                eval("style = " + $("#display_style_style").val());
+                global_styles[active] = {sel: sel, style: style};
+                pop_up_cancel();
+                refresh_models();
+            }
+        }
+        let upperButtons = "<ul class='button-group'>";
+        let i = 0;
+        for (i = 0; i < global_styles.length; i+=1)
+        {
+            if (global_styles[i])
+            {
+                upperButtons += "<button class='button" + (active == i ? " green": "") + "' id='displayStyleUpperButtons" + i + "' onclick=display_style_click(active=" + i + ")>{{'Style' | localization}}" + i + "</button>";
+            }
+        }
+        upperButtons += "<button class='button" + (active == i ? " green": "") + "' id='displayStyleUpperButtons" + i + "' onclick=display_style_click(active=" + i + ")>{{'New' | localization}}</button>";
+        if (active < global_styles.length)
+        {
+            upperButtons += "<button class='red button' id='displayStyleUpperButtons" + i + 1 + "' onclick=display_style_delete(" + active + ")>{{'Delete' | localization}}</button>";
+        }
+        upperButtons += "</ul>"
+        let middleInputs = "<p>{{'Style'|localization}}</p><div style='text-align:left'>" +
+        "<p><input type=Checkbox id=display_style_line onchange=display_style_checkbox_change()><label>{{'line'|localization}}</label></p>" +
+        "<p><input type=Checkbox id=display_style_sphere onchange=display_style_checkbox_change()><label>{{'sphere'|localization}}</label> | <label>{{'scale'|localization}}</label><input id=display_style_sphere_scale onchange=display_style_checkbox_change() type=number min=0.01 step=0.01 value = 1.00></p>" +
+        "<p><input type=Checkbox id=display_style_stick onchange=display_style_checkbox_change()><label>{{'stick'|localization}}</label></p>" + 
+        "<p><input type=Checkbox id=display_style_cross onchange=display_style_checkbox_change()><label>{{'cross'|localization}}</label></p>" +
+        "<p><input type=Checkbox id=display_style_cartoon onchange=display_style_checkbox_change()><label>{{'cartoon'|localization}}</label> | " + 
+            "<label>{{'thichness'|localization}}</label><input type=number id=display_style_cartoon_thichness onchange=display_style_checkbox_change() min=0.01 step=0.01 value = 0.40> |" +
+            "<input type=Checkbox id=display_style_cartoon_ribbon onchange=display_style_checkbox_change()><label>{{'Ribbon'|localization}}</label>" +
+            "<input type=Checkbox id=display_style_cartoon_tube onchange=display_style_checkbox_change()><label>{{'Tube'|localization}}</label>" +
+            "<input type=Checkbox id=display_style_cartoon_arrow onchange=display_style_checkbox_change()><label>{{'Arrow'|localization}}</label>" +
+            "</p>" +
+        "</div><input style='width:80%' value={} onchange=display_style_input_change() id='display_style_style'>"
+        let selectionPart = "<p>{{ 'Selection' | localization }}<p>" +
+        "<p>{{'AtomSelectionHint' | localization | safe}}</p>" +
+        "<input style='width:80%' value={} id='display_style_selection'>"
+        ask_for_setting('<p id="displayStyleUpperHint">{{"Display Style" | localization}}</p>',
+            upperButtons,
+            middleInputs,
+            selectionPart,
+        "auto auto auto auto auto",
+        "text-align:center;", "text-align:left; overflow-x:scroll>", "text-align:center;", "text-align:center;").then(function()
+        {
+            if (active < global_styles.length)
+            {
+                $("#display_style_style").val(JSON.stringify(global_styles[active].style));
+                $("#display_style_selection").val(JSON.stringify(global_styles[active].sel));
+                display_style_input_change();
+            }
+        });
+    }
+    function color_selector_change(place, color, opacity)
+    {
+        $("#" + place + "_color_selector").val(color);
+        $("#" + place + "_color_opacity_selector").val(opacity);
+        bg_color_change()
+    }
+    function bg_color_change()
+    {
+        let res = ""
+        let topc = new $3Dmol.Color(Number($("#top_color_selector").val().replace("#","0x")));
+        let botc = new $3Dmol.Color(Number($("#bottom_color_selector").val().replace("#","0x")));
+        if (topc.r == botc.r)
+        {
+            res += topc.r.toFixed(2) + ",";
+        }
+        else
+        {
+            res += (topc.r - botc.r).toFixed(2) + "*pos.y+" + botc.r.toFixed(2) + ","
+        }
+        if (topc.g == botc.g)
+        {
+            res += topc.g.toFixed(2) + ",";
+        }
+        else
+        {
+            res += (topc.g - botc.g).toFixed(2) + "*pos.y+" + botc.g.toFixed(2) + ","
+        }
+        if (topc.b == botc.b)
+        {
+            res += topc.b.toFixed(2) + ",";
+        }
+        else
+        {
+            res += (topc.b - botc.b).toFixed(2) + "*pos.y+" + botc.b.toFixed(2) + ","
+        }
+        let topo = Number($("#top_color_opacity_selector").val());
+        let boto = Number($("#bottom_color_opacity_selector").val());
+        if (topo == boto)
+        {
+            res += topo.toFixed(2);
+        }
+        else
+        {
+            res += (topo - boto).toFixed(2) + "*pos.x+" + boto.toFixed(2)
+        }
+        $("#bgRGBAinput").val(res);
+    }
+    function language_click()
+    {
+        $(".pop-up").css("display", "block");
+        click_function = function()
+        {
+            vs_backend_command("CONFIGURE('OTHER', 'language', '" + $("#language_selector").val() + "')");
+            pop_up_cancel();
+        }
+        ask_for_setting('{{"Language" | localization}}',
+            '{{ "LanguageSettingHint" | localization}}',
+            '<button onclick=$("#language_selector").val("chinese") class="button">中文</button>' +
+          '<button onclick=$("#language_selector").val("english") class="button">English</button>',
+            "<input disabled=true id=language_selector>",
+            "30px 50px 1fr 1fr 30px",
+        "text-align:center;", "text-align:center;", "display:grid;text-align:center;", "text-align:center;");
+    }
+    </script>
+    <script id="bg_vertex" type="x-shader/x-vertex">
+    #version 300 es
+    in vec4 vertexPosition;
+    void main() {
+      gl_Position = vertexPosition;
+    }
+    </script>
+    <script id="bg_fragment" type="x-shader/x-fragment">
+    #version 300 es
+    precision highp float;
+    uniform vec2 canvasSize;
+    out vec4 fragColor;
+    void main() {
+      vec2 pos = gl_FragCoord.xy/canvasSize.xy;
+      fragColor = vec4(RGBA);
+    }
+    </script>
+    <script>
+    backgroundRGBA = "{{Configure.GENERAL.backgroundRGBA }}";
+    function draw_gradient_bg()
+    {
+        if (v)
+        {
+            const canvas = v.getCanvas();
+            const vertexCode = $("#bg_vertex").text();
+            const fragmentCode = $("#bg_fragment").text().replace("RGBA", backgroundRGBA);
+            const gl = v.getRenderer().context;
+            function createShader(shaderType, sourceCode)
+            {
+                const shader = gl.createShader(shaderType);
+                gl.shaderSource(shader, sourceCode.trim());
+                gl.compileShader(shader);
+                if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS))
+                {
+                    throw gl.getShaderInfoLog(shader);
+                }
+                return shader;
+            }
+            const program = gl.createProgram();
+            gl.attachShader(program, createShader(gl.VERTEX_SHADER, vertexCode));
+            gl.attachShader(program, createShader(gl.FRAGMENT_SHADER, fragmentCode));
+            gl.linkProgram(program);
+            if (!gl.getProgramParameter(program, gl.LINK_STATUS))
+            {
+                throw gl.getProgramInfoLog(program);
+            }
+            gl.useProgram(program);
+            const vertices = [
+              [-1, -1, 1],
+              [1, -1, 1],
+              [-1, 1, 1],
+              [1, 1, 1],
+            ];
+            const vertexData = new Float32Array(vertices.flat());
+            gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
+            gl.bufferData(gl.ARRAY_BUFFER, vertexData, gl.STATIC_DRAW);
+
+            const vertexPosition = gl.getAttribLocation(program, "vertexPosition");
+            gl.enableVertexAttribArray(vertexPosition);
+            gl.vertexAttribPointer(vertexPosition, 3, gl.FLOAT, false, 0, 0);
+
+            const canvasSizeUniform = gl.getUniformLocation(program, 'canvasSize');
+            gl.uniform2f(canvasSizeUniform, canvas.width, canvas.height);
+            gl.drawArrays(gl.TRIANGLE_STRIP, 0, vertices.length);
+        }
+    }
+    </script>
+</html>

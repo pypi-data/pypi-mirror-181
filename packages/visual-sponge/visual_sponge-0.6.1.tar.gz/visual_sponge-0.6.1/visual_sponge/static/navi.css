@@ -1,0 +1,234 @@
+body,ul,li,.navbar a,p,textarea {padding: 0;margin: 0;}
+.nav ul li {float:left;display:inline-block;position:relative;width:100px;line-height:30px;padding:0 5px;border-radius:5px}
+.nav ul li:hover {background-color:#288add;}
+.nav ul li ul li {width:150px;float:none;z-index:100;border-radius:15px}
+.nav ul li ul {position:absolute;left:0;display:none;z-index:100;}
+.nav ul li ul li:hover {width:150px;background-color:#90c8f6;}
+.nav ul li:hover ul {display: block;background-color:#f0f0f0;}
+.nav {height:30px;background-color:#000;}
+.navbar {float:left;margin-right:10px;list-style-type:none;}
+.navbar a {display: block;height:30px;font-family:"Microsoft Yahei";font-size:15px;text-align:center;text-decoration:none;color:#fff;}
+.nav ul li ul li a {color: #000}
+
+.hint {user-select:none;}
+
+html {height: 100%;}
+body {height: 100%;}
+.main
+{
+    height: calc(100% - 30px);
+    display: grid;
+    grid-template-columns: 1fr 222px;
+    grid-template-rows: 167px 1fr;
+}
+
+.box1
+{
+    background-color:#343434;
+    color: #cccccc;
+}
+
+.box2
+{
+    background-color:#333333;
+    color: #ffffff;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.box2_frame
+{
+    margin: 5px;
+    padding: 5px;
+    border: 5px #eee;
+    background-color: #222;
+    border-radius: 10px;
+}
+
+#input_box
+{
+    margin: 5px;
+    display: grid;
+    grid-template-columns: 50px auto;
+    align-content: center;
+}
+
+#input_box a {margin: 5px}
+
+.model_present
+{
+    margin: 5px;
+    padding: 5px;
+    border: 5px #eee;
+    border-radius: 10px;
+    background-color: #111;
+}
+
+.btn-on
+{
+    width: 60px;
+    height: 20px;
+    margin: 0 3px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.btn-on
+{
+    cursor: pointer;
+    position: relative;
+    border: 1px solid white;
+    background-color: #12B090;
+}
+
+.btn-on-circle
+{
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: 3px;
+    left: 5px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    box-shadow: 0 0 10px white;
+    transition: all .5s;
+}
+
+.btn-on-text
+{
+    position: absolute;
+    right: 10px;
+    line-height: 20px;
+    color: white;
+    transition: all .5s;
+}
+
+.two-grid-div
+{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-content: center;
+}
+
+.three-grid-div
+{
+    display: grid;
+    grid-template-columns: 5fr 1fr 5fr;
+    align-content: center;
+}
+
+.centered {
+  text-align:center;
+}
+
+.CodeMirror
+{
+
+    background-color: #222;
+    color: #ffffff
+}
+
+.CodeMirror-gutter {
+    background-color: #222;
+    color: #ffffff;
+}
+
+.CodeMirror-cursor {
+  background-color: #ffffff;
+  opacity: 0.5;
+  width: 5px;
+}
+
+.cm-s-default .cm-keyword {color: #0ff;}
+.cm-s-default .cm-property {color: #bbc;}
+.cm-s-default .cm-builtin {color: #1f3}
+.cm-s-default .cm-number {color: #ff4;}
+.cm-s-default .cm-variable-2 {color: #f5f;}
+.cm-s-default .cm-tag {color: #f00;}
+
+#gray-warp
+{
+    display: none;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(19, 18, 18);
+    position: fixed;
+    z-index: 101;
+    opacity: 0.3;
+}
+
+#pop-upper
+{
+    display: none;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 102;
+}
+
+.file_item
+{
+    padding:0;
+    width:20%;
+    height:30px;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    overflow:hidden;
+}
+.file_item:hover
+{
+    background-color:#E5F3FF;
+}
+.file_item:active
+{
+    background-color:#CCE8FF;
+}
+
+
+.clickRightMenu {
+    text-align: left;
+    width: 100px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    z-index: 9999;
+    position: absolute;
+    display: none;
+    background: #f2f2f2;
+}
+
+.clickRightMenu ul {
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+}
+
+.clickRightMenu ul li {
+    padding: 3px 0px;
+    font-size: 12px;
+}
+
+.clickRightMenu ul li:hover {
+    background: #e1dddd;
+}
+
+.clickRightMenu ul li a:link {
+    color: #000;
+    text-decoration: none;
+}
+
+.clickRightMenu ul li ul{
+    top: 0;
+    width: 100px;
+    left: 100px;
+    position: absolute;
+    background: #f2f2f2;
+    padding: 3px 0px;
+    font-size: 12px;
+    display: none;
+}
