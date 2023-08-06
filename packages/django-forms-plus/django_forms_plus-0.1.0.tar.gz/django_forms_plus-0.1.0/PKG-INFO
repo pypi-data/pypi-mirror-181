@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: django-forms-plus
+Version: 0.1.0
+Summary: React-powered forms for Django
+Home-page: https://github.com/versusbassz/django_forms_plus
+License: MIT
+Keywords: django,forms,react
+Author: Vladimir Sklyar
+Author-email: versus.post@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 3.2
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: JavaScript
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: User Interfaces
+Requires-Dist: pydantic (>=1.10.2,<2.0.0)
+Project-URL: Repository, https://github.com/versusbassz/django_forms_plus
+Description-Content-Type: text/markdown
+
+# Django-Forms-Plus (dfplus)
+
+The extendable ReactJS powered frontend for Django Forms 
+controled by forms.BaseForm native declarations with some additions.
+
+Define your forms in python code as usually you do and get React powered forms UI
+almost for free ;)
+
+## Features
+- how to define a form? like a regular `forms.BaseForm` with some additions
+- how are forms submitted? via AJAX
+- validation & errors 
+- fieldsets (layouts)
+- customization
+  - Python: use regular Django's idiomatic patterns/approaches around `django.forms` with some additions
+  - JS: React code was build with extensibility in mind
+  - CSS: use regular CSS classes, add your own. No CSS-in-JS (it's a by design decision)
+
