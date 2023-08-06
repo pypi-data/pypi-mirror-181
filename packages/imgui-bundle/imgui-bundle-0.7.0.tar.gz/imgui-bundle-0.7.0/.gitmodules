@@ -1,0 +1,51 @@
+[submodule "external/imgui"]
+	path = external/imgui
+	url = https://github.com/pthom/imgui.git
+[submodule "external/hello_imgui"]
+	path = external/hello_imgui
+	url = https://github.com/pthom/hello_imgui.git
+[submodule "external/glfw"]
+	path = external/glfw
+	url = https://github.com/glfw/glfw.git
+[submodule "lg_cmake_utils"]
+	path = lg_cmake_utils
+	url = https://github.com/pthom/lg_cmake_utils.git
+[submodule "external/implot"]
+	path = external/implot
+	url = https://github.com/epezent/implot.git
+[submodule "external/ImGuiColorTextEdit"]
+	path = external/ImGuiColorTextEdit
+	url = https://github.com/pthom/ImGuiColorTextEdit
+[submodule "external/imgui-knobs"]
+	path = external/imgui-knobs
+	url = https://github.com/pthom/imgui-knobs.git
+[submodule "external/ImFileDialog"]
+	path = external/ImFileDialog
+	url = https://github.com/pthom/ImFileDialog.git
+[submodule "external/imgui_md/imgui_md"]
+	path = external/imgui_md/imgui_md
+	url = https://github.com/pthom/imgui_md.git
+[submodule "external/imgui_md/md4c"]
+	path = external/imgui_md/md4c
+	url = https://github.com/mity/md4c
+[submodule "external/imgui-node-editor"]
+	path = external/imgui-node-editor
+	url = https://github.com/pthom/imgui-node-editor.git
+[submodule "external/SDL"]
+	path = external/SDL
+	url = https://github.com/libsdl-org/SDL.git
+[submodule "external/imgui_toggle"]
+	path = external/imgui_toggle
+	url = https://github.com/pthom/imgui_toggle.git
+[submodule "external/immvision/cvnp"]
+	path = external/immvision/cvnp
+	url = https://github.com/pthom/cvnp.git
+[submodule "external/immvision/immvision"]
+	path = external/immvision/immvision
+	url = https://github.com/pthom/immvision.git
+[submodule "external/ImGuizmo"]
+	path = external/ImGuizmo/ImGuizmo
+	url = https://github.com/CedricGuillemet/ImGuizmo.git
+[submodule "external/imgui_tex_inspect"]
+	path = external/imgui_tex_inspect
+	url = https://github.com/pthom/imgui_tex_inspect.git

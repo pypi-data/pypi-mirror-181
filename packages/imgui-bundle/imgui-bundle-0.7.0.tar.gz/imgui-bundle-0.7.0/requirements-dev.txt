@@ -1,0 +1,6 @@
+litgen @ git+https://github.com/pthom/litgen
+black
+mypy
+pytest
+opencv-python
+opencv-contrib-python
