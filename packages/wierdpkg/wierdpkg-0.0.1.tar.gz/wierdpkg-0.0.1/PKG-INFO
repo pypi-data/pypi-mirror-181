@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: wierdpkg
+Version: 0.0.1
+Summary: An arch reactor package
+Author-email: A React <areact@gmail.com>
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+------- use this space to managing IPL-2022 related works -------
+
+### Module Structure for packaging
+``` 
+arch-reactor/
+├── arch_gen
+│   ├── __init__.py
+├── arch.py
+├── generator.py
+├── Readme.MD
+├── resource
+│   ├── all-icons
+```
+### Pre-requisite ###
+1. Install graphviz - https://graphviz.gitlab.io/download/
+2. Install boto3 - pip install boto3
+3. Install python version 3.7 or higher
