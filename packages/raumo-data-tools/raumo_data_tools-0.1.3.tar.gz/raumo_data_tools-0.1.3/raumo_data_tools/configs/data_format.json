@@ -1,0 +1,111 @@
+{
+    "INIT":
+    {
+        "Umsaetze":
+        {
+            "bucket": "test_test",
+            "config": "influx_init",
+            "measurement": "umsaetze3",
+            "field": "Umsatz"
+        }
+    },
+    "Tracking":
+    {
+        "App-Besuche":
+        {
+            "bucket": "tracking_regiomove",
+            "config": "influx_tracking_regiomove",
+            "measurement": "visits",
+            "field": "visits"
+        },
+        "Erfolgreiche App-Besuche":
+        {
+            "bucket": "tracking_regiomove",
+            "config": "influx_tracking_regiomove",
+            "measurement": "visits",
+            "field": "converted_goals"
+        },
+        "nextbike-Buchungen":
+        {
+            "bucket": "tracking_regiomove",
+            "config": "influx_tracking_regiomove",
+            "measurement": "llva_action_count",
+            "field": "nextbike Buchung erfolgreich"
+        },
+        "KVV-Ticket-Buchungen":
+        {
+            "bucket": "tracking_regiomove",
+            "config": "influx_tracking_regiomove",
+            "measurement": "ecommerce_category_trips",
+            "field": "KVV Ticket"
+        },
+        "KVV.homezone-Buchungen":
+        {
+            "bucket": "tracking_regiomove",
+            "config": "influx_tracking_regiomove",
+            "measurement": "ecommerce_category_trips",
+            "field": "KVV.homezone"
+        },
+        "Gespeicherte Zahlungsmittel":
+        {
+            "bucket": "tracking_regiomove",
+            "config": "influx_tracking_regiomove",
+            "measurement": "llva_action_count",
+            "field": "Zahlungsmittel gespeichert"
+        },
+        "Berechnete Routen":
+        {
+            "bucket": "tracking_regiomove",
+            "config": "influx_tracking_regiomove",
+            "measurement": "llva_action_count",
+            "field": "Route berechnet"
+        }
+    },
+    "Logs":
+    {
+        "nextbike-Buchungen":
+        {
+            "bucket": "log_data",
+            "config": "influx_log_data",
+            "measurement": "agg_logs",
+            "field": "bikeTrips",
+            "tags":
+            {
+                "data_type": "booking"
+            }
+        },
+        "Stadtmobil-Buchungen":
+        {
+            "bucket": "log_data",
+            "config": "influx_log_data",
+            "measurement": "agg_logs",
+            "field": "carTrips",
+            "tags":
+            {
+                "data_type": "booking"
+            }
+        },
+        "KVV-Ticket-Buchungen":
+        {
+            "bucket": "log_data",
+            "config": "influx_log_data",
+            "measurement": "agg_logs",
+            "field": "oepnvTickets",
+            "tags":
+            {
+                "data_type": "booking"
+            }
+        },
+        "KVV.homezone-Buchungen":
+        {
+            "bucket": "log_data",
+            "config": "influx_log_data",
+            "measurement": "agg_logs",
+            "field": "KVV.homezone",
+            "tags":
+            {
+                "data_type": "booking"
+            }
+        }
+    }
+}

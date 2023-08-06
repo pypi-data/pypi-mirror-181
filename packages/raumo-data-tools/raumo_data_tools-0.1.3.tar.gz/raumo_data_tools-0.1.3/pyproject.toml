@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "raumo_data_tools"
+version = "0.1.3"
+description = "Package containing core functions for data ETL workloads."
+authors = ["Tanja Klopper <t.klopper@raumobil.com>", "Jan Wagner <j.wagner@raumobil.com>"]
+repository = "https://github.com/raumobil/data_toolbox"
+keywords = ["influxdb", "pandas"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+influxdb-client = "^1.28.0"
+pandas = "^1.4.0"
+sqlalchemy = "^1.4"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
