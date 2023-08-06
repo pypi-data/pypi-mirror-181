@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: get-deps
+Version: 0.0.1
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Provides-Extra: doc
+License-File: LICENSE
+
+# A simple Python module to pretty print a table with the dependencies of a Python package with license and url.
