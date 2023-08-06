@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: numcodecs
+Version: 0.11.0
+Summary: A Python package providing buffer compression and transformation codecs for use
+Maintainer-email: Alistair Miles <alimanfoo@googlemail.com>
+License: MIT
+Project-URL: Bug Tracker, https://github.com/zarr-developers/numcodecs/issues
+Project-URL: Changelog, https://numcodecs.readthedocs.io/en/stable/release.html
+Project-URL: Documentation, https://numcodecs.readthedocs.io/
+Project-URL: Homepage, https://github.com/zarr-developers/numcodecs
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.8
+Description-Content-Type: text/x-rst
+Provides-Extra: docs
+Provides-Extra: test
+Provides-Extra: msgpack
+Provides-Extra: zfpy
+License-File: LICENSE.txt
+
+Numcodecs
+=========
+
+Numcodecs is a Python package providing buffer compression and transformation 
+codecs for use in data storage and communication applications.
+
+.. image:: https://readthedocs.org/projects/numcodecs/badge/?version=latest
+    :target: http://numcodecs.readthedocs.io/en/latest/?badge=latest
+
+.. image:: https://github.com/zarr-developers/numcodecs/workflows/Linux%20CI/badge.svg?branch=main
+    :target: https://github.com/zarr-developers/numcodecs/actions?query=workflow%3A%22Linux+CI%22
+
+.. image:: https://github.com/zarr-developers/numcodecs/workflows/OSX%20CI/badge.svg?branch=main
+    :target: https://github.com/zarr-developers/numcodecs/actions?query=workflow%3A%22OSX+CI%22
+
+.. image:: https://github.com/zarr-developers/numcodecs/workflows/Wheels/badge.svg?branch=main
+    :target: https://github.com/zarr-developers/numcodecs/actions?query=workflow%3AWheels
+
+.. image:: https://codecov.io/gh/zarr-developers/numcodecs/branch/main/graph/badge.svg
+    :target: https://codecov.io/gh/zarr-developers/numcodecs
