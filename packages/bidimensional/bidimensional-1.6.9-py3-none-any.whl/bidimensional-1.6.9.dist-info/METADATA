@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: bidimensional
+Version: 1.6.9
+Summary: A collection of 2D utilities for coordinate representation and manipulation.
+Author-email: Paulo Sanchez <dev.szblzpaulo@gmail.com>
+Project-URL: Homepage, https://github.com/erlete/bidimensional
+Project-URL: Bug Tracker, https://github.com/erlete/bidimensional/issues
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Bidimensional
+
+[![PyPI release](https://github.com/erlete/bidimensional/actions/workflows/python-publish.yml/badge.svg)](https://github.com/erlete/bidimensional/actions/workflows/python-publish.yml)
+
+A collection of 2D utilities for coordinate representation and manipulation.
+
+## Features
+
+The following features are currently implemented:
+
+* `Coordinate` - A custom 2D coordinate representation based on the built-in `tuple` class, but with extended functionality.
+* `Circumcenter` - A class for calculating the circumcenter and circumradius of three coordinates.
+
+## Installation
+
+### macOS/UNIX
+
+```bash
+python3 -m pip install --upgrade bidimensional
+```
+
+## Usage
+
+Once the package has been installed, its modules can be easily imported into custom programs via the `import` statement.
+
+```python
+from coordinate import Coordinate
+from circumcenter import Circumcenter
+```
