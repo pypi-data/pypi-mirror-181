@@ -1,0 +1,54 @@
+# shyna/ShynaGreetings
+
+
+
+## Getting Started
+
+Download links:
+
+SSH clone URL: ssh://git@git.jetbrains.space/shyna623/shyna/ShynaGreetings.git
+
+HTTPS clone URL: https://git.jetbrains.space/shyna623/shyna/ShynaGreetings.git
+
+
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+## Prerequisites
+
+What things you need to install the software and how to install them.
+
+```
+['requests', 'setuptools', 'wheel']
+```
+
+## Deployment
+
+Add additional notes about how to deploy this on a production system.
+
+## Resources
+
+Add links to external resources for this project, such as CI server, bug tracker, etc.
+
+
+## Functionality
+
+
+    I am using a Message API. The messages are filter as per the categories.
+    ['Love','quotes','friendship','Good night','Good morning','funny','Birthday','Sad','Sweet','Random']
+
+    API URL: https://rapidapi.com/ajith/api/messages/
+    There are no limitation in use, but sometimes it doesn't return a response, in such case False will be returned.
+
+    Below methods available:
+    greet_good_morning
+    greet_good_night
+    greet_friend_ship_day
+    greet_birthday
+    greet_love
+    greet_quotes
+    greet_funny
+    greet_sweet
+    greet_custom: provide from any above category.
+
+
