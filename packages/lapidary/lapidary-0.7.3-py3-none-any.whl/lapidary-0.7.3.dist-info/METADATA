@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: lapidary
+Version: 0.7.3
+Summary: Python async OpenAPI client library
+Home-page: https://github.com/python-lapidary/lapidary
+License: MIT
+Author: Raphael Krupinski
+Author-email: rafalkrupinski@users.noreply.github.com
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: httpx[http2] (>=0.23.0,<0.24.0)
+Requires-Dist: inflection (>=0.5.1,<0.6.0)
+Requires-Dist: platformdirs (>=2.6.0,<3.0.0)
+Requires-Dist: pydantic[email] (>=1.10.2,<2.0.0)
+Requires-Dist: python-mimeparse (>=1.6.0,<2.0.0)
+Requires-Dist: pyyaml (>=6.0,<7.0)
+Project-URL: Repository, https://github.com/python-lapidary/lapidary
+Description-Content-Type: text/markdown
+
+Base classes for [Lapidary](https://github.com/pytohon-lapidary/lapidary) async OpenAPI client generator.
+
