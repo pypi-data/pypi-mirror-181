@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+src/probe.cxx
+src/pyptr.h
+src/slipcover/__init__.py
+src/slipcover/__main__.py
+src/slipcover/branch.py
+src/slipcover/bytecode.py
+src/slipcover/slipcover.py
+src/slipcover.egg-info/PKG-INFO
+src/slipcover.egg-info/SOURCES.txt
+src/slipcover.egg-info/dependency_links.txt
+src/slipcover.egg-info/requires.txt
+src/slipcover.egg-info/top_level.txt
