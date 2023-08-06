@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+ffmpeg/__init__.py
+ffmpeg/ffmpeg.py
+ffmpeg/typing.py
+ffmpeg/utils.py
+python_ffmpeg.egg-info/PKG-INFO
+python_ffmpeg.egg-info/SOURCES.txt
+python_ffmpeg.egg-info/dependency_links.txt
+python_ffmpeg.egg-info/requires.txt
+python_ffmpeg.egg-info/top_level.txt
