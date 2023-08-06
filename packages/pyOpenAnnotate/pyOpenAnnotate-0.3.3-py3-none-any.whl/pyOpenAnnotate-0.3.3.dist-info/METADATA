@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: pyOpenAnnotate
+Version: 0.3.3
+Summary: Single class automated annotation tool using OpenCV
+Author-email: Kukil Kashyap Borgohain <kukilp213@gmail.com>
+Project-URL: Homepage, https://github.com/kXborg/pyOpenAnnotate
+Keywords: Annotation,Automated Annotation,OpenCV Annotate
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: opencv-python
+Requires-Dist: natsort
+
+# Automated Annotation Tool
+
+Single class image annotation tool using OpenCV.
+
+## Example Use Cases
+<img src="https://learnopencv.com/wp-content/uploads/2022/11/stags-and-boars-image-annotation-tool-opencv-contour-analysis.png" alt="Automated Annotation pyOpenAnnotate" width="900">
+
+<img src="https://learnopencv.com/wp-content/uploads/2022/11/image-annotation-tool-coins-and-boxes-on-conveyor-opencv-contour-analysis.png" alt="Automated Annotation pyOpenAnnotate" width="900">
+
+## Annotate Images
+
+```
+annotate --img <images_directory_path>
+```
+
+## Annotate Video
+```
+annotate --vid <path_to_video_file>
+```
+## Global Flags
+```
+-T : View mask window.
+```
+## Keyboard Navigation
+```
+N : Save and go to next image
+B : Save and go back
+C : Toggle clear screen 
+T : Toggle mask window
+Q : Quit
+```
