@@ -1,0 +1,10 @@
+{% if product.quantity > 0 %}🏡 В наличии 🏡{% else %}📦 Под заказ 📦{% endif %}
+
+{{ product.description_title }}{% if product.description_size %}
+Размер: {{product.description_size}}{% endif %}
+{% if product.description_materials %}{% for material in product.description_materials %}
+- {{material}}{% endfor %}{% endif %}
+
+За подробностями пишите в Директ 💌
+
+{% for tag in product.tags %}#{{tag}} {% endfor %}
