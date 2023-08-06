@@ -1,0 +1,39 @@
+[build-system]
+requires = [
+  "setuptools>=61"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dirstruct"
+authors = [{name = "Nico Schlömer", email = "nico.schloemer@gmail.com"}]
+description = "Tools for directory structures"
+readme = "README.md"
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "License :: Other/Proprietary License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Topic :: Utilities",
+]
+dynamic = ["version"]
+requires-python = ">= 3.7"
+dependencies = [
+  "rich",
+]
+
+[project.urls]
+Homepage = "https://github.com/nschloe/dirstruct"
+Issues = "https://github.com/nschloe/dirstruct/issues"
+
+[tool.setuptools.dynamic]
+version = {attr = "dirstruct.__about__.__version__"}
+
+[tool.isort]
+profile = "black"

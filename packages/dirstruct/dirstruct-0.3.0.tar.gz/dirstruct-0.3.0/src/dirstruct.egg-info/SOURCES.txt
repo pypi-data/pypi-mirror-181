@@ -1,0 +1,13 @@
+README.md
+pyproject.toml
+src/dirstruct/__about__.py
+src/dirstruct/__init__.py
+src/dirstruct/_diff_paths.py
+src/dirstruct/_diff_strings.py
+src/dirstruct/_show.py
+src/dirstruct/_temp_tree.py
+src/dirstruct.egg-info/PKG-INFO
+src/dirstruct.egg-info/SOURCES.txt
+src/dirstruct.egg-info/dependency_links.txt
+src/dirstruct.egg-info/requires.txt
+src/dirstruct.egg-info/top_level.txt
