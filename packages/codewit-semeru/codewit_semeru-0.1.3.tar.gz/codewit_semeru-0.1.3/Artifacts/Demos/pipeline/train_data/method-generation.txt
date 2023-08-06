@@ -1,0 +1,20 @@
+import torch
+import torch.nn as nn
+import torch
+from torch.autograd import Variable
+import copy
+
+class Beam(object):
+    def __init__(self, size, sos, eos):
+        self.size = size
+        self.tt = torch.cuda
+        # The score for each translation on the beam.
+        self.scores = self.tt.FloatTensor(size).zero_()
+        # The backpointers at each time-step.
+        self.prevKs = []
+        # The outputs at each time-step.
+        self.nextYs = [self.tt.LongTensor(size)
+                       .fill_(0)]
+        self.nextYs[0][:] = sos
+        # Has EOS topped the beam yet.
+        self._eos = eos

@@ -1,0 +1,35 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+[tool.hatch.build]
+artifacts = [
+  "Artifacts/codewit_demo.gif",
+  "Artifacts/component-diagram-updated.png",
+  "Artifacts/sequence-diagram-updated.png"
+]
+[project]
+name = "codewit_semeru"
+version = "0.1.3"
+authors = [
+  { name="Ignat Miagkov", email="iamiagkov@wm.edu" },
+  { name="Duke Tran", email="dtran@wm.edu" }
+]
+description = "Code What-If-Tool"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+  'jupyter-dash',
+  'transformers',
+  'pandas',
+  'torch',
+  'python-dotenv',
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/WM-SEMERU/csci-435_what_if_tool"
+"Bug Tracker" = "https://github.com/WM-SEMERU/csci-435_what_if_tool/issues"

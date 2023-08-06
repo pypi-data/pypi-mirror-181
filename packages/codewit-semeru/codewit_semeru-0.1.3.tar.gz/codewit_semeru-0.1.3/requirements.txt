@@ -1,0 +1,9 @@
+dash==2.6.2
+transformers>=4.22.0
+torch>=1.12.0
+pandas
+plotly
+typing
+jupyter-dash==0.4.2
+dash-dangerously-set-inner-html
+python-dotenv
