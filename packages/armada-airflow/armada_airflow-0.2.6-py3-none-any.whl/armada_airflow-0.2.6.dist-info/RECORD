@@ -1,0 +1,13 @@
+armada/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+armada/jobservice/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+armada/jobservice/jobservice_pb2.py,sha256=5j7TRh5JqMUceCtgTgN9OppCc5Y05WwGyzfYtKyOS-w,2619
+armada/jobservice/jobservice_pb2_grpc.py,sha256=ApiwP6_oYV8oHFlRC7oFum3I0aeEFQ9RE-7cNuaUmOk,4122
+armada/operators/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+armada/operators/armada.py,sha256=BKC6AoeY1sPcFUpro1eWyvf2tIxp0xNzLB6Rlb9JxdI,5907
+armada/operators/jobservice.py,sha256=Yn4Fp7Xabp1Vm5ApHGa4liUMxNCjASysy0jL7UdWeT4,1713
+armada/operators/utils.py,sha256=bcniO7Ls1SIrs1RnIc5_g_9kcGOIBVqt1KFmiQEpiRU,5026
+armada_airflow-0.2.6.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+armada_airflow-0.2.6.dist-info/METADATA,sha256=ktSLpbKErmCm413aqJXZNhv9j0Yy84e2ttAXaMCO64s,3652
+armada_airflow-0.2.6.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+armada_airflow-0.2.6.dist-info/top_level.txt,sha256=SaKoRDJJ1bkA2Lly_EYCX5D9VxncOV0eEI5NYBHU-bs,7
+armada_airflow-0.2.6.dist-info/RECORD,,
