@@ -1,0 +1,62 @@
+Metadata-Version: 2.1
+Name: endaq
+Version: 1.5.2
+Summary: A comprehensive, user-centric Python API for working with enDAQ data and devices
+Home-page: https://github.com/MideTechnology/endaq-python
+Author: Mide Technology
+Author-email: help@mide.com
+License: MIT
+Project-URL: Bug Tracker, https://github.com/MideTechnology/endaq-python/issues
+Project-URL: Documentation, https://docs.endaq.com/en/latest/
+Project-URL: Source Code, https://github.com/MideTechnology/endaq-python/tree/main
+Keywords: ebml binary ide mide endaq
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering
+Description-Content-Type: text/markdown
+Provides-Extra: test
+Provides-Extra: docs
+Provides-Extra: example
+License-File: LICENSE
+
+![unit tests](https://github.com/midetechnology/endaq-python/actions/workflows/unit-tests.yml/badge.svg) [![codecov](https://codecov.io/gh/MideTechnology/endaq-python/branch/develop/graph/badge.svg)](https://codecov.io/gh/MideTechnology/endaq-python)
+
+# `endaq-python`: A comprehensive, user-centric Python API for working with enDAQ data and devices
+
+
+## Installation
+
+endaq is available on PYPI via `pip`:
+
+    pip install endaq
+
+For the most recent features that are still under development, you can also use `pip` to install endaq directly from GitHub:
+
+    pip install git+https://github.com/MideTechnology/endaq-python.git@development
+
+## Contents
+
+This package consists of several submodules, you can read more about how these are used in their respective readme files:
+* `endaq.calc` ([readme](https://github.com/MideTechnology/endaq-python/tree/main/endaq/calc)): A computational backend for vibration analysis.
+* `endaq.cloud` ([readme](https://github.com/MideTechnology/endaq-python/tree/main/endaq/cloud)): Tools for interacting with enDAQ Cloud services.
+* `endaq.ide` ([readme](https://github.com/MideTechnology/endaq-python/tree/main/endaq/ide)): High-level utility functions to aid in importing and inspecting enDAQ IDE recording files.
+* `endaq.plot` ([readme](https://github.com/MideTechnology/endaq-python/tree/main/endaq/plot)):  A package comprising a collection of plotting utilities for sensor data analysis.
+
+## Docs
+
+The docs for this package can be found [here](https://docs.endaq.com/en/latest/).
+
+To locally build the [Sphinx](https://www.sphinx-doc.org) documentation from a clone of the repo:
+1. `cd <repo root dir>`
+2. `pip install -e .[docs]`
+3. `sphinx-build -W -b html docs docs/_build`
+
+## License 
+
+The endaq-python repository is licensed under the MIT license. The full text can be found in the [LICENSE file](https://github.com/MideTechnology/endaq-python/blob/main/LICENSE).
