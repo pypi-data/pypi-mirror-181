@@ -1,0 +1,186 @@
+Metadata-Version: 2.1
+Name: qtinter
+Version: 0.11.0
+Summary: Interop between asyncio and Qt for Python
+Author-email: fancidev <fancidev@gmail.com>
+Project-URL: Homepage, https://github.com/fancidev/qtinter
+Project-URL: Bug Tracker, https://github.com/fancidev/qtinter/issues
+Keywords: asyncio,coroutine,qt,signal,slot
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: X11 Applications :: Qt
+Classifier: Framework :: AsyncIO
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Provides-Extra: pyqt5
+Requires-Dist: PyQt5 ; extra == 'pyqt5'
+Provides-Extra: pyqt6
+Requires-Dist: PyQt6 ; extra == 'pyqt6'
+Provides-Extra: pyside2
+Requires-Dist: PySide2 ; extra == 'pyside2'
+Provides-Extra: pyside6
+Requires-Dist: PySide6 ; extra == 'pyside6'
+
+# qtinter — Interop between asyncio and Qt for Python
+
+[![codecov](https://codecov.io/gh/fancidev/qtinter/branch/master/graph/badge.svg?token=JZ5ON6CHKA)](https://codecov.io/gh/fancidev/qtinter)
+[![docs](https://readthedocs.org/projects/qtinter/badge/?version=latest)](https://qtinter.readthedocs.io/en/latest/?badge=latest)
+[![tests](https://github.com/fancidev/qtinter/actions/workflows/tests.yml/badge.svg)](https://github.com/fancidev/qtinter/actions/workflows/tests.yml)
+[![PyPI](https://img.shields.io/pypi/v/qtinter)](https://pypi.org/project/qtinter/)
+
+`qtinter` is a Python module that brings together asyncio and Qt
+for Python, allowing you to use one from the other seamlessly.
+
+Read the [full documentation](https://qtinter.readthedocs.io) or check out the quickstart below.
+
+## Installation
+
+```commandline
+$ pip install qtinter
+```
+
+## Using asyncio from Qt
+
+To use asyncio-based libraries in Qt for Python, enclose `app.exec()`
+inside context manager `qtinter.using_asyncio_from_qt()`.
+
+Example (taken from `examples/clock.py`):
+
+```Python
+"""Display LCD-style digital clock"""
+
+import asyncio
+import datetime
+import qtinter  # <-- import module
+from PySide6 import QtWidgets
+
+class Clock(QtWidgets.QLCDNumber):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setDigitCount(8)
+
+    def showEvent(self, event):
+        self._task = asyncio.create_task(self._tick())
+
+    def hideEvent(self, event):
+        self._task.cancel()
+
+    async def _tick(self):
+        while True:
+            t = datetime.datetime.now()
+            self.display(t.strftime("%H:%M:%S"))
+            await asyncio.sleep(1.0 - t.microsecond / 1000000 + 0.05)
+
+if __name__ == "__main__":
+    app = QtWidgets.QApplication([])
+
+    widget = Clock()
+    widget.setWindowTitle("qtinter - Digital Clock example")
+    widget.resize(300, 50)
+
+    with qtinter.using_asyncio_from_qt():  # <-- enable asyncio in qt code
+        widget.show()
+        app.exec()
+```
+
+## Using Qt from asyncio
+
+To use Qt components from asyncio-based code, enclose the asyncio
+entry-point inside context manager `qtinter.using_qt_from_asyncio()`.
+
+Example (taken from `examples/color.py`):
+
+```Python
+"""Display the RGB code of a color chosen by the user"""
+
+import asyncio
+import qtinter  # <-- import module
+from PySide6 import QtWidgets
+
+async def choose_color():
+    dialog = QtWidgets.QColorDialog()
+    dialog.show()
+    future = asyncio.Future()
+    dialog.finished.connect(future.set_result)
+    result = await future
+    if result == QtWidgets.QDialog.DialogCode.Accepted:
+        return dialog.selectedColor().name()
+    else:
+        return None
+
+if __name__ == "__main__":
+    app = QtWidgets.QApplication([])
+    with qtinter.using_qt_from_asyncio():  # <-- enable qt in asyncio code
+        color = asyncio.run(choose_color())
+        if color is not None:
+            print(color)
+```
+
+## Using modal dialogs
+
+To execute a modal dialog without blocking the asyncio event loop,
+wrap the dialog entry-point in `qtinter.modal()` and `await` on it.
+
+Example (taken from `examples/hit_100.py`):
+
+```Python
+import asyncio
+import qtinter
+from PySide6 import QtWidgets
+
+async def main():
+    async def counter():
+        nonlocal n
+        while True:
+            print(f"\r{n}", end='', flush=True)
+            await asyncio.sleep(0.025)
+            n += 1
+
+    n = 0
+    counter_task = asyncio.create_task(counter())
+    await qtinter.modal(QtWidgets.QMessageBox.information)(
+        None, "Hit 100", "Click OK when you think you hit 100.")
+    counter_task.cancel()
+    if n == 100:
+        print("\nYou did it!")
+    else:
+        print("\nTry again!")
+
+if __name__ == "__main__":
+    app = QtWidgets.QApplication([])
+    with qtinter.using_qt_from_asyncio():
+        asyncio.run(main())
+```
+
+
+## Requirements
+
+`qtinter` supports the following:
+
+- Python version: 3.7 or higher
+- Qt binding: PyQt5, PyQt6, PySide2, PySide6
+- Operating system: Linux, MacOS, Windows
+
+
+## License
+
+BSD License.
+
+
+## Contributing
+
+Please raise an issue if you have any questions. Pull requests are more
+than welcome!
+
+
+## Credits
+
+`qtinter` is derived from
+[qasync](https://github.com/CabbageDevelopment/qasync) but rewritten from 
+scratch.  qasync is derived from 
+[asyncqt](https://github.com/gmarull/asyncqt), which is derived from
+[quamash](https://github.com/harvimt/quamash).
