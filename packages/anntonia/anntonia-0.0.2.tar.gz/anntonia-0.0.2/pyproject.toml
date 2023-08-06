@@ -1,0 +1,30 @@
+[build-system]
+requires = ["hatchling", "Pillow"]
+build-backend = "hatchling.build"
+[project]
+name = "anntonia"
+version = "0.0.2"
+authors = [
+  { name="Martin Bellgardt", email="bellgardt@vr.rwth-aachen.de" },
+]
+description = "Artificial Neural Network to Node-link Immersive Analytics"
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Microsoft :: Windows",
+]
+dependencies = [
+    "numpy",
+    "scipy",
+    "scikit-learn",
+    "websockets",
+    "bson",
+    "Pillow",
+    "matplotlib"
+]
+
+[project.urls]
+"Homepage" = "https://vr.rwth-aachen.de"
