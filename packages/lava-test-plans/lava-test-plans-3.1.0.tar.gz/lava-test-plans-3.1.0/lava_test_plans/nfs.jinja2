@@ -1,0 +1,145 @@
+{% extends "master.jinja2" %}
+
+{% set deploy_timeout = 0 %}
+{% set boot_timeout = 0 %}
+{% set install_fastboot_timeout = 0 %}
+{% set target_deploy_to = target_deploy_to|default("tftp") %}
+
+{% block actions %}
+
+{% block deploy_target %}
+- deploy:
+{% if deploy_namespace is defined %}
+    namespace: {{ deploy_namespace }}
+{% endif %}
+    timeout:
+      minutes: {{ target_deploy_timeout }}
+    to: {{ target_deploy_to }}
+{% if KERNEL_URL is defined %}
+    kernel:
+      url: {{KERNEL_URL}}
+{% if KERNEL_URL_COMP is defined %}
+      compression: {{KERNEL_URL_COMP}}
+{% endif %}
+{% endif %}
+{% block kernel_extra_args %}
+{% endblock kernel_extra_args %}
+{% if RAMDISK_URL is defined %}
+    ramdisk:
+      url: {{RAMDISK_URL}}
+{% if RAMDISK_URL_COMP is defined %}
+      compression: {{RAMDISK_URL_COMP}}
+{% endif %}
+{% endif %}
+{% if DTB_URL is defined %}
+    dtb:
+      url: {{DTB_URL}}
+{% endif %}
+{% if MODULES_URL is defined %}
+    modules:
+      url: {{MODULES_URL}}
+{% if MODULES_URL_FORMAT is defined %}
+        format: {{MODULES_URL_FORMAT}}
+{% endif %}
+{% if MODULES_URL_COMP is defined %}
+      compression: {{MODULES_URL_COMP}}
+{% endif %}
+{% if OVERLAY_KSELFTEST_URL is defined or OVERLAY_PERF_URL is defined %}
+    overlays:
+{% endif %}
+{% if OVERLAY_KSELFTEST_URL is defined %}
+      kselftest:
+        url: {{OVERLAY_KSELFTEST_URL}}
+        path: {{KSELFTEST_PATH|default("/opt/kselftest_intree")}}
+{% if OVERLAY_KSELFTEST_URL_FORMAT is defined %}
+        format: {{OVERLAY_KSELFTEST_URL_FORMAT}}
+{% endif %}
+{% if OVERLAY_KSELFTEST_URL_COMP is defined %}
+        compression: {{OVERLAY_KSELFTEST_URL_COMP}}
+{% endif %}
+{% if OVERLAY_CPUPOWER_URL is defined %}
+      cpupower:
+        url: {{OVERLAY_CPUPOWER_URL}}
+        path: {{CPUPOWER_PATH|default("/")}}
+{% if OVERLAY_CPUPOWER_URL_FORMAT is defined %}
+        format: {{OVERLAY_CPUPOWER_URL_FORMAT}}
+{% endif %}
+{% if OVERLAY_CPUPOWER_URL_COMP is defined %}
+        compression: {{OVERLAY_CPUPOWER_URL_COMP}}
+{% endif %}
+{% endif %}
+{% endif %}
+{% if OVERLAY_PERF_URL is defined %}
+      perf:
+        url: {{OVERLAY_PERF_URL}}
+        path: {{PERF_PATH|default("/")}}
+{% if OVERLAY_PERF_URL_FORMAT is defined %}
+        format: {{OVERLAY_PERF_URL_FORMAT}}
+{% endif %}
+{% if OVERLAY_PERF_URL_COMP is defined %}
+        compression: {{OVERLAY_PERF_URL_COMP}}
+{% endif %}
+{% endif %}
+{% endif %}
+{% if OPTEE_URL is defined %}
+    optee:
+      url: {{OPTEE_URL}}
+{% endif %}
+{% if UBOOT_URL is defined %}
+    uboot:
+      url: {{UBOOT_URL}}
+{% endif %}
+{% if rootfs == true %}
+    {{ rootfs_label }}:
+      url: {{ROOTFS_URL}}
+{% if ROOTFS_URL_FORMAT is defined %}
+        format: {{ROOTFS_URL_FORMAT}}
+{% endif %}
+{% if ROOTFS_URL_COMP is defined %}
+      compression: {{ROOTFS_URL_COMP}}
+{% endif %}
+{% block rootfs_extra_args %}
+{% endblock rootfs_extra_args %}
+{% if OVERLAY_MODULES_URL is defined %}
+        overlays:
+          modules:
+            url: {{OVERLAY_MODULES_URL}}
+            path: /
+{% if OVERLAY_MODULES_URL_FORMAT is defined %}
+            format: {{OVERLAY_MODULES_URL_FORMAT}}
+{% endif %}
+{% if OVERLAY_MODULES_URL_COMP is defined %}
+            compression: {{OVERLAY_MODULES_URL_COMP}}
+{% endif %}
+{% endif %}
+{% endif %}
+    os: {{DEPLOY_OS}}
+{% endblock deploy_target %}
+
+{% block pre_boot_command %}
+{% include "include/boot_target/pre_boot_commands.jinja2" %}
+{% endblock pre_boot_command %}
+
+{% block boot_target %}
+- boot:
+{% if boot_namespace is defined %}
+    namespace: {{ boot_namespace }}
+{% endif %}
+{% if boot_connection_namespace is defined %}
+    connection-namespace: {{ boot_connection_namespace }}
+{% endif %}
+{% if auto_login == true %}
+{% include "include/boot_target/auto_login.jinja2" %}
+{% block auto_login_commands %}
+{% include "include/boot_target/auto_login_commands.jinja2" %}
+{% endblock auto_login_commands %}
+{% endif %}
+{% include "include/boot_target/boot_os_prompt.jinja2" %}
+{% include "include/boot_target/timeout_and_method.jinja2" %}
+{% block boot_commands %}
+{% endblock boot_commands %}
+{% endblock boot_target %}
+
+{{ super() }}
+
+{% endblock actions %}

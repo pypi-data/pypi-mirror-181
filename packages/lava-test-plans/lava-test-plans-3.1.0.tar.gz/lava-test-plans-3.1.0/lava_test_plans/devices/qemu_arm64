@@ -1,0 +1,31 @@
+{% set PROJECT = PROJECT|default("") %}
+{% extends PROJECT+"qemu.jinja2" %}
+
+{% if USE_DOCKER is defined and USE_DOCKER == true %}
+{% set DOCKER_QEMU_BINARY = DOCKER_QEMU_BINARY|default("/usr/bin/qemu-system-aarch64") %}
+{% endif %}
+{% set DEPLOY_OS = DEPLOY_OS|default("oe") %}
+{% set ROOTFS_URL_COMP = ROOTFS_URL_COMP|default("gz") %}
+{% set GS_MACHINE = GS_MACHINE|default("virt,accel=kvm") %}
+{% set QEMU_CPU_VARIABLES = QEMU_CPU_VARIABLES|default("host") %}
+
+{% block global_settings %}
+{{ super() }}
+  arch: arm64
+  netdevice: tap
+  machine: {{ GS_MACHINE }}
+  cpu: {{ QEMU_CPU_VARIABLES }}{% if DEVICE_TYPE == 'qemu_arm' %},aarch64=off{% endif %}
+  guestfs_size: {{ guestfs_size|default(512) }}
+{% endblock global_settings %}
+
+{% block device_type %}qemu-arm{% endblock %}
+
+{% block rootfs_extra_args %}
+        {{ super() }}
+        sparse: false
+{% endblock rootfs_extra_args %}
+
+{% block boot_extra_args %}
+        image_arg: -kernel {kernel} --append "console=ttyAMA0 root=/dev/vda rw"
+        type: image
+{% endblock boot_extra_args %}

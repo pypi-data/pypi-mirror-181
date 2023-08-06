@@ -1,0 +1,97 @@
+{# timeouts #}
+
+{% set lxc_project = lxc_project|default(false) %}
+{% set deploy_timeout = deploy_timeout|default(15) %}
+{% set boot_timeout = boot_timeout|default(5) %}
+{% set install_fastboot_timeout = install_fastboot_timeout|default(10) %}
+{# fastboot_deploy_timeout is for 'to: fastboot' targets only #}
+{% set fastboot_deploy_timeout = fastboot_deploy_timeout|default(0) %}
+{% set target_deploy_timeout = target_deploy_timeout|default(40) %}
+{% set TARGET_BOOT_TIMEOUT = TARGET_BOOT_TIMEOUT|default(15)|int %}
+{% set test_timeout = test_timeout|default(60) %}
+{% set TEST_DEFINITIONS_REPOSITORY = TEST_DEFINITIONS_REPOSITORY|default("https://github.com/Linaro/test-definitions.git") %}
+
+{% if lxc_project == true %}
+{% set job_timeout = deploy_timeout + boot_timeout + install_fastboot_timeout + fastboot_deploy_timeout + target_deploy_timeout + TARGET_BOOT_TIMEOUT + test_timeout %}
+{% else %}
+{% set job_timeout = fastboot_deploy_timeout + target_deploy_timeout + TARGET_BOOT_TIMEOUT + test_timeout %}
+{% endif %}
+
+{# auto_login_* #}
+{% set AUTO_LOGIN_PROMPT = AUTO_LOGIN_PROMPT|default("login:") %}
+{% set AUTO_LOGIN_USERNAME = AUTO_LOGIN_USERNAME|default("root") %}
+{% set AUTO_LOGIN_PASSWORD_PROMPT = AUTO_LOGIN_PASSWORD_PROMPT|default("") %}
+{% set AUTO_LOGIN_PASSWORD = AUTO_LOGIN_PASSWORD|default("") %}
+
+{% set enable_tests = enable_tests|default(true) %}
+
+{% block global_settings %}
+timeouts:
+  job:
+    minutes: {% if job_timeout is defined %}{{ job_timeout }}{% else %}20{% endif %}
+  connection:
+    minutes: 2
+  actions:
+    finalize:
+      seconds: 60
+
+{% if use_context is defined and use_context == true %}
+context:
+{% block context %}
+{% endblock context %}
+{% endif %}
+
+{% block settings %}
+{% endblock settings %}
+{% endblock global_settings %}
+
+
+{% set LAVA_JOB_VISIBILITY = LAVA_JOB_VISIBILITY|default("public") %}
+device_type: {% block device_type %}{% endblock %}
+job_name: {% block job_name %}{% endblock %}
+priority: {% block priority %}{{LAVA_JOB_PRIORITY}}{% endblock priority %}
+visibility:
+{% block visibility %}
+{% if LAVA_JOB_VISIBILITY == "group" %}
+  {{LAVA_JOB_VISIBILITY}}:
+{% if LAVA_JOB_VISIBILITY_GROUPS is defined and LAVA_JOB_VISIBILITY_GROUPS is sequence and LAVA_JOB_VISIBILITY_GROUPS is not string %}
+{% for group in LAVA_JOB_VISIBILITY_GROUPS %}
+{% if group|length %}
+  - {{ group }}
+{% endif %}
+{% endfor %}
+{% endif %}
+{% else %}
+  {{LAVA_JOB_VISIBILITY}}
+{% endif %}
+{% endblock visibility %}
+
+{# variables #}
+{% set rootfs = rootfs|default(true) %}
+{% set rootfs_label = rootfs_label|default('rootfs') %}
+
+{% block tags %}
+{% if TAGS is defined and TAGS is sequence and TAGS is not string %}
+tags:
+{% for tag in TAGS %}
+{% if tag|length %}
+  - {{ tag }}
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endblock tags %}
+
+metadata:
+{% block metadata %}
+{% endblock metadata %}
+
+{% block protocols %}
+{% endblock protocols %}
+
+actions:
+{% block actions %}
+
+{% block test_target %}
+{% include "include/test_target.jinja2" %}
+{% endblock test_target %}
+{% endblock actions %}

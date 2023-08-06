@@ -1,0 +1,18 @@
+{% extends "testcases/master/template-test.jinja2" %}
+
+{% set test_timeout = 45 %}
+{% block metadata %}
+  {{ super() }}
+  libhugetlbfs__url: "{{LIBHUGETLBFS_URL | default('unknown')}}"
+  libhugetlbfs__version: "{{LIBHUGETLBFS_VERSION | default('unknown')}}"
+  libhugetlbfs__revision: "{{LIBHUGETLBFS_REVISION | default('unknown')}}"
+{% endblock metadata %}
+
+{% set test_name = test_name | default("libhugetlbfs") %}
+{% set test_path_file = 'automated/linux/libhugetlbfs/libhugetlbfs.yaml' %}
+
+{% block test_target %}
+  {{ super() }}
+      parameters:
+        WORD_SIZE: {% if libhuggetlbfs_word_size is defined %}{{libhuggetlbfs_word_size|int|abs}}{% else %}64{% endif %}
+{% endblock test_target %}

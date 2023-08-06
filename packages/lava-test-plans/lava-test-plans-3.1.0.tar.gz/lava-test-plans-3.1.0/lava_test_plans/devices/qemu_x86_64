@@ -1,0 +1,21 @@
+{% set PROJECT = PROJECT|default("") %}
+{% extends PROJECT+"qemu.jinja2" %}
+
+{% if USE_DOCKER is defined and USE_DOCKER == true %}
+{% set DOCKER_QEMU_BINARY = DOCKER_QEMU_BINARY|default("/usr/bin/qemu-system-x86_64") %}
+{% endif %}
+{% set BOOT_OS_PROMPT = BOOT_OS_PROMPT|default("root@intel-corei7-64:") %}
+{% set DEPLOY_OS = DEPLOY_OS|default("oe") %}
+{% set ROOTFS_URL_COMP = ROOTFS_URL_COMP|default("gz") %}
+
+{% block global_settings %}
+{{ super() }}
+  arch: amd64
+  guestfs_size: {{ guestfs_size|default(512) }}
+{% endblock global_settings %}
+
+{% block device_type %}qemu{% endblock %}
+
+{% block boot_extra_args %}
+        image_arg: -kernel {kernel} --append "root=/dev/sda  rootwait console=ttyS0,115200"
+{% endblock boot_extra_args %}

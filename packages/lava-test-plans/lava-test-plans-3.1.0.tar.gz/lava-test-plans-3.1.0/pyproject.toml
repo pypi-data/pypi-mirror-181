@@ -1,0 +1,28 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "lava-test-plans"
+authors = [{name = "Anders Roxell", email = "anders.roxell@linaro.org"}]
+readme = "README.md"
+license = {file = "LICENSE"}
+classifiers = ["License :: OSI Approved :: MIT License"]
+dynamic = ["version", "description"]
+dependencies = [
+    "configobj",
+    "docker",
+    "jinja2",
+    "requests",
+    "ruamel.yaml",
+]
+
+[project.scripts]
+lava-test-plans = "lava_test_plans.__main__:main"
+"submit_for_testing.py" = "lava_test_plans.__main__:main"
+
+[tool.flit.module]
+name = "lava_test_plans"
+
+[project.urls]
+Source = "https://github.com/linaro/lava-test-plans"

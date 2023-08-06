@@ -1,0 +1,118 @@
+{% extends "testcases/master/template-master.jinja2" %}
+
+{% set test_timeout = 90 %}
+{% set boot_bootloader = true %}
+{% set boot_method = "bootloader" %}
+{% set TARGET_BOOT_TIMEOUT = 1 %}
+{% set test_target_interactive = true %}
+{% set auto_login = false %}
+{% set run_fpga_commands = run_fpga_commands|default(false) %}
+{% set run_nand_commands = run_nand_commands|default(false) %}
+{% set run_tftp_commands = run_tftp_commands|default(false) %}
+{% set BOOT_OS_PROMPT = ['=>'] %}
+{% block metadata %}
+  {{ super() }}
+{% endblock metadata %}
+
+{% set test_name = test_name | default("u-boot") %}
+
+{% block test_target %}
+  {{ super() }}
+    - name: basic-cmds
+      prompts: ["=> ", "/ # "]
+      script:
+      - command: echo "u-boot echo test"
+        name: echo
+        successes:
+        - message: "u-boot echo test"
+      - command: version
+        name: version
+        successes:
+        - message: '{{ UBOOT_VERSION_STRING|default("U-Boot") }}'
+      - command: help test
+        name: help
+        successes:
+        - message: "test - minimal test like /bin/sh"
+      # saveenv and printenv
+      - command: setenv test_var test123printenv
+      - command: printenv
+        name: setenv-and-printenv
+        successes:
+        - message: "test_var=test123"
+    - name: memory-test
+      prompts: ["=> ", "/ # "]
+      script:
+      # memory test
+      # base - print or set address offset
+      - command: base
+        name: print-default-base-address-offset
+        successes:
+        - message: "Base Address: 0x"
+      - command: base 80000000
+        name: set-address-offset-0x80000000
+        successes:
+        - message: "Base Address: 0x80000000"
+      - command: base
+        name: check-address-offset-0x80000000
+        successes:
+        - message: "Base Address: 0x80000000"
+      # crc32 - checksum calculation
+      - command: mw.b 00000000 aa 400
+      - command: crc 80000000 400
+        name: compute-CRC32-checksum
+        successes:
+        - message: "crc32 for 80000000 ... 800003ff ==> 3c6f327d"
+      # mw - memory write
+      # md - memory display
+      - command: mw 100000 aabbccdd 10
+      - command: md 100000 10
+        name: mw-md-100000
+        successes:
+        - message: "aabbccdd"
+      # md - memory display
+      # cp - memory copy
+      - command: cp 100000 200000 10
+      - command: md 200000 10
+        name: cp-md-200000
+        successes:
+        - message: "aabbccdd"
+      # cmp - memory compare
+      - command: cmp 100000 200000 10
+        name: cmp-100000-200000-10
+        successes:
+        - message: "Total of 16 word\\(s\\) were the same"
+    - name: dhcp-cmds
+      prompts: ["=> ", "/ # "]
+      script:
+      # dhcp
+    {% if run_fpga_commands %}
+      - command: run FPGA_INIT
+        successes:
+        - message: "FPGA updated to correct revision."
+        name: fpga_init
+    {% endif %}
+      - command: setenv autoload no ; dhcp
+        name: dhcp
+        successes:
+        - message: "DHCP client bound to address"
+    {% if run_tftp_commands %}
+    - name: tftp-cmds
+      prompts: ["=> ", "/ # "]
+      script:
+      # TFTP
+      - command: setenv serverip {SERVER_IP} ; tftp {KERNEL_ADDR} {KERNEL}
+        name: tftp
+        successes:
+        - message: "Bytes transferred ="
+    {% endif %}
+    {% if run_nand_commands %}
+    - name: nand-commands
+      prompts: ["=> ", "/ # "]
+      script:
+      # nand
+      - command: nand info
+        name: nand-info
+        successes:
+        - message: "nand0, sector size 128 KiB"
+    {% endif %}
+{% endblock test_target %}
