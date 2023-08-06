@@ -1,0 +1,16 @@
+[package]
+name = "random-partition"
+version = "0.1.0"
+edition = "2021"
+description = "Generate approximately uniformly distributed random integer partitions."
+authors = ["Stefan Volz"]
+readme = "README.md"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/SV-97/random-partition/"
+keywords = ["mathematics", "algorithms", "random", "partition", "combinatorics"]
+categories = ["algorithms", "mathematics", "science"]
+
+[dependencies]
+ndarray = "0.15.6"
+num = "0.4.0"
+rug = { version = "1.18.0", features = ["integer", "num-traits", "rand"] }

@@ -1,0 +1,15 @@
+[package]
+name = "random-partition-py"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "random_partition_py"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.17.3", features = ["extension-module"] }
+random-partition = { path = "local_dependencies/random-partition" }
+rand = "0.8.5"
+rug = { version = "1.18.0", features = ["integer", "num-traits", "rand"] }
+numpy = "0.17.2"
