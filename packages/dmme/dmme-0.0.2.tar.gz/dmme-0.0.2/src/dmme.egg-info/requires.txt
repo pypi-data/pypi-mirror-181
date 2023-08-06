@@ -1,0 +1,16 @@
+torch
+torchvision
+einops
+
+[dev]
+black
+flake8
+
+[tests]
+pytest
+
+[trainer]
+pytorch-lightning
+jsonargparse[signatures]>=4.12.0
+torchmetrics[image]
+wandb
