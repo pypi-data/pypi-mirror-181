@@ -1,0 +1,22 @@
+sortedcontainers>=2.0.4
+numpy>=1.10.4
+scipy>=1.1
+typing-extensions>=3.7.4.1
+
+[:python_version < "3.7"]
+dataclasses>=0.7
+
+[doc]
+matplotlib>=2.0.0
+pandas>=0.17.1
+Sphinx==2.2.2
+ipython==7.10.1
+sphinx_rtd_theme==0.4.3
+
+[notebook]
+matplotlib>=2.0.0
+
+[testing]
+pytest
+pandas>=0.17.1
+flake8==3.7.9
