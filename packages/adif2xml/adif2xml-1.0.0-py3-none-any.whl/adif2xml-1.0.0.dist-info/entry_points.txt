@@ -1,0 +1,2 @@
+[console_scripts]
+adif2xml = adif2xml.__main__:main
