@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: avh-api
+Version: 1.0.3
+Summary: Arm API
+Home-page: 
+Author: OpenAPI Generator community
+Author-email: team@openapitools.org
+Keywords: OpenAPI,OpenAPI-Generator,Arm API
+Requires-Python: >=3.6
+
+       This documents the Arm Virtual Hosting REST API.  For other examples and API clients such as python or javascript please see [API Clients (python/javascript)](https://github.com/ARM-software/avh-api).   For a guide on using this interface please see [API Quickstart](https://intercom.help/arm-avh/en/articles/6134791-quickstart-for-the-api-docs)   ## Links   - [API Quickstart](https://intercom.help/arm-avh/en/articles/6134791-quickstart-for-the-api-docs)   - [API Clients (python/javascript)](https://github.com/arm-software/avh-api)     # noqa: E501
+    
