@@ -1,0 +1,5 @@
+PyYAML<6,>=5.3
+
+[dev]
+tox
+pytest
