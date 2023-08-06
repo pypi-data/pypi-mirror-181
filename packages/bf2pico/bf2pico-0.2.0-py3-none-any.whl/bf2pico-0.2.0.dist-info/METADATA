@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: bf2pico
+Version: 0.2.0
+Summary: Convert Brewfather Recipes to Pico Brew Steps
+Home-page: https://github.com/tmb28054/cftcli
+Author: Topaz Bott
+Author-email: topaz@topazhome.net
+License: Apache License 2.0
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Description-Content-Type: text/markdown
+Requires-Dist: diskcache
+Requires-Dist: requests
+
+# Brewfather to Pico
+
+I am an SDK that transforms Brewfather recipes into pico brewing instructions.
+
+## How to install
+
+```
+python -m pip install bf2pico
+```
+
+## How to use bf2pico
+
+```
+from bf2pico import BrewFather
+
+recipe = BrewFather(
+    userid=userid,
+    apikey=apikey
+)
+
+recipe = recipe.pico()
+```
+
+
