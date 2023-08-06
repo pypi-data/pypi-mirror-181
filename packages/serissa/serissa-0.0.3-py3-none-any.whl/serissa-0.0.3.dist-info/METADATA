@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: serissa
+Version: 0.0.3
+Author-email: Lindasy Zhou <i@lin.moe>
+License: Affero General Public License GPL v3 (AGPLv3)
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Provides-Extra: tests
+Requires-Dist: pytest ; extra == 'tests'
+Requires-Dist: pytest-asyncio ; extra == 'tests'
+Requires-Dist: tox ; extra == 'tests'
+
+# Serissa
+
+A Simple irc client module, with little IRCv3 features.
