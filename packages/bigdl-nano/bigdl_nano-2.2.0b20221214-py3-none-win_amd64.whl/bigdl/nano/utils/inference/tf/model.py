@@ -1,0 +1,66 @@
+#
+# Copyright 2016 The BigDL Authors.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+import numpy as np
+import tensorflow as tf
+from bigdl.nano.utils.log4Error import invalidInputError
+from ..model import AcceleratedModel
+
+
+class AcceleratedKerasModel(AcceleratedModel, tf.keras.Model):
+    """A wrapper class for tf.keras.Model with accelerators."""
+
+    def __init__(self, model):
+        super().__init__()
+        self.model = model
+
+    def __call__(self, *args, **kwds):
+        invalidInputError(
+            not kwds.get('training', False),
+            "Model of AcceleratedKerasModel is not trainable. Please set `training=False`."
+        )
+        kwds['training'] = False
+        return super().__call__(*args, **kwds)
+
+    def call(self, *inputs):
+        return tf.py_function(self.forward, inputs, Tout=tf.float32)
+
+    def forward(self, *inputs):
+        inputs = self.on_forward_start(inputs)
+        outputs = self.forward_step(*inputs)
+        return self.on_forward_end(outputs)
+
+    @staticmethod
+    def tensors_to_numpy(tensors, dtype=None):
+        if isinstance(tensors, (list, tuple)):
+            return type(tensors)(AcceleratedKerasModel.tensors_to_numpy(tensor, dtype)
+                                 for tensor in tensors)
+        elif isinstance(tensors, dict):
+            return {key: AcceleratedKerasModel.tensors_to_numpy(value, dtype)
+                    for key, value in tensors.items()}
+        elif isinstance(tensors, tf.Tensor):
+            if dtype is None:
+                return tensors.numpy()
+            else:
+                return tensors.numpy().astype(dtype)
+        elif isinstance(tensors, np.ndarray) and dtype is not None:
+            return tensors.astype(dtype)
+        else:
+            return tensors
+
+    @staticmethod
+    def numpy_to_tensors(np_arrays):
+        tensors = tuple(map(lambda x: tf.convert_to_tensor(x), np_arrays))
+        return tensors[0] if len(tensors) == 1 else tensors
