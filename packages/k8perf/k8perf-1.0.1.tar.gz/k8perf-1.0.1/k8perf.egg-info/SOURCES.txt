@@ -1,0 +1,343 @@
+.gitignore
+LICENSE
+README.md
+pyproject.toml
+requirements.txt
+.github/workflows/on_push_to_main.yaml
+.github/workflows/on_release.yaml
+.idea/.gitignore
+.idea/cse291-cloud-network-benchmark.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/inspectionProfiles/profiles_settings.xml
+assets/logo.png
+assets/logo.svg
+benchmarks/__init__.py
+benchmarks/bandwidth/__init__.py
+benchmarks/bandwidth/iperf3-client.yaml
+benchmarks/bandwidth/iperf3-server.yaml
+benchmarks/locust/Dockerfile
+benchmarks/locust/README.md
+benchmarks/locust/build-image-and-relase.sh
+benchmarks/locust/client-locust.yaml
+benchmarks/locust/locustfile.py
+benchmarks/locust/server-locust.yaml
+bin/activate
+bin/build
+bin/curl-debug-cluster.sh
+bin/upload
+k8perf/__init__.py
+k8perf/__main__.py
+k8perf/_version.py
+k8perf/benchmark.py
+k8perf/benchmarks.py
+k8perf/kubernetes_integration.py
+k8perf/util_logging.py
+k8perf/util_terminal_ui.py
+k8perf/util_yaml.py
+k8perf.egg-info/PKG-INFO
+k8perf.egg-info/SOURCES.txt
+k8perf.egg-info/dependency_links.txt
+k8perf.egg-info/entry_points.txt
+k8perf.egg-info/requires.txt
+k8perf.egg-info/top_level.txt
+results/README.md
+results/images/c5nl_latency_diff.png
+results/images/m5l_latency_diff.png
+results/images/D4s_v4/cpu_client.png
+results/images/D4s_v4/cpu_host.png
+results/images/D4s_v4/httpAverageResponseTime.png
+results/images/D4s_v4/mbps.png
+results/images/D4s_v4/retransmits.png
+results/images/D4s_v4/rtt.png
+results/images/c5nlarge/bw.png
+results/images/c5nlarge/client_cpu.png
+results/images/c5nlarge/retransmits.png
+results/images/c5nlarge/rtt.png
+results/images/c5nlarge/server_cpu.png
+results/images/c5nlargecluster/bw.png
+results/images/c5nlargecluster/client_cpu.png
+results/images/c5nlargecluster/retransmits.png
+results/images/c5nlargecluster/rtt.png
+results/images/c5nlargecluster/server_cpu.png
+results/images/locust/cpu_client.png
+results/images/locust/cpu_server.png
+results/images/locust/locust_latency.png
+results/images/locust/locust_rps.png
+results/images/locust/mem_client.png
+results/images/locust/mem_server.png
+results/images/m5large/bw.png
+results/images/m5large/client_cpu.png
+results/images/m5large/retransmits.png
+results/images/m5large/rtt.png
+results/images/m5large/server_cpu.png
+results/images/m5largecluster/bw.png
+results/images/m5largecluster/client_cpu.png
+results/images/m5largecluster/retransmits.png
+results/images/m5largecluster/rtt.png
+results/images/m5largecluster/server_cpu.png
+results/images/t2micro/bw.png
+results/images/t2micro/client_cpu.png
+results/images/t2micro/retransmits.png
+results/images/t2micro/rtt.png
+results/images/t2micro/server_cpu.png
+results/images/t3micro/bw.png
+results/images/t3micro/client_cpu.png
+results/images/t3micro/retransmits.png
+results/images/t3micro/rtt.png
+results/images/t3micro/server_cpu.png
+results/raw/aws_iperf3/c5nlarge/a_to_a.json
+results/raw/aws_iperf3/c5nlarge/a_to_a.txt
+results/raw/aws_iperf3/c5nlarge/a_to_b.json
+results/raw/aws_iperf3/c5nlarge/a_to_b.txt
+results/raw/aws_iperf3/c5nlarge/a_to_c.json
+results/raw/aws_iperf3/c5nlarge/a_to_c.txt
+results/raw/aws_iperf3/c5nlarge/a_to_d.json
+results/raw/aws_iperf3/c5nlarge/a_to_d.txt
+results/raw/aws_iperf3/c5nlarge/b_to_b.json
+results/raw/aws_iperf3/c5nlarge/b_to_b.txt
+results/raw/aws_iperf3/c5nlarge/b_to_c.json
+results/raw/aws_iperf3/c5nlarge/b_to_c.txt
+results/raw/aws_iperf3/c5nlarge/b_to_d.json
+results/raw/aws_iperf3/c5nlarge/b_to_d.txt
+results/raw/aws_iperf3/c5nlarge/c_to_c.json
+results/raw/aws_iperf3/c5nlarge/c_to_c.txt
+results/raw/aws_iperf3/c5nlarge/c_to_d.json
+results/raw/aws_iperf3/c5nlarge/c_to_d.txt
+results/raw/aws_iperf3/c5nlarge/d_to_d.json
+results/raw/aws_iperf3/c5nlarge/d_to_d.txt
+results/raw/aws_iperf3/c5nlarge_vm_placementgroups/a_to_a.json
+results/raw/aws_iperf3/c5nlarge_vm_placementgroups/a_to_a.txt
+results/raw/aws_iperf3/c5nlarge_vm_placementgroups/a_to_b.json
+results/raw/aws_iperf3/c5nlarge_vm_placementgroups/a_to_b.txt
+results/raw/aws_iperf3/c5nlarge_vm_placementgroups/a_to_c.json
+results/raw/aws_iperf3/c5nlarge_vm_placementgroups/a_to_c.txt
+results/raw/aws_iperf3/c5nlarge_vm_placementgroups/a_to_d.json
+results/raw/aws_iperf3/c5nlarge_vm_placementgroups/a_to_d.txt
+results/raw/aws_iperf3/c5nlarge_vm_placementgroups/b_to_b.json
+results/raw/aws_iperf3/c5nlarge_vm_placementgroups/b_to_b.txt
+results/raw/aws_iperf3/c5nlarge_vm_placementgroups/b_to_c.json
+results/raw/aws_iperf3/c5nlarge_vm_placementgroups/b_to_c.txt
+results/raw/aws_iperf3/c5nlarge_vm_placementgroups/b_to_d.json
+results/raw/aws_iperf3/c5nlarge_vm_placementgroups/b_to_d.txt
+results/raw/aws_iperf3/c5nlarge_vm_placementgroups/c_to_c.json
+results/raw/aws_iperf3/c5nlarge_vm_placementgroups/c_to_c.txt
+results/raw/aws_iperf3/c5nlarge_vm_placementgroups/c_to_d.json
+results/raw/aws_iperf3/c5nlarge_vm_placementgroups/c_to_d.txt
+results/raw/aws_iperf3/c5nlarge_vm_placementgroups/d_to_d.json
+results/raw/aws_iperf3/c5nlarge_vm_placementgroups/d_to_d.txt
+results/raw/aws_iperf3/m5large/a_to_a.json
+results/raw/aws_iperf3/m5large/a_to_a.txt
+results/raw/aws_iperf3/m5large/a_to_b.json
+results/raw/aws_iperf3/m5large/a_to_b.txt
+results/raw/aws_iperf3/m5large/a_to_c.json
+results/raw/aws_iperf3/m5large/a_to_c.txt
+results/raw/aws_iperf3/m5large/a_to_d.json
+results/raw/aws_iperf3/m5large/a_to_d.txt
+results/raw/aws_iperf3/m5large/b_to_b.json
+results/raw/aws_iperf3/m5large/b_to_b.txt
+results/raw/aws_iperf3/m5large/b_to_c.json
+results/raw/aws_iperf3/m5large/b_to_c.txt
+results/raw/aws_iperf3/m5large/b_to_d.json
+results/raw/aws_iperf3/m5large/b_to_d.txt
+results/raw/aws_iperf3/m5large/c_to_c.json
+results/raw/aws_iperf3/m5large/c_to_c.txt
+results/raw/aws_iperf3/m5large/c_to_d.json
+results/raw/aws_iperf3/m5large/c_to_d.txt
+results/raw/aws_iperf3/m5large/d_to_d.json
+results/raw/aws_iperf3/m5large/d_to_d.txt
+results/raw/aws_iperf3/m5large_vm_placementgroups/a_to_a.json
+results/raw/aws_iperf3/m5large_vm_placementgroups/a_to_a.txt
+results/raw/aws_iperf3/m5large_vm_placementgroups/a_to_b.json
+results/raw/aws_iperf3/m5large_vm_placementgroups/a_to_b.txt
+results/raw/aws_iperf3/m5large_vm_placementgroups/a_to_c.json
+results/raw/aws_iperf3/m5large_vm_placementgroups/a_to_c.txt
+results/raw/aws_iperf3/m5large_vm_placementgroups/a_to_d.json
+results/raw/aws_iperf3/m5large_vm_placementgroups/a_to_d.txt
+results/raw/aws_iperf3/m5large_vm_placementgroups/b_to_b.json
+results/raw/aws_iperf3/m5large_vm_placementgroups/b_to_b.txt
+results/raw/aws_iperf3/m5large_vm_placementgroups/b_to_c.json
+results/raw/aws_iperf3/m5large_vm_placementgroups/b_to_c.txt
+results/raw/aws_iperf3/m5large_vm_placementgroups/b_to_d.json
+results/raw/aws_iperf3/m5large_vm_placementgroups/b_to_d.txt
+results/raw/aws_iperf3/m5large_vm_placementgroups/c_to_c.json
+results/raw/aws_iperf3/m5large_vm_placementgroups/c_to_c.txt
+results/raw/aws_iperf3/m5large_vm_placementgroups/c_to_d.json
+results/raw/aws_iperf3/m5large_vm_placementgroups/c_to_d.txt
+results/raw/aws_iperf3/m5large_vm_placementgroups/d_to_d.json
+results/raw/aws_iperf3/m5large_vm_placementgroups/d_to_d.txt
+results/raw/aws_iperf3/t2micro/a_to_a.json
+results/raw/aws_iperf3/t2micro/a_to_a.txt
+results/raw/aws_iperf3/t2micro/a_to_b.json
+results/raw/aws_iperf3/t2micro/a_to_b.txt
+results/raw/aws_iperf3/t2micro/a_to_c.json
+results/raw/aws_iperf3/t2micro/a_to_c.txt
+results/raw/aws_iperf3/t2micro/b_to_a.json
+results/raw/aws_iperf3/t2micro/b_to_a.txt
+results/raw/aws_iperf3/t2micro/b_to_b.json
+results/raw/aws_iperf3/t2micro/b_to_b.txt
+results/raw/aws_iperf3/t2micro/b_to_c.json
+results/raw/aws_iperf3/t2micro/b_to_c.txt
+results/raw/aws_iperf3/t2micro/c_to_a.json
+results/raw/aws_iperf3/t2micro/c_to_a.txt
+results/raw/aws_iperf3/t2micro/c_to_b.json
+results/raw/aws_iperf3/t2micro/c_to_b.txt
+results/raw/aws_iperf3/t2micro/c_to_c.json
+results/raw/aws_iperf3/t2micro/c_to_c.txt
+results/raw/aws_iperf3/t3micro/a_to_a.json
+results/raw/aws_iperf3/t3micro/a_to_a.txt
+results/raw/aws_iperf3/t3micro/a_to_b.json
+results/raw/aws_iperf3/t3micro/a_to_b.txt
+results/raw/aws_iperf3/t3micro/a_to_c.json
+results/raw/aws_iperf3/t3micro/a_to_c.txt
+results/raw/aws_iperf3/t3micro/a_to_d.json
+results/raw/aws_iperf3/t3micro/a_to_d.txt
+results/raw/aws_iperf3/t3micro/b_to_b.json
+results/raw/aws_iperf3/t3micro/b_to_b.txt
+results/raw/aws_iperf3/t3micro/b_to_c.json
+results/raw/aws_iperf3/t3micro/b_to_c.txt
+results/raw/aws_iperf3/t3micro/b_to_d.json
+results/raw/aws_iperf3/t3micro/b_to_d.txt
+results/raw/aws_iperf3/t3micro/c_to_c.json
+results/raw/aws_iperf3/t3micro/c_to_c.txt
+results/raw/aws_iperf3/t3micro/c_to_d.json
+results/raw/aws_iperf3/t3micro/c_to_d.txt
+results/raw/aws_iperf3/t3micro/d_to_d.json
+results/raw/aws_iperf3/t3micro/d_to_d.txt
+results/raw/azure_results/azure.csv
+results/raw/locust_experiments_result/experiment 1/c5n.large/to c5n.large/100u100r1min.txt
+results/raw/locust_experiments_result/experiment 1/c5n.large/to c5n.large/10u10r1min.txt
+results/raw/locust_experiments_result/experiment 1/c5n.large/to c5n.large/200u200r1min.txt
+results/raw/locust_experiments_result/experiment 1/c5n.large/to c5n.large/500u500r1min.txt
+results/raw/locust_experiments_result/experiment 1/c5n.large/to c5n.large/50u50r1min.txt
+results/raw/locust_experiments_result/experiment 1/c5n.large/to t2.micro/100u100r1min.txt
+results/raw/locust_experiments_result/experiment 1/c5n.large/to t2.micro/10u10r1min.txt
+results/raw/locust_experiments_result/experiment 1/c5n.large/to t2.micro/200u200r1min.txt
+results/raw/locust_experiments_result/experiment 1/c5n.large/to t2.micro/500u500r1min.txt
+results/raw/locust_experiments_result/experiment 1/c5n.large/to t2.micro/50u50r1min.txt
+results/raw/locust_experiments_result/experiment 1/c5n.large/to t3.micro/100u100r1min.txt
+results/raw/locust_experiments_result/experiment 1/c5n.large/to t3.micro/10u10r1min.txt
+results/raw/locust_experiments_result/experiment 1/c5n.large/to t3.micro/200u200r1min.txt
+results/raw/locust_experiments_result/experiment 1/c5n.large/to t3.micro/500u500r1min.txt
+results/raw/locust_experiments_result/experiment 1/c5n.large/to t3.micro/50u50r1min.txt
+results/raw/locust_experiments_result/experiment 1/t2.micro/to c5n.large/100u100r1min.txt
+results/raw/locust_experiments_result/experiment 1/t2.micro/to c5n.large/10u10r1min.txt
+results/raw/locust_experiments_result/experiment 1/t2.micro/to c5n.large/200u200r1min.txt
+results/raw/locust_experiments_result/experiment 1/t2.micro/to c5n.large/500u500r1min.txt
+results/raw/locust_experiments_result/experiment 1/t2.micro/to c5n.large/50u50r1min.txt
+results/raw/locust_experiments_result/experiment 1/t2.micro/to t2.micro/100u100r1min.txt
+results/raw/locust_experiments_result/experiment 1/t2.micro/to t2.micro/10u10r1min.txt
+results/raw/locust_experiments_result/experiment 1/t2.micro/to t2.micro/200u200r1min.txt
+results/raw/locust_experiments_result/experiment 1/t2.micro/to t2.micro/500u500r1min.txt
+results/raw/locust_experiments_result/experiment 1/t2.micro/to t2.micro/50u50r1min.txt
+results/raw/locust_experiments_result/experiment 1/t2.micro/to t3.micro/100u100r1min.txt
+results/raw/locust_experiments_result/experiment 1/t2.micro/to t3.micro/10u10r1min.txt
+results/raw/locust_experiments_result/experiment 1/t2.micro/to t3.micro/200u200r1min.txt
+results/raw/locust_experiments_result/experiment 1/t2.micro/to t3.micro/500u500r1min.txt
+results/raw/locust_experiments_result/experiment 1/t2.micro/to t3.micro/50u50r1min.txt
+results/raw/locust_experiments_result/experiment 1/t3.micro/to c5n.large/100u100r1min.txt
+results/raw/locust_experiments_result/experiment 1/t3.micro/to c5n.large/10u10r1min.txt
+results/raw/locust_experiments_result/experiment 1/t3.micro/to c5n.large/200u200r1min.txt
+results/raw/locust_experiments_result/experiment 1/t3.micro/to c5n.large/500u500r1min.txt
+results/raw/locust_experiments_result/experiment 1/t3.micro/to c5n.large/50u50r1min.txt
+results/raw/locust_experiments_result/experiment 1/t3.micro/to t2.micro/100u100r1min.txt
+results/raw/locust_experiments_result/experiment 1/t3.micro/to t2.micro/10u10r1min.txt
+results/raw/locust_experiments_result/experiment 1/t3.micro/to t2.micro/200u200r1min.txt
+results/raw/locust_experiments_result/experiment 1/t3.micro/to t2.micro/500u500r1min.txt
+results/raw/locust_experiments_result/experiment 1/t3.micro/to t2.micro/50u50r1min.txt
+results/raw/locust_experiments_result/experiment 1/t3.micro/to t3.micro/100u100r1min.txt
+results/raw/locust_experiments_result/experiment 1/t3.micro/to t3.micro/10u10r1min.txt
+results/raw/locust_experiments_result/experiment 1/t3.micro/to t3.micro/200u200r1min.txt
+results/raw/locust_experiments_result/experiment 1/t3.micro/to t3.micro/500u500r1min.txt
+results/raw/locust_experiments_result/experiment 1/t3.micro/to t3.micro/50u50r1min.txt
+results/raw/locust_experiments_result/experiment 2/c5n.large/to c5n.large/100u100r2min.txt
+results/raw/locust_experiments_result/experiment 2/c5n.large/to c5n.large/100u100r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/c5n.large/to c5n.large/10u10r2min.txt
+results/raw/locust_experiments_result/experiment 2/c5n.large/to c5n.large/10u10r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/c5n.large/to c5n.large/200u200r2min.txt
+results/raw/locust_experiments_result/experiment 2/c5n.large/to c5n.large/200u200r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/c5n.large/to c5n.large/500u500r2min.txt
+results/raw/locust_experiments_result/experiment 2/c5n.large/to c5n.large/500u500r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/c5n.large/to c5n.large/50u50r2min.txt
+results/raw/locust_experiments_result/experiment 2/c5n.large/to c5n.large/50u50r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/c5n.large/to t2.micro/100u100r2min.txt
+results/raw/locust_experiments_result/experiment 2/c5n.large/to t2.micro/100u100r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/c5n.large/to t2.micro/10u10r2min.txt
+results/raw/locust_experiments_result/experiment 2/c5n.large/to t2.micro/10u10r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/c5n.large/to t2.micro/200u200r2min.txt
+results/raw/locust_experiments_result/experiment 2/c5n.large/to t2.micro/200u200r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/c5n.large/to t2.micro/500u500r2min.txt
+results/raw/locust_experiments_result/experiment 2/c5n.large/to t2.micro/500u500r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/c5n.large/to t2.micro/50u50r2min.txt
+results/raw/locust_experiments_result/experiment 2/c5n.large/to t2.micro/50u50r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/c5n.large/to t3.micro/100u100r2min.txt
+results/raw/locust_experiments_result/experiment 2/c5n.large/to t3.micro/100u100r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/c5n.large/to t3.micro/10u10r2min.txt
+results/raw/locust_experiments_result/experiment 2/c5n.large/to t3.micro/10u10r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/c5n.large/to t3.micro/200u200r2min.txt
+results/raw/locust_experiments_result/experiment 2/c5n.large/to t3.micro/200u200r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/c5n.large/to t3.micro/500u500r2min.txt
+results/raw/locust_experiments_result/experiment 2/c5n.large/to t3.micro/500u500r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/c5n.large/to t3.micro/50u50r2min.txt
+results/raw/locust_experiments_result/experiment 2/c5n.large/to t3.micro/50u50r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/t2.micro/to c5n.large/100u100r2min.txt
+results/raw/locust_experiments_result/experiment 2/t2.micro/to c5n.large/100u100r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/t2.micro/to c5n.large/10u10r2min.txt
+results/raw/locust_experiments_result/experiment 2/t2.micro/to c5n.large/10u10r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/t2.micro/to c5n.large/200u200r2min.txt
+results/raw/locust_experiments_result/experiment 2/t2.micro/to c5n.large/200u200r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/t2.micro/to c5n.large/500u500r2min.txt
+results/raw/locust_experiments_result/experiment 2/t2.micro/to c5n.large/500u500r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/t2.micro/to c5n.large/50u50r2min.txt
+results/raw/locust_experiments_result/experiment 2/t2.micro/to c5n.large/50u50r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/t2.micro/to t2.micro/100u100r2min.txt
+results/raw/locust_experiments_result/experiment 2/t2.micro/to t2.micro/100u100r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/t2.micro/to t2.micro/10u10r2min.txt
+results/raw/locust_experiments_result/experiment 2/t2.micro/to t2.micro/10u10r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/t2.micro/to t2.micro/200u200r2min.txt
+results/raw/locust_experiments_result/experiment 2/t2.micro/to t2.micro/200u200r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/t2.micro/to t2.micro/500u500r2min.txt
+results/raw/locust_experiments_result/experiment 2/t2.micro/to t2.micro/500u500r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/t2.micro/to t2.micro/50u50r2min.txt
+results/raw/locust_experiments_result/experiment 2/t2.micro/to t2.micro/50u50r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/t2.micro/to t3.micro/100u100r2min.txt
+results/raw/locust_experiments_result/experiment 2/t2.micro/to t3.micro/100u100r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/t2.micro/to t3.micro/10u10r2min.txt
+results/raw/locust_experiments_result/experiment 2/t2.micro/to t3.micro/10u10r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/t2.micro/to t3.micro/200u200r2min.txt
+results/raw/locust_experiments_result/experiment 2/t2.micro/to t3.micro/200u200r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/t2.micro/to t3.micro/500u500r2min.txt
+results/raw/locust_experiments_result/experiment 2/t2.micro/to t3.micro/500u500r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/t2.micro/to t3.micro/50u50r2min.txt
+results/raw/locust_experiments_result/experiment 2/t2.micro/to t3.micro/50u50r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/t3.micro/to c5n.large/100u100r2min.txt
+results/raw/locust_experiments_result/experiment 2/t3.micro/to c5n.large/100u100r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/t3.micro/to c5n.large/10u10r2min.txt
+results/raw/locust_experiments_result/experiment 2/t3.micro/to c5n.large/10u10r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/t3.micro/to c5n.large/200u200r2min.txt
+results/raw/locust_experiments_result/experiment 2/t3.micro/to c5n.large/200u200r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/t3.micro/to c5n.large/500u500r2min.txt
+results/raw/locust_experiments_result/experiment 2/t3.micro/to c5n.large/500u500r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/t3.micro/to c5n.large/50u50r2min.txt
+results/raw/locust_experiments_result/experiment 2/t3.micro/to c5n.large/50u50r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/t3.micro/to t2.micro/100u100r2min.txt
+results/raw/locust_experiments_result/experiment 2/t3.micro/to t2.micro/100u100r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/t3.micro/to t2.micro/10u10r2min.txt
+results/raw/locust_experiments_result/experiment 2/t3.micro/to t2.micro/10u10r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/t3.micro/to t2.micro/200u200r2min.txt
+results/raw/locust_experiments_result/experiment 2/t3.micro/to t2.micro/200u200r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/t3.micro/to t2.micro/500u500r2min.txt
+results/raw/locust_experiments_result/experiment 2/t3.micro/to t2.micro/500u500r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/t3.micro/to t2.micro/50u50r2min.txt
+results/raw/locust_experiments_result/experiment 2/t3.micro/to t2.micro/50u50r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/t3.micro/to t3.micro/100u100r2min.txt
+results/raw/locust_experiments_result/experiment 2/t3.micro/to t3.micro/100u100r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/t3.micro/to t3.micro/10u10r2min.txt
+results/raw/locust_experiments_result/experiment 2/t3.micro/to t3.micro/10u10r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/t3.micro/to t3.micro/200u200r2min.txt
+results/raw/locust_experiments_result/experiment 2/t3.micro/to t3.micro/200u200r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/t3.micro/to t3.micro/500u500r2min.txt
+results/raw/locust_experiments_result/experiment 2/t3.micro/to t3.micro/500u500r2minRes.txt
+results/raw/locust_experiments_result/experiment 2/t3.micro/to t3.micro/50u50r2min.txt
+results/raw/locust_experiments_result/experiment 2/t3.micro/to t3.micro/50u50r2minRes.txt
