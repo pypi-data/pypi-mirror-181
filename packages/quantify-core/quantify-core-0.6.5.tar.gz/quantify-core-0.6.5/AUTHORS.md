@@ -1,0 +1,27 @@
+# Credits
+
+## Contributors
+
+- [Adam Lawrence](mailto:adam@orangeqs.com)
+- [Adriaan Rol](mailto:adriaan@orangeqs.com)
+- [Callum Attryde](mailto:cattryde@qblox.com)
+- [Damien Crielaard](mailto:dcrielaard@qblox.com)
+- [Diogo Valada](mailto:dvalada@qblox.com)
+- [Edgar Reehuis](mailto:ereehuis@qblox.com)
+- [Gabor Oszkar Denes](mailto:gdenes@qblox.com)
+- [Harold Meerwaldt](mailto:h.b.meerwaldt@tudelft.nl)
+- [Hiresh Jadoenathmissier](hiresh@orangeqs.com)
+- [Jules van Oven](mailto:jules@qblox.com)
+- [Kelvin Loh](mailto:kelvin@orangeqs.com)
+- [Konstantin Lehmann](mailto:konstantin@orangeqs.com)
+- [Luis Miguens Fernandez](mailto:lmiguens@qblox.com)
+- [Matteo Pompili](mailto:matpompili@gmail.com)
+- [Michiel Dubbelman](mailto:michiel@orangeqs.com)
+- [Michiel Haye](mailto:michiel.haye@tno.nl)
+- [Pieter Eendebak](mailto:pieter.eendebak@tno.nl)
+- [Sander de Snoo](mailto:S.L.deSnoo@tudelft.nl)
+- [Thomas Reynders](mailto:thomas@orangeqs.com)
+- [Tim Vroomans](mailto:tim@orangeqs.com)
+- [Tobias Bonsen](mailto:tobias@orangeqs.com)
+- [Viacheslav Ostroukh](mailto:viacheslav@orangeqs.com)
+- [Victor Negirneac](mailto:vnegirneac@qblox.com)
