@@ -1,0 +1,23 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "gtja-vintex-qyt"
+version = "0.0.12"
+authors = [
+  { name="Liang Shi", email="shiliang022975@gtjas.com" },
+]
+description = "Python Lib for GTJA Vintex Qyt."
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/alfred42/gtja-vintex-qyt-python-sdk"
+"Bug Tracker" = "https://github.com/alfred42/gtja-vintex-qyt-python-sdk/issues"
