@@ -1,0 +1,16 @@
+setuptools
+plone.supermodel
+plone.api>=1.5
+plone.app.registry
+lxml
+six>=1.12
+
+[dev]
+zest.releaser[recommended]
+
+[test]
+plone.testing
+plone.app.testing
+plone.app.contenttypes
+plone.app.querystring
+plone.app.robotframework[debug]
