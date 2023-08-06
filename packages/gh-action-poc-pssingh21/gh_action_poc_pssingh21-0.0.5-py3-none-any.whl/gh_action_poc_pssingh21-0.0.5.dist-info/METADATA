@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: gh_action_poc_pssingh21
+Version: 0.0.5
+Summary: Github actions for Python package
+Project-URL: Homepage, https://github.com/pssingh21/gh-action
+Project-URL: Bug Tracker, https://github.com/pssingh21/gh-action/issues
+Author-email: Peeyush Singh <peeyush.singh@mhp.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# Hello world docker action
+
+This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
+
+## Inputs
+
+## `who-to-greet`
+
+**Required** The name of the person to greet. Default `"World"`.
+
+## Outputs
+
+## `time`
+
+The time we greeted you.
+
+## Example usage
+
+uses: actions/hello-world-docker-action@v2
+with:
+  who-to-greet: 'Mona the Octocat'
