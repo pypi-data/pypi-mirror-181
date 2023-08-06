@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: tsv-calendar
+Version: 2022.12.14
+Summary: TSV Reader for bunzbar Project
+Author: TheStegosaurus_
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 3 - Alpha
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+
+Example.tsv
+-----------
+```
+- Day(0-6)	Name	Desc	Starts	Ends
+-
+0	Coding	Python Package	1520	1620
+1	Coding	Java	1400	1600
+- Dash will get ignored to allow comments in TSV File
+5	Grass	Touch Grass	1600	1700
+```
+
+
+Example.py
+----------
+```python
+import tsv_calendar
+
+tsv = tsv_calendar.TSV_Read("Example.tsv")
+
+if(tsv.current()): #If there is none, tsv.current() returns False.
+	print(f"Current Event: {tsv.current(tsv_calendar.GET.NAME)}") #Prints Name of current Event.
+if(tsv.next(Entire_Week=True)): #Standard is False. If set to True, it not only checks for the next Event Today, but for the next Event this Week.
+	print(f"The Next Event is {tsv.next(tsv_calendar.GET.NAME, True)}. It starts in {tsv.next(tsv_calendar.GET.START_TIMER, True)}!") #Prints Name and Time till next Event.
+```
