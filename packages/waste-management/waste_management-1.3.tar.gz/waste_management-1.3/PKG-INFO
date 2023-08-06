@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: waste_management
+Version: 1.3
+Summary: Provides ability to query the Waste Management REST API.
+Home-page: https://github.com/dcmeglio/waste_management
+Author: Dominick Meglio
+Author-email: dmeglio@gmail.com
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
