@@ -1,0 +1,16 @@
+{
+  browse(input: {
+    # type Candidates: MLMODEL/DATASET/CONTAINER/MLMODEL_GROUP
+    type: ${type},      
+    path: "${path}",
+    start: ${start},
+    count: ${count}
+  }) {
+    start
+    count
+    total
+    entities {
+      urn
+    }
+  }
+}
