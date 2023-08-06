@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: kiss-icp
+Version: 0.0.11
+License-File: LICENSE
+Requires-Dist: PyYAML
+Requires-Dist: diskcache (>=5.4.0)
+Requires-Dist: easydict
+Requires-Dist: natsort
+Requires-Dist: numpy
+Requires-Dist: platformdirs
+Requires-Dist: plyfile
+Requires-Dist: pyquaternion
+Requires-Dist: rich
+Requires-Dist: tqdm
+Requires-Dist: typer[all] (>=0.6.0)
+Provides-Extra: all
+Requires-Dist: open3d (>=0.13) ; extra == 'all'
+Requires-Dist: pyntcloud ; extra == 'all'
+Requires-Dist: trimesh ; extra == 'all'
+Provides-Extra: visualizer
+Requires-Dist: open3d (>=0.13) ; extra == 'visualizer'
+
