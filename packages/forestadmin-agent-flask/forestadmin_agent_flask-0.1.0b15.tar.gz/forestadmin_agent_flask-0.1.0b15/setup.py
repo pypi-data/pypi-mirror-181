@@ -1,0 +1,38 @@
+# -*- coding: utf-8 -*-
+from setuptools import setup
+
+packages = \
+['forestadmin', 'forestadmin.flask_agent', 'forestadmin.flask_agent.utils']
+
+package_data = \
+{'': ['*']}
+
+install_requires = \
+['flask[async]>=2.2.2,<3.0.0',
+ 'forestadmin-agent-toolkit>=0.1.0-beta.15,<0.2.0',
+ 'forestadmin-datasource-toolkit>=0.1.0-beta.15,<0.2.0',
+ 'typing-extensions>=4.2,<5.0',
+ 'tzdata>=2022.6,<2023.0']
+
+extras_require = \
+{':python_version < "3.9"': ['backports.zoneinfo[tzdata]>=0.2.1,<0.3.0']}
+
+setup_kwargs = {
+    'name': 'forestadmin-agent-flask',
+    'version': '0.1.0b15',
+    'description': '',
+    'long_description': '',
+    'author': 'Valentin Monté',
+    'author_email': 'valentinm@forestadmin.com',
+    'maintainer': 'None',
+    'maintainer_email': 'None',
+    'url': 'None',
+    'packages': packages,
+    'package_data': package_data,
+    'install_requires': install_requires,
+    'extras_require': extras_require,
+    'python_requires': '>=3.7,<4.0',
+}
+
+
+setup(**setup_kwargs)
