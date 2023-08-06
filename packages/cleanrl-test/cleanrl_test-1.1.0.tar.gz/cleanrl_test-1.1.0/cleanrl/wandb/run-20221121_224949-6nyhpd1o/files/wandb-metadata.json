@@ -1,0 +1,26 @@
+{
+    "os": "Linux-5.17.5-76051705-generic-x86_64-with-glibc2.34",
+    "python": "3.9.5",
+    "heartbeatAt": "2022-11-22T03:49:50.203351",
+    "startedAt": "2022-11-22T03:49:49.875502",
+    "docker": null,
+    "gpu": "NVIDIA GeForce RTX 3060 Ti",
+    "gpu_count": 2,
+    "cpu_count": 24,
+    "cuda": null,
+    "args": [
+        "--track"
+    ],
+    "state": "running",
+    "program": "/home/costa/Documents/go/src/cleanrl/cleanrl/ppo_dna_atari_envpool_bugfix.py",
+    "codePath": "cleanrl/ppo_dna_atari_envpool_bugfix.py",
+    "git": {
+        "remote": "https://github.com/vwxyzjn/cleanrl.git",
+        "commit": "f89e68d1516fe1218189c253ae902b27fb52ad3f"
+    },
+    "email": "costa.huang@outlook.com",
+    "root": "/home/costa/Documents/go/src/cleanrl",
+    "host": "pop-os",
+    "username": "costa",
+    "executable": "/home/costa/.cache/pypoetry/virtualenvs/cleanrl-iaYtZmCA-py3.9/bin/python"
+}

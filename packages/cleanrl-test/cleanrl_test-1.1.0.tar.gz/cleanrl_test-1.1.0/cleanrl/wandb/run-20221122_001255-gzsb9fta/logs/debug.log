@@ -1,0 +1,27 @@
+2022-11-22 00:12:55,223 INFO    MainThread:2115072 [wandb_setup.py:_flush():68] Configure stats pid to 2115072
+2022-11-22 00:12:55,223 INFO    MainThread:2115072 [wandb_setup.py:_flush():68] Loading settings from /home/costa/.config/wandb/settings
+2022-11-22 00:12:55,223 INFO    MainThread:2115072 [wandb_setup.py:_flush():68] Loading settings from /home/costa/Documents/go/src/cleanrl/cleanrl/wandb/settings
+2022-11-22 00:12:55,224 INFO    MainThread:2115072 [wandb_setup.py:_flush():68] Loading settings from environment variables: {'_require_service': 'True'}
+2022-11-22 00:12:55,224 INFO    MainThread:2115072 [wandb_setup.py:_flush():68] Inferring run settings from compute environment: {'program_relpath': 'cleanrl/ppo_dna_atari_envpool_bugfix.py', 'program': '/home/costa/Documents/go/src/cleanrl/cleanrl/ppo_dna_atari_envpool_bugfix.py'}
+2022-11-22 00:12:55,224 INFO    MainThread:2115072 [wandb_init.py:_log_setup():476] Logging user logs to /home/costa/Documents/go/src/cleanrl/cleanrl/wandb/run-20221122_001255-gzsb9fta/logs/debug.log
+2022-11-22 00:12:55,224 INFO    MainThread:2115072 [wandb_init.py:_log_setup():477] Logging internal logs to /home/costa/Documents/go/src/cleanrl/cleanrl/wandb/run-20221122_001255-gzsb9fta/logs/debug-internal.log
+2022-11-22 00:12:55,224 INFO    MainThread:2115072 [wandb_init.py:init():516] calling init triggers
+2022-11-22 00:12:55,224 INFO    MainThread:2115072 [wandb_init.py:init():519] wandb.init called with sweep_config: {}
+config: {'exp_name': 'ppo_dna_atari_envpool_bugfix', 'seed': 2, 'torch_deterministic': True, 'cuda': True, 'track': True, 'wandb_project_name': 'cleanRL', 'wandb_entity': None, 'env_id': 'Pong-v5', 'total_timesteps': 10000000, 'num_envs': 128, 'num_steps': 128, 'anneal_lr': True, 'gamma': 0.99, 'policy_learning_rate': 0.00025, 'policy_batch_size': 2048, 'policy_gae_lambda': 0.8, 'policy_update_epochs': 2, 'value_learning_rate': 0.00025, 'value_batch_size': 512, 'value_gae_lambda': 0.95, 'value_update_epochs': 1, 'distill_learning_rate': 0.00025, 'distill_batch_size': 512, 'distill_update_epochs': 2, 'distill_beta': 1.0, 'norm_adv': True, 'clip_coef': 0.1, 'ent_coef': 0.01, 'max_grad_norm': 0.5, 'target_kl': None, 'batch_size': 16384}
+2022-11-22 00:12:55,224 INFO    MainThread:2115072 [wandb_init.py:init():569] starting backend
+2022-11-22 00:12:55,224 INFO    MainThread:2115072 [wandb_init.py:init():573] setting up manager
+2022-11-22 00:12:55,227 INFO    MainThread:2115072 [backend.py:_multiprocessing_setup():102] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2022-11-22 00:12:55,229 INFO    MainThread:2115072 [wandb_init.py:init():580] backend started and connected
+2022-11-22 00:12:55,236 INFO    MainThread:2115072 [wandb_init.py:init():658] updated telemetry
+2022-11-22 00:12:55,256 INFO    MainThread:2115072 [wandb_init.py:init():692] communicating run to backend with 30 second timeout
+2022-11-22 00:12:55,454 INFO    MainThread:2115072 [wandb_run.py:_on_init():1974] communicating current version
+2022-11-22 00:12:55,508 INFO    MainThread:2115072 [wandb_run.py:_on_init():1978] got version response upgrade_message: "wandb version 0.13.5 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2022-11-22 00:12:55,508 INFO    MainThread:2115072 [wandb_init.py:init():727] starting run threads in backend
+2022-11-22 00:12:55,680 INFO    MainThread:2115072 [wandb_run.py:_console_start():1954] atexit reg
+2022-11-22 00:12:55,680 INFO    MainThread:2115072 [wandb_run.py:_redirect():1812] redirect: SettingsConsole.WRAP_RAW
+2022-11-22 00:12:55,681 INFO    MainThread:2115072 [wandb_run.py:_redirect():1877] Wrapping output streams.
+2022-11-22 00:12:55,681 INFO    MainThread:2115072 [wandb_run.py:_redirect():1899] Redirects installed.
+2022-11-22 00:12:55,681 INFO    MainThread:2115072 [wandb_init.py:init():764] run started, returning control to user process
+2022-11-22 00:12:55,682 INFO    MainThread:2115072 [wandb_run.py:_tensorboard_callback():1270] tensorboard callback: runs/Pong-v5__ppo_dna_atari_envpool_bugfix__2__1669093974, True
+2022-11-22 01:21:16,509 WARNING MsgRouterThr:2115072 [router.py:message_loop():77] message_loop has been closed

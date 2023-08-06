@@ -1,0 +1,12 @@
+/home/costa/.cache/pypoetry/virtualenvs/cleanrl-iaYtZmCA-py3.9/lib/python3.9/site-packages/wandb/sdk/lib/import_hooks.py:246: DeprecationWarning: Deprecated since Python 3.4. Use importlib.util.find_spec() instead.
+  loader = importlib.find_loader(fullname, path)
+Traceback (most recent call last):
+  File "/home/costa/Documents/go/src/cleanrl/cleanrl/ppo_dna_atari_envpool_bugfix.py", line 244, in <module>
+    agent_policy = Agent(envs).to(device)
+  File "/home/costa/.cache/pypoetry/virtualenvs/cleanrl-iaYtZmCA-py3.9/lib/python3.9/site-packages/torch/nn/modules/module.py", line 927, in to
+    return self._apply(convert)
+  File "/home/costa/.cache/pypoetry/virtualenvs/cleanrl-iaYtZmCA-py3.9/lib/python3.9/site-packages/torch/nn/modules/module.py", line 579, in _apply
+    module._apply(fn)
+  File "/home/costa/.cache/pypoetry/virtualenvs/cleanrl-iaYtZmCA-py3.9/lib/python3.9/site-packages/torch/nn/modules/module.py", line 579, in _apply
+    module._apply(fn)
+  File "/home/costa/.cache/pypoetry/virtualenvs/cleanrl-iaYtZmCA-py3.9/lib/python3.9/site-packages/torch/nn/modules/module.py", line 602, in _apply

@@ -1,0 +1,80 @@
+diff --git a/benchmark/ppo_dna.sh b/benchmark/ppo_dna.sh
+index b270ff3..2e7f853 100644
+--- a/benchmark/ppo_dna.sh
++++ b/benchmark/ppo_dna.sh
+@@ -2,8 +2,16 @@
+ 
+ # comparison with PPO-DNA paper results on "Atari-5" envs
+ poetry install -E envpool
+-xvfb-run -a python -m cleanrl_utils.benchmark \
++python -m cleanrl_utils.benchmark \
+     --env-ids BattleZone-v5 DoubleDunk-v5 NameThisGame-v5 Phoenix-v5 Qbert-v5 \
+-    --command "poetry run python cleanrl/ppo_dna_atari_envpool.py --anneal-lr False --track" \
++    --command "poetry run python cleanrl/ppo_dna_atari_envpool.py --anneal-lr False --total-timesteps 50000000 --track" \
++    --num-seeds 3 \
++    --workers 1
++
++# comparison with CleanRL ppo_atari_envpool.py
++poetry install -E envpool
++python -m cleanrl_utils.benchmark \
++    --env-ids Pong-v5 BeamRider-v5 Breakout-v5 Tennis-v5 \
++    --command "poetry run python cleanrl/ppo_dna_atari_envpool.py --track" \
+     --num-seeds 3 \
+     --workers 1
+diff --git a/cleanrl/ppo_dna_atari_envpool.py b/cleanrl/ppo_dna_atari_envpool.py
+index 9b4d2b4..d5876c5 100644
+--- a/cleanrl/ppo_dna_atari_envpool.py
++++ b/cleanrl/ppo_dna_atari_envpool.py
+@@ -271,8 +271,8 @@ if __name__ == "__main__":
+             value_optimizer.param_groups[0]["lr"] = frac * args.value_learning_rate
+             distill_optimizer.param_groups[0]["lr"] = frac * args.distill_learning_rate
+ 
+-        agent_policy.eval()
+-        agent_value.eval()
++        # agent_policy.eval()
++        # agent_value.eval()
+         for step in range(0, args.num_steps):
+             global_step += 1 * args.num_envs
+             obs[step] = next_obs
+@@ -316,7 +316,7 @@ if __name__ == "__main__":
+         b_values = values.reshape(-1)
+ 
+         # Policy network optimization
+-        agent_policy.train()
++        # agent_policy.train()
+         b_inds = np.arange(args.batch_size)
+         clipfracs = []
+         for epoch in range(args.policy_update_epochs):
+@@ -357,7 +357,7 @@ if __name__ == "__main__":
+                     break
+ 
+         # Value network optimization
+-        agent_value.train()
++        # agent_value.train()
+         for epoch in range(args.value_update_epochs):
+             np.random.shuffle(b_inds)
+             for start in range(0, args.batch_size, args.value_batch_size):
+@@ -377,9 +377,9 @@ if __name__ == "__main__":
+         # Value network to policy network distillation
+         agent_policy.zero_grad(True)  # don't clone gradients
+         old_agent_policy = deepcopy(agent_policy)
+-        agent_policy.train()
++        # agent_policy.train()
+         old_agent_policy.eval()
+-        agent_value.eval()
++        # agent_value.eval()
+         for epoch in range(args.distill_update_epochs):
+             np.random.shuffle(b_inds)
+             for start in range(0, args.batch_size, args.distill_batch_size):
+@@ -407,6 +407,11 @@ if __name__ == "__main__":
+         var_y = np.var(y_true)
+         explained_var = np.nan if var_y == 0 else 1 - np.var(y_true - y_pred) / var_y
+ 
++        print(agent_policy.actor.weight.sum())
++        print(agent_policy.critic.weight.sum())
++        print(agent_value.actor.weight.sum())
++        print(agent_value.critic.weight.sum())
++        raise
+         # TRY NOT TO MODIFY: record rewards for plotting purposes
+         writer.add_scalar("charts/policy_learning_rate", policy_optimizer.param_groups[0]["lr"], global_step)
+         writer.add_scalar("charts/value_learning_rate", value_optimizer.param_groups[0]["lr"], global_step)

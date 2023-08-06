@@ -1,0 +1,9 @@
+/home/costa/.cache/pypoetry/virtualenvs/cleanrl-iaYtZmCA-py3.9/lib/python3.9/site-packages/wandb/sdk/lib/import_hooks.py:246: DeprecationWarning: Deprecated since Python 3.4. Use importlib.util.find_spec() instead.
+  loader = importlib.find_loader(fullname, path)
+Traceback (most recent call last):
+  File "/home/costa/Documents/go/src/cleanrl/cleanrl/ppo_dna_atari_envpool_bugfix.py", line 226, in <module>
+    envs = envpool.make(
+  File "/home/costa/.cache/pypoetry/virtualenvs/cleanrl-iaYtZmCA-py3.9/lib/python3.9/site-packages/envpool/registration.py", line 47, in make
+    return getattr(importlib.import_module(import_path), envpool_cls)(spec)
+  File "/home/costa/.cache/pypoetry/virtualenvs/cleanrl-iaYtZmCA-py3.9/lib/python3.9/site-packages/envpool/python/gym_envpool.py", line 92, in init
+    super(subcls, self).__init__(spec)

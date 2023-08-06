@@ -1,0 +1,9 @@
+2022-11-22 08:33:16,017 INFO    StreamThr :2133842 [internal.py:wandb_internal():88] W&B internal server running at pid: 2133842, started at: 2022-11-22 08:33:16.016922
+2022-11-22 08:33:16,019 DEBUG   HandlerThread:2133842 [handler.py:handle_request():138] handle_request: status
+2022-11-22 08:33:16,021 DEBUG   SenderThread:2133842 [sender.py:send_request():315] send_request: status
+2022-11-22 08:33:16,023 DEBUG   SenderThread:2133842 [sender.py:send():301] send: header
+2022-11-22 08:33:16,023 INFO    WriterThread:2133842 [datastore.py:open_for_write():75] open: /home/costa/Documents/go/src/cleanrl/cleanrl/wandb/run-20221122_083316-1l80eu1m/run-1l80eu1m.wandb
+2022-11-22 08:33:16,038 DEBUG   SenderThread:2133842 [sender.py:send():301] send: run
+2022-11-22 08:33:16,713 DEBUG   HandlerThread:2133842 [handler.py:handle_request():138] handle_request: poll_exit
+2022-11-22 08:33:22,051 INFO    MainThread:2133842 [internal.py:handle_exit():78] Internal process exited
+2022-11-22 08:33:22,051 WARNING MsgRouterThr:2133842 [router.py:message_loop():74] EOFError seen in message_loop
