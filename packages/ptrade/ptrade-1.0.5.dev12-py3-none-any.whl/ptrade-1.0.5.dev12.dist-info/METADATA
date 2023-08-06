@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: ptrade
+Version: 1.0.5.dev12
+Summary: Financial simulation transaction analysis
+Home-page: https://github.com/pyted/ptrade
+Author: pyted
+Author-email: pyted@outlook.com
+License: MIT
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: paux
+
+Financial simulation transaction analysis
