@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: moabdb
+Version: 0.1.34
+Summary: MoabDB
+Author-email: Jackson Coxson <jkcoxson@gmail.com>, Brian Roseman <brian@roseman.dev>
+Description-Content-Type: text/markdown
+Classifier: License :: OSI Approved :: MIT License
+Requires-Dist: pandas
+Requires-Dist: protobuf
+Requires-Dist: requests
+Requires-Dist: pyarrow
+Project-URL: Home, https://moabdb.com
+Project-URL: Source, https://github.com/MoabDB/moabdb-py
+
+# MoabDB
+The official Python library for Moab Data Exchange.
