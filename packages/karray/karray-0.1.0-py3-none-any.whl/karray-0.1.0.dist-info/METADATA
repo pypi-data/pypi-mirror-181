@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: karray
+Version: 0.1.0
+Summary: Lightweight labelled multidimensional arrays with NumPy arrays under the hood.
+Author: Carlos Gaete-Morales
+Author-email: cdgaete@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+
+# karray
+Long format implementation of labelled multidimensional arrays with numpy ndarrays under the hood.
+
+
