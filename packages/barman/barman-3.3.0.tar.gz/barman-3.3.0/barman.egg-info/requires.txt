@@ -1,0 +1,16 @@
+psycopg2>=2.4.2
+python-dateutil
+argcomplete
+
+[azure]
+azure-identity
+azure-storage-blob
+
+[cloud]
+boto3
+
+[google]
+google-cloud-storage
+
+[snappy]
+python-snappy==0.6.0
