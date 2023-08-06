@@ -1,0 +1,16 @@
+pyjnius<2.0.0,>=1.0.0
+
+[dev]
+tox>=3.3.0
+twine
+
+[test]
+pytest>=7.2.0
+pytest-xdist
+pytest-forked
+pytest-cov
+pytest-html
+hypothesis
+black
+isort
+flake8
