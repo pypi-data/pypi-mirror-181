@@ -1,0 +1,80 @@
+[tool.poetry]
+name = "aflowey"
+version = "0.1.5"
+description = "Async flow made easy and fun"
+authors = ["Marc Dubois <cram@hotmail.fr>"]
+license = "MIT"
+readme = "README.rst"
+homepage = "https://github.com/mamori-tai/aflowey"
+repository = "https://github.com/mamori-tai/aflowey"
+documentation = "https://aflowey.readthedocs.io"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.7",
+]
+
+[tool.poetry.urls]
+Changelog = "https://github.com/mamori-tai/aflowey/releases"
+
+[tool.poetry.dependencies]
+python = "^3.7.0"
+loguru = ">=0.5.3,<0.7.0"
+"fnmamoritai.py" = "^0.5.2"
+rich = "^12.6.0"
+aiounittest = "^1.4.2"
+black = "22.12.0"
+
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.2.0"
+coverage = {extras = ["toml"], version = "^6.2"}
+safety = "2.3.5"
+nox-poetry = "1.0.2"
+wheel = "0.38.4"
+mypy = "^0.991"
+typeguard = "^2.13.3"
+xdoctest = {extras = ["colors"], version = "^0.15.5"}
+sphinx = "^4.3.1"
+sphinx-autobuild = "^2021.3.14"
+pre-commit = "^2.13.0"
+flake8 = "^4.0.1"
+black = "^22.12.0"
+flake8-bandit = "^2.1.2"
+flake8-bugbear = "^22.12.6"
+flake8-docstrings = "^1.6.0"
+flake8-rst-docstrings = "^0.2.5"
+pep8-naming = "^0.12.0"
+darglint = "^1.8.0"
+reorder-python-imports = "^2.5.0"
+pre-commit-hooks = "^4.0.1"
+sphinx-rtd-theme = "^1.0.0"
+Pygments = "^2.9.0"
+nox = "^2022.11.21"
+aiounittest = "^1.4.2"
+
+[tool.coverage.paths]
+source = ["src", "*/site-packages"]
+
+[tool.coverage.run]
+branch = true
+source = ["aflowey"]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 90
+
+[tool.mypy]
+strict = true
+pretty = true
+show_column_numbers = true
+show_error_codes = true
+show_error_context = true
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
