@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: cbtpkg
+Version: 0.0.2
+Summary: Mock package that allows you to find celebrity by date of birth
+Home-page: https://github.com/TyW-98/standard-project-structure.git
+Author: TYW-98
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# standard_structure
+
+Example on publishing package to pypip. Run `pip install cbtpkg` to use this package
+

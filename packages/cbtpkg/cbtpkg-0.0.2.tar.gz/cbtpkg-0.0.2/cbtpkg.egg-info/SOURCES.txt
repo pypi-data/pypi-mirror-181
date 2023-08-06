@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+cbtpkg.egg-info/PKG-INFO
+cbtpkg.egg-info/SOURCES.txt
+cbtpkg.egg-info/dependency_links.txt
+cbtpkg.egg-info/requires.txt
+cbtpkg.egg-info/top_level.txt
+project/__init__.py
+project/__main__.py
+project/celebrities_births.py
+test/test_celebrities_birth.py
