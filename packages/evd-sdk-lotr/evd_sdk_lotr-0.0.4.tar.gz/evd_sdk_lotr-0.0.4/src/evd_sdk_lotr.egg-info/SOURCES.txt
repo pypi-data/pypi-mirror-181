@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/evd_sdk_lotr/__init__.py
+src/evd_sdk_lotr/books.py
+src/evd_sdk_lotr/chapters.py
+src/evd_sdk_lotr/characters.py
+src/evd_sdk_lotr/movies.py
+src/evd_sdk_lotr/quotes.py
+src/evd_sdk_lotr.egg-info/PKG-INFO
+src/evd_sdk_lotr.egg-info/SOURCES.txt
+src/evd_sdk_lotr.egg-info/dependency_links.txt
+src/evd_sdk_lotr.egg-info/top_level.txt
