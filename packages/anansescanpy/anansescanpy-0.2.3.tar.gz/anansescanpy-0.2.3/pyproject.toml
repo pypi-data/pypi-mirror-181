@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "anansescanpy"
+version = "0.2.3"
+description = "implementation of scANANSE for scanpy objects in Python"
+authors = ["J Arts (Arts-of-coding) <julian.armando.arts@gmail.com>"]
+license = "apache 2.0"
+readme = "README.md"
+homepage = "https://github.com/Arts-of-coding/AnanseScanpy"
+repository = "https://github.com/Arts-of-coding/AnanseScanpy"
+keywords = ["GRN","single-cell","gene expression","open chromatin","arts-of-coding"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+scanpy = "^1.9.1"
+#numba = "^0.56.3"  # numpy
+numpy = "^1.23.3"
+anndata = "^0.8.0"  # for convenience
+scipy = "^1.9.1"
+pandas = "^1.4.4"
+jupyterlab = "^3.3.4"  # for convenience
+
+[[tool.poetry.source]]
+name = "anansescanpy"
+url = "https://github.com/Arts-of-coding/AnanseScanpy/tree/main/AnanseScanpy"
+default = true
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
