@@ -1,0 +1,2 @@
+[console_scripts]
+mne_bids_pipeline = mne_bids_pipeline._main:main
