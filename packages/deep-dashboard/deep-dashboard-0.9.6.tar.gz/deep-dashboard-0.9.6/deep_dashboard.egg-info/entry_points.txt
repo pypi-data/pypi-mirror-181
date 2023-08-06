@@ -1,0 +1,6 @@
+[console_scripts]
+deep-dashboard = deep_dashboard.run:main
+
+[oslo.config.opts]
+deep_dashboard = deep_dashboard.opts:list_opts
+
