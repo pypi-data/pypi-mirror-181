@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: planet-harmonica
+Version: 0.1.0
+Summary: Light curves for exoplanet transmission mapping.
+Home-page: https://github.com/DavoGrant/harmonica
+Author: David Grant
+Author-email: david.grant@bristol.ac.uk
+License: MIT
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering :: Astronomy
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.6
+License-File: LICENSE
+
+Light curves for exoplanet transmission mapping.
