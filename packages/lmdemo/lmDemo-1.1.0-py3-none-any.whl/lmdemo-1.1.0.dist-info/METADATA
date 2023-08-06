@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: lmdemo
+Version: 1.1.0
+Summary: A package demonstrating how to package python projects
+Home-page: https://github.com/cmatKhan/lmdemo
+Keywords: packaging,demo
+Author: chase mateusiak
+Author-email: chase.mateusiak@gmail.com
+Requires-Python: >=3.9,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.9
+Project-URL: Repository, https://github.com/cmatKhan/lmdemo
+Description-Content-Type: text/x-rst
+
+================================================================================
+Introduction
+================================================================================
+
+This is a package which shows how to use poetry
