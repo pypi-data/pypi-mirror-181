@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: uai-pre-import-transform-interface
+Version: 0.1.0
+Summary: 
+License: MIT
+Author: understand.ai
+Author-email: postmaster@understand.ai
+Requires-Python: >=3.8,<3.11
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Dist: uai-uri-interface (>=0.1.0,<0.2.0)
+Description-Content-Type: text/markdown
+
+This package provides an Interface that can be implemented to then be turned into a job.
+The used URI interface (pre_import_transform_interface/path_interface.py) is basically a [pathlib.Path](https://docs.python.org/3/library/pathlib.html#pathlib.Path) with some missing functionality.
+
+Every implementation should provide a python package named by you. Let's use `package_name` as an example. From this package the following import has to work:
+```python
+from package_name import PreImportTransformer
+```
+This should give your implementation of the interface.
