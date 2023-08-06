@@ -1,0 +1,15 @@
+LICENSE.md
+MANIFEST.in
+README.md
+pyproject.toml
+django_better_search.egg-info/PKG-INFO
+django_better_search.egg-info/SOURCES.txt
+django_better_search.egg-info/dependency_links.txt
+django_better_search.egg-info/top_level.txt
+django_separate_search/__init__.py
+django_separate_search/admin.py
+django_separate_search/apps.py
+django_separate_search/utils.py
+django_separate_search/templates/admin/custom_change_list.html
+django_separate_search/templates/admin/custom_pagination.html
+django_separate_search/templatetags/custom_paginator.py
