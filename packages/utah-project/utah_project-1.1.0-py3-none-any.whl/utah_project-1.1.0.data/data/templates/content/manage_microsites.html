@@ -1,0 +1,1983 @@
+{% extends arches_layout %}
+{% block main_content %}
+
+<content_manager style="height:93vh;" class="columns mt-0 ml-0">
+  <div style="height:100%;" class="column is-one-third pr-0">
+    <article style="height:100%;" class="message is-info is-flex is-flex-grow-1 is-flex-direction-column">
+      <div class="message-header is-flex is-flex-direction-row is-justify-content-start">
+ 
+        <span>{% trans %}Microsite Selector{% endtrans %}</span>
+        <select v-if="microsites" class="select has-background-info-light ml-3" v-model="microsite_root" style="height:34px;">
+          <option v-for="microsite in microsites" v-bind:value="microsite" v-bind:text="microsite"></option>
+        </select>
+ 
+        {% if arches_nav_bean.is_authorized("/arches/content/microsite/api/microsite_list", "POST") %}
+          <a class="fa fa-download py-0 pr-0 pl-3" v-bind:href="'/arches/content/manage/archive' + microsite_root"  v-bind:title="'{% trans %}Download archive of microsite{% endtrans %} ' + microsite_root"></a>
+          <button style="height:25px;" class="button is-info m-0 py-0 pr-0 pl-3 fa fa-plus-square" v-on:click="create_microsite" title="{% trans %}Create a new microsite{% endtrans %}"></button>
+          <button style="height:25px;" class="button is-info m-0  py-0 pr-0 pl-3 fa fa-minus-square" v-on:click="delete_microsite" title="{% trans %}Delete microsite{% endtrans %}"></button>
+          <button style="height:25px;" class="button is-info m-0  py-0 pr-0 pl-3 fa fa-upload" v-on:click="create_microsite" title="{% trans %}Import zipped content{% endtrans %}"></button>
+        {% endif %}
+
+      </div>
+      <div style="overflow-y:auto; min-width: 0;" class="message-body is-align-self-stretch">
+        <root-folder :key="microsite_root" v-if="microsite_root != null" v-bind:uri="microsite_root"></root-folder>
+      </div>
+    </article>
+  </div>
+
+  <general-editor></general-editor>
+  <system-message></system-message>
+  <confirmation></confirmation>
+  <prompt></prompt>
+
+</content_manager>
+
+  <!--
+  =====================================================================================
+  Root folder
+  =====================================================================================
+  -->
+  <script type="text/html" id="root-folder-template">
+    <ul class='menu-list has-text-info'><li>
+      <folder v-if="root_folder" fixed="y" v-bind:folder_mdl="root_folder"></folder>
+    </li></ul>
+  </script>
+
+  <script type="text/javascript">
+    var ROOT_FOLDER_COMPONENT =  {
+      data() {
+        return {"root_folder" : new RootFolder(this.uri)}
+      },
+      mounted() {
+        emit_folder_item_selected(null)
+      },
+      props : ['uri'],
+      template : "#root-folder-template"
+    }
+  </script>
+
+
+  <!--
+  =====================================================================================
+  Folder
+  =====================================================================================
+  -->
+  <script type="text/html" id="folder-template">
+    <span v-on:dragstart="start_move" v-on:dragend="dragend" draggable="true" title="{% trans %}Click folder icon to open and close. Click the text to select.{% endtrans %}">
+      <span  v-bind:class="selected?'has-text-weight-bold':''" >
+        <i v-if="open" class="fa fa-folder-open mr-1" aria-hidden="true" v-on:click="toggle" v-on:drop="finish_move" v-on:dragover="dragover"></i>
+        <i v-else class="fa fa-folder mr-1" aria-hidden="true" v-on:click="toggle" v-on:drop="finish_move" v-on:dragover="dragover"></i>
+        <span v-on:click="select_folder">{{ "{{  folder_mdl.name  }}" }}</span>
+      </span>
+      <ul v-if="open">
+        <li v-for="item in folder_mdl.children">
+          <folder v-if="item.is_folder" v-bind:folder_mdl="item"></folder>
+          <file v-else v-bind:file_mdl="item"></file>
+        </li>
+      </ul>
+    </span>
+  </script>
+
+
+  <script type="text/javascript">
+
+    var FOLDER_COMPONENT =  {
+      props : ['folder_mdl', 'fixed'],
+      template : "#folder-template",
+      data() {
+        return {
+          'open' : false,
+          'selected' : false
+        }
+      },
+      mounted() {
+        if (this.fixed == "y") {
+          this.folder_mdl.load_children(
+            ()=>{
+              this.open = true
+            },
+            ( error_tag )=>{
+              emit_remote_error( error_tag )
+            }
+          )
+        }
+
+        listen_folder_item_selected((selected_folder_item) => {
+          if ((this.folder_mdl !== selected_folder_item) && (this.selected)) {
+            this.selected = false
+          }
+        })
+
+      },
+      methods : {
+        toggle(event) {
+          event.stopPropagation()
+          if (this.fixed != "y") {
+            if (this.open) {
+              this.open = false
+            } else {
+              this.open_folder()
+            }
+          }
+
+
+        },
+        select_folder(event) {
+          this.open_folder()
+          if (!this.selected) {
+            this.selected = true
+            emit_folder_item_selected(this.folder_mdl)
+          }
+        },
+        open_folder() {
+          if (this.folder_mdl.children) {
+            this.open = true
+          } else {
+            this.folder_mdl.load_children(
+              ()=> {
+                this.open = true
+              }
+              ,
+              ( error_tag ) => {
+                emit_remote_error(error_tag)
+              }
+            )
+          }
+        },
+        start_move(event) {
+          item_to_move = this.folder_mdl
+          event.stopPropagation()
+          event.dataTransfer.setData("old_uri", this.folder_mdl.uri)
+          event.dataTransfer.setData("is_folder", this.folder_mdl.is_folder)
+          this.selected = false
+        },
+        finish_move(event) {
+          event.stopPropagation()
+          var old_uri = event.dataTransfer.getData("old_uri")
+          var is_folder = (event.dataTransfer.getData("is_folder").toLowerCase() == "true")
+
+          item_to_move = this.folder_mdl.get_root_folder().find_item_by_uri(old_uri, is_folder)
+
+          var new_parent_uri = this.folder_mdl.uri
+
+          item_to_move.move(this.folder_mdl,
+            ()=> {
+              if (!this.open) {
+                this.toggle(event)
+              }
+
+            },
+            ( error_tag ) => {
+              emit_remote_error(error_tag)
+            }
+          )
+        },
+        dragover(event) {
+          //var old_uri = event.dataTransfer.getData("old_uri")
+          //var is_folder = (event.dataTransfer.getData("is_folder").toLowerCase() == "true")
+          //item_to_move = this.folder_mdl.get_root_folder().find_item_by_uri(old_uri, is_folder)
+
+          // assure we are not dropping into same folder
+          if (!((this.folder_mdl === item_to_move.parent_folder) || (this.folder_mdl === item_to_move))) {
+            event.preventDefault()
+          }
+          event.stopPropagation()
+
+        },
+        select() {
+          //if ((this.fixed != 'y') && (!this.selected)) {
+          if (!this.selected) {
+            this.selected = true
+            this.open_folder()
+            emit_folder_item_selected(this.folder_mdl)
+          }
+        },
+        unselect(selected_folder_item) {
+          if ((this !== selected_folder_item) && (this.selected)) {
+            this.selected = false
+          }
+        },
+        dragend(event) {
+          event.stopPropagation()
+          item_to_move = null
+        }
+      }
+    }
+  </script>
+
+
+  <!--
+  =====================================================================================
+  File
+  =====================================================================================
+  -->
+  <script type="text/html" id="file-template">
+    <span style='white-space: nowrap;' v-bind:class="selected?'has-text-weight-bold':''" v-on:dragstart="start_move" draggable="true"  v-on:dragend="dragend" v-on:click="select">
+      <i class="fa fa-file mr-1" aria-hidden="true"></i>{{ "{{  file_mdl.name  }}" }}
+    </span>
+  </script>
+
+  <script type="text/javascript">
+    var FILE_COMPONENT = {
+      data() {
+        return {
+          'selected' : false
+        }
+      },
+      mounted() {
+
+        listen_folder_item_selected((selected_folder_item) => {
+          if (this.file_mdl !== selected_folder_item) {
+            if (this.selected) {
+                this.selected = false
+            }
+          } else {
+            if (this.selected) {
+              this.selected = true
+            }
+          }
+        })
+
+      },
+      props : ['file_mdl'],
+      template : "#file-template",
+      methods : {
+        start_move(event) {
+          event.stopPropagation()
+          event.dataTransfer.setData("old_uri", this.file_mdl.uri)
+          event.dataTransfer.setData("is_folder", this.file_mdl.is_folder)
+          item_to_move = this.file_mdl
+          this.selected = false
+        },
+        select(event) {
+          event.stopPropagation()
+          if (!this.selected) {
+            this.selected = true
+            emit_folder_item_selected(this.file_mdl)
+          }
+        },
+        unselect(selected_folder_item) {
+          if ((this !== selected_folder_item) && (this.selected)) {
+            this.selected = false
+          }
+        },
+        dragend(event) {
+          event.stopPropagation()
+          item_to_move = null
+        }
+      }
+    }
+  </script>
+
+
+
+  <!--
+  =====================================================================================
+  General Editor
+  =====================================================================================
+  -->
+  <script type="text/html" id="general-editor-template">
+
+    <div v-if='selected_folder_item' style="height:100%;" class="column mr-2">
+      <article style="height:100%;" class="message is-info is-flex is-flex-grow-1 is-flex-direction-column">
+        <div class="message-header is-flex is-flex-direction-row is-justify-content-start">
+          
+          <span>{% trans %}Item Manager{% endtrans %}</span>
+  
+          <span class="is-justify-content-right">
+
+            <a 
+              style="height:25px;" 
+              class="m-0 py-0 pr-0 pl-3" 
+              v-if="selected_folder_item.type == 1" 
+              v-bind:disabled="(selected_folder_item.changed())" 
+              v-bind:href="'/arches/content/manage/review_doc' + selected_folder_item.uri" 
+              target="preview">
+                <i style="padding-top:4px;" class="fa fa-glasses" aria-hidden="true"></i>
+            </a>
+            <button 
+              style="height:25px;" 
+              class="button is-info m-0 py-0 pr-0 pl-3 fa fa-save" 
+              v-on:click="save"
+              title="{% trans %}Click to save changes{% endtrans %}"
+              v-if="(!selected_folder_item.is_folder && selected_folder_item.type != 3)"
+              v-bind:disabled="(!(selected_folder_item.changed() && !editing_name))">
+            </button>
+
+            <button 
+              style="height:25px;" 
+                class="button is-info m-0 py-0 pr-0 pl-3 fa fa-trash" 
+                v-on:click="confirm_delete"
+                title="{% trans %}Click to delete document{% endtrans %}">
+            </button>
+            
+          </span>
+          <span style="height:34px;">&nbsp;</span>
+        </div>
+        <div style="overflow-y:auto; min-width: 0;" class="message-body is-align-self-stretch">
+  
+          <form class="pb-5">
+            <div class="field">
+              <label class="label">
+                {% trans %}URI{% endtrans %}
+              </label>
+              <div class="control">
+                <input disabled class="input" type="text" v-model="selected_folder_item.uri">
+              </div>
+            </div>
+  
+            <div class="field">
+              <label class="label">
+                {% trans %}Name{% endtrans %}
+                <i v-if="(!editing_name && can_rename)" v-on:click="edit_name" class="fas fa-pen"></i>
+                <i v-if="editing_name" v-on:click="save_new_name" class="fas fa-save pr-2"></i>
+                <i v-if="editing_name" v-on:click="cancel_edit_name" class="fas fa-window-close"></i>
+              </label>
+              <div class="control">
+                <input v-bind:disabled="!editing_name" class="input" type="text"  v-model="item_name">
+              </div>
+            </div>
+          </form>
+  
+          <folder-editor :key="selected_folder_item.uri" v-if='selected_folder_item.type==0' v-bind:folder='selected_folder_item'></folder-editor>
+          <text-editor :key="selected_folder_item.uri" v-if='selected_folder_item.type==2' v-bind:text_doc='selected_folder_item'></text-editor>
+          <ehtml-editor :key="selected_folder_item.uri" v-if='selected_folder_item.type==1' v-bind:ehtml_doc='selected_folder_item'></ehtml-editor>
+          <binary-editor :key="selected_folder_item.uri" v-if='selected_folder_item.type==3' v-bind:binary_doc='selected_folder_item'></binary-editor>
+  
+  
+        </div>
+      </article>
+    </div>
+
+  </script>
+
+  <script type="text/javascript">
+    var GENERAL_EDITOR_COMPONENT = {
+      data() {
+        return {
+          selected_folder_item : null,
+          item_name : null,
+          editing_name : false,
+          can_rename : true
+        }
+      },
+      mounted() {
+        listen_folder_item_selected((selected_folder_item) => {
+
+          if (selected_folder_item instanceof RootFolder) {
+            this.can_rename = false
+          } else {
+            this.can_rename = true
+          }
+
+
+          if ((this.selected_folder_item) && (this.selected_folder_item.type > 0)) {
+            this.selected_folder_item.init()
+          }
+
+          this.selected_folder_item = selected_folder_item
+          if (this.selected_folder_item) {
+            this.item_name = this.selected_folder_item.name
+          }
+
+          if ((selected_folder_item) && (selected_folder_item.type > 0)) {
+            selected_folder_item.read(null,
+                ( error_tag )=>{
+                emit_remote_error( error_tag )
+              }
+            )
+          }
+        })
+      },
+      methods: {
+        edit_name() {
+          this.editing_name = true
+        },
+        cancel_edit_name() {
+          this.editing_name = false
+          this.item_name = this.selected_folder_item.name
+        },
+        save_new_name() {
+          this.selected_folder_item.rename(this.item_name,
+            () => {
+              this.editing_name = false
+            },
+            (tag) => {
+              emit_remote_error(tag)
+            }
+          )
+        },
+        save() {
+          this.selected_folder_item.update(
+            ()=>{
+              emit_message(MSG_DOCUMENT_SAVED)
+            },
+            (tag)=>{
+              emit_remote_error(tag)
+            }
+          )
+        },
+        confirm_delete() {
+          emit_confirmation_request(MSG_CONFIRM_DELETE, this.delete)
+        },
+        delete() {
+          this.selected_folder_item.delete(()=>{}, (tag) => { emit_remote_error(tag) })
+
+          emit_folder_item_selected(null)
+        }
+      },
+      template : "#general-editor-template"
+    }
+  </script>
+
+
+  <!--
+  =====================================================================================
+  Folder editor (For uploads and file creates)
+  =====================================================================================
+  -->
+  <script type="text/html" id="folder-editor-template">
+    <div>
+      <label class="label">{% trans %}Create new sub folders documents. Enter name and click create{% endtrans %}</label>
+
+      <div class="field has-addons">
+        <div class="control">
+          <input class="input" type="text" placeholder="{% trans %}IE: my_sub_folder{% endtrans %}" v-model="new_folder_name">
+        </div>
+        <div class="control">
+          <button class="button is-info" :disabled="!(valid_folder_name && new_folder_entered)" v-on:click="create_new_folder">
+            {% trans %}Create{% endtrans %}
+          </button>
+        </div>
+      </div>
+
+      <p class="help is-danger"><span v-if="(new_folder_entered && !valid_folder_name)">{% trans %}Please enter a folder name. Letters, Numbers, hyphens and underscores are permitted{% endtrans %}</span>&nbsp;</p>
+
+
+
+      <label class="label">{% trans %}Create new text documents. Enter name and click create{% endtrans %}</label>
+
+      <div class="field has-addons">
+        <div class="control">
+          <input class="input" type="text" placeholder="{% trans %}IE: my_file_name.html{% endtrans %}" v-model="new_file_name">
+        </div>
+        <div class="control">
+          <button class="button is-info" :disabled="!(valid_file_name && new_file_entered)" v-on:click="create_new_file">
+            {% trans %}Create{% endtrans %}
+          </button>
+        </div>
+      </div>
+
+      <p class="help is-danger"><span v-if="(new_file_entered && !valid_file_name)">{% trans %}Please enter a file name with a text type extension ie: .js, .htm, .html, .css, .json, .mjs, .csv, .txt, .xml{% endtrans %}</span>&nbsp;</p>
+
+      <div class="field pt-5">
+        <label class="label">{% trans %}...or upload a file by clicking below{% endtrans %}</label>
+        <div class="control">
+          <div class="file has-name">
+            <label class="file-label">
+              <input class="file-input" type="file" name="resume" v-on:change="upload_file_changed">
+              <span class="file-cta">
+                <span class="file-icon">
+                  <i class="fas fa-upload"></i>
+                </span>
+                <span class="file-label">
+                  {% trans %}Click to select file{% endtrans %}
+                </span>
+              </span>
+              <span style='width:350px' class="file-name">
+                {{ "{{ upload_file_name }}" }}
+              </span>
+            </label>
+          </div>
+        </div>
+        <label v-if:='(upload_progress > -1)' class="label">
+          <progress class="progress" v-bind:value="upload_progress" max="100">{{ "{{ upload_progress }}" }}%</progress>
+        </label>
+
+      </div>
+    </div>
+  </script>
+
+  <script type="text/javascript">
+    var FOLDER_EDITOR_COMPONENT = {
+      props : ['folder'],
+      template : "#folder-editor-template",
+      data() {
+        return {
+          new_file_name : "",
+          new_folder_name : "",
+          upload_file_name : "",
+          upload_progress: -1,
+        }
+      },
+      computed : {
+        new_file_entered() {
+          return (this.new_file_name != "")
+        },
+        new_folder_entered() {
+          return (this.new_folder_name != "")
+        },
+        valid_file_name() {
+          return (!!this.new_file_name.match(/^([^\*\/]*)\.(js|htm|html|css|json|mjs|csv|txt|xml|yaml)$/))
+        },
+        valid_folder_name() {
+          //return (!!this.new_folder_name.match(/^([a-z,A-Z,0-9,\-,\_]*)$/))
+          return (!this.new_file_name.match(/(\/)|(\*)/))
+        }
+      },
+      methods : {
+        create_document_object(file_name) {
+          file_type = get_type(file_name)
+          if (file_type == TYPE_TEXT_DOCUMENT) {
+              fh = new TextDocument(file_name, this.folder)
+          } else if (file_type == TYPE_HTML_DOCUMENT) {
+              fh = new EHTMLDocument(file_name, this.folder)
+          } else {
+              fh = new BinaryDocument(file_name, this.folder)
+          }
+
+          return fh
+        },
+        create_new_file() {
+
+          fh = this.create_document_object(this.new_file_name)
+
+          fh.create(
+            ()=>{
+              this.new_file_name=""
+            },
+            (tag)=>{
+              emit_remote_error(tag)
+            }
+          )
+
+        },
+        create_new_folder() {
+          this.folder.create_child_folder(this.new_folder_name, ()=>{this.new_folder_name = ""}, (tag)=>{emit_remote_error(tag)})
+        },
+        upload_file_changed(e) {
+          var file = event.target.files[0];
+          this.upload_file_name = file.name
+          let formData = new FormData();
+          formData.append("file", file);
+
+          file_name = file.name.replace(/[^A-Za-z0-9\._\-]/g, '_')
+          dest_uri = "/arches/content/manage/api/document" + this.folder.uri + "/" + file_name
+
+          this.upload_in_progress = true
+          my_component = this
+          axios.post(
+                      dest_uri,
+                      formData,
+                      { headers: { "Content-Type": "multipart/form-data" },
+                        onUploadProgress(e) {
+                          my_component.upload_progress = Math.round((100 * event.loaded) / event.total)
+                        }
+                      }
+            ).then(
+              (resp)=>{
+                fh = this.create_document_object(file_name)
+                this.upload_file_name = ""
+                this.upload_progress = -1
+                this.folder.add_child_node(fh)
+
+              }
+            ).catch(
+              (err)=>{
+                tag = error_processor("GeneralEditor", "upload_file_changed", err)
+                emit_remote_error(tag)
+                this.upload_file_name = ""
+                this.upload_progress = -1
+              }
+            )
+        }
+      }
+    }
+
+  </script>
+
+
+
+
+
+  <!--
+  =====================================================================================
+  Text Editor
+  =====================================================================================
+  -->
+  <script type="text/html" id="text-editor-template">
+    <div class="field">
+      <label class="label">{% trans %}Last Modified Date{% endtrans %}</label>
+      <div class="control">
+        <input class="input" type="text" disabled v-model="text_doc.last_modified_date" />
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">{% trans %}Text{% endtrans %}</label>
+      <div class="control">
+        <textarea class="textarea is-family-code" style="box-shadow: none;" rows="23" v-model="text_doc.text"></textarea>
+      </div>
+    </div>
+  </script>
+
+  <script type="text/javascript">
+    var TEXT_EDITOR_COMPONENT = {
+      props : ['text_doc'],
+      template : "#text-editor-template",
+      data() {
+        return {
+          changed:false
+        }
+      },
+      watch:{
+        text_doc : {
+          deep: true,
+          handler(){
+            this.changed = this.text_doc.changed()
+          }
+        }
+      },
+      mounted() {
+      }
+    }
+
+  </script>
+
+
+  <!--
+  =====================================================================================
+  Binary Editor
+  =====================================================================================
+  -->
+  <script type="text/html" id="binary-editor-template">
+    <div class="field">
+      <label class="label">{% trans %}Last Modified Date{% endtrans %}</label>
+      <div class="control">
+        <input class="input" type="text" disabled v-model="binary_doc.last_modified_date" />
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">{% trans %}Size{% endtrans %}</label>
+      <div class="control">
+        <input class="input" type="text" disabled v-model="binary_doc.size" />
+      </div>
+    </div>
+
+    <img v-if="doc_type==1" v-bind:src="binary_doc.uri" width='500'/>
+    <audio v-if="doc_type==2" controls>
+      <source v-bind:src="binary_doc.uri" >
+      {% trans %}Your browser does not support the audio tag.{% endtrans %}
+    </audio>
+  </script>
+
+  <script type="text/javascript">
+    var BINARY_EDITOR_COMPONENT = {
+      props : ['binary_doc'],
+      template : "#binary-editor-template",
+      data() {
+        return {
+        }
+      },
+      computed: {
+        doc_type() {
+          ret_value = 0
+          if (!!this.binary_doc.name.toLowerCase().match(/^([a-z,A-Z,0-9,\-,\_]*)\.(jpg|jpeg|png|jfif|gif)$/)) {
+            ret_value = 1
+          } else if (!!this.binary_doc.name.toLowerCase().match(/^([a-z,A-Z,0-9,\-,\_]*)\.(wav|m4a|mp3|ogg)$/)) {
+            ret_value = 2
+          }
+          return ret_value
+        }
+      }
+    }
+
+  </script>
+
+
+
+  <!--
+  =====================================================================================
+  Script field
+  =====================================================================================
+  -->
+  <script type="text/html" id="script-field-template">
+    <input class="input" type="text"  v-on:keyup="inform_change" v-model="script" />
+  </script>
+
+  <script type="text/javascript">
+    var SCRIPT_FIELD_COMPONENT = {
+    props : ['script'],
+    template : "#script-field-template",
+    methods : {
+      inform_change : function() {
+        this.$emit('change');
+      }
+    }
+  }
+  </script>
+
+
+
+  <!--
+  =====================================================================================
+  EHTML Editor
+  =====================================================================================
+  -->
+  <script type="text/html" id="ehtml-editor-template">
+    <form v-bind:class="{'is-invisible': (!visible)}">
+
+      <div class="field">
+        <label class="label">{% trans %}Last Modified Date{% endtrans %}</label>
+        <div class="control">
+          <input class="input" type="text" disabled v-model="ehtml_doc.last_modified_date" />
+        </div>
+      </div>
+  
+
+      <div class="field">
+        <label class="label">{% trans %}Suppress Inheritance{% endtrans %}</label>
+        <div class="control">
+          <label class="checkbox">
+            <input type="checkbox" v-model="ehtml_doc.metadata.suppress_inheritance" v-on:change="suppress_inheritance_changed" />
+          </label>
+        </div>
+      </div>
+  
+
+      <div class="field pt-3">
+        <label class="label">{% trans %}Title{% endtrans %}</label>
+        <div class="control">
+          <input class="input" type="text" v-bind:placeholder="inherited_metadata.title" v-model="ehtml_doc.metadata.title">
+        </div>
+      </div>
+
+      <div class="field pt-3">
+        <label class="label">{% trans %}Page Layout{% endtrans %}</label>
+        <div class="control">
+          <div style="width:50%;" class="select">
+            <select style="width:100%;" v-model="ehtml_doc.metadata.layout">
+              <option v-if="!ehtml_doc.metadata.suppress_inheritance" value="">{{ "{{  inherited_layout_description  }}" }} ({% trans %}Inherited{% endtrans %})</option>
+              <option v-for="(layout, index) in layouts" v-bind:value="index">{{ "{{  layout.description  }}" }}</option>
+            </select>
+          </div>
+        </div>
+        <img v-if="display_layout != ''" class="pt-2" style="width:100px" v-bind:src="(ehtml_doc.metadata.layout == '') ? '/static/images/' + inherited_metadata.layout + '.png' : '/static/images/' + ehtml_doc.metadata.layout + '.png'" />
+      </div>
+
+      <div class="field pt-3">
+        <label class="label">{% trans %}Keywords{% endtrans %}</label>
+        <div class="control">
+          <input class="input" type="text" v-bind:placeholder="inherited_metadata.keywords" v-model="ehtml_doc.metadata.keywords">
+        </div>
+      </div>
+
+      <div class="field pt-3">
+        <label class="label">{% trans %}Description{% endtrans %}</label>
+        <div class="control">
+          <input class="input" type="text" v-bind:placeholder="inherited_metadata.description" v-model="ehtml_doc.metadata.description">
+        </div>
+      </div>
+
+      <div class="field pt-3" title="{% trans %}Drag and drop extra content items to attach to this page. Unneeded locale information will be stripped from document paths.{% endtrans %}" v-on:dragover="aux_content_dragover" v-on:drop="add_aux_content_drop">
+        <label class="label">{% trans %}Aux Content Items{% endtrans %}</label>
+        <div class="control">
+          <table class="table is-bordered is-striped">
+            <thead>
+              <tr>
+                <th style='width:250px' class="has-text-centered pb-3">{% trans %}Type{% endtrans %}</th>
+                <th style="width:350px" class="has-text-centered pb-3">{% trans %}Path{% endtrans %}</th>
+                <th style="width:50px" class="has-text-centered pb-3">{% trans %}Del{% endtrans %}</th>
+                <th style="width:50px" class="has-text-centered pb-3">{% trans %}Up{% endtrans %}</th>
+                <th style="width:50px" class="has-text-centered pb-3">{% trans %}Dwn{% endtrans %}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style='height:50px' v-for="aux_content_ref in inherited_metadata.aux_content_refs">
+                <td class="outline px-2" ><em>{{ "{{  aux_content_types[aux_content_ref.aux_content_type]  }}" }}</em></td>
+                <td class="outline px-2" ><em>{{ "{{  aux_content_ref.uri  }}" }} ({% trans %}Inherited{% endtrans %})</em></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              <tr style='height:50px' v-for="(aux_content_ref, index) in ehtml_doc.metadata.aux_content_refs">
+                <td class="outline px-2" >
+
+                  <div v-if="aux_content_types_list" class="select">
+                    <select v-model="ehtml_doc.metadata.aux_content_refs[index].aux_content_type">
+                      <option v-for="act in aux_content_types_list" v-bind:value="act.value">{{ "{{ act.description }}" }}</option>
+                    </select>
+                  </div>
+
+                </td>
+                <td class="outline px-2">
+                  {{ "{{  ehtml_doc.metadata.aux_content_refs[index].uri  }}" }}
+                </td>
+                <td>
+                  <i class="fa fa-trash ml-2" aria-hidden="true" v-on:click="delete_aux_content(index)"></i>
+                </td>
+                <td>
+                  <i v-if="index > 0" class="fa fa-arrow-up ml-2" aria-hidden="true" v-on:click="move_aux_content(index, -1)"></i>
+                </td>
+                <td>
+                  <i v-if="index < ehtml_doc.metadata.aux_content_refs.length-1" class="fa fa-arrow-down ml-2" aria-hidden="true" v-on:click="move_aux_content(index, 1)"></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="field pt-3" title="{% trans %}Drag and drop javascript files to be referenced in the head of this document. Unneeded locale information will be stripped from document paths.{% endtrans %}" v-on:dragover="script_dragover" v-on:drop="add_script_drop">
+        <label class="label">{% trans %}Scripts{% endtrans %}</label>
+        <div class="control">
+          <table class="table is-bordered is-striped">
+            <thead>
+              <tr>
+                <th class="pb-3" style="width:600px;"><i class="fa fa-plus-square ml-2" aria-hidden="true" v-on:click="add_script()"></i> {% trans %}Path{% endtrans %}</th>
+                <th style="width:50px" class="has-text-centered pb-3">{% trans %}Del{% endtrans %}</th>
+                <th style="width:50px" class="has-text-centered pb-3">{% trans %}Up{% endtrans %}</th>
+                <th style="width:50px" class="has-text-centered pb-3">{% trans %}Dwn{% endtrans %}</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr v-for="script in inherited_metadata.scripts"  style='height:50px' >
+                <td class="outline px-2"><em>{{ "{{  script  }}" }} ({% trans %}Inherited{% endtrans %})</em></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              <tr  v-for="(script, index) in ehtml_doc.metadata.scripts" style='height:50px'>
+                <td class="outline px-2 py-2">
+                  <input class="input" style="width:570px" type="text" v-model="ehtml_doc.metadata.scripts[index]" v-on:dragover="script_dragover" v-on:drop="script_drop($event, index)">
+                </td>
+                <td>
+                  <i class="fa fa-trash ml-2" aria-hidden="true" v-on:click="delete_script(index)"></i>
+                </td>
+                <td>
+                  <i v-if="index > 0" class="fa fa-arrow-up ml-2" aria-hidden="true" v-on:click="move_script(index, -1)"></i>
+                </td>
+                <td>
+                  <i  v-if="index < ehtml_doc.metadata.scripts.length-1" class="fa fa-arrow-down ml-2" aria-hidden="true" v-on:click="move_script(index, 1)"></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="field pt-3"  title="{% trans %}Drag and drop any CSS or Icon documents to be included in the header of this document. Unneeded locale information will be stripped from document paths.{% endtrans %}" v-on:dragover="link_dragover" v-on:drop="add_link_drop">
+        <label class="label">{% trans %}Linked Header Documents (CSS and Icon){% endtrans %}</label>
+        <div class="control">
+          <table class="table is-bordered is-striped" cellpadding="4px;">
+            <thead>
+              <tr style="height:50px">
+                <th style="width:100px;" class="has-text-centered pb-3">{% trans %}Type{% endtrans %}</th>
+                <th style="width:100px;" class="has-text-centered pb-3">{% trans %}Rel{% endtrans %}</th>
+                <th style="width:500px;" class="has-text-centered pb-3">{% trans %}<i class="fa fa-plus-square ml-2" aria-hidden="true" v-on:click="prompt_new_link()"></i> Path{% endtrans %}</th>
+                <th style="width:130px;" class="has-text-centered pb-3">{% trans %}Media{% endtrans %}</th>
+                <th style="width:50px" class="has-text-centered pb-3">{% trans %}Del{% endtrans %}</th>
+                <th style="width:50px" class="has-text-centered pb-3">{% trans %}Up{% endtrans %}</th>
+                <th style="width:50px" class="has-text-centered pb-3">{% trans %}Dwn{% endtrans %}</th>
+
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr v-for="link in inherited_metadata.links" style="height:50px">
+
+                <td class="outline px-2">
+                  {{ "{{  link.type  }}" }}
+                </td>
+
+                <td class="outline px-2">
+                  {{ "{{  link.rel  }}" }}
+                </td>
+
+
+                <td class="outline px-2">
+                  {{ "{{  link.href  }}" }} ({% trans %}Inherited{% endtrans %})
+                </td>
+
+                <td class="outline px-2">
+                  {{ "{{  link.media  }}" }}
+                </td>
+
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+              </tr>
+
+
+
+              <tr style="height:50;" v-for="(link, index) in ehtml_doc.metadata.links">
+
+                <td class="outline px-2">
+                    {{ "{{  ehtml_doc.metadata.links[index].type  }}" }}
+                </td>
+
+                <td class="outline px-2">
+                  {{ "{{  ehtml_doc.metadata.links[index].rel  }}" }}
+                </td>
+
+
+                <td class="outline px-2">
+                  {{ "{{  ehtml_doc.metadata.links[index].href  }}" }}
+                </td>
+
+                <td class="outline px-2">
+
+                  <div class="select">
+                    <select v-model="ehtml_doc.metadata.links[index].media">
+                      <option value="all">{% trans %}All{% endtrans %}</option>
+                      <option value="print">{% trans %}Print{% endtrans %}</option>
+                      <option value="screen">{% trans %}Screen{% endtrans %}</option>
+                      <option value="speech">{% trans %}Speech{% endtrans %}</option>
+                    </select>
+                  </div>
+                </td>
+
+                <td>
+                  <i class="fa fa-trash ml-2" aria-hidden="true" v-on:click="delete_link(index)"></i>
+                  &nbsp;
+                </td>
+                <td>
+                  <i v-if="index > 0" class="fa fa-arrow-up ml-2" aria-hidden="true" v-on:click="move_link(index, -1)"></i>
+                  &nbsp;
+                </td>
+                <td>
+                  <i v-if="index < ehtml_doc.metadata.links.length-1" class="fa fa-arrow-down ml-2" aria-hidden="true" v-on:click="move_link(index, 1)"></i>
+                  &nbsp;
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+      <div class="field pt-3">
+        <label class="label">Extended Attributes</label>
+        <div class="control">
+          <extended-attributes v-if="((ehtml_doc.last_modified_date != null) && (this.visible))" v-bind:ext_attr="ehtml_doc.metadata.extended_attributes" v-bind:inhext_attr="inherited_metadata.extended_attributes"></extended-attributes>
+        </div>
+      </div>
+
+
+      <div class="field pt-3">
+        <label class="label">{% trans %}HTML Markup{% endtrans %}</label>
+        <div class="control">
+          <textarea class="textarea is-family-code" style="box-shadow: none;" rows="25" v-model="ehtml_doc.text"> </textarea>
+        </div>
+      </div>
+
+    </form>
+  </script>
+
+  <script type="text/javascript">
+    var EHTML_EDITOR_COMPONENT = {
+      props : ['ehtml_doc'],
+      template : "#ehtml-editor-template",
+      created : function() {
+        this.visible = false
+
+        axios.get("/arches/content/manage/microsites/api/layouts_info").then(
+            (response)=>{
+              this.layouts = response.data.layouts
+
+              this.aux_content_types = response.data.aux_content_types
+              this.aux_content_types_list = []
+              this.default_aux_content_value = response.data.default_aux_content_type
+
+              aux_content_type_keys = Object.keys(this.aux_content_types)
+              for (var i=0; i<aux_content_type_keys.length; i++) {
+                this.aux_content_types_list[i] = {"value":aux_content_type_keys[i], "description" : this.aux_content_types[aux_content_type_keys[i]]}
+              }
+
+                axios.get("/arches/content/manage/api/inherited_metadata" + this.ehtml_doc.uri).then(
+                    (response)=>{
+                      this.blank_inherited_metadata = this.inheritable_metadata
+                      this.inheritable_metadata = response.data.metadata
+
+                      layout_key = this.inheritable_metadata["layout"]
+                      if (layout_key == "") {
+                        layout_key = this.ehtml_doc.metadata.layout
+                      }
+
+                      if (layout_key != "") {
+                        this.inherited_layout_description = this.layouts[layout_key].description
+                      } else {
+                        this.inherited_layout_description = ""
+                      }
+
+                      if (this.ehtml_doc.metadata.suppress_inheritance) {
+                        this.swap_inherited_metadata(this.inherited_metadata, this.blank_inherited_metadata)
+                      } else {
+                        this.swap_inherited_metadata(this.inherited_metadata, this.inheritable_metadata)
+                      }
+
+                      this.visible = true
+                    }
+                ).catch(
+                    (err)=>{
+                      tag = error_processor("ehtml_editor", "init", err)
+                      emit_remote_error(tag)
+                    }
+                )
+              }
+        ).catch(
+            (err)=>{
+              tag = error_processor("ehtml_editor", "init", err)
+              emit_remote_error(tag)
+            }
+        )
+
+      },
+      data() {
+        return {
+          changed : false,
+          default_aux_content_value : null,
+          aux_content_types_list : null,
+          layouts : null,
+          inheritable_metadata : {"title":"", "keywords":"", "description":"", "layout":"", "suppress_inheritance" : false, "extended_attributes" : {}, "aux_content_refs" : [], "links" : [], "scripts" : []},
+          blank_inherited_metadata : {"title":"", "keywords":"", "description":"", "layout":"", "suppress_inheritance" : false, "extended_attributes" : {}, "aux_content_refs" : [], "links" : [], "scripts" : []},
+          inherited_layout_description : "",
+          visible : false
+        }
+      },
+      watch:{
+        ehtml_doc : {
+          deep: true,
+          handler(){
+            this.changed = this.ehtml_doc.changed()
+          }
+        }
+      },
+      computed : {
+        inherited_metadata : function() {
+          if (this.ehtml_doc.metadata.suppress_inheritance) {
+            return this.blank_inherited_metadata
+          } else {
+            return this.inheritable_metadata
+          }
+        },
+        display_layout : function() {
+          ret_layout = null
+          if (this.ehtml_doc.metadata.layout > "") {
+              ret_layout = this.ehtml_doc.metadata.layout
+          } else {
+            if (!this.ehtml_doc.metadata.suppress_inheritance) {
+              ret_layout = this.inheritable_metadata.layout
+            } else {
+              ret_layout = ""
+            }
+          }
+              
+          return ret_layout
+        }
+      },
+      methods : {
+        swap_inherited_metadata : function(inherited_metadata, new_inherited_metadata) {
+          inherited_metadata.title = new_inherited_metadata.title
+          inherited_metadata.keywords = new_inherited_metadata.keywords
+          inherited_metadata.description = new_inherited_metadata.description
+          inherited_metadata.layout = new_inherited_metadata.layout
+          inherited_metadata.suppress_inheritance = new_inherited_metadata.suppress_inheritance
+          inherited_metadata.extended_attributes = new_inherited_metadata.extended_attributes
+          inherited_metadata.aux_content_refs = new_inherited_metadata.aux_content_refs
+          inherited_metadata.links = new_inherited_metadata.links
+          inherited_metadata.scripts = new_inherited_metadata.scripts
+        },
+        suppress_inheritance_changed : function() {
+
+          if (this.ehtml_doc.metadata.suppress_inheritance) {
+            this.swap_inherited_metadata(this.inherited_metadata, this.blank_inherited_metadata)
+            if (this.ehtml_doc.metadata.layout == "") {
+              this.ehtml_doc.metadata.layout = this.inheritable_metadata.layout
+            }
+          } else {
+            if (this.ehtml_doc.metadata.layout == this.inherited_metadata.layout) {
+              this.ehtml_doc.metadata.layout = ""
+            }
+
+            this.swap_inherited_metadata(this.inherited_metadata, this.inheritable_metadata)
+
+            for (var i=0; i<this.ehtml_doc.metadata.scripts.length; i++) {
+              if (this.uri_in_scripts_list(this.ehtml_doc.metadata.scripts[i], this.inherited_metadata.scripts)) {
+                this.ehtml_doc.metadata.scripts.splice(i,1)
+                i=i-1
+              }
+            }
+
+            for (var i=0; i<this.ehtml_doc.metadata.aux_content_refs.length; i++) {
+              if (this.uri_in_aux_content_refs(this.ehtml_doc.metadata.aux_content_refs[i].uri, this.inherited_metadata.aux_content_refs)) {
+                this.ehtml_doc.metadata.aux_content_refs.splice(i,1)
+                i=i-1
+              }
+            }
+
+            for (var i=0; i<this.ehtml_doc.metadata.links.length; i++) {
+              if (this.uri_in_links_list(this.ehtml_doc.metadata.links[i].href, this.inherited_metadata.links)) {
+                this.ehtml_doc.metadata.links.splice(i,1)
+                i=i-1
+              }
+            }
+
+
+
+
+          }
+
+
+        },
+        move_aux_content : function(index, dir) {
+          temp = this.ehtml_doc.metadata.aux_content_refs[index]
+          this.ehtml_doc.metadata.aux_content_refs[index] = this.ehtml_doc.metadata.aux_content_refs[index + dir]
+          this.ehtml_doc.metadata.aux_content_refs[index + dir] = temp
+        },
+        add_aux_content : function() {
+          this.ehtml_doc.metadata.aux_content_refs[this.ehtml_doc.metadata.aux_content_refs.length] = {"aux_content_type":this.default_aux_content_value, "uri":null}
+        },
+        delete_aux_content : function(index) {
+          this.ehtml_doc.metadata.aux_content_refs.splice(index, 1)
+        },
+        move_script : function(index, dir) {
+          temp = this.ehtml_doc.metadata.scripts[index]
+          this.ehtml_doc.metadata.scripts[index] = this.ehtml_doc.metadata.scripts[index + dir]
+          this.ehtml_doc.metadata.scripts[index + dir] = temp
+        },
+        prompt_new_script : function() {
+          emit_prompt(PROMPT_NEW_SCRIPT, 
+            (value) => {
+                script_info = this.parse_uri(value)
+                ext = uri_info.lcase_ext
+
+                this.ehtml_doc.metadata.scripts[this.ehtml_doc.metadata.scripts.length] = value
+
+                ret_message = null
+
+              return ret_message
+            }
+          )
+        },
+        add_script : function() {
+            this.ehtml_doc.metadata.scripts[this.ehtml_doc.metadata.scripts.length] = null
+        },
+        delete_script : function(index) {
+          this.ehtml_doc.metadata.scripts.splice(index, 1)
+        },
+        move_link : function(index, dir) {
+          temp = this.ehtml_doc.metadata.links[index]
+          this.ehtml_doc.metadata.links[index] = this.ehtml_doc.metadata.links[index + dir]
+          this.ehtml_doc.metadata.links[index + dir] = temp
+        },
+        add_link : function() {
+          this.ehtml_doc.metadata.links[this.ehtml_doc.metadata.links.length] = {"type":null, "rel":null, "media":null, "href":null}
+        },
+        delete_link : function(index) {
+          this.ehtml_doc.metadata.links.splice(index, 1)
+        },
+        parse_uri : function(uri) {
+          ret_values = {}
+          const re = /^(.*)\/(.*?)(-((aa|ab|ae|af|ak|am|an|ar|as|av|ay|az|ba|be|bg|bi|bm|bn|bo|br|bs|ca|ce|ch|co|cr|cs|cu|cv|cy|da|de|dv|dz|ee|el|en|eo|es|et|eu|fa|ff|fi|fj|fo|fr|fy|ga|gd|gl|gn|gu|gv|ha|he|hi|ho|hr|ht|hu|hy|hz|ia|id|ig|ii|ik|io|is|it|iu|jv|ka|kg|ki|kj|kk|kl|km|kn|kr|kv|kw|ky|la|lb|lg|li|ln|lo|lt|lv|mg|mh|mi|mk|ml|mn|mr|mt|my|na|nb|nd|ne|ng|nl|nn|no|nr|nv|ny|oc|oj|om|or|os|pi|pl|ps|pt|qu|rm|rn|ro|ru|rw|sc|se|sg|si|sk|sl|sm|sn|so|sq|sr|ss|st|su|sv|sw|ta|te|th|ti|tk|tl|tn|to|tr|ts|tw|ty|uk|ur|ve|vi|vo|wa|wo|xh|yi|yo|za|zu)(_([A-Z]{2})(_(.*))?)?))?\.([\w]*)$/;
+          matches = uri.match(re)
+
+          ret_values["non_i18n_uri"] = matches[1] + "/" + matches[2] + "." + matches[10]
+          ret_values["lcase_ext"] = matches[10].toLowerCase()
+          return ret_values
+        },
+        link_dragover : function() {
+          event.stopPropagation()
+
+          uri_info = this.parse_uri(item_to_move.uri)
+          ext = uri_info.lcase_ext
+          uri = uri_info.non_i18n_uri
+
+          valid_extension = false
+          in_list = false
+          if (ext in LINKED_DOC_METADATA) {
+            valid_extension = true
+          }
+
+          if (valid_extension) {
+            if (this.uri_in_links_list(uri, this.ehtml_doc.metadata.links) || this.uri_in_links_list(uri, this.inherited_metadata.links)) {
+              in_list = true
+            }
+          }
+
+          if (valid_extension && (!in_list)) {
+              event.preventDefault()
+          }
+        },
+        prompt_new_link : function() {
+          emit_prompt(PROMPT_NEW_LINK, 
+            (value) => {
+              uri_info = this.parse_uri(value)
+              ext = uri_info.lcase_ext
+
+              if (this.uri_in_links_list(value, this.ehtml_doc.metadata.links) || this.uri_in_links_list(value, this.inherited_metadata.links)) {
+                ret_message = "{% trans %}Linked document is already associated{% endtrans %}"
+              } else if (! ext in LINKED_DOC_METADATA) {
+                ret_message = "{% trans %}Path has an invalid extension for document linking{% endtrans %}"
+              } else {
+
+                link_metadata = LINKED_DOC_METADATA[ext]
+                this.ehtml_doc.metadata.links[this.ehtml_doc.metadata.links.length] = {
+                  "type" : link_metadata.type,
+                  "rel" : link_metadata.rel,
+                  "href" : value,
+                  "media" : "all"
+                }
+
+                ret_message = null
+              }
+
+              return ret_message
+            }
+          )
+        },
+        add_link_drop : function() {
+          event.stopPropagation()
+
+          uri_info = this.parse_uri(item_to_move.uri)
+          ext = uri_info.lcase_ext
+          uri = uri_info.non_i18n_uri
+
+          link_metadata = LINKED_DOC_METADATA[ext]
+          this.ehtml_doc.metadata.links[this.ehtml_doc.metadata.links.length] = {
+            "type" : link_metadata.type,
+            "rel" : link_metadata.rel,
+            "href" : uri,
+            "media" : "all"
+          }
+        },
+        change : function() {
+        },
+        script_dragover(event) {
+            event.stopPropagation()
+
+            uri_info = this.parse_uri(item_to_move.uri)
+            ext = uri_info.lcase_ext
+            uri = uri_info.non_i18n_uri
+
+            in_list = false
+            if (this.uri_in_scripts_list(uri, this.ehtml_doc.metadata.scripts) || this.uri_in_scripts_list(uri, this.inherited_metadata.scripts)) {
+              in_list = true
+            }
+
+            if (uri.endsWith(".js") && (!in_list)) {
+                event.preventDefault()
+            }
+        },
+        script_drop(event, index) {
+            event.stopPropagation()
+
+            uri_info = this.parse_uri(item_to_move.uri)
+            ext = uri_info.lcase_ext
+            uri = uri_info.non_i18n_uri
+
+          this.ehtml_doc.metadata.scripts[index] = uri
+        },
+        add_script_drop(event) {
+            event.stopPropagation()
+
+            uri_info = this.parse_uri(item_to_move.uri)
+            ext = uri_info.lcase_ext
+            uri = uri_info.non_i18n_uri
+
+            this.ehtml_doc.metadata.scripts[this.ehtml_doc.metadata.scripts.length] = uri
+        },
+        add_aux_content_drop(event) {
+            event.stopPropagation()
+
+            uri_info = this.parse_uri(item_to_move.uri)
+            ext = uri_info.lcase_ext
+            uri = uri_info.non_i18n_uri
+
+            this.ehtml_doc.metadata.aux_content_refs[this.ehtml_doc.metadata.aux_content_refs.length] = {"aux_content_type":this.default_aux_content_value, "uri":uri}
+        },
+        aux_content_dragover(event) {
+            event.stopPropagation()
+
+            uri_info = this.parse_uri(item_to_move.uri)
+            ext = uri_info.lcase_ext
+            uri = uri_info.non_i18n_uri
+
+            in_list = false
+            if (this.uri_in_aux_content_refs(uri, this.inherited_metadata.aux_content_refs) || this.uri_in_aux_content_refs(uri, this.ehtml_doc.metadata.aux_content_refs)) {
+              in_list = true
+            }
+
+            if (uri.endsWith(".htm") && (!in_list)) {
+                event.preventDefault()
+            }
+        },
+        aux_content_drop(event, index) {
+            event.stopPropagation()
+
+            uri_info = this.parse_uri(item_to_move.uri)
+            ext = uri_info.lcase_ext
+            uri = uri_info.non_i18n_uri
+
+            this.ehtml_doc.metadata.aux_content_refs[index]["uri"] = uri
+        },
+        uri_in_links_list : function(uri, links_list) {
+          in_list = false
+          for (var i=0; i<links_list.length; i++) {
+            if (uri == links_list[i].href) {
+              in_list = true
+              break
+            }
+          }
+          return in_list
+        },
+        uri_in_scripts_list : function(uri, scripts_list) {
+          in_list = false
+          for (var i=0; i<scripts_list.length; i++) {
+            if (uri == scripts_list[i]) {
+              in_list = true
+              break
+            }
+          }
+          return in_list
+        },
+        uri_in_aux_content_refs : function(uri, aux_content_refs) {
+          in_list = false
+          for (var i=0; i<aux_content_refs.length; i++) {
+            if (uri == aux_content_refs[i].uri) {
+              in_list = true
+              break
+            }
+          }
+          return in_list
+        }
+      }
+    }
+
+  </script>
+
+
+
+
+  <!--
+  =====================================================================================
+  Extended Attributes
+  =====================================================================================
+  -->
+  <script type="text/html" id="extended-attributes-template">
+    
+    <table class="table">
+      <thead>
+        <tr>
+          <th style="width:300px;"><i class="fa fa-plus-square ml-2" aria-hidden="true" v-on:click="add_tag()"></i> {% trans %}Key{% endtrans%}</th>
+          <th style="width:320px;">{% trans %}Value{% endtrans%}</th>
+          <th style="width:60px;">&nbsp;</th>
+        </tr>
+    </thead>
+      <tbody>
+        <tr v-for="(item, key, index) in temp_ext_attr">
+          <td class="pt-4">{{ "{{ key }}" }}</td>
+          <td><input class="input" style="width:300px;" type="text" v-bind:placeholder="inhext_attr[key]" v-model="temp_ext_attr[key]" v-on:keyup="value_change(key)"></td>
+          <td class="pt-4"><i class="fa fa-trash ml-2" aria-hidden="true" v-on:click="delete_value(key)"></i></td>
+        </tr>
+    </tbody>
+    </table>
+  </script>
+
+
+  <script type="text/javascript">
+    var EXTENDED_ATTRIBUTES_COMPONENT = {
+      template : "#extended-attributes-template",
+      props: {
+        ext_attr : Object,
+        inhext_attr : Object
+      },
+      data() {
+        return { 
+          temp_ext_attr:{}
+        }
+      },
+      created() {
+        this.temp_ext_attr = {}
+        iea_keys = Object.keys(this.inhext_attr)
+        for (i=0; i<iea_keys.length; i++) {
+          key = iea_keys[i]
+          this.temp_ext_attr[key] = ""
+        }
+        
+        ea_keys = Object.keys(this.ext_attr)
+        for (i=0; i<ea_keys.length; i++) {
+          key = ea_keys[i]
+          this.temp_ext_attr[key] = this.ext_attr[key]
+        }
+        
+      },
+      methods : {
+        add_tag : function() {
+          emit_prompt(PROMPT_NEW_EXTENDED_ATTRIBUTE, 
+            (value) => {
+              if (this.temp_ext_attr.hasOwnProperty(value)) {
+                ret_message = "{% trans %}Property name is not unique{% endtrans %}"
+              } else {
+                this.temp_ext_attr[value] = ""
+                this.ext_attr[value] = ""
+                ret_message = null
+              }
+
+              return ret_message
+            }
+          )
+        },
+        value_change : function(attr_name) {
+          value = this.temp_ext_attr[attr_name]
+          this.ext_attr[attr_name] = value
+        },
+        delete_value : function(attr_name) {
+          if (this.ext_attr.hasOwnProperty(attr_name)) {
+            delete this.ext_attr[attr_name]
+          }
+          if (!this.inhext_attr.hasOwnProperty(attr_name)) {
+            delete this.temp_ext_attr[attr_name]
+          } else {
+            this.temp_ext_attr[attr_name] = ""
+          }
+        }
+      },
+
+      watch:{
+        inhext_attr : {
+          deep: true,
+          handler(){
+            tea_keys = Object.keys(this.temp_ext_attr)
+            for (i=0; i<tea_keys.length; i++) {
+              key = tea_keys[i]
+              delete this.temp_ext_attr[key]
+            }
+
+            iea_keys = Object.keys(this.inhext_attr)
+            for (i=0; i<iea_keys.length; i++) {
+              key = iea_keys[i]
+              this.temp_ext_attr[key] = ""
+            }
+            
+            ea_keys = Object.keys(this.ext_attr)
+            for (i=0; i<ea_keys.length; i++) {
+              key = ea_keys[i]
+              this.temp_ext_attr[key] = this.ext_attr[key]
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+
+
+
+  <!--
+  =====================================================================================
+  System Message
+  =====================================================================================
+  -->
+  <script type="text/html" id="system-message-template">
+    <div v-if="visible" class="modal is-active">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+
+        <article :class="message.color">
+          <div class="message-header">
+            <p> {{ "{{  message.header  }}" }} </p>
+            <button v-if="message.can_close" class="delete" aria-label="delete" v-on:click="hide"></button>
+          </div>
+          <div class="message-body has-background-white">
+            {{ "{{  message.body  }}" }}
+          </div>
+        </article>
+      </div>
+    </div>
+  </script>
+
+
+  <script type="text/javascript">
+    var SYSTEM_MESSAGE_COMPONENT = {
+      data() {
+        return {
+          message:null,
+          visible:false
+        }
+      },
+      mounted() {
+        listen_message((message) => {
+          this.message = message
+          this.visible = true
+        })
+      },
+      template : "#system-message-template",
+      methods : {
+        hide : function() {
+          this.visible = false
+        }
+      }
+    }
+  </script>
+
+
+
+
+
+
+
+  <!--
+  =====================================================================================
+  Confirm dialog
+  =====================================================================================
+  -->
+  <script type="text/html" id="confirmation-template">
+    <div v-if="visible" class="modal is-active">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+
+        <article :class="message.color">
+          <div class="message-header">
+            <p> {{ "{{  message.header  }}" }} </p>
+            <button class="delete" aria-label="delete" v-on:click="hide"></button>
+          </div>
+          <div class="message-body has-background-white">
+            <p>{{ "{{  message.body  }}" }}</p>
+            <div class="buttons">
+              <button v-on:click="execute" class="button is-normal">{% trans %}OK{% endtrans %}</button>
+              <button v-on:click="hide" class="button is-normal">{% trans %}Cancel{% endtrans %}</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </script>
+
+
+  <script type="text/javascript">
+    var CONFIRMATION_COMPONENT = {
+      data() {
+        return {
+          message:null,
+          visible:false,
+          callback:null
+        }
+      },
+      mounted() {
+        listen_confirmation_request((payload) => {
+          this.message = payload[0]
+          this.callback = payload[1]
+          this.visible = true
+        })
+      },
+      template : "#confirmation-template",
+      methods : {
+        hide : function() {
+          this.visible = false
+        },
+        execute : function() {
+          this.hide()
+          this.callback()
+        }
+      }
+    }
+  </script>
+
+
+
+
+  <!--
+  =====================================================================================
+  Prompt
+  =====================================================================================
+  -->
+  <script type="text/html" id="prompt-template">
+    <div v-if="visible" class="modal is-active">
+      <div class="modal-background"></div>
+      <div class="modal-content" >
+
+        <article v-bind:class="message.color">
+          <div class="message-header">
+            <p> {{ "{{  message.header  }}" }} </p>
+            <button class="delete" aria-label="delete" v-on:click="hide"></button>
+          </div>
+          <div class="message-body has-background-white">
+
+
+            <div class="field">
+              <label class="label">{{ "{{  message.body  }}" }}</label>
+              <div class="control">
+                <input class="input" type="text" v-model="value" v-on:keyup="clear_error_text" />
+                <p v-if="error_text > ''" class="help is-danger">{{ "{{ error_text }}" }}</p>
+              </div>
+            </div>
+      
+
+            <div class="buttons">
+              <button v-on:click="submit" class="button is-normal">{% trans %}OK{% endtrans %}</button>
+              <button v-on:click="hide" class="button is-normal">{% trans %}Cancel{% endtrans %}</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </script>
+
+
+  <script type="text/javascript">
+    var PROMPT_COMPONENT = {
+      mounted() {
+        listen_prompt_request((payload) => {
+          this.message = payload[0]
+          this.submit_callback = payload[1]
+          this.value = ""
+          this.visible = true
+          this.error_text = ""
+        })
+      },
+      template : "#prompt-template",
+      data() {
+        return {
+          message:"",
+          submit_callback:null,
+          visible:false,
+          value:"",
+          error_text: ""
+        }
+      },
+      methods : {
+        hide : function() {
+          this.visible = false
+        },
+        submit : function() {
+          msg = this.submit_callback(this.value)
+          if (msg==null) {
+            this.error_text = ""
+            this.hide()
+          } else {
+            this.error_text = msg
+          }
+        },
+        clear_error_text : function() {
+          if (this.error_text > "") {
+            this.error_text = ""
+          }
+        }
+      }
+    }
+  </script>
+
+
+
+
+
+
+  <!--
+  =====================================================================================
+  Main App
+  =====================================================================================
+  -->
+
+  <script type="text/javascript">
+
+    var item_to_move = null
+
+    MSG_DOCUMENT_SAVED = {
+      'header' : "{% trans %}Document Action{% endtrans %}",
+      'body' : "{% trans %}Document was successfully saved{% endtrans %}",
+      'can_close':true,
+      'color' : "is-info"
+    }
+
+    MSG_DOCUMENT_CREATED = {
+      'header' : "{% trans %}Document Action{% endtrans %}",
+      'body' : "{% trans %}Document was successfully created{% endtrans %}",
+      'can_close':true,
+      'color' : "is-info"
+    }
+
+    MSG_CONFIRM_DELETE = {
+      'header' : "{% trans %}Document Action{% endtrans %}",
+      'body' : "{% trans %}Repository item will be deleted, continue?{% endtrans %}",
+      'color' : "is-info"
+    }
+
+    MSG_CONFIRM_DELETE_MICROSITE = {
+      'header' : "{% trans %}Delete Microsite{% endtrans %}",
+      'body' : "{% trans %}Microsite and all of its content will be deleted, proceed?{% endtrans %}",
+      'color' : "is-info"
+    }
+
+    MSG_ITEM_DELETED = {
+      'header' : "{% trans %}Delete{% endtrans %}",
+      'body' : "{% trans %}Item was deleted{% endtrans %}",
+      'color' : "is-info",
+      'can_close':true
+    }
+
+    MSG_MICROSITE_CREATED = {
+      'header' : "{% trans %}New Microsite{% endtrans %}",
+      'body' : "{% trans %}New microsite was created{% endtrans %}",
+      'color' : "is-info",
+      'can_close':true
+    }
+
+    MSG_MICROSITE_DELETED = {
+      'header' : "{% trans %}Delete Microsite{% endtrans %}",
+      'body' : "{% trans %}Microsite was deleted{% endtrans %}",
+      'color' : "is-info",
+      'can_close':true
+    }
+
+    PROMPT_NEW_EXTENDED_ATTRIBUTE = {
+      'header' : "{% trans %}Extended Attributes{% endtrans %}",
+      'body' : "{% trans %}Specify new extended attribute name{% endtrans %}",
+      'color' : "is-info",
+      'can_close':true
+    }
+
+    PROMPT_NEW_LINK = {
+      'header' : "{% trans %}Linked Documents{% endtrans %}",
+      'body' : "{% trans %}Specify path to css, icon file, etc to link{% endtrans %}",
+      'color' : "is-info",
+      'can_close':true
+    }
+
+    PROMPT_NEW_MICROSITE = {
+      'header' : "{% trans %}New Microsite{% endtrans %}",
+      'body' : "{% trans %}Specify new microsite name{% endtrans %}",
+      'color' : "is-info",
+      'can_close':true
+    }
+
+    LINKED_DOC_METADATA = {
+      "ico" : {"type" : "image/x-icon", "rel" : "icon"},
+      "png" : {"type" : "image/png", "rel" : "icon"},
+      "gif" : {"type" : "image/gif", "rel" : "icon"},
+      "jpeg" : {"type" : "image/jpeg", "rel" : "icon"},
+      "jpg" : {"type" : "image/jpeg", "rel" : "icon"},
+      "webp" : {"type" : "image/webp", "rel" : "icon"},
+      "css" : {"type" : "text/css", "rel" : "stylesheet"}
+    }
+
+
+    const content_manager_app = Vue.createApp(
+      {
+        mounted() {
+          axios.get("/arches/content/manage/microsites/api/manageable_microsites").then(RESPONSE =>
+            {
+              this.microsites = RESPONSE.data
+              this.microsite_root = this.microsites[0]
+            }
+          ).catch(
+            (err)=>{
+              tag = error_processor("ContentEditor", "load_manageable_microsites", err)
+              emit_remote_error(tag)
+            }
+          )
+        },
+        data() {
+          return {
+            selected : false,
+            microsite_root: null,
+            microsites: null
+          }
+        },
+        methods : {
+          create_microsite : function() {
+            emit_prompt(PROMPT_NEW_MICROSITE, (microsite_name) => {
+              axios.post("/arches/content/microsite/api/microsite_list/" + microsite_name).then(
+                (response) => {
+                  //emit_message(MSG_MICROSITE_CREATED)
+                  this.microsites[this.microsites.length] = "/" + microsite_name
+                  this.microsite_root = this.microsites[this.microsites.length-1]
+                  this.microsites.sort()
+                }
+              ).catch(
+                (err) => {
+                  tag = error_processor("Microsite", "create", err)
+                  emit_remote_error(tag)
+                }
+              )
+            })
+          },
+          delete_microsite : function() {
+
+            emit_confirmation_request(MSG_CONFIRM_DELETE_MICROSITE, () => {
+              axios.delete("/arches/content/microsite/api/microsite_list" + this.microsite_root).then(
+                (response) => {
+                  //emit_message(MSG_MICROSITE_DELETED)
+                  index = this.microsites.findIndex((item) => {
+                    ret_value = (item == this.microsite_root)
+                    return ret_value
+                  })
+
+                  this.microsites.splice(index, 1)
+                  this.microsite_root = this.microsites[0]
+                }
+              ).catch(
+                (err) => {
+                  tag = error_processor("Microsite", "delete", err)
+                  emit_remote_error(tag)
+                }
+              )
+
+            })
+
+          }
+        }
+      }
+    )
+
+    content_manager_app.component('root-folder', ROOT_FOLDER_COMPONENT)
+    content_manager_app.component('folder', FOLDER_COMPONENT)
+    content_manager_app.component('file', FILE_COMPONENT)
+    content_manager_app.component('general-editor', GENERAL_EDITOR_COMPONENT)
+    content_manager_app.component('folder-editor', FOLDER_EDITOR_COMPONENT)
+    content_manager_app.component('text-editor', TEXT_EDITOR_COMPONENT)
+    content_manager_app.component('binary-editor', BINARY_EDITOR_COMPONENT)
+    content_manager_app.component('script-field', SCRIPT_FIELD_COMPONENT)
+    content_manager_app.component('ehtml-editor', EHTML_EDITOR_COMPONENT)
+    content_manager_app.component('system-message', SYSTEM_MESSAGE_COMPONENT)
+    content_manager_app.component('confirmation', CONFIRMATION_COMPONENT)
+    content_manager_app.component('prompt', PROMPT_COMPONENT)
+    content_manager_app.component('extended-attributes', EXTENDED_ATTRIBUTES_COMPONENT)
+
+    
+
+    var emitter = new mitt();
+
+    function emit_remote_error(error_tag) {
+      tags = {
+        'RootFolder.load_children.server.FolderDoesNotExist' : {
+          'header' : "{% trans %}System Error{% endtrans %}",
+          'body' : "{% trans %}Specified root folder does not exist{% endtrans %}",
+          'can_close':false,
+          'color' : "is-danger"
+          },
+        'TextDocument.create.server.DocumentAlreadyExists' : {
+          'header' : "{% trans %}Naming Error{% endtrans %}",
+          'body' : "{% trans %}A document by that name already exists{% endtrans %}",
+          'can_close':true,
+          'color' : "is-warning"
+          },
+        'EHTMLDocument.create.server.DocumentAlreadyExists' : {
+          'header' : "{% trans %}Naming Error{% endtrans %}",
+          'body' : "{% trans %}A document by that name already exists{% endtrans %}",
+          'can_close':true,
+          'color' : "is-warning"
+        },
+        'EHTMLDocument.rename.server.DocumentAlreadyExists' : {
+          'header' : "{% trans %}Rename Error{% endtrans %}",
+          'body' : "{% trans %}A document by that name already exists in the folder{% endtrans %}",
+          'can_close':true,
+          'color' : "is-warning"
+        },
+        'TextDocument.rename.server.DocumentAlreadyExists' : {
+          'header' : "{% trans %}Rename Error{% endtrans %}",
+          'body' : "{% trans %}A document by that name already exists in the folder{% endtrans %}",
+          'can_close':true,
+          'color' : "is-warning"
+        },
+        'EHTMLDocument.move.server.DocumentAlreadyExists' : {
+          'header' : "{% trans %}Move Error{% endtrans %}",
+          'body' : "{% trans %}A document by that name already exists in the folder{% endtrans %}",
+          'can_close':true,
+          'color' : "is-warning"
+        },
+        'TextDocument.move.server.DocumentAlreadyExists' : {
+          'header' : "{% trans %}Move Error{% endtrans %}",
+          'body' : "{% trans %}A document by that name already exists in the folder{% endtrans %}",
+          'can_close':true,
+          'color' : "is-warning"
+        },
+        'Microsite.create.server.MicrositeAlreadyExists' : {
+          'header' : "{% trans %}Create Microsite{% endtrans %}",
+          'body' : "{% trans %}Microsite already exists{% endtrans %}",
+          'can_close':true,
+          'color' : "is-warning"
+        },
+        'Microsite.delete.server.MicrositeNotFound' : {
+          'header' : "{% trans %}Delete Microsite{% endtrans %}",
+          'body' : "{% trans %}Could not find microsite while trying to delete it{% endtrans %}",
+          'can_close':true,
+          'color' : "is-warning"
+        },
+        'Microsite.delete.server.DeleteMainMicrositeAttempted' : {
+          'header' : "{% trans %}Delete Microsite{% endtrans %}",
+          'body' : "{% trans %}Cannot delete the main microsite{% endtrans %}",
+          'can_close':true,
+          'color' : "is-warning"
+        }
+      }
+
+      message = null
+
+      if (error_tag in tags) {
+        message = tags[error_tag]
+      } else {
+
+        message = {
+          'header' : "{% trans %}System Error{% endtrans %}",
+          'body' : "{% trans %}Untrapped system error was returned:{% endtrans %}" + error_tag + "",
+          'can_close':false,
+          'color' : "is-danger"
+        }
+      }
+
+      emitter.emit('message', message);
+    }
+
+    function emit_message(message) {
+      emitter.emit('message', message);
+    }
+
+    function listen_message(myfunc) {
+      emitter.on('message', myfunc);
+    } 
+
+    function emit_prompt(message, submit_callback) {
+      emitter.emit('prompt', [message, submit_callback]);
+    }
+
+    function emit_confirmation_request(message, callback) {
+      emitter.emit('confirmation-request', [message, callback]);
+    }
+
+    function emit_folder_item_selected(selected_folder_item) {
+      emitter.emit('folder-item-selected', selected_folder_item);
+    }
+
+    function listen_remote_error(myfunc) {
+      emitter.on('remote-error', myfunc);
+    }
+
+    function listen_message(myfunc) {
+      emitter.on('message', myfunc);
+    }
+
+    function listen_prompt_request(myfunc) {
+      emitter.on('prompt', myfunc);
+    }
+
+    function listen_confirmation_request(myfunc) {
+      emitter.on('confirmation-request', myfunc);
+    }
+
+    function listen_folder_item_selected(myfunc) {
+      emitter.on('folder-item-selected', myfunc);
+    }
+
+    content_manager_app.mount("content_manager")
+
+  </script>
+
+{% endblock main_content %}
