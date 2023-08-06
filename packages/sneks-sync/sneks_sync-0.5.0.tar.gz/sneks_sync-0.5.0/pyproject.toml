@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "sneks-sync"
+version = "0.5.0"
+description = "Launch a Dask cluster from a virtual environment"
+authors = ["Gabe Joseph <gjoseph92@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [
+    { include = "sneks" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.8.4"
+coiled = "^0.2.7"
+cloudpickle = "^2.1.0"
+tomli = "^2.0.1"
+rich = "^12.4.4"
+setuptools = ">=65.3.0"
+# ^ Coiled needs this for `pkg_resources`, which is sometimes---but not always, i.e. on GitHub---a site package.
+# We shouldn't have to put it explicitly; that's an upstream bug.
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.3.0"
+flake8 = "^4.0.1"
+ipython = "^8.4.0"
+pytest = "^7.1.2"
+pyright = "^1.1.251"
+pytest-docker-compose = {git = "https://github.com/tmeckel/pytest-docker-compose", rev = "feat/docker-compose-v2"}
+aiodocker = "^0.21.0"
+twine = "^4.0.1"
+distributed = "^2022.11.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+profile = "black"
+skip_gitignore = true
+line_length = 88
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "--docker-compose=tests/docker-compose.yml --docker-compose-remove-volumes"
