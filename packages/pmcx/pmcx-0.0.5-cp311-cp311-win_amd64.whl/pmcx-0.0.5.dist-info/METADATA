@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: pmcx
+Version: 0.0.5
+Summary: Python bindings for Monte Carlo eXtreme
+Author: Matin Raayai Ardakani, Qianqian Fang
+Author-email: q.fang@neu.edu
+Requires: numpy
+Requires-Python: >=3.6
+
