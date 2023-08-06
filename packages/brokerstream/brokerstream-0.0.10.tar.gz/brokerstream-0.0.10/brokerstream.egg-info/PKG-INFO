@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: brokerstream
+Version: 0.0.10
+Summary: Broker stream
+Home-page: UNKNOWN
+Author: Tristan Cht
+Author-email: chretien.tristan1@gmail.com
+License: UNKNOWN
+Keywords: python,kafka,package
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Education
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+
+Real time communication between services with kafka
+
