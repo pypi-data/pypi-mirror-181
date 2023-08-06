@@ -1,0 +1,10 @@
+To run DIETER.gms directly from GAMSIDE, consider the following:
+
+Note 1:
+Input excel files can be copied here from \project_files\data_input
+but we have to add a empty column after DE in the incidence matrix in spatial sheet.
+Otherwise an division by zero error will appear when running the model.
+
+Note 2:
+Configure the scenario.gms properly according to your intended study.
+For instance, if only one country is considered, then power flow (F.fx(l,h) = 0) must be set as zero, as well as Net Transfer Capacity (NTC.fx(l) = 0)

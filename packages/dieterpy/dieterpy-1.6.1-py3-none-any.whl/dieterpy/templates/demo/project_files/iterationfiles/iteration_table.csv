@@ -1,0 +1,5 @@
+run,custom_name,country_set,max_flow(l),"max_tech_p(n,'gas')"
+0,A,CountryA,0,
+1,AB,"CountryA,CountryB",20000,
+2,AB,"CountryA,CountryB",20000,16000
+3,AB,"CountryA,CountryB",20000,8000

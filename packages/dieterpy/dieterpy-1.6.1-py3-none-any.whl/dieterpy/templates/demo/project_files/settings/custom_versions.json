@@ -1,0 +1,6 @@
+{"DIETER":{"project_features": ["base_year","define_h_set","dispatch_only","network_transfer","no_crossover","infeasibility"],
+    "input_file_basename": ["data_input","time_series"],
+    "feat_node_exists": true,"iterable_data_exists": true,"topography_exists": true},
+"DEMO":{"project_features": ["define_h_set","network_transfer"],
+        "input_file_basename": ["data_input"],
+        "feat_node_exists": false,"iterable_data_exists": false,"topography_exists": true}}
