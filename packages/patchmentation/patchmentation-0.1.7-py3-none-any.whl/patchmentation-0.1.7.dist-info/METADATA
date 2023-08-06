@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: patchmentation
+Version: 0.1.7
+Summary: A python library to perform patch augmentation
+Home-page: https://github.com/Xu-Justin/patchmentation
+Author: William Justin, JonathanTho
+Author-email: williamjustinxu@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: matplotlib (>=3.5.3)
+Requires-Dist: numpy (>=1.23.1)
+Requires-Dist: opencv-python (>=4.6.0.66)
+Requires-Dist: typing-extensions (>=4.3.0)
+Requires-Dist: scipy (>=1.9.3)
+Requires-Dist: appdirs (>=1.4.4)
+Requires-Dist: wget (>=3.2)
+Requires-Dist: tqdm (>=4.64.1)
+Requires-Dist: requests (>=2.28.1)
+
+# patchmentation
+
+A python library to perform patch augmentation.
+
+## Installation
+
+```bash
+pip install patchmentation
+```
+
+THIS README will be updated soon.
