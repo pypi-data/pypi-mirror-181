@@ -1,0 +1,101 @@
+Metadata-Version: 2.1
+Name: neo-mamba
+Version: 1.0.0
+Summary: Python SDK for the NEO 3 blockchain
+Home-page: https://github.com/CityOfZion/neo-mamba
+Author: Erik van den Brink
+Author-email: erik@coz.io
+Maintainer: Erik van den Brink
+Maintainer-email: erik@coz.io
+License: MIT License
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.10
+Description-Content-Type: text/x-rst
+License-File: LICENSE.md
+Requires-Dist: aiodns (==3.0.0)
+Requires-Dist: aiohttp (==3.7.4.post0)
+Requires-Dist: base58 (==2.1.0)
+Requires-Dist: bitarray (==2.6.0)
+Requires-Dist: Events (==0.4)
+Requires-Dist: jsonschema (>=3.2.0)
+Requires-Dist: lz4 (==4.0.2)
+Requires-Dist: neo3crypto (==0.3)
+Requires-Dist: netaddr (>=0.8.0)
+Requires-Dist: orjson (>=3.8.2)
+Requires-Dist: pycryptodome (==3.15.0)
+Requires-Dist: pybiginteger (==1.2.7)
+Requires-Dist: pybiginteger-stubs (==1.2.7)
+Provides-Extra: dev
+Requires-Dist: aioresponses (==0.7.2) ; extra == 'dev'
+Requires-Dist: black (==22.8.0) ; extra == 'dev'
+Requires-Dist: build (==0.8.0) ; extra == 'dev'
+Requires-Dist: bump2version (==1.0.1) ; extra == 'dev'
+Requires-Dist: coverage (>=6.0.1) ; extra == 'dev'
+Requires-Dist: docutils (==0.17.1) ; extra == 'dev'
+Requires-Dist: mypy (==0.990) ; extra == 'dev'
+Requires-Dist: mypy-extensions (==0.4.3) ; extra == 'dev'
+Provides-Extra: docs
+Requires-Dist: mkdocs (==1.4.1) ; extra == 'docs'
+Requires-Dist: mkdocs-material (==8.5.7) ; extra == 'docs'
+Requires-Dist: mkdocs-material-extensions (==1.1) ; extra == 'docs'
+Requires-Dist: mkapi-fix-coz (==0.1.0) ; extra == 'docs'
+
+.. image:: .github/resources/images/logo.png
+    :width: 400 px
+    :align: center
+
+neo-mamba
+-----------
+
+.. image:: https://img.shields.io/github/workflow/status/CityOfZion/neo-mamba/CI
+  :target: https://shields.io/
+
+.. image:: https://coveralls.io/repos/github/CityOfZion/neo-mamba/badge.svg?branch=master
+  :target: https://coveralls.io/github/CityOfZion/neo-mamba?branch=master
+
+.. image:: http://www.mypy-lang.org/static/mypy_badge.svg
+  :target: http://mypy-lang.org/
+
+.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
+   :target: https://github.com/psf/black
+
+.. image:: https://img.shields.io/pypi/pyversions/neo-mamba
+   :target: https://pypi.org/project/neo-mamba
+
+.. image:: .github/resources/images/platformbadge.svg
+   :target: https://github.com/CityOfZion/neo-mamba
+
+This project is for you if you're looking to use Python to
+
+* Deploy smart contracts
+* Transfer NEP-11 and NEP-17 tokens
+* Vote for your favourite consensus node
+* Interact with on-chain smart contracts
+* Manage wallets
+* Build and sign specialized transactions
+* and more..
+
+This SDK provides building blocks for Python developers to interact with the NEO blockchain without requiring to run a full node.
+In order to interact with the chain and obtain information it relies heavily on RPC nodes. You can find a list of public RPC nodes `here <https://dora.coz.io/monitor>`_.
+
+Please report any issues on `Github <https://github.com/CityOfZion/neo-mamba/issues>`_ or submit ideas how to improve the SDK.
+
+Also check out our Python smart contract compiler `Boa <https://github.com/CityOfZion/neo3-boa>`_ !
+
+Installation and usage
+----------------------
+Installation instructions, how to interact with smart contrats as well as API reference documentation can be found at
+https://mamba.coz.io/
+
+Developing or contributing
+--------------------------
+Install the requirements, modify the code and PR :-)
+::
+
+   pip install -e .[dev]
+
+The project uses `Black <https://github.com/psf/black>`_ for code formatting. You might want to
+`integrate <https://black.readthedocs.io/en/stable/integrations/editors.html>`_ this into your editor.
