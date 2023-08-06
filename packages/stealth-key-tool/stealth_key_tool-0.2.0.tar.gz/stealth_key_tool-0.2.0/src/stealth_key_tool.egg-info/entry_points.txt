@@ -1,0 +1,3 @@
+[console_scripts]
+bip32gen = stealth_key_tool.bip32utils.bip32gen:main
+stealth-key-tool.py = stealth_key_tool.key_tool_cli:main
