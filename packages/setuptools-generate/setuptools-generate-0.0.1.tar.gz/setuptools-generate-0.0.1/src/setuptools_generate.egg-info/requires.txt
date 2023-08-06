@@ -1,0 +1,12 @@
+click
+help2man
+setuptools
+shtab
+
+[:python_version < "3.11"]
+tomli>=1.0.0
+
+[dev]
+pre-commit
+pytest-cov
+tomli
