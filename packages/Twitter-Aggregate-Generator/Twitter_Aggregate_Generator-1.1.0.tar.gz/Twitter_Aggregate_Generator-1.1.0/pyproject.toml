@@ -1,0 +1,40 @@
+[build-system]
+
+requires = ["setuptools>=61.0"]
+
+build-backend = "setuptools.build_meta"
+
+
+[project]
+
+version = "1.1.0"
+
+name = "Twitter_Aggregate_Generator"
+
+authors = [{name="Branden Kunkel", email="kunkel.branden6130@gmail.com"}]
+
+dependencies = 	[
+			"requests==2.5.4.1",
+		]
+
+requires-python = ">=3.8"
+
+classifiers = 	[
+			"Development Status :: 4 - Beta",
+			"Intended Audience :: Science/Research",
+			"Intended Audience :: Education",
+			"Intended Audience :: Developers",
+			"License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+			"Natural Language :: English",
+			"Operating System :: POSIX :: Linux",
+			"Programming Language :: Python :: 3.8",		
+		]
+
+readme = "README.md"
+
+[project.urls]
+homepage = "https://github.com/Branden-Kunkel/twitter_aggregate_generator"
+
+
+ 
+
