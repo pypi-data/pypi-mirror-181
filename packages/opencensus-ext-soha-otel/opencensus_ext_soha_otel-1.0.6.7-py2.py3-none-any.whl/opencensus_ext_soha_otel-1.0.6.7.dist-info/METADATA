@@ -1,0 +1,64 @@
+Metadata-Version: 2.1
+Name: opencensus-ext-soha-otel
+Version: 1.0.6.7
+Summary: OpenCensus Cyber Trace Exporter
+Home-page: https://sohatv.vn
+Author: SohaTv Authors
+Author-email: tuanhaanh@vccorp.vn
+License: Apache-2.0
+Classifier: Intended Audience :: Developers
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: opencensus (<1.0.0,>=0.9.dev0)
+Requires-Dist: requests (~=2.7)
+Requires-Dist: backoff (~=1.11.0)
+Requires-Dist: qualname (~=0.1.0)
+Requires-Dist: backoff (<2.0.0,>=1.10.0) ; python_version >= "3.7"
+
+OpenCensus Cyber Trace Exporter
+============================================================================
+
+Installation
+------------
+
+::
+
+    pip install -i https://test.pypi.org/simple/ opencensus-ext-soha-otel
+
+Usage
+-----
+
+The **OpenCensus Soha Otel Exporter** allows you to export `OpenCensus`_ traces to `CyberTrace`_.
+
+.. _OpenCensus: https://github.com/census-instrumentation/opencensus-python/
+.. _CyberTrace: https://cybertrace.sohatv.vn/
+
+.. code:: python
+
+    from sohaotel.ext.otel.trace_exporter import SohaOtelHttpExporter
+    from opencensus.trace import tracer as tracer_module
+
+    tracer = tracer_module.Tracer(exporter=SohaOtelHttpExporter(
+        service_name='my service',
+        retry_able: True,
+    ))
+
+    with tracer.span(name='hello'):
+        print('Hello, World!')
+
+References
+----------
+
+* `OpenCensus Project <https://opencensus.io/>`_
+* `CyberTrace <https://cybertrace.sohatv.vn/>`_
