@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: py3gpp
+Version: 0.1.0
+Summary: functions for 5G NR signal processing
+Home-page: https://github.com/catkira/py3gpp
+Author: Benjamin Menküc
+Author-email: benjamin@menkuec.de
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: numpy (>=1.21.0,<2.0.0)
+Project-URL: Repository, https://github.com/catkira/py3gpp
+Description-Content-Type: text/markdown
+
+# Summary
+This python package aims to replace the Matlab 5G Toolbox in Python. The call syntax of functions is the same as in matlab where possible. There are some differences, because matlab allows to continuously index a multidimensional array in one axis. In python this is not possible, therefore the result of functions like nrPBCHIndices() is also multidimensional here to make it compatible with Python.
+
+# Installation
+'python3 -m pip install py3gpp'
+or
+clone this repo and then do 'python3 -m pip install -e .'
+
+# Getting started
+run 'examples/test_py3gpp.ipynb'
+
+The example data is ideal data generated with Matlab, but the code has been tested with real data that has CFO, SFO and noise.
+
+# Documentation
+See Matlab documentation of equivalent function
+
