@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "azqueuemanager"
+description = "Storage Queue Input-Output Manager for Azure Storage Queue"
+dependencies = ['azure-storage-queue']
+readme = "README.md"
+license = { text = "MIT"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+keywords = ["azqueuemanager"]
+requires-python = ">=3.10"
+version = "0.0.5"
