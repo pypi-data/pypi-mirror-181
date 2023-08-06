@@ -1,0 +1,14 @@
+
+[:python_version <= "3.11"]
+tomli
+
+[build]
+build
+twine
+
+[dev]
+black
+bumpver
+isort
+mypy
+pytest

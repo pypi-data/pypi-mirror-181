@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+src/trade_log.egg-info/PKG-INFO
+src/trade_log.egg-info/SOURCES.txt
+src/trade_log.egg-info/dependency_links.txt
+src/trade_log.egg-info/entry_points.txt
+src/trade_log.egg-info/requires.txt
+src/trade_log.egg-info/top_level.txt
+src/trades/__init__.py
+src/trades/__main__.py
