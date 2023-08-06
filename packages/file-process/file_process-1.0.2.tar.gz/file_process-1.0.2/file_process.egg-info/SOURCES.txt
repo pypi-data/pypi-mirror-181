@@ -1,0 +1,15 @@
+LICENSE.txt
+README.md
+setup.cfg
+setup.py
+file_process/__init__.py
+file_process/base.py
+file_process/csv.py
+file_process/exceptions.py
+file_process/file_processor_factory.py
+file_process/h5.py
+file_process.egg-info/PKG-INFO
+file_process.egg-info/SOURCES.txt
+file_process.egg-info/dependency_links.txt
+file_process.egg-info/requires.txt
+file_process.egg-info/top_level.txt
