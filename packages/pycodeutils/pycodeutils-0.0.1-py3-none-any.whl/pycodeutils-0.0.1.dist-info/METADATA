@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: pycodeutils
+Version: 0.0.1
+Summary: Utilities for coding challenges.
+Home-page: https://github.com/TheRealVizard/pycodeutils
+License: BSD-3-Clause
+Keywords: utilities,coding,challenges
+Author: TheRealVizard
+Author-email: vizard@divineslns.com
+Requires-Python: >=3.7,<4
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: parse (>=1.19.0,<2.0.0)
+Project-URL: Bug Tracker, https://github.com/TheRealVizard/pycodeutils/issues
+Project-URL: Repository, https://github.com/TheRealVizard/pycodeutils
+Description-Content-Type: text/markdown
+
+# pycodeutils
+Utilities for coding challenges.
+
