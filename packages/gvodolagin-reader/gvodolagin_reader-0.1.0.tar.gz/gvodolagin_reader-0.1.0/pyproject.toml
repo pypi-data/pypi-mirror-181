@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "gvodolagin-reader"
+version = "0.1.0"
+description = "Test pack"
+authors = ["Grtigorii Vodolagin <grvodolagin@provectus.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
