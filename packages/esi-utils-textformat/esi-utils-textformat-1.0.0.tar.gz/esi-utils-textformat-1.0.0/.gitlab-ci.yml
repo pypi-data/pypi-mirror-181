@@ -1,0 +1,15 @@
+image: ${DEVOPS_REGISTRY}usgs/centos:latest
+
+stages:
+  - test
+
+run tests:
+  image: ${DEVOPS_REGISTRY}usgs/conda:latest
+  script:
+    - source /etc/profile.d/conda.sh
+    - pip install .
+    - pip install pytest
+    - pytest .
+  stage: test
+  tags:
+    - development

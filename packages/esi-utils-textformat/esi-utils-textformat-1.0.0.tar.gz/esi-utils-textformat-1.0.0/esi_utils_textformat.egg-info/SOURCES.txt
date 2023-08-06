@@ -1,0 +1,14 @@
+.gitignore
+.gitlab-ci.yml
+DISCLAIMER.md
+LICENSE.md
+README.md
+code.json
+setup.py
+esi_utils_textformat/__init__.py
+esi_utils_textformat/text.py
+esi_utils_textformat.egg-info/PKG-INFO
+esi_utils_textformat.egg-info/SOURCES.txt
+esi_utils_textformat.egg-info/dependency_links.txt
+esi_utils_textformat.egg-info/top_level.txt
+tests/text_test.py
