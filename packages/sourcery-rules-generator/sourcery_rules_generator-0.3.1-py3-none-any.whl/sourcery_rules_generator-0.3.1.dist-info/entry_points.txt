@@ -1,0 +1,3 @@
+[console_scripts]
+sourcery-rules=sourcery_rules_generator.cli.cli:app
+
