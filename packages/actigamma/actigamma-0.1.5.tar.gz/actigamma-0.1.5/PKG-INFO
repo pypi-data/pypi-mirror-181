@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: actigamma
+Version: 0.1.5
+Summary: The package for producing gamma spec from nuclide activities
+Home-page: https://github.com/fispact/actigamma
+Author: UKAEA
+Author-email: thomas.stainer@ukaea.uk
+License: Apache License 2.0
+Requires-Python: >=3
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+
+The package for producing gamma spec from nuclide activities
