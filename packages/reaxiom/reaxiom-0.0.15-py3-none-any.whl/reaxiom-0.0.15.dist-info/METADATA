@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: reaxiom
+Version: 0.0.15
+Summary: axiom system for research
+Project-URL: Homepage, https://huggingface.co/spaces/reaxiom/code
+Author-email: Dijun Luo <dijunluo@163.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Requires-Dist: huggingface-hub
+Requires-Dist: pandas
