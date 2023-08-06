@@ -1,0 +1,64 @@
+Metadata-Version: 2.1
+Name: dune.xt
+Version: 2022.3.4.2
+Summary: Python for Dune-Gdt
+Home-page: https://zivgitlab.uni-muenster.de/ag-ohlberger/dune-community/dune-gdt
+Author: The dune-gdt devs
+Author-email: felix.schindler@wwu.de
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: ipython
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: pytest-cov
+Requires-Dist: mpi4py
+Provides-Extra: all
+Requires-Dist: k3d ; extra == 'all'
+Requires-Dist: vtk ; extra == 'all'
+Requires-Dist: ipywidgets ; extra == 'all'
+Requires-Dist: lxml ; extra == 'all'
+Requires-Dist: xmljson ; extra == 'all'
+Requires-Dist: matplotlib ; extra == 'all'
+Requires-Dist: pylicense3 (>=0.4.1) ; extra == 'all'
+Requires-Dist: pytest ; extra == 'all'
+Requires-Dist: pytest-cov ; extra == 'all'
+Requires-Dist: cmake-format (==0.4.1) ; extra == 'all'
+Requires-Dist: codecov ; extra == 'all'
+Requires-Dist: yapf (==0.32) ; extra == 'all'
+Requires-Dist: jinja2 ; extra == 'all'
+Requires-Dist: bokeh ; extra == 'all'
+Requires-Dist: pymumps ; extra == 'all'
+Requires-Dist: metis ; extra == 'all'
+Provides-Extra: infrastructure
+Requires-Dist: pylicense3 (>=0.4.1) ; extra == 'infrastructure'
+Requires-Dist: pytest ; extra == 'infrastructure'
+Requires-Dist: pytest-cov ; extra == 'infrastructure'
+Requires-Dist: cmake-format (==0.4.1) ; extra == 'infrastructure'
+Requires-Dist: codecov ; extra == 'infrastructure'
+Requires-Dist: yapf (==0.32) ; extra == 'infrastructure'
+Requires-Dist: jinja2 ; extra == 'infrastructure'
+Provides-Extra: parallel
+Requires-Dist: bokeh ; extra == 'parallel'
+Requires-Dist: pymumps ; extra == 'parallel'
+Requires-Dist: metis ; extra == 'parallel'
+Provides-Extra: visualisation
+Requires-Dist: k3d ; extra == 'visualisation'
+Requires-Dist: vtk ; extra == 'visualisation'
+Requires-Dist: ipywidgets ; extra == 'visualisation'
+Requires-Dist: lxml ; extra == 'visualisation'
+Requires-Dist: xmljson ; extra == 'visualisation'
+Requires-Dist: matplotlib ; extra == 'visualisation'
+
+```
+# This file is part of the dune-xt project:
+#   https://zivgitlab.uni-muenster.de/ag-ohlberger/dune-community/dune-xt
+# Copyright 2009-2021 dune-xt developers and contributors. All rights reserved.
+# License: Dual licensed as BSD 2-Clause License (http://opensource.org/licenses/BSD-2-Clause)
+#      or  GPL-2.0+ (http://opensource.org/licenses/gpl-license)
+#          with "runtime exception" (http://www.dune-project.org/license.html)
+# Authors:
+#   Felix Schindler (2017)
+#   René Fritze     (2016, 2018 - 2019)
+#   Tobias Leibner  (2020 - 2021)
+```
+
