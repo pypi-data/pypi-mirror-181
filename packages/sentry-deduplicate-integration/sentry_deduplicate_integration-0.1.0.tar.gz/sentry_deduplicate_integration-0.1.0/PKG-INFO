@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: sentry-deduplicate-integration
+Version: 0.1.0
+Summary: 
+Author: Iuri de Silvio
+Author-email: iurisilvio@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: sentry-sdk (>=1.12.0,<2.0.0)
+Description-Content-Type: text/markdown
+
+# sentry-deduplicate-integration
+
+Sentry integration to rate-limit duplicated errors, using redis to sync error
+count and identify duplications.
+
+Add the integration to your sentry_sdk initialization.
+
+```python
+import redis
+from sentry_deduplicate_integration import SentryDeduplicateIntegration
+
+
+sentry_sdk.init(
+    integrations=[
+        SentryDeduplicateIntegration(
+            redis_factory=redis.Redis,
+            max_events_per_minute=10,
+        ),
+    ],
+)
+```
+
+The `redis_factory` arg is any function returning a redis client.
+
