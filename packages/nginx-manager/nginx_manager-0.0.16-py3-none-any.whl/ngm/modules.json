@@ -1,0 +1,756 @@
+{
+    "by_handle": {
+        "immutable": {
+            "repo": "GetPageSpeed/ngx_immutable",
+            "summary": "NGINX module for setting immutable caching on static assets",
+            "description": "This tiny NGINX module can help improve caching of your public\nstatic assets by setting far future expiration together with\nimmutable attribute.\n",
+            "soname": "ngx_http_immutable_module"
+        },
+        "graphite": {
+            "repo": "mailru/graphite-nginx-module",
+            "summary": "An NGINX module for collecting stats into Graphite",
+            "description": "NGINX module for collecting location stats into Graphite.\n",
+            "soname": "ngx_http_graphite_module",
+            "cc_opt": "-Wno-error"
+        },
+        "memc": {
+            "repo": "openresty/memc-nginx-module",
+            "summary": "Extended version of the standard NGINX memcached module",
+            "description": "Extended version of the standard NGINX memcached module\n",
+            "soname": "ngx_http_memc_module"
+        },
+        "captcha": {
+            "repo": "dvershinin/ngx_http_captcha_module",
+            "summary": "NGINX Captcha Module",
+            "description": "NGINX module for generate captcha and validate captcha code\n",
+            "soname": "ngx_http_captcha_module",
+            "build_requires": [
+                "gd-devel"
+            ],
+            "devtoolset": {
+                "el7": 8
+            },
+            "ref": {
+                "el7": "https://bit.ly/nginx-captcha-el",
+                "el8": "https://bit.ly/nginx-captcha-el",
+                "amzn2": "https://bit.ly/nginx-captcha-el"
+            }
+        },
+        "js-challenge": {
+            "repo": "dvershinin/ngx_http_js_challenge_module",
+            "summary": "NGINX Javascript challenge module",
+            "description": "Similar to Cloudflare's anti-DDoS feature.\n\nSimple javascript proof-of-work based access for NGINX with\nvirtually no overhead.\n",
+            "soname": "ngx_http_js_challenge_module",
+            "release_ticket": "https://github.com/simon987/ngx_http_js_challenge_module/issues/4"
+        },
+        "echo": {
+            "repo": "openresty/echo-nginx-module",
+            "summary": "nginx Echo module",
+            "description": "An NGINX module for bringing the power of \"echo\", \"sleep\", \"time\"\nand more to NGINX's config file\n",
+            "soname": "ngx_http_echo_module"
+        },
+        "geoip2": {
+            "repo": "leev/ngx_http_geoip2_module",
+            "summary": "NGINX GeoIP2 module",
+            "description": "NGINX module which creates variables with values from the MaxMind\ngeoip2 databases. based on the client IP (default) or from a\nspecific variable (supports both IPv4 and IPv6)\n",
+            "soname": "ngx_http_geoip2_module",
+            "build_requires": [
+                "libmaxminddb-devel"
+            ]
+        },
+        "vts": {
+            "repo": "vozlt/nginx-module-vts",
+            "summary": "NGINX virtual host traffic status module",
+            "description": "This is an NGINX module that provides access to virtual host status\ninformation. It contains the current status such as servers,\nupstreams, caches.\n\nThis is similar to the live activity monitoring of NGINX Plus\n",
+            "soname": "ngx_http_vhost_traffic_status_module",
+            "cc_opt": "-Wno-error"
+        },
+        "testcookie": {
+            "repo": "dvershinin/testcookie-nginx-module",
+            "summary": "NGINX testcookie robot mitigation module",
+            "description": "Simple robot mitigation module using cookie based challenge/response\ntechnique. Not supported any more.\n\nChallenge cookies can be set using different methods:\n\n* \"Set-Cookie\" + 302/307 HTTP Location redirect\n* \"Set-Cookie\" + HTML meta refresh redirect\n* Custom template, JavaScript can be used here.\n\nTo prevent automatic parsing, challenge cookie value can be encrypted\nwith AES-128 in CBC mode using custom/random key and iv, and then\ndecrypted at client side with JavaScript.\n",
+            "soname": "ngx_http_testcookie_access_module"
+        },
+        "postgres": {
+            "repo": "dvershinin/ngx_postgres",
+            "summary": "PostgreSQL module for NGINX",
+            "description": "Upstream module that allows NGINX to communicate directly with\nPostgreSQL database.\n",
+            "soname": "ngx_postgres_module",
+            "build_requires": [
+                "postgresql-devel"
+            ]
+        },
+        "zip": {
+            "repo": "dvershinin/mod_zip",
+            "summary": "Streaming ZIP archiver for NGINX",
+            "description": "mod_zip assembles ZIP archives dynamically. It can stream component\nfiles from upstream servers with nginx's native proxying code, so\nthat the process never takes up more than a few KB of RAM at a time,\neven while assembling archives that are (potentially) gigabytes in\nsize.\n\nmod_zip supports a number of \"modern\" ZIP features, including large\nfiles, UTC timestamps, and UTF-8 filenames. It allows clients to\nresume large downloads using the \"Range\" and \"If-Range\" headers,\nalthough these feature require the server to know the file checksums\n(CRC-32's) in advance. See \"Usage\" for details.\n\nTo unzip files on the fly, check out nginx-module-unzip.\n",
+            "soname": "ngx_http_zip_module"
+        },
+        "form-input": {
+            "repo": "calio/form-input-nginx-module",
+            "summary": "NGINX form input module",
+            "description": "NGINX module that reads HTTP POST and PUT request body encoded in\n\"application/x-www-form-urlencoded\" and parses the arguments into\nNGINX variables.\n",
+            "soname": "ngx_http_form_input_module",
+            "requires": [
+                "nginx-module-ndk"
+            ]
+        },
+        "dynamic-limit-req": {
+            "repo": "limithit/ngx_dynamic_limit_req_module",
+            "summary": "NGINX module to dynamically lock IP and release it periodically",
+            "description": "NGINX module to dynamically lock IP and release it periodically.\n\nThis module is an extension based on ngx_http_limit_req_module.\n",
+            "soname": "ngx_http_dynamic_limit_req_module",
+            "build_requires": [
+                "hiredis-devel"
+            ]
+        },
+        "substitutions": {
+            "repo": "dvershinin/ngx_http_substitutions_filter_module",
+            "summary": "String substitutions module for nginx",
+            "description": "nginx_substitutions_filter is a filter module which can do\nboth regular expression and fixed string substitutions on\nresponse bodies.\n\nThis module is quite different from the Nginx's native\nSubstitution Module.\n\nIt scans the output chains buffer and matches string\nline by line, just like Apache's mod_substitute\n\nFor any issues, see bug tracker at\nhttps://github.com/yaoweibin/ngx_http_substitutions_filter_module/issues\nand reference commit b8a71eacc7f986ba091282ab8b1bbbc6ae1807e0\nif requested, not the version of the package.\n",
+            "soname": "ngx_http_subs_filter_module",
+            "comment": "commit-based releases not yet supported, and upstream did not tag\nanything in years, so we tag own releases in our fork\n\nhttps://github.com/yaoweibin/ngx_http_substitutions_filter_module/issues/37\n"
+        },
+        "jwt": {
+            "repo": "max-lt/nginx-jwt-module",
+            "summary": "NGINX JWT Module",
+            "description": "NGINX module to check for a valid JWT.\n",
+            "soname": "ngx_http_auth_jwt_module",
+            "build_requires": [
+                "jansson-devel",
+                "libjwt-devel"
+            ],
+            "devtoolset": {
+                "el7": 8
+            }
+        },
+        "rtmp": {
+            "repo": "dvershinin/nginx-rtmp-module",
+            "summary": "NGINX RTMP module",
+            "description": "NGINX-based Media Streaming Server\n",
+            "soname": "ngx_rtmp_module",
+            "selinux_package": "https://raw.githubusercontent.com/dvershinin/nginx-rtmp-module/master/nginx-module-rtmp.te"
+        },
+        "accept-language": {
+            "repo": "dvershinin/nginx_accept_language_module",
+            "summary": "NGINX Accept-Language module",
+            "description": "NGINX module which parses the Accept-Language header and gives the\nmost suitable locale for the user from a list of supported locales\nfrom your website\n",
+            "soname": "ngx_http_accept_language_module"
+        },
+        "length-hiding": {
+            "repo": "nulab/nginx-length-hiding-filter-module",
+            "summary": "NGINX Length Hiding Filter Module",
+            "description": "NGINX length hiding filter module provides functionality to append\nrandomly generated HTML comment to the end of response body to\nhide correct response length and make it difficult for attackers\nto guess secure token\n",
+            "soname": "ngx_http_length_hiding_filter_module"
+        },
+        "hmac-secure-link": {
+            "repo": "nginx-modules/ngx_http_hmac_secure_link_module",
+            "summary": "Alternative NGINX HMAC Secure Link module with support for OpenSSL hashes",
+            "description": "Alternative NGINX HMAC Secure Link module with support for OpenSSL\nhashes\n",
+            "soname": "ngx_http_hmac_secure_link_module"
+        },
+        "push-stream": {
+            "repo": "wandenberg/nginx-push-stream-module",
+            "summary": "NGINX push stream module",
+            "description": "A pure stream HTTP push technology for your NGINX setup\n",
+            "soname": "ngx_http_push_stream_module"
+        },
+        "upload": {
+            "repo": "fdintino/nginx-upload-module",
+            "summary": "NGINX module for handling file uploads",
+            "description": "A module for NGINX for handling file uploads using\nmultipart/form-data encoding (RFC 1867) and resumable uploads\naccording to this protocol.\n",
+            "soname": "ngx_http_upload_module"
+        },
+        "concat": {
+            "repo": "dvershinin/nginx-http-concat",
+            "summary": "HTTP Concatenation module for NGINX",
+            "description": "NGINX module for concatenating files in a given context: CSS and JS files\nusually\n",
+            "soname": "ngx_http_concat_module"
+        },
+        "ajp": {
+            "repo": "dvershinin/nginx_ajp_module",
+            "summary": "Support AJP protocol proxy with NGINX",
+            "description": "With this module, Nginx can connect to AJP port directly.\nThe motivation of writing these modules is Nginx's high performance\nand robustness.\n",
+            "soname": "ngx_http_ajp_module"
+        },
+        "ndk": {
+            "repo": "vision5/ngx_devel_kit",
+            "summary": "Nginx Development Kit",
+            "description": "Nginx module that adds additional generic tools that module\ndevelopers can use in their own modules\n",
+            "soname": "ndk_http_module",
+            "cc_opt": "-DNDK_SET_VAR -DNDK_UPSTREAM_LIST"
+        },
+        "set-misc": {
+            "repo": "openresty/set-misc-nginx-module",
+            "summary": "NGINX Set-Misc module",
+            "description": "Various set_xxx directives added to NGINX's rewrite module\n(md5/sha1, sql/json quoting, and many more).\n",
+            "soname": "ngx_http_set_misc_module",
+            "requires": [
+                "nginx-module-ndk"
+            ]
+        },
+        "cache-purge": {
+            "repo": "nginx-modules/ngx_cache_purge",
+            "summary": "NGINX Cache Purge module",
+            "description": "NGINX module which adds ability to purge content from FastCGI, proxy,\nSCGI and uWSGI caches. A purge operation removes the content with\nthe same cache key as the purge request has.\n",
+            "soname": "ngx_http_cache_purge_module"
+        },
+        "cookie-flag": {
+            "repo": "AirisX/nginx_cookie_flag_module",
+            "summary": "NGINX cookie flag module",
+            "description": "This NGINX module allows to set the flags \"HttpOnly\", \"secure\"\nand \"SameSite\" for cookies in the \"Set-Cookie\" upstream response\nheaders.\n\nThe register of letters for the flags doesn't matter as it will be\nconverted to the correct value. The order of cookie declaration\namong multiple directives doesn't matter too. It is possible to set\na default value using symbol \"*\". In this case flags will be added\nto the all cookies if no other value for them is overriden.\n",
+            "soname": "ngx_http_cookie_flag_filter_module"
+        },
+        "srcache": {
+            "repo": "dvershinin/srcache-nginx-module",
+            "summary": "Transparent subrequest-based caching layout for arbitrary NGINX locations",
+            "description": "This module provides a transparent caching layer for arbitrary NGINX\nlocations (like those use an upstream or even serve static disk\nfiles).\n\nThe caching behavior is mostly compatible with RFC 2616.\n",
+            "soname": "ngx_http_srcache_filter_module",
+            "comment": "release waiting tag"
+        },
+        "redis2": {
+            "repo": "openresty/redis2-nginx-module",
+            "summary": "NGINX upstream module for the Redis 2.0 protocol",
+            "description": "NGINX upstream module for the Redis 2.0 protocol\n",
+            "soname": "ngx_http_redis2_module"
+        },
+        "headers-more": {
+            "repo": "dvershinin/headers-more-nginx-module",
+            "summary": "NGINX Headers More dynamic module",
+            "description": "Set, add, and clear arbitrary output headers in the NGINX HTTP servers.\n",
+            "soname": "ngx_http_headers_more_filter_module"
+        },
+        "upstream-fair": {
+            "repo": "itoffshore/nginx-upstream-fair",
+            "summary": "The fair load balancer module for NGINX",
+            "description": "The fair load balancer module for NGINX",
+            "soname": "ngx_http_upstream_fair_module"
+        },
+        "webp": {
+            "repo": "dvershinin/ngx_webp",
+            "summary": "NGINX WebP module",
+            "description": "NGINX module which converts jpg/png images on fly and sends webp response\n",
+            "soname": "ngx_http_webp_module",
+            "build_requires": [
+                "libwebp-tools"
+            ]
+        },
+        "sticky": {
+            "repo": "dvershinin/nginx-sticky-module-ng",
+            "summary": "NGINX sticky cookie module",
+            "description": "NGINX module to add a sticky cookie to be always forwarded to the\nsame upstream server\n",
+            "soname": "ngx_http_sticky_module",
+            "bump": 2
+        },
+        "ipscrub": {
+            "repo": "masonicboom/ipscrub",
+            "summary": "IP address anonymizer module for NGINX",
+            "description": "This is an IP address anonymizer for NGINX log files.\nIt's an nginx module that generates an IP-based hash.\nYou can use this hash to link requests from the same source,\nwithout identifying your users by IP address.\n",
+            "soname": "ngx_ipscrub_module",
+            "config_dirname": "ipscrub",
+            "build_requires": [
+                "libbsd-devel"
+            ]
+        },
+        "phantom-token": {
+            "repo": "curityio/nginx_phantom_token_module",
+            "summary": "Phantom Token NGINX Module",
+            "description": "NGINX module that introspects phantom access tokens according to RFC 7662\n",
+            "soname": "ngx_curity_http_phantom_token_module"
+        },
+        "slowfs": {
+            "repo": "dvershinin/ngx_slowfs_cache",
+            "summary": "NGINX SlowFS Cache Module",
+            "description": "NGINX module which adds ability to cache static files.\n",
+            "soname": "ngx_http_slowfs_module"
+        },
+        "fips-check": {
+            "repo": "ogarrett/nginx-fips-check-module",
+            "summary": "FIPS status check module for NGINX",
+            "description": "This module applies to NGINX builds that use OpenSSL for SSL/TLS crypto. \nIt runs after NGINX startup and queries the OpenSSL library, reporting if \nthe library is in FIPS mode or not.\n",
+            "soname": "ngx_fips_check_module"
+        },
+        "ts": {
+            "repo": "arut/nginx-ts-module",
+            "summary": "NGINX MPEG-TS Live Module",
+            "description": "NGINX MPEG-TS Live Module:\n  * receives MPEG-TS over HTTP\n  * produces and manages live HLS\n  * produces and manages live MPEG-DASH\n",
+            "soname": "ngx_http_ts_module"
+        },
+        "nchan": {
+            "repo": "slact/nchan",
+            "summary": "Scalable, flexible pub/sub server for the modern web",
+            "description": "Nchan is a scalable, flexible pub/sub server for the modern web,\nbuilt as a module for the NGINX web server. It can be configured\nas a standalone server, or as a shim between your application\nand hundreds, thousands, or millions of live subscribers.\nIt can buffer messages in memory, on-disk, or via Redis.\n\nMessages are published to channels with HTTP POST requests or\nWebsocket, and subscribed also through Websocket, long-polling,\nEventSource (SSE), old-fashioned interval polling, and more.\n\nIn a web browser, you can use Websocket or EventSource natively,\nor the NchanSubscriber.js wrapper library. It supports Long-Polling,\nEventSource, and resumable Websockets, and has a few other added\nconvenience options. It's also available on NPM.\n",
+            "soname": "ngx_nchan_module",
+            "devtoolset": {
+                "el7": 8
+            },
+            "cc_opt": "-Wno-error",
+            "patches": [
+                "https://patch-diff.githubusercontent.com/raw/slact/nchan/pull/652.diff"
+            ]
+        },
+        "secure-token": {
+            "repo": "kaltura/nginx-secure-token-module",
+            "summary": "Secure token module for NGINX",
+            "description": "Generates CDN tokens, either as a cookie or as a query string\nparameter (m3u8,mpd,f4m only).\n\nCurrently supports Akamai v2 tokens, and Amazon CloudFront tokens.\nIn addition, the module supports the encryption of URIs with a\nconfigured key\n",
+            "soname": "ngx_http_secure_token_filter_module"
+        },
+        "shibboleth": {
+            "repo": "nginx-shib/nginx-http-shibboleth",
+            "summary": "Shibboleth Auth Request module for NGINX",
+            "description": "This module allows NGINX to work with Shibboleth, by way of\nShibboleth's FastCGI authorizer. This module requires specific\nconfiguration in order to work correctly, as well as Shibboleth's\nFastCGI authorizer application available on the system.\n\nIt aims to be similar to parts of Apache's mod_shib, though\nShibboleth authorisation and authentication settings are configured\nvia shibboleth2.xml rather than in the web server configuration.\n",
+            "soname": "ngx_http_shibboleth_module"
+        },
+        "html-sanitize": {
+            "repo": "dvershinin/ngx_http_html_sanitize_module",
+            "summary": "NGINX module to sanitize HTML 5 with whitelisted elements, attributes and CSS",
+            "description": "ngx_http_html_sanitize_module - It's base on google's gumbo-parser as\nHTML5 parser and hackers-painters's katana-parser as inline CSS\nparser to sanitize HTML with whitelisted elements, whitelisted\nattributes and whitelisted CSS property.\n",
+            "soname": "ngx_http_html_sanitize_module"
+        },
+        "aws-auth": {
+            "repo": "anomalizer/ngx_aws_auth",
+            "summary": "NGINX module to proxy to authenticated AWS services",
+            "description": "This NGINX module can proxy requests to authenticated S3 backends\nusing Amazon's V4 authentication API.\n",
+            "soname": "ngx_http_aws_auth_module",
+            "cc_opt": "-Wno-error"
+        },
+        "sysguard": {
+            "repo": "dvershinin/nginx-module-sysguard",
+            "summary": "NGINX sysguard module",
+            "description": "This module can be used to protect your server in case system\nload, memory use goes too high or requests are responded too slow\n",
+            "soname": "ngx_http_sysguard_module"
+        },
+        "google": {
+            "repo": "GetPageSpeed/ngx_http_google_filter_module",
+            "summary": "NGINX Module for Google Mirror creation",
+            "description": "NGINX module which makes google mirror much easier to deploy\n",
+            "soname": "ngx_http_google_filter_module"
+        },
+        "rdns": {
+            "repo": "dvershinin/nginx-http-rdns",
+            "summary": "NGINX HTTP rDNS module",
+            "description": "This module allows to make a reverse DNS (rDNS) lookup\nfor incoming connection and provides simple access control\nof incoming hostname by allow/deny rules (similar to\nHttpAccessModule allow/deny directives; regular expressions\nare supported).\n\nModule works with the DNS server defined by the standard\nresolver directive. This module uses nginx core resolver\ncache when resolving DNS lookup, for a maximum of 30\nseconds or DNS response TTL.\n",
+            "soname": "ngx_http_rdns_module"
+        },
+        "f4fhds": {
+            "repo": "GetPageSpeed/f4fhds",
+            "summary": "NGINX module for Adobe f4f format",
+            "description": "This module implements handling of HTTP Dynamic Streaming requests\nin the \"/videoSeg1-Frag1\" form — extracting the needed fragment\nfrom the videoSeg1.f4f file using the videoSeg1.f4x index file.\nThis module is an alternative to the Adobe’s f4f module\n(HTTP Origin Module) for Apache.\n\nIt is open-source equivalent for commercial ngx_http_f4f_module\nmodule.\n",
+            "soname": "ngx_http_f4fhds_module"
+        },
+        "combined-upstreams": {
+            "repo": "lyokha/nginx-combined-upstreams-module",
+            "summary": "NGINX Combined Upstreams module",
+            "description": "The module introduces three directives add_upstream,\ncombine_server_singlets, and extend_single_peers available inside\nupstream configuration blocks, and a new configuration block\nupstrand for building super-layers of upstreams. Additionally,\ndirective dynamic_upstrand is introduced for choosing upstrands\nin run-time.\n",
+            "soname": "ngx_http_combined_upstreams_module"
+        },
+        "dynamic-etag": {
+            "repo": "dvershinin/ngx_dynamic_etag",
+            "summary": "NGINX module for adding ETag to dynamic content",
+            "description": "This NGINX module empowers your dynamic content with automatic ETag\nheader. It allows client browsers to issue conditional GET requests\nto dynamic pages.\n\nThis saves bandwidth and ensures better performance!\n",
+            "soname": "ngx_http_dynamic_etag_module"
+        },
+        "jpeg": {
+            "repo": "ioppermann/modjpeg-nginx",
+            "summary": "NGINX JPEG filter module",
+            "description": "NGINX filter module for adding overlays and logos to JPEGs\non-the-fly without degrading the quality of the image\n",
+            "soname": "ngx_http_jpeg_filter_module",
+            "build_requires": [
+                "libmodjpeg-devel",
+                "libjpeg-turbo-devel"
+            ]
+        },
+        "upsync": {
+            "repo": "weibocom/nginx-upsync-module",
+            "summary": "NGINX module for syncing upstreams from consul or etcd",
+            "description": "Syncs upstreams from consul or others, dynamically modify backend-servers\nattribute(weight, max_fails,...), needn't reload nginx.\n\nIt may not always be convenient to modify configuration files and restart\nNGINX. For example, if you are experiencing large amounts of traffic and high\nload, restarting NGINX and reloading the configuration at that point further\nincreases load on the system and can temporarily degrade performance.\n\nThe module can be more smoothly expansion and constriction, and will not\ninfluence the performance.\n\nAnother module, nginx-module-stream-upsync supports nginx stream\nmodule(TCP protocol), please be noticed.\n",
+            "soname": "ngx_http_upsync_module"
+        },
+        "stream-upsync": {
+            "repo": "xiaokai-wang/nginx-stream-upsync-module",
+            "summary": "NGINX module for syncing stream backends from consul or etcd",
+            "description": "NGINX module which allows to sync upstreams from consul or others,\ndynamically modify backend-servers attribute(weight, max_fails,...),\nneedn't reload nginx.\n\nIt may not always be convenient to modify configuration files and restart\nNGINX. For example, if you are experiencing large amounts of traffic and high\nload, restarting NGINX and reloading the configuration at that point further\nincreases load on the system and can temporarily degrade performance.\n\nThe module can be more smoothly expansion and constriction, and will not\ninfluence the performance.\n\nThis module is for stream backends!\n\nAnother module, nginx-module-upsync is for HTTP backends\n",
+            "soname": "ngx_stream_upsync_module"
+        },
+        "doh": {
+            "repo": "dvershinin/Nginx-DOH-Module",
+            "summary": "NGINX module for serving DNS-over-HTTPS (DOH) requests",
+            "description": "Simple NGINX module for serving DNS-over-HTTPS (DOH) requests.\n\nCAVEAT EMPTOR: This module is experimental, even though I have been using it\nsuccessfully with both Firefox and Curl, there may be undiscovered bugs.\nZone transfer is currently not officially supported.\n",
+            "soname": "ngx_http_doh_module",
+            "patches": [
+                "https://github.com/dvershinin/Nginx-DOH-Module/commit/2c6c611157489f21962ffe92a032f6e536a0227c.diff"
+            ]
+        },
+        "statsd": {
+            "repo": "dvershinin/nginx-statsd",
+            "summary": "NGINX module for sending stats to statsd",
+            "description": "NGINX module for sending stats to statsd\n",
+            "soname": "ngx_http_statsd_module"
+        },
+        "untar": {
+            "repo": "ajax16384/ngx_http_untar_module",
+            "summary": "NGINX HTTP Untar Module",
+            "description": "This NGINX module can serve static file content directly from tar\narchives. Inspired by nginx-unzip-module.\n\nFeatures:\n  * Zero-copy: outputs content directly from archive file\n    (no temporary files)\n  * Caching parsed archive file entries: reduce archive\n    scan-search time\n  * Supported tar item types: normal file, long file name data\n\nConfiguration example:\n\n    location ~ ^/(.+?\\.tar)/(.*)$ {\n        untar_archive \"$document_root/$1\";\n        untar_file \"$2\";\n        untar;\n    }\n",
+            "soname": "ngx_http_untar_module"
+        },
+        "auth-ldap": {
+            "repo": "dvershinin/nginx-auth-ldap",
+            "summary": "LDAP Authentication module for nginx",
+            "description": "LDAP module for nginx which supports authentication against\nmultiple LDAP servers\n\nFor any issues, see bug tracker at\nhttps://github.com/kvspb/nginx-auth-ldap/issues\nand reference commit 83c059b73566c2ee9cbda920d91b66657cf120b7\nif requested, not the version of the package.\n",
+            "soname": "ngx_http_auth_ldap_module",
+            "build_requires_raw": "%if 0%{?suse_version}\nBuildRequires: openldap2-devel\n%else\nBuildRequires: openldap-devel\n%endif\n",
+            "comment": "commit-based releases not yet supported, and upstream did not tag\nanything in years, so we tag own releases in our fork\n"
+        },
+        "coolkit": {
+            "repo": "dvershinin/ngx_coolkit",
+            "summary": "NGINX CoolKit Module",
+            "description": "NGINX CoolKit is collection of small and useful NGINX add-ons.\n",
+            "soname": "ngx_coolkit_module",
+            "new_directives": [
+                "override_method"
+            ],
+            "new_variables": [
+                "remote_passwd",
+                "location"
+            ]
+        },
+        "flv": {
+            "repo": "winshining/nginx-http-flv-module",
+            "summary": "Media streaming server based on nginx-module-rtmp",
+            "description": "Media streaming server based on nginx-module-rtmp.\nIn addtion to the features nginx-rtmp-module provides,\nHTTP-FLV, GOP cache and VHOST (one IP for multi domain names)\nare supported now.\n",
+            "soname": "ngx_http_flv_live_module"
+        },
+        "pta": {
+            "repo": "iij/pta",
+            "summary": "Period of Time Authentication module for NGINX",
+            "description": "PTA (Period of Time Authentication) module is a module for NGINX.\nUsing PTA you can control access to your contents. PTA calculates\na encrypted query string that includes an expiration time and a\npath of the content.\n",
+            "soname": "ngx_http_pta_module",
+            "comment": "https://github.com/iij/pta/issues/10"
+        },
+        "auth-pam": {
+            "repo": "sto/ngx_http_auth_pam_module",
+            "summary": "PAM authentication dynamic module for NGINX",
+            "description": "NGINX module to use PAM for simple HTTP authentication\n",
+            "soname": "ngx_http_auth_pam_module",
+            "build_requires": [
+                "pam-devel"
+            ]
+        },
+        "fancyindex": {
+            "repo": "aperezdc/ngx-fancyindex",
+            "summary": "NGINX Fancy Index module",
+            "description": "The Fancy Index module makes possible the generation of file\nlistings, like the built-in autoindex module does, but adding\na touch of style.\nThis is possible because the module allows a certain degree \nof customization of the generated content:\n\n  * Custom headers, either local or stored remotely.\n  * Custom footers, either local or stored remotely.\n  * Add your own CSS style rules.\n  * Allow choosing to sort elements by name (default), \n    modification time, or size; both ascending (default), \n    or descending.\n",
+            "soname": "ngx_http_fancyindex_module"
+        },
+        "security-headers": {
+            "repo": "GetPageSpeed/ngx_security_headers",
+            "summary": "NGINX module for sending security headers",
+            "description": "This NGINX module adds security headers and removes insecure headers\neasily and according to HTTP specifications\n",
+            "soname": "ngx_http_security_headers_module"
+        },
+        "execute": {
+            "repo": "limithit/NginxExecute",
+            "summary": "NGINX Execute module",
+            "description": "The NginxExecute module executes the shell command through GET and\nPOST to display the result.\n",
+            "soname": "ngx_http_execute_module"
+        },
+        "encrypted-session": {
+            "repo": "openresty/encrypted-session-nginx-module",
+            "summary": "Encrypt and decrypt NGINX variable values",
+            "description": "NGINX module to encrypt and decrypt NGINX variable values.\n",
+            "soname": "ngx_http_encrypted_session_module",
+            "requires": [
+                "nginx-module-ndk"
+            ]
+        },
+        "iconv": {
+            "repo": "calio/iconv-nginx-module",
+            "summary": "NGINX iconv module",
+            "description": "This is NGINX module that uses libiconv to convert characters of\ndifferent encoding. It brings 'set_iconv' command to NGINX.\n",
+            "soname": "ngx_http_iconv_module",
+            "requires": [
+                "nginx-module-ndk"
+            ],
+            "build_requires_raw": "%if 0%{?suse_version}\nBuildRequires: glibc-devel\n%else\nBuildRequires: glibc-headers\n%endif"
+        },
+        "array-var": {
+            "repo": "openresty/array-var-nginx-module",
+            "summary": "Array-typed variables for NGINX",
+            "description": "Adds support for array-typed variables to NGINX config files.\n",
+            "soname": "ngx_http_array_var_module",
+            "requires": [
+                "nginx-module-ndk"
+            ]
+        },
+        "log-zmq": {
+            "repo": "dvershinin/nginx-log-zmq",
+            "summary": "ZeroMQ logger module for NGINX",
+            "description": "ZeroMQ logger module for NGINX\n",
+            "soname": "ngx_http_log_zmq_module",
+            "build_requires": [
+                "zeromq-devel"
+            ]
+        },
+        "json-var": {
+            "repo": "dvershinin/nginx-json-var-module",
+            "summary": "NGINX JSON variables module",
+            "description": "Module adds the ability to group NGINX variable expressions as JSON.\n",
+            "soname": "ngx_http_json_var_module"
+        },
+        "naxsi": {
+            "repo": "dvershinin/naxsi",
+            "summary": "NGINX Anti XSS & SQL Injection module",
+            "description": "NAXSI is an open-source, high performance, low rules\nmaintenance WAF for NGINX.\n\nThis module, by default, reads a small subset of simple\n(and readable) rules containing 99% of known patterns involved in\nwebsite vulnerabilities. For example, <, | or drop are not supposed\nto be part of a URI.\n\nBeing very simple, those patterns may match legitimate queries, it\nis the Naxsi's administrator duty to add specific rules that will\nwhitelist legitimate behaviours. The administrator can either add\nwhitelists manually by analyzing nginx's error log, or (recommended)\nstart the project with an intensive auto-learning phase that will\nautomatically generate whitelisting rules regarding a website's\nbehaviour.\n\nIn short, Naxsi behaves like a DROP-by-default firewall, the only\ntask is to add required ACCEPT rules for the target website to work\nproperly.\n",
+            "soname": "ngx_http_naxsi_module",
+            "config_dirname": "naxsi_src",
+            "comment": "https://github.com/nbs-system/naxsi/issues/580 and https://github.com/nbs-system/naxsi/issues/597",
+            "push_files": [
+                {
+                    "from": "naxsi_config/naxsi_core.rules",
+                    "to": "%{_datadir}/nginx/naxsi/naxsi_core.rules",
+                    "chmod": "0644",
+                    "type": "%config(noreplace)"
+                }
+            ],
+            "owns_dirs": [
+                "%{_datadir}/nginx/naxsi"
+            ]
+        },
+        "small-light": {
+            "repo": "dvershinin/ngx_small_light",
+            "summary": "Dynamic image transformation module For NGINX",
+            "description": "A dynamic image transformation module for NGINX.\nSupports the various image processings below.\n  * Resize\n  * Rotate\n  * Sharpen\n  * Unsharpen\n  * Blur\n  * Border\n  * Canvas\n  * Crop\n  * Composition\n  * JPEG Hinting(except GD)\n  * Format convert(e.g. PNG -> JPEG)\n  * Color-space convert(e.g. CMYK -> sRGB)\n",
+            "soname": "ngx_http_small_light_module",
+            "build_requires": [
+                "ImageMagick-devel"
+            ],
+            "comment": "building off our work with generated config for CentOS\n",
+            "cc_opt": "-Wno-error"
+        },
+        "traffic-accounting": {
+            "repo": "dvershinin/traffic-accounting-nginx-module",
+            "summary": "Monitor the incoming and outgoing traffic metrics in realtime for NGINX",
+            "description": "Monitor the incoming and outgoing traffic metrics in realtime for NGINX.\n\nNow accounting module supports both HTTP and STREAM subsystems\n\nA realtime traffic and status code monitor solution for NGINX, which needs\nless memory and cpu than other realtime log analyzing solutions.\nUseful for traffic accounting based on NGINX config logic\n(by location / server / user-defined-variables).\n",
+            "soname": [
+                "ngx_http_accounting_module"
+            ],
+            "comment": "rebased to own fork for tagging releases because upstream does not anymore"
+        },
+        "bot-verifier": {
+            "repo": "dvershinin/ngx_bot_verifier",
+            "summary": "A search index bot verification module for NGINX",
+            "description": "[BETA] This module has been tested on a handful of production\nwebsites.\n\nThis is an NGINX module designed to validate actors claiming to be\nsearch engine indexers. It is right to disable security mechanisms\nfor valid search engine bots to ensure your controls do not interfere\nwith page rankings on any of the search providers. The issue is\nthat the User Agent header cannot be trusted. In order to ensure you\nare allowing only valid search engine indexers, you must validate\naccording to their published standards.\n\nThis module performs that validation and caches the results to ensure\nyou do not pay validation penalties on every request.\n",
+            "soname": "ngx_http_bot_verifier_module",
+            "build_requires": [
+                "hiredis-devel"
+            ],
+            "comment": "https://github.com/repsheet/ngx_bot_verifier/issues/17"
+        },
+        "cookie-limit": {
+            "repo": "limithit/ngx_cookie_limit_req_module",
+            "summary": "NGINX module to limit the number of malicious ip forged cookies",
+            "description": "The ngx_cookie_limit_req_module module not only limits the access\nrate of cookies but also limits the number of malicious ip\nforged cookies.\n",
+            "soname": "ngx_http_cookie_limit_req_module",
+            "build_requires": [
+                "hiredis-devel"
+            ],
+            "comment": [
+                "https://github.com/limithit/ngx_cookie_limit_req_module/issues/3"
+            ]
+        },
+        "vod": {
+            "repo": "kaltura/nginx-vod-module",
+            "summary": "NGINX-based VOD Packager",
+            "description": "On-the-fly repackaging of MP4 files to DASH, HDS, HLS, MSS.\n",
+            "soname": "ngx_http_vod_module",
+            "build_requires": [
+                "libxml2-devel"
+            ],
+            "build_requires_raw": "%if 0%{?suse_version}\nBuildRequires: glibc-devel\n%else\nBuildRequires: glibc-headers\n%endif"
+        },
+        "pagespeed": {
+            "repo": "apache/incubator-pagespeed-ngx",
+            "summary": "PageSpeed dynamic module for NGINX",
+            "description": "PageSpeed dynamic module for NGINX\n",
+            "soname": [
+                "ngx_pagespeed"
+            ],
+            "comment": "separate build system which integrates PSOL library,\nNGINX v1.23.0 fix added via headers.patch\n",
+            "ref": {
+                "el7": "https://bit.ly/ngx-pagespeed-el",
+                "el8": "https://bit.ly/ngx-pagespeed-el",
+                "amzn2": "https://bit.ly/ngx-pagespeed-el"
+            }
+        },
+        "security": {
+            "repo": "SpiderLabs/ModSecurity-nginx",
+            "summary": "ModSecurity v3 Nginx Connector",
+            "description": "The ModSecurity-nginx connector is the connection point between nginx and libmodsecurity\n(ModSecurity v3). Said another way, this project provides a communication channel between nginx\nand libmodsecurity. This connector is required to use LibModSecurity with nginx.\n\nThe ModSecurity-nginx connector takes the form of an nginx module. The module simply serves as a\nlayer of communication between nginx and ModSecurity.\n",
+            "soname": [
+                "ngx_http_modsecurity_module"
+            ],
+            "comment": "separate build system due to requirement of SELinux subpackage, at least\n",
+            "ref": {
+                "el7": "https://bit.ly/ngx-security-el7",
+                "el8": "https://bit.ly/ngx-security-el8"
+            }
+        },
+        "stream-lua": {
+            "repo": "openresty/stream-lua-nginx-module",
+            "summary": "Lua scripting support for NGINX streams",
+            "description": "Embed the power of Lua into Nginx stream/TCP Servers.\n",
+            "soname": [
+                "ngx_stream_lua_module"
+            ],
+            "comment": "separate build system due to requirement of NDK and extra NGINX-MOD build"
+        },
+        "lua": {
+            "repo": "openresty/lua-nginx-module",
+            "summary": "Lua scripting support for NGINX",
+            "description": "Embed the power of Lua into Nginx HTTP Servers.\n",
+            "soname": [
+                "ngx_http_lua_module"
+            ],
+            "comment": "separate build system due to requirement of extra NGINX-MOD build"
+        },
+        "brotli": {
+            "repo": "GetPageSpeed/ngx_brotli",
+            "summary": "NGINX Brotli dynamic modules",
+            "description": "NGINX Brotli dynamic modules\n",
+            "soname": [
+                "ngx_http_brotli_filter_module",
+                "ngx_http_brotli_static_module"
+            ],
+            "build_requires": [
+                "brotli-devel"
+            ],
+            "comment": "separate build system which yields Plesk-specific packages\nin addition to standard distribution"
+        },
+        "njs": {
+            "repo": "nginx/njs",
+            "summary": "NGINX njs dynamic modules",
+            "description": "NGINX njs dynamic modules\n",
+            "build_requires": [
+                "libedit-devel"
+            ],
+            "soname": [
+                "ngx_http_js_module",
+                "ngx_stream_js_module"
+            ],
+            "directives_url": [
+                "http://nginx.org/en/docs/http/ngx_http_js_module.html",
+                "http://nginx.org/en/docs/stream/ngx_stream_js_module.html"
+            ],
+            "comment": "extra step for cli app"
+        },
+        "passenger": {
+            "repo": "phusion/passenger",
+            "summary": "Passenger module",
+            "description": "Phusion Passenger™ is a web server and application server, designed\nto be fast, robust and lightweight.\n\nIt takes a lot of complexity out of deploying web apps, adds powerful\nenterprise grade features that  are useful in production, and makes\nadministration much easier and less complex.\n\nPhusion Passenger supports Ruby, Python, Node.js and Meteor, and is\nbeing used by high-profile companies such as Apple, Pixar, New York\nTimes, AirBnB, Juniper etc as well as over 650.000 websites.\n",
+            "soname": "ngx_http_passenger_module",
+            "build_requires_repos": {
+                "amzn2": "ruby26-passenger6",
+                "el7": "ruby26-passenger6"
+            },
+            "build_requires": [
+                "rubygem-rake",
+                "ruby-devel",
+                "libcurl-devel",
+                "passenger-devel"
+            ],
+            "config_dirname": "src/nginx_module",
+            "sticky_version": {
+                "el6": {
+                    "version": "6.0.7",
+                    "spec_tag": "release-%{upstream_version}",
+                    "spec_tag_no_prefix": "release-%{upstream_version}"
+                }
+            }
+        }
+    },
+    "by_soname": {
+        "ngx_http_immutable_module": "immutable",
+        "ngx_http_graphite_module": "graphite",
+        "ngx_http_memc_module": "memc",
+        "ngx_http_captcha_module": "captcha",
+        "ngx_http_js_challenge_module": "js-challenge",
+        "ngx_http_echo_module": "echo",
+        "ngx_http_geoip2_module": "geoip2",
+        "ngx_http_vhost_traffic_status_module": "vts",
+        "ngx_http_testcookie_access_module": "testcookie",
+        "ngx_postgres_module": "postgres",
+        "ngx_http_zip_module": "zip",
+        "ngx_http_form_input_module": "form-input",
+        "ngx_http_dynamic_limit_req_module": "dynamic-limit-req",
+        "ngx_http_subs_filter_module": "substitutions",
+        "ngx_http_auth_jwt_module": "jwt",
+        "ngx_rtmp_module": "rtmp",
+        "ngx_http_accept_language_module": "accept-language",
+        "ngx_http_length_hiding_filter_module": "length-hiding",
+        "ngx_http_hmac_secure_link_module": "hmac-secure-link",
+        "ngx_http_push_stream_module": "push-stream",
+        "ngx_http_upload_module": "upload",
+        "ngx_http_concat_module": "concat",
+        "ngx_http_ajp_module": "ajp",
+        "ndk_http_module": "ndk",
+        "ngx_http_set_misc_module": "set-misc",
+        "ngx_http_cache_purge_module": "cache-purge",
+        "ngx_http_cookie_flag_filter_module": "cookie-flag",
+        "ngx_http_srcache_filter_module": "srcache",
+        "ngx_http_redis2_module": "redis2",
+        "ngx_http_headers_more_filter_module": "headers-more",
+        "ngx_http_upstream_fair_module": "upstream-fair",
+        "ngx_http_webp_module": "webp",
+        "ngx_http_sticky_module": "sticky",
+        "ngx_ipscrub_module": "ipscrub",
+        "ngx_curity_http_phantom_token_module": "phantom-token",
+        "ngx_http_slowfs_module": "slowfs",
+        "ngx_fips_check_module": "fips-check",
+        "ngx_http_ts_module": "ts",
+        "ngx_nchan_module": "nchan",
+        "ngx_http_secure_token_filter_module": "secure-token",
+        "ngx_http_shibboleth_module": "shibboleth",
+        "ngx_http_html_sanitize_module": "html-sanitize",
+        "ngx_http_aws_auth_module": "aws-auth",
+        "ngx_http_sysguard_module": "sysguard",
+        "ngx_http_google_filter_module": "google",
+        "ngx_http_rdns_module": "rdns",
+        "ngx_http_f4fhds_module": "f4fhds",
+        "ngx_http_combined_upstreams_module": "combined-upstreams",
+        "ngx_http_dynamic_etag_module": "dynamic-etag",
+        "ngx_http_jpeg_filter_module": "jpeg",
+        "ngx_http_upsync_module": "upsync",
+        "ngx_stream_upsync_module": "stream-upsync",
+        "ngx_http_doh_module": "doh",
+        "ngx_http_statsd_module": "statsd",
+        "ngx_http_untar_module": "untar",
+        "ngx_http_auth_ldap_module": "auth-ldap",
+        "ngx_coolkit_module": "coolkit",
+        "ngx_http_flv_live_module": "flv",
+        "ngx_http_pta_module": "pta",
+        "ngx_http_auth_pam_module": "auth-pam",
+        "ngx_http_fancyindex_module": "fancyindex",
+        "ngx_http_security_headers_module": "security-headers",
+        "ngx_http_execute_module": "execute",
+        "ngx_http_encrypted_session_module": "encrypted-session",
+        "ngx_http_iconv_module": "iconv",
+        "ngx_http_array_var_module": "array-var",
+        "ngx_http_log_zmq_module": "log-zmq",
+        "ngx_http_json_var_module": "json-var",
+        "ngx_http_naxsi_module": "naxsi",
+        "ngx_http_small_light_module": "small-light",
+        "ngx_http_accounting_module": "traffic-accounting",
+        "ngx_http_bot_verifier_module": "bot-verifier",
+        "ngx_http_cookie_limit_req_module": "cookie-limit",
+        "ngx_http_vod_module": "vod",
+        "ngx_pagespeed": "pagespeed",
+        "ngx_http_modsecurity_module": "security",
+        "ngx_stream_lua_module": "stream-lua",
+        "ngx_http_lua_module": "lua",
+        "ngx_http_brotli_filter_module": "brotli",
+        "ngx_http_brotli_static_module": "brotli",
+        "ngx_http_js_module": "njs",
+        "ngx_stream_js_module": "njs",
+        "ngx_http_passenger_module": "passenger"
+    }
+}
