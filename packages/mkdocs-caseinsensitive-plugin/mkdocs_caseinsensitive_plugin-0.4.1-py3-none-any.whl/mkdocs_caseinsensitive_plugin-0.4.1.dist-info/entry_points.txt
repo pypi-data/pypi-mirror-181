@@ -1,0 +1,3 @@
+[mkdocs.plugins]
+caseinsensitivefiles=mkdocs_caseinsensitive_plugin:CaseInsensitiveFiles
+
