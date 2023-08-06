@@ -1,0 +1,3 @@
+class Pyinstaller:
+    @classmethod
+    def generate(cls, _name: str, _path: str, _hidden_imports: list[str]) -> None: ...

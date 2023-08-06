@@ -1,0 +1,3 @@
+class Zipper:
+    @classmethod
+    def execute(cls) -> None: ...
