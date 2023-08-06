@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+jikan4snek/__init__.py
+jikan4snek.egg-info/PKG-INFO
+jikan4snek.egg-info/SOURCES.txt
+jikan4snek.egg-info/dependency_links.txt
+jikan4snek.egg-info/requires.txt
+jikan4snek.egg-info/top_level.txt
+jikan4snek/base/__init__.py
+jikan4snek/base/constant.py
+jikan4snek/base/fetch.py
+jikan4snek/client/__init__.py
+jikan4snek/client/jikan.py
+test/tests.py
