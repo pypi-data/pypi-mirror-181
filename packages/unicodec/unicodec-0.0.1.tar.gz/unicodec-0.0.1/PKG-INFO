@@ -1,0 +1,84 @@
+Metadata-Version: 2.1
+Name: unicodec
+Version: 0.0.1
+Author-email: Gregory Petukhov <lorien@lorien.name>
+License: The MIT License (MIT)
+        
+        Copyright (c) 2022, Gregory Petukhov
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in
+        all copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+        THE SOFTWARE.
+        
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Typing :: Typed
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Default Python Project Template README
+
+This project is created with cookiecutter using template located at https://github.com/lorien/pyproject
+
+To create another project from this template, run the command "cookiecutter gh:lorien/pyproject"
+
+
+## Initial Project Setup
+
+To create virtual environment and install all dependencies run: `make bootstrap`
+
+You can change dependencies in "requirements.txt" file
+
+
+# Type checking and linters
+
+Run command "make check" to run mypy, pylint, flake8 and bandit linters on your files. Do not forget
+to update FILES\_CHECK\_MYPY and FILES\_CHECK\_ALL in Makefile to include all packages and modules
+you want to check.
+
+
+## Database
+
+By default the project is configured to use MongoDB. To change MongoDB connection settings update "var/config.yml" file.
+
+
+## Scripts
+
+Command line scripts are stored in "script/" directory and can be launched with `run`
+command which is provided by "runscript" package.
+
+Example. You have "script/foo.py" file. If you run console command "run foo", the runscript
+framework will run `main()` function from "script/foo.py" file.
+
+
+## Community
+
+Telegram English chat: [https://t.me/grablab](https://t.me/grablab)
+
+Telegram Russian chat: [https://t.me/grablab\_ru](https://t.me/grablab_ru)
