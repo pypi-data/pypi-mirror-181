@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: empiric-network
+Version: 1.4.2
+Summary: Core package for rollup-native Empiric Network
+Home-page: https://github.com/42labs/Empiric
+Author: 42 Labs
+Author-email: jonas@42labs.xyz
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: <3.10,>=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: starknet.py (==0.10.2a0)
+Requires-Dist: cairo-lang (==0.10.2)
+Requires-Dist: typer (==0.6.1)
+
+# Empiric Network
+
+## About
+
+For more information, see the [project's repository](https://github.com/42labs/Empiric), [documentation overview](https://docs.empiric.network/) and [documentation on how to publish data](https://docs.empiric.network/using-empiric/publishing-data).
