@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+image_montage/__init__.py
+image_montage/conversors.py
+image_montage/exceptions.py
+image_montage/montage.py
+image_montage/objects.py
+image_montage/settings.py
+image_montage.egg-info/PKG-INFO
+image_montage.egg-info/SOURCES.txt
+image_montage.egg-info/dependency_links.txt
+image_montage.egg-info/requires.txt
+image_montage.egg-info/top_level.txt
