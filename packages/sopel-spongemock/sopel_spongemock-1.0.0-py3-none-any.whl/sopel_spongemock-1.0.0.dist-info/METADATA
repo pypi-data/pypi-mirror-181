@@ -1,0 +1,65 @@
+Metadata-Version: 2.1
+Name: sopel-spongemock
+Version: 1.0.0
+Summary: Sopel plugin to generate "Spongemock" text (based on *that* SpongeBob meme)
+Home-page: https://github.com/dgw/sopel-spongemock
+Author: dgw
+Author-email: dgw@technobabbl.es
+License: Eiffel Forum License, version 2
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: Eiffel Forum License (EFL)
+Classifier: License :: OSI Approved :: Eiffel Forum License
+Classifier: Topic :: Communications :: Chat :: Internet Relay Chat
+Description-Content-Type: text/markdown
+Requires-Dist: sopel (<9,>=7.0)
+
+# sopel-spongemock
+Sopel plugin to generate "Spongemock" text (based on *that* SpongeBob meme)
+
+## Requirements
+
+Only [Sopel](https://github.com/sopel-irc/sopel) itself.
+
+## Installation
+
+```sh
+pip install sopel-spongemock
+```
+
+## Usage
+
+```
+.spongemock <nick>|<text>
+
+or
+
+.smock <nick>|<text>
+```
+
+If a single word is passed, the command will first check if that nick has said
+anything in the channel recently, and will mock their last message if so.
+
+Any input that does not match a known user's nick will be mocked directly.
+
+### Examples
+
+```
+<dgw> .smock Free speech!
+<Sopel> fREe SpEEcH
+```
+
+```
+<dgw> I'm something of a Pythonista myself
+<ziro> .smock dgw
+<Sopel> i'M soMeThiNg oF a pYtHOnIsTA mySElf
+```
+
+
+1.0.0
+=====
+
+First official release, converted from single .py file to package.
+
+
