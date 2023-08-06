@@ -1,0 +1,15 @@
+### Changelog
+- **Version 2.0.0**:
+  - Change all of the API code
+  - Allowed to set detailed configuration for schema of a BigQuery table
+  - Added more features to work with BigQuery
+- **Version 2.0.1**:
+  - Changed some methods to become `staticmethod`
+- **Version 2.0.2**:
+  - Fixed minor error
+- **Version 2.0.3**:
+  - Added new method `generate_dummy_schema_from_df` to generrate dummy schema from pandas DataFrame
+- **Version 2.0.4**:
+  - Allowed to create Hive partitions
+- **Version 2.0.5**:
+  - Unloaded the pyodbc in default connectors
