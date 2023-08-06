@@ -1,0 +1,37 @@
+FROM python:3.9-slim-buster
+
+# Allow statements and log messages to immediately appear in the Knative logs on Google Cloud.
+ENV PYTHONUNBUFFERED True
+
+ENV PROJECT_ROOT=/app
+WORKDIR $PROJECT_ROOT
+
+RUN apt-get update -y && apt-get install -y --fix-missing build-essential curl && rm -rf /var/lib/apt/lists/*
+
+COPY . .
+
+# Install poetry if necessary.
+ENV POETRY_HOME=/etc/poetry
+ENV PATH "$POETRY_HOME/bin:$PATH"
+RUN if [ -f "pyproject.toml" ]; then curl -sSL https://install.python-poetry.org | python3 - && poetry config virtualenvs.create false; fi
+
+# Install dependencies - supports `setup.py`, `requirements.txt`, and `pyproject.toml` via poetry. All dependency files
+# are installed from if present.
+RUN if [ ! -f "requirements.txt" ] && [ ! -f "setup.py" ] && [ ! -f "pyproject.toml" ]; then exit 1; fi
+RUN if [ -f "requirements.txt" ]; then pip install --upgrade pip && pip install -r requirements.txt; fi
+RUN if [ -f "setup.py" ]; then pip install --upgrade pip && pip install -e .; fi
+RUN if [ -f "pyproject.toml" ]; then poetry install --only main; fi
+
+EXPOSE $PORT
+
+ENV USE_OCTUE_LOG_HANDLER=1
+ENV COMPUTE_PROVIDER=GOOGLE_CLOUD_RUN
+
+ARG GUNICORN_WORKERS=1
+ENV GUNICORN_WORKERS=$GUNICORN_WORKERS
+
+ARG GUNICORN_THREADS=8
+ENV GUNICORN_THREADS=$GUNICORN_THREADS
+
+# Timeout is set to 0 to disable the timeouts of the workers to allow Cloud Run to handle instance scaling.
+CMD exec gunicorn --bind :$PORT --workers $GUNICORN_WORKERS --threads $GUNICORN_THREADS --timeout 0 octue.cloud.deployment.google.cloud_run.flask_app:app
