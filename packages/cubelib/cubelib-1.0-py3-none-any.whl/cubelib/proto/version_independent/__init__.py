@@ -1,0 +1,1 @@
+name = 'Minecraft Java Edition protocol pieces independenting from version'
