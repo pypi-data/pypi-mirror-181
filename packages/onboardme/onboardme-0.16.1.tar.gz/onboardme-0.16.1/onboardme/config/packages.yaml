@@ -1,0 +1,280 @@
+---
+brew:
+  emoji: "🍺"
+  commands:
+    list: "brew list -1"
+    update: "brew update --quiet"
+    upgrade: "brew upgrade --quiet"
+    install: "brew install "
+    cleanup: "brew cleanup"
+  packages:
+    # these are all for both macOS and Debian
+    default:
+      # for testing apis and downloading things
+      - curl
+      - wget
+      # terminal based web browser
+      - lynx
+      # screen session + sharing/splitting
+      - tmux
+      # recording a shell session to share with others
+      - asciinema
+      # main terminal based text editors
+      - vim
+      - neovim
+      # terminal based email client
+      - neomutt
+      # fuzzy search, helps with completion and searching
+      - fzf
+      # ls replacement written in rust: https://github.com/Peltoche/lsd
+      - lsd
+      #  A cat(1) clone with syntax highlighting and Git integration.
+      - bat
+      # pretty formatting and syntax highlighting
+      - rich-cli
+      # file TUI: https://www.geeksforgeeks.org/ranger-a-cli-file-manager/
+      - ranger
+      # preview videos in the terminal
+      - ffmpegthumbnailer
+      # cat images in the terminal (e.g. img2sixel imagename.png)
+      - libsixel
+      # for working with images and making lsimg work
+      - imagemagick
+      # ag command: like grep or ack, but more modern, for searching file text
+      - the_silver_searcher
+      # diff, but with colors
+      - colordiff
+      - htop
+      - gotop
+      - neofetch
+      # prettier du/df outputs: https://github.com/muesli/duf
+      - duf
+      # rainbow text
+      - lolcat
+      # blocky fonts: https://devhints.io/figlet
+      - figlet
+      - toilet
+      # steam locamotive
+      - sl
+      # a cow that says things
+      - cowsay
+      # revision control system
+      - git
+      # github cli
+      - gh
+      # gitlab cli
+      - glab
+      # for setup scripts and compiling things (e.g. YouCompleteMe)
+      - cmake
+      # programming languages and their package managers
+      - python@3.11
+      - go
+      - node
+      # linter for YAML
+      - yamllint
+      # linter for html5
+      - tidy-html5
+      # mardown rendering
+      - pandoc
+      # for parsing json via cli
+      - jq
+      # search stackoverflow e.g. howdoi extend a dictionary in python
+      - howdoi
+      # get the quick, short text of how to use various commands
+      - tldr
+      # generating SSL certs and random strings
+      - openssl@3
+      # password management
+      - bitwarden-cli
+      # anti virus
+      - clamav
+      # TUI browser
+      - w3m
+      # TUI for gpg keys, for the lazy, like me
+      - "gpg-tui"
+    # macOS specific stuff. Won't work with LinuxBrew
+    macOS:
+      # current version of bash :)
+      - bash
+      # so that bash completion stuff works
+      - "bash-completion@2"
+      # this lets us resize windows
+      - "--cask rectangle"
+      # productivity search and command bar: replacing with cerebro soon
+      # - "--cask alfred"
+      # Default browser
+      - "--cask firefox"
+      # File server cloud replacement, not ready yet
+      # - "--cask nextcloud"
+      # Default terminal used by most macOS users, standard
+      - "--cask iterm2"
+      # backup terminal written in javascript :shrug:
+      - "--cask hyper"
+      # gives us the default gnu/linux sed we all know and love
+      - "gnu-sed"
+      # remap keys on macOS
+      - "--cask karabiner-elements"
+      # This should be docker desktop
+      - "--cask docker"
+      # primary media player
+      - "--cask vlc"
+      # youtube replacement
+      - "--cask freetube"
+      # firewall
+      - "--cask lulu"
+      # password manager
+      - "--cask bitwarden"
+      # VPN
+      - "--cask protonvpn"
+      # email
+      - "--cask protonmail-bridge"
+      # zathura is a document viewer
+      - zathura
+      - zathura-pdf-mupdf
+    devops:
+      # terraform for building stuff
+      - terraform
+      # manage multiple versions of terraform
+      # - tfenv
+      # cli for k8s (kubernetes)
+      - kubectl
+      # kubectl plugin manager
+      - krew
+      # terminal based dashbaord for k8s
+      - k9s
+      # package manager for k8s
+      - helm
+      # manages helm files
+      # - helmfile
+      # cli for Bitnami sealed-secrets, encrypting secrets in yaml files for gitops
+      - kubeseal
+      # gitops continuous delivery for k8s configs
+      - argocd
+      # KinD (Kubernetes in Docker), for small k8s clusters for testing
+      - kind
+      # aws work stuff
+      # "aws-cli"
+      # aws credentials switcher
+      # "--cask aws-vault"
+
+apt:
+  emoji: "🙃"
+  commands:
+    list: "./scripts/get_apt_list.sh"
+    update: "sudo apt-get update -y"
+    upgrade: "sudo apt-get upgrade -y"
+    install: "sudo apt-get install -y "
+    cleanup: "sudo apt-get autoremove -y"
+  packages:
+    default:
+      # troubleshooting
+      - sysstat
+      # better grep alternative
+      - silversearcher-ag
+      # this should let you use the a yubikey for auth
+      - libpam-yubico
+      - bash-completion
+      # networking and firewall
+      - iptables
+      - net-tools
+      # package managers installing package managers... this is terrible.
+      - snapd
+      # cat images in the terminal :) works in tmux
+      - catimg
+      # this lets you ls images as thumbnails, which is helpful sometimes
+      - imagemagick
+      # print a pretty pallete to see all colors the terminal can render
+      - colortest
+      # help fix locale issues
+      - "locales-all"
+    devops:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+    gui:
+      - flatpak
+      - youtube-dl
+      # terminal emulator for linux
+      - terminator
+      # this lets you install flatpak packages via the gui
+      - gnome-software-plugin-flatpak
+      # gui firewall
+      - gufw
+      - zathura
+      # commented out till nextcloud is working
+      # - nextcloud-desktop
+    gaming:
+      # helpful for gaming on linux
+      - "nvidia-driver-libs:i386"
+      - lutris
+      - "steam:i386"
+      # to format disks to exFAT; FAT is too thin for modern windows 10 ISOs
+      # - exfat-utils
+
+flatpak:
+  emoji: "🫓 "
+  commands:
+    setup: "flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo"
+    list: "flatpak list --user --columns=application"
+    install: "flatpak install --user --app -y "
+  packages:
+    gui:
+      - "org.freedesktop.Platform/x86_64/21.08"
+      # password manager
+      - com.bitwarden.desktop
+      # youtube alternative
+      - io.freetubeapp.FreeTube
+
+snap:
+  emoji: "🫰 "
+  commands:
+    upgrade: "sudo snap refresh"
+    list: "snap list"
+    install: "sudo snap install "
+  packages:
+    gui:
+      - core
+      # screen debugger/sharing tool for android
+      - scrcpy
+      # rss feed reader
+      - "fluent-reader --candidate"
+      # media player
+      - vlc
+
+# most of this is actually for powerline, my shell prompt
+pip3.11:
+  emoji: "🐍"
+  commands:
+    list: "pip3.11 list"
+    install: "pip3.11 install --upgrade "
+  packages:
+    default:
+      # this is for python development - specifically linting/auto-linting
+      - flake8
+      - pyflakes
+      - ruff
+      - autoflake
+      # for building and installing packages
+      - pip
+      - build
+      - twine
+      - poetry
+      # this does some magic with imports when developing
+      - autoimport
+      # this is all powerline (status line for tmux/BASH)
+      - "git+ssh://git@github.com/powerline/powerline"
+      - "powerline-gitstatus"
+      - "powerline-kubernetes"
+      # for the internal ip address powerline shell prompt
+      - netifaces
+      # supposed to work with powerline for spotify info, python3.11 not ready
+      # - dbus
+      # makes neovim work with vim's python3 interface
+      - pynvim
+      # keep ourselves up to date
+      - onboardme
+    macOS:
+      # this is for hacking on the iterm2 python api
+      - iterm2
+    devops:
+      - smol-k8s-lab
