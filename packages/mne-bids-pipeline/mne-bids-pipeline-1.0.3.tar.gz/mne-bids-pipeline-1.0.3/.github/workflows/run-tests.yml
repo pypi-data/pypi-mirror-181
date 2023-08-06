@@ -1,0 +1,37 @@
+name: Checks
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.number }}-${{ github.event.ref }}
+  cancel-in-progress: true
+
+on: [push, pull_request]
+
+jobs:
+  check-style:
+    name: Style
+    runs-on: "ubuntu-latest"
+    defaults:
+      run:
+        shell: bash -l {0}
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v4
+    - name: Install ruff and codespell
+      run: pip install ruff codespell tomli
+    - run: make ruff
+    - run: make codespell-error
+    - uses: psf/black@stable
+  check-doc:
+    name: Doc consistency
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -l {0}
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v4
+    - run: pip install --upgrade setuptools[toml] pip
+    - run: pip install --no-build-isolation -ve .[tests]
+    - run: pytest mne_bids_pipeline -m "not dataset_test"
+    - uses: codecov/codecov-action@v3
+      if: success()
+      name: 'Upload coverage to CodeCov'
