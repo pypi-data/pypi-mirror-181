@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: ebilab
+Version: 2.1.1
+Home-page: https://github.com/ebiyuu1121/ebilab
+Author: Yusuke Ebihara
+Author-email: yusuke@ebihara.me
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+License-File: LICENSE
+Requires-Dist: tqdm
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: matplotlib
+Requires-Dist: watchdog
+Requires-Dist: click
+Requires-Dist: pyvisa
+Requires-Dist: GitPython
+
