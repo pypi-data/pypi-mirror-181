@@ -1,0 +1,4 @@
+[console_scripts]
+fractal-server=fractal_server.__main__:run
+openapi=fractal_server.__main__:save_openapi
+
