@@ -1,0 +1,5 @@
+'''Constants'''
+
+MAX_SHORT_TOKENS = 20
+N_LOGPROBS = 5
+LOGPROB_THRESHOLD = -7
