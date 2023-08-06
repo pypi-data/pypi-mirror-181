@@ -1,0 +1,4 @@
+[console_scripts]
+runoak=oaklib.cli:main
+vskit=oaklib.utilities.subsets.value_set_expander:main
+
