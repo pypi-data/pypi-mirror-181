@@ -1,0 +1,9 @@
+requests
+wget
+numpy>=1.9.0
+scipy>=1.9.0
+joblib
+mock
+astropy
+libcurl
+pycurl
