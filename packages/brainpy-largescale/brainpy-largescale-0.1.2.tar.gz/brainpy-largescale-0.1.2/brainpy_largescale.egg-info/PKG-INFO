@@ -1,0 +1,132 @@
+Metadata-Version: 2.1
+Name: brainpy-largescale
+Version: 0.1.2
+Summary: brainpy-largescale depends on brainpy
+Home-page: https://github.com/NH-NCL/brainpy-largescale
+Author: NanHu Neuromorphic Computing Laboratory Team
+Author-email: nhnao@cnaeit.com
+License: Apache-2.0 license
+Project-URL: Bug Tracker, https://github.com/NH-NCL/brainpy-largescale/issues
+Project-URL: Documentation, https://brainpy.readthedocs.io/
+Project-URL: Source Code, https://github.com/NH-NCL/brainpy-largescale
+Keywords: brainpy largescale,computational neuroscience,brain-inspired computation,dynamical systems,differential equations,brain modeling,brain dynamics modeling,brain dynamics programming
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development :: Libraries
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# brainpy-largescale
+Run [BrainPy](https://github.com/PKU-NIP-Lab/BrainPy) in multiple processes.
+
+brainpy-largescale depends on [BrainPy](https://github.com/PKU-NIP-Lab/BrainPy) and [brainpy-lib](https://github.com/PKU-NIP-Lab/brainpylib), use the following instructions to [install brainpy package](https://brainpy.readthedocs.io/en/latest/quickstart/installation.html).
+
+## Install
+Only support `Linux`
+```
+pip install brainpy-largescale
+```
+
+## Import
+```python
+import brainpy as bp
+import bpl
+```
+
+## Set platform
+```
+bpl.set_platform('cpu')
+```
+only support cpu.
+
+## Create population
+
+Use Leaky Integrate-and-Fire (LIF)
+
+```python
+a = bpl.neurons.LIF(300, V_rest=-60., V_th=-50., V_reset=-60., tau=20., tau_ref=5.)
+b = bpl.neurons.LIF(100, V_rest=-60., V_th=-50., V_reset=-60., tau=20., tau_ref=5.)
+```
+
+## Create synapse
+```python
+d = bpl.synapses.Exponential(a, b, bp.conn.FixedProb(0.4, seed=123), g_max=10, tau=5., delay_step=1)
+```
+
+## Construct network
+
+```python
+net = bpl.Network(a, b, d)
+net.build()
+```
+
+## Add input
+
+add current input
+```python
+inputs = [bpl.device.Input(a, 20), bpl.device.Input(b, 10)]
+```
+
+## Add spike monitor
+```python
+monitor_spike = bpl.device.Monitor([a, b], bpl.device.MonitorKey.spike)
+```
+
+## Add volt monitor
+```python
+monitor_volt = bpl.device.Monitor([b], bpl.device.MonitorKey.volt)
+```
+
+```python
+monitors = [monitor_spike, monitor_volt]
+```
+
+## Add spike and volt callback
+
+```python
+def spike(a: List[Tuple[int, float]]):
+  if a:
+    print(a)
+
+
+def volt(a: List[Tuple[int, float, float]]):
+  # print(a)
+  pass
+```
+
+## Run
+
+```python
+runner = bpl.runner.DSRunner(
+  net,
+  monitors=monitors,
+  inputs=inputs,
+  jit=False,
+  spike_callback=spike,
+  volt_callback=volt,
+)
+runner.run(10.)
+```
+ 
+## Visualization
+```python
+import matplotlib.pyplot as plt
+
+if 'spike' in runner.mon:
+  bp.visualize.raster_plot(runner.mon.ts, runner.mon['spike'], show=True)
+```
+
+## License<a id="quickstart"></a>
+[Apache License, Version 2.0](https://github.com/NH-NCL/brainpy-largescale/blob/main/LICENSE)
