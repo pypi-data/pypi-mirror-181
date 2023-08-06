@@ -1,0 +1,110 @@
+CHANGES
+=======
+
+v11.0.0.rc15
+------------
+
+* call Schema.to\_file() in the main-test's sub-process so that the schema is stored
+* better log for etag mismatch
+
+v11.0.0.rc14
+------------
+
+* fixed testcase
+* simplyfied kvstore RPC responses error in translation if non-ascii character is in translation msgid
+
+v11.0.0.rc13
+------------
+
+* fixing testcases maybe fixing ci
+* fixed (reverted) testing idea for eventlog messages publishen
+* improvements for testing in eventlog and signal\_in\_function
+
+v11.0.0.rc12
+------------
+
+* fix in MockRPCClient
+* fix in RPCClient for old services which don't send status
+
+v11.0.0.rc11
+------------
+
+* log exception on parsing error in kvstore
+* rework of .rpc function in ZMQTestMixin no logoutput if "no such setting" error in settingsprovider small fix in RPCClient and MockRPCClient
+* fix for usage of RPCClient with empty response type
+* fix for exception in MockRPCClient callback
+
+v11.0.0.rc10
+------------
+
+* removed forgotten print statement
+* fix for languages parameter in translation commands
+* added parameter for languages in translation commands
+
+v11.0.0.rc9
+-----------
+
+* handling RPCServer(Web) errors in rpcclient
+* ConnectionStatusListener: added check for changed function some code cleanup
+
+v11.0.0.rc8
+-----------
+
+* docs [skip\_ci]
+* translations copy from packages
+
+v11.0.0.rc7
+-----------
+
+* Translations and Events improvements
+
+v11.0.0.rc6
+-----------
+
+* finished rpc doc
+* package reader supports filter by compute unit id
+* added MessageKwarg type for price
+* addition to translation docs
+
+v11.0.0.rc4
+-----------
+
+* fallback to utcnow for timestamp in EventInfo
+
+v11.0.0.rc3
+-----------
+
+* some kv store improvements
+* fixed race condition
+
+v11.0.0.rc2
+-----------
+
+* added openmodule\_test again to gitlab ci some test cleanup
+
+v11.0.0.rc1
+-----------
+
+* docs
+* common base class for all expected rpc client exceptions eventlog changes
+* added missing lock
+* docs
+* fix in MockRPCClient
+* package reader list results cannot be None
+* rpcclient refactor (including updating files where it's used) kvstore small refactor
+* eventlog utils (untested) + privacy settings models + removed AnonyimzeType
+* fixed presence\_listener bug, changed access\_ids and source of access structure, fixes in kvsync
+* reraising Exception on commit error in kv sync, because we want to retry in this case
+* KVStore fix and validation providers from package reader
+* replaced huge or with in query
+* SOFTWARE\_TYPE in packages, list\_by\_software\_type in package reader, removing registering in accessServices
+* set status and message in health pong to first failed check
+* added forgotten migration info
+* topic and channels as string, request in db\_model\_to\_access
+* reverting commit
+* subprocess coverage support (fix)
+* other fakeredis version
+* fix fakeredis to 1.8.2 because of dependency conflict
+* added connection status mocker
+* added SettingsRPCMocker to test
+* settings mocker rework settings test cleanup
