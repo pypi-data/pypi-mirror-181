@@ -1,0 +1,115 @@
+Metadata-Version: 2.1
+Name: shrtcodes
+Version: 1.0.3
+Summary: Simple shortcodes for Python.
+Home-page: https://github.com/Peter554/shrtcodes#readme
+License: MIT
+Author: Peter Byfield
+Author-email: byfield554@gmail.com
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.9
+Project-URL: Repository, https://github.com/Peter554/shrtcodes
+Description-Content-Type: text/markdown
+
+# shrtcodes
+
+![example workflow name](https://github.com/Peter554/shrtcodes/workflows/CI/badge.svg)
+
+`pip install shrtcodes`
+
+Shortcodes for Python.
+
+## Example:
+
+A toy example.
+
+Define our shortcodes:
+
+```py
+# example.py
+from shrtcodes import Shrtcodes
+
+
+shortcodes = Shrtcodes()
+
+
+# {% img src alt %} will create an image.
+@shortcodes.register_inline("img")
+def handle_img(src, alt):
+    return f'<img src="{src}" alt="{alt}"/>'
+
+
+# {% repeat n %}...{% / %} will repeat a block n times.
+@shortcodes.register_block("repeat")
+def handle_repeat(block, n):
+    return block * int(n)
+
+
+# we can call process_text to get the final text.
+in_text = "..."
+out_text = shortcodes.process_text(in_text)
+
+# or, we can make a general CLI.
+shortcodes.create_cli()
+```
+
+```
+python example.py --help
+```
+
+```
+usage: example.py [-h] [--check_file CHECK_FILE] in_file
+
+positional arguments:
+  in_file               File to be processed
+
+options:
+  -h, --help            show this help message and exit
+  --check_file CHECK_FILE
+                        Checks the output against this file and errors if
+                        there is a diff
+```
+
+Write some text:
+
+```
+# example.txt
+Hello!
+
+{% img http://cutedogs.com/dog123.jpg "A very cute dog" %}
+
+Foo bar baz...
+
+{% repeat 3 %}
+Woop
+{% / %}
+
+Bye!
+```
+
+Process the text:
+
+```
+python example.py example.txt
+```
+
+```
+Hello!
+
+<img src="http://cutedogs.com/dog123.jpg" alt="A very cute dog"/>
+
+Foo bar baz...
+
+Woop
+Woop
+Woop
+
+Bye!
+```
+
+A more useful example would be the generation of this README itself.
+See [`create_readme.py`](/create_readme.py) and [`README.template.md`](/README.template.md).
+
