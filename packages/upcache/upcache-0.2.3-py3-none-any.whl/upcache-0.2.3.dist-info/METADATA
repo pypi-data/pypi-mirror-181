@@ -1,0 +1,91 @@
+Metadata-Version: 2.1
+Name: upcache
+Version: 0.2.3
+Summary: In-memory cache with multiprocessing support
+Home-page: https://www.nuradius.com
+Author: Nuradius Software
+Author-email: todd@datacomponents.net
+License: Apache Software License
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+
+# Introduction
+
+UpCache is a pure Python cache with multiprocessing support.
+
+Most Python cache frameworks require external services such as Memcached or Redis which
+require setup and maintenance.  UpCache tries to ameliorate the process of creating
+a shared cache for multiprocessing workers such as those found in WSGI applications.
+
+# Getting Started
+
+Using UpCache requires at least one instance of UpCache to remain open and available for
+contents to be preserved between worker processes.
+
+Sample code provided will create a key-value pair in one process and allows another
+process to access it:
+
+```
+from multiprocessing import Process
+from upcache import UpCache
+import time
+
+def worker1(name: str) -> None:
+    cache = UpCache(name)
+    cache.set(b'Light Entertainment Awards', b'Dickie Attenborough')
+    cache.close()
+
+def worker2(name: str) -> None:
+    cache = UpCache(name)
+    time.sleep(1)
+    print(cache.get(b'Light Entertainment Awards'))
+    cache.close()
+
+if __name__ == '__main__':
+    cache_name = 'TVHosts'
+    p1 = Process(target=worker1, args=(cache_name,))
+    p2 = Process(target=worker2, args=(cache_name,))
+
+    p1.start()
+    p2.start()
+
+    p1.join()
+    p2.join()
+```
+
+# Architecture
+
+UpCache spawns an internally-hosted TCP server which facilitates inter-process
+communication and provides a synchronized in-memory key-value store.
+
+To avoid overlapping TCP servers from spawning when using UpCache, the library
+creates an exclusive connection file to claim ownership as the process to spawn
+the TCP server.  Once the TCP server begins running on an ephemeral port, it
+writes the connection info into the connection file for all UpCache clients to
+connect to the TCP server for the key-value store.
+
+UpCache clients are typically shared per cache per process to avoid heavy
+resource contention (one client equals one TCP socket).
+
+Once all clients disconnect, the UpCache TCP server shuts down and disposes of
+all contents (both the in-memory key-value store and connection file).
+
+# Features
+
+UpCache supports the following:
+ - Basic key operations (get/set/drop, increment/decrement, clear, count, keys, items)
+ - Waiting for key events
+ - Subscriptions to key events
+
+
