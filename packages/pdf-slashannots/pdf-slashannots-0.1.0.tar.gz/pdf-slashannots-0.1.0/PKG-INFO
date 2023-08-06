@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: pdf-slashannots
+Version: 0.1.0
+Summary: Extracting build-essential files from a LaTeX project and zip them.
+Home-page: https://github.com/cburkert/pdf-slashannots
+Maintainer: Christian Burkert
+Maintainer-email: cs@cburkert.de
+License: MIT
+Keywords: pdf,annotations,privacy
+Classifier: Topic :: Software Development :: Version Control :: Git
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# pdf-slashannots – Redact PDF Annotation Metadata
+
+**By annotating PDFs you leave metadata** along with the annotation content like
+your **name and the date and time** when you created and last modified each
+annotation.
+This metadata can be **seen and exploited by anyone** with access to the annotated
+PDF file.
+
+That way, others could for instance **infer how long you took to read** through and
+comment on a document and even individual pages,
+or infer when you made breaks or did something else.
+
+pdf-slashannots aims at redacting that annotation metadata from PDFs so that
+you can pass them along without revealing your habits.
+
+
+## Installation
+
+pdf-slashannots is available on PyPI:
+
+```
+python3 -m pip install pdf-slashannots
+```
+
+## Usage
+
+Simply run `pdf-slashannots input.pdf redacted.pdf` and you are done.
+
+Okay, there is more. If you run the command without any options then all
+annotations are equally redacted and the dates set to _none_ precision (January
+1st, 1970).
+Check out `pdf-slashannots --help` for the more advanced
+features like
+
+- specify a subset of annotation authors to redact
+- specify the precision to which the dates are reduced
+- redact also the authors' name
+
