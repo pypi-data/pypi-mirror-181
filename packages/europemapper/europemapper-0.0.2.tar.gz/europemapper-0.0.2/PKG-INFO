@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: europemapper
+Version: 0.0.2
+Summary: Python package for generating Wikipedia style SVG maps of europe.
+Home-page: https://github.com/RadostW/europemapper/
+Author: Radost Waszkiewicz
+Author-email: radost.waszkiewicz@gmail.com
+License: MIT
+Project-URL: Documentation, https://europemapper.readthedocs.io
+Project-URL: Source, https://github.com/RadostW/europemapper/
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# europemapper
+
+Python package for generating Wikipedia style europe maps or choropleths.
+
+# License
+MIT
