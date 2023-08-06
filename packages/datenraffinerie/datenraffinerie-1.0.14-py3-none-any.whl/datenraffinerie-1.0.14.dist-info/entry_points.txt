@@ -1,0 +1,9 @@
+[console_scripts]
+acquire-data = datenraffinerie.acquire_data:pipelined_main
+coordinate-daq = datenraffinerie.daq_coordination:main
+datenraffinerie = datenraffinerie.full_daq:main
+generate-configs = datenraffinerie.gen_configurations:generate_configurations
+process-raw-data = datenraffinerie.postprocessing_queue:main
+read-rocs = datenraffinerie.read_rocs:cli
+show-hdf = datenraffinerie.print_h5:show_hdf
+yaml-utils = datenraffinerie.yaml_utils:cli
