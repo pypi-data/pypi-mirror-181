@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: vscode-spot-check
+Version: 0.0.1
+Summary: works in tandem with spot-check extension to produce random samples from ocr data for spot check
+Home-page: https://github.com/pckhoi/vscode-spot-check
+Author: Khoi Pham
+Author-email: pckhoi@gmail.com
+Project-URL: Bug Tracker, https://github.com/pckhoi/vscode-spot-check/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
