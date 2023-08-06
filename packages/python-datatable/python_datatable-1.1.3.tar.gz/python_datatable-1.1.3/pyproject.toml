@@ -1,0 +1,27 @@
+[build-system]
+requires = []
+build-backend = "ext"
+backend-path = ["ci"]
+
+#[tool.poetry]
+#name = "python-datatable"
+#version = "1.1.1"
+#description = ""
+#authors = [""]
+#license = "Apache2.0"
+#readme = "README.md"
+#packages = [
+#    { include = "src/datatable/*"}
+#]
+#classifiers = [
+#    "Programming Language :: Python :: 3.8",
+#    "Programming Language :: Python :: 3.9",
+#    "Programming Language :: Python :: 3.10",
+#    "Programming Language :: Python :: 3.11",
+#]
+#include = [ # include cpp sources for not compiled dist
+#    { path = "src", format = "sdist" },
+#    { path = "README.md", format = "sdist" },
+#    { path = "LICENSE", format = "sdist" },
+#    { path = "VERSION.txt", format = "sdist" }
+#]
