@@ -1,0 +1,10 @@
+name: 'mltz-env'
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - scikit-learn
+  - pip
+  - pandas
+  - pip:
+    - twine
