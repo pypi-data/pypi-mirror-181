@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "uai_uri_interface"
+version = "0.1.6"
+description = ""
+authors = ["understand.ai <postmaster@understand.ai>"]
+readme = "README.md"
+license = "MIT"
+packages = [{include = "uai_uri_interface"}]
+include = ["uai_uri_interface/py.typed"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+
+[tool.poetry.group.dev.dependencies]
+black = {extras = ["d"], version = "^22.10.0"}
+mypy = "^0.991"
+pytest = "^7.2.0"
+pytest-cov = "^4.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
