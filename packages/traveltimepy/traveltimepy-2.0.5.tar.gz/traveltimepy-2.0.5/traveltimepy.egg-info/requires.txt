@@ -1,0 +1,7 @@
+requests
+pydantic
+geojson-pydantic
+dacite
+certifi>=2021.5.30
+aiohttp
+protobuf==3.20.1
