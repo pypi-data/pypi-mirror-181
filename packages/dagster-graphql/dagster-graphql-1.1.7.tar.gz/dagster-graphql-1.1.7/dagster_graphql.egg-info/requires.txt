@@ -1,0 +1,5 @@
+dagster==1.1.7
+graphene>=3
+gql[requests]
+requests
+starlette
