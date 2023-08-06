@@ -1,0 +1,42 @@
+# List of conda and pip packages that should be installed when developing the packages
+# To create the full conda environment: ``conda env create -f environment.yml``
+# All *required* packages should also be in setup.cfg!
+
+name: pytesmo
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - numpy
+  - scipy
+  - pandas
+  - netCDF4
+  - cython
+  - pykdtree
+  - pyresample
+  - numba
+  - matplotlib
+  # optional, for documentation and testing:
+  - nb_conda
+  - ipykernel
+  - pip
+  - pip:
+    - pynetcf
+    - pygeogrids
+    - pynetcf
+    - pygeobase
+    - more_itertools
+    - build
+    - repurpose
+    - cadati
+    # optional, for documentation and testing:
+    - ascat>=2.0
+    - ismn>=1.2.0
+    - pytest
+    - pytest-cov
+    - pytest-mpl
+    - pre-commit
+    - flake8
+    - yapf
+    - sphinx_rtd_theme
+    - nbsphinx
