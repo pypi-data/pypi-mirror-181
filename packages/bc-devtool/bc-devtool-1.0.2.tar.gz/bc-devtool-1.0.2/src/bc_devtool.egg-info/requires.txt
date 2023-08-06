@@ -1,0 +1,7 @@
+GitPython
+chardet
+colorama
+configparser
+
+[:python_version >= "3.7"]
+importlib-metadata
