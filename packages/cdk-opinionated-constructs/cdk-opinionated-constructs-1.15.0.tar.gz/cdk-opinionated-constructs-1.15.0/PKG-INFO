@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: cdk-opinionated-constructs
+Version: 1.15.0
+Summary: AWS CDK constructs come without added security configurations.
+License: MIT
+Requires-Python: >=3.9
+License-File: LICENSE
+
+Very rarely this is validated during the CI pipeline via tools like CDK-NAG. The idea behind this project is to create secured constructs from the start.
