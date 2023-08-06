@@ -1,0 +1,15 @@
+*.pyc
+dist/
+build/
+*_build/
+*.egg-info
+venv/
+*.log
+.cache
+.coverage*
+.eggs/
+htmlcov/
+.pytest*
+.env
+dask-worker-space/
+.vscode/
