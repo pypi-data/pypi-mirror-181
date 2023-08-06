@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: llmhub
+Version: 0.2.3
+Author: LLMHub
+Author-email: vatsal@llmhub.com
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Provides-Extra: prod
+Provides-Extra: dev
+
+# LLMHub Python SDK
+
+This SDK has two parts:
+- CLI
+- Client for calling private LLMHub APIs
