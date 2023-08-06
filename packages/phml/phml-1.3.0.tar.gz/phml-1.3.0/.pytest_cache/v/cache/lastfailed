@@ -1,0 +1,4 @@
+{
+  "tests/parsing/test_compile.py::TestCompile::test_exceptions": true,
+  "tests/utils/test_transform.py::test_strip_blank_lines": true
+}
