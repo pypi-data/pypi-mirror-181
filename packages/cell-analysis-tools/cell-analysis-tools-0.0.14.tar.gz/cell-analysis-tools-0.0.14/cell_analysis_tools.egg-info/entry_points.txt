@@ -1,0 +1,2 @@
+[console_scripts]
+cell_analysis_tools = cell_analysis_tools.__main__:main
