@@ -1,0 +1,23 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "satlink"
+version = "0.0.3"
+authors = [
+  { name="olejorga" },
+]
+description = "A light web framework - originally developed as a project in Frameworks at HiØ, written with love in Python <3"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Documentation = "https://github.com/olejorga/satlink/wiki"
+Repository = "https://github.com/olejorga/satlink"
