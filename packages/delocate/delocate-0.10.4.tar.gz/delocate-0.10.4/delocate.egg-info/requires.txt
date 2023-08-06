@@ -1,0 +1,6 @@
+packaging>=20.9
+typing_extensions
+
+[:sys_platform == "win32"]
+machomachomangler
+bindepend
