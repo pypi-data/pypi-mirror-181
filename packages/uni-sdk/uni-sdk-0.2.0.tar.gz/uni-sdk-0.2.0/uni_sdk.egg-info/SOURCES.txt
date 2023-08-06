@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+uni/__init__.py
+uni/__version__.py
+uni/client.py
+uni/exception.py
+uni/response.py
+uni/services/__init__.py
+uni/services/messages.py
+uni_sdk.egg-info/PKG-INFO
+uni_sdk.egg-info/SOURCES.txt
+uni_sdk.egg-info/dependency_links.txt
+uni_sdk.egg-info/top_level.txt
