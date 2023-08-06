@@ -1,0 +1,29 @@
+version: 2
+
+build:
+  os: ubuntu-22.04
+  tools:
+    python: "3.8"
+  apt_packages:
+    - build-essential
+    - gfortran
+    - libopenmpi-dev
+    # - graphviz
+  jobs:
+    pre_create_environment:
+      # such that setuptools_scm can get the correct version
+      - git checkout main
+      - git pull --unshallow
+    pre_build:
+      - git clone --depth=1 https://github.com/snek5000/Nek5000.git /home/docs/Nek5000
+      - ls $NEK_SOURCE_ROOT
+
+# Optionally set the version of Python and requirements required to build your
+# docs
+python:
+  install:
+    - requirements: requirements/docs.txt
+
+# Build documentation in the docs/ directory with Sphinx
+sphinx:
+  configuration: docs/conf.py
