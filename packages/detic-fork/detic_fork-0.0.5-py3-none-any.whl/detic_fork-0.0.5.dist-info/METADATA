@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: detic-fork
+Version: 0.0.5
+Summary: Fork of repository https://github.com/facebookresearch/Detic
+Home-page: https://github.com/nateagr/Detic
+License: UNKNOWN
+Platform: UNKNOWN
+License-File: LICENSE
+Requires-Dist: opencv-python
+Requires-Dist: mss
+Requires-Dist: timm
+Requires-Dist: ftfy
+Requires-Dist: regex
+Requires-Dist: scikit-learn
+Requires-Dist: lvis
+Requires-Dist: nltk
+Requires-Dist: clip-anytorch
+Requires-Dist: dataclasses ; python_version < "3.7"
+
+UNKNOWN
+
