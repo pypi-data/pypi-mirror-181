@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "node-edge"
+version = "0.1.0b5"
+description = "A tool to run Node code from Python"
+authors = ["Rémy Sanchez <remy.sanchez@hyperthese.net>"]
+license = "WTFPL"
+readme = "README.md"
+packages = [{include = "node_edge", from = "src"}]
+repository = "https://github.com/ModelW/py-node-edge"
+homepage = "https://github.com/ModelW/py-node-edge"
+documentation = "https://node-edge.rtfd.io"
+
+keywords = ["node", "javascript", "binding"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.10.0"
+isort = "^5.10.1"
+ipython = "^8.7.0"
+pytest = "^7.2.0"
+coverage = "^6.5.0"
+monoformat = "^0.1.0b3"
+
+[tool.isort]
+profile = "black"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
