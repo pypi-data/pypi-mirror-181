@@ -1,0 +1,15 @@
+biopython
+ncbi-datasets-pylib
+pandas
+httpx
+virtualenv
+h5py
+pyarrow
+openpyxl
+
+[dev]
+setuptools
+build
+twine
+
+[test]
