@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: pii_optimized_logger
+Version: 0.0.5
+Summary: Handler to mask data and optimized the log volume
+Project-URL: Homepage, https://github.com/
+Project-URL: Bug Tracker, https://github.com/
+Author-email: "NewStore Inc." <dev@newstore.com>
+Maintainer-email: Fabien Thetis <fthetis@newstore.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# Package pii_optimized_logger
+
+Configuration:
+
+log_disable_handler
+value 0 is the default value and the handler is enable
+value 1 will disable the handler
+
+
+log_max_length
+
+default value is 50000
+it is used to define the max length for each message to print in log
