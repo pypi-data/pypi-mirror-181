@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: llmhub
+Version: 0.2.1
+Summary: LLMHub Python SDK
+Home-page: https://www.llmhub.com/
+Author: LLMHub
+Author-email: hello@llmhub.com
+Project-URL: repository, https://github.com/llmhub
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: auth0-python (==3.24.0)
+Requires-Dist: requests (==2.28.1)
+Requires-Dist: typer (==0.7.0)
+
+# LLMHub Python SDK
+
+This SDK has two parts:
+- CLI
+- Client for calling private LLMHub APIs
