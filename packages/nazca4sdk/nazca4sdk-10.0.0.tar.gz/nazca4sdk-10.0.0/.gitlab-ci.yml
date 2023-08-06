@@ -1,0 +1,50 @@
+image: docker:19.03.12
+
+variables:
+  DOCKER_HOST: tcp://localhost:2375/
+  DOCKER_TLS_CERTDIR: ""
+
+services:
+  - docker:19.03.12-dind
+
+stages:
+  - quality_sonar9
+  - build_dev
+
+
+quality_sonar9:
+  stage: quality_sonar9
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH =~ /^SD/'
+      when: always
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "dev"'
+      when: always
+    - when: never
+  script:
+    - export PATH="$PATH:/home/gitlab-runner/sonar/bin"
+    - sonar-scanner -Dsonar.projectKey=python-sdk -Dsonar.sources=.  -Dsonar.host.url=http://10.217.10.81:9999 -Dsonar.login=cd33fe48271cffc65d0120a9591aba5075607b6a
+  tags:
+    - shell
+
+build_dev:
+  stage: build_dev
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "dev"'
+      when: always
+    - when: never
+  script:
+    - gcloud auth activate-service-account --key-file="$GCP_KEY_FILE"
+    - GCP_TOKEN=$(gcloud auth print-identity-token)
+    - |
+      RELEASE_VERSION=$(curl --location --request GET "$GCP_FUNC_PATH/dev?project=python-sdk" --header "Authorization: Bearer $GCP_TOKEN")
+    - echo $RELEASE_VERSION
+    - sed -i "s/VERSION = .*/VERSION = '"$RELEASE_VERSION"'/g" setup.py
+    - python3 setup.py sdist bdist_wheel
+    - TWINE_PASSWORD=${CI_JOB_TOKEN} TWINE_USERNAME=gitlab-ci-token twine upload --repository-url ${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/pypi dist/* --verbose
+    - git tag -a $RELEASE_VERSION -m "Wersja  $RELEASE_VERSION" --force
+    - git remote set-url origin http://oauth2:$CONTAINER_TOKEN@gitlab-i40.apagroup.pl/industry4/nazca-4.0/spark-ml/python-sdk.git
+    - git push origin $RELEASE_VERSION
+  tags:
+    - shell
+
+   
