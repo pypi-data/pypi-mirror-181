@@ -1,0 +1,2 @@
+[intake.drivers]
+axds_cat = intake_axds.axds_cat:AXDSCatalog
