@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: qsct
+Version: 0.92
+Author: PunchyArchy
+Author-email: ksmdrmvscthny@gmail.com
+License-File: LICENSE
+
+QSCT - (Qodex Software Communication Tools) - это класс, представляющий из себя набор инструментов для
+создания API и SDK. Является супер-классом для суб-классов:
+1) QPI (Qodex Programming Interface) - API для ПО разработки компании Qodex,
+2) QDK (Qodex Development Kit) - SDK для взаимодействия с API ПО Qodex.
+QSCT опредлеяет методы передачи и получения данных, а также прочего взаимодействия между этими инструментами.
+
+v. 0.02
+Добавлен метод для хеширования пароля с помощью алогритма SHA-512
