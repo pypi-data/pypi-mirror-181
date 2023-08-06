@@ -1,0 +1,4 @@
+class GlobalConstants:
+    BITMAP: bin = 0b1101000  # 0b11111111111100000000000000000000000000000000
+    VERBOSE: bool = True
+    SYSTEM_CHIPS: int = 30
