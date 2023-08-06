@@ -1,0 +1,69 @@
+Metadata-Version: 2.1
+Name: mkdirpy
+Version: 0.1.1
+Summary: Like `mkdir`, but with `__init__.py` inside
+Home-page: https://github.com/olzhasar/mkdirpy
+License: GPL-3.0-or-later
+Keywords: mkdir,mkdirpy,package,__init__.py
+Author: Olzhas Arystanov
+Author-email: o.arystanov@gmail.com
+Requires-Python: >=3.6.0,<4.0.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: System :: Filesystems
+Classifier: Topic :: Utilities
+Project-URL: Repository, https://github.com/olzhasar/mkdirpy
+Description-Content-Type: text/markdown
+
+# mkdirpy
+
+Like `mkdir` but with `__init__.py` inside
+
+## Installation
+
+```
+pip install mkdirpy
+```
+
+## Usage
+
+The syntax is identical to `mkdir`:
+
+```
+mkdirpy foo
+```
+
+Will create `foo` directory and `foo/__init__.py`
+
+Use `-p` flag to generate parent directories recursively:
+
+```
+mkdirpy -p foo/bar
+```
+
+Will create `foo`, `foo/__init__.py`, `foo/bar`, `foo/bar/__init__.py`
+
+Add `-v` flag for verbose output:
+
+```
+mkdirpy -pv foo/bar
+```
+
+Output:
+
+```
+foo
+foo/__init__.py
+foo/bar
+foo/bar/__init__.py
+```
+
