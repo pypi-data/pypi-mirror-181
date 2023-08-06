@@ -1,0 +1,71 @@
+Metadata-Version: 2.1
+Name: lois
+Version: 0.5.0
+Summary: the fastest and easy way to get insight of your dataset
+Home-page: https://github.com/charleslf2/lois.git
+Author: Charles TCHANAKE
+Author-email: datadevfernolf@gmail.com
+License: MIT
+Project-URL: Bug Tracker, https://github.com/charleslf2/lois/issues
+Keywords: EDA,Data analysis,Charles TCHANAKE,Automation
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: pandas
+Requires-Dist: matplotlib
+Requires-Dist: seaborn
+Requires-Dist: rich
+
+[![Downloads](https://pepy.tech/badge/lois)](https://pepy.tech/project/lois)
+[![Downloads](https://pepy.tech/badge/lois/month)](https://pepy.tech/project/lois)
+[![Downloads](https://pepy.tech/badge/lois/week)](https://pepy.tech/project/lois)
+
+# lois
+The fastest and easy way to get insight of your dataset
+
+#### Purpose of the package
++  The purpose of this package is to provide to data scientist and data analyst a faster way to get insight of  their dataset .
+
+
+#### Features
++  EDA Simplification
+
+
+### Getting Started
+The package can be found on pypi hence you can install it using pip
+
+#### Installation
+
+```bash
+
+pip install lois
+
+```
+### Usage
+```python
+# Import packages
+>>> import pandas as pd
+>>> from lois import lois_ds_report
+#Import your dataset
+>>> data=pd.read_csv("your data path")
+#Simple report with lois
+>>> lois_ds_report(data,target_variable="gender", report_complexity="simple" )
+#Advanced report with lois
+>>> lois_ds_report(data, target_variable="gender", report_complexity="advanced")
+
+```
+
+
+### Contribution
+Contribution are welcome.
+Notice a bug ? let us know. Thanks you
+
+### Author
++ Main Maitainer : Charles TCHANAKE
++ email : datadevfernolf@gmail.com 
+
+### Additionnal Note
+
+In very large dataset lois may take time to process all the data
