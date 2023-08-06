@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: nbta
+Version: 0.2.7.1
+Summary: nbta is the Notebook Teaching Assistant helping with meaningful feedback, assessment and error management for Python
+Home-page: https://github.com/cedricmjohn/nbta
+Author: Cedric John
+Author-email: cedric.john@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: pip (>=9)
+Requires-Dist: setuptools (>=26)
+Requires-Dist: twine
+Requires-Dist: wheel (>=0.29)
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: scikit-learn
+Requires-Dist: black
+Requires-Dist: coverage
+Requires-Dist: flake8
+Requires-Dist: pytest
+Requires-Dist: yapf
+Requires-Dist: six (>=1.14)
+Requires-Dist: joblib
+Requires-Dist: memoized-property
+Requires-Dist: termcolor
+Requires-Dist: wget
+
+UNKNOWN
+
+
