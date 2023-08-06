@@ -1,0 +1,15 @@
+If on an M1 Apple Silicon Mac or equivalent, you need to install Rosetta 2
+
+install rosetta2
+softwareupdate --install-rosetta --agree-to-license
+
+========
+
+You then need to use a prebuilt binary (built on intel mac), using below:
+git clone https://gitlab.ihsmarkit.com/octo/octo-cli.git
+
+brew install go
+
+#im using linuxify and GNU toolchain/bash
+./build.sh
+

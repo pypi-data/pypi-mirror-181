@@ -1,0 +1,28 @@
+numpy>=1.16.0rc1,!=1.20.0rc1,!=1.20.0rc2   # 2018-12-20
+pytest==5.4.3 # Must match the version number used in all downstream repos. Declare this first.
+httpretty
+pytest-cov
+pytest-sugar
+moto==3.0.3
+freezegun
+pytest-benchmark>=3.2.2
+pytest-flake8~=1.0.4
+flake8<5.0.0 # Breaking change for pytest-flake8 introduced in flake8 5.0.0. Remove this when there is a newer version of pytest-flake8.
+pytest-parallel
+selenium==3.141.0
+flake8-requirements
+s3fs<0.5.0 # Lock for test purposes. Version 0.5.0 has breaking changes!
+pytest-xdist
+
+# docs phase
+
+prance==0.19.0
+
+# used for typing introspection that crosses versions
+typing-inspect~=0.6.0
+typing-extensions~=3.7.4.3
+openapi-resolver==0.0.6
+openapi-spec-validator==0.2.8
+sphinx-autodoc-typehints==1.11.0
+
+dask[dataframe]
