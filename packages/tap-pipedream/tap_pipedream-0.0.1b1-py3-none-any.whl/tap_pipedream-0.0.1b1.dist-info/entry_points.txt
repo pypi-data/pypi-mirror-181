@@ -1,0 +1,3 @@
+[console_scripts]
+tap-pipedream=tap_pipedream.tap:TapPipedream.cli
+
