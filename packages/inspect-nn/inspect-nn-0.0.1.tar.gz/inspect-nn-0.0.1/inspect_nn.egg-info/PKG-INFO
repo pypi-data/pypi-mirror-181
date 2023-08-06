@@ -1,0 +1,36 @@
+Metadata-Version: 1.2
+Name: inspect-nn
+Version: 0.0.1
+Summary: Inference eNgine uSing aPproximate arithmEtic ComponenTs for Neural Networks
+Home-page: https://github.com/SalvatoreBarone/inspect-nn
+Author: Salvatore Barone, Filippo Ferrandino
+Author-email: salvatore.barone@unina.it, fi.ferrandino@studenti.unina.it
+License: UNKNOWN
+Project-URL: Bug Reports, https://github.com/SalvatoreBarone/inspect-nn/issues
+Project-URL: Source, https://github.com/SalvatoreBarone/inspect-nn
+Description: # inspect-nn : simPle sImulator for Neural nEtworks using APProximate muLtipliErs (written in python)
+        
+        inspect-nn is a simulation tool for measuring the classification accuracy loss due to the use of approximate multipliers (i.e., multipliers designed by exploiting the [approximate computing design paradigm](https://link.springer.com/book/10.1007/978-3-030-94705-7)) in neural networks. 
+        
+        It has been developed to easily do porting of keras/tensorflow models, and to use the GPU to simulate a neural network while using approximate arithmetic units quickly and almost effortlessly. 
+        
+        Anyway, it is still under development!
+        
+        ## Installing the module
+        You can install this module using ```pip```
+        ```bash
+        $ pip install inspect-nn
+        ```
+        
+        ## Using inspect-nn
+        
+        
+        
+        
+Keywords: Neural Networks Approximate-Computing
+Platform: UNKNOWN
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3.9
