@@ -1,0 +1,11 @@
+pyqt5
+mediapipe
+matplotlib
+seaborn
+opencv-python
+
+[dev]
+check-manifest
+
+[test]
+coverage
