@@ -1,0 +1,38 @@
+# 本文件采用 TOML 格式 https://toml.io/
+# 以下项目的含义及其填写方法详见 https://github.com/ahui2016/R2-Gallery
+
+# 请勿修改 foldername
+foldername = '{{data.foldername}}'
+
+# 可修改, 通常留空
+author="{{data.author}}"
+
+# 可修改
+notes = '''
+{{data.notes}}
+'''
+
+# 可修改
+story = '''
+{{data.story}}
+'''
+
+# 可修改, 请选择: 'CTime' / 'CTimeDesc' / 'List'
+sort_by = '{{data.sort_by}}'
+
+# 可修改
+pictures = [
+{% for pic in data.pictures %}
+    '{{pic}}',
+{%- endfor %}
+]
+
+# 可修改
+cover = '{{data.cover}}'
+
+# 可修改. 请选择: 'Story' / 'Single' / 'List'
+frontpage = '{{data.frontpage}}'
+
+# 请勿修改 checksum
+checksum = '{{data.checksum}}'
+
