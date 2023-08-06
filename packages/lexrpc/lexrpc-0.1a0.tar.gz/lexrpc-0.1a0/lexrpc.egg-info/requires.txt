@@ -1,0 +1,5 @@
+jsonschema>=4.0
+requests>=2.0
+
+[flask]
+Flask>=2.0
