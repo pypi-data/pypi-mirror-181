@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: schnetpack
+Version: 2.0.0
+Summary: SchNetPack - Deep Neural Networks for Atomistic Systems
+Home-page: https://github.com/atomistic-machine-learning/schnetpack
+Author: Kristof T. Schuett, Michael Gastegger, Stefaan Hessmann, Niklas Gebauer, Jonas Lederer
+License: MIT
+Requires-Python: >=3.6
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: sympy
+Requires-Dist: ase (>=3.21)
+Requires-Dist: h5py
+Requires-Dist: pyyaml
+Requires-Dist: hydra-core (>=1.1.0)
+Requires-Dist: pytorch-lightning (>=1.8.1)
+Requires-Dist: torchmetrics
+Requires-Dist: hydra-colorlog (>=1.1.0)
+Requires-Dist: rich
+Requires-Dist: fasteners
+Requires-Dist: dirsync
+Requires-Dist: torch-ema
+Requires-Dist: matscipy
+Provides-Extra: test
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: pytest-datadir ; extra == 'test'
+Requires-Dist: pytest-benchmark ; extra == 'test'
+
+
+        SchNetPack aims to provide accessible atomistic neural networks that can be
+        trained and applied out-of-the-box, while still being extensible to custom 
+        atomistic architectures
