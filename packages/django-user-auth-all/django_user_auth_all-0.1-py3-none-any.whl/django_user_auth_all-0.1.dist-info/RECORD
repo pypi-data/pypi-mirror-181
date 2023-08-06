@@ -1,0 +1,15 @@
+user/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+user/admin.py,sha256=ty7SdUm2i8bF96rRMQI7PZ1Wyz2Qim3Dlv6AwHFhdKc,256
+user/apps.py,sha256=fW95XTrnO4X485rd1sCG-c0L8Eb6h_4IHM-x-zJvTVY,146
+user/models.py,sha256=EDn8nhBmm7-3b4WJfagSgQ4EdgSp1iJl9GAfpdB8OKo,3763
+user/serializers.py,sha256=zRxuKmGAsnhwIl4pXO-X2hmjHCxspiuqaYrGQH41gmc,2341
+user/tests.py,sha256=2uDafv3Ns6f7Vy1ekUtgYxCZEi1KRyesZDTAFhYcX-E,63
+user/urls.py,sha256=nkpAyy4eJ_zg6-iKt3Hb1ITskCO4ho9mAhYXyQd1Xcw,641
+user/views.py,sha256=nhPCqB0Nj_DBgzSgd_-_xzkB-mKsEu38f-lO4INy_qM,8404
+user/templates/email/user_reset_password.html,sha256=Qm-7TpkvQ_8VXt_yBBsc4KqreYMc4kGMZMV-isS35yQ,468
+user/templates/email/user_reset_password.txt,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+django_user_auth_all-0.1.dist-info/LICENSE,sha256=e3r15upP9A3HY1nYspOf26BbU7MzpaZSfAn5x7b4Unw,1919
+django_user_auth_all-0.1.dist-info/METADATA,sha256=ehx5nLfspu0xF9vNyRb9G0zoQC-uNmgm3n3FuffWvsM,2523
+django_user_auth_all-0.1.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+django_user_auth_all-0.1.dist-info/top_level.txt,sha256=bZAQsrehSDslaudHdzjbp8UwvZulPbHWaRRB50uDYIo,5
+django_user_auth_all-0.1.dist-info/RECORD,,
