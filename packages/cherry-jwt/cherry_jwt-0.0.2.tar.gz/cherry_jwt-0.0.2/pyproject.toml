@@ -1,0 +1,25 @@
+[build-system]
+requires      = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cherry_jwt"
+version = "0.0.2"
+description = "Python JWT implementation"
+readme = "README.md"
+authors = [{ name = "Addison Cox" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "cffi >= 1.15.1",
+    "cryptography >= 38.0.4",
+    "pycparser  >= 2.21",
+    "setuptools  >= 63.2.0",
+    "starkbank-ecdsa >= 2.2.0"
+
+]
+requires-python = ">=3.7"

@@ -1,0 +1,5 @@
+cffi>=1.15.1
+cryptography>=38.0.4
+pycparser>=2.21
+setuptools>=63.2.0
+starkbank-ecdsa>=2.2.0
