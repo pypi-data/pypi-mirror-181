@@ -1,0 +1,2 @@
+[console_scripts]
+whip_csv = pywhip.cli:main
