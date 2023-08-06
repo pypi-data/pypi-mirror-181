@@ -1,0 +1,5 @@
+graft ecos/include
+graft ecos/external/amd/include
+graft ecos/external/ldl/include
+graft ecos/external/SuiteSparse_config
+include LICENSE
