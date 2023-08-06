@@ -1,0 +1,32 @@
+
+# All paths relative to this config file
+
+generators:
+  generator_c:
+    enabled: true
+    paths:
+      output_header: ../outputs/test.h
+      output_impl: ../outputs/test.c
+    header_includes:
+    - src/common.h
+    impl_includes:
+    - src/dust.h
+    - src/test.h
+  generator_rst:
+    enabled: true
+    paths:
+      output_file: ../outputs/test.rst
+  generator_cpp:
+    enabled: true
+    paths:
+      output_helpers: ../outputs/helpers.hpp
+      output_header: ../outputs/device.hpp
+      output_impl: ../outputs/device.cpp
+    header_includes:
+    - codecs.hpp
+  generator_dbc:
+    enabled: true
+    paths:
+      output_file: ../outputs/test.dbc
+
+
