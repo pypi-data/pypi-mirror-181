@@ -1,0 +1,3 @@
+[console_scripts]
+test_publishability=cleanroom_schema.test_publishability:print_nt
+
