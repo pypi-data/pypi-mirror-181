@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[8],{1336:function(e,n,r){"use strict";r.r(n),r.d(n,"default",(function(){return a}));var t=r(1331),c=r(706);class a extends c.a{decodeBlock(e){return Object(t.a)(new Uint8Array(e)).buffer}}}}]);
+//# sourceMappingURL=8.labplugin.js.map
