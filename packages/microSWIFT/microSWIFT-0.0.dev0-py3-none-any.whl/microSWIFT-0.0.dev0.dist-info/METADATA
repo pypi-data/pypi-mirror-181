@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: microSWIFT
+Version: 0.0.dev0
+Summary: microSWIFT: The main operational software that runs on the                microSWIFT V1 wave buoys.
+Home-page: https://github.com/SASlabgroup/microSWIFT
+Download-URL: 
+Author: SASlabgroup
+Author-email: jthomson@apl.washington.edu
+Maintainer: SASlabgroup
+Maintainer-email: jthomson@apl.washington.edu
+License: MIT
+Platform: OS Independent
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering
+Requires: numpy
+Requires: pynmea2
+Requires-Python: >= 3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE.md
+Requires-Dist: numpy
+Requires-Dist: pynmea2
+
+
+
+microSWIFT
+==========
+The main operational software that runs on the microSWIFT V1 wave buoys.
+
+.. _README: https://github.com/SASlabgroup/microSWIFT/blob/main/README.md
+
+License
+=======
+``microSWIFT`` is licensed under the terms of the MIT license. See the file
+"LICENSE" for information on the history of this software, terms & conditions
+for usage, and a DISCLAIMER OF ALL WARRANTIES.
+
+All trademarks referenced herein are property of their respective holders.
+
+Copyright (c) 2022--, SASlabgroup, University of Washington
