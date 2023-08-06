@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: mouse-behavior-analysis-tools
+Version: 1.0.0
+Summary: set of tools to analyse the behavior of mice, coded by Hernando M Vergara
+Author-email: Hernando M Vergara <hvergarabio@gmail.com>
+License: BSD-3-Clause
+Project-URL: homepage, https://github.com/HernandoMV/mouse-behavior-analysis-tools
+Project-URL: bug_tracker, https://github.com/HernandoMV/mouse-behavior-analysis-tools/issues
+Project-URL: documentation, https://github.com/HernandoMV/mouse-behavior-analysis-tools
+Project-URL: source_code, https://github.com/HernandoMV/mouse-behavior-analysis-tools
+Project-URL: user_support, https://github.com/HernandoMV/mouse-behavior-analysis-tools/issues
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: BSD License
+Requires-Python: >=3.8.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: scipy
+Requires-Dist: IPython
+Requires-Dist: matplotlib
+Requires-Dist: seaborn
+Requires-Dist: scikit-learn
+Provides-Extra: dev
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+Requires-Dist: coverage ; extra == 'dev'
+Requires-Dist: tox ; extra == 'dev'
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: isort ; extra == 'dev'
+Requires-Dist: mypy ; extra == 'dev'
+Requires-Dist: pre-commit ; extra == 'dev'
+Requires-Dist: flake8 ; extra == 'dev'
+Requires-Dist: setuptools-scm ; extra == 'dev'
+
+# mouse-behavior-analysis-tools
+
+pip installable:
+```
+pip install mouse-behavior-analysis-tools
+```
+
+import it like this for example:
+```
+from mouse_behavior_analysis_tools.utils import custom_functions as cuf
+```
