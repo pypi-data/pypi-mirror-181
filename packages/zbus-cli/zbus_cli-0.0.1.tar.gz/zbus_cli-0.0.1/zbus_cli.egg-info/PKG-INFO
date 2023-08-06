@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: zbus-cli
+Version: 0.0.1
+Summary: Framework for ZBUS command line tools.
+Author: huangxin
+Author-email: huangxin13066@cvte.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7, <4
+Provides-Extra: completion
+
+The framework provides a single command line script which can be extended with
+commands and verbs.
