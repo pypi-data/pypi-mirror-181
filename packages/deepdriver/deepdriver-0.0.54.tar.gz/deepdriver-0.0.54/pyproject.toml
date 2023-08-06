@@ -1,0 +1,17 @@
+[build-system]
+requires = [
+    "setuptools>=42",
+    "wheel",
+    "assertpy",
+    "grpcio",
+    "grpcio-tools",
+    "numpy",
+    "pandas",
+    "Pillow",
+    "plotly",
+    "psutil",
+    "pynvml",
+    "requests",
+    "protobuf==3.20.0"
+]
+build-backend = "setuptools.build_meta"
