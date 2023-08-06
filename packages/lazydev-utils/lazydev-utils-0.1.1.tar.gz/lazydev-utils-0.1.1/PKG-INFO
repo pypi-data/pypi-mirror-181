@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: lazydev-utils
+Version: 0.1.1
+Summary: Lazy utils with broad different function to improve python implementation
+Home-page: UNKNOWN
+Author: Paulo Born
+License: MIT
+Description: # LazyUtils
+        Repository with diverse implementations so you can reuse on others projects.
+        
+        Lazy utils was created to have a lot of broad functions and implementations
+         that help during the coding. Currently have the following general features:
+          - Configuration file
+          - File management
+          - Persistance local storage feature
+          - Secrets management with Local storage
+          - Classes structure like Singleton and Callable
+          - Randomize function to generate strings
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
