@@ -1,0 +1,100 @@
+[tool.poetry]
+name = "PyFLocker"
+version = "0.4.0"
+description = "Python Cryptographic (File Locking) Library"
+authors = ["Arunanshu Biswas <mydellpc07@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/arunanshub/pyflocker"
+documentation = "https://pyflocker.readthedocs.io"
+keywords = ["cryptography", "symmetric", "asymmetric", "aead", "rsa"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "Topic :: Security :: Cryptography",
+]
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/arunanshub/pyflocker/issues"
+"Changelog" = "https://github.com/arunanshub/pyflocker/blob/master/CHANGELOG.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pycryptodomex = "^3.9.8"
+cryptography = {version = ">=35.0.0,!=37.0.0", extras = ["ssh"]}
+
+# Pre-commit hooks
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^2.20.0"
+commitizen = "^2.29.5"
+
+# Testing dependencies
+[tool.poetry.group.test.dependencies]
+pytest = "^7.1.2"
+pytest-cov = "^4.0.0"
+pytest-xdist = "^3.0.0"
+pytest-randomly = "^3.12.0"
+hypothesis = "^6.50.1"
+
+# Debugging dependencies
+[tool.poetry.group.debugging]
+optional = true
+
+[tool.poetry.group.debugging.dependencies]
+pdbpp = "^0.10.3"
+pyreadline3 = {version = "^3.4.1", markers = "sys_platform == 'win32'"}
+
+# Documentation dependencies (currently not used by Readthedocs)
+[tool.poetry.group.docs]
+optional = true
+
+[tool.poetry.group.docs.dependencies]
+Sphinx = "^5.0.2"
+sphinx-copybutton = "^0.5.0"
+furo = ">=2022.2.14"
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+version = "0.4.0"
+tag_format = "v$version"
+update_changelog_on_bump = true
+changelog_incremental = true
+annotated_tag = true
+changelog_start_rev = "v0.3.0"
+version_files = [
+    "pyproject.toml",
+    "src/pyflocker/__init__.py",
+]
+
+[tool.pycln]
+all = true
+
+[tool.black]
+line-length = 79
+target-verson = "py38"
+
+[tool.isort]
+multi_line_output = 3
+include_trailing_comma = true
+line_length = 79
+profile = "black"
+add_imports = ["from __future__ import annotations"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "if TYPE_CHECKING",
+    "if typing.TYPE_CHECKING",
+]
+
+[tool.pytest.ini_options]
+addopts = "--strict-config --strict-markers"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
