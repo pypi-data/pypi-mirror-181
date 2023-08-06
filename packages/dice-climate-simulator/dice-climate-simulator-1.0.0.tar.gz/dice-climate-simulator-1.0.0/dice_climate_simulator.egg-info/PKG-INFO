@@ -1,0 +1,91 @@
+Metadata-Version: 2.1
+Name: dice-climate-simulator
+Version: 1.0.0
+Summary: Generic DICE simulations: climate module
+Author-email: Anna Shchiptsova <shchipts@iiasa.ac.at>
+License: Copyright (c) 2022 International Institute for Applied Systems Analysis
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+        
+Project-URL: Source, https://github.com/shchipts/generic-dice/tree/master/python/climate-module
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Physics
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# climate-module
+
+[![PyPI](https://img.shields.io/pypi/v/dice-climate-simulator?color=blue)](https://pypi.python.org/pypi/dice-climate-simulator/)
+
+Simulation routines for generic DICE model: climate module
+
+
+
+The generic DICE climate module includes:
+  * *python implementation of climate module from Hansel et al. (2020)*
+  * *dynamic non-CO2 radiative forcings per SSP scenario*
+
+
+
+Simulation routines include:
+  * temperature pathways for given SSP(x) net CO2 emissions (FFI & AFOLU)
+  * concentration pathways for given SSP(x) net CO2 emissions (FFI & AFOLU)
+
+## Install
+
+```cmd
+$ pip install dice-climate-simulator
+```
+
+## Usage
+
+  ```
+  Usage: dice-climate-simulator -e <emissions> -r <ratio> -f <folder>
+
+  Options:
+  -e, --emissions SSP         SSP scenario
+  -r, --ratio Z               Non-CO2 to CO2 forcings ratio estimate Z
+  -f, --folder PATH           PATH to folder with SSP(x) net CO2 emissions pathways
+  -h, --help                  Print command help
+  ```
+
+### Simulation examples
+
+  * generate climate pathways for CO2 emissions in SSP2 scenario
+  ```
+  dice-climate-simulator -e SSP2 -r avg -f net-emissions-folder
+  ```
+  results saved to climate/scenario SSP2/temperature change (other_rf avg).csv
+  and climate/scenario SSP2/concentration (other_rf avg).csv
+
+  * generate climate pathways for emissions pathway from Hansel et al. (2020)
+  ```
+  dice-climate-simulator -e hansel2020
+  ```
+  results saved to climate/hansel2020/temperature change (other_rf avg).csv
+  and climate/scenario hansel2020/concentration (other_rf avg).csv
+
+## References
+
+```
+[1] Hansel, M., Drupp, M., Johansson, D., Nesje, F., Azar, C., Freeman, M., Groom, B., & Sterner, T. (2020). Climate Economics Support for the UN Climate Targets. Nature Climate Change, 10: 781-789.
+https://doi.org/10.1038/s41558-020-0833-x
+```
+
+## Documentation
+
+* [API docs](https://shchipts.github.io/generic-dice/)
+
+## License
+
+Copyright © 2022 International Institute for Applied Systems Analysis
+
+Licensed under [MIT](http://opensource.org/licenses/MIT)
