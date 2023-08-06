@@ -1,0 +1,177 @@
+html {
+	color: #333;
+	background: #f7f7f7;
+	font-family: sans-serif;
+	touch-action: manipulation;
+}
+#wrap {
+	max-width: 40em;
+	margin: 2em auto;
+	padding: 0 1em 3em 1em;
+	line-height: 1.3em;
+}
+#wrap.w {
+	max-width: 96%;
+}
+h1 {
+	border-bottom: 1px solid #ccc;
+	margin: 2em 0 .4em 0;
+	padding: 0;
+	line-height: 1em;
+	font-weight: normal;
+}
+li {
+	margin: 1em 0;
+}
+a {
+	color: #047;
+	background: #fff;
+	text-decoration: none;
+	white-space: nowrap;
+	border-bottom: 1px solid #8ab;
+	border-radius: .2em;
+	padding: .2em .6em;
+	margin: 0 .3em;
+}
+td a {
+	margin: 0;
+}
+.af,
+.logout {
+	float: right;
+	margin: -.2em 0 0 .8em;
+}
+.logout,
+a.r {
+	color: #c04;
+	border-color: #c7a;
+}
+a.g {
+	color: #2b0;
+	border-color: #3a0;
+	box-shadow: 0 .3em 1em #4c0;
+}
+#repl {
+	border: none;
+	background: none;
+	color: inherit;
+	padding: 0;
+}
+table {
+	border-collapse: collapse;
+}
+.vols td,
+.vols th {
+	padding: .3em .6em;
+	text-align: left;
+	white-space: nowrap;
+}
+.num {
+	border-right: 1px solid #bbb;
+}
+.num td {
+	padding: .1em .7em .1em 0;
+}
+.num td:first-child {
+	text-align: right;
+}
+.cn {
+	text-align: center;
+}
+.btns {
+	margin: 1em 0;
+}
+.btns>a:first-child {
+	margin-left: 0;
+}
+#msg {
+	margin: 3em 0;
+}
+#msg h1 {
+	margin-bottom: 0;
+}
+#msg h1 + p {
+	margin-top: .3em;
+	text-align: right;
+}
+blockquote {
+	margin: 0 0 1.6em .6em;
+	padding: .7em 1em 0 1em;
+	border-left: .3em solid rgba(128,128,128,0.5);
+	border-radius: 0 0 0 .25em;
+}
+pre, code {
+	color: #480;
+	background: #fff;
+	font-family: 'scp', monospace, monospace;
+	border: 1px solid rgba(128,128,128,0.3);
+	border-radius: .2em;
+	padding: .15em .2em;
+}
+html.z pre,
+html.z code {
+	color: #9e0;
+	background: #000;
+	background: rgba(0,16,0,0.2);
+}
+.os {
+	line-height: 1.5em;
+}
+.sph {
+	margin-top: 4em;
+}
+.sph code {
+	margin-left: .3em;
+}
+pre b,
+code b {
+	color: #000;
+	font-weight: normal;
+	text-shadow: 0 0 .2em #0f0;
+}
+html.z pre b,
+html.z code b {
+	color: #fff;
+}
+
+
+html.z {
+	background: #222;
+	color: #ccc;
+}
+html.z h1 {
+	border-color: #777;
+}
+html.z a {
+	color: #fff;
+	background: #057;
+	border-color: #37a;
+}
+html.z .logout,
+html.z a.r {
+	background: #804;
+	border-color: #c28;
+}
+html.z a.g {
+	background: #470;
+	border-color: #af4;
+	box-shadow: 0 .3em 1em #7d0;
+}
+html.z input {
+	color: #fff;
+	background: #626;
+	border: 1px solid #c2c;
+	border-width: 1px 0 0 0;
+	border-radius: .5em;
+	padding: .5em .7em;
+	margin: 0 .5em 0 0;
+}
+html.z .num {
+	border-color: #777;
+}
+
+
+html.bz {
+	color: #bbd;
+	background: #11121d;
+}
