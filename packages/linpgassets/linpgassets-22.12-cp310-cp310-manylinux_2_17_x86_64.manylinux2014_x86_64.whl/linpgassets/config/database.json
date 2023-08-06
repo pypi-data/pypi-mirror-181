@@ -1,0 +1,101 @@
+{
+    "Tiles": {
+        "brick": {
+            "passable": true
+        },
+        "dirt": {
+            "passable": true
+        },
+        "dirt-grass": {
+            "passable": true
+        },
+        "grass-path": {
+            "passable": true
+        },
+        "ice": {
+            "passable": true
+        },
+        "lava": {
+            "passable": false
+        },
+        "leafs": {
+            "passable": true
+        },
+        "mud": {
+            "passable": true
+        },
+        "riverbed": {
+            "passable": true
+        },
+        "sand": {
+            "passable": true
+        },
+        "snow": {
+            "passable": true
+        },
+        "stone": {
+            "passable": true
+        },
+        "tar": {
+            "passable": true
+        },
+        "template": {
+            "passable": false
+        },
+        "tree": {
+            "passable": true
+        },
+        "water": {
+            "passable": false
+        },
+        "wood": {
+            "passable": true
+        }
+    },
+    "Decorations": {
+        "bush": {
+            "harmful": false,
+            "hidable": true,
+            "passable": true
+        },
+        "cactus": {
+            "harmful": true,
+            "hidable": false,
+            "passable": true
+        },
+        "cypress": {
+            "harmful": false,
+            "hidable": true,
+            "passable": true
+        },
+        "fence": {
+            "passable": false
+        },
+        "log": {
+            "passable": false
+        },
+        "mushroom": {
+            "passable": true
+        },
+        "rock": {
+            "passable": false
+        },
+        "skull": {
+            "passable": false
+        },
+        "stone": {
+            "passable": false
+        },
+        "stump": {
+            "passable": false
+        },
+        "tree": {
+            "harmful": false,
+            "hidable": true,
+            "passable": true
+        },
+        "water-plant": {
+            "passable": false
+        }
+    }
+}
