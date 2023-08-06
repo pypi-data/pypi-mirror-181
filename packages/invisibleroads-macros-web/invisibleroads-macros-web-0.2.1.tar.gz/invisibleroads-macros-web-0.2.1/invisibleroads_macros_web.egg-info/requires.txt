@@ -1,0 +1,14 @@
+invisibleroads-macros-process
+
+[fastapi]
+fastapi
+
+[jinja]
+jinja2
+
+[markdown]
+markdown
+
+[test]
+pytest
+pytest-cov
