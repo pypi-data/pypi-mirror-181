@@ -1,0 +1,6 @@
+{
+    "config": {
+        "num_warmup_steps": 0.1,
+    },
+    "_name": "linear_warmup",
+}
