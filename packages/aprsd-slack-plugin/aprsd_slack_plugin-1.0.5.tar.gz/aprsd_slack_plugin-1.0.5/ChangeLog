@@ -1,0 +1,49 @@
+CHANGES
+=======
+
+v1.0.5
+------
+
+* cleanup
+* fix tox runs
+* More cleanup
+* Create FUNDING.yml
+* update for new aprsd
+* update requirements.txt so it doesn't have so many
+* fixed build issues
+* Updated to work with 2.0.0
+* Added new notification and location plugin
+* Fixed to work with utils\_refactor
+* Update for new plugin interface.  Add Notify plugin
+* Added geo description in location
+* fixed tests for tox
+* fixed tests after refactoring
+* prep for release
+* new updated location plugin
+* Updated slack formatting
+* Updates for v1.0.4 release
+* Added Makefile, pre-commit. Also update for 1.5.0
+
+v1.0.3
+------
+
+* Plugin gets the version from pbr version now
+
+v1.0.2
+------
+
+* cleaned up dev reqs
+* Reduced the shit
+
+v1.0.1
+------
+
+* Added some config checking at setup time
+* remote the pinning of aprsd 1.0.0
+
+v1.0
+----
+
+* Updates for release
+* Make aprsd a requirement
+* Initial commit
