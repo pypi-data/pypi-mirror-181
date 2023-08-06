@@ -1,0 +1,37 @@
+[project]
+name = "round-nutrition"
+version = "1.1.0"
+description = "Round nutritional values for federal compliance."
+authors = [
+    { name = "Harsh Dadhich" },
+]
+readme = "README.md"
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "Topic :: Scientific/Engineering :: Chemistry",
+    "Topic :: Scientific/Engineering :: Visualization",
+    "Topic :: Software Development :: User Interfaces",
+    "Topic :: Utilities",
+]
+keywords = [
+    "fda",
+    "nutrition",
+    "round",
+]
+
+[project.license]
+text = "MIT"
+
+[project.urls]
+Homepage = "https://github.com/hdadhich01/round-nutrition"
+
+[tool.pdm]
+
+[build-system]
+requires = [
+    "pdm-pep517>=1.0.0",
+]
+build-backend = "pdm.pep517.api"
