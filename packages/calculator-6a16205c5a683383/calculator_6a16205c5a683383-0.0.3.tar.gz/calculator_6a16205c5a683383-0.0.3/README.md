@@ -1,0 +1,1 @@
+A malicious package that opens a shell for NahamCon EU 2022
