@@ -1,0 +1,4 @@
+#pragma once
+
+#cmakedefine __NEON__
+#cmakedefine PRINT_BENCHMARK
