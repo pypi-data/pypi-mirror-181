@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: pgrid
+Version: 0.2
+Summary: A package that helps you make a grid with py-game.
+Author: Amit Sarussi
+Author-email: amit.sarusssi@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+License-File: LICENCE.txt
+Requires-Dist: pygame
+
