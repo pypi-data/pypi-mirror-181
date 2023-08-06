@@ -1,0 +1,1171 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>poppy.instrument &mdash; webbpsf v0.8.0</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/astropy_logo.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/stsci.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/stsci.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+            <a href="../../index.html" class="icon icon-home"> webbpsf
+            
+            <img src="../../_static/stsci_pri_combo_mark_white.png" class="logo" />
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.0
+              </div>
+            
+          
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+  
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Requirements &amp; Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../relnotes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage.html">Using WebbPSF via the Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jwst.html">JWST Instrument Model Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../wfirst.html">WFIRST Instrument Model Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../psf_grids.html">Using PSF Grids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more_examples.html">More Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../poppy.html">Overview of POPPY (Physical Optics Propagation in Python)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api_reference.html">Detailed API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">Diagnostics &amp; Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sampling.html">Sampling Requirements for Numerical Accuracy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fft_optimization.html">Optimizing FFT Performance for PSF Computations with FFTW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../available_opds.html">Appendix: Available Optical Path Difference (OPD) files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">Appendix: Instrument Property References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gui.html">(Deprecated)  Graphical User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../release.html">Developer Notes: Releasing a new version of WebbPSF</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">webbpsf</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>poppy.instrument</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for poppy.instrument</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">getpass</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">platform</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">astropy.io.fits</span> <span class="k">as</span> <span class="nn">fits</span>
+<span class="kn">import</span> <span class="nn">astropy.units</span> <span class="k">as</span> <span class="nn">units</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.interpolate</span>
+<span class="kn">import</span> <span class="nn">scipy.ndimage</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">pysynphot</span>
+
+    <span class="n">_HAS_PYSYNPHOT</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">pysynphot</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">_HAS_PYSYNPHOT</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">poppy_core</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">optics</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">utils</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">conf</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="n">_log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;poppy&#39;</span><span class="p">)</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Instrument&#39;</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="Instrument"><a class="viewcode-back" href="../../_generated/poppy.instrument.Instrument.html#poppy.instrument.Instrument">[docs]</a><span class="k">class</span> <span class="nc">Instrument</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; A generic astronomical instrument, composed of</span>
+<span class="sd">        (1) an optical system implemented using POPPY, optionally with several configurations such as</span>
+<span class="sd">            selectable image plane or pupil plane stops, and</span>
+<span class="sd">        (2) some defined spectral bandpass(es) such as selectable filters, implemented using pysynphot.</span>
+
+<span class="sd">    This provides the capability to model both the optical and spectral responses of a given system.</span>
+<span class="sd">    PSFs may be calculated for given source</span>
+<span class="sd">    spectral energy distributions and output as FITS files, with substantial flexibility.</span>
+
+<span class="sd">    It also provides capabilities for modeling some PSF effects not due to wavefront aberrations, for instance</span>
+<span class="sd">    blurring caused by pointing jitter.</span>
+
+
+<span class="sd">    This is a base class for Instrument functionality - you cannot easily use this directly, but</span>
+<span class="sd">    rather should subclass it for your particular instrument of interest.   Some of the complexity of this class</span>
+<span class="sd">    is due to splitting up functionality into many separate routines to allow users to subclass just the relevant</span>
+<span class="sd">    portions for a given task. There&#39;s a fair amount of functionality here but the learning curve is steeper than</span>
+<span class="sd">    elsewhere in POPPY.</span>
+
+<span class="sd">    You will at a minimum want to override the following class methods:</span>
+
+<span class="sd">        * _get_optical_system</span>
+<span class="sd">        * _get_filter_list</span>
+<span class="sd">        * _get_default_nlambda</span>
+<span class="sd">        * _get_default_fov</span>
+<span class="sd">        * _get_fits_header</span>
+
+<span class="sd">    For more complicated systems you may also want to override:</span>
+
+<span class="sd">        * _validate_config</span>
+<span class="sd">        * _get_synphot_bandpass</span>
+<span class="sd">        * _apply_jitter</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Instrument&quot;</span>
+    <span class="n">pupil</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="s2">&quot;Aperture for this optical system. May be a FITS filename, FITS HDUList object, or poppy.OpticalElement&quot;</span>
+    <span class="n">pupilopd</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="sd">&quot;&quot;&quot;Pupil OPD for this optical system. May be a FITS filename, or FITS HDUList.</span>
+<span class="sd">    If the file contains a datacube, you may set this to a tuple (filename, slice) to select a given slice, or else</span>
+<span class="sd">    the first slice will be used.&quot;&quot;&quot;</span>
+    <span class="n">options</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A dictionary capable of storing other arbitrary options, for extensibility. The following are all optional, and</span>
+<span class="sd">    may or may not be meaningful depending on which instrument is selected.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    source_offset_r : float</span>
+<span class="sd">        Radial offset of the target from the center, in arcseconds</span>
+<span class="sd">    source_offset_theta : float</span>
+<span class="sd">        Position angle for that offset</span>
+<span class="sd">    pupil_shift_x, pupil_shift_y : float</span>
+<span class="sd">        Relative shift of a coronagraphic pupil in X and Y, expressed as a decimal between 0.0-1.0</span>
+<span class="sd">        Note that shifting an array too much will wrap around to the other side unphysically, but</span>
+<span class="sd">        for reasonable values of shift this is a non-issue.</span>
+<span class="sd">    jitter : string &quot;gaussian&quot; or None</span>
+<span class="sd">        Type of jitter model to apply. Currently only convolution with a Gaussian kernel of specified</span>
+<span class="sd">        width `jitter_sigma` is implemented. (default: None)</span>
+<span class="sd">    jitter_sigma : float</span>
+<span class="sd">        Width of the jitter kernel in arcseconds (default: 0.007 arcsec)</span>
+<span class="sd">    parity : string &quot;even&quot; or &quot;odd&quot;</span>
+<span class="sd">        You may wish to ensure that the output PSF grid has either an odd or even number of pixels.</span>
+<span class="sd">        Setting this option will force that to be the case by increasing npix by one if necessary.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">filter_list</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="sd">&quot;&quot;&quot;List of available filter names for this instrument&quot;&quot;&quot;</span>
+    <span class="n">pixelscale</span> <span class="o">=</span> <span class="mf">0.025</span>
+    <span class="sd">&quot;&quot;&quot;Detector pixel scale, in arcseconds/pixel (default: 0.025)&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pupil</span> <span class="o">=</span> <span class="n">optics</span><span class="o">.</span><span class="n">CircularAperture</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pupilopd</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">options</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filter_list</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_synphot_bandpasses</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_filter_list</span><span class="p">()</span>  <span class="c1"># List of available filter names</span>
+
+        <span class="c1"># create private instance variables. These will be</span>
+        <span class="c1"># wrapped just below to create properties with validation.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_filter</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_rotation</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># for caching pysynphot results.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_spectra_cache</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">optsys</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># instance attribute for Optical System</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;Instrument name=&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+
+    <span class="c1"># create properties with error checking</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Currently selected filter name (e.g. F200W)&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filter</span>
+
+    <span class="nd">@filter</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>  <span class="c1"># force to uppercase</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter_list</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Instrument </span><span class="si">%s</span><span class="s2"> doesn&#39;t have a filter called </span><span class="si">%s</span><span class="s2">.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_filter</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="c1"># ----- actual optical calculations follow here -----</span>
+    <span class="k">def</span> <span class="nf">calc_psf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outfile</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nlambda</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">monochromatic</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">fov_arcsec</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fov_pixels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">oversample</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">detector_oversample</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fft_oversample</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">save_intermediates</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">return_intermediates</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">normalize</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Compute a PSF.</span>
+<span class="sd">        The result can either be written to disk (set outfile=&quot;filename&quot;) or else will be returned as</span>
+<span class="sd">        a FITS HDUlist object.</span>
+
+
+<span class="sd">        Output sampling may be specified in one of two ways:</span>
+
+<span class="sd">        1) Set `oversample=&lt;number&gt;`. This will use that oversampling factor beyond detector pixels</span>
+<span class="sd">           for output images, and beyond Nyquist sampling for any FFTs to prior optical planes.</span>
+<span class="sd">        2) set `detector_oversample=&lt;number&gt;` and `fft_oversample=&lt;other_number&gt;`. This syntax lets</span>
+<span class="sd">           you specify distinct oversampling factors for intermediate and final planes.</span>
+
+<span class="sd">        By default, both oversampling factors are set equal to 2.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        More advanced PSF computation options (pupil shifts, source positions, jitter, ...)</span>
+<span class="sd">        may be set by configuring the `.options` dictionary attribute of this class.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        source : pysynphot.SourceSpectrum or dict</span>
+<span class="sd">            specification of source input spectrum. Default is a 5700 K sunlike star.</span>
+<span class="sd">        nlambda : int</span>
+<span class="sd">            How many wavelengths to model for broadband?</span>
+<span class="sd">            The default depends on how wide the filter is: (5,3,1) for types (W,M,N) respectively</span>
+<span class="sd">        monochromatic : float, optional</span>
+<span class="sd">            Setting this to a wavelength value (in meters) will compute a monochromatic PSF at that</span>
+<span class="sd">            wavelength, overriding filter and nlambda settings.</span>
+<span class="sd">        fov_arcsec : float</span>
+<span class="sd">            field of view in arcsec. Default=5</span>
+<span class="sd">        fov_pixels : int</span>
+<span class="sd">            field of view in pixels. This is an alternative to fov_arcsec.</span>
+<span class="sd">        outfile : string</span>
+<span class="sd">            Filename to write. If None, then result is returned as an HDUList</span>
+<span class="sd">        oversample, detector_oversample, fft_oversample : int</span>
+<span class="sd">            How much to oversample. Default=4. By default the same factor is used for final output</span>
+<span class="sd">            pixels and intermediate optical planes, but you may optionally use different factors</span>
+<span class="sd">            if so desired.</span>
+<span class="sd">        overwrite : bool</span>
+<span class="sd">            overwrite output FITS file if it already exists?</span>
+<span class="sd">        display : bool</span>
+<span class="sd">            Whether to display the PSF when done or not.</span>
+<span class="sd">        save_intermediates, return_intermediates : bool</span>
+<span class="sd">            Options for saving to disk or returning to the calling function the intermediate optical planes during</span>
+<span class="sd">            the propagation. This is useful if you want to e.g. examine the intensity in the Lyot plane for a</span>
+<span class="sd">            coronagraphic propagation.</span>
+<span class="sd">        normalize : string</span>
+<span class="sd">            Desired normalization for output PSFs. See doc string for OpticalSystem.calc_psf. Default is</span>
+<span class="sd">            to normalize the entrance pupil to have integrated total intensity = 1.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        outfits : fits.HDUList</span>
+<span class="sd">            The output PSF is returned as a fits.HDUlist object.</span>
+<span class="sd">            If `outfile` is set to a valid filename, the output is also written to that file.</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">local_options</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span>  <span class="c1"># all local state should be stored in a dict, for</span>
+        <span class="c1"># ease of handing off to the various subroutines of</span>
+        <span class="c1"># calc_psf. Don&#39;t just modify the global self.options</span>
+        <span class="c1"># structure since that would pollute it with temporary</span>
+        <span class="c1"># state as well as persistent state.</span>
+        <span class="n">local_options</span><span class="p">[</span><span class="s1">&#39;monochromatic&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">monochromatic</span>
+
+        <span class="c1"># ----- choose # of wavelengths intelligently. Do this first before generating the source spectrum weighting.</span>
+        <span class="k">if</span> <span class="n">nlambda</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">nlambda</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">nlambda</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_default_nlambda</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filter</span><span class="p">)</span>
+        <span class="n">local_options</span><span class="p">[</span><span class="s1">&#39;nlambda&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nlambda</span>
+
+        <span class="c1"># ----- calculate field of view depending on supplied parameters</span>
+        <span class="k">if</span> <span class="n">fov_arcsec</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">fov_pixels</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># pick decent defaults.</span>
+            <span class="n">fov_arcsec</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_default_fov</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">fov_pixels</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span><span class="n">fov_pixels</span><span class="p">):</span>
+                <span class="n">fov_spec</span> <span class="o">=</span> <span class="s1">&#39;pixels = </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">fov_pixels</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">fov_spec</span> <span class="o">=</span> <span class="s1">&#39;pixels = (</span><span class="si">%d</span><span class="s1">, </span><span class="si">%d</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">fov_pixels</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">fov_pixels</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">local_options</span><span class="p">[</span><span class="s1">&#39;fov_pixels&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fov_pixels</span>
+        <span class="k">elif</span> <span class="n">fov_arcsec</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span><span class="n">fov_arcsec</span><span class="p">):</span>
+                <span class="n">fov_spec</span> <span class="o">=</span> <span class="s1">&#39;arcsec = </span><span class="si">%f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">fov_arcsec</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">fov_spec</span> <span class="o">=</span> <span class="s1">&#39;arcsec = (</span><span class="si">%.3f</span><span class="s1">, </span><span class="si">%.3f</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">fov_arcsec</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">fov_arcsec</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">local_options</span><span class="p">[</span><span class="s1">&#39;fov_arcsec&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fov_arcsec</span>
+        <span class="n">local_options</span><span class="p">[</span><span class="s1">&#39;fov_spec&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fov_spec</span>
+
+        <span class="c1"># ---- Implement the semi-convoluted logic for the oversampling options. See docstring above</span>
+        <span class="k">if</span> <span class="n">oversample</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">detector_oversample</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">fft_oversample</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># all options set, contradictorily -&gt; complain!</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;You cannot specify simultaneously the oversample= option with the detector_oversample &quot;</span> <span class="o">+</span>
+                <span class="s2">&quot;and fft_oversample options. Pick one or the other!&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">oversample</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">detector_oversample</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">fft_oversample</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># nothing set -&gt; set oversample = 4</span>
+            <span class="n">oversample</span> <span class="o">=</span> <span class="mi">4</span>
+        <span class="k">if</span> <span class="n">detector_oversample</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">detector_oversample</span> <span class="o">=</span> <span class="n">oversample</span>
+        <span class="k">if</span> <span class="n">fft_oversample</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">fft_oversample</span> <span class="o">=</span> <span class="n">oversample</span>
+        <span class="n">local_options</span><span class="p">[</span><span class="s1">&#39;detector_oversample&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">detector_oversample</span>
+        <span class="n">local_options</span><span class="p">[</span><span class="s1">&#39;fft_oversample&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fft_oversample</span>
+
+        <span class="c1"># ----- compute weights for each wavelength based on source spectrum</span>
+        <span class="n">wavelens</span><span class="p">,</span> <span class="n">weights</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_weights</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">,</span> <span class="n">nlambda</span><span class="o">=</span><span class="n">local_options</span><span class="p">[</span><span class="s1">&#39;nlambda&#39;</span><span class="p">],</span>
+                                              <span class="n">monochromatic</span><span class="o">=</span><span class="n">local_options</span><span class="p">[</span><span class="s1">&#39;monochromatic&#39;</span><span class="p">])</span>
+
+        <span class="c1"># Validate that the calculation we&#39;re about to do makes sense with this instrument config</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_validate_config</span><span class="p">(</span><span class="n">wavelengths</span><span class="o">=</span><span class="n">wavelens</span><span class="p">)</span>
+        <span class="n">poppy_core</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+            <span class="s2">&quot;PSF calc using fov_</span><span class="si">%s</span><span class="s2">, oversample = </span><span class="si">%d</span><span class="s2">, number of wavelengths = </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span>
+                <span class="n">local_options</span><span class="p">[</span><span class="s1">&#39;fov_spec&#39;</span><span class="p">],</span> <span class="n">local_options</span><span class="p">[</span><span class="s1">&#39;detector_oversample&#39;</span><span class="p">],</span> <span class="nb">len</span><span class="p">(</span><span class="n">wavelens</span><span class="p">)</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="c1"># ---- now at last, actually do the PSF calc:</span>
+        <span class="c1">#  instantiate an optical system using the current parameters</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">optsys</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_optical_system</span><span class="p">(</span><span class="n">fov_arcsec</span><span class="o">=</span><span class="n">fov_arcsec</span><span class="p">,</span> <span class="n">fov_pixels</span><span class="o">=</span><span class="n">fov_pixels</span><span class="p">,</span>
+                                               <span class="n">fft_oversample</span><span class="o">=</span><span class="n">fft_oversample</span><span class="p">,</span> <span class="n">detector_oversample</span><span class="o">=</span><span class="n">detector_oversample</span><span class="p">,</span>
+                                               <span class="n">options</span><span class="o">=</span><span class="n">local_options</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_for_aliasing</span><span class="p">(</span><span class="n">wavelens</span><span class="p">)</span>
+        <span class="c1"># and use it to compute the PSF (the real work happens here, in code in poppy.py)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">optsys</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">(</span><span class="n">wavelens</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">display_intermediates</span><span class="o">=</span><span class="n">display</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="n">display</span><span class="p">,</span>
+                                      <span class="n">save_intermediates</span><span class="o">=</span><span class="n">save_intermediates</span><span class="p">,</span> <span class="n">return_intermediates</span><span class="o">=</span><span class="n">return_intermediates</span><span class="p">,</span>
+                                      <span class="n">normalize</span><span class="o">=</span><span class="n">normalize</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">return_intermediates</span><span class="p">:</span>  <span class="c1"># this implies we got handed back a tuple, so split it apart</span>
+            <span class="n">result</span><span class="p">,</span> <span class="n">intermediates</span> <span class="o">=</span> <span class="n">result</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_apply_jitter</span><span class="p">(</span><span class="n">result</span><span class="p">,</span>
+                           <span class="n">local_options</span><span class="p">)</span>  <span class="c1"># will immediately return if there is no jitter parameter in local_options</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_get_fits_header</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">local_options</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_calc_psf_format_output</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">local_options</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">display</span><span class="p">:</span>
+            <span class="n">f</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">, filter= </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="s1">&#39;xx-large&#39;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">monochromatic</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">labeltext</span> <span class="o">=</span> <span class="s2">&quot;Monochromatic calculation at </span><span class="si">{:.3f}</span><span class="s2"> um&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">monochromatic</span> <span class="o">*</span> <span class="mf">1e6</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">labeltext</span> <span class="o">=</span> <span class="s2">&quot;Calculation with </span><span class="si">%d</span><span class="s2"> wavelengths (</span><span class="si">%g</span><span class="s2"> - </span><span class="si">%g</span><span class="s2"> um)&quot;</span> <span class="o">%</span> <span class="p">(</span>
+                    <span class="n">nlambda</span><span class="p">,</span> <span class="n">wavelens</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1e6</span><span class="p">,</span> <span class="n">wavelens</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1e6</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.99</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">,</span> <span class="n">labeltext</span><span class="p">,</span>
+                     <span class="n">transform</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">transFigure</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">outfile</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">[</span><span class="s2">&quot;FILENAME&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">outfile</span><span class="p">),</span> <span class="s2">&quot;Name of this file&quot;</span><span class="p">)</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">writeto</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="n">overwrite</span><span class="p">)</span>
+            <span class="n">poppy_core</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Saved result to &quot;</span> <span class="o">+</span> <span class="n">outfile</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">return_intermediates</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">result</span><span class="p">,</span> <span class="n">intermediates</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">result</span>
+
+    <span class="k">def</span> <span class="nf">calc_datacube</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wavelengths</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Calculate a spectral datacube of PSFs</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        -----------</span>
+<span class="sd">        wavelengths : iterable of floats</span>
+<span class="sd">            List or ndarray or tuple of floating point wavelengths in meters, such as</span>
+<span class="sd">            you would supply in a call to calc_psf via the &quot;monochromatic&quot; option</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">nwavelengths</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">wavelengths</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">nwavelengths</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Maximum number of wavelengths exceeded. Cannot be more than 100.&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Set up cube and initialize structure based on PSF at first wavelength</span>
+        <span class="n">poppy_core</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Starting multiwavelength data cube calculation.&quot;</span><span class="p">)</span>
+        <span class="n">psf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">monochromatic</span><span class="o">=</span><span class="n">wavelengths</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="kn">from</span> <span class="nn">copy</span> <span class="k">import</span> <span class="n">deepcopy</span>
+        <span class="n">cube</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">psf</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">ext</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">psf</span><span class="p">)):</span>
+            <span class="n">cube</span><span class="p">[</span><span class="n">ext</span><span class="p">]</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nwavelengths</span><span class="p">,</span> <span class="n">psf</span><span class="p">[</span><span class="n">ext</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">psf</span><span class="p">[</span><span class="n">ext</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+            <span class="n">cube</span><span class="p">[</span><span class="n">ext</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">psf</span><span class="p">[</span><span class="n">ext</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+            <span class="n">cube</span><span class="p">[</span><span class="n">ext</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">[</span><span class="s1">&#39;WAVELN00&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">wavelengths</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="c1"># iterate rest of wavelengths</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nwavelengths</span><span class="p">):</span>
+            <span class="n">wl</span> <span class="o">=</span> <span class="n">wavelengths</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">psf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">monochromatic</span><span class="o">=</span><span class="n">wl</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">ext</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">psf</span><span class="p">)):</span>
+                <span class="n">cube</span><span class="p">[</span><span class="n">ext</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">psf</span><span class="p">[</span><span class="n">ext</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+                <span class="n">cube</span><span class="p">[</span><span class="n">ext</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">[</span><span class="s1">&#39;WAVELN</span><span class="si">{:02d}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span> <span class="o">=</span> <span class="n">wl</span>
+                <span class="n">cube</span><span class="p">[</span><span class="n">ext</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">add_history</span><span class="p">(</span><span class="s2">&quot;--- Cube Plane </span><span class="si">{}</span><span class="s2"> ---&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+                <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">psf</span><span class="p">[</span><span class="n">ext</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">[</span><span class="s1">&#39;HISTORY&#39;</span><span class="p">]:</span>
+                    <span class="n">cube</span><span class="p">[</span><span class="n">ext</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">add_history</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+
+        <span class="n">cube</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">[</span><span class="s1">&#39;NWAVES&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nwavelengths</span>
+        <span class="k">return</span> <span class="n">cube</span>
+
+    <span class="k">def</span> <span class="nf">_calc_psf_format_output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">options</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Apply desired formatting to output file:</span>
+<span class="sd">                 - rebin to detector pixel scale if desired</span>
+<span class="sd">                 - set up FITS extensions if desired</span>
+<span class="sd">                 - output either the oversampled, rebinned, or both</span>
+<span class="sd">        Which image(s) get output depends on the value of the options[&#39;output_mode&#39;]</span>
+<span class="sd">        parameter. It may be set to &#39;Oversampled image&#39; to output just the oversampled image,</span>
+<span class="sd">        &#39;Detector sampled image&#39; to output just the image binned down onto detector pixels, or</span>
+<span class="sd">        &#39;Both as FITS extensions&#39; to output the oversampled image as primary HDU and the</span>
+<span class="sd">        rebinned image as the first image extension. For convenience, the option can be set</span>
+<span class="sd">        to just &#39;oversampled&#39;, &#39;detector&#39;, or &#39;both&#39;.</span>
+
+<span class="sd">        Modifies the &#39;result&#39; HDUList object.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">output_mode</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;output_mode&#39;</span><span class="p">,</span> <span class="s1">&#39;Both as FITS extensions&#39;</span><span class="p">)</span>
+        <span class="n">detector_oversample</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;detector_oversample&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">output_mode</span> <span class="o">==</span> <span class="s1">&#39;Oversampled image&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="s1">&#39;oversampled&#39;</span> <span class="ow">in</span> <span class="n">output_mode</span><span class="o">.</span><span class="n">lower</span><span class="p">()):</span>
+            <span class="c1"># we just want to output the oversampled image as</span>
+            <span class="c1"># the primary HDU. Nothing special needs to be done.</span>
+            <span class="n">poppy_core</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot; Returning only the oversampled data. Oversampled by </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">detector_oversample</span><span class="p">))</span>
+            <span class="k">return</span>
+
+        <span class="k">elif</span> <span class="p">(</span><span class="n">output_mode</span> <span class="o">==</span> <span class="s1">&#39;Detector sampled image&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="s1">&#39;detector&#39;</span> <span class="ow">in</span> <span class="n">output_mode</span><span class="o">.</span><span class="n">lower</span><span class="p">()):</span>
+            <span class="c1"># output only the detector sampled image as primary HDU.</span>
+            <span class="c1"># need to downsample it and replace the existing primary HDU</span>
+            <span class="k">if</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;detector_oversample&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">poppy_core</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot; Downsampling to detector pixel scale, by </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">detector_oversample</span><span class="p">))</span>
+                <span class="k">for</span> <span class="n">ext</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)):</span>
+                    <span class="n">result</span><span class="p">[</span><span class="n">ext</span><span class="p">]</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">rebin_array</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="n">ext</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+                                                         <span class="n">rc</span><span class="o">=</span><span class="p">(</span><span class="n">detector_oversample</span><span class="p">,</span> <span class="n">detector_oversample</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">poppy_core</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot; Result already at detector pixel scale; no downsampling needed.&quot;</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">ext</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)):</span>
+                <span class="n">result</span><span class="p">[</span><span class="n">ext</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">[</span><span class="s1">&#39;OVERSAMP&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;These data are rebinned to detector pixels&#39;</span><span class="p">)</span>
+                <span class="n">result</span><span class="p">[</span><span class="n">ext</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">[</span><span class="s1">&#39;CALCSAMP&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">detector_oversample</span><span class="p">,</span> <span class="s1">&#39;This much oversampling used in calculation&#39;</span><span class="p">)</span>
+                <span class="n">result</span><span class="p">[</span><span class="n">ext</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">[</span><span class="s1">&#39;PIXELSCL&#39;</span><span class="p">]</span> <span class="o">*=</span> <span class="n">detector_oversample</span>
+                <span class="n">result</span><span class="p">[</span><span class="n">ext</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">[</span><span class="s1">&#39;EXTNAME&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="n">ext</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">[</span><span class="s1">&#39;EXTNAME&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;OVER&quot;</span><span class="p">,</span> <span class="s2">&quot;DET_&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="k">elif</span> <span class="p">(</span><span class="n">output_mode</span> <span class="o">==</span> <span class="s1">&#39;Both as FITS extensions&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="s1">&#39;both&#39;</span> <span class="ow">in</span> <span class="n">output_mode</span><span class="o">.</span><span class="n">lower</span><span class="p">()):</span>
+            <span class="c1"># return the downsampled image in the first image extension</span>
+            <span class="c1"># keep the oversampled image in the primary HDU.</span>
+            <span class="c1"># create the image extension even if we&#39;re already at 1x sampling, for consistency</span>
+            <span class="n">poppy_core</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot; Adding extension with image downsampled to detector pixel scale.&quot;</span><span class="p">)</span>
+
+            <span class="n">hdu</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">HDUList</span><span class="p">()</span>  <span class="c1"># append to new hdulist object to preserve the order</span>
+            <span class="k">for</span> <span class="n">ext</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)):</span>
+                <span class="n">rebinned_result</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="n">ext</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;detector_oversample&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">poppy_core</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot; Downsampling to detector pixel scale, by </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">detector_oversample</span><span class="p">))</span>
+                    <span class="n">rebinned_result</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">rebin_array</span><span class="p">(</span><span class="n">rebinned_result</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+                                                             <span class="n">rc</span><span class="o">=</span><span class="p">(</span><span class="n">detector_oversample</span><span class="p">,</span> <span class="n">detector_oversample</span><span class="p">))</span>
+
+                <span class="n">rebinned_result</span><span class="o">.</span><span class="n">header</span><span class="p">[</span><span class="s1">&#39;OVERSAMP&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;These data are rebinned to detector pixels&#39;</span><span class="p">)</span>
+                <span class="n">rebinned_result</span><span class="o">.</span><span class="n">header</span><span class="p">[</span><span class="s1">&#39;CALCSAMP&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">detector_oversample</span><span class="p">,</span> <span class="s1">&#39;This much oversampling used in calculation&#39;</span><span class="p">)</span>
+                <span class="n">rebinned_result</span><span class="o">.</span><span class="n">header</span><span class="p">[</span><span class="s1">&#39;PIXELSCL&#39;</span><span class="p">]</span> <span class="o">*=</span> <span class="n">detector_oversample</span>
+                <span class="n">rebinned_result</span><span class="o">.</span><span class="n">header</span><span class="p">[</span><span class="s1">&#39;EXTNAME&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rebinned_result</span><span class="o">.</span><span class="n">header</span><span class="p">[</span><span class="s1">&#39;EXTNAME&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;OVER&quot;</span><span class="p">,</span> <span class="s2">&quot;DET_&quot;</span><span class="p">)</span>
+
+                <span class="n">hdu</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="n">ext</span><span class="p">])</span>
+                <span class="n">hdu</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rebinned_result</span><span class="p">)</span>
+
+            <span class="c1"># Create enough new extensions to append all psfs to them</span>
+            <span class="p">[</span><span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fits</span><span class="o">.</span><span class="n">ImageHDU</span><span class="p">())</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hdu</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">))]</span>
+            <span class="k">for</span> <span class="n">ext</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hdu</span><span class="p">)):</span> <span class="n">result</span><span class="p">[</span><span class="n">ext</span><span class="p">]</span> <span class="o">=</span> <span class="n">hdu</span><span class="p">[</span><span class="n">ext</span><span class="p">]</span>
+
+            <span class="k">return</span>
+
+    <span class="k">def</span> <span class="nf">_get_fits_header</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">options</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Set instrument-specific FITS header keywords</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            result : fits.HDUList object</span>
+<span class="sd">                The HDUList containing the image to be output.</span>
+<span class="sd">            options : dict</span>
+<span class="sd">                A dictionary containing options</span>
+
+<span class="sd">        This function will modify the primary header of the result HDUlist.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">.version</span> <span class="k">import</span> <span class="n">version</span> <span class="k">as</span> <span class="n">__version__</span>
+        <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+            <span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+        <span class="c1"># ---  update FITS header, display, and output.</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pupil</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">pupilstr</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pupil</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pupil</span><span class="p">,</span> <span class="n">fits</span><span class="o">.</span><span class="n">HDUList</span><span class="p">):</span>
+            <span class="n">pupilstr</span> <span class="o">=</span> <span class="s1">&#39;pupil from supplied FITS HDUList object&#39;</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pupil</span><span class="p">,</span> <span class="n">poppy_core</span><span class="o">.</span><span class="n">OpticalElement</span><span class="p">):</span>
+            <span class="n">pupilstr</span> <span class="o">=</span> <span class="s1">&#39;pupil from supplied OpticalElement: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pupil</span><span class="p">)</span>
+        <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">[</span><span class="s1">&#39;PUPILINT&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">pupilstr</span><span class="p">,</span> <span class="s1">&#39;Pupil aperture intensity source&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pupilopd</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">opdstring</span> <span class="o">=</span> <span class="s2">&quot;NONE - perfect telescope! &quot;</span>
+            <span class="n">opdfile</span> <span class="o">=</span> <span class="s1">&#39;None&#39;</span>
+            <span class="n">opdslice</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pupilopd</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">opdstring</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pupilopd</span><span class="p">)</span>
+            <span class="n">opdfile</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pupilopd</span><span class="p">)</span>
+            <span class="n">opdslice</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># default slice</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pupilopd</span><span class="p">,</span> <span class="n">fits</span><span class="o">.</span><span class="n">HDUList</span><span class="p">):</span>
+            <span class="n">opdstring</span> <span class="o">=</span> <span class="s1">&#39;OPD from supplied FITS HDUlist object&#39;</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pupilopd</span><span class="o">.</span><span class="n">filename</span><span class="p">(),</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="n">opdfile</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pupilopd</span><span class="o">.</span><span class="n">filename</span><span class="p">())</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">opdfile</span> <span class="o">=</span> <span class="s1">&#39;None&#39;</span>
+            <span class="n">opdslice</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pupilopd</span><span class="p">,</span> <span class="n">poppy_core</span><span class="o">.</span><span class="n">OpticalElement</span><span class="p">):</span>
+            <span class="n">opdstring</span> <span class="o">=</span> <span class="s1">&#39;OPD from supplied OpticalElement: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pupilopd</span><span class="p">)</span>
+            <span class="n">opdfile</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pupilopd</span><span class="p">)</span>
+            <span class="n">opdslice</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># tuple?</span>
+            <span class="n">opdstring</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> slice </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pupilopd</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="bp">self</span><span class="o">.</span><span class="n">pupilopd</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">opdfile</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pupilopd</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">opdslice</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pupilopd</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">[</span><span class="s1">&#39;PUPILOPD&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">opdstring</span><span class="p">,</span> <span class="s1">&#39;Pupil OPD source&#39;</span><span class="p">)</span>
+        <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">[</span><span class="s1">&#39;OPD_FILE&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">opdfile</span><span class="p">,</span> <span class="s1">&#39;Pupil OPD file name&#39;</span><span class="p">)</span>
+        <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">[</span><span class="s1">&#39;OPDSLICE&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">opdslice</span><span class="p">,</span> <span class="s1">&#39;Pupil OPD slice number, if file is a datacube&#39;</span><span class="p">)</span>
+
+        <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">[</span><span class="s1">&#39;INSTRUME&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;Instrument&#39;</span><span class="p">)</span>
+        <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">[</span><span class="s1">&#39;FILTER&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filter</span><span class="p">,</span> <span class="s1">&#39;Filter name&#39;</span><span class="p">)</span>
+        <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">[</span><span class="s1">&#39;EXTNAME&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;OVERSAMP&#39;</span><span class="p">,</span> <span class="s1">&#39;This extension is oversampled.&#39;</span><span class="p">)</span>
+        <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">add_history</span><span class="p">(</span><span class="s1">&#39;Created by POPPY version &#39;</span> <span class="o">+</span> <span class="n">__version__</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="s1">&#39;fft_oversample&#39;</span> <span class="ow">in</span> <span class="n">options</span><span class="p">:</span>
+            <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">[</span><span class="s1">&#39;OVERSAMP&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;fft_oversample&#39;</span><span class="p">],</span> <span class="s1">&#39;Oversampling factor for FFTs in computation&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;detector_oversample&#39;</span> <span class="ow">in</span> <span class="n">options</span><span class="p">:</span>
+            <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">[</span><span class="s1">&#39;DET_SAMP&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">options</span><span class="p">[</span><span class="s1">&#39;detector_oversample&#39;</span><span class="p">],</span> <span class="s1">&#39;Oversampling factor for MFT to detector plane&#39;</span><span class="p">)</span>
+
+        <span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">hour</span><span class="p">,</span> <span class="n">minute</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="n">weekday</span><span class="p">,</span> <span class="n">doy</span><span class="p">,</span> <span class="n">dst</span><span class="p">)</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">gmtime</span><span class="p">()</span>
+        <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">[</span><span class="s2">&quot;DATE&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s2">&quot;</span><span class="si">%4d</span><span class="s2">-</span><span class="si">%02d</span><span class="s2">-</span><span class="si">%02d</span><span class="s2">T</span><span class="si">%02d</span><span class="s2">:</span><span class="si">%02d</span><span class="s2">:</span><span class="si">%02d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">hour</span><span class="p">,</span> <span class="n">minute</span><span class="p">,</span> <span class="n">second</span><span class="p">),</span> <span class="s2">&quot;Date of calculation&quot;</span><span class="p">)</span>
+        <span class="c1"># get username and hostname in a cross-platform way</span>
+        <span class="n">username</span> <span class="o">=</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getuser</span><span class="p">()</span>
+        <span class="n">hostname</span> <span class="o">=</span> <span class="n">platform</span><span class="o">.</span><span class="n">node</span><span class="p">()</span>
+        <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">[</span><span class="s2">&quot;AUTHOR&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">@</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">hostname</span><span class="p">),</span> <span class="s2">&quot;username@host for calculation&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_validate_config</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wavelengths</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Determine if a provided instrument configuration is valid.</span>
+
+<span class="sd">        Wavelengths to be propagated in the calculation are passed in as the `wavelengths`</span>
+<span class="sd">        keyword argument.</span>
+
+<span class="sd">        Subclasses should raise an exception if the configuration is invalid/unachievable.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">_get_optical_system</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fft_oversample</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">detector_oversample</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fov_arcsec</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">fov_pixels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                            <span class="n">options</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Return an OpticalSystem instance corresponding to the instrument as currently configured.</span>
+
+<span class="sd">        When creating such an OpticalSystem, you must specify the parameters needed to define the</span>
+<span class="sd">        desired sampling, specifically the oversampling and field of view.</span>
+
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+
+<span class="sd">        fft_oversample : int</span>
+<span class="sd">            Oversampling factor for intermediate plane calculations. Default is 2</span>
+<span class="sd">        detector_oversample: int, optional</span>
+<span class="sd">            By default the detector oversampling is equal to the intermediate calculation oversampling.</span>
+<span class="sd">            If you wish to use a different value for the detector, set this parameter.</span>
+<span class="sd">            Note that if you just want images at detector pixel resolution you will achieve higher fidelity</span>
+<span class="sd">            by still using some oversampling (i.e. *not* setting `oversample_detector=1`) and instead rebinning</span>
+<span class="sd">            down the oversampled data.</span>
+<span class="sd">        fov_pixels : float</span>
+<span class="sd">            Field of view in pixels. Overrides fov_arcsec if both set.</span>
+<span class="sd">        fov_arcsec : float</span>
+<span class="sd">            Field of view, in arcseconds. Default is 2</span>
+<span class="sd">        options : dict</span>
+<span class="sd">            Other arbitrary options for optical system creation</span>
+
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        osys : poppy.OpticalSystem</span>
+<span class="sd">            an optical system instance representing the desired configuration.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">poppy_core</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Creating optical system model:&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">detector_oversample</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">detector_oversample</span> <span class="o">=</span> <span class="n">fft_oversample</span>
+        <span class="k">if</span> <span class="n">options</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">options</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+        <span class="n">poppy_core</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Oversample: </span><span class="si">%d</span><span class="s2">  </span><span class="si">%d</span><span class="s2"> &quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">fft_oversample</span><span class="p">,</span> <span class="n">detector_oversample</span><span class="p">))</span>
+        <span class="n">optsys</span> <span class="o">=</span> <span class="n">poppy_core</span><span class="o">.</span><span class="n">OpticalSystem</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">oversample</span><span class="o">=</span><span class="n">fft_oversample</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="s1">&#39;source_offset_x&#39;</span> <span class="ow">in</span> <span class="n">options</span> <span class="ow">or</span> <span class="s1">&#39;source_offset_y&#39;</span> <span class="ow">in</span> <span class="n">options</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s1">&#39;source_offset_r&#39;</span> <span class="ow">in</span> <span class="n">options</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Cannot set source offset using source_offset_x and source_offset_y&quot;</span> <span class="o">+</span>
+                                 <span class="s2">&quot; at the same time as source_offset_r&quot;</span><span class="p">)</span>
+            <span class="n">offx</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;source_offset_x&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">offy</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;source_offset_y&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">optsys</span><span class="o">.</span><span class="n">source_offset_r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">offx</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">offy</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="n">optsys</span><span class="o">.</span><span class="n">source_offset_theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="o">-</span><span class="n">offx</span><span class="p">,</span> <span class="n">offy</span><span class="p">))</span>
+            <span class="n">_log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Source offset from X,Y = (</span><span class="si">{}</span><span class="s2">, </span><span class="si">{}</span><span class="s2">) is (r,theta) = </span><span class="si">{}</span><span class="s2">,</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">offx</span><span class="p">,</span> <span class="n">offy</span><span class="p">,</span> <span class="n">optsys</span><span class="o">.</span><span class="n">source_offset_r</span><span class="p">,</span> <span class="n">optsys</span><span class="o">.</span><span class="n">source_offset_theta</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s1">&#39;source_offset_r&#39;</span> <span class="ow">in</span> <span class="n">options</span><span class="p">:</span>
+                <span class="n">optsys</span><span class="o">.</span><span class="n">source_offset_r</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;source_offset_r&#39;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="s1">&#39;source_offset_theta&#39;</span> <span class="ow">in</span> <span class="n">options</span><span class="p">:</span>
+                <span class="n">optsys</span><span class="o">.</span><span class="n">source_offset_theta</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;source_offset_theta&#39;</span><span class="p">]</span>
+            <span class="n">_log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Source offset is (r,theta) = </span><span class="si">{}</span><span class="s2">,</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">optsys</span><span class="o">.</span><span class="n">source_offset_r</span><span class="p">,</span> <span class="n">optsys</span><span class="o">.</span><span class="n">source_offset_theta</span><span class="p">))</span>
+
+        <span class="c1"># ---- set pupil intensity</span>
+        <span class="n">pupil_optic</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># no optic yet defined</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pupil</span><span class="p">,</span> <span class="n">poppy_core</span><span class="o">.</span><span class="n">OpticalElement</span><span class="p">):</span>  <span class="c1"># do we already have an object?</span>
+            <span class="n">pupil_optic</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pupil</span>
+            <span class="n">full_pupil_path</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pupil</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>  <span class="c1"># simple filename</span>
+            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pupil</span><span class="p">):</span>
+                <span class="n">full_pupil_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pupil</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">IOError</span><span class="p">(</span><span class="s2">&quot;File not found: &quot;</span> <span class="o">+</span> <span class="n">full_pupil_path</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pupil</span><span class="p">,</span> <span class="n">fits</span><span class="o">.</span><span class="n">HDUList</span><span class="p">):</span>  <span class="c1"># pupil supplied as FITS HDUList object</span>
+            <span class="n">full_pupil_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pupil</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Not sure what to do with a pupil of that type:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pupil</span><span class="p">)))</span>
+
+        <span class="c1"># ---- set pupil OPD</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pupilopd</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>  <span class="c1"># simple filename</span>
+            <span class="n">full_opd_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pupilopd</span> <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pupilopd</span><span class="p">)</span> <span class="k">else</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_datapath</span><span class="p">,</span> <span class="s2">&quot;OPD&quot;</span><span class="p">,</span>
+                                                                                             <span class="bp">self</span><span class="o">.</span><span class="n">pupilopd</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pupilopd</span><span class="p">,</span> <span class="s1">&#39;__getitem__&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pupilopd</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                                                                  <span class="nb">str</span><span class="p">):</span>  <span class="c1"># tuple with filename and slice</span>
+            <span class="n">full_opd_path</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">pupilopd</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pupilopd</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">else</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_datapath</span><span class="p">,</span> <span class="s2">&quot;OPD&quot;</span><span class="p">,</span>
+                                                                                       <span class="bp">self</span><span class="o">.</span><span class="n">pupilopd</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">pupilopd</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pupilopd</span><span class="p">,</span> <span class="n">fits</span><span class="o">.</span><span class="n">HDUList</span><span class="p">):</span>  <span class="c1"># OPD supplied as FITS HDUList object</span>
+            <span class="n">full_opd_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pupilopd</span>  <span class="c1"># not a path per se but this works correctly to pass it to poppy</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">pupilopd</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">full_opd_path</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Not sure what to do with a pupilopd of that type:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pupilopd</span><span class="p">)))</span>
+
+        <span class="c1"># ---- apply pupil intensity and OPD to the optical model</span>
+        <span class="n">optsys</span><span class="o">.</span><span class="n">add_pupil</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Entrance Pupil&#39;</span><span class="p">,</span> <span class="n">optic</span><span class="o">=</span><span class="n">pupil_optic</span><span class="p">,</span> <span class="n">transmission</span><span class="o">=</span><span class="n">full_pupil_path</span><span class="p">,</span> <span class="n">opd</span><span class="o">=</span><span class="n">full_opd_path</span><span class="p">,</span>
+                        <span class="n">rotation</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_rotation</span><span class="p">)</span>
+
+        <span class="c1"># Allow instrument subclass to add field-dependent aberrations</span>
+        <span class="n">aberration_optic</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_aberrations</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">aberration_optic</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">optsys</span><span class="o">.</span><span class="n">add_pupil</span><span class="p">(</span><span class="n">aberration_optic</span><span class="p">)</span>
+
+        <span class="c1"># --- add the detector element.</span>
+        <span class="k">if</span> <span class="n">fov_pixels</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">fov_pixels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">fov_arcsec</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">pixelscale</span><span class="p">)</span>
+            <span class="k">if</span> <span class="s1">&#39;parity&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;parity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;odd&#39;</span> <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">remainder</span><span class="p">(</span><span class="n">fov_pixels</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">fov_pixels</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;parity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;even&#39;</span> <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">remainder</span><span class="p">(</span><span class="n">fov_pixels</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">fov_pixels</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="n">optsys</span><span class="o">.</span><span class="n">add_detector</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pixelscale</span><span class="p">,</span> <span class="n">fov_pixels</span><span class="o">=</span><span class="n">fov_pixels</span><span class="p">,</span> <span class="n">oversample</span><span class="o">=</span><span class="n">detector_oversample</span><span class="p">,</span>
+                           <span class="n">name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s2">&quot; detector&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">optsys</span>
+
+    <span class="k">def</span> <span class="nf">get_optical_system</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Return an OpticalSystem instance corresponding to the instrument as currently configured.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Note, this has historically been an internal private API function (starting with an underscore)</span>
+        <span class="c1"># As of version 0.9 it is promoted to a public part of the API for the Instrument class and subclasses.</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_optical_system</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_check_for_aliasing</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wavelengths</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Check for spatial frequency aliasing and warn if the</span>
+<span class="sd">        user is requesting a FOV which is larger than supported based on</span>
+<span class="sd">        the available pupil resolution in the optical system entrance pupil.</span>
+<span class="sd">        If the requested FOV of the output PSF exceeds that which is Nyquist</span>
+<span class="sd">        sampled in the entrance pupil, raise a warning to the user.</span>
+
+<span class="sd">        The check implemented here is fairly simple, designed to catch the most</span>
+<span class="sd">        common cases, and makes assumptions about the optical system which are</span>
+<span class="sd">        not necessarily true in all cases, specifically that it starts with a</span>
+<span class="sd">        pupil plane with fixed spatial resolution and ends with a detector</span>
+<span class="sd">        plane. If either of those assumptions is violated, this check is skipped.</span>
+
+<span class="sd">        See https://github.com/mperrin/poppy/issues/135 and</span>
+<span class="sd">        https://github.com/mperrin/poppy/issues/180 for more background on the</span>
+<span class="sd">        relevant Fourier optics.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Note this must be called after self.optsys is defined in calc_psf()</span>
+
+        <span class="c1"># compute spatial sampling in the entrance pupil</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">optsys</span><span class="o">.</span><span class="n">planes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;pixelscale&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">optsys</span><span class="o">.</span><span class="n">planes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pixelscale</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span>  <span class="c1"># analytic entrance pupil, no sampling limitations.</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">optsys</span><span class="o">.</span><span class="n">planes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">poppy_core</span><span class="o">.</span><span class="n">Detector</span><span class="p">):</span>
+            <span class="k">return</span>  <span class="c1"># optical system doesn&#39;t end on some fixed sampling detector, not sure how to check sampling limit</span>
+
+        <span class="c1"># determine the spatial frequency which is Nyquist sampled by the input pupil.</span>
+        <span class="c1"># convert this to units of cycles per meter and make it not a Quantity</span>
+        <span class="n">sf</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">optsys</span><span class="o">.</span><span class="n">planes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pixelscale</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">pixel</span><span class="p">))</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="mf">1.</span> <span class="o">/</span> <span class="n">units</span><span class="o">.</span><span class="n">meter</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+
+        <span class="n">det_fov_arcsec</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">optsys</span><span class="o">.</span><span class="n">planes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">fov_arcsec</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">units</span><span class="o">.</span><span class="n">arcsec</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span><span class="n">det_fov_arcsec</span><span class="p">):</span>  <span class="c1"># FOV can be scalar (square) or rectangular</span>
+            <span class="n">det_fov_arcsec</span> <span class="o">=</span> <span class="p">(</span><span class="n">det_fov_arcsec</span><span class="p">,</span> <span class="n">det_fov_arcsec</span><span class="p">)</span>
+
+        <span class="c1"># determine the angular scale that corresponds to for the given wavelength</span>
+        <span class="k">for</span> <span class="n">wl</span> <span class="ow">in</span> <span class="n">wavelengths</span><span class="p">:</span>
+            <span class="n">critical_angle_arcsec</span> <span class="o">=</span> <span class="n">wl</span> <span class="o">*</span> <span class="n">sf</span> <span class="o">*</span> <span class="n">poppy_core</span><span class="o">.</span><span class="n">_RADIANStoARCSEC</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">critical_angle_arcsec</span> <span class="o">&lt;</span> <span class="n">det_fov_arcsec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">critical_angle_arcsec</span> <span class="o">&lt;</span> <span class="n">det_fov_arcsec</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="mi">2</span><span class="p">):</span>
+                <span class="kn">import</span> <span class="nn">warnings</span>
+                <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">((</span>
+                        <span class="s2">&quot;For wavelength </span><span class="si">{:.3f}</span><span class="s2"> microns, a FOV of </span><span class="si">{:.3f}</span><span class="s2"> * </span><span class="si">{:.3f}</span><span class="s2"> arcsec exceeds the maximum &quot;</span> <span class="o">+</span>
+                        <span class="s2">&quot; spatial frequency well sampled by the input pupil. Your computed PSF will suffer from &quot;</span> <span class="o">+</span>
+                        <span class="s2">&quot;aliasing for angles beyond </span><span class="si">{:.3f}</span><span class="s2"> arcsec radius.&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">wl</span> <span class="o">*</span> <span class="mf">1e6</span><span class="p">,</span> <span class="n">det_fov_arcsec</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">det_fov_arcsec</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">critical_angle_arcsec</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">_get_aberrations</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Incorporate a pupil-plane optic that represents optical aberrations</span>
+<span class="sd">        (e.g. field-dependence as an OPD map). Subclasses should override this method.</span>
+<span class="sd">        (If no aberration optic should be applied, None should be returned.)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        aberration_optic : poppy.OpticalElement subclass or None</span>
+<span class="sd">            Optional. Will be added to the optical system immediately after the</span>
+<span class="sd">            entrance pupil (and any pupil OPD map).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">_apply_jitter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">local_options</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Modify a PSF to account for the blurring effects of image jitter.</span>
+<span class="sd">        Parameter arguments are taken from the options dictionary.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        -----------</span>
+<span class="sd">        result : fits.HDUList</span>
+<span class="sd">            HDU list containing a point spread function</span>
+<span class="sd">        local_options : dict, optional</span>
+<span class="sd">            Options dictionary. If not present, options will be taken from self.options.</span>
+
+<span class="sd">        The key configuration argument is options[&#39;jitter&#39;] which defines the type of jitter.</span>
+<span class="sd">        If this is the string &#39;gaussian&#39;, then a Gaussian blurring kernel will be applied, the</span>
+<span class="sd">        amount of the blur is taken from the options[&#39;jitter_sigma&#39;] value.</span>
+
+<span class="sd">        Other types of jitter are not yet implemented.</span>
+
+<span class="sd">        The image in the &#39;result&#39; HDUlist will be modified by this function.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">local_options</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">local_options</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span>
+        <span class="k">if</span> <span class="s1">&#39;jitter&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">local_options</span><span class="p">:</span>
+            <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">[</span><span class="s1">&#39;JITRTYPE&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="s1">&#39;Type of jitter applied&#39;</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="k">if</span> <span class="n">conf</span><span class="o">.</span><span class="n">enable_speed_tests</span><span class="p">:</span> <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+        <span class="n">poppy_core</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Calculating jitter using &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">local_options</span><span class="p">[</span><span class="s1">&#39;jitter&#39;</span><span class="p">]))</span>
+
+        <span class="k">if</span> <span class="n">local_options</span><span class="p">[</span><span class="s1">&#39;jitter&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="k">elif</span> <span class="n">local_options</span><span class="p">[</span><span class="s1">&#39;jitter&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;gaussian&#39;</span><span class="p">:</span>
+            <span class="kn">import</span> <span class="nn">scipy.ndimage</span>
+
+            <span class="n">sigma</span> <span class="o">=</span> <span class="n">local_options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;jitter_sigma&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">sigma</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">poppy_core</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                    <span class="s2">&quot;Gaussian jitter model requested, but no width for jitter distribution specified. &quot;</span> <span class="o">+</span>
+                    <span class="s2">&quot;Assuming jitter_sigma = 0.007 arcsec by default&quot;</span><span class="p">)</span>
+                <span class="n">sigma</span> <span class="o">=</span> <span class="mf">0.007</span>
+
+            <span class="c1"># that will be in arcseconds, we need to convert to pixels:</span>
+
+            <span class="n">poppy_core</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Jitter: Convolving with Gaussian with sigma=</span><span class="si">{0:.3f}</span><span class="s2"> arcsec&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sigma</span><span class="p">))</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">ndimage</span><span class="o">.</span><span class="n">gaussian_filter</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">sigma</span> <span class="o">/</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">[</span><span class="s1">&#39;PIXELSCL&#39;</span><span class="p">])</span>
+            <span class="n">peak</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+            <span class="n">newpeak</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+            <span class="n">strehl</span> <span class="o">=</span> <span class="n">newpeak</span> <span class="o">/</span> <span class="n">peak</span>  <span class="c1"># not really the whole Strehl ratio, just the part due to jitter</span>
+
+            <span class="n">poppy_core</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;        resulting image peak drops to </span><span class="si">{0:.3f}</span><span class="s2"> of its previous value&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">strehl</span><span class="p">))</span>
+            <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">[</span><span class="s1">&#39;JITRTYPE&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Gaussian convolution&#39;</span><span class="p">,</span> <span class="s1">&#39;Type of jitter applied&#39;</span><span class="p">)</span>
+            <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">[</span><span class="s1">&#39;JITRSIGM&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">sigma</span><span class="p">,</span> <span class="s1">&#39;Gaussian sigma for jitter, per axis [arcsec]&#39;</span><span class="p">)</span>
+            <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">[</span><span class="s1">&#39;JITRSTRL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">strehl</span><span class="p">,</span> <span class="s1">&#39;Strehl reduction from jitter &#39;</span><span class="p">)</span>
+
+            <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">out</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Unknown jitter option value: &#39;</span> <span class="o">+</span> <span class="n">local_options</span><span class="p">[</span><span class="s1">&#39;jitter&#39;</span><span class="p">])</span>
+
+        <span class="k">if</span> <span class="n">conf</span><span class="o">.</span><span class="n">enable_speed_tests</span><span class="p">:</span>
+            <span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+            <span class="n">_log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">TIME </span><span class="si">%f</span><span class="s2"> s</span><span class="se">\t</span><span class="s2"> for jitter model&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="p">))</span>
+
+
+    <span class="c1">#####################################################</span>
+    <span class="c1"># Display routines</span>
+
+<div class="viewcode-block" id="Instrument.display"><a class="viewcode-back" href="../../_generated/poppy.instrument.Instrument.html#poppy.instrument.Instrument.display">[docs]</a>    <span class="k">def</span> <span class="nf">display</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Display the currently configured optical system on screen&quot;&quot;&quot;</span>
+        <span class="c1"># if coronagraphy is set, then we have to temporarily disable</span>
+        <span class="c1"># semi-analytic coronagraphic mode to get a regular displayable optical system</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">old_no_sam</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;no_sam&#39;</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;no_sam&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="n">old_no_sam</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># Trigger config validation to update any optical planes</span>
+        <span class="c1"># (specifically auto-selected pupils based on filter selection)</span>
+        <span class="n">wavelengths</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_weights</span><span class="p">(</span><span class="n">nlambda</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_validate_config</span><span class="p">(</span><span class="n">wavelengths</span><span class="o">=</span><span class="n">wavelengths</span><span class="p">)</span>
+        <span class="n">optsys</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_optical_system</span><span class="p">()</span>
+        <span class="n">optsys</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">what</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">old_no_sam</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;no_sam&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">old_no_sam</span></div>
+
+    <span class="c1">#####################################################</span>
+    <span class="c1">#</span>
+    <span class="c1"># Synthetic Photometry related methods</span>
+    <span class="c1">#</span>
+    <span class="k">def</span> <span class="nf">_get_spec_cache_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">nlambda</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; return key for the cache of precomputed spectral weightings.</span>
+<span class="sd">        This is a separate function so the TFI subclass can override it.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter</span><span class="p">,</span> <span class="n">source</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">nlambda</span>
+
+    <span class="k">def</span> <span class="nf">_get_synphot_bandpass</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filtername</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Return a pysynphot.ObsBandpass object for the given desired band.</span>
+
+<span class="sd">        By subclassing this, you can define whatever custom bandpasses are appropriate for your instrument</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        filtername : str</span>
+<span class="sd">            String name of the filter that you are interested in</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        --------</span>
+<span class="sd">        a pysynphot.ObsBandpass object for that filter.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">_HAS_PYSYNPHOT</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;PySynphot not found&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">filtername</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">):</span>
+            <span class="c1"># attempt to treat it as an HST filter name?</span>
+            <span class="n">bpname</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;wfc3,uvis1,</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">filtername</span><span class="p">))</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">bpname</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_synphot_bandpasses</span><span class="p">[</span><span class="n">filtername</span><span class="p">]</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">band</span> <span class="o">=</span> <span class="n">pysynphot</span><span class="o">.</span><span class="n">ObsBandpass</span><span class="p">(</span><span class="n">bpname</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">LookupError</span><span class="p">(</span><span class="s2">&quot;Don&#39;t know how to compute pysynphot.ObsBandpass for a filter named &quot;</span> <span class="o">+</span> <span class="n">bpname</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">band</span>
+
+    <span class="k">def</span> <span class="nf">_get_default_nlambda</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filtername</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Return the default # of wavelengths to be used for calculation by a given filter &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="mi">10</span>
+
+    <span class="k">def</span> <span class="nf">_get_default_fov</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Return default FOV in arcseconds &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="mi">5</span>
+
+    <span class="k">def</span> <span class="nf">_get_filter_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Returns a list of allowable filters, and the corresponding pysynphot ObsBandpass strings</span>
+<span class="sd">        for each.</span>
+
+<span class="sd">        If you need to define bandpasses that are not already available in pysynphot, consider subclassing</span>
+<span class="sd">        _getSynphotBandpass instead to create a pysynphot spectrum based on data read from disk, etc.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        --------</span>
+<span class="sd">        filterlist : list</span>
+<span class="sd">            List of string filter names</span>
+<span class="sd">        bandpasslist : dict</span>
+<span class="sd">            dictionary of string names for use by pysynphot</span>
+
+<span class="sd">        This could probably be folded into one using an OrderdDict. FIXME do that later</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">filterlist</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;U&#39;</span><span class="p">,</span> <span class="s1">&#39;V&#39;</span><span class="p">]</span>
+        <span class="n">bandpasslist</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="s1">&#39;johnson,b&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;I&#39;</span><span class="p">:</span> <span class="s1">&#39;johnson,i&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;R&#39;</span><span class="p">:</span> <span class="s1">&#39;johnson,r&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;U&#39;</span><span class="p">:</span> <span class="s1">&#39;johnson,u&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;V&#39;</span><span class="p">:</span> <span class="s1">&#39;johnson,v&#39;</span><span class="p">,</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">filterlist</span><span class="p">,</span> <span class="n">bandpasslist</span>
+
+    <span class="c1"># def _getJitterKernel(self, type=&#39;Gaussian&#39;, sigma=10):</span>
+
+    <span class="k">def</span> <span class="nf">_get_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nlambda</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">monochromatic</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Return the set of discrete wavelengths, and weights for each wavelength,</span>
+<span class="sd">        that should be used for a PSF calculation.</span>
+
+<span class="sd">        Uses pysynphot (if installed), otherwise assumes simple-minded flat spectrum</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">nlambda</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">nlambda</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">nlambda</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_default_nlambda</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filter</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">monochromatic</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">poppy_core</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Monochromatic calculation requested.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">monochromatic</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="mi">1</span><span class="p">]))</span>
+
+        <span class="k">elif</span> <span class="n">_HAS_PYSYNPHOT</span> <span class="ow">and</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">pysynphot</span><span class="o">.</span><span class="n">spectrum</span><span class="o">.</span><span class="n">SourceSpectrum</span><span class="p">)</span> <span class="ow">or</span> <span class="n">source</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="sd">&quot;&quot;&quot; Given a pysynphot.SourceSpectrum object, perform synthetic photometry for</span>
+<span class="sd">            nlambda bins spanning the wavelength range of interest.</span>
+
+<span class="sd">            Because this calculation is kind of slow, cache results for reuse in the frequent</span>
+<span class="sd">            case where one is computing many PSFs for the same spectral source.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="n">poppy_core</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
+                <span class="s2">&quot;Calculating spectral weights using pysynphot, nlambda=</span><span class="si">%d</span><span class="s2">, source=</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">nlambda</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">source</span><span class="p">)))</span>
+            <span class="k">if</span> <span class="n">source</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">source</span> <span class="o">=</span> <span class="n">pysynphot</span><span class="o">.</span><span class="n">BlackBody</span><span class="p">(</span><span class="mi">5700</span><span class="p">)</span>
+                <span class="n">poppy_core</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;No source spectrum supplied, therefore defaulting to 5700 K blackbody&quot;</span><span class="p">)</span>
+            <span class="n">poppy_core</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Computing spectral weights for source = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">source</span><span class="p">))</span>
+
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_spec_cache_key</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">nlambda</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_spectra_cache</span><span class="p">:</span>
+                    <span class="n">poppy_core</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Previously computed spectral weights found in cache, just reusing those&quot;</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_spectra_cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+            <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                <span class="k">pass</span>  <span class="c1"># in case sourcespectrum lacks a name element so the above lookup fails - just do the below calc.</span>
+
+            <span class="n">poppy_core</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Computing wavelength weights using synthetic photometry for </span><span class="si">%s</span><span class="s2">...&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter</span><span class="p">)</span>
+            <span class="n">band</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_synphot_bandpass</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filter</span><span class="p">)</span>
+            <span class="c1"># choose reasonable min and max wavelengths</span>
+            <span class="n">w_above10</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">band</span><span class="o">.</span><span class="n">throughput</span> <span class="o">&gt;</span> <span class="mf">0.10</span> <span class="o">*</span> <span class="n">band</span><span class="o">.</span><span class="n">throughput</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+
+            <span class="n">minwave</span> <span class="o">=</span> <span class="n">band</span><span class="o">.</span><span class="n">wave</span><span class="p">[</span><span class="n">w_above10</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+            <span class="n">maxwave</span> <span class="o">=</span> <span class="n">band</span><span class="o">.</span><span class="n">wave</span><span class="p">[</span><span class="n">w_above10</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+            <span class="n">poppy_core</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Min, max wavelengths = </span><span class="si">%f</span><span class="s2">, </span><span class="si">%f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">minwave</span> <span class="o">/</span> <span class="mf">1e4</span><span class="p">,</span> <span class="n">maxwave</span> <span class="o">/</span> <span class="mf">1e4</span><span class="p">))</span>
+
+            <span class="n">wave_bin_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">minwave</span><span class="p">,</span> <span class="n">maxwave</span><span class="p">,</span> <span class="n">nlambda</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">wavesteps</span> <span class="o">=</span> <span class="p">(</span><span class="n">wave_bin_edges</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">wave_bin_edges</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="o">/</span> <span class="mi">2</span>
+            <span class="n">deltawave</span> <span class="o">=</span> <span class="n">wave_bin_edges</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">wave_bin_edges</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">effstims</span> <span class="o">=</span> <span class="p">[]</span>
+
+            <span class="k">for</span> <span class="n">wave</span> <span class="ow">in</span> <span class="n">wavesteps</span><span class="p">:</span>
+                <span class="n">poppy_core</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
+                    <span class="s2">&quot;Integrating across band centered at </span><span class="si">%.2f</span><span class="s2"> microns with width </span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">wave</span> <span class="o">/</span> <span class="mf">1e4</span><span class="p">,</span> <span class="n">deltawave</span> <span class="o">/</span> <span class="mf">1e4</span><span class="p">))</span>
+                <span class="n">box</span> <span class="o">=</span> <span class="n">pysynphot</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">wave</span><span class="p">,</span> <span class="n">deltawave</span><span class="p">)</span> <span class="o">*</span> <span class="n">band</span>
+                <span class="k">if</span> <span class="n">box</span><span class="o">.</span><span class="n">throughput</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="c1"># watch out for pathological cases with no overlap (happens with MIRI FND at high nlambda)</span>
+                    <span class="n">result</span> <span class="o">=</span> <span class="mf">0.0</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">binset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">wave</span> <span class="o">-</span> <span class="n">deltawave</span><span class="p">,</span> <span class="n">wave</span> <span class="o">+</span> <span class="n">deltawave</span><span class="p">,</span>
+                                         <span class="mi">30</span><span class="p">)</span>  <span class="c1"># what wavelens to use when integrating across the sub-band?</span>
+                    <span class="n">result</span> <span class="o">=</span> <span class="n">pysynphot</span><span class="o">.</span><span class="n">Observation</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="n">binset</span><span class="o">=</span><span class="n">binset</span><span class="p">)</span><span class="o">.</span><span class="n">effstim</span><span class="p">(</span><span class="s1">&#39;counts&#39;</span><span class="p">)</span>
+                <span class="n">effstims</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+            <span class="n">effstims</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">effstims</span><span class="p">)</span>
+            <span class="n">effstims</span> <span class="o">/=</span> <span class="n">effstims</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+            <span class="n">wave_m</span> <span class="o">=</span> <span class="n">band</span><span class="o">.</span><span class="n">waveunits</span><span class="o">.</span><span class="n">Convert</span><span class="p">(</span><span class="n">wavesteps</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">)</span>  <span class="c1"># convert to meters</span>
+
+            <span class="n">newsource</span> <span class="o">=</span> <span class="p">(</span><span class="n">wave_m</span><span class="p">,</span> <span class="n">effstims</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                <span class="n">_log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot; Wavelengths and weights computed from pysynphot: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">newsource</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_spectra_cache</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_spec_cache_key</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">nlambda</span><span class="p">)]</span> <span class="o">=</span> <span class="n">newsource</span>
+            <span class="k">return</span> <span class="n">newsource</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="s1">&#39;wavelengths&#39;</span> <span class="ow">in</span> <span class="n">source</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="s1">&#39;weights&#39;</span> <span class="ow">in</span> <span class="n">source</span><span class="p">):</span>
+            <span class="c1"># Allow providing directly a set of specific weights and wavelengths, as in poppy.calc_psf source option #2</span>
+            <span class="k">return</span> <span class="n">source</span><span class="p">[</span><span class="s1">&#39;wavelengths&#39;</span><span class="p">],</span> <span class="n">source</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">source</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="c1"># Allow user to provide directly a tuple, as in poppy.calc_psf source option #3</span>
+            <span class="k">return</span> <span class="n">source</span>
+
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># Fallback simple code for if we don&#39;t have pysynphot.</span>
+            <span class="n">poppy_core</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                <span class="s2">&quot;Pysynphot unavailable (or invalid source supplied)!   Assuming flat # of counts versus wavelength.&quot;</span><span class="p">)</span>
+            <span class="c1"># compute a source spectrum weighted by the desired filter curves.</span>
+            <span class="c1"># The existing FITS files all have wavelength in ANGSTROMS since that is the pysynphot convention...</span>
+            <span class="n">filterfile</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filters</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">filter</span><span class="p">]</span><span class="o">.</span><span class="n">filename</span>
+            <span class="n">filterfits</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filterfile</span><span class="p">)</span>
+            <span class="n">filterdata</span> <span class="o">=</span> <span class="n">filterfits</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">wavelengths</span> <span class="o">=</span> <span class="n">filterdata</span><span class="o">.</span><span class="n">WAVELENGTH</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;=f8&#39;</span><span class="p">)</span>
+                <span class="n">throughputs</span> <span class="o">=</span> <span class="n">filterdata</span><span class="o">.</span><span class="n">THROUGHPUT</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;=f8&#39;</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s2">&quot;The supplied file, </span><span class="si">{0}</span><span class="s2">, does not appear to be a FITS table with WAVELENGTH and &quot;</span> <span class="o">+</span>
+                    <span class="s2">&quot;THROUGHPUT columns.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">filterfile</span><span class="p">))</span>
+            <span class="k">if</span> <span class="s1">&#39;WAVEUNIT&#39;</span> <span class="ow">in</span> <span class="n">filterfits</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">:</span>
+                <span class="n">waveunit</span> <span class="o">=</span> <span class="n">filterfits</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">[</span><span class="s1">&#39;WAVEUNIT&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[Aa]ngstroms?&#39;</span><span class="p">,</span> <span class="n">waveunit</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                        <span class="s2">&quot;The supplied file, </span><span class="si">{0}</span><span class="s2">, has WAVEUNIT=&#39;</span><span class="si">{1}</span><span class="s2">&#39;. Only WAVEUNIT = Angstrom supported &quot;</span> <span class="o">+</span>
+                        <span class="s2">&quot;when Pysynphot is not installed.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">filterfile</span><span class="p">,</span> <span class="n">waveunit</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">waveunit</span> <span class="o">=</span> <span class="s1">&#39;Angstrom&#39;</span>
+                <span class="n">poppy_core</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                    <span class="s2">&quot;CAUTION: no WAVEUNIT keyword found in filter file </span><span class="si">{0}</span><span class="s2">. Assuming = </span><span class="si">{1}</span><span class="s2"> by default&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                        <span class="n">filterfile</span><span class="p">,</span> <span class="n">waveunit</span><span class="p">))</span>
+
+            <span class="n">poppy_core</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                <span class="s2">&quot;CAUTION: Just interpolating rather than integrating filter profile, over </span><span class="si">{0}</span><span class="s2"> steps&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nlambda</span><span class="p">))</span>
+            <span class="n">wtrans</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">throughputs</span> <span class="o">&gt;</span> <span class="mf">0.4</span><span class="p">)</span>
+            <span class="n">lrange</span> <span class="o">=</span> <span class="n">wavelengths</span><span class="p">[</span><span class="n">wtrans</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1e-10</span>  <span class="c1"># convert from Angstroms to Meters</span>
+            <span class="c1"># get evenly spaced points within the range of allowed lambdas, centered on each bin</span>
+            <span class="n">lambd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">lrange</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">lrange</span><span class="p">),</span> <span class="n">nlambda</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">lrange</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">lrange</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">nlambda</span><span class="p">)</span>
+            <span class="n">filter_fn</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">interpolate</span><span class="o">.</span><span class="n">interp1d</span><span class="p">(</span><span class="n">wavelengths</span> <span class="o">*</span> <span class="mf">1e-10</span><span class="p">,</span> <span class="n">throughputs</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;cubic&#39;</span><span class="p">,</span>
+                                                   <span class="n">bounds_error</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">weights</span> <span class="o">=</span> <span class="n">filter_fn</span><span class="p">(</span><span class="n">lambd</span><span class="p">)</span>
+            <span class="n">filterfits</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">lambd</span><span class="p">,</span> <span class="n">weights</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Association of Universities for Research in Astronomy
+      <span class="lastupdated">
+        Last updated on 20 Nov 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,684 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>More Examples &mdash; webbpsf v0.8.0</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/astropy_logo.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/stsci.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/stsci.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Overview of POPPY (Physical Optics Propagation in Python)" href="poppy.html" />
+    <link rel="prev" title="Using PSF Grids" href="psf_grids.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+            <a href="index.html" class="icon icon-home"> webbpsf
+            
+            <img src="_static/stsci_pri_combo_mark_white.png" class="logo" />
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.0
+              </div>
+            
+          
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+  
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Requirements &amp; Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="relnotes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Using WebbPSF via the Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jwst.html">JWST Instrument Model Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wfirst.html">WFIRST Instrument Model Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psf_grids.html">Using PSF Grids</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">More Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#typical-usage-cases">Typical Usage Cases</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#displaying-a-psf-as-an-image-and-as-an-encircled-energy-plot">Displaying a PSF as an image and as an encircled energy plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#iterating-over-multiple-opds-and-filters">Iterating over multiple OPDs and filters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-monochromatic-psfs-across-an-instrument-s-entire-wavelength-range">Create monochromatic PSFs across an instrument’s entire wavelength range</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#spectroscopic-psfs-slit-and-slitless">Spectroscopic PSFs, Slit and Slitless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#nirspec-fixed-slits">NIRSpec fixed slits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nirspec-msa">NIRSpec MSA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#miri-lrs">MIRI LRS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#coronagraphy-and-complications">Coronagraphy and Complications</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#nircam-coronagraphy-with-an-offset-source">NIRCam coronagraphy with an offset source</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#simulate-nircam-coronagraphic-acquisition-images">Simulate NIRCam coronagraphic acquisition images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#iterate-a-calculation-over-all-miri-coronagraphic-modes">Iterate a calculation over all MIRI coronagraphic modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#make-plots-of-encircled-energy-in-psfs-at-various-wavelengths">Make plots of encircled energy in PSFs at various wavelengths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#simulate-coronagraphy-with-pupil-shear-saving-the-wavefront-intensity-in-the-lyot-pupil-plane">Simulate coronagraphy with pupil shear, saving the wavefront intensity in the Lyot pupil plane</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="poppy.html">Overview of POPPY (Physical Optics Propagation in Python)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html">Detailed API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help.html">Diagnostics &amp; Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sampling.html">Sampling Requirements for Numerical Accuracy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fft_optimization.html">Optimizing FFT Performance for PSF Computations with FFTW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="available_opds.html">Appendix: Available Optical Path Difference (OPD) files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">Appendix: Instrument Property References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">(Deprecated)  Graphical User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release.html">Developer Notes: Releasing a new version of WebbPSF</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">webbpsf</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>More Examples</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/more_examples.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="more-examples">
+<span id="id1"></span><h1>More Examples<a class="headerlink" href="#more-examples" title="Permalink to this headline">¶</a></h1>
+<p>Any user of Webbpsf is invited to submit snippets of example code for sharing here.</p>
+<p>This code is also available as a
+<a class="reference external" href="http://nbviewer.jupyter.org/github/spacetelescope/webbpsf/blob/master/notebooks/more_examples.ipynb">Jupyter notebook</a>. This version
+of the page is kept for convenience but may be slightly out of date in a few places.</p>
+<p>Examples are organized by topic:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="#more-examples-general"><span class="std std-ref">Typical Usage Cases</span></a></p></li>
+<li><p><a class="reference internal" href="#more-examples-spectroscopy"><span class="std std-ref">Spectroscopic PSFs, Slit and Slitless</span></a></p></li>
+<li><p><a class="reference internal" href="#more-examples-coronagraphy"><span class="std std-ref">Coronagraphy and Complications</span></a></p></li>
+</ul>
+</div></blockquote>
+<p>The
+<a class="reference external" href="http://nbviewer.jupyter.org/github/spacetelescope/webbpsf/blob/master/notebooks/more_examples.ipynb">notebook version of this page</a>
+includes a fourth section providing examples of all the
+major SI modes for each of the JWST instruments.</p>
+<div class="section" id="typical-usage-cases">
+<span id="more-examples-general"></span><h2>Typical Usage Cases<a class="headerlink" href="#typical-usage-cases" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="displaying-a-psf-as-an-image-and-as-an-encircled-energy-plot">
+<h3>Displaying a PSF as an image and as an encircled energy plot<a class="headerlink" href="#displaying-a-psf-as-an-image-and-as-an-encircled-energy-plot" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#create a NIRCam instance and calculate a PSF for F210M</span>
+<span class="n">nircam</span> <span class="o">=</span> <span class="n">webbpsf</span><span class="o">.</span><span class="n">NIRCam</span><span class="p">()</span>
+<span class="n">nircam</span><span class="o">.</span><span class="n">filter</span> <span class="o">=</span> <span class="s1">&#39;F210M&#39;</span>
+<span class="n">psf210</span> <span class="o">=</span> <span class="n">nircam</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">(</span><span class="n">oversample</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># display the PSF and plot the encircled energy</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">webbpsf</span><span class="o">.</span><span class="n">display_psf</span><span class="p">(</span><span class="n">psf210</span><span class="p">,</span> <span class="n">colorbar_orientation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">)</span>
+<span class="n">axis2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">webbpsf</span><span class="o">.</span><span class="n">display_ee</span><span class="p">(</span><span class="n">psf210</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axis2</span><span class="p">)</span>
+
+<span class="n">psf210</span><span class="o">.</span><span class="n">writeto</span><span class="p">(</span><span class="s1">&#39;nircam_F210M.fits&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;plot_nircam_f210m.pdf&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/fig_example_plot_nircam_f210m.png"><img alt="Sample PSF image" class="align-center" src="_images/fig_example_plot_nircam_f210m.png" style="width: 486.0px; height: 270.0px;" /></a>
+</div>
+<div class="section" id="iterating-over-multiple-opds-and-filters">
+<h3>Iterating over multiple OPDs and filters<a class="headerlink" href="#iterating-over-multiple-opds-and-filters" title="Permalink to this headline">¶</a></h3>
+<p>Perhaps you want to calculate PSFs for all filters of a given instrument, using all 10 available simulated OPDs:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">niriss_psfs</span><span class="p">():</span>
+    <span class="n">niriss</span> <span class="o">=</span> <span class="n">webbpsf</span><span class="o">.</span><span class="n">NIRISS</span><span class="p">()</span>
+
+    <span class="n">opdname</span> <span class="o">=</span> <span class="n">niriss</span><span class="o">.</span><span class="n">pupilopd</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="n">niriss</span><span class="o">.</span><span class="n">pupilopd</span> <span class="o">=</span> <span class="p">(</span><span class="n">opdname</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">filtname</span> <span class="ow">in</span> <span class="n">niriss</span><span class="o">.</span><span class="n">filter_list</span><span class="p">:</span>
+            <span class="n">niriss</span><span class="o">.</span><span class="n">filter</span><span class="o">=</span><span class="n">filtname</span>
+            <span class="n">fov</span><span class="o">=</span><span class="mi">18</span>
+            <span class="n">outname</span> <span class="o">=</span> <span class="s2">&quot;PSF_NIRISS_</span><span class="si">%s</span><span class="s2">cen_wfe</span><span class="si">%d</span><span class="s2">.fits&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">filtname</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+            <span class="n">psf</span> <span class="o">=</span> <span class="n">niriss</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">(</span><span class="n">outname</span><span class="p">,</span> <span class="n">nlambda</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">oversample</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">fov_arcsec</span><span class="o">=</span><span class="n">fov</span><span class="p">,</span> <span class="n">rebin</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-monochromatic-psfs-across-an-instrument-s-entire-wavelength-range">
+<h3>Create monochromatic PSFs across an instrument’s entire wavelength range<a class="headerlink" href="#create-monochromatic-psfs-across-an-instrument-s-entire-wavelength-range" title="Permalink to this headline">¶</a></h3>
+<p>Monochromatic PSFs with steps of 0.1 micron from 5-28.3 micron.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">webbpsf</span><span class="o">.</span><span class="n">MIRI</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">pupilopd</span> <span class="o">=</span> <span class="s1">&#39;OPD_RevW_ote_for_MIRI_requirements.fits.gz&#39;</span>       <span class="c1"># select an OPD</span>
+                                            <span class="c1"># looks inside $WEBBPSF_DATA/MIRI/OPD by default</span>
+                                             <span class="c1"># or you can specify a full path name.</span>
+<span class="n">m</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;parity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;odd&#39;</span>                 <span class="c1"># please make an output PSF with its center</span>
+                                             <span class="c1"># aligned to the center of a single pixel</span>
+
+<span class="n">waves</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">28.3</span><span class="p">,</span> <span class="mi">234</span><span class="p">)</span><span class="o">*</span><span class="mf">1e-6</span>     <span class="c1"># iterate over wavelengths in meters</span>
+<span class="c1">#waves = np.linspace(5.0, 28.3, 20)*1e-6     # iterate over wavelengths in meters</span>
+
+<span class="k">for</span> <span class="n">iw</span><span class="p">,</span> <span class="n">wavelength</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">waves</span><span class="p">):</span>
+    <span class="n">psffile</span> <span class="o">=</span> <span class="s1">&#39;psf_MIRI_mono_</span><span class="si">%.1f</span><span class="s1">um_opd1.fits&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">wavelength</span><span class="o">*</span><span class="mf">1e6</span><span class="p">)</span>
+    <span class="n">psf</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">(</span><span class="n">fov_arcsec</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">oversample</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">rebin</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">monochromatic</span><span class="o">=</span><span class="n">wavelength</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+               <span class="n">outfile</span><span class="o">=</span><span class="n">psffile</span><span class="p">)</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="n">iw</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">webbpsf</span><span class="o">.</span><span class="n">display_psf</span><span class="p">(</span><span class="n">psffile</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s1">&#39;DET_SAMP&#39;</span><span class="p">,</span> <span class="n">colorbar</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">imagecrop</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mf">3.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;{0:.1f}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">wavelength</span><span class="o">*</span><span class="mf">1e6</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Click to enlarge:</p>
+<a class="reference internal image-reference" href="_images/fig_example_miri_vs_wavelength.png"><img alt="Sample PSF image" class="align-center" src="_images/fig_example_miri_vs_wavelength.png" style="width: 565.0px; height: 529.5px;" /></a>
+</div>
+</div>
+<div class="section" id="spectroscopic-psfs-slit-and-slitless">
+<span id="more-examples-spectroscopy"></span><h2>Spectroscopic PSFs, Slit and Slitless<a class="headerlink" href="#spectroscopic-psfs-slit-and-slitless" title="Permalink to this headline">¶</a></h2>
+<p>Note that WebbPSF does not yet compute <em>dispersed</em> spectroscopic PSFs, but you can compute monochromatic
+PSFs and combine them yourself with an appropriate dispersion model.</p>
+<div class="section" id="nirspec-fixed-slits">
+<h3>NIRSpec fixed slits<a class="headerlink" href="#nirspec-fixed-slits" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+<span class="n">nspec</span> <span class="o">=</span> <span class="n">webbpsf</span><span class="o">.</span><span class="n">NIRSpec</span><span class="p">()</span>
+<span class="n">nspec</span><span class="o">.</span><span class="n">image_mask</span> <span class="o">=</span> <span class="s1">&#39;S200A1&#39;</span> <span class="c1"># 0.2 arcsec slit</span>
+
+<span class="n">psfs</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">wave</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">0.6e-6</span><span class="p">,</span> <span class="mf">1e-6</span><span class="p">,</span> <span class="mf">2e-6</span><span class="p">,</span> <span class="mf">3e-6</span><span class="p">]:</span>
+    <span class="n">psfs</span><span class="p">[</span><span class="n">wave</span><span class="p">]</span> <span class="o">=</span> <span class="n">nspec</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">(</span><span class="n">monochromatic</span><span class="o">=</span><span class="n">wave</span><span class="p">,</span> <span class="n">oversamp</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">wave</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="mf">0.6e-6</span><span class="p">,</span> <span class="mf">1e-6</span><span class="p">,</span> <span class="mf">2e-6</span><span class="p">,</span> <span class="mf">3e-6</span><span class="p">]):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">webbpsf</span><span class="o">.</span><span class="n">display_psf</span><span class="p">(</span><span class="n">psfs</span><span class="p">[</span><span class="n">wave</span><span class="p">],</span> <span class="n">colorbar</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">imagecrop</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;NIRSpec S200A1 at {0:.1f} $\mu m$&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">wave</span><span class="o">*</span><span class="mf">1e6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;example_nirspec_slitpsf.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/fig_example_nirspec_slitpsf.png"><img alt="Sample PSF image" class="align-center" src="_images/fig_example_nirspec_slitpsf.png" style="width: 708.75px; height: 195.0px;" /></a>
+</div>
+<div class="section" id="nirspec-msa">
+<h3>NIRSpec MSA<a class="headerlink" href="#nirspec-msa" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+<span class="n">ns</span> <span class="o">=</span> <span class="n">webbpsf</span><span class="o">.</span><span class="n">NIRSpec</span><span class="p">()</span>
+<span class="n">ns</span><span class="o">.</span><span class="n">image_mask</span><span class="o">=</span><span class="s1">&#39;MSA all open&#39;</span>
+<span class="n">ns</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;example_nirspec_msa_optics.png&#39;</span><span class="p">)</span>
+<span class="n">msapsf</span> <span class="o">=</span> <span class="n">ns</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">(</span><span class="n">monochromatic</span><span class="o">=</span><span class="mf">2e-6</span><span class="p">,</span> <span class="n">oversample</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">rebin</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">webbpsf</span><span class="o">.</span><span class="n">display_psf</span><span class="p">(</span><span class="n">msapsf</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s1">&#39;DET_SAMP&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/fig_example_nirspec_msa_optics.png"><img alt="Sample optical system display" class="align-center" src="_images/fig_example_nirspec_msa_optics.png" style="width: 432.0px; height: 648.0px;" /></a>
+<a class="reference internal image-reference" href="_images/fig_example_nirspec_msa_psf.png"><img alt="Sample PSF image" class="align-center" src="_images/fig_example_nirspec_msa_psf.png" style="width: 324.0px; height: 216.0px;" /></a>
+</div>
+<div class="section" id="miri-lrs">
+<h3>MIRI LRS<a class="headerlink" href="#miri-lrs" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">miri</span> <span class="o">=</span> <span class="n">webbpsf</span><span class="o">.</span><span class="n">MIRI</span><span class="p">()</span>
+<span class="n">miri</span><span class="o">.</span><span class="n">image_mask</span> <span class="o">=</span> <span class="s1">&#39;LRS slit&#39;</span>
+<span class="n">miri</span><span class="o">.</span><span class="n">pupil_mask</span> <span class="o">=</span> <span class="s1">&#39;P750L LRS grating&#39;</span>
+<span class="n">psf</span> <span class="o">=</span> <span class="n">miri</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">(</span><span class="n">monochromatic</span><span class="o">=</span><span class="mf">6.0e-6</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/fig_example_miri_lrs.png"><img alt="Sample PSF image" class="align-center" src="_images/fig_example_miri_lrs.png" style="width: 484.5px; height: 422.25px;" /></a>
+</div>
+</div>
+<div class="section" id="coronagraphy-and-complications">
+<span id="more-examples-coronagraphy"></span><h2>Coronagraphy and Complications<a class="headerlink" href="#coronagraphy-and-complications" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nircam-coronagraphy-with-an-offset-source">
+<h3>NIRCam coronagraphy with an offset source<a class="headerlink" href="#nircam-coronagraphy-with-an-offset-source" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nc</span> <span class="o">=</span> <span class="n">webbpsf</span><span class="o">.</span><span class="n">NIRCam</span><span class="p">()</span>
+<span class="n">nc</span><span class="o">.</span><span class="n">filter</span><span class="o">=</span><span class="s1">&#39;F430M&#39;</span>
+<span class="n">nc</span><span class="o">.</span><span class="n">image_mask</span><span class="o">=</span><span class="s1">&#39;MASK430R&#39;</span>
+<span class="n">nc</span><span class="o">.</span><span class="n">pupil_mask</span><span class="o">=</span><span class="s1">&#39;CIRCLYOT&#39;</span>
+<span class="n">nc</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;source_offset_r&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.20</span>       <span class="c1"># source is 200 mas from center of coronagraph</span>
+                                           <span class="c1"># (note that this is MUCH larger than expected acq</span>
+                                           <span class="c1"># offsets. This size displacement is just for show)</span>
+<span class="n">nc</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;source_offset_theta&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">45</span>     <span class="c1"># at a position angle of 45 deg</span>
+<span class="n">nc</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">(</span><span class="s1">&#39;coronagraphic.fits&#39;</span><span class="p">,</span> <span class="n">oversample</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">clobber</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>   <span class="c1"># create highly oversampled output image</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">webbpsf</span><span class="o">.</span><span class="n">display_psf</span><span class="p">(</span><span class="s1">&#39;coronagraphic.fits&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">,</span>
+    <span class="n">ext</span><span class="o">=</span><span class="s1">&#39;OVERSAMP&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;NIRCam F430M+MASK430R, 4x oversampled&#39;</span><span class="p">,</span> <span class="n">crosshairs</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">webbpsf</span><span class="o">.</span><span class="n">display_psf</span><span class="p">(</span><span class="s1">&#39;coronagraphic.fits&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">,</span>
+    <span class="n">ext</span><span class="o">=</span><span class="s1">&#39;DET_SAMP&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;NIRCam F430M+MASK430R, detector oversampled&#39;</span><span class="p">,</span> <span class="n">crosshairs</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;example_nircam_coron_resampling.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/fig_example_nircam_coron_resampling.png"><img alt="Sample PSF image" class="align-center" src="_images/fig_example_nircam_coron_resampling.png" style="width: 648.0px; height: 216.0px;" /></a>
+</div>
+<div class="section" id="simulate-nircam-coronagraphic-acquisition-images">
+<h3>Simulate NIRCam coronagraphic acquisition images<a class="headerlink" href="#simulate-nircam-coronagraphic-acquisition-images" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compute_psfs</span><span class="p">():</span>
+    <span class="n">nc</span> <span class="o">=</span> <span class="n">webbpsf</span><span class="o">.</span><span class="n">NIRCam</span><span class="p">()</span>
+
+    <span class="c1"># acq filter, occulting mask, lyot, coords of acq ND square</span>
+    <span class="n">sets</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;F182M&#39;</span><span class="p">,</span> <span class="s1">&#39;MASKSWB&#39;</span><span class="p">,</span> <span class="s1">&#39;WEDGELYOT&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span>  <span class="mf">7.5</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">&#39;F182M&#39;</span><span class="p">,</span> <span class="s1">&#39;MASK210R&#39;</span><span class="p">,</span> <span class="s1">&#39;CIRCLYOT&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mf">7.5</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">&#39;F335M&#39;</span><span class="p">,</span> <span class="s1">&#39;MASKLWB&#39;</span><span class="p">,</span> <span class="s1">&#39;WEDGELYOT&#39;</span><span class="p">,</span>  <span class="mf">7.5</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">&#39;F335M&#39;</span><span class="p">,</span> <span class="s1">&#39;MASK335R&#39;</span><span class="p">,</span> <span class="s1">&#39;CIRCLYOT&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span>  <span class="mf">7.5</span><span class="p">)]</span>
+
+    <span class="n">nlambda</span> <span class="o">=</span> <span class="mi">9</span>
+    <span class="n">oversample</span> <span class="o">=</span> <span class="mi">2</span>
+
+    <span class="n">calc_oversample</span><span class="o">=</span><span class="mi">4</span>
+
+    <span class="n">fov_arcsec</span> <span class="o">=</span> <span class="mi">25</span>
+
+    <span class="k">for</span> <span class="n">param</span> <span class="ow">in</span> <span class="n">sets</span><span class="p">:</span>
+        <span class="n">nc</span><span class="o">.</span><span class="n">filter</span> <span class="o">=</span> <span class="n">param</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">nc</span><span class="o">.</span><span class="n">image_mask</span> <span class="o">=</span> <span class="n">param</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">nc</span><span class="o">.</span><span class="n">pupil_mask</span> <span class="o">=</span> <span class="n">param</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">source_offset_x</span> <span class="o">=</span> <span class="n">param</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+        <span class="n">source_offset_y</span> <span class="o">=</span> <span class="n">param</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+
+
+        <span class="n">source_offset_r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">source_offset_x</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span> <span class="n">source_offset_y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">source_offset_theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">source_offset_x</span><span class="p">,</span> <span class="n">source_offset_y</span><span class="p">)</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+        <span class="n">nc</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;source_offset_r&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">source_offset_r</span>
+        <span class="n">nc</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;source_offset_theta&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">source_offset_theta</span>
+
+
+        <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;PSF_NIRCam_</span><span class="si">%s</span><span class="s2">_</span><span class="si">%s</span><span class="s2">_</span><span class="si">%s</span><span class="s2">_offset.fits&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">param</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">param</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">param</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">(</span><span class="n">nlambda</span><span class="o">=</span><span class="n">nlambda</span><span class="p">,</span>
+            <span class="n">oversample</span><span class="o">=</span><span class="n">oversample</span><span class="p">,</span> <span class="n">calc_oversample</span><span class="o">=</span><span class="n">calc_oversample</span><span class="p">,</span>
+            <span class="n">fov_arcsec</span><span class="o">=</span><span class="n">fov_arcsec</span><span class="p">,</span> <span class="n">outfile</span><span class="o">=</span><span class="n">filename</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="iterate-a-calculation-over-all-miri-coronagraphic-modes">
+<h3>Iterate a calculation over all MIRI coronagraphic modes<a class="headerlink" href="#iterate-a-calculation-over-all-miri-coronagraphic-modes" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">miri_psfs_coron</span><span class="p">():</span>
+    <span class="n">miri</span> <span class="o">=</span> <span class="n">webbpsf</span><span class="o">.</span><span class="n">MIRI</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">filtwave</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1065</span><span class="p">,</span> <span class="mi">1140</span><span class="p">,</span> <span class="mi">1550</span><span class="p">,</span> <span class="mi">2300</span><span class="p">]:</span>
+
+        <span class="n">miri</span><span class="o">.</span><span class="n">filter</span><span class="o">=</span><span class="s1">&#39;F</span><span class="si">%4d</span><span class="s1">C&#39;</span> <span class="o">%</span> <span class="n">filtwave</span>
+        <span class="k">if</span> <span class="n">filtwave</span><span class="o">&lt;</span><span class="mi">2000</span><span class="p">:</span>
+            <span class="n">miri</span><span class="o">.</span><span class="n">image_mask</span><span class="o">=</span><span class="s1">&#39;FQPM</span><span class="si">%4d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">filtwave</span>
+            <span class="n">miri</span><span class="o">.</span><span class="n">pupil_mask</span><span class="o">=</span><span class="s1">&#39;MASKFQPM&#39;</span>
+            <span class="n">fov</span><span class="o">=</span><span class="mi">24</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">miri</span><span class="o">.</span><span class="n">image_mask</span><span class="o">=</span><span class="s1">&#39;LYOT2300&#39;</span>
+            <span class="n">miri</span><span class="o">.</span><span class="n">pupil_mask</span><span class="o">=</span><span class="s1">&#39;MASKLYOT&#39;</span>
+            <span class="n">fov</span><span class="o">=</span><span class="mi">30</span>
+
+
+        <span class="n">offset_x</span> <span class="o">=</span> <span class="mf">0.007</span> <span class="c1"># arcsec</span>
+        <span class="n">offset_y</span> <span class="o">=</span> <span class="mf">0.007</span> <span class="c1"># arcsec</span>
+
+        <span class="n">miri</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;source_offset_r&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">offset_x</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">offset_y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># offset in arcsec</span>
+        <span class="n">miri</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;source_offset_theta&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="o">-</span><span class="n">offset_x</span><span class="p">,</span> <span class="n">offset_y</span><span class="p">)</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="c1"># PA in deg</span>
+
+
+        <span class="n">outname</span> <span class="o">=</span> <span class="s2">&quot;PSF_MIRI_</span><span class="si">%s</span><span class="s2">_x</span><span class="si">%+05.3f</span><span class="s2">_y</span><span class="si">%+05.3f</span><span class="s2">.fits&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">miri</span><span class="o">.</span><span class="n">image_mask</span><span class="p">,</span> <span class="n">offset_x</span><span class="p">,</span> <span class="n">offset_y</span><span class="p">)</span>
+        <span class="n">psf</span> <span class="o">=</span> <span class="n">miri</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">(</span><span class="n">outname</span><span class="p">,</span> <span class="n">oversample</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">fov_arcsec</span><span class="o">=</span><span class="n">fov</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="make-plots-of-encircled-energy-in-psfs-at-various-wavelengths">
+<h3>Make plots of encircled energy in PSFs at various wavelengths<a class="headerlink" href="#make-plots-of-encircled-energy-in-psfs-at-various-wavelengths" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">miri_psfs_for_ee</span><span class="p">():</span>
+    <span class="n">miri</span> <span class="o">=</span> <span class="n">webbpsf</span><span class="o">.</span><span class="n">MIRI</span><span class="p">()</span>
+
+    <span class="n">opdname</span> <span class="o">=</span> <span class="n">miri</span><span class="o">.</span><span class="n">pupilopd</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="n">miri</span><span class="o">.</span><span class="n">pupilopd</span> <span class="o">=</span> <span class="p">(</span><span class="n">opdname</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">wave</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">14</span><span class="p">]:</span>
+
+            <span class="n">fov</span><span class="o">=</span><span class="mi">18</span>
+
+            <span class="n">outname</span> <span class="o">=</span> <span class="s2">&quot;PSF_MIRI_</span><span class="si">%.1f</span><span class="s2">um_wfe</span><span class="si">%d</span><span class="s2">.fits&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">wave</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+            <span class="n">psf</span> <span class="o">=</span> <span class="n">miri</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">(</span><span class="n">outname</span><span class="p">,</span> <span class="n">monochromatic</span><span class="o">=</span><span class="n">wave</span><span class="o">*</span><span class="mf">1e-6</span><span class="p">,</span>
+                    <span class="n">oversample</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">fov_arcsec</span><span class="o">=</span><span class="n">fov</span><span class="p">,</span> <span class="n">rebin</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+
+
+<span class="k">def</span> <span class="nf">plot_ee_curves</span><span class="p">():</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">iw</span><span class="p">,</span> <span class="n">wave</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">14</span><span class="p">]):</span>
+
+        <span class="n">ees60</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">ees51</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">iw</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;PSF_MIRI_</span><span class="si">%.1f</span><span class="s2">um_wfe</span><span class="si">%d</span><span class="s2">.fits&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">wave</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+            <span class="n">webbpsf</span><span class="o">.</span><span class="n">display_ee</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">mark_levels</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+            <span class="n">eefn</span> <span class="o">=</span> <span class="n">webbpsf</span><span class="o">.</span><span class="n">measure_ee</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+            <span class="n">ees60</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">eefn</span><span class="p">(</span><span class="mf">0.60</span><span class="p">))</span>
+            <span class="n">ees51</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">eefn</span><span class="p">(</span><span class="mf">0.51</span><span class="p">))</span>
+
+        <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="s1">&#39;Mean EE inside 0.60&quot;: </span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">ees60</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;Mean EE inside 0.51&quot;: </span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">ees51</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Wavelength = </span><span class="si">%.1f</span><span class="s2"> $\mu$m&quot;</span> <span class="o">%</span> <span class="n">wave</span><span class="p">)</span>
+
+        <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mf">0.51</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="simulate-coronagraphy-with-pupil-shear-saving-the-wavefront-intensity-in-the-lyot-pupil-plane">
+<h3>Simulate coronagraphy with pupil shear, saving the wavefront intensity in the Lyot pupil plane<a class="headerlink" href="#simulate-coronagraphy-with-pupil-shear-saving-the-wavefront-intensity-in-the-lyot-pupil-plane" title="Permalink to this headline">¶</a></h3>
+<p>This is an example of a much more complicated calculation, including code to generate publication-quality plots.</p>
+<p>There are two functions here, one that creates a simulated PSF for a given amount of shear, and one that makes some nice plots of it.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">miri_psf_sheared</span><span class="p">(</span><span class="n">shearx</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sheary</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">nopds</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> \<span class="o">*</span>\<span class="o">*</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Compute MIRI coronagraphic PSFs assuming pupil shear between the MIRI lyot mask and the OTE</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ------------</span>
+<span class="sd">    shearx, sheary: float</span>
+<span class="sd">        Shear across the pupil expressed in percent,</span>
+<span class="sd">        i.e. shearx=3 means the coronagraph pupil is sheared by 3% of the primary.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">miri</span> <span class="o">=</span> <span class="n">webbpsf</span><span class="o">.</span><span class="n">MIRI</span><span class="p">()</span>
+
+    <span class="n">miri</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;pupil_shift_x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">shearx</span><span class="o">/</span><span class="mi">100</span> <span class="c1"># convert shear amount to float between 0-1</span>
+    <span class="n">miri</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;pupil_shift_y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sheary</span><span class="o">/</span><span class="mi">100</span>
+
+    <span class="n">opdname</span> <span class="o">=</span> <span class="n">miri</span><span class="o">.</span><span class="n">pupilopd</span>         <span class="c1"># save default OPD name for use in iterating over slices</span>
+
+    <span class="n">filtsets</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;F1065C&#39;</span><span class="p">,</span> <span class="s1">&#39;FQPM1065&#39;</span><span class="p">,</span> <span class="s1">&#39;MASKFQPM&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;F2300C&#39;</span><span class="p">,</span><span class="s1">&#39;LYOT2300&#39;</span><span class="p">,</span><span class="s1">&#39;MASKLYOT&#39;</span><span class="p">)]</span>
+
+    <span class="n">fov</span><span class="o">=</span><span class="mi">10</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nopds</span><span class="p">):</span>
+        <span class="n">miri</span><span class="o">.</span><span class="n">pupilopd</span> <span class="o">=</span> <span class="p">(</span><span class="n">opdname</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">filt</span><span class="p">,</span> <span class="n">im_mask</span><span class="p">,</span> <span class="n">pup_mask</span> <span class="ow">in</span> <span class="n">filtsets</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Now computing OPD </span><span class="si">%d</span><span class="s2"> for </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">filt</span><span class="p">,</span> <span class="n">im_mask</span><span class="p">,</span> <span class="n">pup_mask</span><span class="p">))</span>
+            <span class="n">miri</span><span class="o">.</span><span class="n">filter</span><span class="o">=</span><span class="n">filt</span>
+            <span class="n">miri</span><span class="o">.</span><span class="n">image_mask</span> <span class="o">=</span> <span class="n">im_mask</span>
+            <span class="n">miri</span><span class="o">.</span><span class="n">pupil_mask</span> <span class="o">=</span> <span class="n">pup_mask</span>
+
+
+            <span class="n">outname</span> <span class="o">=</span> <span class="s2">&quot;PSF_MIRI_</span><span class="si">%s</span><span class="s2">_wfe</span><span class="si">%d</span><span class="s2">_shx</span><span class="si">%.1f</span><span class="s2">_shy</span><span class="si">%.1f</span><span class="s2">.fits&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">filt</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">shearx</span><span class="p">,</span> <span class="n">sheary</span><span class="p">)</span>
+            <span class="n">outname_lyot</span> <span class="o">=</span> <span class="n">outname</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;PSF_&quot;</span><span class="p">,</span> <span class="s1">&#39;LYOTPLANE_&#39;</span><span class="p">)</span>
+
+
+            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">outname</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">overwrite</span><span class="p">:</span>
+                <span class="k">print</span> <span class="p">(</span><span class="s2">&quot;File </span><span class="si">%s</span><span class="s2"> already exists. Skipping and continuing for now... &quot;</span>
+                       <span class="s2">&quot; Set overwrite=True to recalculate&quot;</span> <span class="o">%</span> <span class="n">outname</span><span class="p">)</span>
+                <span class="k">return</span>
+
+            <span class="n">psf</span><span class="p">,</span> <span class="n">intermediates</span> <span class="o">=</span> <span class="n">miri</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">(</span><span class="n">oversample</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">fov_arcsec</span><span class="o">=</span><span class="n">fov</span><span class="p">,</span>
+                    <span class="n">rebin</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="n">display</span><span class="p">,</span> <span class="n">return_intermediates</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> \<span class="o">*</span>\<span class="o">*</span><span class="n">kwargs</span><span class="p">)</span>
+
+            <span class="n">lyot_intensity</span> <span class="o">=</span> <span class="n">intermediates</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+
+            <span class="n">psf</span><span class="o">.</span><span class="n">writeto</span><span class="p">(</span><span class="n">outname</span><span class="p">,</span> <span class="n">clobber</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+            <span class="n">lyot_intensity</span><span class="o">.</span><span class="n">writeto</span><span class="p">(</span><span class="n">outname_lyot</span><span class="p">,</span> <span class="n">clobber</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">includepadding</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">plot_sheared_psf</span><span class="p">(</span><span class="n">shearx</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">sheary</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">lyotmax</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">,</span> <span class="n">psfmax</span> <span class="o">=</span> <span class="mf">1e-3</span><span class="p">,</span> <span class="n">diffmax</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">filtsets</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;F1065C&#39;</span><span class="p">,</span> <span class="s1">&#39;FQPM1065&#39;</span><span class="p">,</span> <span class="s1">&#39;MASKFQPM&#39;</span><span class="p">)]</span><span class="c1">#, (&#39;F2300C&#39;,&#39;LYOT2300&#39;,&#39;MASKLYOT&#39;)]</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mf">0.98</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">filt</span><span class="p">,</span> <span class="n">im_mask</span><span class="p">,</span> <span class="n">pup_mask</span> <span class="ow">in</span> <span class="n">filtsets</span><span class="p">:</span>
+        <span class="n">perfectname</span> <span class="o">=</span> <span class="s2">&quot;PSF_MIRI_</span><span class="si">%s</span><span class="s2">_wfe</span><span class="si">%d</span><span class="s2">_shx</span><span class="si">%.1f</span><span class="s2">_shy</span><span class="si">%.1f</span><span class="s2">.fits&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">filt</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">perfectname_lyot</span> <span class="o">=</span> <span class="n">perfectname</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;PSF_&quot;</span><span class="p">,</span> <span class="s1">&#39;LYOTPLANE_&#39;</span><span class="p">)</span>
+
+
+        <span class="n">outname</span> <span class="o">=</span> <span class="s2">&quot;PSF_MIRI_</span><span class="si">%s</span><span class="s2">_wfe</span><span class="si">%d</span><span class="s2">_shx</span><span class="si">%.1f</span><span class="s2">_shy</span><span class="si">%.1f</span><span class="s2">.fits&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">filt</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">shearx</span><span class="p">,</span> <span class="n">sheary</span><span class="p">)</span>
+        <span class="n">outname_lyot</span> <span class="o">=</span> <span class="n">outname</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;PSF_&quot;</span><span class="p">,</span> <span class="s1">&#39;LYOTPLANE_&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">outname</span><span class="p">):</span>
+            <span class="k">print</span> <span class="s2">&quot;File </span><span class="si">%s</span><span class="s2"> does not exist, skipping&quot;</span> <span class="o">%</span> <span class="n">outname</span>
+            <span class="k">return</span> <span class="bp">False</span>
+
+
+        <span class="c1">#psf = pyfits.open(outname)</span>
+        <span class="c1">#perfpsf = pyfits.open(perfectname)</span>
+        <span class="n">lyot</span> <span class="o">=</span> <span class="n">pyfits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">outname_lyot</span><span class="p">)</span>
+        <span class="n">perflyot</span> <span class="o">=</span> <span class="n">pyfits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">perfectname_lyot</span><span class="p">)</span>
+
+        <span class="n">wzero</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">lyot</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">wzero</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">lyot</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span> <span class="o">&lt;</span> <span class="mf">1e-15</span><span class="p">)</span>
+        <span class="n">lyot</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">wzero</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+        <span class="n">wzero</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">perflyot</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">perflyot</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">wzero</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+        <span class="n">cmap</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">jet</span>
+        <span class="n">cmap</span><span class="o">.</span><span class="n">set_bad</span><span class="p">(</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+
+
+
+        <span class="c1"># plot comparison perfect case Lyot Intensity</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">231</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">perflyot</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">lyotmax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Lyot plane, no shear&quot;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_ticklabels</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_ticklabels</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+        <span class="n">wg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">perflyot</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">))</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Residual flux = </span><span class="si">%.1f%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">perflyot</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">wg</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+
+        <span class="c1"># plot shifted pupil Lyot intensity</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">234</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">lyot</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">lyotmax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Lyot plane, shear (</span><span class="si">%.1f</span><span class="s2">, </span><span class="si">%.1f</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">shearx</span><span class="p">,</span> <span class="n">sheary</span><span class="p">))</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_ticklabels</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_ticklabels</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">wg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">lyot</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">))</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Residual flux = </span><span class="si">%.1f%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">lyot</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">wg</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+
+
+
+        <span class="c1"># Radial profile plot</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">233</span><span class="p">)</span>
+
+        <span class="n">radius</span><span class="p">,</span> <span class="n">profperf</span> <span class="o">=</span> <span class="n">webbpsf</span><span class="o">.</span><span class="n">radial_profile</span><span class="p">(</span><span class="n">perfectname</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">radius2</span><span class="p">,</span> <span class="n">profshear</span> <span class="o">=</span> <span class="n">webbpsf</span><span class="o">.</span><span class="n">radial_profile</span><span class="p">(</span><span class="n">outname</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># normalize all radial profiles to peak=1 for an unocculted source</span>
+        <span class="n">radiusu</span><span class="p">,</span> <span class="n">profunocc</span> <span class="o">=</span> <span class="n">webbpsf</span><span class="o">.</span><span class="n">radial_profile</span><span class="p">(</span><span class="s1">&#39;PSF_MIRI_F1065C_wfe0_noshear_unocculted.fits&#39;</span><span class="p">,</span>
+            <span class="n">ext</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mf">43.3</span><span class="p">,</span> <span class="mf">68.6</span><span class="p">))</span> <span class="c1"># center is in pixel coords</span>
+
+        <span class="n">peakunocc</span> <span class="o">=</span> <span class="n">profunocc</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+        <span class="n">profperf</span> <span class="o">/=</span> <span class="n">peakunocc</span>
+        <span class="n">profshear</span><span class="o">/=</span> <span class="n">peakunocc</span>
+        <span class="n">profunocc</span><span class="o">/=</span> <span class="n">peakunocc</span>
+
+
+        <span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span> <span class="n">profperf</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;No shear&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">radius2</span><span class="p">,</span> <span class="n">profshear</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;shear (</span><span class="si">%.1f</span><span class="s2">, </span><span class="si">%.1f</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">shearx</span><span class="p">,</span> <span class="n">sheary</span><span class="p">))</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">radiusu</span><span class="p">,</span> <span class="n">profunocc</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Unocculted&quot;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span> <span class="p">)</span>
+
+
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Separation [arcsec]&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Relative Intensity&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+
+
+        <span class="c1"># plot comparison perfect case PSF - detector sampled</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">232</span><span class="p">)</span>
+        <span class="n">webbpsf</span><span class="o">.</span><span class="n">display_psf</span><span class="p">(</span><span class="n">perfectname</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">psfmax</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;PSF, no shear&quot;</span><span class="p">)</span>
+
+        <span class="c1"># plot shifted pupil PSF - detector sampled</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">235</span><span class="p">)</span>
+        <span class="n">webbpsf</span><span class="o">.</span><span class="n">display_psf</span><span class="p">(</span><span class="n">outname</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">psfmax</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;PSF, shear (</span><span class="si">%.1f</span><span class="s2">, %1.f)&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">shearx</span><span class="p">,</span> <span class="n">sheary</span><span class="p">))</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Separation [arcsec]&quot;</span><span class="p">)</span>
+        <span class="c1"># difference PSf</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">236</span><span class="p">)</span>
+        <span class="n">webbpsf</span><span class="o">.</span><span class="n">display_psf_difference</span><span class="p">(</span><span class="n">outname</span><span class="p">,</span> <span class="n">perfectname</span><span class="p">,</span> <span class="n">ext1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+            <span class="n">ext2</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">diffmax</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">normalize_to_second</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Relative PSF increase&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Separation [arcsec]&quot;</span><span class="p">)</span>
+
+
+        <span class="k">return</span> <span class="bp">True</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="poppy.html" class="btn btn-neutral float-right" title="Overview of POPPY (Physical Optics Propagation in Python)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="psf_grids.html" class="btn btn-neutral float-left" title="Using PSF Grids" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Association of Universities for Research in Astronomy
+      <span class="lastupdated">
+        Last updated on 20 Nov 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

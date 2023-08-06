@@ -1,0 +1,959 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>webbpsf.utils &mdash; webbpsf v0.8.0</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/astropy_logo.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/stsci.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/stsci.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+            <a href="../../index.html" class="icon icon-home"> webbpsf
+            
+            <img src="../../_static/stsci_pri_combo_mark_white.png" class="logo" />
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.0
+              </div>
+            
+          
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+  
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Requirements &amp; Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../relnotes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage.html">Using WebbPSF via the Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jwst.html">JWST Instrument Model Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../wfirst.html">WFIRST Instrument Model Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../psf_grids.html">Using PSF Grids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more_examples.html">More Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../poppy.html">Overview of POPPY (Physical Optics Propagation in Python)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api_reference.html">Detailed API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">Diagnostics &amp; Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sampling.html">Sampling Requirements for Numerical Accuracy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fft_optimization.html">Optimizing FFT Performance for PSF Computations with FFTW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../available_opds.html">Appendix: Available Optical Path Difference (OPD) files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">Appendix: Instrument Property References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gui.html">(Deprecated)  Graphical User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../release.html">Developer Notes: Releasing a new version of WebbPSF</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">webbpsf</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../webbpsf.html">webbpsf</a> &raquo;</li>
+        
+      <li>webbpsf.utils</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for webbpsf.utils</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">OrderedDict</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">astropy.io.fits</span> <span class="k">as</span> <span class="nn">fits</span>
+<span class="kn">from</span> <span class="nn">astropy.nddata</span> <span class="k">import</span> <span class="n">NDData</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">import</span> <span class="nn">scipy.interpolate</span> <span class="k">as</span> <span class="nn">sciint</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="n">_log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;webbpsf&#39;</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">conf</span>
+
+<span class="n">_DISABLE_FILE_LOGGING_VALUE</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span>
+
+<span class="n">_Strehl_perfect_cache</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># dict for caching perfect images used in Strehl calcs.</span>
+
+
+<span class="c1">### Helper routines for logging: ###</span>
+
+<span class="k">class</span> <span class="nc">FilterLevelRange</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">min_level</span><span class="p">,</span> <span class="n">max_level</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">min_level</span> <span class="o">=</span> <span class="n">min_level</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_level</span> <span class="o">=</span> <span class="n">max_level</span>
+
+    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">record</span><span class="o">.</span><span class="n">levelno</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_level</span> <span class="ow">and</span> <span class="n">record</span><span class="o">.</span><span class="n">levelno</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_level</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+
+
+<div class="viewcode-block" id="restart_logging"><a class="viewcode-back" href="../../api/webbpsf.restart_logging.html#webbpsf.utils.restart_logging">[docs]</a><span class="k">def</span> <span class="nf">restart_logging</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Restart logging using the same settings as the last WebbPSF</span>
+<span class="sd">    session, as stored in the configuration system.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    verbose : boolean</span>
+<span class="sd">        Should this function print the new logging targets to</span>
+<span class="sd">        standard output?</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">level</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">logging_level</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+    <span class="n">lognames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;webbpsf&#39;</span><span class="p">,</span> <span class="s1">&#39;poppy&#39;</span><span class="p">]</span>
+
+    <span class="n">root_logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">()</span>
+    <span class="n">root_logger</span><span class="o">.</span><span class="n">handlers</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">if</span> <span class="n">level</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;DEBUG&#39;</span><span class="p">,</span> <span class="s1">&#39;INFO&#39;</span><span class="p">,</span> <span class="s1">&#39;WARN&#39;</span><span class="p">,</span> <span class="s1">&#39;ERROR&#39;</span><span class="p">,</span> <span class="s1">&#39;CRITICAL&#39;</span><span class="p">]:</span>
+        <span class="n">level_id</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">logging</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>  <span class="c1"># obtain one of the DEBUG, INFO, WARN,</span>
+        <span class="c1"># or ERROR constants</span>
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;WebbPSF log messages of level </span><span class="si">{0}</span><span class="s2"> and above will be shown.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">level</span><span class="p">))</span>
+    <span class="k">elif</span> <span class="n">level</span> <span class="o">==</span> <span class="s1">&#39;NONE&#39;</span><span class="p">:</span>
+        <span class="n">root_logger</span><span class="o">.</span><span class="n">handlers</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># n.b. this will clear any handlers other libs/users configured</span>
+        <span class="k">return</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid logging level: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">level</span><span class="p">))</span>
+
+    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">lognames</span><span class="p">:</span>
+        <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">level_id</span><span class="p">)</span>
+
+    <span class="c1"># set up screen logging</span>
+    <span class="n">stdout_handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">(</span><span class="n">stream</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+    <span class="n">stdout_handler</span><span class="o">.</span><span class="n">addFilter</span><span class="p">(</span><span class="n">FilterLevelRange</span><span class="p">(</span>
+        <span class="n">min_level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
+        <span class="n">max_level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span>
+    <span class="p">))</span>
+
+    <span class="n">stderr_handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">(</span><span class="n">stream</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+    <span class="n">stderr_handler</span><span class="o">.</span><span class="n">addFilter</span><span class="p">(</span><span class="n">FilterLevelRange</span><span class="p">(</span>
+        <span class="n">min_level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">WARNING</span><span class="p">,</span>
+        <span class="n">max_level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">CRITICAL</span>
+    <span class="p">))</span>
+    <span class="n">formatter</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">logging_format_screen</span><span class="p">)</span>
+    <span class="n">stderr_handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
+    <span class="n">stdout_handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
+
+    <span class="n">root_logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">stdout_handler</span><span class="p">)</span>
+    <span class="n">root_logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">stderr_handler</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;WebbPSF log outputs will be directed to the screen.&quot;</span><span class="p">)</span>
+
+    <span class="c1"># set up file logging</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">conf</span><span class="o">.</span><span class="n">logging_filename</span>
+    <span class="k">if</span> <span class="n">filename</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">filename</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">!=</span> <span class="n">_DISABLE_FILE_LOGGING_VALUE</span><span class="p">:</span>
+        <span class="n">hdlr</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+
+        <span class="n">formatter</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">logging_format_file</span><span class="p">)</span>
+        <span class="n">hdlr</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
+
+        <span class="n">root_logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">hdlr</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;WebbPSF log outputs will also be saved to file </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="setup_logging"><a class="viewcode-back" href="../../api/webbpsf.setup_logging.html#webbpsf.utils.setup_logging">[docs]</a><span class="k">def</span> <span class="nf">setup_logging</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s1">&#39;INFO&#39;</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Allows selection of logging detail and output locations</span>
+<span class="sd">    (screen and/or file)</span>
+
+<span class="sd">    This is a convenience wrapper to Python&#39;s built-in logging package,</span>
+<span class="sd">    as used by `webbpsf` and `poppy`. By default, this sets up log</span>
+<span class="sd">    messages to be written to the screen, but the user can also</span>
+<span class="sd">    request logging to a file.</span>
+
+<span class="sd">    Editing the WebbPSF config file to set `autoconfigure_logging = True`</span>
+<span class="sd">    (and any of the logging settings you wish to persist) instructs</span>
+<span class="sd">    WebbPSF to apply your settings on import. (This is not</span>
+<span class="sd">    done by default in case you have configured `logging` yourself</span>
+<span class="sd">    and don&#39;t wish to overwrite your configuration.)</span>
+
+<span class="sd">    For more advanced log handling, see the Python logging module&#39;s</span>
+<span class="sd">    own documentation.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    -------------</span>
+<span class="sd">    level : str</span>
+<span class="sd">        Name of log output to show. Defaults to &#39;INFO&#39;, set to &#39;DEBUG&#39;</span>
+<span class="sd">        for more extensive messages, or to &#39;WARN&#39; or &#39;ERROR&#39; for fewer.</span>
+<span class="sd">    filename : str, optional</span>
+<span class="sd">        Filename to write the log output to. If not set, output will</span>
+<span class="sd">        just be displayed on screen. (Default: None)</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    -----------</span>
+
+<span class="sd">    &gt;&gt;&gt; webbpsf.setup_logging(filename=&#39;webbpsflog.txt&#39;)</span>
+
+<span class="sd">    This will save all log messages to &#39;webbpsflog.txt&#39; in the current</span>
+<span class="sd">    directory. If you later start another copy of webbpsf in a</span>
+<span class="sd">    different directory, that session will also write to</span>
+<span class="sd">    &#39;webbpsflog.txt&#39; in *that* directory. Alternatively you can specify</span>
+<span class="sd">    a fully qualified absolute path to save all your logs to one</span>
+<span class="sd">    specific file.</span>
+
+<span class="sd">    &gt;&gt;&gt; webbpsf.setup_logging(level=&#39;WARN&#39;)</span>
+
+<span class="sd">    This will show only WARNING or ERROR messages on screen, and not</span>
+<span class="sd">    save any logs to files at all (since the filename argument is None)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># implementation note: All this function actually does is apply the</span>
+    <span class="c1"># defaults into the configuration system, then calls restart_logging to</span>
+    <span class="c1"># do the actual work.</span>
+    <span class="n">level</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">level</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+    <span class="c1"># The astropy config system will enforce the limited set of values for the logging_level</span>
+    <span class="c1"># parameter by raising a TypeError on this next line if we feed in an invalid string.</span>
+    <span class="n">conf</span><span class="o">.</span><span class="n">logging_level</span> <span class="o">=</span> <span class="n">level</span>
+
+    <span class="k">if</span> <span class="n">filename</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Use the string &#39;none&#39; as a sentinel value for astropy.config</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="n">_DISABLE_FILE_LOGGING_VALUE</span>
+
+    <span class="n">conf</span><span class="o">.</span><span class="n">logging_filename</span> <span class="o">=</span> <span class="n">filename</span>
+    <span class="n">restart_logging</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+
+<span class="c1">### Helper routines for data handling and system setup: ###</span>
+
+<span class="n">MISSING_WEBBPSF_DATA_MESSAGE</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2"> ***********  ERROR  ******  ERROR  ******  ERROR  ******  ERROR  ***********</span>
+<span class="s2"> *                                                                          *</span>
+<span class="s2"> *  WebbPSF requires several data files to operate.                         *</span>
+<span class="s2"> *  These files could not be located automatically at this time, or this    *</span>
+<span class="s2"> *  version of the software requires a newer set of reference files than    *</span>
+<span class="s2"> *  you have installed.  For more details see:                              *</span>
+<span class="s2"> *                                                                          *</span>
+<span class="s2"> *        https://webbpsf.readthedocs.io/en/stable/installation.html        *</span>
+<span class="s2"> *                                                                          *</span>
+<span class="s2"> *  under &quot;Installing the Required Data Files&quot;.                             *</span>
+<span class="s2"> *  WebbPSF will not be able to function properly until the appropriate     *</span>
+<span class="s2"> *  reference files have been downloaded to your machine and installed.     *</span>
+<span class="s2"> *                                                                          *</span>
+<span class="s2"> ****************************************************************************</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">get_webbpsf_data_path</span><span class="p">(</span><span class="n">data_version_min</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">return_version</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get the WebbPSF data path</span>
+
+<span class="sd">    Simply checking an environment variable is not always enough, since</span>
+<span class="sd">    for packaging this code as a Mac .app bundle, environment variables are</span>
+<span class="sd">    not available since .apps run outside the Terminal or X11 environments.</span>
+
+<span class="sd">    Therefore, check first the environment variable WEBBPSF_PATH, and secondly</span>
+<span class="sd">    check the configuration file in the user&#39;s home directory.</span>
+
+<span class="sd">    If data_version_min is supplied (as a 3-tuple of integers), it will be</span>
+<span class="sd">    compared with the version number from version.txt in the WebbPSF data</span>
+<span class="sd">    package.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">os</span>
+    <span class="n">path_from_config</span> <span class="o">=</span> <span class="n">conf</span><span class="o">.</span><span class="n">WEBBPSF_PATH</span>  <span class="c1"># read from astropy configuration</span>
+    <span class="k">if</span> <span class="n">path_from_config</span> <span class="o">==</span> <span class="s1">&#39;from_environment_variable&#39;</span><span class="p">:</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;WEBBPSF_PATH&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">MISSING_WEBBPSF_DATA_MESSAGE</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">EnvironmentError</span><span class="p">(</span><span class="s2">&quot;Environment variable $WEBBPSF_PATH is not set!&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">path_from_config</span>
+
+    <span class="c1"># at minimum, the path must be a valid directory</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">MISSING_WEBBPSF_DATA_MESSAGE</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">IOError</span><span class="p">(</span><span class="s2">&quot;WEBBPSF_PATH (</span><span class="si">{}</span><span class="s2">) is not a valid directory path!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">data_version_min</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Check if the data in WEBBPSF_PATH meet the minimum data version</span>
+        <span class="n">version_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;version.txt&#39;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">version_file_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">version_contents</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                <span class="c1"># keep only first 3 elements for comparison (allows &quot;0.3.4.dev&quot; or similar)</span>
+                <span class="n">parts</span> <span class="o">=</span> <span class="n">version_contents</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[:</span><span class="mi">3</span><span class="p">]</span>
+            <span class="n">version_tuple</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">parts</span><span class="p">))</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">IOError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">):</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">MISSING_WEBBPSF_DATA_MESSAGE</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">EnvironmentError</span><span class="p">(</span>
+                <span class="s2">&quot;Couldn&#39;t read the version number from </span><span class="si">{}</span><span class="s2">. (Do you need to update the WebbPSF &quot;</span>
+                <span class="s2">&quot;data? See https://webbpsf.readthedocs.io/en/stable/installation.html#data-install &quot;</span>
+                <span class="s2">&quot;for a link to the latest version.)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">version_file_path</span><span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">version_tuple</span> <span class="o">&gt;=</span> <span class="n">data_version_min</span><span class="p">:</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">MISSING_WEBBPSF_DATA_MESSAGE</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">EnvironmentError</span><span class="p">(</span>
+                <span class="s2">&quot;WebbPSF data package has version </span><span class="si">{cur}</span><span class="s2">, but </span><span class="si">{min}</span><span class="s2"> is needed. &quot;</span>
+                <span class="s2">&quot;See https://webbpsf.readthedocs.io/en/stable/installation.html#data-install &quot;</span>
+                <span class="s2">&quot;for a link to the latest version.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">cur</span><span class="o">=</span><span class="n">version_contents</span><span class="p">,</span>
+                    <span class="nb">min</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">.</span><span class="si">{}</span><span class="s1">.</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">data_version_min</span><span class="p">)</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">return_version</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">version_contents</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">path</span>
+
+
+<span class="n">DIAGNOSTIC_REPORT</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">OS: </span><span class="si">{os}</span><span class="s2"></span>
+<span class="s2">CPU: </span><span class="si">{cpu}</span><span class="s2"></span>
+<span class="s2">Python version: </span><span class="si">{python}</span><span class="s2"></span>
+<span class="s2">numpy version: </span><span class="si">{numpy}</span><span class="s2"></span>
+<span class="s2">scipy version: </span><span class="si">{scipy}</span><span class="s2"></span>
+<span class="s2">astropy version: </span><span class="si">{astropy}</span><span class="s2"></span>
+<span class="s2">pysynphot version: </span><span class="si">{pysyn}</span><span class="s2"></span>
+
+<span class="s2">numexpr version: </span><span class="si">{numexpr}</span><span class="s2"></span>
+<span class="s2">pyFFTW version: </span><span class="si">{pyfftw}</span><span class="s2"></span>
+<span class="s2">Anaconda Accelerate version: </span><span class="si">{accelerate}</span><span class="s2"></span>
+
+<span class="s2">poppy version: </span><span class="si">{poppy}</span><span class="s2"></span>
+<span class="s2">webbpsf version: </span><span class="si">{webbpsf}</span><span class="s2"></span>
+
+<span class="s2">tkinter version: </span><span class="si">{tkinter}</span><span class="s2"></span>
+<span class="s2">wxpython version: </span><span class="si">{wxpython}</span><span class="s2"></span>
+
+
+<span class="s2">***************************************************************</span>
+<span class="s2">Floating point type information for numpy.float:</span>
+<span class="si">{finfo_float}</span><span class="s2"></span>
+<span class="s2">Floating point type information for numpy.complex:</span>
+<span class="si">{finfo_complex}</span><span class="s2"></span>
+
+<span class="s2">***************************************************************</span>
+<span class="s2">Numpy compilation and linking:</span>
+
+<span class="si">{numpyconfig}</span><span class="s2"></span>
+
+<span class="s2">&quot;&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="system_diagnostic"><a class="viewcode-back" href="../../api/webbpsf.system_diagnostic.html#webbpsf.utils.system_diagnostic">[docs]</a><span class="k">def</span> <span class="nf">system_diagnostic</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot; return various helpful/informative information about the</span>
+<span class="sd">    current system. For instance versions of python &amp; available packages.</span>
+
+<span class="sd">    Mostly undocumented function...</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># There is probably a more clever way to do the following via introspection?</span>
+
+    <span class="kn">import</span> <span class="nn">platform</span>
+    <span class="kn">import</span> <span class="nn">os</span>
+    <span class="kn">import</span> <span class="nn">poppy</span>
+    <span class="kn">import</span> <span class="nn">numpy</span>
+    <span class="kn">import</span> <span class="nn">scipy</span>
+    <span class="kn">from</span> <span class="nn">.version</span> <span class="k">import</span> <span class="n">version</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">import</span> <span class="nn">ttk</span>
+        <span class="n">ttk_version</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">__version__</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="n">ttk_version</span> <span class="o">=</span> <span class="s1">&#39;not found&#39;</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">import</span> <span class="nn">wx</span>
+        <span class="n">wx_version</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">__version__</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="n">wx_version</span> <span class="o">=</span> <span class="s1">&#39;not found&#39;</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">import</span> <span class="nn">pyfftw</span>
+        <span class="n">pyfftw_version</span> <span class="o">=</span> <span class="n">pyfftw</span><span class="o">.</span><span class="n">version</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="n">pyfftw_version</span> <span class="o">=</span> <span class="s1">&#39;not found&#39;</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">import</span> <span class="nn">pysynphot</span>
+        <span class="n">pysynphot_version</span> <span class="o">=</span> <span class="n">pysynphot</span><span class="o">.</span><span class="n">__version__</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="n">pysynphot_version</span> <span class="o">=</span> <span class="s1">&#39;not found&#39;</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">import</span> <span class="nn">astropy</span>
+        <span class="n">astropy_version</span> <span class="o">=</span> <span class="n">astropy</span><span class="o">.</span><span class="n">__version__</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="n">astropy_version</span> <span class="o">=</span> <span class="s1">&#39;not found&#39;</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">import</span> <span class="nn">numexpr</span>
+        <span class="n">numexpr_version</span> <span class="o">=</span> <span class="n">numexpr</span><span class="o">.</span><span class="n">__version__</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="n">numexpr_version</span> <span class="o">=</span> <span class="s1">&#39;not found&#39;</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">import</span> <span class="nn">accelerate</span>
+        <span class="n">accelerate_version</span> <span class="o">=</span> <span class="n">accelerate</span><span class="o">.</span><span class="n">__version__</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="n">accelerate_version</span> <span class="o">=</span> <span class="s1">&#39;not found&#39;</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">import</span> <span class="nn">psutil</span>
+        <span class="n">cpu_info</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">  Hardware cores: </span><span class="si">{hw}</span><span class="s2"></span>
+<span class="s2">  Logical core: </span><span class="si">{logical}</span><span class="s2"></span>
+<span class="s2">  Frequency: </span><span class="si">{freq}</span><span class="s2"> GHz</span>
+<span class="s2">  Currently </span><span class="si">{percent}% u</span><span class="s2">tilized.</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">hw</span><span class="o">=</span><span class="n">psutil</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">(</span><span class="n">logical</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+           <span class="n">logical</span><span class="o">=</span><span class="n">psutil</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">(</span><span class="n">logical</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+           <span class="n">freq</span><span class="o">=</span><span class="n">psutil</span><span class="o">.</span><span class="n">cpu_freq</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">,</span>
+           <span class="n">percent</span><span class="o">=</span><span class="n">psutil</span><span class="o">.</span><span class="n">cpu_percent</span><span class="p">())</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">import</span> <span class="nn">multiprocessing</span>
+            <span class="n">cpu_info</span> <span class="o">=</span> <span class="s2">&quot;  Cores: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">multiprocessing</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">())</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="n">cpu_info</span> <span class="o">=</span> <span class="s2">&quot;No CPU info available&quot;</span>
+
+    <span class="c1"># Get numpy config - the following is a modified version of</span>
+    <span class="c1"># numpy.__config__.show()</span>
+
+    <span class="n">numpyconfig</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">info_dict</span> <span class="ow">in</span> <span class="n">numpy</span><span class="o">.</span><span class="n">__config__</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;_&quot;</span> <span class="ow">or</span> <span class="nb">type</span><span class="p">(</span><span class="n">info_dict</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">type</span><span class="p">({}):</span> <span class="k">continue</span>
+        <span class="n">numpyconfig</span> <span class="o">+=</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;:</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">info_dict</span><span class="p">:</span>
+            <span class="n">numpyconfig</span> <span class="o">+=</span> <span class="s2">&quot;  NOT AVAILABLE</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">info_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">v</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="s2">&quot;sources&quot;</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">200</span><span class="p">:</span>
+                <span class="n">v</span> <span class="o">=</span> <span class="n">v</span><span class="p">[:</span><span class="mi">60</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; ...</span><span class="se">\n</span><span class="s2">... &quot;</span> <span class="o">+</span> <span class="n">v</span><span class="p">[</span><span class="o">-</span><span class="mi">60</span><span class="p">:]</span>
+            <span class="n">numpyconfig</span> <span class="o">+=</span> <span class="s2">&quot;    </span><span class="si">%s</span><span class="s2"> = </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="n">DIAGNOSTIC_REPORT</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">os</span><span class="o">=</span><span class="n">platform</span><span class="o">.</span><span class="n">platform</span><span class="p">(),</span>
+        <span class="n">numpy</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">__version__</span><span class="p">,</span>
+        <span class="n">python</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">version</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">),</span>
+        <span class="n">poppy</span><span class="o">=</span><span class="n">poppy</span><span class="o">.</span><span class="n">__version__</span><span class="p">,</span>
+        <span class="n">webbpsf</span><span class="o">=</span><span class="n">version</span><span class="p">,</span>
+        <span class="n">tkinter</span><span class="o">=</span><span class="n">ttk_version</span><span class="p">,</span>
+        <span class="n">wxpython</span><span class="o">=</span><span class="n">wx_version</span><span class="p">,</span>
+        <span class="n">pyfftw</span><span class="o">=</span><span class="n">pyfftw_version</span><span class="p">,</span>
+        <span class="n">pysyn</span><span class="o">=</span><span class="n">pysynphot_version</span><span class="p">,</span>
+        <span class="n">astropy</span><span class="o">=</span><span class="n">astropy_version</span><span class="p">,</span>
+        <span class="n">finfo_float</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">float</span><span class="p">),</span>
+        <span class="n">finfo_complex</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">complex</span><span class="p">),</span>
+        <span class="n">numexpr</span><span class="o">=</span><span class="n">numexpr_version</span><span class="p">,</span>
+        <span class="n">scipy</span><span class="o">=</span><span class="n">scipy</span><span class="o">.</span><span class="n">__version__</span><span class="p">,</span>
+        <span class="n">accelerate</span><span class="o">=</span><span class="n">accelerate_version</span><span class="p">,</span>
+        <span class="n">numpyconfig</span><span class="o">=</span><span class="n">numpyconfig</span><span class="p">,</span>
+        <span class="n">cpu</span><span class="o">=</span><span class="n">cpu_info</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+<span class="c1">### Helper routines for image manipulation: ###</span>
+
+<div class="viewcode-block" id="measure_strehl"><a class="viewcode-back" href="../../api/webbpsf.measure_strehl.html#webbpsf.utils.measure_strehl">[docs]</a><span class="k">def</span> <span class="nf">measure_strehl</span><span class="p">(</span><span class="n">HDUlist_or_filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">slice</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cache_perfect</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Estimate the Strehl ratio for a PSF.</span>
+
+<span class="sd">    This requires computing a simulated PSF with the same</span>
+<span class="sd">    properties as the one under analysis.</span>
+
+<span class="sd">    Note that this calculation will not be very accurate unless both PSFs are well sampled,</span>
+<span class="sd">    preferably several times better than Nyquist. See</span>
+<span class="sd">    `Roberts et al. 2004 SPIE 5490 &lt;http://adsabs.harvard.edu/abs/2004SPIE.5490..504R&gt;`_</span>
+<span class="sd">    for a discussion of the various possible pitfalls when calculating Strehl ratios.</span>
+
+<span class="sd">    WARNING: This routine attempts to infer how to calculate a perfect reference</span>
+<span class="sd">    PSF based on FITS header contents. It will likely work for simple direct imaging</span>
+<span class="sd">    cases with WebbPSF but will not work (yet) for more complicated cases such as</span>
+<span class="sd">    coronagraphy, anything with image or pupil masks, etc. Code contributions to add</span>
+<span class="sd">    such cases are welcomed.</span>
+
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    HDUlist_or_filename : string</span>
+<span class="sd">        Either a fits.HDUList object or a filename of a FITS file on disk</span>
+<span class="sd">    ext : int</span>
+<span class="sd">        Extension in that FITS file</span>
+<span class="sd">    slice : int, optional</span>
+<span class="sd">        If that extension is a 3D datacube, which slice (plane) of that datacube to use</span>
+<span class="sd">    center : tuple</span>
+<span class="sd">        center to compute around.  Default is image center. If the center is on the</span>
+<span class="sd">        crosshairs between four pixels, then the mean of those four pixels is used.</span>
+<span class="sd">        Otherwise, if the center is in a single pixel, then that pixel is used.</span>
+<span class="sd">    verbose, display : bool</span>
+<span class="sd">        control whether to print the results or display plots on screen.</span>
+
+<span class="sd">    cache_perfect : bool</span>
+<span class="sd">        use caching for perfect images? greatly speeds up multiple calcs w/ same config</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    ---------</span>
+<span class="sd">    strehl : float</span>
+<span class="sd">        Strehl ratio as a floating point number between 0.0 - 1.0</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="kn">from</span> <span class="nn">.webbpsf_core</span> <span class="k">import</span> <span class="n">Instrument</span>
+    <span class="kn">from</span> <span class="nn">poppy</span> <span class="k">import</span> <span class="n">display_psf</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">HDUlist_or_filename</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">HDUlist</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">HDUlist_or_filename</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">HDUlist_or_filename</span><span class="p">,</span> <span class="n">fits</span><span class="o">.</span><span class="n">HDUList</span><span class="p">):</span>
+        <span class="n">HDUlist</span> <span class="o">=</span> <span class="n">HDUlist_or_filename</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;input must be a filename or HDUlist&quot;</span><span class="p">)</span>
+
+    <span class="n">image</span> <span class="o">=</span> <span class="n">HDUlist</span><span class="p">[</span><span class="n">ext</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+    <span class="n">header</span> <span class="o">=</span> <span class="n">HDUlist</span><span class="p">[</span><span class="n">ext</span><span class="p">]</span><span class="o">.</span><span class="n">header</span>
+
+    <span class="k">if</span> <span class="n">image</span><span class="o">.</span><span class="n">ndim</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">:</span>  <span class="c1"># handle datacubes gracefully</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="p">[</span><span class="nb">slice</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span>
+
+    <span class="k">if</span> <span class="n">center</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># get exact center of image</span>
+        <span class="c1"># center = (image.shape[1]/2, image.shape[0]/2)</span>
+        <span class="n">center</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">((</span><span class="n">a</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.0</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="c1"># Compute a comparison image</span>
+    <span class="n">_log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Now computing image with zero OPD for comparison...&quot;</span><span class="p">)</span>
+    <span class="n">inst</span> <span class="o">=</span> <span class="n">Instrument</span><span class="p">(</span><span class="n">header</span><span class="p">[</span><span class="s1">&#39;INSTRUME&#39;</span><span class="p">])</span>
+    <span class="n">inst</span><span class="o">.</span><span class="n">filter</span> <span class="o">=</span> <span class="n">header</span><span class="p">[</span><span class="s1">&#39;FILTER&#39;</span><span class="p">]</span>
+    <span class="n">inst</span><span class="o">.</span><span class="n">pupilopd</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># perfect image</span>
+    <span class="n">inst</span><span class="o">.</span><span class="n">include_si_wfe</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># perfect image</span>
+    <span class="n">inst</span><span class="o">.</span><span class="n">pixelscale</span> <span class="o">=</span> <span class="n">header</span><span class="p">[</span><span class="s1">&#39;PIXELSCL&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">header</span><span class="p">[</span><span class="s1">&#39;OVERSAMP&#39;</span><span class="p">]</span>  <span class="c1"># same pixel scale pre-oversampling</span>
+    <span class="n">cache_key</span> <span class="o">=</span> <span class="p">(</span><span class="n">header</span><span class="p">[</span><span class="s1">&#39;INSTRUME&#39;</span><span class="p">],</span> <span class="n">header</span><span class="p">[</span><span class="s1">&#39;FILTER&#39;</span><span class="p">],</span> <span class="n">header</span><span class="p">[</span><span class="s1">&#39;PIXELSCL&#39;</span><span class="p">],</span> <span class="n">header</span><span class="p">[</span><span class="s1">&#39;OVERSAMP&#39;</span><span class="p">],</span> <span class="n">header</span><span class="p">[</span><span class="s1">&#39;FOV&#39;</span><span class="p">],</span> <span class="n">header</span><span class="p">[</span><span class="s1">&#39;NWAVES&#39;</span><span class="p">])</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">comparison_psf</span> <span class="o">=</span> <span class="n">_Strehl_perfect_cache</span><span class="p">[</span><span class="n">cache_key</span><span class="p">]</span>
+    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+        <span class="n">comparison_psf</span> <span class="o">=</span> <span class="n">inst</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">(</span><span class="n">fov_arcsec</span><span class="o">=</span><span class="n">header</span><span class="p">[</span><span class="s1">&#39;FOV&#39;</span><span class="p">],</span> <span class="n">oversample</span><span class="o">=</span><span class="n">header</span><span class="p">[</span><span class="s1">&#39;OVERSAMP&#39;</span><span class="p">],</span> <span class="n">nlambda</span><span class="o">=</span><span class="n">header</span><span class="p">[</span><span class="s1">&#39;NWAVES&#39;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">cache_perfect</span><span class="p">:</span> <span class="n">_Strehl_perfect_cache</span><span class="p">[</span><span class="n">cache_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">comparison_psf</span>
+
+    <span class="n">comparison_image</span> <span class="o">=</span> <span class="n">comparison_psf</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">center</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="n">center</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="ow">and</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">center</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="n">center</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="c1"># individual pixel</span>
+        <span class="n">meas_peak</span> <span class="o">=</span> <span class="n">image</span><span class="p">[</span><span class="n">center</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">center</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+        <span class="n">ref_peak</span> <span class="o">=</span> <span class="n">comparison_image</span><span class="p">[</span><span class="n">center</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">center</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># average across a group of 4</span>
+        <span class="n">bot</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">f</span><span class="p">))</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">center</span><span class="p">]</span>
+        <span class="n">top</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">center</span><span class="p">]</span>
+        <span class="n">meas_peak</span> <span class="o">=</span> <span class="n">image</span><span class="p">[</span><span class="n">bot</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span><span class="n">top</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">bot</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="n">top</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+        <span class="n">ref_peak</span> <span class="o">=</span> <span class="n">comparison_image</span><span class="p">[</span><span class="n">bot</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span><span class="n">top</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">bot</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="n">top</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">strehl</span> <span class="o">=</span> <span class="p">(</span><span class="n">meas_peak</span> <span class="o">/</span> <span class="n">ref_peak</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">display</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+        <span class="n">display_PSF</span><span class="p">(</span><span class="n">HDUlist</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Observed PSF&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+        <span class="n">display_PSF</span><span class="p">(</span><span class="n">comparison_psf</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Perfect PSF&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Strehl ratio = </span><span class="si">%.3f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">strehl</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Measured peak:  </span><span class="si">{0:.3g}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">meas_peak</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reference peak: </span><span class="si">{0:.3g}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ref_peak</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Strehl ratio: </span><span class="si">{0:.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">strehl</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">strehl</span></div>
+
+
+<span class="c1">### Helper routines for display customization: ###</span>
+<span class="c1"># use via poppy&#39;s display_annotate feature by assigning these to</span>
+<span class="c1"># the display_annotate attribute of an OpticalElement class</span>
+
+<span class="k">def</span> <span class="nf">annotate_ote_entrance_coords</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Draw OTE V frame axes on first optical plane &quot;&quot;&quot;</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;yellow&#39;</span>
+    <span class="n">loc</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="o">-</span><span class="n">loc</span><span class="p">,</span> <span class="o">-</span><span class="n">loc</span><span class="p">,</span> <span class="o">.</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.005</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="o">-</span><span class="n">loc</span><span class="p">,</span> <span class="o">-</span><span class="n">loc</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">.</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.005</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="n">loc</span><span class="p">,</span> <span class="o">-</span><span class="n">loc</span> <span class="o">+</span> <span class="mf">0.4</span><span class="p">,</span> <span class="s1">&#39;+V3&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s1">&#39;small&#39;</span><span class="p">,</span>
+            <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="n">loc</span> <span class="o">+</span> <span class="mf">0.4</span><span class="p">,</span> <span class="o">-</span><span class="n">loc</span><span class="p">,</span> <span class="s1">&#39;+V2&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s1">&#39;small&#39;</span><span class="p">,</span>
+            <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">annotate_sky_pupil_coords</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">show_NE</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">north_angle</span><span class="o">=</span><span class="mf">45.</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Draw OTE V frame axes projected onto the sky</span>
+<span class="sd">    Optionally also draw a compass for north and east at some given</span>
+<span class="sd">    position angle</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;yellow&#39;</span>
+    <span class="n">loc</span> <span class="o">=</span> <span class="mf">2.9</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="o">-</span><span class="n">loc</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="n">loc</span><span class="p">,</span> <span class="o">-.</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.005</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="o">-</span><span class="n">loc</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="n">loc</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">.</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.005</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="n">loc</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="n">loc</span> <span class="o">+</span> <span class="mf">0.3</span><span class="p">,</span> <span class="s1">&#39;+V3 on sky&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s1">&#39;small&#39;</span><span class="p">,</span>
+            <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="n">loc</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">+</span> <span class="mf">0.3</span><span class="p">,</span> <span class="o">-</span><span class="n">loc</span><span class="p">,</span> <span class="s1">&#39;+V2 on sky&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s1">&#39;small&#39;</span><span class="p">,</span>
+            <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">show_NE</span><span class="p">:</span>
+        <span class="n">color2</span> <span class="o">=</span> <span class="s1">&#39;cyan&#39;</span>
+        <span class="n">angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">north_angle</span><span class="p">)</span>  <span class="c1"># arbitrary</span>
+        <span class="n">dl</span> <span class="o">=</span> <span class="mf">0.3</span>
+        <span class="n">dx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span> <span class="o">*</span> <span class="n">dl</span>
+        <span class="n">dy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span> <span class="o">*</span> <span class="n">dl</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="o">-</span><span class="n">loc</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="n">loc</span><span class="p">,</span> <span class="o">-</span><span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color2</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.005</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="o">-</span><span class="n">loc</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="n">loc</span><span class="p">,</span> <span class="o">-</span><span class="n">dy</span><span class="p">,</span> <span class="o">-</span><span class="n">dx</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color2</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.005</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="n">loc</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">-</span> <span class="mf">2.3</span> <span class="o">*</span> <span class="n">dx</span><span class="p">,</span> <span class="o">-</span><span class="n">loc</span> <span class="o">+</span> <span class="mf">2.3</span> <span class="o">*</span> <span class="n">dy</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s1">&#39;small&#39;</span><span class="p">,</span>
+                <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="n">loc</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">-</span> <span class="mf">1.3</span> <span class="o">*</span> <span class="n">dy</span><span class="p">,</span> <span class="o">-</span><span class="n">loc</span> <span class="o">-</span> <span class="mf">1.3</span> <span class="o">*</span> <span class="n">dx</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s1">&#39;small&#39;</span><span class="p">,</span>
+                <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+
+
+
+<span class="k">def</span> <span class="nf">_run_benchmark</span><span class="p">(</span><span class="n">timer</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Common benchmarking core. Called from benchmark_imaging and benchmark_coronagraphy</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">poppy</span>
+    <span class="n">defaults</span> <span class="o">=</span> <span class="p">(</span><span class="n">poppy</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">use_fftw</span><span class="p">,</span> <span class="n">poppy</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">use_numexpr</span><span class="p">,</span> <span class="n">poppy</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">use_cuda</span><span class="p">,</span> <span class="n">poppy</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">use_opencl</span><span class="p">)</span>
+
+    <span class="c1"># Time baseline performance in numpy</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Timing performance in plain numpy:&quot;</span><span class="p">)</span>
+    <span class="n">poppy</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">use_fftw</span><span class="p">,</span> <span class="n">poppy</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">use_numexpr</span><span class="p">,</span> <span class="n">poppy</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">use_cuda</span><span class="p">,</span> <span class="n">poppy</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">use_opencl</span> <span class="o">=</span> <span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+    <span class="n">time_numpy</span> <span class="o">=</span> <span class="n">timer</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="n">number</span><span class="o">=</span><span class="n">iterations</span><span class="p">)</span> <span class="o">/</span> <span class="n">iterations</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  </span><span class="si">{:.2f}</span><span class="s2"> s&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time_numpy</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">poppy</span><span class="o">.</span><span class="n">accel_math</span><span class="o">.</span><span class="n">_FFTW_AVAILABLE</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Timing performance with FFTW:&quot;</span><span class="p">)</span>
+        <span class="n">poppy</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">use_fftw</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">time_fftw</span> <span class="o">=</span> <span class="n">timer</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="n">number</span><span class="o">=</span><span class="n">iterations</span><span class="p">)</span> <span class="o">/</span> <span class="n">iterations</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  </span><span class="si">{:.2f}</span><span class="s2"> s&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time_fftw</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">time_fftw</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">NaN</span>
+
+    <span class="k">if</span> <span class="n">poppy</span><span class="o">.</span><span class="n">accel_math</span><span class="o">.</span><span class="n">_NUMEXPR_AVAILABLE</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Timing performance with Numexpr:&quot;</span><span class="p">)</span>
+        <span class="n">poppy</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">use_fftw</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">poppy</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">use_numexpr</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">time_numexpr</span> <span class="o">=</span> <span class="n">timer</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="n">number</span><span class="o">=</span><span class="n">iterations</span><span class="p">)</span> <span class="o">/</span> <span class="n">iterations</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  </span><span class="si">{:.2f}</span><span class="s2"> s&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time_numexpr</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">time_numexpr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">NaN</span>
+
+    <span class="k">if</span> <span class="n">poppy</span><span class="o">.</span><span class="n">accel_math</span><span class="o">.</span><span class="n">_CUDA_AVAILABLE</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Timing performance with CUDA + Numexpr:&quot;</span><span class="p">)</span>
+        <span class="n">poppy</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">use_cuda</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">poppy</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">use_opencl</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">time_cuda</span> <span class="o">=</span> <span class="n">timer</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="n">number</span><span class="o">=</span><span class="n">iterations</span><span class="p">)</span> <span class="o">/</span> <span class="n">iterations</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  </span><span class="si">{:.2f}</span><span class="s2"> s&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time_cuda</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">time_cuda</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">NaN</span>
+
+    <span class="k">if</span> <span class="n">poppy</span><span class="o">.</span><span class="n">accel_math</span><span class="o">.</span><span class="n">_OPENCL_AVAILABLE</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Timing performance with OpenCL + Numexpr:&quot;</span><span class="p">)</span>
+        <span class="n">poppy</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">use_opencl</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">poppy</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">use_cuda</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">time_opencl</span> <span class="o">=</span> <span class="n">timer</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="n">number</span><span class="o">=</span><span class="n">iterations</span><span class="p">)</span> <span class="o">/</span> <span class="n">iterations</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  </span><span class="si">{:.2f}</span><span class="s2"> s&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time_opencl</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">time_opencl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">NaN</span>
+
+    <span class="n">poppy</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">use_fftw</span><span class="p">,</span> <span class="n">poppy</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">use_numexpr</span><span class="p">,</span> <span class="n">poppy</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">use_cuda</span><span class="p">,</span> <span class="n">poppy</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">use_opencl</span> <span class="o">=</span> <span class="n">defaults</span>
+
+    <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;numpy&#39;</span><span class="p">:</span> <span class="n">time_numpy</span><span class="p">,</span>
+            <span class="s1">&#39;fftw&#39;</span><span class="p">:</span> <span class="n">time_fftw</span><span class="p">,</span>
+            <span class="s1">&#39;numexpr&#39;</span><span class="p">:</span> <span class="n">time_numexpr</span><span class="p">,</span>
+            <span class="s1">&#39;cuda&#39;</span><span class="p">:</span> <span class="n">time_cuda</span><span class="p">,</span>
+            <span class="s1">&#39;opencl&#39;</span><span class="p">:</span> <span class="n">time_opencl</span><span class="p">}</span>
+
+
+<span class="k">def</span> <span class="nf">benchmark_imaging</span><span class="p">(</span><span class="n">iterations</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">nlambda</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">add_distortion</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Performance benchmark function for standard imaging &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">poppy</span>
+    <span class="kn">import</span> <span class="nn">timeit</span>
+
+    <span class="n">timer</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="s2">&quot;psf = nc.calc_psf(nlambda=nlambda, add_distortion=</span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">add_distortion</span><span class="p">),</span>
+                         <span class="n">setup</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">import webbpsf</span>
+<span class="s2">nc = webbpsf.NIRCam()</span>
+<span class="s2">nc.filter=&#39;F360M&#39;</span>
+<span class="s2">nlambda=</span><span class="si">{nlambda:d}</span><span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nlambda</span><span class="o">=</span><span class="n">nlambda</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Timing performance of NIRCam F360M with </span><span class="si">{}</span><span class="s2"> wavelengths, </span><span class="si">{}</span><span class="s2"> iterations&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nlambda</span><span class="p">,</span> <span class="n">iterations</span><span class="p">))</span>
+
+
+    <span class="k">return</span> <span class="n">_run_benchmark</span><span class="p">(</span><span class="n">timer</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="n">iterations</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">benchmark_nircam_coronagraphy</span><span class="p">(</span><span class="n">iterations</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">nlambda</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">add_distortion</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Performance benchmark function for standard imaging &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">poppy</span>
+    <span class="kn">import</span> <span class="nn">timeit</span>
+
+    <span class="n">timer</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="s2">&quot;psf = nc.calc_psf(nlambda=nlambda, add_distortion=</span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">add_distortion</span><span class="p">),</span>
+                         <span class="n">setup</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">import webbpsf</span>
+<span class="s2">nc = webbpsf.NIRCam()</span>
+<span class="s2">nc.filter=&#39;F335M&#39;</span>
+<span class="s2">nc.image_mask=&#39;MASK335R&#39;</span>
+<span class="s2">nc.pupil_mask=&#39;MASKRND&#39;</span>
+<span class="s2">nlambda=</span><span class="si">{nlambda:d}</span><span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nlambda</span><span class="o">=</span><span class="n">nlambda</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Timing performance of NIRCam MASK335R with </span><span class="si">{}</span><span class="s2"> wavelengths, </span><span class="si">{}</span><span class="s2"> iterations&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nlambda</span><span class="p">,</span> <span class="n">iterations</span><span class="p">))</span>
+
+
+    <span class="k">return</span> <span class="n">_run_benchmark</span><span class="p">(</span><span class="n">timer</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="n">iterations</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">benchmark_miri_coronagraphy</span><span class="p">(</span><span class="n">iterations</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">nlambda</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Performance benchmark function for standard imaging &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">poppy</span>
+    <span class="kn">import</span> <span class="nn">timeit</span>
+
+    <span class="n">timer</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="s2">&quot;psf = miri.calc_psf(nlambda=nlambda)&quot;</span><span class="p">,</span>
+                         <span class="n">setup</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">import webbpsf</span>
+<span class="s2">miri = webbpsf.MIRI()</span>
+<span class="s2">miri.filter=&#39;F1065C&#39;</span>
+<span class="s2">miri.image_mask=&#39;FQPM1065&#39;</span>
+<span class="s2">miri.pupil_mask=&#39;MASKFQPM&#39;</span>
+<span class="s2">nlambda=</span><span class="si">{nlambda:d}</span><span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nlambda</span><span class="o">=</span><span class="n">nlambda</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Timing performance of MIRI F1065C with </span><span class="si">{}</span><span class="s2"> wavelengths, </span><span class="si">{}</span><span class="s2"> iterations&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nlambda</span><span class="p">,</span> <span class="n">iterations</span><span class="p">))</span>
+
+
+    <span class="k">return</span> <span class="n">_run_benchmark</span><span class="p">(</span><span class="n">timer</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="n">iterations</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">combine_docstrings</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Combine the docstrings of a method and earlier implementations of the same method in parent classes &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">func</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+
+        <span class="c1"># Allow users to see the Poppy calc_psf docstring along with the JWInstrument version</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;calc_psf&#39;</span><span class="p">:</span>
+            <span class="n">jwinstrument_class</span> <span class="o">=</span> <span class="bp">cls</span>
+            <span class="n">spacetelescope_class</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">__base__</span>
+
+            <span class="n">ind0</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">jwinstrument_class</span><span class="p">,</span> <span class="s1">&#39;calc_psf&#39;</span><span class="p">)</span><span class="o">.</span><span class="vm">__doc__</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;add_distortion&quot;</span><span class="p">)</span>  <span class="c1"># pull the new parameters</span>
+            <span class="n">ind1</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">spacetelescope_class</span><span class="p">,</span> <span class="s1">&#39;calc_psf&#39;</span><span class="p">)</span><span class="o">.</span><span class="vm">__doc__</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;Returns&quot;</span><span class="p">)</span>  <span class="c1"># end of parameters</span>
+
+            <span class="n">func</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">spacetelescope_class</span><span class="p">,</span> <span class="s1">&#39;calc_psf&#39;</span><span class="p">)</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">ind1</span><span class="p">]</span> <span class="o">+</span> \
+                           <span class="nb">getattr</span><span class="p">(</span><span class="n">jwinstrument_class</span><span class="p">,</span> <span class="s1">&#39;calc_psf&#39;</span><span class="p">)</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">[</span><span class="n">ind0</span><span class="p">:]</span> <span class="o">+</span> \
+                           <span class="nb">getattr</span><span class="p">(</span><span class="n">spacetelescope_class</span><span class="p">,</span> <span class="s1">&#39;calc_psf&#39;</span><span class="p">)</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">[</span><span class="n">ind1</span><span class="p">:]</span>
+
+    <span class="k">return</span> <span class="bp">cls</span>
+
+
+<span class="k">def</span> <span class="nf">to_griddedpsfmodel</span><span class="p">(</span><span class="n">HDUlist_or_filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a photutils GriddedPSFModel object from either a FITS file or</span>
+<span class="sd">    an HDUlist object. The input must have header keywords &quot;DET_YX{}&quot; and</span>
+<span class="sd">    &quot;OVERSAMP&quot; (will be present if psf_grid() is used to create the</span>
+<span class="sd">    file).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    HDUlist_or_filename : string</span>
+<span class="sd">        Either a fits.HDUList object or a filename of a FITS file on disk</span>
+<span class="sd">    ext : int</span>
+<span class="sd">        Extension in that FITS file</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    model : GriddedPSFModel</span>
+<span class="sd">        Photutils object with 3D data array and metadata with specified</span>
+<span class="sd">        grid_xypos and oversampling keys</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">photutils</span> <span class="k">import</span> <span class="n">GriddedPSFModel</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="s2">&quot;This method requires photutils &gt;= 0.6&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">HDUlist_or_filename</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">HDUlist</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">HDUlist_or_filename</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">HDUlist_or_filename</span><span class="p">,</span> <span class="n">fits</span><span class="o">.</span><span class="n">HDUList</span><span class="p">):</span>
+        <span class="n">HDUlist</span> <span class="o">=</span> <span class="n">HDUlist_or_filename</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Input must be a filename or HDUlist&#39;</span><span class="p">)</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">HDUlist</span><span class="p">[</span><span class="n">ext</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+    <span class="n">header</span> <span class="o">=</span> <span class="n">HDUlist</span><span class="p">[</span><span class="n">ext</span><span class="p">]</span><span class="o">.</span><span class="n">header</span>
+
+    <span class="c1"># Check necessary keys are there</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="s2">&quot;DET_YX&quot;</span> <span class="ow">in</span> <span class="n">key</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">header</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">&quot;You are missing &#39;DET_YX</span><span class="si">{}</span><span class="s2">&#39; keys: which are the detector locations of the PSFs&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s1">&#39;OVERSAMP&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">header</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">&quot;You are missing &#39;OVERSAMP&#39; key: which is the oversampling factor of the PSFs&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Convert header to meta dict</span>
+    <span class="n">header</span> <span class="o">=</span> <span class="n">header</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">strip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">header</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;COMMENT&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="n">header</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="n">header</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;HISTORY&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="n">meta</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">))</span> <span class="k">for</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="ow">in</span> <span class="n">header</span><span class="o">.</span><span class="n">cards</span><span class="p">)</span>
+
+    <span class="n">ndd</span> <span class="o">=</span> <span class="n">NDData</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">meta</span><span class="o">=</span><span class="n">meta</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Edit meta dictionary for GriddedPSFLibrary specifics</span>
+    <span class="n">ndd</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s1">&#39;grid_xypos&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[((</span><span class="nb">float</span><span class="p">(</span><span class="n">ndd</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;)&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])),</span>
+                              <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">ndd</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;(&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])))</span>
+                              <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ndd</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="s2">&quot;DET_YX&quot;</span> <span class="ow">in</span> <span class="n">key</span><span class="p">]</span>  <span class="c1"># from (y,x) to (x,y)</span>
+
+    <span class="k">if</span> <span class="s1">&#39;oversampling&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ndd</span><span class="o">.</span><span class="n">meta</span><span class="p">:</span>
+        <span class="n">ndd</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s1">&#39;oversampling&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ndd</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s1">&#39;OVERSAMP&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># pull the value</span>
+
+    <span class="c1"># Turn all metadata keys into lowercase</span>
+    <span class="n">ndd</span><span class="o">.</span><span class="n">meta</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span> <span class="n">ndd</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ndd</span><span class="o">.</span><span class="n">meta</span><span class="p">}</span>
+
+    <span class="c1"># Create model</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">GriddedPSFModel</span><span class="p">(</span><span class="n">ndd</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">model</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Association of Universities for Research in Astronomy
+      <span class="lastupdated">
+        Last updated on 20 Nov 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

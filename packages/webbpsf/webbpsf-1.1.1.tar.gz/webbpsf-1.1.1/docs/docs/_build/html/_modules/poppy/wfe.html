@@ -1,0 +1,571 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>poppy.wfe &mdash; webbpsf v0.8.0</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/astropy_logo.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/stsci.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/stsci.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+            <a href="../../index.html" class="icon icon-home"> webbpsf
+            
+            <img src="../../_static/stsci_pri_combo_mark_white.png" class="logo" />
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.0
+              </div>
+            
+          
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+  
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Requirements &amp; Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../relnotes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage.html">Using WebbPSF via the Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jwst.html">JWST Instrument Model Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../wfirst.html">WFIRST Instrument Model Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../psf_grids.html">Using PSF Grids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more_examples.html">More Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../poppy.html">Overview of POPPY (Physical Optics Propagation in Python)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api_reference.html">Detailed API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">Diagnostics &amp; Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sampling.html">Sampling Requirements for Numerical Accuracy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fft_optimization.html">Optimizing FFT Performance for PSF Computations with FFTW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../available_opds.html">Appendix: Available Optical Path Difference (OPD) files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">Appendix: Instrument Property References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gui.html">(Deprecated)  Graphical User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../release.html">Developer Notes: Releasing a new version of WebbPSF</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">webbpsf</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>poppy.wfe</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for poppy.wfe</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Analytic optical element classes to introduce a specified wavefront</span>
+<span class="sd">error in an OpticalSystem</span>
+
+<span class="sd"> * ZernikeWFE</span>
+<span class="sd"> * ParameterizedWFE (for use with hexike or zernike basis functions)</span>
+<span class="sd"> * SineWaveWFE</span>
+<span class="sd"> * TODO: MultiSineWaveWFE ?</span>
+<span class="sd"> * TODO: PowerSpectrumWFE</span>
+<span class="sd"> * TODO: KolmogorovWFE</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">collections</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="k">import</span> <span class="n">wraps</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">astropy.units</span> <span class="k">as</span> <span class="nn">u</span>
+
+<span class="kn">from</span> <span class="nn">.optics</span> <span class="k">import</span> <span class="n">AnalyticOpticalElement</span><span class="p">,</span> <span class="n">CircularAperture</span>
+<span class="kn">from</span> <span class="nn">.poppy_core</span> <span class="k">import</span> <span class="n">Wavefront</span><span class="p">,</span> <span class="n">PlaneType</span><span class="p">,</span> <span class="n">BaseWavefront</span>
+<span class="kn">from</span> <span class="nn">poppy.fresnel</span> <span class="k">import</span> <span class="n">FresnelWavefront</span>
+
+<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">zernike</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">utils</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">accel_math</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;WavefrontError&#39;</span><span class="p">,</span> <span class="s1">&#39;ParameterizedWFE&#39;</span><span class="p">,</span> <span class="s1">&#39;ZernikeWFE&#39;</span><span class="p">,</span> <span class="s1">&#39;SineWaveWFE&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;StatisticalPSDWFE&#39;</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">_check_wavefront_arg</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Decorator that ensures the first positional method argument</span>
+<span class="sd">    is a poppy.Wavefront or FresnelWavefront</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nd">@wraps</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">BaseWavefront</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The first argument must be a Wavefront or FresnelWavefront object.&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">wrapper</span>
+
+
+<span class="k">class</span> <span class="nc">WavefrontError</span><span class="p">(</span><span class="n">AnalyticOpticalElement</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A base class for different sources of wavefront error</span>
+
+<span class="sd">    Analytic optical elements that represent wavefront error should</span>
+<span class="sd">    derive from this class and override methods appropriately.</span>
+<span class="sd">    Defined to be a pupil-plane optic.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="s1">&#39;planetype&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;planetype&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">PlaneType</span><span class="o">.</span><span class="n">pupil</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">WavefrontError</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="c1"># in general we will want to see phase rather than intensity at this plane</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wavefront_display_hint</span> <span class="o">=</span> <span class="s1">&#39;phase&#39;</span>
+
+    <span class="nd">@_check_wavefront_arg</span>
+    <span class="k">def</span> <span class="nf">get_opd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wave</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Construct the optical path difference array for a wavefront error source</span>
+<span class="sd">        as evaluated across the pupil for an input wavefront `wave`</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        wave : Wavefront</span>
+<span class="sd">            Wavefront object with a `coordinates` method that returns (y, x)</span>
+<span class="sd">            coordinate arrays in meters in the pupil plane</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;Not implemented yet&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">rms</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;RMS wavefront error induced by this surface&quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;Not implemented yet&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">peaktovalley</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Peak-to-valley wavefront error induced by this surface&quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;Not implemented yet&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_wave_y_x_to_rho_theta</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">pupil_radius</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return wave coordinates in (rho, theta) for a Wavefront object</span>
+<span class="sd">    normalized such that rho == 1.0 at the pupil radius</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    wave : Wavefront</span>
+<span class="sd">        Wavefront object with a `coordinates` method that returns (y, x)</span>
+<span class="sd">        coordinate arrays in meters in the pupil plane</span>
+<span class="sd">    pupil_radius : float</span>
+<span class="sd">        Radius (in meters) of a circle circumscribing the pupil.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">accel_math</span><span class="o">.</span><span class="n">_USE_NUMEXPR</span><span class="p">:</span>
+        <span class="n">rho</span> <span class="o">=</span> <span class="n">accel_math</span><span class="o">.</span><span class="n">ne</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="s2">&quot;sqrt(x**2+y**2)/pupil_radius&quot;</span><span class="p">)</span>
+        <span class="n">theta</span> <span class="o">=</span> <span class="n">accel_math</span><span class="o">.</span><span class="n">ne</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="s2">&quot;arctan2(y / pupil_radius, x / pupil_radius)&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">rho</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">y</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">pupil_radius</span>
+        <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">y</span> <span class="o">/</span> <span class="n">pupil_radius</span><span class="p">,</span> <span class="n">x</span> <span class="o">/</span> <span class="n">pupil_radius</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">rho</span><span class="p">,</span> <span class="n">theta</span>
+
+
+<span class="k">class</span> <span class="nc">ParameterizedWFE</span><span class="p">(</span><span class="n">WavefrontError</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Define an optical element in terms of its distortion as decomposed</span>
+<span class="sd">    into a set of orthonormal basis functions (e.g. Zernikes,</span>
+<span class="sd">    Hexikes, etc.). Included basis functions are normalized such that</span>
+<span class="sd">    user-provided coefficients correspond to meters RMS wavefront</span>
+<span class="sd">    aberration for that basis function.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    coefficients : iterable of numbers</span>
+<span class="sd">        The contribution of each term to the final distortion, in meters</span>
+<span class="sd">        RMS wavefront error. The coefficients are interpreted as indices</span>
+<span class="sd">        in the order of Noll et al. 1976: the first term corresponds to</span>
+<span class="sd">        j=1, second to j=2, and so on.</span>
+<span class="sd">    radius : float</span>
+<span class="sd">        Pupil radius, in meters. Defines the region of the input</span>
+<span class="sd">        wavefront array over which the distortion terms will be</span>
+<span class="sd">        evaluated. For non-circular pupils, this should be the circle</span>
+<span class="sd">        circumscribing the actual pupil shape.</span>
+<span class="sd">    basis_factory : callable</span>
+<span class="sd">        basis_factory will be called with the arguments `nterms`, `rho`,</span>
+<span class="sd">        `theta`, and `outside`.</span>
+
+<span class="sd">        `nterms` specifies how many terms to compute, starting with the</span>
+<span class="sd">        j=1 term in the Noll indexing convention for `nterms` = 1 and</span>
+<span class="sd">        counting up.</span>
+
+<span class="sd">        `rho` and `theta` are square arrays holding the rho and theta</span>
+<span class="sd">        coordinates at each pixel in the pupil plane. `rho` is</span>
+<span class="sd">        normalized such that `rho` == 1.0 for pixels at `radius` meters</span>
+<span class="sd">        from the center.</span>
+
+<span class="sd">        `outside` contains the value to assign pixels outside the</span>
+<span class="sd">        radius `rho` == 1.0. (Always 0.0, but provided for</span>
+<span class="sd">        compatibility with `zernike.zernike_basis` and</span>
+<span class="sd">        `zernike.hexike_basis`.)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nd">@utils</span><span class="o">.</span><span class="n">quantity_input</span><span class="p">(</span><span class="n">coefficients</span><span class="o">=</span><span class="n">u</span><span class="o">.</span><span class="n">meter</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="n">u</span><span class="o">.</span><span class="n">meter</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Parameterized Distortion&quot;</span><span class="p">,</span> <span class="n">coefficients</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">meter</span><span class="p">,</span>
+                 <span class="n">basis_factory</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">basis_factory</span><span class="p">,</span> <span class="n">collections</span><span class="o">.</span><span class="n">Callable</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;&#39;basis_factory&#39; must be a callable that can &quot;</span>
+                             <span class="s2">&quot;calculate basis functions&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="n">radius</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span> <span class="o">=</span> <span class="n">coefficients</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">basis_factory</span> <span class="o">=</span> <span class="n">basis_factory</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_default_display_size</span> <span class="o">=</span> <span class="n">radius</span> <span class="o">*</span> <span class="mi">3</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">ParameterizedWFE</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="nd">@_check_wavefront_arg</span>
+    <span class="k">def</span> <span class="nf">get_opd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wave</span><span class="p">):</span>
+        <span class="n">y</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_coordinates</span><span class="p">(</span><span class="n">wave</span><span class="p">)</span>
+        <span class="n">rho</span><span class="p">,</span> <span class="n">theta</span> <span class="o">=</span> <span class="n">_wave_y_x_to_rho_theta</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">meter</span><span class="p">)</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+        <span class="n">combined_distortion</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">rho</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+        <span class="n">nterms</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">)</span>
+        <span class="n">computed_terms</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">basis_factory</span><span class="p">(</span><span class="n">nterms</span><span class="o">=</span><span class="n">nterms</span><span class="p">,</span> <span class="n">rho</span><span class="o">=</span><span class="n">rho</span><span class="p">,</span> <span class="n">theta</span><span class="o">=</span><span class="n">theta</span><span class="p">,</span> <span class="n">outside</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">coefficient</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">coefficient</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">:</span>
+                <span class="k">continue</span>  <span class="c1"># save the trouble of a multiply-and-add of zeros</span>
+            <span class="n">coefficient_in_m</span> <span class="o">=</span> <span class="n">coefficient</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">meter</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+            <span class="n">combined_distortion</span> <span class="o">+=</span> <span class="n">coefficient_in_m</span> <span class="o">*</span> <span class="n">computed_terms</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">combined_distortion</span>
+
+
+<div class="viewcode-block" id="ZernikeWFE"><a class="viewcode-back" href="../../_generated/poppy.wfe.ZernikeWFE.html#poppy.wfe.ZernikeWFE">[docs]</a><span class="k">class</span> <span class="nc">ZernikeWFE</span><span class="p">(</span><span class="n">WavefrontError</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Define an optical element in terms of its Zernike components by</span>
+<span class="sd">    providing coefficients for each Zernike term contributing to the</span>
+<span class="sd">    analytic optical element.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    coefficients : iterable of floats</span>
+<span class="sd">        Specifies the coefficients for the Zernike terms, ordered</span>
+<span class="sd">        according to the convention of Noll et al. JOSA 1976. The</span>
+<span class="sd">        coefficient is in meters of optical path difference (not waves).</span>
+<span class="sd">    radius : float</span>
+<span class="sd">        Pupil radius, in meters, over which the Zernike terms should be</span>
+<span class="sd">        computed such that rho = 1 at r = `radius`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nd">@utils</span><span class="o">.</span><span class="n">quantity_input</span><span class="p">(</span><span class="n">coefficients</span><span class="o">=</span><span class="n">u</span><span class="o">.</span><span class="n">meter</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="n">u</span><span class="o">.</span><span class="n">meter</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Zernike WFE&quot;</span><span class="p">,</span> <span class="n">coefficients</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">aperture_stop</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="n">radius</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;You must specify a radius for the unit circle &quot;</span>
+                             <span class="s2">&quot;over which the Zernike polynomials are normalized&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="n">radius</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">aperture_stop</span> <span class="o">=</span> <span class="n">aperture_stop</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span> <span class="o">=</span> <span class="n">coefficients</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">circular_aperture</span> <span class="o">=</span> <span class="n">CircularAperture</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="p">,</span> <span class="n">gray_pixel</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_default_display_size</span> <span class="o">=</span> <span class="n">radius</span> <span class="o">*</span> <span class="mi">3</span>
+        <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">})</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">ZernikeWFE</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="nd">@_check_wavefront_arg</span>
+    <span class="k">def</span> <span class="nf">get_opd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wave</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        wave : poppy.Wavefront (or float)</span>
+<span class="sd">            Incoming Wavefront before this optic to set wavelength and</span>
+<span class="sd">            scale, or a float giving the wavelength in meters</span>
+<span class="sd">            for a temporary Wavefront used to compute the OPD.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># the Zernike optic, being normalized on a circle, is</span>
+        <span class="c1"># implicitly also a circular aperture:</span>
+        <span class="n">aperture_intensity</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">circular_aperture</span><span class="o">.</span><span class="n">get_transmission</span><span class="p">(</span><span class="n">wave</span><span class="p">)</span>
+
+        <span class="n">pixelscale_m</span> <span class="o">=</span> <span class="n">wave</span><span class="o">.</span><span class="n">pixelscale</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">meter</span> <span class="o">/</span> <span class="n">u</span><span class="o">.</span><span class="n">pixel</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+
+        <span class="c1"># whether we can use pre-cached zernikes for speed depends on whether</span>
+        <span class="c1"># there are any coord offsets. See #229</span>
+        <span class="n">has_offset_coords</span> <span class="o">=</span> <span class="p">(</span><span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;shift_x&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;shift_y&quot;</span><span class="p">)</span>
+                             <span class="ow">or</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;rotation&quot;</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">has_offset_coords</span><span class="p">:</span>
+            <span class="n">y</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_coordinates</span><span class="p">(</span><span class="n">wave</span><span class="p">)</span>
+            <span class="n">rho</span><span class="p">,</span> <span class="n">theta</span> <span class="o">=</span> <span class="n">_wave_y_x_to_rho_theta</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">meter</span><span class="p">)</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+        <span class="n">combined_zernikes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">wave</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">k_in_m</span> <span class="o">=</span> <span class="n">k</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">meter</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+
+            <span class="k">if</span> <span class="n">has_offset_coords</span><span class="p">:</span>
+                <span class="n">combined_zernikes</span> <span class="o">+=</span> <span class="n">k_in_m</span> <span class="o">*</span> <span class="n">zernike</span><span class="o">.</span><span class="n">zernike1</span><span class="p">(</span>
+                    <span class="n">j</span><span class="p">,</span>
+                    <span class="n">rho</span><span class="o">=</span><span class="n">rho</span><span class="p">,</span>
+                    <span class="n">theta</span><span class="o">=</span><span class="n">theta</span><span class="p">,</span>
+                    <span class="n">outside</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+                    <span class="n">noll_normalize</span><span class="o">=</span><span class="kc">True</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">combined_zernikes</span> <span class="o">+=</span> <span class="n">k_in_m</span> <span class="o">*</span> <span class="n">zernike</span><span class="o">.</span><span class="n">cached_zernike1</span><span class="p">(</span>
+                    <span class="n">j</span><span class="p">,</span>
+                    <span class="n">wave</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span>
+                    <span class="n">pixelscale_m</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">meter</span><span class="p">)</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+                    <span class="n">outside</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+                    <span class="n">noll_normalize</span><span class="o">=</span><span class="kc">True</span>
+                <span class="p">)</span>
+
+        <span class="n">combined_zernikes</span><span class="p">[</span><span class="n">aperture_intensity</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">return</span> <span class="n">combined_zernikes</span>
+
+
+    <span class="k">def</span> <span class="nf">get_transmission</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wave</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">aperture_stop</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">circular_aperture</span><span class="o">.</span><span class="n">get_transmission</span><span class="p">(</span><span class="n">wave</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">wave</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span></div>
+
+
+<span class="k">class</span> <span class="nc">SineWaveWFE</span><span class="p">(</span><span class="n">WavefrontError</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; A single sine wave ripple across the optic</span>
+
+<span class="sd">    Specified as a a spatial frequency in cycles per meter, an optional phase offset in cycles,</span>
+<span class="sd">    and an amplitude.</span>
+
+<span class="sd">    By default the wave is oriented in the X direction.</span>
+<span class="sd">    Like any AnalyticOpticalElement class, you can also specify a rotation parameter to</span>
+<span class="sd">    rotate the direction of the sine wave.</span>
+
+
+<span class="sd">    (N.b. we intentionally avoid letting users specify this in terms of a spatial wavelength</span>
+<span class="sd">    because that would risk potential ambiguity with the wavelength of light.)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nd">@utils</span><span class="o">.</span><span class="n">quantity_input</span><span class="p">(</span><span class="n">spatialfreq</span><span class="o">=</span><span class="mf">1.</span> <span class="o">/</span> <span class="n">u</span><span class="o">.</span><span class="n">meter</span><span class="p">,</span> <span class="n">amplitude</span><span class="o">=</span><span class="n">u</span><span class="o">.</span><span class="n">meter</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Sine WFE&#39;</span><span class="p">,</span> <span class="n">spatialfreq</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">amplitude</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">phaseoffset</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">WavefrontError</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">sine_spatial_freq</span> <span class="o">=</span> <span class="n">spatialfreq</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sine_phase_offset</span> <span class="o">=</span> <span class="n">phaseoffset</span>
+        <span class="c1"># note, can&#39;t call this next one &#39;amplitude&#39; since that&#39;s already a property</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sine_amplitude</span> <span class="o">=</span> <span class="n">amplitude</span>
+
+    <span class="nd">@_check_wavefront_arg</span>
+    <span class="k">def</span> <span class="nf">get_opd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wave</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        wave : poppy.Wavefront (or float)</span>
+<span class="sd">            Incoming Wavefront before this optic to set wavelength and</span>
+<span class="sd">            scale, or a float giving the wavelength in meters</span>
+<span class="sd">            for a temporary Wavefront used to compute the OPD.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">y</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_coordinates</span><span class="p">(</span><span class="n">wave</span><span class="p">)</span>  <span class="c1"># in meters</span>
+
+        <span class="n">opd</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sine_amplitude</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">meter</span><span class="p">)</span><span class="o">.</span><span class="n">value</span> <span class="o">*</span> \
+              <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">sine_spatial_freq</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">u</span><span class="o">.</span><span class="n">meter</span><span class="p">)</span><span class="o">.</span><span class="n">value</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">sine_phase_offset</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">opd</span>
+
+
+<span class="k">class</span> <span class="nc">StatisticalPSDWFE</span><span class="p">(</span><span class="n">WavefrontError</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Statistical PSD WFE class from power law for optical noise.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    name : string</span>
+<span class="sd">        name of the optic</span>
+<span class="sd">    index: float</span>
+<span class="sd">        negative power law spectra index, defaults to 3</span>
+<span class="sd">    wfe: astropy quantity</span>
+<span class="sd">        wfe in linear astropy units, defaults to 50 nm</span>
+<span class="sd">    radius: astropy quantity</span>
+<span class="sd">        radius of optic in linear astropy units, defaults to 1 m</span>
+<span class="sd">    seed : integer</span>
+<span class="sd">        seed for the random phase screen generator</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nd">@utils</span><span class="o">.</span><span class="n">quantity_input</span><span class="p">(</span><span class="n">wfe</span><span class="o">=</span><span class="n">u</span><span class="o">.</span><span class="n">nm</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="n">u</span><span class="o">.</span><span class="n">meter</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;PSD WFE&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">wfe</span><span class="o">=</span><span class="mi">50</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">nm</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">meter</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">index</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wfe</span> <span class="o">=</span> <span class="n">wfe</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="n">radius</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">seed</span> <span class="o">=</span> <span class="n">seed</span>
+
+    <span class="nd">@_check_wavefront_arg</span>
+    <span class="k">def</span> <span class="nf">get_opd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wave</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        wave : poppy.Wavefront (or float)</span>
+<span class="sd">            Incoming Wavefront before this optic to set wavelength and</span>
+<span class="sd">            scale, or a float giving the wavelength in meters</span>
+<span class="sd">            for a temporary Wavefront used to compute the OPD.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">y</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_coordinates</span><span class="p">(</span><span class="n">wave</span><span class="p">)</span>
+        <span class="n">rho</span><span class="p">,</span> <span class="n">theta</span> <span class="o">=</span> <span class="n">_wave_y_x_to_rho_theta</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">meter</span><span class="p">)</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+        <span class="n">psd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>   <span class="c1"># generate power-law PSD</span>
+
+        <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">seed</span><span class="p">)</span>   <span class="c1"># if provided, set a seed for random number generator</span>
+        <span class="n">rndm_phase</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>   <span class="c1"># generate random phase screen</span>
+        <span class="n">rndm_psd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftshift</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft2</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftshift</span><span class="p">(</span><span class="n">rndm_phase</span><span class="p">)))</span>   <span class="c1"># FT of random phase screen to get random PSD</span>
+        <span class="n">scaled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">psd</span><span class="p">)</span> <span class="o">*</span> <span class="n">rndm_psd</span>    <span class="c1"># scale random PSD by power-law PSD</span>
+        <span class="n">phase_screen</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">ifftshift</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">ifft2</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">ifftshift</span><span class="p">(</span><span class="n">scaled</span><span class="p">)))</span><span class="o">.</span><span class="n">real</span>   <span class="c1"># FT of scaled random PSD makes phase screen</span>
+
+        <span class="n">phase_screen</span> <span class="o">-=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">phase_screen</span><span class="p">)</span>  <span class="c1"># force zero-mean</span>
+        <span class="n">opd</span> <span class="o">=</span> <span class="n">phase_screen</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">phase_screen</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">wfe</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">m</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>  <span class="c1"># normalize to wanted input rms wfe</span>
+
+        <span class="k">return</span> <span class="n">opd</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Association of Universities for Research in Astronomy
+      <span class="lastupdated">
+        Last updated on 20 Nov 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

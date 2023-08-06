@@ -1,0 +1,344 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Requirements &amp; Installation &mdash; webbpsf v0.8.0</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/astropy_logo.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/stsci.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/stsci.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Release Notes" href="relnotes.html" />
+    <link rel="prev" title="Introduction" href="intro.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+            <a href="index.html" class="icon icon-home"> webbpsf
+            
+            <img src="_static/stsci_pri_combo_mark_white.png" class="logo" />
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.0
+              </div>
+            
+          
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+  
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Requirements &amp; Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#recommended-installing-via-astroconda">Recommended: Installing via AstroConda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-with-conda-but-not-astroconda">Installing with conda (but not AstroConda)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-with-pip">Installing with pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-or-updating-pysynphot">Installing or updating pysynphot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-the-required-data-files">Installing the Required Data Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#software-requirements">Software Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-a-pre-release-version-or-contributing-to-webbpsf-development">Installing a pre-release version or contributing to WebbPSF development</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="relnotes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Using WebbPSF via the Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jwst.html">JWST Instrument Model Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wfirst.html">WFIRST Instrument Model Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psf_grids.html">Using PSF Grids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="more_examples.html">More Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poppy.html">Overview of POPPY (Physical Optics Propagation in Python)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html">Detailed API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help.html">Diagnostics &amp; Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sampling.html">Sampling Requirements for Numerical Accuracy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fft_optimization.html">Optimizing FFT Performance for PSF Computations with FFTW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="available_opds.html">Appendix: Available Optical Path Difference (OPD) files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">Appendix: Instrument Property References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">(Deprecated)  Graphical User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release.html">Developer Notes: Releasing a new version of WebbPSF</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">webbpsf</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Requirements &amp; Installation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/installation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="requirements-installation">
+<span id="installation"></span><h1>Requirements &amp; Installation<a class="headerlink" href="#requirements-installation" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is entirely optional, but you may wish to sign up to the mailing list <code class="docutils literal notranslate"><span class="pre">webbpsf-users&#64;maillist.stsci.edu</span></code>. This is a very low-traffic moderated announce-only list, to which we will periodically post announcements of updates to this software.</p>
+<p>To subscribe, visit  the <a class="reference external" href="https://maillist.stsci.edu/scripts/wa.exe?SUBED1=Webbpsf-users&amp;A=1">maillist.stsci.edu server</a></p>
+</div>
+<div class="section" id="recommended-installing-via-astroconda">
+<h2>Recommended: Installing via AstroConda<a class="headerlink" href="#recommended-installing-via-astroconda" title="Permalink to this headline">¶</a></h2>
+<p>For ease of installation, we recommend using <a class="reference external" href="http://astroconda.readthedocs.io/en/latest/">AstroConda</a>, an astronomy-optimized software distribution for scientific Python built on Anaconda. Install AstroConda according to <a class="reference external" href="http://astroconda.readthedocs.io/en/latest/installation.html">their instructions</a>, then activate the environment with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ source activate astroconda
+</pre></div>
+</div>
+<p>(Note: if you named your environment something other than <code class="docutils literal notranslate"><span class="pre">astroconda</span></code>, change the above command appropriately.)</p>
+<p>Next, install WebbPSF (along with all its dependencies and required reference data) with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(astroconda)$ conda install webbpsf
+</pre></div>
+</div>
+<p>Updates to the latest version can be done as for any conda package:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(astroconda)$ conda update webbpsf
+</pre></div>
+</div>
+</div>
+<div class="section" id="installing-with-conda-but-not-astroconda">
+<span id="install-with-conda"></span><h2>Installing with conda (but not AstroConda)<a class="headerlink" href="#installing-with-conda-but-not-astroconda" title="Permalink to this headline">¶</a></h2>
+<p>If you already use <code class="docutils literal notranslate"><span class="pre">conda</span></code>, but do not want to install the full suite of STScI software, you can simply add the AstroConda <em>channel</em> and install WebbPSF as follows (creating a new environment named <code class="docutils literal notranslate"><span class="pre">webbpsf-env</span></code>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda config --add channels http://ssb.stsci.edu/astroconda
+$ conda create -n webbpsf-env webbpsf
+$ source activate webbpsf-env
+</pre></div>
+</div>
+<p>Upgrading to the latest version is done with <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">update</span> <span class="pre">-n</span> <span class="pre">webbpsf-env</span> <span class="pre">--all</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>You <em>must</em> install WebbPSF into a specific environment (e.g. <code class="docutils literal notranslate"><span class="pre">webbpsf-env</span></code>); our conda package will not work if installed into the default “root” environment.</p>
+</div>
+</div>
+<div class="section" id="installing-with-pip">
+<span id="install-pip"></span><h2>Installing with pip<a class="headerlink" href="#installing-with-pip" title="Permalink to this headline">¶</a></h2>
+<p>WebbPSF and its underlying optical library POPPY may be installed from the <a class="reference external" href="http://pypi.python.org/pypi">Python Package Index</a> in the usual manner for Python packages.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install --upgrade webbpsf
+[... progress report ...]
+
+Successfully installed webbpsf
+</pre></div>
+</div>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">webbpsf</span></code> only installs the program code. <strong>If you install via pip, you must manually download and install the data files, as :ref:`described &lt;data_install&gt;` below.</strong>
+To obtain source spectra for calculations, you should also follow <a class="reference internal" href="#pysynphot-install"><span class="std std-ref">installation instructions for pysynphot</span></a>.</p>
+</div>
+<div class="section" id="installing-or-updating-pysynphot">
+<span id="pysynphot-install"></span><h2>Installing or updating pysynphot<a class="headerlink" href="#installing-or-updating-pysynphot" title="Permalink to this headline">¶</a></h2>
+<p>Pysynphot is an optional dependency, but is highly recommended.  Pysynphot is best installed via AstroConda. Further installation instructions can be found in <code class="xref py py-obj docutils literal notranslate"><span class="pre">the</span> <span class="pre">pysynphot</span> <span class="pre">docs</span></code> or <a class="reference external" href="http://poppy-optics.readthedocs.io/en/stable/installation.html#installing-or-updating-pysynphot">a discussion in the POPPY docs</a>.</p>
+</div>
+<div class="section" id="installing-the-required-data-files">
+<span id="data-install"></span><h2>Installing the Required Data Files<a class="headerlink" href="#installing-the-required-data-files" title="Permalink to this headline">¶</a></h2>
+<p><em>If you install via pip or manually</em>, you must install the data files yourself. If you install via Conda, the data files are automatically installed, in which case you can skip this section.</p>
+<p>Files containing such information as the JWST pupil shape, instrument throughputs, and aperture positions are distributed separately from WebbPSF. To run WebbPSF, you must download these files and tell WebbPSF where to find them using the <code class="docutils literal notranslate"><span class="pre">WEBBPSF_PATH</span></code> environment variable.</p>
+<ol class="arabic">
+<li><p>Download the following file:  <a class="reference external" href="http://www.stsci.edu/~mperrin/software/webbpsf/webbpsf-data-0.8.0.tar.gz">webbpsf-data-0.8.0.tar.gz</a>  [approx. 240 MB]</p></li>
+<li><p>Untar <code class="docutils literal notranslate"><span class="pre">webbpsf-data-0.8.0.tar.gz</span></code> into a directory of your choosing.</p></li>
+<li><p>Set the environment variable <code class="docutils literal notranslate"><span class="pre">WEBBPSF_PATH</span></code> to point to that directory. e.g.</p>
+<p>export WEBBPSF_PATH=$HOME/data/webbpsf-data</p>
+</li>
+</ol>
+<p>for bash. (You will probably want to add this to your <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>.)</p>
+<p>You should now be able to successfully <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">webbpsf</span></code> in a Python session, or start the GUI with the command <code class="docutils literal notranslate"><span class="pre">webbpsfgui</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you have previously installed the data files for an earlier version of WebbPSF, and then update to a newer version, the
+software may prompt you that you must download and install a new updated version of the data files.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>For STScI Users Only:</strong> Users at STScI may access the required data files from the Central Storage network. Set the following environment variables in your <code class="docutils literal notranslate"><span class="pre">bash</span></code> shell. (You will probably want to add this to your <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>.)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">WEBBPSF_PATH</span><span class="o">=</span><span class="s2">&quot;/grp/jwst/ote/webbpsf-data&quot;</span>
+<span class="n">export</span> <span class="n">PYSYN_CDBS</span><span class="o">=</span><span class="s2">&quot;/grp/hst/cdbs&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="software-requirements">
+<h2>Software Requirements<a class="headerlink" href="#software-requirements" title="Permalink to this headline">¶</a></h2>
+<p>See <a class="reference external" href="https://github.com/spacetelescope/webbpsf/blob/master/environment.yml">the environment.yml specification file</a> for the required package dependencies.</p>
+<p><strong>Required Python version</strong>: WebbPSF 0.8 and above require Python 3.5 or higher.</p>
+<p>The major dependencies are the standard <a class="reference external" href="http://www.scipy.org/scipylib/download.html">NumPy, SciPy</a>, <a class="reference external" href="http://matplotlib.org">matplotlib</a> stack, and <a class="reference external" href="http://astropy.org">Astropy</a></p>
+<p><strong>Recommended Python packages</strong>:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pypi.python.org/pypi/pysynphot">pysynphot</a> enables the simulation
+of PSFs with proper spectral response to realistic source spectra.  Without
+this, PSF fidelity is reduced. See above for <a class="reference internal" href="#pysynphot-install"><span class="std std-ref">installation instructions
+for pysynphot</span></a>.  Pysynphot is recommended for most users.</p></li>
+</ul>
+<p><strong>Optional Python packages</strong>:</p>
+<p>Some calculations with POPPY can benefit from the optional packages <a class="reference external" href="https://pypi.python.org/pypi/psutil">psutil</a> and <a class="reference external" href="https://pypi.python.org/pypi/pyFFTW">pyFFTW</a>, but these are not needed in general. See <a class="reference external" href="http://poppy-optics.readthedocs.io/en/stable/installation.html">the POPPY installation docs</a> for more details.
+These optional packages are only worth adding for speed improvements if you are spending substantial time running calculations.</p>
+<p>Additional packages are needed for the optional use of GPUs to accelerate calculations. See the POPPY documentation.</p>
+</div>
+<div class="section" id="installing-a-pre-release-version-or-contributing-to-webbpsf-development">
+<span id="install-dev-version"></span><h2>Installing a pre-release version or contributing to WebbPSF development<a class="headerlink" href="#installing-a-pre-release-version-or-contributing-to-webbpsf-development" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://github.com/spacetelescope/webbpsf">WebbPSF source code repository</a> is hosted at GitHub, as is the repository for <a class="reference external" href="https://github.com/spacetelescope/poppy">POPPY</a>. Users may clone or fork in the usual manner. Pull requests with code enhancements welcomed.</p>
+<p>To install the current development version of WebbPSF, you can use <code class="docutils literal notranslate"><span class="pre">pip</span></code> to install directly from a <code class="docutils literal notranslate"><span class="pre">git</span></code> repository. To install WebbPSF and POPPY from <code class="docutils literal notranslate"><span class="pre">git</span></code>, uninstall any existing copies of WebbPSF and POPPY, then invoke pip as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install -e git+https://github.com/spacetelescope/poppy.git#egg=poppy \
+   -e git+https://github.com/spacetelescope/webbpsf.git#egg=webbpsf
+</pre></div>
+</div>
+<p>This will create directories <code class="docutils literal notranslate"><span class="pre">./src/poppy</span></code> and <code class="docutils literal notranslate"><span class="pre">./src/webbpsf</span></code> in your current directory containing the cloned repository. If you have commit access to the repository, you may want to clone via ssh with a URL like <code class="docutils literal notranslate"><span class="pre">git+ssh://git&#64;github.com:spacetelescope/webbpsf.git</span></code>. Documentation of the available options for installing directly from Git can be found in the <a class="reference external" href="http://pip.readthedocs.org/en/latest/reference/pip_install.html#git">pip documentation</a>.</p>
+<p>Remember to <a class="reference internal" href="#data-install"><span class="std std-ref">install the required data files</span></a>, if you have not already installed them.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="relnotes.html" class="btn btn-neutral float-right" title="Release Notes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="intro.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Association of Universities for Research in Astronomy
+      <span class="lastupdated">
+        Last updated on 20 Nov 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

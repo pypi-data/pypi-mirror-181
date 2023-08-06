@@ -1,0 +1,611 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>JWST Instrument Model Details &mdash; webbpsf v0.8.0</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/astropy_logo.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/stsci.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/stsci.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="WFIRST Instrument Model Details" href="wfirst.html" />
+    <link rel="prev" title="Using WebbPSF via the Python API" href="usage.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+            <a href="index.html" class="icon icon-home"> webbpsf
+            
+            <img src="_static/stsci_pri_combo_mark_white.png" class="logo" />
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.0
+              </div>
+            
+          
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+  
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Requirements &amp; Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="relnotes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Using WebbPSF via the Python API</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">JWST Instrument Model Details</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#optical-telescope-element-ote">Optical Telescope Element (OTE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nircam">NIRCam</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#imaging">Imaging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coronagraph-masks">Coronagraph Masks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#weak-lenses-for-wavefront-sensing">Weak Lenses for Wavefront Sensing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#si-wfe">SI WFE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wavelength-dependent-focus-variations">Wavelength-Dependent Focus Variations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#nirspec">NIRSpec</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#imaging-and-spectroscopy">Imaging and spectroscopy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">SI WFE</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#niriss">NIRISS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#imaging-and-ami">Imaging and AMI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#slitless-spectroscopy">Slitless Spectroscopy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Coronagraph Masks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">SI WFE</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#miri">MIRI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Imaging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coronagraphy">Coronagraphy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lrs-spectroscopy">LRS Spectroscopy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">SI WFE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minor-field-dependent-pupil-vignetting">Minor Field-Dependent Pupil Vignetting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#fgs">FGS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">SI WFE</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="wfirst.html">WFIRST Instrument Model Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psf_grids.html">Using PSF Grids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="more_examples.html">More Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poppy.html">Overview of POPPY (Physical Optics Propagation in Python)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html">Detailed API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help.html">Diagnostics &amp; Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sampling.html">Sampling Requirements for Numerical Accuracy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fft_optimization.html">Optimizing FFT Performance for PSF Computations with FFTW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="available_opds.html">Appendix: Available Optical Path Difference (OPD) files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">Appendix: Instrument Property References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">(Deprecated)  Graphical User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release.html">Developer Notes: Releasing a new version of WebbPSF</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">webbpsf</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>JWST Instrument Model Details</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/jwst.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="jwst-instrument-model-details">
+<span id="jwst-instruments"></span><h1>JWST Instrument Model Details<a class="headerlink" href="#jwst-instrument-model-details" title="Permalink to this headline">¶</a></h1>
+<p>The following describes specific details for the various JWST instrument classes. See also <a class="reference internal" href="references.html#references"><span class="std std-ref">the references page</span></a> for information on data sources.</p>
+<p>One general note is that the <code class="docutils literal notranslate"><span class="pre">webbpsf</span></code> class interfaces do not attempt to exactly
+model the implementation details of all instrument mechanisms, particularly for
+NIRCam and NIRISS that each have multiple wheels. The
+<code class="docutils literal notranslate"><span class="pre">filter</span></code> attribute of a given class is used to select any and all filters,
+even if as a practical matter a given filter is physically installed in a
+“pupil” wheel instead of a “filter” wheel. Likewise any masks that affect the
+aperture shape are selected via the <code class="docutils literal notranslate"><span class="pre">pupil_mask</span></code> attribute even if physically
+an optic is in a so-called “filter” wheel.</p>
+<p>All classes share some common attributes:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">filter</span></code> which is the string name of the currently selected filter.
+The list of available filters is provided as the <code class="docutils literal notranslate"><span class="pre">filter_list</span></code> attribute.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">image_mask</span></code> which is the name of a selected image plane element such as a
+coronagraph mask or spectrograph slit, or <code class="docutils literal notranslate"><span class="pre">None</span></code> to indicate no
+such element is present.
+The list of available options is provided as the <code class="docutils literal notranslate"><span class="pre">image_mask_list</span></code> attribute.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pupil_mask</span></code> likewise allows specification of any optic that modifies the pupil plane
+subsequent to the image mask, such as a coronagraphic Lyot stop or spectrograph grating stop.
+The list of available options is provided as the <code class="docutils literal notranslate"><span class="pre">pupil_mask_list</span></code> attribute.</p></li>
+<li><p>Each SI has a <code class="docutils literal notranslate"><span class="pre">detector</span></code> attribute that can be used to select among its
+multiple detectors (if more than one are present in that SI), and a
+<code class="docutils literal notranslate"><span class="pre">detector_position</span></code> attribute which is a 2-tuple giving the pixel coordinates
+on that detector for the center location in any calculated output PSF.
+Note that the <code class="docutils literal notranslate"><span class="pre">detector_position</span></code> value should be
+specified using the order (X,Y).</p></li>
+</ul>
+</div></blockquote>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>WebbPSF provides some sanity checking on user inputs, but does not
+strive to strictly forbid users from trying to simulate instrument
+configurations that  may not be achievable in practice.  Users are
+responsible for knowing the available modes well enough to be aware
+if they are trying to simulate an inconsistent or physically
+impossible configuration.</p>
+</div>
+<div class="section" id="optical-telescope-element-ote">
+<h2>Optical Telescope Element (OTE)<a class="headerlink" href="#optical-telescope-element-ote" title="Permalink to this headline">¶</a></h2>
+<p>The JWST Optical Telescope Element consists of the telescope optics that serve all the science instruments and the fine guidance sensor. Most notably, this means the primary, secondary, tertiary, and fast steering mirrors. The OTE contributes to the overall wavefront error (and therefore the aberrations in instrument PSFs) in a few ways:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The limits of precisely manufacturing the mirrors introduce tiny high spatial frequency bumps and ripples of optical path difference</p></li>
+<li><p>During commissioning, the telescope mirror segments will be aligned and phased as precisely as possible, but small errors in the final aligned configuration will still contribute to WFE</p></li>
+<li><p>The WFE will vary with field position, which is inherent in the OTE optical design even if perfectly aligned</p></li>
+<li><p>Aberrations can be introduced by pupil shear or other misalignments between the OTE and each science instrument</p></li>
+</ul>
+</div></blockquote>
+<p>These effects are simulated at high fidelity in models maintained by Ball Aerospace, which in turn were used to create the OPD map files for the JWST instruments included in WebbPSF. Specifically, WebbPSF uses information derived from the as-built OTE optical model Revision G (for the static surface figures of each segments) and the overall JWST optical error budget Revision W (for OTE to ISIM misalignments, WFSC residuals, stability, and budgeted uncertainties for both the OTE and SI contributions).</p>
+<p>JWST’s optical system has been extremely precisely engineered and assembled. Individual mirrors typically have below 30 nm r.m.s. WFE, and the overall OTE system including alignment tolerances and dynamics is expected to deliver wavefronts of roughly 100 to 150 nm r.m.s. WFE to each of the instruments. This corresponds to Strehl ratios of 90% or better for wavelengths beyond 2 microns.</p>
+<p>Further information on JWST’s predicted optical performance is available in <a class="reference external" href="http://dx.doi.org/10.1117/12.2055502">“Status of the optical performance for the James Webb Space Telescope”</a>, Lightsey <em>et al.</em>, (2014) and <a class="reference external" href="http://dx.doi.org/10.1117/12.926817">“Predicted JWST imaging performance”</a>, Knight <em>et al.</em> (2012).</p>
+<p>For each science instrument, if you examine <code class="docutils literal notranslate"><span class="pre">inst.opd_list</span></code> (where <code class="docutils literal notranslate"><span class="pre">inst</span></code> is an instance of an instrument model), you will see the filenames for a “predicted” OPD map and a “requirements” OPD map. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">nc</span> <span class="o">=</span> <span class="n">webbpsf</span><span class="o">.</span><span class="n">NIRCam</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nc</span><span class="o">.</span><span class="n">opd_list</span>
+<span class="go">[&#39;OPD_RevW_ote_for_NIRCam_predicted.fits.gz&#39;,</span>
+<span class="go"> &#39;OPD_RevW_ote_for_NIRCam_requirements.fits.gz&#39;]</span>
+</pre></div>
+</div>
+<p>By default, WebbPSF selects the (slightly more conservative) <code class="docutils literal notranslate"><span class="pre">requirements</span></code> OPD map:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">nc</span><span class="o">.</span><span class="n">pupilopd</span>
+<span class="go">&#39;OPD_RevW_ote_for_NIRCam_requirements.fits.gz&#39;</span>
+</pre></div>
+</div>
+<p>Performance predictions for a large active deployable space telescope are inherently probabilistic, and Monte Carlo methods have been used to derive overall probability distributions based on the individual error budget terms. The “predicted” OPD maps provided with WebbPSF correspond to the median values from such simulations, and provide a reasonable approximation of current performance expectations. However, performance at such levels is not guaranteed. The “requirements” OPD maps are more conservative, set to the slightly higher levels of residual wavefront error that we can be confident will be achieved in practice. Both the predicted and required values contain maximal budgeted contributions from OTE temporal drifts and dynamics (roughly 55 nm of low and mid frequency error); i.e. they correspond to times well after a wavefront control and shortly before a next set of control moves might be issued.</p>
+<p>To select the <code class="docutils literal notranslate"><span class="pre">predicted</span></code> map, simply assign it to the <code class="docutils literal notranslate"><span class="pre">pupilopd</span></code> attribute before calculating the PSF:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">nc</span><span class="o">.</span><span class="n">pupilopd</span> <span class="o">=</span> <span class="s1">&#39;OPD_RevW_ote_for_NIRCam_predicted.fits.gz&#39;</span>
+</pre></div>
+</div>
+<p>For both the required and predicted cases, the OPD files contain 10 Monte Carlo realizations of the telescope. You can select one of these by specifying the plane number in a tuple:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">nc</span><span class="o">.</span><span class="n">pupilopd</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;OPD_RevW_ote_for_NIRCam_predicted.fits.gz&#39;</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that these represent 10 distinct, totally independent realizations of JWST and its optical error budget. They do not represent any sort of time series or wavefront drift.
+The average levels of WFE from the telescope itself used in the OPD files are as follows.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 35%" />
+<col style="width: 35%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Instrument</p></th>
+<th class="head"><p>Predicted</p></th>
+<th class="head"><p>Requirements</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>NIRCam</p></td>
+<td><p>90 nm rms</p></td>
+<td><p>117 nm rms</p></td>
+</tr>
+<tr class="row-odd"><td><p>NIRSpec</p></td>
+<td><p>163 nm rms</p></td>
+<td><p>188 nm rms</p></td>
+</tr>
+<tr class="row-even"><td><p>NIRISS</p></td>
+<td><p>108 nm rms</p></td>
+<td><p>145 nm rms</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIRI</p></td>
+<td><p>204 nm rms</p></td>
+<td><p>258 nm rms</p></td>
+</tr>
+</tbody>
+</table>
+<p>While different OPD maps are used for each SI, these OPD maps do not include wavefront error contributions from optics internal to the science instrument. Additional details on the SI-specific wavefront error models are given under each instrument model section below.</p>
+</div>
+<div class="section" id="nircam">
+<h2>NIRCam<a class="headerlink" href="#nircam" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="imaging">
+<h3>Imaging<a class="headerlink" href="#imaging" title="Permalink to this headline">¶</a></h3>
+<p>NIRCam is one of the more complicated classes in <code class="docutils literal notranslate"><span class="pre">webbpsf</span></code>, and has several unique selectable options to model the two copies of NIRCam each with two channels.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">detector</span></code> attribute can be used to select between any of the ten detectors,
+A1-A5 and B1-B5.  Additional attributes are then automatically set for <code class="docutils literal notranslate"><span class="pre">channel</span></code>
+(“short” or “long”) and module (“A” or “B”) but these cannot be set directly;
+just set the desired detector and the channel and module are inferred
+automatically.</p>
+<p>The choice of <code class="docutils literal notranslate"><span class="pre">filter</span></code> also impacts the channel selection: If you choose a
+long-wavelength filter such as F460M, then the detector will automatically
+switch to the long-wave detector for the current channel. For example, if the
+detector was previously set to A2, and the user enters <code class="docutils literal notranslate"><span class="pre">nircam.filter</span> <span class="pre">=</span> <span class="pre">&quot;F460M&quot;</span></code>
+then the detector will automatically change to A5.  If the user later selects
+<code class="docutils literal notranslate"><span class="pre">nircam.filter</span> <span class="pre">=</span> <span class="pre">&quot;F212N&quot;</span></code> then the detector will switch to A1 (and the user will
+need to manually select if a different short wave detector is desired).  This
+behavior on filter selection can be disabled by setting <code class="docutils literal notranslate"><span class="pre">nircam.auto_channel</span> <span class="pre">=</span> <span class="pre">False</span></code>.</p>
+<div class="admonition-nircam-class-automatic-pixelscale-changes admonition">
+<p class="admonition-title">NIRCam class automatic pixelscale changes</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">pixelscale</span></code> will automatically toggle to the correct scale
+for LW or SW based on user inputs for either detector or filter.
+If you set the <code class="docutils literal notranslate"><span class="pre">detector</span></code> to NRCA1-4 or NRCB1-4, the scale will be set for
+SW, otherwise for NRCA5 or NRCB5 the pixel scale will be for LW.
+If you set the <code class="docutils literal notranslate"><span class="pre">filter</span></code> attribute to a filter in the short wave channel,
+the pixel scale will be set for SW, otherwise for a filter in the long wave
+challen the scale will be set for LW.</p>
+<p>The intent is that the user should in general automatically get a PSF with the
+appropriate pixelscale for whatever instrument config you’re trying to simulate,
+with no extra effort needed by the user to switch between NIRCam’s two channels.</p>
+<p>Note that this behavior is <em>not</em> invoked for monochromatic calculations; you
+can’t just iterate over calc_psf calls at different wavelengths and expect it to
+toggle between SW and LW at some point. The workaround is simple, just set either the
+filter or detector attribute whenever you want to toggle between SW or LW channels.</p>
+</div>
+</div>
+<div class="section" id="coronagraph-masks">
+<h3>Coronagraph Masks<a class="headerlink" href="#coronagraph-masks" title="Permalink to this headline">¶</a></h3>
+<p>The coronagraph image-plane masks and pupil-plane Lyot masks are all included as options.
+These are based on the nominal design properties as provided by the NIRCam team,
+not on any specific measurements of the as-built masks. The simulations of the occulting mask
+fields also include the nearby neutral density squares for target acquisitions.</p>
+<p>WebbPSF won’t prevent users from simulating configuration using a coronagraph
+image mask without the Lyot stop, but that’s not something that can be done for
+real with NIRCam.</p>
+<p>Note, the Lyot masks have multiple names for historical reasons: The names
+‘CIRCLYOT’ and ‘WEDGELYOT’ have been used since early in WebbPSF development, and
+can still be used, but the same masks can also be referred to as “MASKRND” and
+“MASKSWB” or “MASKLWB”, the nomenclature that was eventually adopted for use in
+APT and other JWST documentation. Both ways work and will continue to do so.</p>
+<p><strong>Offsets along the MASKLWB and MASKSWB masks</strong>:</p>
+<p>Each allowable filter has its own default location along one of these masks. The appropriate offset is automatically selected
+in WebbPSF based on the currently selected filter name. If you want to do something different, you can
+set the <code class="docutils literal notranslate"><span class="pre">bar_offset</span></code> option:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">nc</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;bar_offset&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">2.0</span>    <span class="c1"># Offsets 2 arcseconds in +X along the mask</span>
+<span class="go">or</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nc</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;bar_offset&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;F480M&#39;</span>  <span class="c1"># Use the position for F480M regardless of the currently selected filter</span>
+</pre></div>
+</div>
+<p>Note that just because you can simulate such arbitrary position in WebbPSF does not mean you can
+easily actually achieve that pointing with the flight hardware.</p>
+<a class="reference internal image-reference" href="_images/fig_maskswb_offsets_v3.png"><img alt="MASKSWB Offsets" src="_images/fig_maskswb_offsets_v3.png" style="width: 357.5px; height: 351.5px;" /></a>
+<a class="reference internal image-reference" href="_images/fig_masklwb_offsets_v3.png"><img alt="MASKLWB Offsets" src="_images/fig_masklwb_offsets_v3.png" style="width: 357.5px; height: 351.5px;" /></a>
+<div class="admonition-nircam-class-automatic-detector-position-setting-for-coronagraphy admonition">
+<p class="admonition-title">NIRCam class automatic detector position setting for coronagraphy</p>
+<p>Each coronagraphic mask is imaged onto a specific area of a specific detector. Setting the
+image mask attribute to a coronagraphic mask (e.g. MASKLWB or MASK335R) will
+automatically configure the <code class="docutils literal notranslate"><span class="pre">detector</span></code> and <code class="docutils literal notranslate"><span class="pre">detector_position</span></code> attributes appropriately
+for that mask’s field point. Note, this will also invoke the automatic pixelscale functionality
+to get the right scale for SW or LW, too.</p>
+</div>
+</div>
+<div class="section" id="weak-lenses-for-wavefront-sensing">
+<h3>Weak Lenses for Wavefront Sensing<a class="headerlink" href="#weak-lenses-for-wavefront-sensing" title="Permalink to this headline">¶</a></h3>
+<p>WebbPSF includes models for the three weak lenses used for wavefront sensing, including the
+pairs of lenses that can be used together simultaneously.</p>
+<p>The convention is such that the “negative” 8 waves lens is concave, the
+“positive” two lenses are convex. Thus positive weak lenses move best focus
+in front of the detector, or equivalently the electric field imaged on the detector
+becomes behind or beyond best focus. Negative weak lenses move best focus behind the detector,
+or equivalently the image on the detector is moved closer to the OTE exit pupil
+than best focus.</p>
+<p>Note that the weak lenses are in the short wave channel only; webbpsf won’t stop
+you from simulating a LW image with a weak lens, but that’s not a real
+configuration that can be acheived with NIRCam.</p>
+</div>
+<div class="section" id="si-wfe">
+<h3>SI WFE<a class="headerlink" href="#si-wfe" title="Permalink to this headline">¶</a></h3>
+<p>SI internal WFE measurements are from ISIM CV3 testing (See JWST-RPT-032131 by David Aronstein et al.)
+The SI internal WFE measurements are distinct for each of the modules and
+channels. When enabled, these are added to the final pupil of the optical
+train, i.e. after the coronagraphic image planes. For field-points outside of
+the measurement bounds, WebbPSF performs an extrapolation routine.</p>
+<p>The coronagraph field points are far off axis, and this comes with significant WFE
+added compared to the inner portion of the NIRCam field of view. While SI WFE for
+imaging mode were measured directly from the instrument during ISIM CV3, the
+coronagraphic WFE maps were built based on the NIRCam Zemax optical model.
+This model was first validated in imaging mode, and then the appropriate optical
+elements were inserted to produce the coronagraphic configuration.
+In this case, both modules were assumed have the exact same (albeit, mirrored)
+field-dependent WFE maps.</p>
+</div>
+<div class="section" id="wavelength-dependent-focus-variations">
+<h3>Wavelength-Dependent Focus Variations<a class="headerlink" href="#wavelength-dependent-focus-variations" title="Permalink to this headline">¶</a></h3>
+<p>NIRCam’s wavelength-dependent defocus was measured during ISIM CV2 at a given field point
+(See JWST-RPT-029985 by Randal Telfer). Overall, the measurements are consistent with
+predictions from the nominal optical model. The departure of the data from the
+model curve has been determined to be from residual power in individual filters.
+In particular, the F323N filter has a significant extra defocus; WebbPSF includes
+this measured defocus if the selected filter is F323N.</p>
+<p>All SI WFE maps were derived from measurements with the F212N and F323N filters.
+WebbPSF utilizes polynomial fits to the nominal focus model to derive focus offset values
+relative to these narrowband filters for a given wavelength. The derived delta focus
+is then translated to a Zernike focus image, which is subsequently applied to the
+instrument OPD map.</p>
+</div>
+</div>
+<div class="section" id="nirspec">
+<h2>NIRSpec<a class="headerlink" href="#nirspec" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="imaging-and-spectroscopy">
+<h3>Imaging and spectroscopy<a class="headerlink" href="#imaging-and-spectroscopy" title="Permalink to this headline">¶</a></h3>
+<p>WebbPSF models the optics of NIRSpec, mostly in <strong>imaging</strong> mode or for monochromatic PSFs that can be assembled into spectra using other tools.</p>
+<p>This is not a substitute for a spectrograph model, but rather a way of
+simulating a PSF as it would appear with NIRSpec in imaging mode (e.g. for
+target acquisition).  It can also be used to produce monochromatic PSFs
+appropriate for spectroscopic modes, but other software must be used for
+assembling those monochromatic PSFs into a spectrum.</p>
+<p>Slits: WebbPSF includes models of each of the fixed slits in NIRSpec (S200A1, S1600A1, and so forth), plus a
+few patterns with the MSA: (1) a single open shutter, (2) three adjacent
+open shutters to make a mini-slit, and (3) all shutters open at once.
+Other MSA patterns could be added if requested by users.</p>
+<p>By default the <code class="docutils literal notranslate"><span class="pre">pupil_mask</span></code> is set to the “NIRSpec grating” pupil mask.  In
+this case a rectangular pupil mask 8.41x7.91 m as projected onto the primary is
+added to the optical system at the pupil plane after the MSA. This is an
+estimate of the pupil stop imposed by the outer edge of the grating clear
+aperture, estimated based on optical modeling by Erin Elliot and Marshall
+Perrin.</p>
+</div>
+<div class="section" id="id1">
+<h3>SI WFE<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>SI internal WFE measurements are from ISIM CV3 testing (See JWST-RPT-032131 by David Aronstein et al.).</p>
+<p>The ISIM CV3 data on their own do not indicate how the sources of WFE are distributed within the NIRSpec optical train. For simulation purposes here, the SI WFE measurements are allocated as 1/3 in the foreoptics, prior to the MSA image plane, and 2/3 in the spectrograph optics, after the MSA image plane. This follows a recommendation from Maurice Te Plate of the NIRSpec team, based on metrology and testing of the NIRSpec flight model optics.</p>
+</div>
+</div>
+<div class="section" id="niriss">
+<h2>NIRISS<a class="headerlink" href="#niriss" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="imaging-and-ami">
+<h3>Imaging and AMI<a class="headerlink" href="#imaging-and-ami" title="Permalink to this headline">¶</a></h3>
+<p>WebbPSF models the direct imaging and nonredundant aperture masking interferometry modes of NIRISS in the usual manner.</p>
+<p>Note that long wavelength filters (&gt;2.5 microns) are used with a pupil
+obscuration which includes the pupil alignment reference fixture. This is called
+the “CLEARP” pupil.</p>
+<p>Based on the selected filter, WebbPSF will automatically toggle the
+<code class="docutils literal notranslate"><span class="pre">pupil_mask</span></code> between “CLEARP” and the regular clear pupil (i.e.
+<code class="docutils literal notranslate"><span class="pre">pupil_mask</span> <span class="pre">=</span> <span class="pre">None</span></code>).</p>
+<p>AMI mask geometry is as provided to the WebbPSF team by Anand Sivaramakrishnan. To match the orientation of the
+mask as installed in the flight hardware, the simulated mask model was flipped in X coordinates as of the spring 2019 version of WebbPSF;
+thanks to Kevin Volk and Deepashri Thatte for determining this was necessary to match the test data.</p>
+</div>
+<div class="section" id="slitless-spectroscopy">
+<h3>Slitless Spectroscopy<a class="headerlink" href="#slitless-spectroscopy" title="Permalink to this headline">¶</a></h3>
+<p>WebbPSF provides preliminary support for
+the single-object slitless
+spectroscopy (“SOSS”) mode using the GR700XD cross-dispersed grating. Currently
+this includes the clipping of the pupil due to the undersized grating and its
+mounting hardware, and the cylindrical lens that partially defocuses the light
+in one direction.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Prototype implementation - Not yet fully tested or verified.</p>
+</div>
+<p>Note that WebbPSF does not model the spectral dispersion in any of NIRISS’
+slitless spectroscopy modes.  For wide-field slitless spectroscopy, this
+can best be simulated by using WebbPSF output PSFs as input to the aXe
+spectroscopy code. Contact Van Dixon at STScI for further information.
+For SOSS mode, contact Loic Albert at Universite de Montreal.</p>
+<p>The other two slitless spectroscopy grisms use the regular pupil and do not require any special
+support in WebbPSF; just calculate monochromatic PSFs at the desired wavelengths
+and assemble them into spectra using tools such as aXe.</p>
+</div>
+<div class="section" id="id2">
+<h3>Coronagraph Masks<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>NIRISS includes four coronagraphic occulters, machined as features on its
+pick-off mirror. These were part of its prior incarnation as TFI, and are not
+expected to see much use in NIRISS. However they remain a part of the physical
+instrument and we retain in WebbPSF the capability to simulate them.</p>
+</div>
+<div class="section" id="id3">
+<h3>SI WFE<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>SI internal WFE measurements are from ISIM CV3 testing (See JWST-RPT-032131 by David Aronstein et al.).</p>
+</div>
+</div>
+<div class="section" id="miri">
+<h2>MIRI<a class="headerlink" href="#miri" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h3>Imaging<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>WebbPSF models the MIRI imager; currently there is no specific support for MRS,
+however monochromatic PSFS computed for the imager may be used as a reasonable
+proxy for PSF properties at the entrance to the MRS slicers.</p>
+</div>
+<div class="section" id="coronagraphy">
+<h3>Coronagraphy<a class="headerlink" href="#coronagraphy" title="Permalink to this headline">¶</a></h3>
+<p>WebbPSF includes models for all three FQPM coronagraphs and the Lyot
+coronagraph. In practice, the wavelength selection filters and the Lyot stop are
+co-mounted. WebbPSF models this by automatically setting the <code class="docutils literal notranslate"><span class="pre">pupil_mask</span></code>
+element to one of the coronagraph masks or the regular pupil when the <code class="docutils literal notranslate"><span class="pre">filter</span></code>
+is changed. If you want to disable this behavior, set <code class="docutils literal notranslate"><span class="pre">miri.auto_pupil</span> <span class="pre">=</span> <span class="pre">False</span></code>.</p>
+</div>
+<div class="section" id="lrs-spectroscopy">
+<h3>LRS Spectroscopy<a class="headerlink" href="#lrs-spectroscopy" title="Permalink to this headline">¶</a></h3>
+<p>WebbPSF includes models for the LRS slit and the subsequent pupil stop on the
+grism in the wheels. Users should select <code class="docutils literal notranslate"><span class="pre">miri.image_mask</span> <span class="pre">=</span> <span class="pre">&quot;LRS</span> <span class="pre">slit&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">miri.pupil_mask</span> <span class="pre">=</span> <span class="pre">'P750L</span> <span class="pre">LRS</span> <span class="pre">grating'</span></code>.
+That said, the LRS simulations have not been extensively tested yet;
+feedback is appreciated about any issues encountered.</p>
+</div>
+<div class="section" id="id5">
+<h3>SI WFE<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>SI internal WFE measurements are from ISIM CV3 testing (See JWST-RPT-032131 by David Aronstein et al.).</p>
+<p>The SI internal WFE measurements, when enabled, are added to the final pupil of the optical
+train, i.e. after the coronagraphic image planes.</p>
+</div>
+<div class="section" id="minor-field-dependent-pupil-vignetting">
+<h3>Minor Field-Dependent Pupil Vignetting<a class="headerlink" href="#minor-field-dependent-pupil-vignetting" title="Permalink to this headline">¶</a></h3>
+<p><strong>TODO</strong> Add documentation here of this effect and how WebbPSF models it.</p>
+<p>A fold mirror at the MIRI Imager’s internal cold pupil is used to redirect light from the MIRI calibration sources towards the detector,
+to enable flat field calibrations. For a subset of field positions, this fold mirror slightly obscures a small portion of the pupil.
+This is a small effect with little practical consequence for MIRI PSFs, but WebbPSF does model it.</p>
+</div>
+</div>
+<div class="section" id="fgs">
+<h2>FGS<a class="headerlink" href="#fgs" title="Permalink to this headline">¶</a></h2>
+<p>The FGS class does not have any selectable optical elements (no filters or
+image or pupil masks of any kind). Only the detector is selectable, between
+either ‘FGS1’ or ‘FGS2’.</p>
+<div class="section" id="id6">
+<h3>SI WFE<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>SI internal WFE measurements are from ISIM CV3 testing (See JWST-RPT-032131 by David Aronstein et al.).</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="wfirst.html" class="btn btn-neutral float-right" title="WFIRST Instrument Model Details" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="usage.html" class="btn btn-neutral float-left" title="Using WebbPSF via the Python API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Association of Universities for Research in Astronomy
+      <span class="lastupdated">
+        Last updated on 20 Nov 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

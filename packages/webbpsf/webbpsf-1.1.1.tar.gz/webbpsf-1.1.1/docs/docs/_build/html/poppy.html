@@ -1,0 +1,261 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Overview of POPPY (Physical Optics Propagation in Python) &mdash; webbpsf v0.8.0</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/astropy_logo.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/stsci.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/stsci.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Detailed API Reference" href="api_reference.html" />
+    <link rel="prev" title="More Examples" href="more_examples.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+            <a href="index.html" class="icon icon-home"> webbpsf
+            
+            <img src="_static/stsci_pri_combo_mark_white.png" class="logo" />
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.0
+              </div>
+            
+          
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+  
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Requirements &amp; Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="relnotes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Using WebbPSF via the Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jwst.html">JWST Instrument Model Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wfirst.html">WFIRST Instrument Model Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psf_grids.html">Using PSF Grids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="more_examples.html">More Examples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Overview of POPPY (Physical Optics Propagation in Python)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-object-oriented-optical-model">The Object-Oriented Optical Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#algorithms-approximations-and-performance">Algorithms, Approximations, and Performance</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html">Detailed API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help.html">Diagnostics &amp; Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sampling.html">Sampling Requirements for Numerical Accuracy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fft_optimization.html">Optimizing FFT Performance for PSF Computations with FFTW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="available_opds.html">Appendix: Available Optical Path Difference (OPD) files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">Appendix: Instrument Property References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">(Deprecated)  Graphical User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release.html">Developer Notes: Releasing a new version of WebbPSF</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">webbpsf</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Overview of POPPY (Physical Optics Propagation in Python)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/poppy.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="overview-of-poppy-physical-optics-propagation-in-python">
+<span id="poppy-overiew"></span><h1>Overview of POPPY (Physical Optics Propagation in Python)<a class="headerlink" href="#overview-of-poppy-physical-optics-propagation-in-python" title="Permalink to this headline">¶</a></h1>
+<p>POPPY, which stands for Physical Optics Propagation in Python, implements an object-oriented system for modeling physical optics propagation with diffraction, particularly for telescopic and coronagraphic imaging. (Right now only image and pupil planes are supported; intermediate planes are a future goal.)</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is an <em>abbreviated</em> version of the documentation for POPPY, included here as a brief summary relevant for WebbPSF. For more comprehensive documentation for POPPY please see <a class="reference external" href="http://poppy-optics.readthedocs.io/">the full POPPY documentation</a></p>
+</div>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>The POPPY functionality lives under the package name <code class="xref py py-mod docutils literal notranslate"><span class="pre">poppy</span></code>, which is available separately from WebbPSF and contains general functionality for Fraunhofer domain optical simulation. WebbPSF uses POPPY under the hood to perform calculations, and indeed POPPY began its life as part of WebbPSF.</p>
+<p>POPPY includes a system for modeling a complete instrument (including
+optical propagation, synthetic photometry, and pointing jitter), and a variety
+of useful utility functions for analysing and plotting PSFs, documented below.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This code makes use of the python standard module <code class="docutils literal notranslate"><span class="pre">logging</span></code> for output information. Top-level details of the calculation are output at level <code class="docutils literal notranslate"><span class="pre">logging.INFO</span></code>, while details of the propagation through each optical plane are printed at level <code class="docutils literal notranslate"><span class="pre">logging.DEBUG</span></code>. See the <a class="reference external" href="https://docs.python.org/3/library/logging.html#module-logging" title="(in Python v3.8)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Python</span> <span class="pre">logging</span> <span class="pre">documentation</span></code></a> for an explanation of how to redirect the <code class="docutils literal notranslate"><span class="pre">poppy</span></code> logger to the screen, a textfile, or any other log destination of your choice.</p>
+</div>
+</div>
+<div class="section" id="the-object-oriented-optical-model">
+<h2>The Object-Oriented Optical Model<a class="headerlink" href="#the-object-oriented-optical-model" title="Permalink to this headline">¶</a></h2>
+<p>To model optical propagation, POPPY implements an object-oriented system for representing an optical train. There are a variety of <code class="xref py py-class docutils literal notranslate"><span class="pre">OpticalElement</span></code> classes representing both physical elements as apertures, mirrors, and apodizers, and also implicit operations on wavefronts, such as rotations or tilts. Each <code class="xref py py-class docutils literal notranslate"><span class="pre">OpticalElement</span></code>  may be defined either via analytic functions (e.g. a simple circular aperture) or by numerical input FITS files (e.g. the complex JWST aperture with appropriate per-segment WFE). A series of such <code class="xref py py-class docutils literal notranslate"><span class="pre">OpticalElements</span></code> is chained together in order in an <code class="xref py py-class docutils literal notranslate"><span class="pre">OpticalSystem</span></code> class. That class is capable of generating <code class="xref py py-class docutils literal notranslate"><span class="pre">Wavefronts</span></code> (another class) suitable for propagation through the desired elements (with correct array size and sampling), and then performing the optical propagation onto the final image plane.</p>
+<p>There is an even higher level class <code class="xref py py-class docutils literal notranslate"><span class="pre">Instrument</span></code> which adds support for selectable instrument mechanisms (such as filter wheels, pupil stops, etc). In particular it adds support for computing via synthetic photometry the appropriate weights for multiwavelength computations through a spectral bandpass filter, and for PSF blurring due to pointing jitter (neither of which effects are modeled by <code class="xref py py-class docutils literal notranslate"><span class="pre">OpticalSystem</span></code>). Given a specified instrument configuration, an appropriate <code class="xref py py-class docutils literal notranslate"><span class="pre">OpticalSystem</span></code> is generated, the appropriate wavelengths and weights are calculated based on the bandpass filter and target source spectrum, the PSF is calculated, and optionally is then convolved with a blurring kernel due to pointing jitter. All of the WebbPSF instruments are implemented by subclassing <code class="xref py py-class docutils literal notranslate"><span class="pre">poppy.Instrument</span></code>.</p>
+</div>
+<div class="section" id="algorithms-approximations-and-performance">
+<h2>Algorithms, Approximations, and Performance<a class="headerlink" href="#algorithms-approximations-and-performance" title="Permalink to this headline">¶</a></h2>
+<p>POPPY presently assumes that optical propagation can be modeled using Fraunhofer diffraction (far-field), such that the relationship between pupil and image plane optics is given by two-dimensional Fourier transforms. Fresnel propagation is not currently supported.</p>
+<p>Two different algorithmic flavors of Fourier transforms are used in POPPY. The familiar FFT algorithm is used for transformations between pupil and image planes in the general case. This algorithm is relatively fast (<em>O(N log(N))</em>) but imposes strict constraints on the relative sizes and samplings of pupil and image plane arrays. Obtaining fine sampling in the image plane requires very large oversized pupil plane arrays and vice versa, and image plane pixel sampling becomes wavelength dependent.</p>
+<p>To avoid these constraints, for transforms onto the final <code class="xref py py-class docutils literal notranslate"><span class="pre">Detector</span></code> plane, instead a Matrix Fourier Transform (MFT) algorithm is used (See <a class="reference external" href="http://adsabs.harvard.edu/abs/2007OExpr..1515935S">Soummer et al. 2007 Optics Express</a>). This allows computation of the PSF directly on the desired detector pixel scale or an arbitrarily finely subsampled version therof. For equivalent array sizes <em>N</em>, the MFT is slower than the FFT (<em>O(N^3)</em>), but in practice the ability to freely choose a more appropriate <em>N</em> (and to avoid the need for post-FFT interpolation onto a common pixel scale) more than makes up for this and the MFT is faster.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="api_reference.html" class="btn btn-neutral float-right" title="Detailed API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="more_examples.html" class="btn btn-neutral float-left" title="More Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Association of Universities for Research in Astronomy
+      <span class="lastupdated">
+        Last updated on 20 Nov 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

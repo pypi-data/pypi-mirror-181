@@ -1,0 +1,336 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Appendix: Instrument Property References &mdash; webbpsf v0.8.0</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/astropy_logo.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/stsci.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/stsci.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="(Deprecated) Graphical User Interface" href="gui.html" />
+    <link rel="prev" title="Appendix: Available Optical Path Difference (OPD) files" href="available_opds.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+            <a href="index.html" class="icon icon-home"> webbpsf
+            
+            <img src="_static/stsci_pri_combo_mark_white.png" class="logo" />
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.0
+              </div>
+            
+          
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+  
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Requirements &amp; Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="relnotes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Using WebbPSF via the Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jwst.html">JWST Instrument Model Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wfirst.html">WFIRST Instrument Model Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psf_grids.html">Using PSF Grids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="more_examples.html">More Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poppy.html">Overview of POPPY (Physical Optics Propagation in Python)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html">Detailed API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help.html">Diagnostics &amp; Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sampling.html">Sampling Requirements for Numerical Accuracy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fft_optimization.html">Optimizing FFT Performance for PSF Computations with FFTW</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="available_opds.html">Appendix: Available Optical Path Difference (OPD) files</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Appendix: Instrument Property References</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ote">OTE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nircam">NIRCam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nirspec">NIRSpec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#niriss">NIRISS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#miri">MIRI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#instrument-filter-throughputs">Instrument + Filter Throughputs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">(Deprecated)  Graphical User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release.html">Developer Notes: Releasing a new version of WebbPSF</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">webbpsf</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Appendix: Instrument Property References</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/references.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="appendix-instrument-property-references">
+<span id="references"></span><h1>Appendix: Instrument Property References<a class="headerlink" href="#appendix-instrument-property-references" title="Permalink to this headline">¶</a></h1>
+<p>We give here references for the instrumental properties assumed in PSF
+computations, with particular attention to coronagraphic optics. It also notes
+several places where the current models or available files are limited in some
+manner that might be improved in a future release.</p>
+<p>Instrument pixel scales are all based on <em>average best estimate</em> scales
+available in April 2016, specifically from values in the Science Instruments
+Aperture File (SIAF) data, as provided by the various instrument teams to the
+Telescope group via the SIAF Working Group. For instruments with multiple
+detectors, the values provided are averaged over the relevant detectors.
+WebbPSF calculates PSFs on an isotropic pixel grid (i.e. square pixels), but at
+high precision the SI pixel scales can differ between the X and Y axes by
+between 0.5% (for NIRCam) up to 2.5% (for FGS). WebbPSF also does not model any
+of the measured distortions within the instruments.</p>
+<p>WebbPSF does not include any absolute throughput information for any SIs, only
+the relative weighting for different wavelengths in a broadband calculation.
+See <a class="reference internal" href="usage.html#normalization"><span class="std std-ref">the note on PSF normalization</span></a> for further
+discussion.</p>
+<p><em>Note: The WebbPSF software and all of its associated data files are entirely ITAR-free.</em></p>
+<div class="section" id="ote">
+<h2>OTE<a class="headerlink" href="#ote" title="Permalink to this headline">¶</a></h2>
+<p>The supplied OPDs are the Mission CDR OPD simulation set, produced in March
+2010 by Ball Aerospace staff (Paul Lightsey et al.) via the IPAM optical model
+using Zernike WFE coefficients consistent with Revision V of the JWST
+optical error budget.</p>
+<p><strong>Note:</strong> The provided files included no header metadata, and in particular no
+pixel scale, so one was assumed based on the apparent pupil diameter in the
+files. The estimated uncertainty in this scale is 1 part in 1000, so users concerned with measurements of PSF FWHMs etc at that level should be cautious.</p>
+<p>The current model pixel scale, roughly 6 mm/pixel, is too coarse to resolve well the edge roll-off around the border of each segment. We make no
+attempt to include such effects here at this time. An independent study using much more finely sampled pupils has shown that the effect of segment edge roll-off is to scatter ~2% of the light from the PSF core out to large radii, primarily in the form of increased intensity along the diffraction spikes (Soummer et al. 2009, Technical Report JWST-STScI-001755)</p>
+</div>
+<div class="section" id="nircam">
+<h2>NIRCam<a class="headerlink" href="#nircam" title="Permalink to this headline">¶</a></h2>
+<p>NIRCam focal plane scale:  0.0311 +- 0.0002 (short wave), 0.0630 +- 0.0002 (long wave). SOC PRD SIAF PRDDEVSOC-D-012, 2016 April</p>
+<p>The coronagraph optics models are based on the NIRCam instrument team’s series of SPIE papers describing the coronagraph designs and flight hardware.
+(Krist et al. 2007, 2009, 2010 Proc. SPIE), as clarified through cross checks with information provided by the NIRCam instrument team (Krist, private communication 2011).  Currently, the models include only the 5 arcsec square ND acquisition boxes and not the second set of 2 arcsec squares.</p>
+<p>Weak lenses: The lenses are nominally +- 8 and +4 waves at 2.14 microns. The as built defocus values are as follows based on component testing:  7.76198,
+-7.74260, 3.90240.</p>
+</div>
+<div class="section" id="nirspec">
+<h2>NIRSpec<a class="headerlink" href="#nirspec" title="Permalink to this headline">¶</a></h2>
+<p>NIRspec field of view rotation: 138.4 degrees (average over both detectors). SOC PRD SIAF PRDDEVSOC-D-012, 2016 April</p>
+<p>NIRSpec pixel scale 0.1043 +- 0.001 arcsec/pixel. SOC PRD SIAF PRDDEVSOC-D-012, 2016 April</p>
+<p>NIRSpec internal pupil at the grating wheel: based on size of grating stop in Zemax file as analyzed and back projected onto the primary mirror by Erin Elliott, private communication 2013.</p>
+</div>
+<div class="section" id="niriss">
+<h2>NIRISS<a class="headerlink" href="#niriss" title="Permalink to this headline">¶</a></h2>
+<p>NIRISS focal plane scale, 0.0656 +- 0.0005 arcsec/pix:          SOC PRD SIAF PRDDEVSOC-D-012, 2016 April</p>
+<p>Occulting spots: Assumed to be perfect circles with diameters 0.58, 0.75, 1.5,
+and 2.0 arcsec. Doyon et al. 2010 SPIE 7731. While these are not likely to see
+much (any?) use with NIRISS, they are indeed still present in the pickoff mirror hardware, so we
+retain the ability to simulate them.</p>
+<p>NIRISS internal pupils: The regular imaging mode internal pupil stop is a 4% oversized tricontagon (with sharp corners). See Doyon et al. Proc SPIE 2012 Figure 2.
+The CLEARP pupil has an oversized central obscuration plus 3 support vanes. Details based on NIRISS design drawing 196847Rev0.pdf “Modified Calibration Optic Holder” provided by Loic Albert.
+NRM occulter mask: digital file provided by Anand Sivaramakrishnan. GR700XD mask design details provided by Loic Albert.</p>
+</div>
+<div class="section" id="miri">
+<h2>MIRI<a class="headerlink" href="#miri" title="Permalink to this headline">¶</a></h2>
+<p>MIRIM focal plane scale, 0.1110 +- 0.001 arcsec/pix:         SOC PRD SIAF PRDDEVSOC-D-012, 2016 April</p>
+<p>MIRIM field of view rotation, 5.0152 degrees:               SOC PRD SIAF PRDDEVSOC-D-012, 2016 April</p>
+<p>Coronagraph pupils rotated to match,  4.56 degrees:  MIRI-DD-00001-AEU  5.7.8.2.1</p>
+<p>Coronagraphic FOVs,  30.0 arcsec for Lyot, 24.0x23.8 arcsec for FQPMs: MIRI-DD-00001-AEU 2.2.1</p>
+<p>Lyot coronagraph occulting spot diameter,               4.25 arcsec:</p>
+<p>Lyot coronagraph support bar width, 0.46 mm = 0.722 arcsec:              Anthony Boccaletti private communication December 2010 to Perrin and Hines</p>
+<p>Lyot mask files:                                         Anthony Boccaletti private communication to Remi Soummer</p>
+<p>LRS slit size (4.7 x 0.51 arcsec):     MIRI-TR-00001-CEA. And LRS Overview presentation by Silvia Scheithaur to MIRI team meeting May 2013.</p>
+<p>LRS P750L grating aperture mask (3.8% oversized tricontagon): MIRI OBA Design Description, MIRI-DD-00001-AEU</p>
+<p>MIRI imager internal pupil stop in regular imaging mode: 4% oversized tricontagon, mounted on each of the imaging filters (with smoothed corners).</p>
+</div>
+<div class="section" id="instrument-filter-throughputs">
+<h2>Instrument + Filter Throughputs<a class="headerlink" href="#instrument-filter-throughputs" title="Permalink to this headline">¶</a></h2>
+<p>Where possible, instrumental relative spectral responses were derived from the
+Pysynphot CDBS files used for the development version of the JWST Exposure Time Calculators (ETCs),
+normalized to peak transmission = 1.0 (because absolute throughput is not
+relevant for PSF calculations). Not all filters are yet supported in Pysynphot,
+however.</p>
+<p>For the following filters we take information from alternate sources other than the CDBS:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Instrument</span>    <span class="n">Filter</span>         <span class="n">Source</span>
+<span class="o">-----------</span>  <span class="o">-------------</span>   <span class="o">----------------------------------------------------------------------------------------------------------</span>
+<span class="n">NIRCam</span>       <span class="n">F150W2</span>          <span class="n">Top</span><span class="o">-</span><span class="n">hat</span> <span class="n">function</span> <span class="n">based</span> <span class="n">on</span> <span class="nb">filter</span> <span class="n">properties</span> <span class="nb">list</span> <span class="n">at</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">ircamera</span><span class="o">.</span><span class="k">as</span><span class="o">.</span><span class="n">arizona</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">nircam</span><span class="o">/</span><span class="n">features</span><span class="o">.</span><span class="n">html</span>
+<span class="n">NIRCam</span>       <span class="n">F322W2</span>          <span class="n">Top</span><span class="o">-</span><span class="n">hat</span> <span class="n">function</span> <span class="n">based</span> <span class="n">on</span> <span class="nb">filter</span> <span class="n">properties</span> <span class="nb">list</span> <span class="n">at</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">ircamera</span><span class="o">.</span><span class="k">as</span><span class="o">.</span><span class="n">arizona</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">nircam</span><span class="o">/</span><span class="n">features</span><span class="o">.</span><span class="n">html</span>
+<span class="n">NIRSpec</span>      <span class="n">F115W</span>           <span class="n">Assumed</span> <span class="n">to</span> <span class="n">be</span> <span class="n">identical</span> <span class="n">to</span> <span class="n">the</span> <span class="n">NIRCam</span> <span class="n">one</span>
+<span class="n">NIRSpec</span>      <span class="n">F140X</span>           <span class="n">NIRSpec</span> <span class="s2">&quot;BBA&quot;</span> <span class="n">transmission</span> <span class="n">curve</span> <span class="n">traced</span> <span class="kn">from</span> <span class="nn">NIRSpec</span> <span class="n">GWA</span> <span class="n">FWA</span> <span class="n">Assembly</span> <span class="n">Report</span><span class="p">,</span> <span class="n">NIRS</span><span class="o">-</span><span class="n">ZEO</span><span class="o">-</span><span class="n">RO</span><span class="o">-</span><span class="mi">0051</span><span class="p">,</span> <span class="n">section</span> <span class="mf">6.3</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">MIRI</span>         <span class="n">F</span><span class="o">*</span><span class="n">W</span> <span class="n">filters</span>     <span class="n">Data</span> <span class="n">published</span> <span class="ow">in</span> <span class="n">Glasse</span> <span class="n">et</span> <span class="n">al</span><span class="o">.</span> <span class="mi">2015</span> <span class="n">PASP</span> <span class="n">Vol</span> <span class="mi">127</span> <span class="n">No</span><span class="o">.</span> <span class="mi">953</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span> <span class="mi">688</span> <span class="n">Fig</span> <span class="mi">2</span>
+<span class="n">MIRI</span>         <span class="n">F</span><span class="o">*</span><span class="n">C</span> <span class="n">filters</span>     <span class="n">Data</span> <span class="n">published</span> <span class="ow">in</span> <span class="n">Bouchet</span> <span class="n">et</span> <span class="n">al</span><span class="o">.</span> <span class="mi">2015</span> <span class="n">PASP</span> <span class="n">Vol</span> <span class="mi">127</span> <span class="n">No</span><span class="o">.</span> <span class="mi">953</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span> <span class="mi">612</span> <span class="n">Fig</span> <span class="mi">3</span>
+<span class="n">NIRISS</span>       <span class="nb">all</span> <span class="n">filters</span>     <span class="n">Measurement</span> <span class="n">data</span> <span class="n">provided</span> <span class="n">by</span> <span class="n">Loic</span> <span class="n">Albert</span> <span class="n">of</span> <span class="n">the</span> <span class="n">NIRISS</span> <span class="n">team</span>
+<span class="n">FGS</span>          <span class="n">none</span>            <span class="n">Assumed</span> <span class="n">top</span><span class="o">-</span><span class="n">hat</span> <span class="n">function</span> <span class="n">based</span> <span class="n">on</span> <span class="n">detector</span> <span class="n">cut</span><span class="o">-</span><span class="n">on</span> <span class="ow">and</span> <span class="n">cut</span><span class="o">-</span><span class="n">off</span> <span class="n">wavelengths</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>The MIRI wide filters (F*W) are total system photon conversion efficiencies
+including filter, telescope, instrument, and detector throughputs, normalized
+to unity.  The MIRI coronagraphic filters are just the filters themselves, but
+the detector and optics throughputs are relatively flat with wavelength
+compared to the narrow coronagraphic filters. These are sufficiently accurate for
+typical coronagraphic modeling but be aware of that caveat if attempting precise photometric
+calculations.</p>
+<p>For the NIRCam and NIRSpec filters called out in the table above, the provided throughputs do not include the detector QE or OTE/SI optics throughputs versus wavelength.</p>
+<p>All other filters do include these effects, to the extent that they are accurately
+captured in the Calibration Database in support of the ETCs.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="gui.html" class="btn btn-neutral float-right" title="(Deprecated) Graphical User Interface" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="available_opds.html" class="btn btn-neutral float-left" title="Appendix: Available Optical Path Difference (OPD) files" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Association of Universities for Research in Astronomy
+      <span class="lastupdated">
+        Last updated on 20 Nov 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

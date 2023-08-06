@@ -1,0 +1,370 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Detailed API Reference &mdash; webbpsf v0.8.0</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/astropy_logo.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/stsci.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/stsci.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Instrument" href="api/webbpsf.Instrument.html" />
+    <link rel="prev" title="Overview of POPPY (Physical Optics Propagation in Python)" href="poppy.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+            <a href="index.html" class="icon icon-home"> webbpsf
+            
+            <img src="_static/stsci_pri_combo_mark_white.png" class="logo" />
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.0
+              </div>
+            
+          
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+  
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Requirements &amp; Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="relnotes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Using WebbPSF via the Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jwst.html">JWST Instrument Model Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wfirst.html">WFIRST Instrument Model Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psf_grids.html">Using PSF Grids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="more_examples.html">More Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poppy.html">Overview of POPPY (Physical Optics Propagation in Python)</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Detailed API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-webbpsf">webbpsf Package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#webbpsf-simulated-point-spread-functions-for-the-james-webb-space-telescope">WebbPSF: Simulated Point Spread Functions for the James Webb Space Telescope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#class-inheritance-diagram">Class Inheritance Diagram</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="help.html">Diagnostics &amp; Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sampling.html">Sampling Requirements for Numerical Accuracy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fft_optimization.html">Optimizing FFT Performance for PSF Computations with FFTW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="available_opds.html">Appendix: Available Optical Path Difference (OPD) files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">Appendix: Instrument Property References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">(Deprecated)  Graphical User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release.html">Developer Notes: Releasing a new version of WebbPSF</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">webbpsf</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Detailed API Reference</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/api_reference.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="detailed-api-reference">
+<span id="detailed-api"></span><h1>Detailed API Reference<a class="headerlink" href="#detailed-api-reference" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-webbpsf">
+<span id="webbpsf-package"></span><h2>webbpsf Package<a class="headerlink" href="#module-webbpsf" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="webbpsf-simulated-point-spread-functions-for-the-james-webb-space-telescope">
+<h3>WebbPSF: Simulated Point Spread Functions for the James Webb Space Telescope<a class="headerlink" href="#webbpsf-simulated-point-spread-functions-for-the-james-webb-space-telescope" title="Permalink to this headline">¶</a></h3>
+<p>WebbPSF produces simulated PSFs for the James Webb Space Telescope, NASA’s next
+flagship infrared space telescope. WebbPSF can simulate images for any of the
+four science instruments plus the fine guidance sensor, including both direct
+imaging and coronagraphic modes.</p>
+<p>Developed by Marshall Perrin and collaborators at STScI, 2010-2018.</p>
+<p>Documentation can be found online at <a class="reference external" href="https://webbpsf.readthedocs.io/">https://webbpsf.readthedocs.io/</a></p>
+</div>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/webbpsf.Instrument.html#webbpsf.Instrument" title="webbpsf.Instrument"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Instrument</span></code></a>(name)</p></td>
+<td><p>This is just a convenience function, allowing one to access instrument objects based on a string.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">display_ee</span></code>([HDUlist_or_filename, ext, …])</p></td>
+<td><p>Display Encircled Energy curve for a PSF</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">display_profiles</span></code>([HDUlist_or_filename, ext, …])</p></td>
+<td><p>Produce two plots of PSF radial profile and encircled energy</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">display_psf</span></code>(HDUlist_or_filename[, ext, …])</p></td>
+<td><p>Display nicely a PSF from a given hdulist or filename</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">display_psf_difference</span></code>([…])</p></td>
+<td><p>Display nicely the difference of two PSFs from given files</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/webbpsf.enable_adjustable_ote.html#webbpsf.enable_adjustable_ote" title="webbpsf.enable_adjustable_ote"><code class="xref py py-obj docutils literal notranslate"><span class="pre">enable_adjustable_ote</span></code></a>(instr[, jsc])</p></td>
+<td><p>Set up a WebbPSF instrument instance to have a modifiable OTE wavefront error OPD via an OTE linear optical model (LOM).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/webbpsf.gui.html#webbpsf.gui" title="webbpsf.gui"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gui</span></code></a>([preferred])</p></td>
+<td><p>Start the WebbPSF GUI with the selected interface</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">measure_centroid</span></code>([HDUlist_or_filename, ext, …])</p></td>
+<td><p>Measure the center of an image via center-of-mass</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">measure_ee</span></code>([HDUlist_or_filename, ext, …])</p></td>
+<td><p>measure encircled energy vs radius and return as an interpolator</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">measure_fwhm</span></code>(HDUlist_or_filename[, ext, …])</p></td>
+<td><p>Improved version of measuring FWHM, without any binning of image data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">measure_radial</span></code>([HDUlist_or_filename, ext, …])</p></td>
+<td><p>measure azimuthally averaged radial profile of a PSF.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">measure_sharpness</span></code>([HDUlist_or_filename, ext])</p></td>
+<td><p>Compute image sharpness, the sum of pixel squares.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/webbpsf.measure_strehl.html#webbpsf.measure_strehl" title="webbpsf.measure_strehl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">measure_strehl</span></code></a>([HDUlist_or_filename, ext, …])</p></td>
+<td><p>Estimate the Strehl ratio for a PSF.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">radial_profile</span></code>([hdulist_or_filename, ext, …])</p></td>
+<td><p>Compute a radial profile of the image.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/webbpsf.restart_logging.html#webbpsf.restart_logging" title="webbpsf.restart_logging"><code class="xref py py-obj docutils literal notranslate"><span class="pre">restart_logging</span></code></a>([verbose])</p></td>
+<td><p>Restart logging using the same settings as the last WebbPSF session, as stored in the configuration system.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/webbpsf.setup_logging.html#webbpsf.setup_logging" title="webbpsf.setup_logging"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setup_logging</span></code></a>([level, filename])</p></td>
+<td><p>Allows selection of logging detail and output locations (screen and/or file)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/webbpsf.show_notebook_interface.html#webbpsf.show_notebook_interface" title="webbpsf.show_notebook_interface"><code class="xref py py-obj docutils literal notranslate"><span class="pre">show_notebook_interface</span></code></a>(instrumentname)</p></td>
+<td><p>Show Jupyter notebook widget interface</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">specFromSpectralType</span></code>(sptype[, return_list, …])</p></td>
+<td><p>Get Pysynphot Spectrum object from a user-friendly spectral type string.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/webbpsf.system_diagnostic.html#webbpsf.system_diagnostic" title="webbpsf.system_diagnostic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">system_diagnostic</span></code></a>()</p></td>
+<td><p>return various helpful/informative information about the current system.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/webbpsf.test.html#webbpsf.test" title="webbpsf.test"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test</span></code></a>([package, test_path, args, plugins, …])</p></td>
+<td><p>Run the tests using <a class="reference external" href="http://pytest.org/latest">py.test</a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/webbpsf.tkgui.html#webbpsf.tkgui" title="webbpsf.tkgui"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tkgui</span></code></a>([fignum])</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/webbpsf.CGI.html#webbpsf.CGI" title="webbpsf.CGI"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CGI</span></code></a>([mode, pixelscale, fov_arcsec, …])</p></td>
+<td><p>WFIRST Coronagraph Instrument</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/webbpsf.Conf.html#webbpsf.Conf" title="webbpsf.Conf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Conf</span></code></a></p></td>
+<td><p>Configuration parameters for <a class="reference internal" href="usage.html#module-webbpsf" title="webbpsf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">webbpsf</span></code></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/webbpsf.FGS.html#webbpsf.FGS" title="webbpsf.FGS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FGS</span></code></a>()</p></td>
+<td><p>A class modeling the optics of the FGS.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/webbpsf.JWInstrument.html#webbpsf.JWInstrument" title="webbpsf.JWInstrument"><code class="xref py py-obj docutils literal notranslate"><span class="pre">JWInstrument</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Superclass for all JWST instruments</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/webbpsf.MIRI.html#webbpsf.MIRI" title="webbpsf.MIRI"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MIRI</span></code></a>()</p></td>
+<td><p>A class modeling the optics of MIRI, the Mid-InfraRed Instrument.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/webbpsf.NIRCam.html#webbpsf.NIRCam" title="webbpsf.NIRCam"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NIRCam</span></code></a>()</p></td>
+<td><p>A class modeling the optics of NIRCam.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/webbpsf.NIRISS.html#webbpsf.NIRISS" title="webbpsf.NIRISS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NIRISS</span></code></a>([auto_pupil])</p></td>
+<td><p>A class modeling the optics of the Near-IR Imager and Slit Spectrograph</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/webbpsf.NIRSpec.html#webbpsf.NIRSpec" title="webbpsf.NIRSpec"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NIRSpec</span></code></a>()</p></td>
+<td><p>A class modeling the optics of NIRSpec, in <strong>imaging</strong> mode.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/webbpsf.UnsupportedPythonError.html#webbpsf.UnsupportedPythonError" title="webbpsf.UnsupportedPythonError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UnsupportedPythonError</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/webbpsf.WFI.html#webbpsf.WFI" title="webbpsf.WFI"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WFI</span></code></a>()</p></td>
+<td><p>WFI represents the WFIRST wide field imager for the WFIRST mission</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="class-inheritance-diagram">
+<h3>Class Inheritance Diagram<a class="headerlink" href="#class-inheritance-diagram" title="Permalink to this headline">¶</a></h3>
+<div class="graphviz"><object data="_images/inheritance-a31a36c18ea770cef3007a4a422b5508e12bac59.svg" type="image/svg+xml" class="inheritance graphviz">
+<p class="warning">Inheritance diagram of webbpsf.wfirst.CGI, webbpsf.Conf, webbpsf.webbpsf_core.FGS, webbpsf.webbpsf_core.JWInstrument, webbpsf.webbpsf_core.MIRI, webbpsf.webbpsf_core.NIRCam, webbpsf.webbpsf_core.NIRISS, webbpsf.webbpsf_core.NIRSpec, webbpsf.UnsupportedPythonError, webbpsf.wfirst.WFI</p></object></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="api/webbpsf.Instrument.html" class="btn btn-neutral float-right" title="Instrument" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="poppy.html" class="btn btn-neutral float-left" title="Overview of POPPY (Physical Optics Propagation in Python)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Association of Universities for Research in Astronomy
+      <span class="lastupdated">
+        Last updated on 20 Nov 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

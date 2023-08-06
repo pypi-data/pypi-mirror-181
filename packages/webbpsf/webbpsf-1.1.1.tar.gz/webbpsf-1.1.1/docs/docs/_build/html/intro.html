@@ -1,0 +1,342 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction &mdash; webbpsf v0.8.0</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/astropy_logo.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/stsci.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/stsci.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Requirements &amp; Installation" href="installation.html" />
+    <link rel="prev" title="Documentation for WebbPSF" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+            <a href="index.html" class="icon icon-home"> webbpsf
+            
+            <img src="_static/stsci_pri_combo_mark_white.png" class="logo" />
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.0
+              </div>
+            
+          
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+  
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#why-webbpsf">Why WebbPSF?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#algorithms-overview">Algorithms Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#types-of-fourier-transform-calculation-in-webbpsf">Types of Fourier Transform Calculation in WebbPSF</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-webbpsf">Getting WebbPSF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#quick-start">Quick Start</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Requirements &amp; Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="relnotes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Using WebbPSF via the Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jwst.html">JWST Instrument Model Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wfirst.html">WFIRST Instrument Model Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psf_grids.html">Using PSF Grids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="more_examples.html">More Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poppy.html">Overview of POPPY (Physical Optics Propagation in Python)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html">Detailed API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help.html">Diagnostics &amp; Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sampling.html">Sampling Requirements for Numerical Accuracy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fft_optimization.html">Optimizing FFT Performance for PSF Computations with FFTW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="available_opds.html">Appendix: Available Optical Path Difference (OPD) files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">Appendix: Instrument Property References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">(Deprecated)  Graphical User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release.html">Developer Notes: Releasing a new version of WebbPSF</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">webbpsf</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Introduction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/intro.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p><strong>What this software does:</strong></p>
+<ul class="simple">
+<li><p>Uses OPD maps precomputed by detailed optical simulations of JWST and WFIRST, and in the case of JWST
+based on instrument and telescope flight hardware cryo-vacuum test results.</p></li>
+<li><p>For JWST, computes PSF images with requested properties for any of JWST’s instruments. Supports imaging, coronagraphy, and most spectrographic modes with all of JWST’s instruments. IFUs are yet to come.</p></li>
+<li><p>For WFIRST, computes PSFs with the Wide Field Imager, based on recent GSFC optical models, including field- and wavelength-dependent aberrations.
+A preliminary version of the Coronagraph Instrument is also available.</p></li>
+<li><p>Provides a suite of tools for quantifying PSF properties such as FWHM, Strehl ratio, etc.</p></li>
+</ul>
+<p><strong>What this software does NOT do:</strong></p>
+<ul class="simple">
+<li><p>Contain in itself any detailed thermal or optical model of JWST or WFIRST. For the results of end-to-end integrated simulations of JWST, see for instance <a class="reference external" href="http://proceedings.spiedigitallibrary.org/proceeding.aspx?articleid=1362264">Predicted JWST imaging performance (Knight, Lightsey, &amp; Barto; Proc. SPIE 2012)</a>. For WFIRST modeling, see <a class="reference external" href="http://wfirst.gsfc.nasa.gov/science/Instrument_Reference_Information.html">the WFIRST Reference Info page</a></p></li>
+<li><p>Model spectrally dispersed PSFs produced by any of the spectrograph gratings. It does, however, let you produce monochromatic PSFs in these modes, suitable for stitching together into spectra using some other software.</p></li>
+<li><p>Model most detector effects such as pixel MTF, intrapixel sensitivity variations, interpixel capacitance, or any noise sources. Add those separately with your favorite detector model code. (*Note, one particularly significant
+detector scattering for MIRI imaging has now been added.)</p></li>
+</ul>
+<dl class="simple">
+<dt>Conceptually, this simulation code has two layers of abstraction:</dt><dd><ul class="simple">
+<li><p>A base package for wavefront propagation through generic optical systems (provided by <code class="xref py py-mod docutils literal notranslate"><span class="pre">POPPY</span></code>)</p></li>
+<li><p>Models of the JWST and WFIRST instruments implemented on top of that base system (provided by <a class="reference internal" href="usage.html#module-webbpsf" title="webbpsf"><code class="xref py py-mod docutils literal notranslate"><span class="pre">WebbPSF</span></code></a>)</p></li>
+</ul>
+</dd>
+</dl>
+<p>(There has formerly been a basic GUI front end, but that GUI is now deprecated and no longer recommended for use.)</p>
+<div class="section" id="why-webbpsf">
+<span id="intro-why-webbpsf"></span><h2>Why WebbPSF?<a class="headerlink" href="#why-webbpsf" title="Permalink to this headline">¶</a></h2>
+<p>For any space telescope, an ability to predict the properties of
+point spread functions (PSFs) is needed before launch for a wide
+range of preparatory science studies and tool development.
+Tools for producing high
+quality model PSFs must be easily accessible to the entire astronomical
+community.
+WebbPSF provides an easy-to-use tool for PSF simulations of JWST and WFIRST, in
+the style of the highly successful “Tiny Tim” PSF simulator for Hubble.</p>
+<p>WebbPSF
+simulations are based on a mixture of observatory design parameters and
+as-built properties. The software provides a highly flexible and scriptable toolkit in
+Python for simulating a very wide range of observing modes and science scenarios, using
+efficient computational methods (including optional parallelization and use of GPUs). WebbPSF
+is a key building block in higher-level observatory simulators, including the
+JWST <a class="reference external" href="https://jwst.etc.stsci.edu">Exposure Time Calculator</a>.</p>
+</div>
+<div class="section" id="algorithms-overview">
+<span id="intro-algorithms"></span><h2>Algorithms Overview<a class="headerlink" href="#algorithms-overview" title="Permalink to this headline">¶</a></h2>
+<p>Read on if you’re interested in details of how the computations are performed. Otherwise, jump to <a class="reference internal" href="#quickstart"><span class="std std-ref">Quick Start</span></a>.</p>
+<p>The problem at hand is to transform supplied, precomputed OPDs (derived from a detailed optomechanical model
+of the telescope)
+into observed PSFs as seen with one or more of JWST’s various detectors. This requires knowledge of the
+location and orientation of the detector planes, the properties of relevant optics such as bandpass filters and/or
+coronagraphic image and pupil plane masks, and a model of light propagation between them.</p>
+<p>Instrumental properties are taken from project documentation and the published
+literature as appropriate; see the <a class="reference internal" href="references.html#references"><span class="std std-ref">References</span></a> for detailed
+provenance information. Optics may be described either numerically (for
+instance, a FITS file containing a mask image for a Lyot plane or a FITS
+bintable giving a spectral bandpass) or analytically (for instance, a
+coronagraph occulter described as a circle of a given radius or a band-limited
+mask function with given free parameters).</p>
+<p>WebbPSF computes PSFs under the assumption that JWST’s instruments are well
+described by Fraunhofer diffraction, as implemented using the usual Fourier
+relationship between optical pupil and image planes (e.g. <a class="reference external" href="http://books.google.com/books?id=ow5xs_Rtt9AC&amp;printsec=frontcover#v=onepage&amp;q&amp;f=false">Goodman et al. 1996</a>).
+Two specific types of 2D Fourier transform are implemented: a Fast Fourier Transform and a discrete Matrix Fourier Transform.</p>
+<p>The familiar Fast Fourier Transform (FFT) algorithm achieves its speed at the cost of imposing a specific fixed relationship between pixel
+sampling in the pupil and image planes. As a result, obtaining finely sampled PSFs requires transforming very large arrays consisting
+mostly of zero-padding. A more computationally attractive method is to use a discrete matrix Fourier transform, which
+provides flexibility to compute PSFs on any desired output sampling without requiring any excess padding of the input arrays.
+While this algorithm’s computational cost grows as <code class="xref py py-obj docutils literal notranslate"><span class="pre">O(N^3)</span></code> versus <code class="xref py py-obj docutils literal notranslate"><span class="pre">O(N</span> <span class="pre">log</span> <span class="pre">N)</span></code> for the FFT, the FFT’s apparent advantage is immediately lost
+due to the need to resample the output onto the real pixel grid, which is an <code class="xref py py-obj docutils literal notranslate"><span class="pre">O(N^2)</span></code> operation. By performing a matrix fourier transform
+directly to the desired output pixel scale, we can achieve arbitrarily fine sampling without the use of memory-intensive large padded arrays, and
+with lower overall computation time.</p>
+<p>Further optimizations are available in coronagraphic mode using the semi-analytic coronagraphic propagation algorithm of Soummer et al. 2007. In this approach, rather than
+propagating the entire wavefront from pupil to image and back to pupil in order to account for the coronagraphic masks, we can propagate only the subset of the wavefront that
+is actually blocked by the image occulter and then subtract it from the rest of the wavefront at the Lyot plane. This relies on Babinet’s principle to achieve the same final PSF
+with more computational efficiency, particularly for the case of highly oversampled image planes (as is necessary to account for fine structure in image plane occulter masks). See Soummer et al. 2007 for a detailed description of this algorithm.</p>
+<div class="section" id="types-of-fourier-transform-calculation-in-webbpsf">
+<h3>Types of Fourier Transform Calculation in WebbPSF<a class="headerlink" href="#types-of-fourier-transform-calculation-in-webbpsf" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Any direct imaging calculation, any instrument: Matrix DFT</p></li>
+<li><p>NIRCam coronagraphy with circular occulters: Semi-Analytic Fast Coronagraphy and Matrix DFT</p></li>
+<li><p>NIRCam coronagraphy with wedge occulters: FFT and Matrix DFT</p></li>
+<li><p>MIRI Coronagraphy: FFT and Matrix DFT</p></li>
+<li><p>NIRISS NRM, GR799XD: Matrix DFT</p></li>
+<li><p>NIRSpec and NIRISS slit spectroscopy: FFT and Matrix DFT</p></li>
+</ul>
+</div></blockquote>
+<p>See <span class="xref std std-ref">Optimizing Performance and Parallelization</span> in the POPPY documentation for more details on calculation performance.</p>
+</div>
+</div>
+<div class="section" id="getting-webbpsf">
+<h2>Getting WebbPSF<a class="headerlink" href="#getting-webbpsf" title="Permalink to this headline">¶</a></h2>
+<p>The WebbPSF software is installable through pip, but it depends on data files distributed through STScI. Since there is more than one way to install scientific Python software, the possibilities are covered in <a class="reference internal" href="installation.html#installation"><span class="std std-ref">Requirements &amp; Installation</span></a>.</p>
+<p>The <a class="reference external" href="http://astroconda.readthedocs.io/en/latest/">AstroConda</a> distribution includes WebbPSF and its associated data files. If you installed the packages into an environment named <code class="docutils literal notranslate"><span class="pre">astroconda</span></code>, the command to upgrade all STScI software (including WebbPSF) to the latest version would be <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">update</span> <span class="pre">--name</span> <span class="pre">astroconda</span> <span class="pre">stsci</span></code>.</p>
+<p>For those who prefer to use pip (and have NumPy, SciPy, and matplotlib already installed) the command is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install -U webbpsf
+</pre></div>
+</div>
+<p>This command installs (or upgrades) WebbPSF to the latest version on <a class="reference external" href="https://pypi.python.org/">PyPI</a>. Before WebbPSF will run, you must <a class="reference internal" href="installation.html#data-install"><span class="std std-ref">download the WebbPSF data files</span></a> and set the <code class="docutils literal notranslate"><span class="pre">WEBBPSF_DATA</span></code> environment variable to point to the place you extracted them. You may also want to <a class="reference internal" href="installation.html#pysynphot-install"><span class="std std-ref">install Pysynphot</span></a>, an optional dependency, to improve PSF fidelity.</p>
+<p>For detailed installation instructions, refer to <a class="reference internal" href="installation.html#installation"><span class="std std-ref">Requirements &amp; Installation</span></a>. (This document also explains how to install optional dependencies, install supporting data files, <a class="reference internal" href="installation.html#install-dev-version"><span class="std std-ref">install from GitHub source</span></a>, etc.)</p>
+</div>
+<div class="section" id="quick-start">
+<span id="quickstart"></span><h2>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h2>
+<p>Once you have installed the software and data files, we recommend you begin with the
+<a class="reference external" href="http://nbviewer.jupyter.org/github/spacetelescope/webbpsf/blob/master/notebooks/WebbPSF_tutorial.ipynb">Jupyter Notebook quickstart tutorial</a>. Downloading and running that notebook is a great way to get started using WebbPSF.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="installation.html" class="btn btn-neutral float-right" title="Requirements &amp; Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Documentation for WebbPSF" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Association of Universities for Research in Astronomy
+      <span class="lastupdated">
+        Last updated on 20 Nov 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

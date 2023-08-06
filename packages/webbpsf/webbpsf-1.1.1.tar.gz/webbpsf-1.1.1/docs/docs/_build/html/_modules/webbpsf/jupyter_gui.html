@@ -1,0 +1,637 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>webbpsf.jupyter_gui &mdash; webbpsf v0.8.0</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/astropy_logo.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/stsci.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/stsci.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+            <a href="../../index.html" class="icon icon-home"> webbpsf
+            
+            <img src="../../_static/stsci_pri_combo_mark_white.png" class="logo" />
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.0
+              </div>
+            
+          
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+  
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Requirements &amp; Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../relnotes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage.html">Using WebbPSF via the Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jwst.html">JWST Instrument Model Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../wfirst.html">WFIRST Instrument Model Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../psf_grids.html">Using PSF Grids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../more_examples.html">More Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../poppy.html">Overview of POPPY (Physical Optics Propagation in Python)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api_reference.html">Detailed API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">Diagnostics &amp; Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sampling.html">Sampling Requirements for Numerical Accuracy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fft_optimization.html">Optimizing FFT Performance for PSF Computations with FFTW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../available_opds.html">Appendix: Available Optical Path Difference (OPD) files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">Appendix: Instrument Property References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gui.html">(Deprecated)  Graphical User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../release.html">Developer Notes: Releasing a new version of WebbPSF</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">webbpsf</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../webbpsf.html">webbpsf</a> &raquo;</li>
+        
+      <li>webbpsf.jupyter_gui</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for webbpsf.jupyter_gui</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">astropy.io.fits</span> <span class="k">as</span> <span class="nn">fits</span>
+
+<span class="kn">import</span> <span class="nn">poppy</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">webbpsf_core</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">wfirst</span>
+
+<span class="n">_log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;webbpsf&#39;</span><span class="p">)</span>
+
+
+
+<div class="viewcode-block" id="show_notebook_interface"><a class="viewcode-back" href="../../api/webbpsf.show_notebook_interface.html#webbpsf.show_notebook_interface">[docs]</a><span class="k">def</span> <span class="nf">show_notebook_interface</span><span class="p">(</span><span class="n">instrumentname</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Show Jupyter notebook widget interface</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    -----------</span>
+<span class="sd">    instrumentname : string</span>
+<span class="sd">        one of &#39;NIRCam&#39;,&#39;NIRSpec&#39;,&#39;NIRISS&#39;,&#39;FGS&#39;,&#39;MIRI&#39;</span>
+<span class="sd">        or &#39;WFI&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">instrumentname</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="o">==</span><span class="s1">&#39;WFI&#39;</span><span class="p">:</span>
+        <span class="n">instrument</span> <span class="o">=</span> <span class="n">wfirst</span><span class="o">.</span><span class="n">WFI</span><span class="p">()</span>
+        <span class="n">show_notebook_interface_wfi</span><span class="p">(</span><span class="n">instrument</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">instrument</span> <span class="o">=</span> <span class="n">webbpsf_core</span><span class="o">.</span><span class="n">Instrument</span><span class="p">(</span><span class="n">instrumentname</span><span class="p">)</span>
+        <span class="n">show_notebook_interface_jwst</span><span class="p">(</span><span class="n">instrument</span><span class="p">)</span></div>
+
+
+
+<span class="k">def</span> <span class="nf">show_notebook_interface_wfi</span><span class="p">(</span><span class="n">instrument</span><span class="p">):</span>
+    <span class="c1"># Widget related imports.</span>
+    <span class="c1"># (Currently not a hard dependency for the full webbpsf package, so we import</span>
+    <span class="c1"># within the function.)</span>
+    <span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+    <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">clear_output</span>
+    <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">import</span> <span class="nn">pysynphot</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="s2">&quot;For now, PySynphot must be installed to use the notebook interface&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Clean up some warnings we know about so as not to scare the users</span>
+    <span class="kn">import</span> <span class="nn">warnings</span>
+    <span class="kn">from</span> <span class="nn">matplotlib.cbook</span> <span class="k">import</span> <span class="n">MatplotlibDeprecationWarning</span>
+    <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">MatplotlibDeprecationWarning</span><span class="p">)</span>
+    <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">fits</span><span class="o">.</span><span class="n">verify</span><span class="o">.</span><span class="n">VerifyWarning</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">make_binding_for_attribute</span><span class="p">(</span><span class="n">attribute</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">callback</span><span class="p">(</span><span class="n">trait_name</span><span class="p">,</span> <span class="n">new_value</span><span class="p">):</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="n">instrument</span><span class="p">,</span> <span class="n">attribute</span><span class="p">,</span> <span class="n">new_value</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">callback</span>
+
+    <span class="n">filter_selection</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">ToggleButtons</span><span class="p">(</span>
+        <span class="n">options</span><span class="o">=</span><span class="n">instrument</span><span class="o">.</span><span class="n">filter_list</span><span class="p">,</span>
+        <span class="n">value</span><span class="o">=</span><span class="n">instrument</span><span class="o">.</span><span class="n">filter</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Filter:&#39;</span>
+    <span class="p">)</span>
+    <span class="n">filter_selection</span><span class="o">.</span><span class="n">on_trait_change</span><span class="p">(</span>
+        <span class="n">make_binding_for_attribute</span><span class="p">(</span><span class="s1">&#39;filter&#39;</span><span class="p">),</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;selected_label&#39;</span>
+    <span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">filter_selection</span><span class="p">)</span>
+
+    <span class="n">monochromatic_wavelength</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">BoundedFloatText</span><span class="p">(</span>
+        <span class="n">value</span><span class="o">=</span><span class="mf">0.76</span><span class="p">,</span>
+        <span class="nb">min</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>
+        <span class="nb">max</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">monochromatic_wavelength</span><span class="o">.</span><span class="n">disabled</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">monochromatic_toggle</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Checkbox</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Monochromatic calculation?&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">update_monochromatic</span><span class="p">(</span><span class="n">trait_name</span><span class="p">,</span> <span class="n">new_value</span><span class="p">):</span>
+        <span class="n">filter_selection</span><span class="o">.</span><span class="n">disabled</span> <span class="o">=</span> <span class="n">new_value</span>
+        <span class="n">monochromatic_wavelength</span><span class="o">.</span><span class="n">disabled</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">new_value</span>
+
+    <span class="n">monochromatic_toggle</span><span class="o">.</span><span class="n">on_trait_change</span><span class="p">(</span><span class="n">update_monochromatic</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
+
+    <span class="n">display</span><span class="p">(</span><span class="n">widgets</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s1">&#39;&#39;&#39;&lt;p style=&quot;padding: 1em 0;&quot;&gt;</span>
+<span class="s1">    &lt;span style=&quot;font-style:italic; font-size:1.0em&quot;&gt;</span>
+<span class="s1">    Monochromatic calculations can be performed for any wavelength in the 0.6 to 2.0 &amp;micro;m range.</span>
+<span class="s1">    &lt;/span&gt;&lt;/p&gt;&#39;&#39;&#39;</span><span class="p">))</span>  <span class="c1"># kludge</span>
+    <span class="n">monochromatic_controls</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">HBox</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">(</span>
+            <span class="n">monochromatic_toggle</span><span class="p">,</span>
+            <span class="n">widgets</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s1">&#39;&lt;span style=&quot;display: inline-block; width: 0.6em;&quot;&gt;&lt;/span&gt;&#39;</span><span class="p">),</span>
+            <span class="n">monochromatic_wavelength</span><span class="p">,</span>
+            <span class="n">widgets</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s1">&#39;&lt;span style=&quot;display: inline-block; width: 0.25em;&quot;&gt;&lt;/span&gt; &amp;micro;m &#39;</span><span class="p">),</span>
+    <span class="p">))</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">monochromatic_controls</span><span class="p">)</span>
+
+    <span class="n">display</span><span class="p">(</span><span class="n">widgets</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">&quot;&lt;hr&gt;&quot;</span><span class="p">))</span>
+
+    <span class="n">source_selection</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Select</span><span class="p">(</span>
+        <span class="n">options</span><span class="o">=</span><span class="n">poppy</span><span class="o">.</span><span class="n">specFromSpectralType</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">return_list</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+        <span class="n">value</span><span class="o">=</span><span class="s1">&#39;G0V&#39;</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Source spectrum&quot;</span>
+    <span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">source_selection</span><span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">widgets</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">&quot;&lt;hr&gt;&quot;</span><span class="p">))</span>
+
+    <span class="n">sca_selection</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
+        <span class="n">options</span><span class="o">=</span><span class="n">instrument</span><span class="o">.</span><span class="n">detector_list</span><span class="p">,</span>
+        <span class="n">value</span><span class="o">=</span><span class="n">instrument</span><span class="o">.</span><span class="n">detector</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Detector:&#39;</span>
+    <span class="p">)</span>
+    <span class="n">sca_selection</span><span class="o">.</span><span class="n">on_trait_change</span><span class="p">(</span>
+        <span class="n">make_binding_for_attribute</span><span class="p">(</span><span class="s1">&#39;detector&#39;</span><span class="p">),</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;selected_label&#39;</span>
+    <span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">sca_selection</span><span class="p">)</span>
+
+    <span class="n">detector_field_points</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="s1">&#39;Top left&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">4092.0</span><span class="p">)),</span>
+        <span class="p">(</span><span class="s1">&#39;Bottom left&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">)),</span>
+        <span class="p">(</span><span class="s1">&#39;Center&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mf">2048.0</span><span class="p">,</span> <span class="mf">2048.0</span><span class="p">)),</span>
+        <span class="p">(</span><span class="s1">&#39;Top right&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mf">4092.0</span><span class="p">,</span> <span class="mf">4092.0</span><span class="p">)),</span>
+        <span class="p">(</span><span class="s1">&#39;Bottom right&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mf">4092.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">)),</span>
+    <span class="p">]</span>
+    <span class="c1"># enforce ordering of buttons</span>
+    <span class="n">detector_field_point_labels</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">detector_field_points</span><span class="p">]</span>
+    <span class="n">detector_field_points</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">detector_field_points</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">set_field_position</span><span class="p">(</span><span class="n">trait_name</span><span class="p">,</span> <span class="n">new_value</span><span class="p">):</span>
+        <span class="n">instrument</span><span class="o">.</span><span class="n">detector_position</span> <span class="o">=</span> <span class="n">detector_field_points</span><span class="p">[</span><span class="n">new_value</span><span class="p">]</span>
+
+    <span class="n">field_position</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">ToggleButtons</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">detector_field_point_labels</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s1">&#39;Center&#39;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Detector field point:&#39;</span><span class="p">)</span>
+    <span class="n">field_position</span><span class="o">.</span><span class="n">on_trait_change</span><span class="p">(</span><span class="n">set_field_position</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;selected_label&#39;</span><span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">field_position</span><span class="p">)</span>
+
+    <span class="n">calculate_button</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Calculate PSF&quot;</span><span class="p">,</span>
+        <span class="n">width</span><span class="o">=</span><span class="s1">&#39;10em&#39;</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span>
+        <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#00c403&#39;</span><span class="p">,</span>
+        <span class="n">border_color</span><span class="o">=</span><span class="s1">&#39;#318732&#39;</span>
+    <span class="p">)</span>
+    <span class="n">display_osys_button</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Display Optical System&quot;</span><span class="p">,</span>
+        <span class="n">width</span><span class="o">=</span><span class="s1">&#39;13em&#39;</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span>
+        <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#005fc4&#39;</span><span class="p">,</span>
+        <span class="n">border_color</span><span class="o">=</span><span class="s1">&#39;#224A75&#39;</span>
+    <span class="p">)</span>
+    <span class="n">clear_button</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Clear Output&quot;</span><span class="p">,</span>
+        <span class="n">width</span><span class="o">=</span><span class="s1">&#39;10em&#39;</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span>
+        <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#ed4747&#39;</span><span class="p">,</span>
+        <span class="n">border_color</span><span class="o">=</span><span class="s1">&#39;#911C1C&#39;</span>
+    <span class="p">)</span>
+    <span class="n">progress</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s1">&#39;&lt;progress&gt;&#39;</span><span class="p">)</span>
+
+    <span class="n">OUTPUT_FILENAME</span> <span class="o">=</span> <span class="s1">&#39;psf.fits&#39;</span>
+    <span class="n">DOWNLOAD_BUTTON_HTML</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    &lt;a class=&quot;btn btn-info&quot; href=&quot;files/</span><span class="si">{}</span><span class="s2">&quot; target=&quot;_blank&quot;&gt;</span>
+<span class="s2">        Download FITS image from last calculation</span>
+<span class="s2">    &lt;/a&gt;</span>
+<span class="s2">    &quot;&quot;&quot;</span>
+    <span class="n">download_link</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">DOWNLOAD_BUTTON_HTML</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">OUTPUT_FILENAME</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">disp</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="n">progress</span><span class="o">.</span><span class="n">visible</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+        <span class="n">instrument</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+        <span class="n">progress</span><span class="o">.</span><span class="n">visible</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">calc</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="n">progress</span><span class="o">.</span><span class="n">visible</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="n">monochromatic_toggle</span><span class="o">.</span><span class="n">value</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">psf</span> <span class="o">=</span> <span class="n">instrument</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">(</span>
+                <span class="n">monochromatic</span><span class="o">=</span><span class="n">monochromatic_wavelength</span><span class="o">.</span><span class="n">value</span> <span class="o">*</span> <span class="mf">1e-6</span><span class="p">,</span>
+                <span class="n">display</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">outfile</span><span class="o">=</span><span class="n">OUTPUT_FILENAME</span><span class="p">,</span>
+                <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">source</span> <span class="o">=</span> <span class="n">poppy</span><span class="o">.</span><span class="n">specFromSpectralType</span><span class="p">(</span><span class="n">source_selection</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+            <span class="n">_log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Got source type </span><span class="si">{}</span><span class="s2">: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">source_selection</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">source</span><span class="p">))</span>
+            <span class="n">psf</span> <span class="o">=</span> <span class="n">instrument</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">(</span>
+                <span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">,</span>
+                <span class="n">display</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">outfile</span><span class="o">=</span><span class="n">OUTPUT_FILENAME</span><span class="p">,</span>
+                <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span>
+            <span class="p">)</span>
+        <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax_oversamp</span><span class="p">,</span> <span class="n">ax_detsamp</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">poppy</span><span class="o">.</span><span class="n">display_PSF</span><span class="p">(</span><span class="n">psf</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax_oversamp</span><span class="p">)</span>
+        <span class="n">poppy</span><span class="o">.</span><span class="n">display_PSF</span><span class="p">(</span><span class="n">psf</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax_detsamp</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s1">&#39;DET_SAMP&#39;</span><span class="p">)</span>
+        <span class="n">progress</span><span class="o">.</span><span class="n">visible</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">download_link</span><span class="o">.</span><span class="n">visible</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="n">clear_output</span><span class="p">()</span>
+        <span class="n">progress</span><span class="o">.</span><span class="n">visible</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">download_link</span><span class="o">.</span><span class="n">visible</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="n">calculate_button</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">calc</span><span class="p">)</span>
+    <span class="n">display_osys_button</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">disp</span><span class="p">)</span>
+    <span class="n">clear_button</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">clear</span><span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">widgets</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">&quot;&lt;br/&gt;&quot;</span><span class="p">))</span>  <span class="c1"># kludge</span>
+    <span class="n">buttons</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">HBox</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">calculate_button</span><span class="p">,</span> <span class="n">display_osys_button</span><span class="p">,</span> <span class="n">clear_button</span><span class="p">])</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">buttons</span><span class="p">)</span>
+
+    <span class="c1"># Insert the progress bar, hidden by default</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">progress</span><span class="p">)</span>
+    <span class="n">progress</span><span class="o">.</span><span class="n">visible</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="c1"># and the download link</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">download_link</span><span class="p">)</span>
+    <span class="n">download_link</span><span class="o">.</span><span class="n">visible</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="k">def</span> <span class="nf">show_notebook_interface_jwst</span><span class="p">(</span><span class="n">instrument</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Show Jupyter Notebook interface, for a JWST instrument</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    -------------</span>
+<span class="sd">    instrument : string or object</span>
+<span class="sd">        either a webbpsf instrument object, e.g.  `NIRCam()`</span>
+<span class="sd">        or the string name of an instrument.</span>
+
+
+<span class="sd">    Example</span>
+<span class="sd">    --------</span>
+<span class="sd">    nc = webbpsf.NIRCam()</span>
+<span class="sd">    webbpsf.show_notebook_interface(nc)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Widget related imports.</span>
+    <span class="c1"># (Currently not a hard dependency for the full webbpsf package, so we import</span>
+    <span class="c1"># within the function.)</span>
+    <span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+    <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">clear_output</span>
+    <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">instrument</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">instrument</span> <span class="o">=</span> <span class="n">Instrument</span><span class="p">(</span><span class="n">instrument</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">import</span> <span class="nn">pysynphot</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="s2">&quot;For now, PySynphot must be installed to use the notebook interface&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Clean up some warnings we know about so as not to scare the users</span>
+    <span class="kn">import</span> <span class="nn">warnings</span>
+    <span class="kn">from</span> <span class="nn">matplotlib.cbook</span> <span class="k">import</span> <span class="n">MatplotlibDeprecationWarning</span>
+    <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">MatplotlibDeprecationWarning</span><span class="p">)</span>
+    <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">fits</span><span class="o">.</span><span class="n">verify</span><span class="o">.</span><span class="n">VerifyWarning</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">make_binding_for_attribute</span><span class="p">(</span><span class="n">attribute</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">callback</span><span class="p">(</span><span class="n">trait_name</span><span class="p">,</span> <span class="n">new_value</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">new_value</span> <span class="o">==</span> <span class="s1">&#39;None&#39;</span><span class="p">:</span>
+                <span class="nb">setattr</span><span class="p">(</span><span class="n">instrument</span><span class="p">,</span> <span class="n">attribute</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">setattr</span><span class="p">(</span><span class="n">instrument</span><span class="p">,</span> <span class="n">attribute</span><span class="p">,</span> <span class="n">new_value</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">callback</span>
+
+    <span class="n">display</span><span class="p">(</span><span class="n">widgets</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s1">&#39;&#39;&#39;&lt;p style=&quot;padding: 1em 0;&quot;&gt;</span>
+<span class="s1">    &lt;span style=&quot;font-weight:bold; font-size:1.0em&quot;&gt;</span>
+<span class="s1">    Notebook Interface for </span><span class="si">{}</span><span class="s1"> PSF sims</span>
+<span class="s1">    &lt;/span&gt;&lt;/p&gt;&#39;&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">instrument</span><span class="o">.</span><span class="n">name</span><span class="p">)))</span>
+
+
+    <span class="n">filter_selection</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
+        <span class="n">options</span><span class="o">=</span><span class="n">instrument</span><span class="o">.</span><span class="n">filter_list</span><span class="p">,</span>
+        <span class="n">value</span><span class="o">=</span><span class="n">instrument</span><span class="o">.</span><span class="n">filter</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Filter:&#39;</span><span class="p">)</span>
+
+    <span class="n">filter_selection</span><span class="o">.</span><span class="n">on_trait_change</span><span class="p">(</span>
+        <span class="n">make_binding_for_attribute</span><span class="p">(</span><span class="s1">&#39;filter&#39;</span><span class="p">),</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;selected_label&#39;</span>
+    <span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">filter_selection</span><span class="p">)</span>
+
+
+    <span class="n">wl_bounds</span> <span class="o">=</span> <span class="p">(</span><span class="mf">5.</span><span class="p">,</span> <span class="mf">30.</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">)</span> <span class="k">if</span> <span class="n">instrument</span><span class="o">.</span><span class="n">name</span><span class="o">==</span><span class="s1">&#39;MIRI&#39;</span> <span class="k">else</span> <span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">5.3</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
+    <span class="n">monochromatic_wavelength</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">BoundedFloatText</span><span class="p">(</span>
+        <span class="n">value</span><span class="o">=</span><span class="n">wl_bounds</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+        <span class="nb">min</span><span class="o">=</span><span class="n">wl_bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="nb">max</span><span class="o">=</span><span class="n">wl_bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+    <span class="p">)</span>
+    <span class="n">monochromatic_wavelength</span><span class="o">.</span><span class="n">disabled</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">monochromatic_toggle</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Checkbox</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Monochromatic calculation?&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">update_monochromatic</span><span class="p">(</span><span class="n">trait_name</span><span class="p">,</span> <span class="n">new_value</span><span class="p">):</span>
+        <span class="n">filter_selection</span><span class="o">.</span><span class="n">disabled</span> <span class="o">=</span> <span class="n">new_value</span>
+        <span class="n">monochromatic_wavelength</span><span class="o">.</span><span class="n">disabled</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">new_value</span>
+
+    <span class="n">monochromatic_toggle</span><span class="o">.</span><span class="n">on_trait_change</span><span class="p">(</span><span class="n">update_monochromatic</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
+
+    <span class="n">display</span><span class="p">(</span><span class="n">widgets</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s1">&#39;&#39;&#39;&lt;p style=&quot;padding: 1em 0;&quot;&gt;</span>
+<span class="s1">    &lt;span style=&quot;font-style:italic; font-size:1.0em&quot;&gt;</span>
+<span class="s1">    Monochromatic calculations can be performed for any wavelength in the </span><span class="si">{}</span><span class="s1"> to </span><span class="si">{}</span><span class="s1"> &amp;micro;m range.</span>
+<span class="s1">    &lt;/span&gt;&lt;/p&gt;&#39;&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">wl_bounds</span><span class="p">)))</span>  <span class="c1"># kludge</span>
+    <span class="n">monochromatic_controls</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">HBox</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">(</span>
+            <span class="n">monochromatic_toggle</span><span class="p">,</span>
+            <span class="n">widgets</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s1">&#39;&lt;span style=&quot;display: inline-block; width: 0.6em;&quot;&gt;&lt;/span&gt;&#39;</span><span class="p">),</span>
+            <span class="n">monochromatic_wavelength</span><span class="p">,</span>
+            <span class="n">widgets</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s1">&#39;&lt;span style=&quot;display: inline-block; width: 0.25em;&quot;&gt;&lt;/span&gt; &amp;micro;m &#39;</span><span class="p">),</span>
+    <span class="p">))</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">monochromatic_controls</span><span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">widgets</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">&quot;&lt;hr&gt;&quot;</span><span class="p">))</span>
+
+
+    <span class="k">if</span> <span class="n">instrument</span><span class="o">.</span><span class="n">name</span> <span class="o">!=</span> <span class="s1">&#39;FGS&#39;</span><span class="p">:</span>
+        <span class="n">image_selection</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
+            <span class="n">options</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;None&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">instrument</span><span class="o">.</span><span class="n">image_mask_list</span><span class="p">,</span>
+            <span class="n">value</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">instrument</span><span class="o">.</span><span class="n">image_mask</span><span class="p">),</span>
+            <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Image Mask:&#39;</span><span class="p">)</span>
+
+        <span class="n">image_selection</span><span class="o">.</span><span class="n">on_trait_change</span><span class="p">(</span>
+            <span class="n">make_binding_for_attribute</span><span class="p">(</span><span class="s1">&#39;image_mask&#39;</span><span class="p">),</span>
+            <span class="n">name</span><span class="o">=</span><span class="s1">&#39;selected_label&#39;</span>
+        <span class="p">)</span>
+        <span class="n">display</span><span class="p">(</span><span class="n">image_selection</span><span class="p">)</span>
+
+
+        <span class="n">pupil_selection</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
+            <span class="n">options</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;None&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">instrument</span><span class="o">.</span><span class="n">pupil_mask_list</span><span class="p">,</span>
+            <span class="n">value</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">instrument</span><span class="o">.</span><span class="n">pupil_mask</span><span class="p">),</span>
+            <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Pupil Mask: &#39;</span><span class="p">)</span>
+
+        <span class="n">pupil_selection</span><span class="o">.</span><span class="n">on_trait_change</span><span class="p">(</span>
+            <span class="n">make_binding_for_attribute</span><span class="p">(</span><span class="s1">&#39;pupil_mask&#39;</span><span class="p">),</span>
+            <span class="n">name</span><span class="o">=</span><span class="s1">&#39;selected_label&#39;</span>
+        <span class="p">)</span>
+        <span class="n">display</span><span class="p">(</span><span class="n">pupil_selection</span><span class="p">)</span>
+
+
+    <span class="n">display</span><span class="p">(</span><span class="n">widgets</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">&quot;&lt;hr&gt;&quot;</span><span class="p">))</span>
+
+    <span class="n">source_selection</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
+        <span class="n">options</span><span class="o">=</span><span class="n">poppy</span><span class="o">.</span><span class="n">specFromSpectralType</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">return_list</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+        <span class="n">value</span><span class="o">=</span><span class="s1">&#39;G0V&#39;</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Source spectrum&quot;</span>
+    <span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">source_selection</span><span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">widgets</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">&quot;&lt;hr&gt;&quot;</span><span class="p">))</span>
+
+    <span class="n">calculate_button</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Calculate PSF&quot;</span><span class="p">,</span>
+        <span class="n">width</span><span class="o">=</span><span class="s1">&#39;10em&#39;</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span>
+        <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#00c403&#39;</span><span class="p">,</span>
+        <span class="n">border_color</span><span class="o">=</span><span class="s1">&#39;#318732&#39;</span>
+    <span class="p">)</span>
+    <span class="n">display_osys_button</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Display Optical System&quot;</span><span class="p">,</span>
+        <span class="n">width</span><span class="o">=</span><span class="s1">&#39;13em&#39;</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span>
+        <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#005fc4&#39;</span><span class="p">,</span>
+        <span class="n">border_color</span><span class="o">=</span><span class="s1">&#39;#224A75&#39;</span>
+    <span class="p">)</span>
+    <span class="n">clear_button</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Clear Output&quot;</span><span class="p">,</span>
+        <span class="n">width</span><span class="o">=</span><span class="s1">&#39;10em&#39;</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span>
+        <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#ed4747&#39;</span><span class="p">,</span>
+        <span class="n">border_color</span><span class="o">=</span><span class="s1">&#39;#911C1C&#39;</span>
+    <span class="p">)</span>
+    <span class="n">progress</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s1">&#39;&lt;progress&gt;&#39;</span><span class="p">)</span>
+
+    <span class="n">OUTPUT_FILENAME</span> <span class="o">=</span> <span class="s1">&#39;psf.fits&#39;</span>
+    <span class="n">DOWNLOAD_BUTTON_HTML</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    &lt;a class=&quot;btn btn-info&quot; href=&quot;files/</span><span class="si">{}</span><span class="s2">&quot; target=&quot;_blank&quot;&gt;</span>
+<span class="s2">        Download FITS image from last calculation</span>
+<span class="s2">    &lt;/a&gt;</span>
+<span class="s2">    &quot;&quot;&quot;</span>
+    <span class="n">download_link</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">DOWNLOAD_BUTTON_HTML</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">OUTPUT_FILENAME</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">disp</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="n">progress</span><span class="o">.</span><span class="n">visible</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+        <span class="n">instrument</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+        <span class="n">progress</span><span class="o">.</span><span class="n">visible</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">calc</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="n">progress</span><span class="o">.</span><span class="n">visible</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="n">monochromatic_toggle</span><span class="o">.</span><span class="n">value</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">psf</span> <span class="o">=</span> <span class="n">instrument</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">(</span>
+                <span class="n">monochromatic</span><span class="o">=</span><span class="n">monochromatic_wavelength</span><span class="o">.</span><span class="n">value</span> <span class="o">*</span> <span class="mf">1e-6</span><span class="p">,</span>
+                <span class="n">display</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">outfile</span><span class="o">=</span><span class="n">OUTPUT_FILENAME</span><span class="p">,</span>
+                <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">source</span> <span class="o">=</span> <span class="n">poppy</span><span class="o">.</span><span class="n">specFromSpectralType</span><span class="p">(</span><span class="n">source_selection</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+            <span class="n">_log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Got source type </span><span class="si">{}</span><span class="s2">: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">source_selection</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">source</span><span class="p">))</span>
+            <span class="n">psf</span> <span class="o">=</span> <span class="n">instrument</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">(</span>
+                <span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">,</span>
+                <span class="n">display</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">outfile</span><span class="o">=</span><span class="n">OUTPUT_FILENAME</span><span class="p">,</span>
+                <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span>
+            <span class="p">)</span>
+        <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax_oversamp</span><span class="p">,</span> <span class="n">ax_detsamp</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+        <span class="n">title1</span> <span class="o">=</span> <span class="s2">&quot;PSF sim for </span><span class="si">{}</span><span class="s2">, </span><span class="si">{}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">instrument</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">instrument</span><span class="o">.</span><span class="n">filter</span><span class="p">)</span>
+        <span class="n">poppy</span><span class="o">.</span><span class="n">display_PSF</span><span class="p">(</span><span class="n">psf</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax_oversamp</span><span class="p">,</span>
+                          <span class="n">title</span><span class="o">=</span><span class="n">title1</span><span class="o">+</span><span class="s2">&quot;Oversampled PSF&quot;</span><span class="p">)</span>
+        <span class="n">poppy</span><span class="o">.</span><span class="n">display_PSF</span><span class="p">(</span><span class="n">psf</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax_detsamp</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s1">&#39;DET_SAMP&#39;</span><span class="p">,</span>
+                          <span class="n">title</span><span class="o">=</span><span class="n">title1</span><span class="o">+</span><span class="s1">&#39;Detector pixel sampled PSF&#39;</span><span class="p">)</span>
+        <span class="n">progress</span><span class="o">.</span><span class="n">visible</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">download_link</span><span class="o">.</span><span class="n">visible</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="n">clear_output</span><span class="p">()</span>
+        <span class="n">progress</span><span class="o">.</span><span class="n">visible</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">download_link</span><span class="o">.</span><span class="n">visible</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="n">calculate_button</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">calc</span><span class="p">)</span>
+    <span class="n">display_osys_button</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">disp</span><span class="p">)</span>
+    <span class="n">clear_button</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">clear</span><span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">widgets</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">&quot;&lt;br/&gt;&quot;</span><span class="p">))</span>  <span class="c1"># kludge</span>
+    <span class="n">buttons</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">HBox</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">calculate_button</span><span class="p">,</span> <span class="n">display_osys_button</span><span class="p">,</span> <span class="n">clear_button</span><span class="p">])</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">buttons</span><span class="p">)</span>
+
+    <span class="c1"># Insert the progress bar, hidden by default</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">progress</span><span class="p">)</span>
+    <span class="n">progress</span><span class="o">.</span><span class="n">visible</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="c1"># and the download link</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">download_link</span><span class="p">)</span>
+    <span class="n">download_link</span><span class="o">.</span><span class="n">visible</span> <span class="o">=</span> <span class="kc">None</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Association of Universities for Research in Astronomy
+      <span class="lastupdated">
+        Last updated on 20 Nov 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

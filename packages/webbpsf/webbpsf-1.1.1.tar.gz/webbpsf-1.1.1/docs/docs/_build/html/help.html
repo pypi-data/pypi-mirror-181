@@ -1,0 +1,274 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Diagnostics &amp; Troubleshooting &mdash; webbpsf v0.8.0</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/astropy_logo.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/stsci.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/stsci.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Sampling Requirements for Numerical Accuracy" href="sampling.html" />
+    <link rel="prev" title="WFI" href="api/webbpsf.WFI.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+            <a href="index.html" class="icon icon-home"> webbpsf
+            
+            <img src="_static/stsci_pri_combo_mark_white.png" class="logo" />
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.0
+              </div>
+            
+          
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+  
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Requirements &amp; Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="relnotes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Using WebbPSF via the Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jwst.html">JWST Instrument Model Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wfirst.html">WFIRST Instrument Model Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psf_grids.html">Using PSF Grids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="more_examples.html">More Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poppy.html">Overview of POPPY (Physical Optics Propagation in Python)</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html">Detailed API Reference</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Diagnostics &amp; Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sampling.html">Sampling Requirements for Numerical Accuracy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fft_optimization.html">Optimizing FFT Performance for PSF Computations with FFTW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="available_opds.html">Appendix: Available Optical Path Difference (OPD) files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">Appendix: Instrument Property References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">(Deprecated)  Graphical User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release.html">Developer Notes: Releasing a new version of WebbPSF</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">webbpsf</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Diagnostics &amp; Troubleshooting</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/help.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="diagnostics-troubleshooting">
+<h1>Diagnostics &amp; Troubleshooting<a class="headerlink" href="#diagnostics-troubleshooting" title="Permalink to this headline">¶</a></h1>
+<p>If something does not work right, the first place to look is the <a class="reference internal" href="relnotes.html#known-issues"><span class="std std-ref">Known Issues</span></a> section of the release notes. The next place to check is the <a class="reference external" href="https://github.com/spacetelescope/webbpsf/issues">GitHub issues</a> page, where another user may have reported the problem.</p>
+<p>To report a new issue, you will need a free GitHub account. Alternatively, you may report the issue via email to the project maintainers. Include code that exhibits the issue to facilitate debugging.</p>
+<p>WebbPSF includes a helper function that will return a report with information that may be useful for troubleshooting. An example of its usage is given below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="kn">import</span> <span class="nn">webbpsf</span>
+<span class="n">WebbPSF</span> <span class="n">log</span> <span class="n">messages</span> <span class="n">of</span> <span class="n">level</span> <span class="n">INFO</span> <span class="ow">and</span> <span class="n">above</span> <span class="n">will</span> <span class="n">be</span> <span class="n">shown</span><span class="o">.</span>
+<span class="n">WebbPSF</span> <span class="n">log</span> <span class="n">outputs</span> <span class="n">will</span> <span class="n">be</span> <span class="n">directed</span> <span class="n">to</span> <span class="n">the</span> <span class="n">screen</span><span class="o">.</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="nb">print</span> <span class="n">webbpsf</span><span class="o">.</span><span class="n">system_diagnostic</span><span class="p">()</span>
+
+<span class="n">OS</span><span class="p">:</span> <span class="n">Darwin</span><span class="o">-</span><span class="mf">13.4</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="n">x86_64</span><span class="o">-</span><span class="n">i386</span><span class="o">-</span><span class="mi">64</span><span class="n">bit</span>
+<span class="n">Python</span> <span class="n">version</span><span class="p">:</span> <span class="mf">2.7</span><span class="o">.</span><span class="mi">8</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">Oct</span>  <span class="mi">2</span> <span class="mi">2014</span><span class="p">,</span> <span class="mi">13</span><span class="p">:</span><span class="mi">50</span><span class="p">:</span><span class="mi">25</span><span class="p">)</span>  <span class="p">[</span><span class="n">GCC</span> <span class="mf">4.2</span><span class="o">.</span><span class="mi">1</span> <span class="n">Compatible</span> <span class="n">Apple</span> <span class="n">LLVM</span> <span class="mf">6.0</span> <span class="p">(</span><span class="n">clang</span><span class="o">-</span><span class="mf">600.0</span><span class="o">.</span><span class="mi">51</span><span class="p">)]</span>
+<span class="n">numpy</span> <span class="n">version</span><span class="p">:</span> <span class="mf">1.9</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">poppy</span> <span class="n">version</span><span class="p">:</span> <span class="mf">0.3</span><span class="o">.</span><span class="mf">3.</span><span class="n">dev335</span>
+<span class="n">webbpsf</span> <span class="n">version</span><span class="p">:</span> <span class="mf">0.3</span><span class="n">rc4</span>
+
+<span class="n">tkinter</span> <span class="n">version</span><span class="p">:</span> <span class="mf">0.3</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">wxpython</span> <span class="n">version</span><span class="p">:</span> <span class="ow">not</span> <span class="n">found</span>
+
+<span class="n">astropy</span> <span class="n">version</span><span class="p">:</span> <span class="mf">0.4</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">pysynphot</span> <span class="n">version</span><span class="p">:</span> <span class="mf">0.9</span><span class="o">.</span><span class="mi">6</span>
+<span class="n">pyFFTW</span> <span class="n">version</span><span class="p">:</span> <span class="mf">0.9</span><span class="o">.</span><span class="mi">2</span>
+
+<span class="n">Floating</span> <span class="n">point</span> <span class="nb">type</span> <span class="n">information</span> <span class="k">for</span> <span class="n">numpy</span><span class="o">.</span><span class="n">float</span><span class="p">:</span>
+<span class="n">Machine</span> <span class="n">parameters</span> <span class="k">for</span> <span class="n">float64</span>
+<span class="o">---------------------------------------------------------------------</span>
+<span class="n">precision</span><span class="o">=</span> <span class="mi">15</span>   <span class="n">resolution</span><span class="o">=</span> <span class="mf">1.0000000000000001e-15</span>
+<span class="n">machep</span><span class="o">=</span>   <span class="o">-</span><span class="mi">52</span>   <span class="n">eps</span><span class="o">=</span>        <span class="mf">2.2204460492503131e-16</span>
+<span class="n">negep</span> <span class="o">=</span>   <span class="o">-</span><span class="mi">53</span>   <span class="n">epsneg</span><span class="o">=</span>     <span class="mf">1.1102230246251565e-16</span>
+<span class="n">minexp</span><span class="o">=</span> <span class="o">-</span><span class="mi">1022</span>   <span class="n">tiny</span><span class="o">=</span>       <span class="mf">2.2250738585072014e-308</span>
+<span class="n">maxexp</span><span class="o">=</span>  <span class="mi">1024</span>   <span class="nb">max</span><span class="o">=</span>        <span class="mf">1.7976931348623157e+308</span>
+<span class="n">nexp</span>  <span class="o">=</span>    <span class="mi">11</span>   <span class="nb">min</span><span class="o">=</span>        <span class="o">-</span><span class="nb">max</span>
+<span class="o">---------------------------------------------------------------------</span>
+
+<span class="n">Floating</span> <span class="n">point</span> <span class="nb">type</span> <span class="n">information</span> <span class="k">for</span> <span class="n">numpy</span><span class="o">.</span><span class="n">complex</span><span class="p">:</span>
+<span class="n">Machine</span> <span class="n">parameters</span> <span class="k">for</span> <span class="n">float64</span>
+<span class="o">---------------------------------------------------------------------</span>
+<span class="n">precision</span><span class="o">=</span> <span class="mi">15</span>   <span class="n">resolution</span><span class="o">=</span> <span class="mf">1.0000000000000001e-15</span>
+<span class="n">machep</span><span class="o">=</span>   <span class="o">-</span><span class="mi">52</span>   <span class="n">eps</span><span class="o">=</span>        <span class="mf">2.2204460492503131e-16</span>
+<span class="n">negep</span> <span class="o">=</span>   <span class="o">-</span><span class="mi">53</span>   <span class="n">epsneg</span><span class="o">=</span>     <span class="mf">1.1102230246251565e-16</span>
+<span class="n">minexp</span><span class="o">=</span> <span class="o">-</span><span class="mi">1022</span>   <span class="n">tiny</span><span class="o">=</span>       <span class="mf">2.2250738585072014e-308</span>
+<span class="n">maxexp</span><span class="o">=</span>  <span class="mi">1024</span>   <span class="nb">max</span><span class="o">=</span>        <span class="mf">1.7976931348623157e+308</span>
+<span class="n">nexp</span>  <span class="o">=</span>    <span class="mi">11</span>   <span class="nb">min</span><span class="o">=</span>        <span class="o">-</span><span class="nb">max</span>
+<span class="o">---------------------------------------------------------------------</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sampling.html" class="btn btn-neutral float-right" title="Sampling Requirements for Numerical Accuracy" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="api/webbpsf.WFI.html" class="btn btn-neutral float-left" title="WFI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Association of Universities for Research in Astronomy
+      <span class="lastupdated">
+        Last updated on 20 Nov 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,324 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Developer Notes: Releasing a new version of WebbPSF &mdash; webbpsf v0.8.0</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/astropy_logo.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/stsci.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/stsci.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="(Deprecated) Graphical User Interface" href="gui.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+            <a href="index.html" class="icon icon-home"> webbpsf
+            
+            <img src="_static/stsci_pri_combo_mark_white.png" class="logo" />
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.0
+              </div>
+            
+          
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+  
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Requirements &amp; Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="relnotes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Using WebbPSF via the Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jwst.html">JWST Instrument Model Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wfirst.html">WFIRST Instrument Model Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psf_grids.html">Using PSF Grids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="more_examples.html">More Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poppy.html">Overview of POPPY (Physical Optics Propagation in Python)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html">Detailed API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help.html">Diagnostics &amp; Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sampling.html">Sampling Requirements for Numerical Accuracy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fft_optimization.html">Optimizing FFT Performance for PSF Computations with FFTW</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="available_opds.html">Appendix: Available Optical Path Difference (OPD) files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">Appendix: Instrument Property References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">(Deprecated)  Graphical User Interface</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Developer Notes: Releasing a new version of WebbPSF</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#releasing-new-data-packages">Releasing new data packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#releasing-new-versions-on-pypi">Releasing new versions on PyPI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#finishing-the-release">Finishing the release</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#releasing-a-new-version-through-astroconda">Releasing a new version through AstroConda</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">webbpsf</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Developer Notes: Releasing a new version of WebbPSF</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/release.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="developer-notes-releasing-a-new-version-of-webbpsf">
+<h1>Developer Notes: Releasing a new version of WebbPSF<a class="headerlink" href="#developer-notes-releasing-a-new-version-of-webbpsf" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>Is the build <a class="reference external" href="https://travis-ci.org/spacetelescope/webbpsf">passing on Travis?</a></p></li>
+<li><p>Are you up to date with <code class="docutils literal notranslate"><span class="pre">master</span></code> on the upstream branch (spacetelescope/webbpsf)?</p></li>
+<li><p>Do you have <a class="reference external" href="https://pypi.python.org/pypi/twine">twine</a> installed?</p></li>
+<li><p>Do you have access to WebbPSF on PyPI with the owner or maintainer role?</p></li>
+<li><p>Do you have your <code class="docutils literal notranslate"><span class="pre">~/.pypirc</span></code> filled out? (<a class="reference external" href="https://python-packaging-user-guide.readthedocs.org/en/latest/distributing.html#register-your-project">more info</a>)</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="releasing-new-data-packages">
+<h2>Releasing new data packages<a class="headerlink" href="#releasing-new-data-packages" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">dev_utils/make-data-sdist.sh</span></code> (details below) to make a gzipped tarred archive of the WebbPSF data</p></li>
+<li><p>If the new data package is <strong>required</strong> (meaning you can’t run WebbPSF without it, or you can run but may get incorrect results), you must bump <code class="docutils literal notranslate"><span class="pre">DATA_VERSION_MIN</span></code> in <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> to <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">X,</span> <span class="pre">Y)</span></code></p></li>
+<li><p>Extract the resulting data archive and check that you can run the WebbPSF tests with <code class="docutils literal notranslate"><span class="pre">WEBBPSF_PATH</span></code> pointing to it</p></li>
+<li><p>Copy the data archive into public web space</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span></code> to <code class="docutils literal notranslate"><span class="pre">/grp/jwst/ote</span></code> and remove the <code class="docutils literal notranslate"><span class="pre">webbpsf-data</span></code> symlink</p></li>
+<li><p>Copy the archive into <code class="docutils literal notranslate"><span class="pre">/grp/jwst/ote/</span></code> and extract it to <code class="docutils literal notranslate"><span class="pre">/grp/jwst/ote/webbpsf-data</span></code></p></li>
+<li><p>Rename the folder to <code class="docutils literal notranslate"><span class="pre">webbpsf-data-0.x.y</span></code></p></li>
+<li><p>Create a symbolic link at <code class="docutils literal notranslate"><span class="pre">/grp/jwst/ote/webbpsf-data</span></code> to point to the new folder</p></li>
+<li><p>Update the URL in <code class="docutils literal notranslate"><span class="pre">installation.rst</span></code> under <a class="reference internal" href="installation.html#data-install"><span class="std std-ref">Installing the Required Data Files</span></a></p></li>
+</ol>
+</div></blockquote>
+<p>Invoke <code class="docutils literal notranslate"><span class="pre">dev_utils/make-data-sdist.sh</span></code> one of the following ways to make a gzipped tarred archive of the WebbPSF data suitable for distribution.</p>
+<p><strong>If you are on the Institute network:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd webbpsf/dev_utils/
+$ ./make-data-sdist.sh 0.X.Y
+$ cp ./webbpsf-data-0.X.Y.tar.gz /path/to/public/web/directory/
+</pre></div>
+</div>
+<p><strong>If you’re working from a local data root:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd webbpsf/dev_utils/
+$ DATAROOT=&quot;/Users/you/webbpsf-data-sources/&quot; ./make-data-sdist.sh 0.X.Y
+$ cp ./webbpsf-data-0.X.Y.tar.gz /where/ever/you/want/
+</pre></div>
+</div>
+</div>
+<div class="section" id="releasing-new-versions-on-pypi">
+<h2>Releasing new versions on PyPI<a class="headerlink" href="#releasing-new-versions-on-pypi" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Edit <code class="docutils literal notranslate"><span class="pre">relnotes.rst</span></code> to add a release date and reference anchor (e.g. <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">_rel0.X.Y:</span></code>) to the section for this release</p></li>
+<li><p>Update the link to “What’s new” in <code class="docutils literal notranslate"><span class="pre">index.rst</span></code></p></li>
+<li><p>Add any important notes to the appropriate section in the release notes</p></li>
+<li><p>Edit <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> in this repository to remove <code class="docutils literal notranslate"><span class="pre">.dev</span></code> from the version number in the <code class="docutils literal notranslate"><span class="pre">VERSION</span></code> variable</p></li>
+<li><p>Build a source distribution with <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">build</span> <span class="pre">sdist</span></code></p></li>
+<li><p>Copy the resulting file (<code class="docutils literal notranslate"><span class="pre">webbpsf-0.X.Y.tar.gz</span></code>) to a new folder, extract it, and <code class="docutils literal notranslate"><span class="pre">cd</span></code> there</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">test</span></code> (preferably in a new <code class="docutils literal notranslate"><span class="pre">virtualenv</span></code> containing only the WebbPSF dependencies) and verify that the test suite passes with the code you’re about to release</p></li>
+<li><p>If that runs as expected, <code class="docutils literal notranslate"><span class="pre">cd</span></code> back to your <code class="docutils literal notranslate"><span class="pre">webbpsf</span></code> repository and run <code class="docutils literal notranslate"><span class="pre">twine</span> <span class="pre">upload</span> <span class="pre">dist/webbpsf-0.X.Y.tar.gz</span></code> for your new version</p></li>
+<li><p>Verify that the latest version is visible and others are hidden on the <a class="reference external" href="https://pypi.python.org/pypi?%3Aaction=pkg_edit&amp;name=webbpsf">PyPI package editing page</a></p></li>
+</ol>
+</div></blockquote>
+<div class="section" id="finishing-the-release">
+<h3>Finishing the release<a class="headerlink" href="#finishing-the-release" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Commit your edits to <code class="docutils literal notranslate"><span class="pre">relnotes.rst</span></code> and <code class="docutils literal notranslate"><span class="pre">setup.py</span></code></p></li>
+<li><p>Tag that commit as the release with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">tag</span> <span class="pre">v0.X.Y</span></code> and push the tags to origin and upstream with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">--tags</span> <span class="pre">origin</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">--tags</span> <span class="pre">upstream</span></code></p></li>
+<li><p>Edit <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> to increment the version number in the <code class="docutils literal notranslate"><span class="pre">VERSION</span></code> variable and re-add the <code class="docutils literal notranslate"><span class="pre">.dev</span></code> suffix</p></li>
+<li><p>Edit <code class="docutils literal notranslate"><span class="pre">relnotes.rst</span></code> to add a new heading for the upcoming version</p></li>
+<li><p>Commit your edits with a message like “Back to development: version 0.X.Y+1”</p></li>
+<li><p>Email an announcement to <code class="docutils literal notranslate"><span class="pre">webbpsf-users&#64;stsci.edu</span></code></p></li>
+</ol>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="releasing-a-new-version-through-astroconda">
+<h2>Releasing a new version through AstroConda<a class="headerlink" href="#releasing-a-new-version-through-astroconda" title="Permalink to this headline">¶</a></h2>
+<p>To test that an Astroconda package builds, you will need <code class="docutils literal notranslate"><span class="pre">conda-build</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda install conda-build
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>Fork (if needed) and clone <a class="reference external" href="https://github.com/astroconda/astroconda-contrib">https://github.com/astroconda/astroconda-contrib</a></p></li>
+<li><p>If there is a new version of POPPY available to package, edit <a class="reference external" href="https://github.com/astroconda/astroconda-contrib/blob/master/poppy/meta.yaml">poppy/meta.yaml</a> to reflect the new <code class="docutils literal notranslate"><span class="pre">version</span></code> and <code class="docutils literal notranslate"><span class="pre">git_tag</span></code>.</p></li>
+<li><p>If the minimum needed version of the webbpsf-data package has changed in <code class="docutils literal notranslate"><span class="pre">webbpsf/__init__.py</span></code>, edit <a class="reference external" href="https://github.com/astroconda/astroconda-contrib/blob/master/webbpsf-data/meta.yaml">webbpsf-data/meta.yaml</a> to reflect the new <code class="docutils literal notranslate"><span class="pre">version</span></code> and <code class="docutils literal notranslate"><span class="pre">url</span></code>.</p></li>
+<li><p>Edit <a class="reference external" href="https://github.com/astroconda/astroconda-contrib/blob/master/webbpsf/meta.yaml">webbpsf/meta.yaml</a> to reflect the new versions of POPPY and webbpsf-data, if necessary.</p></li>
+<li><p>Edit in the <code class="docutils literal notranslate"><span class="pre">git_tag</span></code> name from <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">tag</span></code> in the PyPI release instructions (<code class="docutils literal notranslate"><span class="pre">v0.X.Y</span></code>).</p></li>
+<li><p>Verify that you can build the package from the astroconda-contrib directory: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">build</span> <span class="pre">-c</span> <span class="pre">http://ssb.stsci.edu/astroconda</span> <span class="pre">webbpsf</span></code></p></li>
+<li><p>Commit your changes to a new branch and push to GitHub.</p></li>
+<li><p>Create a pull request against <code class="docutils literal notranslate"><span class="pre">astroconda/astroconda-contrib</span></code>.</p></li>
+<li><p>Wait for SSB to build the conda packages.</p></li>
+<li><p>(optional) Create a new conda environment to test the package installation following <a class="reference internal" href="installation.html#install-with-conda"><span class="std std-ref">these instructions</span></a>.</p></li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="gui.html" class="btn btn-neutral float-left" title="(Deprecated) Graphical User Interface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Association of Universities for Research in Astronomy
+      <span class="lastupdated">
+        Last updated on 20 Nov 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

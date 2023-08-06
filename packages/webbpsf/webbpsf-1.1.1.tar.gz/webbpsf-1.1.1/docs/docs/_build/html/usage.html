@@ -1,0 +1,604 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Using WebbPSF via the Python API &mdash; webbpsf v0.8.0</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/astropy_logo.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/stsci.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/stsci.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="JWST Instrument Model Details" href="jwst.html" />
+    <link rel="prev" title="Release Notes" href="relnotes.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+            <a href="index.html" class="icon icon-home"> webbpsf
+            
+            <img src="_static/stsci_pri_combo_mark_white.png" class="logo" />
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.0
+              </div>
+            
+          
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+  
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Requirements &amp; Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="relnotes.html">Release Notes</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Using WebbPSF via the Python API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#usage-and-examples">Usage and Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#input-source-spectra">Input Source Spectra</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#making-monochromatic-psfs">Making Monochromatic PSFs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adjusting-source-position-centering-and-output-format">Adjusting source position, centering, and output format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pixel-scales-sampling-and-oversampling">Pixel scales, sampling, and oversampling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#psf-normalization">PSF normalization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#controlling-output-log-text">Controlling output log text</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#advanced-usage-output-file-format-opds-and-more">Advanced Usage: Output file format, OPDs, and more</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#writing-out-only-downsampled-images">Writing out only downsampled images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#writing-out-intermediate-images">Writing out intermediate images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#providing-your-own-opds-or-pupils-from-some-other-source">Providing your own OPDs or pupils from some other source</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#calculating-data-cubes">Calculating Data Cubes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#subclassing-a-jwinstrument-to-add-additional-functionality">Subclassing a JWInstrument to add additional functionality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#defocusing-an-instrument">Defocusing an instrument</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jwst.html">JWST Instrument Model Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wfirst.html">WFIRST Instrument Model Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psf_grids.html">Using PSF Grids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="more_examples.html">More Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poppy.html">Overview of POPPY (Physical Optics Propagation in Python)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html">Detailed API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help.html">Diagnostics &amp; Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sampling.html">Sampling Requirements for Numerical Accuracy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fft_optimization.html">Optimizing FFT Performance for PSF Computations with FFTW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="available_opds.html">Appendix: Available Optical Path Difference (OPD) files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">Appendix: Instrument Property References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">(Deprecated)  Graphical User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release.html">Developer Notes: Releasing a new version of WebbPSF</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">webbpsf</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Using WebbPSF via the Python API</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/usage.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <span class="target" id="module-webbpsf"></span><div class="section" id="using-webbpsf-via-the-python-api">
+<span id="using-api"></span><h1>Using WebbPSF via the Python API<a class="headerlink" href="#using-webbpsf-via-the-python-api" title="Permalink to this headline">¶</a></h1>
+<p>WebbPSF provides
+five classes corresponding to the JWST instruments and two for the WFIRST instruments, with consistent interfaces. It also provides a variety of
+supporting tools for measuring PSF properties and manipulating telescope state models.
+See <a class="reference internal" href="api_reference.html#detailed-api"><span class="std std-ref">this page</span></a> for the detailed API; for now let’s dive into some example code.</p>
+<p><a class="reference internal" href="more_examples.html#more-examples"><span class="std std-ref">Additional code examples</span></a> are available later in this documentation.</p>
+<div class="section" id="usage-and-examples">
+<h2>Usage and Examples<a class="headerlink" href="#usage-and-examples" title="Permalink to this headline">¶</a></h2>
+<p>Simple PSFs are easily obtained:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">webbpsf</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nc</span> <span class="o">=</span> <span class="n">webbpsf</span><span class="o">.</span><span class="n">NIRCam</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nc</span><span class="o">.</span><span class="n">filter</span> <span class="o">=</span>  <span class="s1">&#39;F200W&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">psf</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">(</span><span class="n">oversample</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>     <span class="c1"># returns an astropy.io.fits.HDUlist containing PSF and header</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">psf</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>             <span class="c1"># display it on screen yourself, or</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">webbpsf</span><span class="o">.</span><span class="n">display_psf</span><span class="p">(</span><span class="n">psf</span><span class="p">)</span>            <span class="c1"># use this convenient function to make a nice log plot with labeled axes</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">psf</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">(</span><span class="nb">filter</span><span class="o">=</span><span class="s1">&#39;F470N&#39;</span><span class="p">,</span> <span class="n">oversample</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>    <span class="c1"># this is just a shortcut for setting the filter, then computing a PSF</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nc</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">(</span><span class="s2">&quot;myPSF.fits&quot;</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="s1">&#39;F480M&#39;</span><span class="p">)</span>         <span class="c1"># you can also write the output directly to disk if you prefer.</span>
+</pre></div>
+</div>
+<p>For interactive use, you can have the PSF displayed as it is computed:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">nc</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">(</span><span class="n">display</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>                          <span class="c1"># will make nice plots with matplotlib.</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/fig1_nircam_f200w.png"><img alt="Sample PSF image" class="align-center" src="_images/fig1_nircam_f200w.png" style="width: 900.0px; height: 450.0px;" /></a>
+<p>More complicated instrumental configurations are available by setting the instrument’s attributes. For instance,
+one can create an instance of MIRI and configure it for coronagraphic observations, thus:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">miri</span> <span class="o">=</span> <span class="n">webbpsf</span><span class="o">.</span><span class="n">MIRI</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">miri</span><span class="o">.</span><span class="n">filter</span> <span class="o">=</span> <span class="s1">&#39;F1065C&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">miri</span><span class="o">.</span><span class="n">image_mask</span> <span class="o">=</span> <span class="s1">&#39;FQPM1065&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">miri</span><span class="o">.</span><span class="n">pupil_mask</span> <span class="o">=</span> <span class="s1">&#39;MASKFQPM&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">miri</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">(</span><span class="s1">&#39;outfile.fits&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/fig_miri_coron_f1065c.png"><img alt="Sample PSF image" class="align-center" src="_images/fig_miri_coron_f1065c.png" style="width: 535.5px; height: 321.0px;" /></a>
+<div class="section" id="input-source-spectra">
+<h3>Input Source Spectra<a class="headerlink" href="#input-source-spectra" title="Permalink to this headline">¶</a></h3>
+<p>WebbPSF attempts to calculate realistic weighted broadband PSFs taking into account both the source spectrum and the instrumental spectral response.</p>
+<p>The default source spectrum is, if <code class="xref py py-mod docutils literal notranslate"><span class="pre">pysynphot</span></code> is installed, a G2V star spectrum from Castelli &amp; Kurucz 2004. Without <code class="xref py py-mod docutils literal notranslate"><span class="pre">pysynphot</span></code>, the default is a simple flat spectrum such that the same number of photons are detected at each wavelength.</p>
+<p>You may choose a different illuminating source spectrum by specifying a <code class="docutils literal notranslate"><span class="pre">source</span></code> parameter in the call to <code class="docutils literal notranslate"><span class="pre">calc_psf()</span></code>. The following are valid sources:</p>
+<ol class="arabic">
+<li><p>A <code class="xref py py-class docutils literal notranslate"><span class="pre">pysynphot.Spectrum</span></code> object. This is the best option, providing maximum ease and accuracy, but requires the user to have <code class="xref py py-mod docutils literal notranslate"><span class="pre">pysynphot</span></code> installed.  In this case, the <code class="xref py py-class docutils literal notranslate"><span class="pre">Spectrum</span></code> object is combined with a <code class="xref py py-class docutils literal notranslate"><span class="pre">pysynphot.ObsBandpass</span></code> for the selected instrument and filter to derive the effective stimulus in detected photoelectrons versus wavelength. This is binned to the number of wavelengths set by the <code class="docutils literal notranslate"><span class="pre">nlambda</span></code> parameter.</p></li>
+<li><p>A dictionary with elements <code class="docutils literal notranslate"><span class="pre">source[&quot;wavelengths&quot;]</span></code> and <code class="docutils literal notranslate"><span class="pre">source[&quot;weights&quot;]</span></code> giving the wavelengths in meters and the relative weights for each. These should be numpy arrays or lists. In this case, the wavelengths and weights are used exactly as provided, without applying the instrumental filter profile.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">src</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;wavelengths&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">2.0e-6</span><span class="p">,</span> <span class="mf">2.1e-6</span><span class="p">,</span> <span class="mf">2.2e-6</span><span class="p">],</span> <span class="s1">&#39;weights&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nc</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">src</span><span class="p">,</span> <span class="n">outfile</span><span class="o">=</span><span class="s1">&#39;psf_for_src.fits&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>A tuple or list containing the numpy arrays <code class="docutils literal notranslate"><span class="pre">(wavelength,</span> <span class="pre">weights)</span></code> instead.</p></li>
+</ol>
+<p>As a convenience, webbpsf includes a function to retrieve an appropriate <code class="xref py py-class docutils literal notranslate"><span class="pre">pysynphot.Spectrum</span></code> object for a given stellar spectral type from the PHOENIX or Castelli &amp; Kurucz model libraries.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">src</span> <span class="o">=</span> <span class="n">webbpsf</span><span class="o">.</span><span class="n">specFromSpectralType</span><span class="p">(</span><span class="s1">&#39;G0V&#39;</span><span class="p">,</span> <span class="n">catalog</span><span class="o">=</span><span class="s1">&#39;phoenix&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">psf</span> <span class="o">=</span> <span class="n">miri</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">src</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="making-monochromatic-psfs">
+<h3>Making Monochromatic PSFs<a class="headerlink" href="#making-monochromatic-psfs" title="Permalink to this headline">¶</a></h3>
+<p>To calculate a monochromatic PSF, just use the <code class="docutils literal notranslate"><span class="pre">monochromatic</span></code> parameter. Wavelengths are always specified in meters.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">psf</span> <span class="o">=</span> <span class="n">miri</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">(</span><span class="n">monochromatic</span><span class="o">=</span><span class="mf">9.876e-6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="adjusting-source-position-centering-and-output-format">
+<h3>Adjusting source position, centering, and output format<a class="headerlink" href="#adjusting-source-position-centering-and-output-format" title="Permalink to this headline">¶</a></h3>
+<p>A number of non-instrument-specific calculation options can be adjusted through the <code class="xref py py-obj docutils literal notranslate"><span class="pre">options</span></code> dictionary attribute on each instrument instance. (For a complete listing of options available, consult <code class="xref py py-attr docutils literal notranslate"><span class="pre">JWInstrument.options</span></code>.)</p>
+<div class="section" id="input-source-position-offsets">
+<h4>Input Source position offsets<a class="headerlink" href="#input-source-position-offsets" title="Permalink to this headline">¶</a></h4>
+<p>The PSF may be shifted off-center by adjusting the offset of the stellar source. This is done in polar coordinates:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">instrument</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;source_offset_r&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.3</span>         <span class="c1"># offset in arcseconds</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">instrument</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;source_offset_theta&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">45.</span>     <span class="c1"># degrees counterclockwise from instrumental +Y in the science frame</span>
+</pre></div>
+</div>
+<p>If these options are set, the offset is applied relative to the central coordinates as defined by the output array size and parity (described just below).</p>
+<p>For coronagraphic modes, the coronagraph occulter is always assumed to be at the center of the output array. Therefore, these options let you offset the source away from the coronagraph.</p>
+</div>
+<div class="section" id="simulating-telescope-jitter">
+<h4>Simulating telescope jitter<a class="headerlink" href="#simulating-telescope-jitter" title="Permalink to this headline">¶</a></h4>
+<p>Space-based observatories don’t have to contend with the seeing limit, but imprecisions in telescope pointing can have the effect of smearing out the PSF. To simulate this with WebbPSF, the option names are <code class="docutils literal notranslate"><span class="pre">jitter</span></code> and <code class="docutils literal notranslate"><span class="pre">jitter_sigma</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">instrument</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;jitter&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;gaussian&#39;</span>   <span class="c1"># jitter model name or None</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">instrument</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;jitter_sigma&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.009</span>  <span class="c1"># in arcsec, default 0.007</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="array-sizes-star-positions-and-centering">
+<h4>Array sizes, star positions, and centering<a class="headerlink" href="#array-sizes-star-positions-and-centering" title="Permalink to this headline">¶</a></h4>
+<p>Output array sizes may be specified either in units of arcseconds or pixels.  For instance,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mynircam</span> <span class="o">=</span> <span class="n">webbpsf</span><span class="o">.</span><span class="n">NIRCam</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">mynircam</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">(</span><span class="n">fov_arcsec</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">oversample</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="s1">&#39;F250M&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result2</span><span class="o">=</span> <span class="n">mynircam</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">(</span><span class="n">fov_pixels</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">oversample</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="s1">&#39;F250M&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In the latter example, you will in fact get an array which is 1024 pixels on a side: 512 physical detector pixels, times an oversampling of 2.</p>
+<p>By default, the PSF will be centered at the exact center of the output array. This means that if the PSF is computed on an array with an odd number of pixels, the
+PSF will be centered exactly on the central pixel. If the PSF is computed on an array with even size, it will be centered on the “crosshairs” at the intersection of the central four pixels.
+If one of these is particularly desirable to you, set the parity option appropriately:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span> <span class="n">instrument</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;parity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;even&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span> <span class="n">instrument</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;parity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;odd&#39;</span>
+</pre></div>
+</div>
+<p>Setting one of these options will ensure that a field of view specified in arcseconds is properly rounded to either odd or even when converted from arcsec to pixels. Alternatively,
+you may also just set the desired number of pixels explicitly in the call to calc_psf():</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span> <span class="n">instrument</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">(</span><span class="n">fov_npixels</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please note that these parity options apply to the number of <em>detector
+pixels</em> in your simulation. If you request oversampling, then the number of
+pixels in the output file for an oversampled array will be
+<code class="docutils literal notranslate"><span class="pre">fov_npixels</span></code> times <code class="docutils literal notranslate"><span class="pre">oversampling</span></code>. Hence, if you request an odd
+parity with an even oversampling of, say, 4, then you would get an array
+with a total number of data pixels that is even, but that correctly represents
+the PSF located at the center of an odd number of detector pixels.</p>
+</div>
+</div>
+<div class="section" id="output-format-options-for-sampling">
+<h4>Output format options for sampling<a class="headerlink" href="#output-format-options-for-sampling" title="Permalink to this headline">¶</a></h4>
+<p>As just explained, WebbPSF can easily calculate PSFs on a finer grid than the detector’s native pixel scale. You can select whether the output data should include this oversampled image, a copy that has instead been rebinned down to match the detector scale, or optionally both. This is done using the <code class="docutils literal notranslate"><span class="pre">options['output_mode']</span></code> parameter.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">nircam</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;output_mode&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;oversampled&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">psf</span> <span class="o">=</span> <span class="n">nircam</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">()</span>       <span class="c1"># the &#39;psf&#39; variable will be an oversampled PSF, formatted as a FITS HDUlist</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nircam</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;output_mode&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;detector sampled&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">psf2</span> <span class="o">=</span> <span class="n">nircam</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">()</span>      <span class="c1"># now &#39;psf2&#39; will contain the result as resampled onto the detector scale.</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nircam</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;output_mode&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;both&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">psf3</span> <span class="o">=</span> <span class="n">nircam</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">()</span>      <span class="c1"># &#39;psf3&#39; will have the oversampled image as primary HDU, and</span>
+<span class="gp">&gt;&gt;&gt; </span>                             <span class="c1"># the detector-sampled image as the first image extension HDU.</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The default behavior is <code class="xref py py-obj docutils literal notranslate"><span class="pre">both</span></code>. Note that at some point in the future, this default is likely to change to detector sampling.
+To future-proof your code, set <code class="xref py py-obj docutils literal notranslate"><span class="pre">options['output_mode']</span></code> explicitly.</p>
+</div>
+</div>
+</div>
+<div class="section" id="pixel-scales-sampling-and-oversampling">
+<h3>Pixel scales, sampling, and oversampling<a class="headerlink" href="#pixel-scales-sampling-and-oversampling" title="Permalink to this headline">¶</a></h3>
+<p>The derived instrument classes all know their own instrumental pixel scales. You can change the output
+pixel scale in a variety of ways, as follows. See the <code class="xref py py-class docutils literal notranslate"><span class="pre">JWInstrument.calc_psf</span></code> documentation for more details.</p>
+<ol class="arabic">
+<li><p>Set the <code class="docutils literal notranslate"><span class="pre">oversample</span></code> parameter to calc_psf(). This will produce a PSF with a pixel grid this many times more finely sampled.
+<code class="docutils literal notranslate"><span class="pre">oversample=1</span></code> is the native detector scale, <code class="docutils literal notranslate"><span class="pre">oversample=2</span></code> means divide each pixel into 2x2 finer pixels, and so forth.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">hdulist</span> <span class="o">=</span> <span class="n">instrument</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">(</span><span class="n">oversample</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>    <span class="c1"># hdulist will contain a primary HDU with the</span>
+<span class="gp">&gt;&gt;&gt; </span>                                               <span class="c1"># oversampled data</span>
+</pre></div>
+</div>
+</li>
+<li><p>For coronagraphic calculations, it is possible to set different oversampling factors at different parts of the calculation. See the <code class="docutils literal notranslate"><span class="pre">calc_oversample</span></code> and <code class="docutils literal notranslate"><span class="pre">detector_oversample</span></code> parameters. This
+is of no use for regular imaging calculations (in which case <code class="docutils literal notranslate"><span class="pre">oversample</span></code> is a synonym for <code class="docutils literal notranslate"><span class="pre">detector_oversample</span></code>). Specifically, the <code class="docutils literal notranslate"><span class="pre">calc_oversample</span></code> keyword is used for Fourier transformation to and from the intermediate optical plane where the occulter (coronagraph spot) is located, while <code class="docutils literal notranslate"><span class="pre">detector_oversample</span></code> is used for propagation to the final detector. Note that the behavior of these keywords changes for coronagraphic modeling using the Semi-Analytic Coronagraphic propagation algorithm (not fully documented yet - contact Marshall Perrin if curious).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">miri</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">(</span><span class="n">calc_oversample</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">detector_oversample</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># model the occulter with very fine pixels, then save the</span>
+<span class="gp">&gt;&gt;&gt; </span>                                                         <span class="c1"># data on a coarser (but still oversampled) scale</span>
+</pre></div>
+</div>
+</li>
+<li><p>Or, if you need even more flexibility, just change the <code class="docutils literal notranslate"><span class="pre">instrument.pixelscale</span></code> attribute to be whatever arbitrary scale you require.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">instrument</span><span class="o">.</span><span class="n">pixelscale</span> <span class="o">=</span> <span class="mf">0.0314159</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>Note that the calculations performed by WebbPSF are somewhat memory intensive, particularly for coronagraphic observations. All arrays used internally are
+double-precision complex floats (16 bytes per value), and many arrays of size <code class="xref py py-obj docutils literal notranslate"><span class="pre">(npixels</span> <span class="pre">*</span> <span class="pre">oversampling)^2</span></code> are needed (particularly if display options are turned on, since the
+matplotlib graphics library makes its own copy of all arrays displayed).</p>
+<p>Your average laptop with a couple GB of RAM will do perfectly well for most computations so long as you’re not too ambitious with setting array size and oversampling.
+If you’re interested in very high fidelity simulations of large fields (e.g. 1024x1024 pixels oversampled 8x) then we recommend a large multicore desktop with &gt;16 GB RAM.</p>
+</div>
+<div class="section" id="psf-normalization">
+<span id="normalization"></span><h3>PSF normalization<a class="headerlink" href="#psf-normalization" title="Permalink to this headline">¶</a></h3>
+<p>By default, PSFs are normalized to total intensity = 1.0 at the entrance pupil (i.e. at the JWST OTE primary). A PSF calculated for an infinite aperture would thus have integrated intensity =1.0. A PSF calculated on any smaller finite subarray will have some finite encircled energy less than one. For instance, at 2 microns a 10 arcsecond size FOV will enclose about 99% of the energy of the PSF.  Note that if there are any additional obscurations in the optical system (such as coronagraph masks, spectrograph slits, etc), then the fraction of light that reaches the final focal plane will typically be significantly less than 1, even if calculated on an arbitrarily large aperture. For instance the NIRISS NRM mask has a throughput of about 15%, so a PSF calculated in this mode with the default normalization will have integrated total intensity approximately 0.15 over a large FOV.</p>
+<p>If a different normalization is desired, there are a few options that can be set in calls to calc_psf:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span> <span class="n">psf</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="s1">&#39;last&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The above will normalize a PSF after the calculation, so the output (i.e. the PSF on whatever finite subarray) has total integrated intensity = 1.0.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span> <span class="n">psf</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="s1">&#39;exit_pupil&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The above will normalize a PSF at the exit pupil (i.e. last pupil plane in the optical model). This normalization takes out the effect of any pupil obscurations such as coronagraph masks, spectrograph slits or pupil masks, the NIRISS NRM mask, and so forth. However it still leaves in the effect of any finite FOV. In other words, PSFs calculated in this mode will have integrated total intensity = 1.0 over an infinitely large FOV, even after the effects of any obscurations.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>An aside on throughputs and normalization: Note that <em>by design</em> WebbPSF
+does not track or model the absolute throughput of any instrument.
+Consult the JWST Exposure Time Calculator and associated reference
+material if you are interested in absolute throughputs. Instead WebbPSF
+simply allows normalization of output PSFs’ total intensity to 1 at
+either the entrance pupil, exit pupil, or final focal plane. When used
+to generate monochromatic PSFs for use in the JWST ETC, the entrance
+pupil normalization option is selected. Therefore WebbPSF first applies
+the normalization to unit flux at the primary mirror, propagates it
+through the optical system ignoring any reflective or transmissive
+losses from mirrors or filters (since the ETC throughput curves take
+care of those), and calculates only the diffractive losses from slits
+and stops. Any loss of light from optical stops (Lyot stops,
+spectrograph slits or coronagraph masks, the NIRISS NRM mask, etc.) will
+thus be included in the WebbPSF calculation.  Everything else (such as
+reflective or transmissive losses, detector quantum efficiencies, etc.,
+plus scaling for the specified target spectrum and brightness) is the
+ETC’s job. This division of labor has been coordinated with the ETC team
+and ensures each factor that affects throughput is handled by one or the
+other system but is not double counted in both.</p>
+<p>To support realistic calculation of broadband PSFs however, WebbPSF does
+include normalized copies of the relative spectral response functions
+for every filter in each instrument.  These are included in the WebbPSF
+data distribution, and are derived behind the scenes from the same
+reference database as is used for the ETC. These relative spectral
+response functions are used to make a proper weighted sum of the
+individual monochromatic PSFs in a broadband calculation: weighted
+<em>relative to the broadband total flux of one another</em>, but still with no implied
+absolute normalization.</p>
+</div>
+</div>
+<div class="section" id="controlling-output-log-text">
+<h3>Controlling output log text<a class="headerlink" href="#controlling-output-log-text" title="Permalink to this headline">¶</a></h3>
+<p>WebbPSF can output a log of calculation steps while it runs, which can be displayed to the screen and optionally saved to a file.
+This is useful for verifying or debugging calculations.  To turn on log display, just run</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">webbpsf</span><span class="o">.</span><span class="n">setup_logging</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;webbpsf.log&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The setup_logging function allows selection of the level of log detail following the standard Python logging system (DEBUG, INFO, WARN, ERROR).
+To disable all printout of log messages, except for errors, set</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">webbpsf</span><span class="o">.</span><span class="n">setup_logging</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s1">&#39;ERROR&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>WebbPSF remembers your
+chosen logging settings between invocations, so if you close and then restart python it will automatically continue logging at the same level of detail as before.
+See <a class="reference internal" href="api/webbpsf.setup_logging.html#webbpsf.setup_logging" title="webbpsf.setup_logging"><code class="xref py py-func docutils literal notranslate"><span class="pre">webbpsf.setup_logging()</span></code></a> for more details.</p>
+</div>
+</div>
+<div class="section" id="advanced-usage-output-file-format-opds-and-more">
+<h2>Advanced Usage: Output file format, OPDs, and more<a class="headerlink" href="#advanced-usage-output-file-format-opds-and-more" title="Permalink to this headline">¶</a></h2>
+<p>This section serves as a catch-all for some more esoteric customizations and applications. See also the <a class="reference internal" href="more_examples.html#more-examples"><span class="std std-ref">More Examples</span></a> page.</p>
+<div class="section" id="writing-out-only-downsampled-images">
+<h3>Writing out only downsampled images<a class="headerlink" href="#writing-out-only-downsampled-images" title="Permalink to this headline">¶</a></h3>
+<p>Perhaps you may want to calculate the PSF using oversampling, but to save disk space you only want to write out the PSF downsampled to detector resolution.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span>  <span class="n">inst</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;DET_SAMP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">writeto</span><span class="p">(</span><span class="n">outputfilename</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Or if you really care about writing it as a primary HDU rather than an extension, replace the 2nd line with</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pyfits</span><span class="o">.</span><span class="n">PrimaryHDU</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;DET_SAMP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;DET_SAMP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">)</span><span class="o">.</span><span class="n">writeto</span><span class="p">(</span><span class="n">outputfilename</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="writing-out-intermediate-images">
+<h3>Writing out intermediate images<a class="headerlink" href="#writing-out-intermediate-images" title="Permalink to this headline">¶</a></h3>
+<p>Your calculation may involve intermediate pupil and image planes (in fact, it most likely does). WebbPSF / POPPY allow you to inspect the intermediate pupil and image planes visually with the display keyword argument to <code class="xref py py-meth docutils literal notranslate"><span class="pre">calc_psf()</span></code>. Sometimes, however, you may want to save these arrays to FITS files for analysis. This is done with the <code class="docutils literal notranslate"><span class="pre">save_intermediates</span></code> keyword argument to <code class="xref py py-meth docutils literal notranslate"><span class="pre">calc_psf()</span></code>.</p>
+<p>The intermediate wavefront planes will be written out to FITS files in the current directory, named in the format <code class="docutils literal notranslate"><span class="pre">wavefront_plane_%03d.fits</span></code>. You can additionally specify what representation of the wavefront you want saved with the <code class="docutils literal notranslate"><span class="pre">save_intermediates_what</span></code> argument to <code class="xref py py-meth docutils literal notranslate"><span class="pre">calc_psf()</span></code>. This can be <code class="docutils literal notranslate"><span class="pre">all</span></code>, <code class="docutils literal notranslate"><span class="pre">parts</span></code>, <code class="docutils literal notranslate"><span class="pre">amplitude</span></code>, <code class="docutils literal notranslate"><span class="pre">phase</span></code> or <code class="docutils literal notranslate"><span class="pre">complex</span></code>, as defined as in <code class="xref py py-meth docutils literal notranslate"><span class="pre">poppy.Wavefront.asFITS()</span></code>. The default is to write <code class="docutils literal notranslate"><span class="pre">all</span></code> (intensity, amplitude, and phase as three 2D slices of a data cube).</p>
+<p>If you pass <code class="docutils literal notranslate"><span class="pre">return_intermediates=True</span></code> as well, the return value of calc_psf is then <code class="docutils literal notranslate"><span class="pre">psf,</span> <span class="pre">intermediate_wavefronts_list</span></code> rather than the usual <code class="docutils literal notranslate"><span class="pre">psf</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">save_intermediates</span></code> keyword argument does not work when using parallelized computation, and WebbPSF will fail with an exception if you attempt to pass <code class="docutils literal notranslate"><span class="pre">save_intermediates=True</span></code> when running in parallel. The <code class="docutils literal notranslate"><span class="pre">return_intermediates</span></code> option has this same restriction.</p>
+</div>
+</div>
+<div class="section" id="providing-your-own-opds-or-pupils-from-some-other-source">
+<h3>Providing your own OPDs or pupils from some other source<a class="headerlink" href="#providing-your-own-opds-or-pupils-from-some-other-source" title="Permalink to this headline">¶</a></h3>
+<p>It is straight forward to configure an Instrument object to use a pupil OPD file of your own devising, by setting the <code class="docutils literal notranslate"><span class="pre">pupilopd</span></code> attribute of the Instrument object:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">niriss</span> <span class="o">=</span> <span class="n">webbpsf</span><span class="o">.</span><span class="n">NIRISS</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">niriss</span><span class="o">.</span><span class="n">pupilopd</span> <span class="o">=</span> <span class="s2">&quot;/path/to/your/OPD_file.fits&quot;</span>
+</pre></div>
+</div>
+<p>If you have a pupil that is an array in memory but not saved on disk, you can pass it in as a fits.HDUList object :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">myOPD</span> <span class="o">=</span> <span class="n">some_function_that_returns_properly_formatted_HDUList</span><span class="p">(</span><span class="n">various</span><span class="p">,</span> <span class="n">function</span><span class="p">,</span> <span class="n">args</span><span class="o">...</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">niriss</span><span class="o">.</span><span class="n">pupilopd</span> <span class="o">=</span> <span class="n">myOPD</span>
+</pre></div>
+</div>
+<p>Likewise, you can set the pupil transmission file in a similar manner by setting the <code class="docutils literal notranslate"><span class="pre">pupil</span></code> attribute:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">niriss</span><span class="o">.</span><span class="n">pupil</span> <span class="o">=</span> <span class="s2">&quot;/path/to/your/OPD_file.fits&quot;</span>
+</pre></div>
+</div>
+<p>Please see the documentation for <code class="xref py py-class docutils literal notranslate"><span class="pre">poppy.FITSOpticalElement</span></code> for information on the required formatting of the FITS file.
+In particular, you will need to set the <code class="xref py py-obj docutils literal notranslate"><span class="pre">PUPLSCAL</span></code> keyword, and OPD values must be given in units of meters.</p>
+</div>
+<div class="section" id="calculating-data-cubes">
+<h3>Calculating Data Cubes<a class="headerlink" href="#calculating-data-cubes" title="Permalink to this headline">¶</a></h3>
+<p>Sometimes it is convenient to calculate many PSFs at different wavelengths with the same instrument
+config. You can do this just by iterating over calls to <code class="docutils literal notranslate"><span class="pre">calc_psf</span></code>, but there’s also a function to
+automate this: <code class="docutils literal notranslate"><span class="pre">calc_datacube</span></code>. For example, here’s something loosely like the NIRSpec IFU in
+F290LP:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up a NIRSpec instance</span>
+<span class="n">nrs</span> <span class="o">=</span> <span class="n">webbpsf</span><span class="o">.</span><span class="n">NIRSpec</span><span class="p">()</span>
+<span class="n">nrs</span><span class="o">.</span><span class="n">image_mask</span> <span class="o">=</span> <span class="bp">None</span> <span class="c1"># No MSA for IFU mode</span>
+<span class="n">nl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">2.87e-6</span><span class="p">,</span> <span class="mf">5.27e-6</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+
+<span class="c1"># Calculate PSF datacube</span>
+<span class="n">cube</span> <span class="o">=</span> <span class="n">nrs</span><span class="o">.</span><span class="n">calc_datacube</span><span class="p">(</span><span class="n">wavelengths</span><span class="o">=</span><span class="n">nl</span><span class="p">,</span> <span class="n">fov_pixels</span><span class="o">=</span><span class="mi">27</span><span class="p">,</span> <span class="n">oversample</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="c1"># Display the contents of the data cube</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">iy</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">ix</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="n">iy</span><span class="p">,</span><span class="n">ix</span><span class="p">]</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">iy</span><span class="o">*</span><span class="mi">3</span><span class="o">+</span><span class="n">ix</span>
+        <span class="n">wl</span> <span class="o">=</span> <span class="n">cube</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">[</span><span class="s1">&#39;WAVELN{:02d}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span>
+
+        <span class="c1"># Note that when displaying datacubes, you have to set the &quot;cube_slice&quot; parameter</span>
+        <span class="n">webbpsf</span><span class="o">.</span><span class="n">display_psf</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cube_slice</span><span class="o">=</span><span class="n">i</span><span class="p">,</span>
+                            <span class="n">title</span><span class="o">=</span><span class="s2">&quot;NIRSpec, $\lambda$ = {:.3f} $\mu$m&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">wl</span><span class="o">*</span><span class="mf">1e6</span><span class="p">),</span>
+                            <span class="n">vmax</span><span class="o">=.</span><span class="mi">2</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">colorbar</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/fig_nirspec_cube_f290lp.png"><img alt="Sample PSF cube image" class="align-center" src="_images/fig_nirspec_cube_f290lp.png" style="width: 579.0px; height: 406.0px;" /></a>
+</div>
+<div class="section" id="subclassing-a-jwinstrument-to-add-additional-functionality">
+<h3>Subclassing a JWInstrument to add additional functionality<a class="headerlink" href="#subclassing-a-jwinstrument-to-add-additional-functionality" title="Permalink to this headline">¶</a></h3>
+<p>Perhaps you want to modify the OPD used for a given instrument, for instance to
+add a defocus. You can do this by subclassing one of the existing instrument
+classes to override the <code class="xref py py-meth docutils literal notranslate"><span class="pre">JWInstrument._addAdditionalOptics()</span></code> function. An <code class="xref py py-class docutils literal notranslate"><span class="pre">OpticalSystem</span></code> is
+basically a list so it’s straightforward to just add another optic there. In
+this example it’s a lens for defocus but you could just as easily add another
+<code class="xref py py-class docutils literal notranslate"><span class="pre">FITSOpticalElement</span></code> instead to read in a disk file.</p>
+<p>Note, we do this as an example here to show how to modify an instrument class by
+subclassing it, which can let you add arbitrary new functionality.
+There’s an easier way to add defocus specifically; see below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">FGS_with_defocus</span><span class="p">(</span><span class="n">webbpsf</span><span class="o">.</span><span class="n">FGS</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="n">webbpsf</span><span class="o">.</span><span class="n">FGS</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="c1"># modify the following as needed to get your desired defocus</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="bp">self</span><span class="o">.</span><span class="n">defocus_waves</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="bp">self</span><span class="o">.</span><span class="n">defocus_lambda</span> <span class="o">=</span> <span class="mf">4e-6</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">def</span> <span class="nf">_addAdditionalOptics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">optsys</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="n">optsys</span> <span class="o">=</span> <span class="n">webbpsf</span><span class="o">.</span><span class="n">FGS</span><span class="o">.</span><span class="n">_addAdditionalOptics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">optsys</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="n">lens</span> <span class="o">=</span> <span class="n">poppy</span><span class="o">.</span><span class="n">ThinLens</span><span class="p">(</span>
+<span class="gp">&gt;&gt;&gt; </span>            <span class="n">name</span><span class="o">=</span><span class="s1">&#39;FGS Defocus&#39;</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>            <span class="n">nwaves</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">defocus_waves</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>            <span class="n">reference_wavelength</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">defocus_lambda</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="n">lens</span><span class="o">.</span><span class="n">planetype</span> <span class="o">=</span> <span class="n">poppy</span><span class="o">.</span><span class="n">PUPIL</span>  <span class="c1"># tell propagation algorithm which this is</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="n">optsys</span><span class="o">.</span><span class="n">planes</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">lens</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="k">return</span> <span class="n">optsys</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fgs2</span> <span class="o">=</span> <span class="n">FGS_with_defocus</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># apply 4 waves of defocus at the wavelength</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># defined by FGS_with_defocus.defocus_lambda</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fgs2</span><span class="o">.</span><span class="n">defocus_waves</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">psf</span> <span class="o">=</span> <span class="n">fgs2</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">webbpsf</span><span class="o">.</span><span class="n">display_psf</span><span class="p">(</span><span class="n">psf</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="defocusing-an-instrument">
+<h3>Defocusing an instrument<a class="headerlink" href="#defocusing-an-instrument" title="Permalink to this headline">¶</a></h3>
+<p>The instrument options dictionary also lets you specify an optional defocus
+amount.  You can specify both the wavelength at which it should be applied, and
+the number of waves of defocus (at that wavelength, specified as waves
+peak-to-valley over the circumscribing circular pupil of JWST).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">nircam</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;defocus_waves&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">3.2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nircam</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;defocus_wavelength&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">2.0e-6</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="jwst.html" class="btn btn-neutral float-right" title="JWST Instrument Model Details" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="relnotes.html" class="btn btn-neutral float-left" title="Release Notes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Association of Universities for Research in Astronomy
+      <span class="lastupdated">
+        Last updated on 20 Nov 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

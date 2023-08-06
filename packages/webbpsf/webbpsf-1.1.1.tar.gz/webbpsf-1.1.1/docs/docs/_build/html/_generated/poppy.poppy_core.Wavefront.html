@@ -1,0 +1,478 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Wavefront &mdash; webbpsf v0.8.0</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/astropy_logo.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/stsci.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/stsci.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+            <a href="../index.html" class="icon icon-home"> webbpsf
+            
+            <img src="../_static/stsci_pri_combo_mark_white.png" class="logo" />
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.0
+              </div>
+            
+          
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+  
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Requirements &amp; Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../relnotes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Using WebbPSF via the Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jwst.html">JWST Instrument Model Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wfirst.html">WFIRST Instrument Model Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../psf_grids.html">Using PSF Grids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../more_examples.html">More Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../poppy.html">Overview of POPPY (Physical Optics Propagation in Python)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html">Detailed API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">Diagnostics &amp; Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sampling.html">Sampling Requirements for Numerical Accuracy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fft_optimization.html">Optimizing FFT Performance for PSF Computations with FFTW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../available_opds.html">Appendix: Available Optical Path Difference (OPD) files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">Appendix: Instrument Property References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gui.html">(Deprecated)  Graphical User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release.html">Developer Notes: Releasing a new version of WebbPSF</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">webbpsf</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Wavefront</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_generated/poppy.poppy_core.Wavefront.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="wavefront">
+<h1>Wavefront<a class="headerlink" href="#wavefront" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="poppy.poppy_core.Wavefront">
+<em class="property">class </em><code class="sig-prename descclassname">poppy.poppy_core.</code><code class="sig-name descname">Wavefront</code><span class="sig-paren">(</span><em class="sig-param">wavelength=&lt;Quantity 1.e-06 m&gt;</em>, <em class="sig-param">npix=1024</em>, <em class="sig-param">dtype=None</em>, <em class="sig-param">diam=&lt;Quantity 8. m&gt;</em>, <em class="sig-param">oversample=2</em>, <em class="sig-param">pixelscale=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/poppy/poppy_core.html#Wavefront"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#poppy.poppy_core.Wavefront" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">poppy.poppy_core.BaseWavefront</span></code></p>
+<p>Wavefront in the Fraunhofer approximation: a monochromatic wavefront that
+can be transformed between pupil and image planes only, not to intermediate planes</p>
+<p>In a pupil plane, a wavefront object <code class="xref py py-obj docutils literal notranslate"><span class="pre">wf</span></code> has</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">wf.diam</span></code>,         a diameter in meters</p></li>
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">wf.pixelscale</span></code>,   a scale in meters/pixel</p></li>
+</ul>
+</div></blockquote>
+<p>In an image plane, it has</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">wf.fov</span></code>,          a field of view in arcseconds</p></li>
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">wf.pixelscale</span></code>,   a  scale in arcsec/pixel</p></li>
+</ul>
+</div></blockquote>
+<p>Use the <code class="xref py py-obj docutils literal notranslate"><span class="pre">wf.propagate_to()</span></code> method to transform a wavefront between conjugate planes. This will update those
+properties as appropriate.</p>
+<p>By default, <code class="xref py py-obj docutils literal notranslate"><span class="pre">Wavefronts</span></code> are created in a pupil plane. Set <code class="xref py py-obj docutils literal notranslate"><span class="pre">pixelscale=#</span></code> to make an image plane instead.</p>
+<dl class="simple">
+<dt>wavelength<span class="classifier">float</span></dt><dd><p>Wavelength of light in meters</p>
+</dd>
+<dt>npix<span class="classifier">int</span></dt><dd><p>Size parameter for wavefront array to create, per side.</p>
+</dd>
+<dt>diam<span class="classifier">float, optional</span></dt><dd><p>For _PUPIL wavefronts, sets physical size corresponding to npix. Units are meters.
+At most one of diam or pixelscale should be set when creating a wavefront.</p>
+</dd>
+<dt>pixelscale<span class="classifier">float, optional</span></dt><dd><p>For PlaneType.image PLANE wavefronts, use this pixel scale.</p>
+</dd>
+<dt>oversample<span class="classifier">int, optional</span></dt><dd><p>how much to oversample by in FFTs. Default is 2.
+Note that final propagations to Detectors use a different algorithm
+and, optionally, a separate oversampling factor.</p>
+</dd>
+<dt>dtype<span class="classifier">numpy.dtype, optional</span></dt><dd><p>default is double complex.</p>
+</dd>
+</dl>
+<p class="rubric">Attributes Summary</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#poppy.poppy_core.Wavefront.amplitude" title="poppy.poppy_core.Wavefront.amplitude"><code class="xref py py-obj docutils literal notranslate"><span class="pre">amplitude</span></code></a></p></td>
+<td><p>Electric field amplitude of the wavefront</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#poppy.poppy_core.Wavefront.intensity" title="poppy.poppy_core.Wavefront.intensity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">intensity</span></code></a></p></td>
+<td><p>Electric field intensity of the wavefront (i.e.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#poppy.poppy_core.Wavefront.phase" title="poppy.poppy_core.Wavefront.phase"><code class="xref py py-obj docutils literal notranslate"><span class="pre">phase</span></code></a></p></td>
+<td><p>Phase of the wavefront, in radians</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#poppy.poppy_core.Wavefront.shape" title="poppy.poppy_core.Wavefront.shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shape</span></code></a></p></td>
+<td><p>Shape of the wavefront array</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Wavefront.totalIntensity</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods Summary</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Wavefront.asFITS</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#poppy.poppy_core.Wavefront.coordinates" title="poppy.poppy_core.Wavefront.coordinates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">coordinates</span></code></a>()</p></td>
+<td><p>Return Y, X coordinates for this wavefront, in the manner of numpy.indices()</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#poppy.poppy_core.Wavefront.copy" title="poppy.poppy_core.Wavefront.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code></a>()</p></td>
+<td><p>Return a copy of the wavefront as a different object.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#poppy.poppy_core.Wavefront.display" title="poppy.poppy_core.Wavefront.display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">display</span></code></a>([what, nrows, row, showpadding, …])</p></td>
+<td><p>Display wavefront on screen</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#poppy.poppy_core.Wavefront.normalize" title="poppy.poppy_core.Wavefront.normalize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">normalize</span></code></a>()</p></td>
+<td><p>Set this wavefront’s total intensity to 1</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Wavefront.propagateTo</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#poppy.poppy_core.Wavefront.rotate" title="poppy.poppy_core.Wavefront.rotate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rotate</span></code></a>([angle])</p></td>
+<td><p>Rotate a wavefront by some amount, using spline interpolation</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#poppy.poppy_core.Wavefront.tilt" title="poppy.poppy_core.Wavefront.tilt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tilt</span></code></a>([Xangle, Yangle])</p></td>
+<td><p>Tilt a wavefront in X and Y.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#poppy.poppy_core.Wavefront.writeto" title="poppy.poppy_core.Wavefront.writeto"><code class="xref py py-obj docutils literal notranslate"><span class="pre">writeto</span></code></a>(filename[, overwrite])</p></td>
+<td><p>Write a wavefront to a FITS file.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes Documentation</p>
+<dl class="attribute">
+<dt id="poppy.poppy_core.Wavefront.amplitude">
+<code class="sig-name descname">amplitude</code><a class="headerlink" href="#poppy.poppy_core.Wavefront.amplitude" title="Permalink to this definition">¶</a></dt>
+<dd><p>Electric field amplitude of the wavefront</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="poppy.poppy_core.Wavefront.intensity">
+<code class="sig-name descname">intensity</code><a class="headerlink" href="#poppy.poppy_core.Wavefront.intensity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Electric field intensity of the wavefront (i.e. field amplitude squared)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="poppy.poppy_core.Wavefront.phase">
+<code class="sig-name descname">phase</code><a class="headerlink" href="#poppy.poppy_core.Wavefront.phase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Phase of the wavefront, in radians</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="poppy.poppy_core.Wavefront.shape">
+<code class="sig-name descname">shape</code><a class="headerlink" href="#poppy.poppy_core.Wavefront.shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shape of the wavefront array</p>
+</dd></dl>
+
+<p class="rubric">Methods Documentation</p>
+<dl class="method">
+<dt id="poppy.poppy_core.Wavefront.coordinates">
+<code class="sig-name descname">coordinates</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/poppy/poppy_core.html#Wavefront.coordinates"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#poppy.poppy_core.Wavefront.coordinates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return Y, X coordinates for this wavefront, in the manner of numpy.indices()</p>
+<p>This function knows about the offset resulting from FFTs. Use it whenever computing anything
+measured in wavefront coordinates.</p>
+<dl class="simple">
+<dt>Y, X<span class="classifier">array_like</span></dt><dd><p>Wavefront coordinates in either meters or arcseconds for pupil and image, respectively</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="poppy.poppy_core.Wavefront.copy">
+<code class="sig-name descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#poppy.poppy_core.Wavefront.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy of the wavefront as a different object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="poppy.poppy_core.Wavefront.display">
+<code class="sig-name descname">display</code><span class="sig-paren">(</span><em class="sig-param">what='intensity'</em>, <em class="sig-param">nrows=1</em>, <em class="sig-param">row=1</em>, <em class="sig-param">showpadding=False</em>, <em class="sig-param">imagecrop=None</em>, <em class="sig-param">pupilcrop=None</em>, <em class="sig-param">colorbar=False</em>, <em class="sig-param">crosshairs=False</em>, <em class="sig-param">ax=None</em>, <em class="sig-param">title=None</em>, <em class="sig-param">vmin=None</em>, <em class="sig-param">vmax=None</em>, <em class="sig-param">scale=None</em>, <em class="sig-param">use_angular_coordinates=None</em><span class="sig-paren">)</span><a class="headerlink" href="#poppy.poppy_core.Wavefront.display" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display wavefront on screen</p>
+<dl class="simple">
+<dt>what<span class="classifier">string</span></dt><dd><p>What to display. Must be one of {intensity, phase, best}.
+‘Best’ implies to display the phase if there is nonzero OPD,
+or else display the intensity for a perfect pupil.</p>
+</dd>
+<dt>nrows<span class="classifier">int</span></dt><dd><p>Number of rows to display in current figure (used for
+showing steps in a calculation)</p>
+</dd>
+<dt>row<span class="classifier">int</span></dt><dd><p>Which row to display this one in? If set to None, use the
+wavefront’s self.current_plane_index</p>
+</dd>
+<dt>vmin, vmax<span class="classifier">floats</span></dt><dd><p>min and maximum values to display. When left unspecified, these default
+to [0, intens.max()] for linear (scale=’linear’) intensity plots,
+[1e-6*intens.max(), intens.max()] for logarithmic (scale=’log’) intensity
+plots, and [-0.25, 0.25] waves for phase plots.</p>
+</dd>
+<dt>scale<span class="classifier">string</span></dt><dd><p>‘log’ or ‘linear’, to define the desired display scale type for
+intensity. Default is log for image planes, linear otherwise.</p>
+</dd>
+<dt>imagecrop<span class="classifier">float, optional</span></dt><dd><p>Crop the displayed image to a smaller region than the full array.
+For image planes in angular coordinates, this is given in units of
+arcseconds. The default is 5, so only the innermost 5x5 arcsecond
+region will be shown. This default may be changed in the
+POPPY config file. If the image size is &lt; 5 arcsec then the
+entire image is displayed.
+For planes in linear physical coordinates such as pupils, this
+is given in units of meters, and the default is no cropping
+(i.e. the entire array will be displayed unless this keyword
+is set explicitly).</p>
+</dd>
+<dt>showpadding<span class="classifier">bool, optional</span></dt><dd><p>For wavefronts that have been padded with zeros for oversampling,
+show the entire padded arrays, or just the good parts?
+Default is False, to show just the central region of interest.</p>
+</dd>
+<dt>colorbar<span class="classifier">bool</span></dt><dd><p>Display colorbar</p>
+</dd>
+<dt>crosshairs<span class="classifier">bool</span></dt><dd><p>Display a crosshairs indicator showing the axes centered on (0,0)</p>
+</dd>
+<dt>ax<span class="classifier">matplotlib Axes, optional</span></dt><dd><p>axes to display into. If not set, will create new axes.</p>
+</dd>
+<dt>use_angular_coordinates<span class="classifier">bool, optional</span></dt><dd><p>Should the axes be labeled in angular units of arcseconds?
+This is used by FresnelWavefront, where non-angular
+coordinates are possible everywhere. When using Fraunhofer
+propagation, this should be left as None so that the
+coordinates are inferred from the planetype attribute.
+(Default: None, infer coordinates from planetype)</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>figure<span class="classifier">matplotlib figure</span></dt><dd><p>The current figure is modified.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="poppy.poppy_core.Wavefront.normalize">
+<code class="sig-name descname">normalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#poppy.poppy_core.Wavefront.normalize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set this wavefront’s total intensity to 1</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="poppy.poppy_core.Wavefront.rotate">
+<code class="sig-name descname">rotate</code><span class="sig-paren">(</span><em class="sig-param">angle=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#poppy.poppy_core.Wavefront.rotate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotate a wavefront by some amount, using spline interpolation</p>
+<dl class="simple">
+<dt>angle<span class="classifier">float</span></dt><dd><p>Angle to rotate, in degrees counterclockwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="poppy.poppy_core.Wavefront.tilt">
+<code class="sig-name descname">tilt</code><span class="sig-paren">(</span><em class="sig-param">Xangle=0.0</em>, <em class="sig-param">Yangle=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#poppy.poppy_core.Wavefront.tilt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tilt a wavefront in X and Y.</p>
+<p>Recall from Fourier optics (although this is straightforwardly rederivable by drawing triangles)
+that for a wavefront tilted by some angle theta in radians, that a point r meters from the center of
+the pupil has:</p>
+<blockquote>
+<div><p>extra_pathlength = sin(theta) * r
+extra_waves = extra_pathlength/ wavelength = r * sin(theta) / wavelength</p>
+</div></blockquote>
+<p>So we calculate the U and V arrays (corresponding to r for the pupil, in meters from the center)
+and then multiply by the appropriate trig factors for the angle.</p>
+<p>The sign convention is chosen such that positive Yangle tilts move the star upwards in the
+array at the focal plane. (This is sort of an inverse of what physically happens in the propagation
+to or through focus, but we’re ignoring that here and trying to just work in sky coords)</p>
+<dl class="simple">
+<dt>Xangle, Yangle<span class="classifier">float</span></dt><dd><p>tilt angles, specified in arcseconds</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="poppy.poppy_core.Wavefront.writeto">
+<code class="sig-name descname">writeto</code><span class="sig-paren">(</span><em class="sig-param">filename</em>, <em class="sig-param">overwrite=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#poppy.poppy_core.Wavefront.writeto" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a wavefront to a FITS file.</p>
+<dl class="simple">
+<dt>filename<span class="classifier">string</span></dt><dd><p>filename to use</p>
+</dd>
+<dt>what<span class="classifier">string</span></dt><dd><p>what to write. Must be one of ‘parts’, ‘intensity’, ‘complex’</p>
+</dd>
+<dt>overwrite<span class="classifier">bool, optional</span></dt><dd><p>overwhat existing? default is True</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>outfile: file on disk</dt><dd><p>The output is written to disk.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Association of Universities for Research in Astronomy
+      <span class="lastupdated">
+        Last updated on 20 Nov 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

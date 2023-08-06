@@ -1,0 +1,336 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>OpticalSystem &mdash; webbpsf v0.8.0</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/astropy_logo.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/stsci.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/stsci.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+            <a href="../index.html" class="icon icon-home"> webbpsf
+            
+            <img src="../_static/stsci_pri_combo_mark_white.png" class="logo" />
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.0
+              </div>
+            
+          
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+  
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Requirements &amp; Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../relnotes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Using WebbPSF via the Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jwst.html">JWST Instrument Model Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wfirst.html">WFIRST Instrument Model Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../psf_grids.html">Using PSF Grids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../more_examples.html">More Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../poppy.html">Overview of POPPY (Physical Optics Propagation in Python)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html">Detailed API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">Diagnostics &amp; Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sampling.html">Sampling Requirements for Numerical Accuracy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fft_optimization.html">Optimizing FFT Performance for PSF Computations with FFTW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../available_opds.html">Appendix: Available Optical Path Difference (OPD) files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">Appendix: Instrument Property References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gui.html">(Deprecated)  Graphical User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release.html">Developer Notes: Releasing a new version of WebbPSF</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">webbpsf</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>OpticalSystem</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_generated/poppy.poppy_core.OpticalSystem.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="opticalsystem">
+<h1>OpticalSystem<a class="headerlink" href="#opticalsystem" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="poppy.poppy_core.OpticalSystem">
+<em class="property">class </em><code class="sig-prename descclassname">poppy.poppy_core.</code><code class="sig-name descname">OpticalSystem</code><span class="sig-paren">(</span><em class="sig-param">name='unnamed system'</em>, <em class="sig-param">verbose=True</em>, <em class="sig-param">oversample=2</em>, <em class="sig-param">npix=None</em>, <em class="sig-param">pupil_diameter=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/poppy/poppy_core.html#OpticalSystem"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#poppy.poppy_core.OpticalSystem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">poppy.poppy_core.BaseOpticalSystem</span></code></p>
+<p>A class representing a series of optical elements,
+either Pupil, Image, or Detector planes, through which light
+can be propagated.</p>
+<p>The difference between
+Image and Detector planes is that Detectors have fixed pixels
+in terms of arcsec/pixel regardless of wavelength (computed via
+MFT) while Image planes have variable pixels scaled in terms of
+lambda/D. Pupil planes are some fixed size in meters, of course.</p>
+<dl class="simple">
+<dt>name<span class="classifier">string</span></dt><dd><p>descriptive name of optical system</p>
+</dd>
+<dt>oversample<span class="classifier">int</span></dt><dd><p>Either how many times <em>above</em> Nyquist we should be
+(for pupil or image planes), or how many times a fixed
+detector pixel will be sampled. E.g. <code class="xref py py-obj docutils literal notranslate"><span class="pre">oversample=2</span></code> means
+image plane sampling lambda/4*D (twice Nyquist) and
+detector plane sampling 2x2 computed pixels per real detector
+pixel.  Default is 2.</p>
+</dd>
+<dt>verbose<span class="classifier">bool</span></dt><dd><p>whether to be more verbose with log output while computing</p>
+</dd>
+<dt>pupil_diameter<span class="classifier">astropy.Quantity of dimension length</span></dt><dd><p>Diameter of entrance pupil. Defaults to size of first optical element
+if unspecified, or else 1 meter.</p>
+</dd>
+</dl>
+<p class="rubric">Methods Summary</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">OpticalSystem.addDetector</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">OpticalSystem.addImage</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">OpticalSystem.addPupil</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">OpticalSystem.addRotation</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">OpticalSystem.calcPSF</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#poppy.poppy_core.OpticalSystem.describe" title="poppy.poppy_core.OpticalSystem.describe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">describe</span></code></a>()</p></td>
+<td><p>Print out a string table describing all planes in an optical system</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#poppy.poppy_core.OpticalSystem.display" title="poppy.poppy_core.OpticalSystem.display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">display</span></code></a>(**kwargs)</p></td>
+<td><p>Display all elements in an optical system on screen.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">OpticalSystem.inputWavefront</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#poppy.poppy_core.OpticalSystem.propagate_mono" title="poppy.poppy_core.OpticalSystem.propagate_mono"><code class="xref py py-obj docutils literal notranslate"><span class="pre">propagate_mono</span></code></a>([wavelength, normalize, …])</p></td>
+<td><p>Propagate a monochromatic wavefront through the optical system.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods Documentation</p>
+<dl class="method">
+<dt id="poppy.poppy_core.OpticalSystem.describe">
+<code class="sig-name descname">describe</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/poppy/poppy_core.html#OpticalSystem.describe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#poppy.poppy_core.OpticalSystem.describe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print out a string table describing all planes in an optical system</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="poppy.poppy_core.OpticalSystem.display">
+<code class="sig-name descname">display</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#poppy.poppy_core.OpticalSystem.display" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display all elements in an optical system on screen.</p>
+<p>Any extra arguments are passed to the <code class="xref py py-obj docutils literal notranslate"><span class="pre">optic.display()</span></code> methods of each element.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="poppy.poppy_core.OpticalSystem.propagate_mono">
+<code class="sig-name descname">propagate_mono</code><span class="sig-paren">(</span><em class="sig-param">wavelength=&lt;Quantity 1.e-06 m&gt;</em>, <em class="sig-param">normalize='first'</em>, <em class="sig-param">retain_intermediates=False</em>, <em class="sig-param">retain_final=False</em>, <em class="sig-param">display_intermediates=False</em><span class="sig-paren">)</span><a class="headerlink" href="#poppy.poppy_core.OpticalSystem.propagate_mono" title="Permalink to this definition">¶</a></dt>
+<dd><p>Propagate a monochromatic wavefront through the optical system. Called from within <code class="xref py py-obj docutils literal notranslate"><span class="pre">calc_psf</span></code>.
+Returns a tuple with a <code class="xref py py-obj docutils literal notranslate"><span class="pre">fits.HDUList</span></code> object and a list of intermediate <code class="xref py py-obj docutils literal notranslate"><span class="pre">Wavefront`s</span> <span class="pre">(empty</span> <span class="pre">if</span>
+<span class="pre">`retain_intermediates=False</span></code>).</p>
+<dl class="simple">
+<dt>wavelength<span class="classifier">float</span></dt><dd><p>Wavelength in meters</p>
+</dd>
+<dt>normalize<span class="classifier">string, {‘first’, ‘last’}</span></dt><dd><p>how to normalize the wavefront?
+* ‘first’ = set total flux = 1 after the first optic, presumably a pupil
+* ‘last’ = set total flux = 1 after the entire optical system.
+* ‘exit_pupil’ = set total flux = 1 at the last pupil of the optical system.
+* ‘first=2’ = set total flux = 2 after the first optic (used for debugging only)</p>
+</dd>
+<dt>display_intermediates<span class="classifier">bool</span></dt><dd><p>Should intermediate steps in the calculation be displayed on screen? Default: False.</p>
+</dd>
+<dt>retain_intermediates<span class="classifier">bool</span></dt><dd><p>Should intermediate steps in the calculation be retained? Default: False.
+If True, the second return value of the method will be a list of <code class="xref py py-obj docutils literal notranslate"><span class="pre">poppy.Wavefront</span></code> objects
+representing intermediate optical planes from the calculation.</p>
+</dd>
+<dt>retain_final<span class="classifier">bool</span></dt><dd><p>Should the final complex wavefront be retained? Default: False.
+If True, the second return value of the method will be a single element list
+(for consistency with retain intermediates) containing a <code class="xref py py-obj docutils literal notranslate"><span class="pre">poppy.Wavefront</span></code> object
+representing the final optical plane from the calculation.
+Overridden by retain_intermediates.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>final_wf<span class="classifier">fits.HDUList</span></dt><dd><p>The final result of the monochromatic propagation as a FITS HDUList</p>
+</dd>
+<dt>intermediate_wfs<span class="classifier">list</span></dt><dd><p>A list of <code class="xref py py-obj docutils literal notranslate"><span class="pre">poppy.Wavefront</span></code> objects representing the wavefront at intermediate optical planes.
+The 0th item is “before first optical plane”, 1st is “after first plane and before second plane”, and so on.
+(n.b. This will be empty if <code class="xref py py-obj docutils literal notranslate"><span class="pre">retain_intermediates</span></code> is False and singular if retain_final is True.)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Association of Universities for Research in Astronomy
+      <span class="lastupdated">
+        Last updated on 20 Nov 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

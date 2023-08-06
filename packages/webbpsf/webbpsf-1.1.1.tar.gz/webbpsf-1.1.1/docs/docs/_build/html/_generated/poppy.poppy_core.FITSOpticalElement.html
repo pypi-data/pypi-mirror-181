@@ -1,0 +1,323 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>FITSOpticalElement &mdash; webbpsf v0.8.0</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/astropy_logo.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/stsci.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/stsci.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+            <a href="../index.html" class="icon icon-home"> webbpsf
+            
+            <img src="../_static/stsci_pri_combo_mark_white.png" class="logo" />
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.0
+              </div>
+            
+          
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+  
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Requirements &amp; Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../relnotes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Using WebbPSF via the Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jwst.html">JWST Instrument Model Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wfirst.html">WFIRST Instrument Model Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../psf_grids.html">Using PSF Grids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../more_examples.html">More Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../poppy.html">Overview of POPPY (Physical Optics Propagation in Python)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html">Detailed API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">Diagnostics &amp; Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sampling.html">Sampling Requirements for Numerical Accuracy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fft_optimization.html">Optimizing FFT Performance for PSF Computations with FFTW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../available_opds.html">Appendix: Available Optical Path Difference (OPD) files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">Appendix: Instrument Property References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gui.html">(Deprecated)  Graphical User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release.html">Developer Notes: Releasing a new version of WebbPSF</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">webbpsf</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>FITSOpticalElement</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_generated/poppy.poppy_core.FITSOpticalElement.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="fitsopticalelement">
+<h1>FITSOpticalElement<a class="headerlink" href="#fitsopticalelement" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="poppy.poppy_core.FITSOpticalElement">
+<em class="property">class </em><code class="sig-prename descclassname">poppy.poppy_core.</code><code class="sig-name descname">FITSOpticalElement</code><span class="sig-paren">(</span><em class="sig-param">name='unnamed optic'</em>, <em class="sig-param">transmission=None</em>, <em class="sig-param">opd=None</em>, <em class="sig-param">opdunits=None</em>, <em class="sig-param">rotation=None</em>, <em class="sig-param">pixelscale=None</em>, <em class="sig-param">planetype=None</em>, <em class="sig-param">transmission_index=None</em>, <em class="sig-param">opd_index=None</em>, <em class="sig-param">shift=None</em>, <em class="sig-param">shift_x=None</em>, <em class="sig-param">shift_y=None</em>, <em class="sig-param">flip_x=False</em>, <em class="sig-param">flip_y=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/poppy/poppy_core.html#FITSOpticalElement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#poppy.poppy_core.FITSOpticalElement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="poppy.poppy_core.OpticalElement.html#poppy.poppy_core.OpticalElement" title="poppy.poppy_core.OpticalElement"><code class="xref py py-class docutils literal notranslate"><span class="pre">poppy.poppy_core.OpticalElement</span></code></a></p>
+<p>Defines an arbitrary optic, based on amplitude transmission and/or OPD FITS files.</p>
+<p>This optic could be a pupil or field stop, an aberrated mirror, a phase mask, etc.
+The FITSOpticalElement class follows the behavior of the Wavefront class, using units
+of meters/pixel in pupil space and arcsec/pixel in image space.</p>
+<p>The interface is <strong>very</strong> flexible.  You can define a FITSOpticalElement either from</p>
+<ul class="simple">
+<li><p>a single FITS file giving the amplitude transmission (in which case phase is zero)</p></li>
+<li><p>a single FITS file giving the OPD (in which case transmission is 1 everywhere)</p></li>
+<li><p>two FITS files specifying both transmission and OPD.</p></li>
+</ul>
+<p>The FITS file argument(s) can be supplied either as</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>a string giving the path to a file on disk,</p></li>
+<li><p>a FITS HDUlist object, or</p></li>
+<li><p>in the case of OPDs, a tuple consisting of a path to a datacube and an integer index of
+a slice in that datacube.</p></li>
+</ol>
+</div></blockquote>
+<p>A better interface for slice selection in datacubes is the transmission_index
+and opd_index keyword parameters listed below, but the tuple interface is
+retained for back compatibility with existing code.</p>
+<p>The FITS file header must provide information on the pixel scale, preferentially
+via a PIXELSCL keyword, or else you must supply the pixel scale directly. See
+more information just below in the parameter documentation for pixelscale.</p>
+<dl class="simple">
+<dt>name<span class="classifier">string</span></dt><dd><p>descriptive name for optic</p>
+</dd>
+<dt>transmission, opd<span class="classifier">string or fits HDUList</span></dt><dd><p>Either FITS filenames <em>or</em> actual fits.HDUList objects for the
+transmission (from 0-1) and opd (in meters)</p>
+</dd>
+<dt>transmission_slice, opd_slice<span class="classifier">integers, optional</span></dt><dd><p>If either transmission or OPD files are datacubes, you can specify the
+slice index using this argument.</p>
+</dd>
+<dt>opdunits<span class="classifier">string</span></dt><dd><p>units for the OPD file. Default is ‘meters’. can be ‘meter’, ‘meters’,
+‘micron(s)’, ‘nanometer(s)’, or their SI abbreviations. If this keyword
+is not set explicitly, the BUNIT keyword in the FITS header will be checked.</p>
+</dd>
+<dt>planetype<span class="classifier">int</span></dt><dd><p>either PlaneType.image or PlaneType.pupil</p>
+</dd>
+<dt>oversample<span class="classifier">int</span></dt><dd><p>how much to oversample beyond Nyquist.</p>
+</dd>
+<dt>flip_x, flip_y<span class="classifier">bool</span></dt><dd><p>Should the FITS file be inverted in either of these axes after being
+loaded? Useful for matching coordinate system orientations.  If a flip
+is specified, it takes place prior to any shift or rotation operations.</p>
+</dd>
+<dt>shift<span class="classifier">tuple of floats, optional</span></dt><dd><p>2-tuple containing X and Y fractional shifts for the pupil. These shifts
+are implemented by rounding them to the nearest integer pixel, and doing
+integer pixel shifts on the data array, without interpolation. If a
+shift is specified, it takes place after any rotation operations.</p>
+</dd>
+<dt>shift_x, shift_y<span class="classifier">floats, optional</span></dt><dd><p>Alternate way of specifying shifts, given in meters of shift per each axis.
+This is consistent with how AnalyticOpticalElement classes specify shifts.
+If a shift is specified, it takes place after any rotation operations.
+If both shift and shift_x/shift_y are specified, an error is raised.</p>
+</dd>
+<dt>rotation<span class="classifier">float</span></dt><dd><p>Rotation for that optic, in degrees counterclockwise. This is
+implemented using spline interpolation via the
+scipy.ndimage.interpolation.rotate function.</p>
+</dd>
+<dt>pixelscale<span class="classifier">optical str or float</span></dt><dd><p>By default, poppy will attempt to determine the appropriate pixel scale
+by examining the FITS header, checking keywords “PIXELSCL”, “PUPLSCAL” and/or ‘PIXSCALE’.
+PIXELSCL is the default and should be preferred for new files; the latter two are
+kept for back-compatibility with earlier format input files,
+for pupil and image planes respectively. If you would like to override
+and use a different keyword, provide that as a string here. Alternatively,
+you can just set a floating point value directly too (in meters/pixel
+or arcsec/pixel, respectively, for pupil or image planes).</p>
+</dd>
+<dt>transmission_index, opd_index<span class="classifier">ints, optional</span></dt><dd><p>If the input transmission or OPD files are datacubes, provide a scalar
+index here for which cube slice should be used.</p>
+</dd>
+</dl>
+<p><em>NOTE:</em> All mask files must be <em>squares</em>.</p>
+<p>Also, please note that the adopted convention is for the spectral throughput
+(transmission) to be given in appropriate units for acting on the <em>amplitude</em>
+of the electric field. Thus for example an optic with a uniform transmission
+of 0.5 will reduce the electric field amplitude to 0.5 relative to the input,
+and thus reduce the total power to 0.25. This distinction only matters in the
+case of semitransparent (grayscale) masks.</p>
+<p class="rubric">Attributes Summary</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#poppy.poppy_core.FITSOpticalElement.pupil_diam" title="poppy.poppy_core.FITSOpticalElement.pupil_diam"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pupil_diam</span></code></a></p></td>
+<td><p>Diameter of the pupil (if this is a pupil plane optic)</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes Documentation</p>
+<dl class="attribute">
+<dt id="poppy.poppy_core.FITSOpticalElement.pupil_diam">
+<code class="sig-name descname">pupil_diam</code><a class="headerlink" href="#poppy.poppy_core.FITSOpticalElement.pupil_diam" title="Permalink to this definition">¶</a></dt>
+<dd><p>Diameter of the pupil (if this is a pupil plane optic)</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Association of Universities for Research in Astronomy
+      <span class="lastupdated">
+        Last updated on 20 Nov 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

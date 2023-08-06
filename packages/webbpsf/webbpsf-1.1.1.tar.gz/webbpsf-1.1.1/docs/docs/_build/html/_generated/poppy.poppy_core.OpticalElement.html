@@ -1,0 +1,325 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>OpticalElement &mdash; webbpsf v0.8.0</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/astropy_logo.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/stsci.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/stsci.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+            <a href="../index.html" class="icon icon-home"> webbpsf
+            
+            <img src="../_static/stsci_pri_combo_mark_white.png" class="logo" />
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.0
+              </div>
+            
+          
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+  
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Requirements &amp; Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../relnotes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Using WebbPSF via the Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jwst.html">JWST Instrument Model Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wfirst.html">WFIRST Instrument Model Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../psf_grids.html">Using PSF Grids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../more_examples.html">More Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../poppy.html">Overview of POPPY (Physical Optics Propagation in Python)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html">Detailed API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">Diagnostics &amp; Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sampling.html">Sampling Requirements for Numerical Accuracy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fft_optimization.html">Optimizing FFT Performance for PSF Computations with FFTW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../available_opds.html">Appendix: Available Optical Path Difference (OPD) files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">Appendix: Instrument Property References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gui.html">(Deprecated)  Graphical User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release.html">Developer Notes: Releasing a new version of WebbPSF</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">webbpsf</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>OpticalElement</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_generated/poppy.poppy_core.OpticalElement.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="opticalelement">
+<h1>OpticalElement<a class="headerlink" href="#opticalelement" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="poppy.poppy_core.OpticalElement">
+<em class="property">class </em><code class="sig-prename descclassname">poppy.poppy_core.</code><code class="sig-name descname">OpticalElement</code><span class="sig-paren">(</span><em class="sig-param">name='unnamed optic'</em>, <em class="sig-param">verbose=True</em>, <em class="sig-param">planetype=&lt;PlaneType.unspecified: 0&gt;</em>, <em class="sig-param">oversample=1</em>, <em class="sig-param">interp_order=3</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/poppy/poppy_core.html#OpticalElement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#poppy.poppy_core.OpticalElement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Base class for all optical elements, whether from FITS files or analytic functions.</p>
+<p>If instantiated on its own, this just produces a null optical element (empty space,
+i.e. an identity function on transmitted wavefronts.) Use one of the many subclasses to
+create a nontrivial optic.</p>
+<p>The OpticalElement class follows the behavoior of the Wavefront class, using units
+of meters/pixel in pupil space and arcsec/pixel in image space.</p>
+<p>The internal implementation of this class represents an optic with an array
+for the electric field amplitude transmissivity (or reflectivity), plus an
+array for the optical path difference in units of meters. This
+representation was chosen since most typical optics of interest will have
+wavefront error properties that are independent of wavelength. Subclasses
+particularly the AnalyticOpticalElements extend this paradigm with optics
+that have wavelength-dependent properties.</p>
+<p>The get_phasor() function is used to obtain the complex phasor for any desired
+wavelength based on the amplitude and opd arrays. Those can individually be
+obtained from the get_transmission() and get_opd() functions.</p>
+<dl class="simple">
+<dt>name<span class="classifier">string</span></dt><dd><p>descriptive name for optic</p>
+</dd>
+<dt>verbose<span class="classifier">bool</span></dt><dd><p>whether to be more verbose in log outputs while computing</p>
+</dd>
+<dt>planetype<span class="classifier">int</span></dt><dd><p>either poppy.PlaneType.image or poppy.PlaneType.pupil</p>
+</dd>
+<dt>oversample<span class="classifier">int</span></dt><dd><p>how much to oversample beyond Nyquist.</p>
+</dd>
+<dt>interp_order<span class="classifier">int</span></dt><dd><p>the order (0 to 5) of the spline interpolation used if the optic is resized.</p>
+</dd>
+</dl>
+<p class="rubric">Attributes Summary</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#poppy.poppy_core.OpticalElement.shape" title="poppy.poppy_core.OpticalElement.shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shape</span></code></a></p></td>
+<td><p>Return shape of the OpticalElement, as a tuple</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods Summary</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#poppy.poppy_core.OpticalElement.display" title="poppy.poppy_core.OpticalElement.display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">display</span></code></a>([nrows, row, what, crosshairs, ax, …])</p></td>
+<td><p>Display plots showing an optic’s transmission and OPD.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">OpticalElement.getPhasor</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes Documentation</p>
+<dl class="attribute">
+<dt id="poppy.poppy_core.OpticalElement.shape">
+<code class="sig-name descname">shape</code><a class="headerlink" href="#poppy.poppy_core.OpticalElement.shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return shape of the OpticalElement, as a tuple</p>
+</dd></dl>
+
+<p class="rubric">Methods Documentation</p>
+<dl class="method">
+<dt id="poppy.poppy_core.OpticalElement.display">
+<code class="sig-name descname">display</code><span class="sig-paren">(</span><em class="sig-param">nrows=1</em>, <em class="sig-param">row=1</em>, <em class="sig-param">what='intensity'</em>, <em class="sig-param">crosshairs=False</em>, <em class="sig-param">ax=None</em>, <em class="sig-param">colorbar=True</em>, <em class="sig-param">colorbar_orientation=None</em>, <em class="sig-param">title=None</em>, <em class="sig-param">opd_vmax=&lt;Quantity 5.e-07 m&gt;</em>, <em class="sig-param">wavelength=&lt;Quantity 1.e-06 m&gt;</em>, <em class="sig-param">npix=512</em>, <em class="sig-param">grid_size=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/poppy/poppy_core.html#OpticalElement.display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#poppy.poppy_core.OpticalElement.display" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display plots showing an optic’s transmission and OPD.</p>
+<dl class="simple">
+<dt>what<span class="classifier">str</span></dt><dd><p>What to display: ‘intensity’, ‘amplitude’, ‘phase’, ‘opd’,
+or ‘both’ (meaning intensity and OPD in two subplots)</p>
+</dd>
+<dt>ax<span class="classifier">matplotlib.Axes instance</span></dt><dd><p>Axes to display into</p>
+</dd>
+<dt>nrows, row<span class="classifier">integers</span></dt><dd><p>number of rows and row index for subplot display</p>
+</dd>
+<dt>crosshairs<span class="classifier">bool</span></dt><dd><p>Display crosshairs indicating the center?</p>
+</dd>
+<dt>colorbar<span class="classifier">bool</span></dt><dd><p>Show colorbar?</p>
+</dd>
+<dt>colorbar_orientation<span class="classifier">bool</span></dt><dd><p>Desired orientation, horizontal or vertical?
+Default is horizontal if only 1 row of plots, else vertical</p>
+</dd>
+<dt>opd_vmax<span class="classifier">float</span></dt><dd><p>Max absolute value for OPD image display, in meters.</p>
+</dd>
+<dt>title<span class="classifier">string</span></dt><dd><p>Plot label</p>
+</dd>
+<dt>wavelength<span class="classifier">float, default 1 micron</span></dt><dd><p>For optics with wavelength-dependent behavior, evaluate at this
+wavelength for display.</p>
+</dd>
+<dt>npix<span class="classifier">integer</span></dt><dd><p>For optics without a fixed pixel sampling, evaluate onto this many
+pixels for display.</p>
+</dd>
+<dt>grid_size<span class="classifier">float</span></dt><dd><p>For optics without a fixed pixel sampling, evaluate onto this large
+a spatial or angular extent for display. Specify in units of
+arcsec for image plane optics, meters for all other optics.
+If unspecified, a default value will be chosen instead, possibly
+from the ._default_display_size attribute, if present.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Association of Universities for Research in Astronomy
+      <span class="lastupdated">
+        Last updated on 20 Nov 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

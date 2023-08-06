@@ -1,0 +1,377 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>WFIRST Instrument Model Details &mdash; webbpsf v0.8.0</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/astropy_logo.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/stsci.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/stsci.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Using PSF Grids" href="psf_grids.html" />
+    <link rel="prev" title="JWST Instrument Model Details" href="jwst.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+            <a href="index.html" class="icon icon-home"> webbpsf
+            
+            <img src="_static/stsci_pri_combo_mark_white.png" class="logo" />
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.0
+              </div>
+            
+          
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+  
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Requirements &amp; Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="relnotes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Using WebbPSF via the Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jwst.html">JWST Instrument Model Details</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">WFIRST Instrument Model Details</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#wide-field-instrument-wfi">Wide Field Instrument (WFI)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#field-dependence-in-the-wfi-model">Field dependence in the WFI model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-computing-the-psf-difference-between-opposite-corners-of-the-wfi-field-of-view">Example: Computing the PSF difference between opposite corners of the WFI field of view</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#coronagraph-instrument-cgi">Coronagraph Instrument (CGI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="psf_grids.html">Using PSF Grids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="more_examples.html">More Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poppy.html">Overview of POPPY (Physical Optics Propagation in Python)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html">Detailed API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help.html">Diagnostics &amp; Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sampling.html">Sampling Requirements for Numerical Accuracy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fft_optimization.html">Optimizing FFT Performance for PSF Computations with FFTW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="available_opds.html">Appendix: Available Optical Path Difference (OPD) files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">Appendix: Instrument Property References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">(Deprecated)  Graphical User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release.html">Developer Notes: Releasing a new version of WebbPSF</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">webbpsf</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>WFIRST Instrument Model Details</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/wfirst.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="wfirst-instrument-model-details">
+<h1>WFIRST Instrument Model Details<a class="headerlink" href="#wfirst-instrument-model-details" title="Permalink to this headline">¶</a></h1>
+<p>WebbPSF provides a framework for instrument PSF calculations that is easily extensible to other instruments and observatories. The <code class="xref py py-mod docutils literal notranslate"><span class="pre">webbpsf.wfirst</span></code> module was developed to enable simulation of WFIRST’s instruments, the <a class="reference internal" href="#wfirst-wfi"><span class="std std-ref">Wide Field Instrument (WFI)</span></a> and <a class="reference internal" href="#wfirst-cgi"><span class="std std-ref">Coronagraph Instrument (CGI)</span></a>.</p>
+<div class="section" id="wide-field-instrument-wfi">
+<span id="wfirst-wfi"></span><h2>Wide Field Instrument (WFI)<a class="headerlink" href="#wide-field-instrument-wfi" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-center" id="id1">
+<img alt="Sample PSFs for the filters in the WFIRST WFI." src="_images/webbpsf-wfirst_page_header.png" />
+<p class="caption"><span class="caption-text">Figure 1: Sample PSFs for the filters in the WFIRST WFI. Angular scale in arcseconds, log-scaled intensity.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>The WFI model is based on the <a class="reference external" href="https://wfirst.gsfc.nasa.gov/science/WFIRST_Reference_Information.html">Cycle 8 instrument reference information</a> from the WFIRST team at Goddard Space Flight Center.</p>
+<p>To work with the WFI model, import and instantiate it just like any of the JWST instruments:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">webbpsf</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wfi</span> <span class="o">=</span> <span class="n">webbpsf</span><span class="o">.</span><span class="n">WFI</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Usage of the WFI model class is, for the most part, just like any other WebbPSF instrument model. For help setting things like filters, position offsets, and sampling refer back to <a class="reference internal" href="usage.html#using-api"><span class="std std-ref">Using WebbPSF via the Python API</span></a>.</p>
+<p>The WFI model includes a model for field dependent PSF aberrations. With as large a field of view as the WFI is designed to cover, there will be variation in the PSF from one end of the field of view to the other. WebbPSF’s WFI model faithfully reproduces the field dependent aberrations calculated from the Goddard WFIRST team’s Cycle 8 WFI design. This provides a toolkit for users to assess the impact of inter-SCA and intra-SCA PSF variations on science cases of interest.</p>
+<div class="admonition-tutorial-notebook-for-wfirst admonition">
+<p class="admonition-title">Tutorial notebook for WFIRST</p>
+<p>This documentation is complemented by an <a class="reference external" href="http://nbviewer.ipython.org/github/spacetelescope/webbpsf/blob/master/notebooks/WebbPSF-WFIRST_Tutorial.ipynb">IPython Notebook tutorial for WFIRST PSFs</a>. Downloading and run that notebook to use a beta notebook GUI for the WFI model, and to explore code samples for common tasks interactively.</p>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Note that unlike most JWST modes, WFIRST WFI is <em>significantly</em> undersampled relative to Nyquist.
+Undersampled data is inherently lossy with information, and subject to aliasing. Measurements of
+properties such as encircled energy, FWHM, Strehl ratio, etc cannot be done precisely on
+undersampled data.</p>
+<p>In flight, we will use dithering and similar strategies to reconstruct better-sampled images. The
+same can be done in simulation using WebbPSF. <strong>Only measure PSF properties such as FWHM or
+encircled energy on well-sampled data</strong>. That means either simulating dithered undersampled data
+at multiple subpixel steps and drizzling them back together, or else performing your measurements
+on oversampled calculation outputs. (I.e. in webbpsf, set <code class="xref py py-obj docutils literal notranslate"><span class="pre">wfi.oversample=4</span></code> or more, and perform
+your measurements on extension 0 of the returned FITS file.)</p>
+</div>
+<div class="section" id="field-dependence-in-the-wfi-model">
+<h3>Field dependence in the WFI model<a class="headerlink" href="#field-dependence-in-the-wfi-model" title="Permalink to this headline">¶</a></h3>
+<p>Field points are specified in a WebbPSF calculation by selecting a detector and pixel coordinates within that detector. A newly instantiated WFI model already has a default detector and position.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wfi</span><span class="o">.</span><span class="n">detector</span>
+<span class="go">&#39;SCA01&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wfi</span><span class="o">.</span><span class="n">detector_position</span>
+<span class="go">(2048, 2048)</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="The Wide Field Instrument's field of view, as projected on the sky." src="_images/field_layout.png" />
+</div>
+<p>The WFI field of view is laid out as shown in the figure. To select a different detector, assign its name to the <code class="docutils literal notranslate"><span class="pre">detector</span></code> attribute:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wfi</span><span class="o">.</span><span class="n">detector_list</span>
+<span class="go">[&#39;SCA01&#39;, &#39;SCA02&#39;, &#39;SCA03&#39;, &#39;SCA04&#39;, &#39;SCA05&#39;, &#39;SCA06&#39;, &#39;SCA07&#39;, &#39;SCA08&#39;, &#39;SCA09&#39;, &#39;SCA10&#39;, &#39;SCA11&#39;, &#39;SCA12&#39;, &#39;SCA13&#39;, &#39;SCA14&#39;, &#39;SCA15&#39;, &#39;SCA16&#39;, &#39;SCA17&#39;, &#39;SCA18&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wfi</span><span class="o">.</span><span class="n">detector</span> <span class="o">=</span> <span class="s1">&#39;SCA03&#39;</span>
+</pre></div>
+</div>
+<p>The usable region of the 4096 by 4096 pixel detectors specified for the Wide Field Instrument will range from (4, 4) to (4092, 4092), accounting for the 4 pixel wide bands of reference pixels. To change the position at which to calculate a PSF, simply assign an (X, Y) tuple:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wfi</span><span class="o">.</span><span class="n">detector_position</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>WebbPSF will not prevent you from setting an out of range detector position, but an error will be raised if you try to calculate a PSF with one.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wfi</span><span class="o">.</span><span class="n">detector_position</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wfi</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">()</span>
+<span class="go">[ ... traceback omitted ... ]</span>
+<span class="go">RuntimeError: Attempted to get aberrations for an out-of-bounds field point</span>
+</pre></div>
+</div>
+</div>
+<p>The reference information available gives the field dependent aberrations in terms of Zernike polynomial coefficients from <span class="math notranslate nohighlight">\(Z_1\)</span> to <span class="math notranslate nohighlight">\(Z_{22}\)</span>. These coefficients were calculated for five field points on each of 18 detectors, each at 16 unique wavelengths providing coverage from 0.76 <span class="math notranslate nohighlight">\(\mu m\)</span> to 2.0 <span class="math notranslate nohighlight">\(\mu m\)</span> (that is, the entire wavelength range of the WFI). WebbPSF interpolates the coefficients in position and wavelength space to allow the user to simulate PSFs at any valid pixel position and wavelength.</p>
+<p>Bear in mind that the pixel position you set does not automatically set the <strong>centering</strong> of your calculated PSF. As with other models in WebbPSF, an <code class="docutils literal notranslate"><span class="pre">options</span></code> dictionary key can be set to specify ‘even’ (center on crosshairs between four pixels) or ‘odd’ (center on pixel center) parity.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wfi</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;parity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;even&#39;</span>  <span class="c1"># best case for dividing PSF core flux</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wfi</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;parity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;odd&#39;</span>  <span class="c1"># worst case for PSF core flux landing in a single pixel</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-computing-the-psf-difference-between-opposite-corners-of-the-wfi-field-of-view">
+<h3>Example: Computing the PSF difference between opposite corners of the WFI field of view<a class="headerlink" href="#example-computing-the-psf-difference-between-opposite-corners-of-the-wfi-field-of-view" title="Permalink to this headline">¶</a></h3>
+<p>This example shows the power of WebbPSF to simulate and analyze field dependent variation in the model. About a dozen lines of code are all that’s necessary to produce a figure showing how the PSF differs between the two extreme edges of the instrument field of view.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wfi</span> <span class="o">=</span> <span class="n">wfirst</span><span class="o">.</span><span class="n">WFI</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wfi</span><span class="o">.</span><span class="n">filter</span> <span class="o">=</span> <span class="s1">&#39;J129&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wfi</span><span class="o">.</span><span class="n">detector</span> <span class="o">=</span> <span class="s1">&#39;SCA09&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wfi</span><span class="o">.</span><span class="n">detector_position</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">psf_sca09</span> <span class="o">=</span> <span class="n">wfi</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wfi</span><span class="o">.</span><span class="n">detector</span> <span class="o">=</span> <span class="s1">&#39;SCA17&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wfi</span><span class="o">.</span><span class="n">detector_position</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4092</span><span class="p">,</span> <span class="mi">4092</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">psf_sca17</span> <span class="o">=</span> <span class="n">wfi</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax_sca09</span><span class="p">,</span> <span class="n">ax_sca17</span><span class="p">,</span> <span class="n">ax_diff</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">webbpsf</span><span class="o">.</span><span class="n">display_psf</span><span class="p">(</span><span class="n">psf_sca09</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax_sca09</span><span class="p">,</span> <span class="n">imagecrop</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;WFI SCA09, bottom left - J129&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">webbpsf</span><span class="o">.</span><span class="n">display_psf</span><span class="p">(</span><span class="n">psf_sca17</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax_sca17</span><span class="p">,</span> <span class="n">imagecrop</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;WFI SCA17, top right - J129&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">webbpsf</span><span class="o">.</span><span class="n">display_psf_difference</span><span class="p">(</span><span class="n">psf_sca09</span><span class="p">,</span> <span class="n">psf_sca17</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">5e-3</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;(SCA09) - (SCA17)&#39;</span><span class="p">,</span> <span class="n">imagecrop</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax_diff</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default" id="id2">
+<img alt="This figure shows oversampled PSFs in the J129 filter at two different field points, and the intensity difference image between the two." src="_images/compare_wfi_sca09_sca17.png" />
+<p class="caption"><span class="caption-text">Figure 3: This figure shows oversampled PSFs in the J129 filter at two different field points, and the intensity difference image between the two.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="coronagraph-instrument-cgi">
+<span id="wfirst-cgi"></span><h2>Coronagraph Instrument (CGI)<a class="headerlink" href="#coronagraph-instrument-cgi" title="Permalink to this headline">¶</a></h2>
+<p>We have begun developing a Coronagraph Instrument (CGI) simulation module.
+The goal is to provide
+an open source modeling package for CGI for use by the science centers and
+science teams, to complement the existing in-house optical modeling
+capabilities at JPL.</p>
+<p>Currently a prototype implementation is available for the shaped pupil
+coronagraph modes only, for both the CGI imager and IFS. Future releases will incorporate realistic aberrations, both
+static and dynamic, to produce realistic speckle fields.  We also plan to
+add the hybrid Lyot modes.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Current functionality is limited to the Shaped Pupil Coronagraph (SPC)
+observing modes, and these modes are only simulated with static, unaberrated
+wavefronts, without relay optics and without DM control. The design
+respresented here is an approximation to a baseline concept, and will be
+subject to change based on ongoing trades studies and technology development.</p>
+</div>
+<p>A hands-on tutorial in using the CGI class is available in this
+<a class="reference external" href="http://nbviewer.ipython.org/github/spacetelescope/webbpsf/blob/master/notebooks/wfirst_cgi_demo.ipynb">Jupyter Notebook</a>.
+Here we briefly summarize the key points, but see that for more detail.</p>
+<p>The CGI class has attributes for  <code class="docutils literal notranslate"><span class="pre">filter</span></code>, etc., like other instrument classes, but since these masks are designed to be
+used in specific combinations, a <code class="docutils literal notranslate"><span class="pre">mode</span></code> attribute exists that allows easy specification of all those attributes at once. For example, setting</p>
+<dl class="simple">
+<dt>::</dt><dd><p>&gt;&gt; cgi = wfirst.CGI()
+&gt;&gt; cgi.mode=’CHARSPC_F770’</p>
+</dd>
+</dl>
+<p>is equivalent to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">cgi</span><span class="o">.</span><span class="n">camera</span> <span class="o">=</span> <span class="s1">&#39;IFS&#39;</span>
+<span class="o">&gt;&gt;</span> <span class="n">cgi</span><span class="o">.</span><span class="n">filter</span> <span class="o">=</span> <span class="s1">&#39;F770&#39;</span>
+<span class="o">&gt;&gt;</span> <span class="n">cgi</span><span class="o">.</span><span class="n">apodizer</span> <span class="o">=</span> <span class="s1">&#39;CHARSPC&#39;</span>
+<span class="o">&gt;&gt;</span> <span class="n">cgi</span><span class="o">.</span><span class="n">fpm</span> <span class="o">=</span> <span class="s1">&#39;CHARSPC_F770_BOWTIE&#39;</span>
+<span class="o">&gt;&gt;</span> <span class="n">cgi</span><span class="o">.</span><span class="n">lyotstop</span> <span class="o">=</span> <span class="s1">&#39;LS30D88&#39;</span>
+</pre></div>
+</div>
+<p>There are <code class="docutils literal notranslate"><span class="pre">_list</span></code> attributes that tell you the allowed values for each attribute, including a <code class="docutils literal notranslate"><span class="pre">mode_list</span></code> for all the available meta-modes.</p>
+<p>Calculations are invoked similarly to any other instrument class:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">mono_char_spc_psf</span> <span class="o">=</span> <span class="n">cgi</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">(</span><span class="n">nlambda</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fov_arcsec</span><span class="o">=</span><span class="mf">1.6</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="Example CGI PSF calculation." src="_images/fig_cgi_spc_f770.png" />
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="psf_grids.html" class="btn btn-neutral float-right" title="Using PSF Grids" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="jwst.html" class="btn btn-neutral float-left" title="JWST Instrument Model Details" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Association of Universities for Research in Astronomy
+      <span class="lastupdated">
+        Last updated on 20 Nov 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

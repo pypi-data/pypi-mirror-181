@@ -1,0 +1,327 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>(Deprecated) Graphical User Interface &mdash; webbpsf v0.8.0</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/astropy_logo.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/stsci.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/stsci.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Developer Notes: Releasing a new version of WebbPSF" href="release.html" />
+    <link rel="prev" title="Appendix: Instrument Property References" href="references.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+            <a href="index.html" class="icon icon-home"> webbpsf
+            
+            <img src="_static/stsci_pri_combo_mark_white.png" class="logo" />
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.0
+              </div>
+            
+          
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+  
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Requirements &amp; Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="relnotes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Using WebbPSF via the Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jwst.html">JWST Instrument Model Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wfirst.html">WFIRST Instrument Model Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psf_grids.html">Using PSF Grids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="more_examples.html">More Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poppy.html">Overview of POPPY (Physical Optics Propagation in Python)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html">Detailed API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help.html">Diagnostics &amp; Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sampling.html">Sampling Requirements for Numerical Accuracy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fft_optimization.html">Optimizing FFT Performance for PSF Computations with FFTW</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="available_opds.html">Appendix: Available Optical Path Difference (OPD) files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">Appendix: Instrument Property References</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">(Deprecated)  Graphical User Interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#using-the-graphical-interface">Using the Graphical Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gui-controls">GUI Controls</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#compute-psf">Compute PSF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#display-psf">Display PSF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#display-profiles">Display Profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#save-psf-as">Save PSF As…</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#display-optics">Display Optics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#more-options">More Options…</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="release.html">Developer Notes: Releasing a new version of WebbPSF</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">webbpsf</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>(Deprecated)  Graphical User Interface</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/gui.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="deprecated-graphical-user-interface">
+<span id="gui"></span><h1>(Deprecated)  Graphical User Interface<a class="headerlink" href="#deprecated-graphical-user-interface" title="Permalink to this headline">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The GUI is deprecated, no longer actively developed, and not a priority for support. It is
+not recommended for more than the most basic use cases. The functionality and the following
+documentation is maintained for the time being, but this will likely go away in the next
+major release.</p>
+</div>
+<p>The WebbPSF GUI provides an easy interface to much, but not all, of the functionality of WebbPSF. (Many advanced settings in the class attributes and <code class="xref py py-attr docutils literal notranslate"><span class="pre">options</span></code> structure for <a class="reference internal" href="api/webbpsf.JWInstrument.html#webbpsf.JWInstrument" title="webbpsf.JWInstrument"><code class="xref py py-class docutils literal notranslate"><span class="pre">webbpsf.JWInstrument</span></code></a> are not exposed in the GUI. The programming API is also much better suited for scripting calculations.)</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>The GUI is mostly not actively developed any more, and is not recommended for more than basic use
+cases. It’s a nice way to play around, but we encourage almost everyone to use the Python API as
+their primary way of interacting with WebbPSF. The GUI may be deprecated in a future release.</p>
+</div>
+<div class="section" id="using-the-graphical-interface">
+<h2>Using the Graphical Interface<a class="headerlink" href="#using-the-graphical-interface" title="Permalink to this headline">¶</a></h2>
+<p>Once you have <a class="reference internal" href="installation.html#installation"><span class="std std-ref">installed WebbPSF</span></a>, you should have the launcher script <code class="docutils literal notranslate"><span class="pre">webbpsfgui</span></code> available. (If not, verify that the WebbPSF installation directory is on your system <code class="docutils literal notranslate"><span class="pre">$PATH</span></code>.)</p>
+<p>Alternatively, you may start the GUI from an interactive session:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">matplotlib</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;TkAgg&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">webbpsf</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">webbpsf</span><span class="o">.</span><span class="n">gui</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="_images/fig_gui_main.png"><img alt="The main window of ``webbpsfgui`` when first launched." src="_images/fig_gui_main.png" style="width: 643.5px; height: 538.5px;" /></a>
+<p class="caption"><span class="caption-text">Figure 1: The main window of <code class="docutils literal notranslate"><span class="pre">webbpsfgui</span></code> when first launched.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>The main window is divided into three regions:</p>
+<ul class="simple">
+<li><p>The top region allows control of the source spectral type and position. (Selecting a source spectral type requires installing the optional dependency <a class="reference internal" href="installation.html#pysynphot-install"><span class="std std-ref">pysynphot</span></a>.)</p></li>
+<li><p>The central, main region allows selection of instrument and configuration of instrument options. The options available here largely correspond to attributes of the <a class="reference internal" href="api/webbpsf.JWInstrument.html#webbpsf.JWInstrument" title="webbpsf.JWInstrument"><code class="xref py py-class docutils literal notranslate"><span class="pre">webbpsf.JWInstrument</span></code></a> classes.</p></li>
+<li><p>The lower region contains options for the PSF calculation itself such as pixel sampling and wavelengths. These correspond to parameters of the  <code class="xref py py-meth docutils literal notranslate"><span class="pre">webbpsf.JWInstrument.calc_psf()</span></code> function call.</p></li>
+</ul>
+</div>
+<div class="section" id="gui-controls">
+<h2>GUI Controls<a class="headerlink" href="#gui-controls" title="Permalink to this headline">¶</a></h2>
+<p>The GUI buttons invoke actions as follows:</p>
+<div class="section" id="compute-psf">
+<h3>Compute PSF<a class="headerlink" href="#compute-psf" title="Permalink to this headline">¶</a></h3>
+<p>This invokes a PSF calculation with the given options. Each wavelength will be displayed in turn as it is computed, and finally the summed broadband PSF.
+This resulting PSF is stored in memory for use by the next three buttons.</p>
+</div>
+<div class="section" id="display-psf">
+<h3>Display PSF<a class="headerlink" href="#display-psf" title="Permalink to this headline">¶</a></h3>
+<p>This button will redisplay the PSF if the window has closed or something else has been displayed.</p>
+<a class="reference internal image-reference" href="_images/fig_display_psf.png"><img alt="PSF display" class="align-center" src="_images/fig_display_psf.png" style="width: 510.0px; height: 433.5px;" /></a>
+</div>
+<div class="section" id="display-profiles">
+<h3>Display Profiles<a class="headerlink" href="#display-profiles" title="Permalink to this headline">¶</a></h3>
+<p>This will display the PSF’s radial profile and encircled energy profile.</p>
+<a class="reference internal image-reference" href="_images/fig_display_profiles.png"><img alt="PSF radial profiles display" class="align-center" src="_images/fig_display_profiles.png" style="width: 570.75px; height: 468.0px;" /></a>
+</div>
+<div class="section" id="save-psf-as">
+<h3>Save PSF As…<a class="headerlink" href="#save-psf-as" title="Permalink to this headline">¶</a></h3>
+<p>This will invoke a standard File Save dialog box allowing you to save your new PSF to a FITS file.</p>
+</div>
+<div class="section" id="display-optics">
+<h3>Display Optics<a class="headerlink" href="#display-optics" title="Permalink to this headline">¶</a></h3>
+<p>This will display a graphical representation of the optical train for the current instrument configuration.</p>
+<a class="reference internal image-reference" href="_images/fig_nircam_coron_optics.png"><img alt="Sample &quot;Display Optics&quot; results showing NIRCam coronagraphic optics." class="align-center" src="_images/fig_nircam_coron_optics.png" style="width: 549.75px; height: 505.5px;" /></a>
+</div>
+<div class="section" id="more-options">
+<h3>More Options…<a class="headerlink" href="#more-options" title="Permalink to this headline">¶</a></h3>
+<p>The ‘More Options…’ button on the toolbar will bring up a window that allows you to select options controlling the computation of the PSF (e.g. which Fourier transform algorithm is used) or display of the PSF (e.g. which color map to use).</p>
+<a class="reference internal image-reference" href="_images/fig_gui_more_options.png"><img alt="Sample &quot;More Options&quot; dialog box." class="align-center" src="_images/fig_gui_more_options.png" style="width: 458.25px; height: 358.5px;" /></a>
+</div>
+</div>
+<div class="section" id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p><strong>Matplotlib Back End Issues</strong></p>
+<p>On macOS, some users have encountered problems running the GUI due to incompatibilities with
+<a class="reference external" href="https://matplotlib.org/api/index_backend_api.html">Matplotlib backends</a>. If you see a
+severe error when trying to start the gui, try switching the backend to “TkAgg” rather than the
+default “MacOSX”. This needs to be done immediately after starting IPython, prior to any attempt
+to use the GUI, and ideally before even importing webbpsf:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;TkAgg&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">webbpsf</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="release.html" class="btn btn-neutral float-right" title="Developer Notes: Releasing a new version of WebbPSF" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="references.html" class="btn btn-neutral float-left" title="Appendix: Instrument Property References" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Association of Universities for Research in Astronomy
+      <span class="lastupdated">
+        Last updated on 20 Nov 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

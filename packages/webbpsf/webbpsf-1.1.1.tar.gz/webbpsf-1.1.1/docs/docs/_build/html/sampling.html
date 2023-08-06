@@ -1,0 +1,389 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Sampling Requirements for Numerical Accuracy &mdash; webbpsf v0.8.0</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/astropy_logo.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/stsci.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/stsci.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Optimizing FFT Performance for PSF Computations with FFTW" href="fft_optimization.html" />
+    <link rel="prev" title="Diagnostics &amp; Troubleshooting" href="help.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+            <a href="index.html" class="icon icon-home"> webbpsf
+            
+            <img src="_static/stsci_pri_combo_mark_white.png" class="logo" />
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.0
+              </div>
+            
+          
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+  
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Requirements &amp; Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="relnotes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Using WebbPSF via the Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jwst.html">JWST Instrument Model Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wfirst.html">WFIRST Instrument Model Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psf_grids.html">Using PSF Grids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="more_examples.html">More Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poppy.html">Overview of POPPY (Physical Optics Propagation in Python)</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html">Detailed API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help.html">Diagnostics &amp; Troubleshooting</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Sampling Requirements for Numerical Accuracy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#key-concepts">Key Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#some-useful-guidance">Some Useful Guidance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#per-instrument-sampling-requirements">Per-Instrument Sampling Requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fft_optimization.html">Optimizing FFT Performance for PSF Computations with FFTW</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="available_opds.html">Appendix: Available Optical Path Difference (OPD) files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">Appendix: Instrument Property References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">(Deprecated)  Graphical User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release.html">Developer Notes: Releasing a new version of WebbPSF</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">webbpsf</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Sampling Requirements for Numerical Accuracy</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/sampling.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sampling-requirements-for-numerical-accuracy">
+<h1>Sampling Requirements for Numerical Accuracy<a class="headerlink" href="#sampling-requirements-for-numerical-accuracy" title="Permalink to this headline">¶</a></h1>
+<p>The purpose of this appendix is to help you decide how many wavelengths and how much oversampling is required for your
+particular science application.</p>
+<div class="section" id="key-concepts">
+<h2>Key Concepts<a class="headerlink" href="#key-concepts" title="Permalink to this headline">¶</a></h2>
+<p>Obtaining high accuracy and precision in PSF calculations requires treating both the multiwavelength
+nature of the selected bandpass and also the details of subpixel sampling and integration onto the detector pixels.</p>
+<p><em>Note:</em> The current version of this code makes no attempt to incorporate detector effects such as pixel MTF and interpixel capacitance.
+If you care about such effects, you should add them with another code.</p>
+<p>Multiwavelength effects scale the PSF linearly with respect to wavelength. Thus the absolute scale of this effect increases
+linearly with distance from the PSF center. The larger a field of view you care about, the more wavelengths you will need to include.</p>
+<p>Pixel sampling matters most near the core of the PSF, where the flux is changing very rapidly on small spatial scales. The closer
+to the core of the PSF you care about fine structure, the more finely sampled your PSF will need to be.</p>
+</div>
+<div class="section" id="some-useful-guidance">
+<h2>Some Useful Guidance<a class="headerlink" href="#some-useful-guidance" title="Permalink to this headline">¶</a></h2>
+<p>We consider two types of measurement one might wish to make on the PSF:</p>
+<ol class="arabic simple">
+<li><p>measuring the encircled energy curve to a given precision</p></li>
+<li><p>measuring individual pixel flux levels to a given precision</p></li>
+</ol>
+<p>The latter is substantially more challenging a measurement. The below tables
+present the number of (oversamplings, wavelengths) needed to achieve SNR=100 in
+a single pixel at a given radius (where SNR in this context is calculated as
+<code class="docutils literal notranslate"><span class="pre">(image-truth)/truth</span></code> on a per-detector-pixel basis and then averaged in an annulus as
+a function of radius).  This calculation is motivated by modeling coronagraphic
+PSF subtraction, where we might hope to achieve 1-2 orders of magnitude
+reduction in the PSF wings through PSF subtraction. Accurately simulating that
+process demands a comparable level of fidelity in our PSF models. We also present tables giving the
+requirements for SNR=20 in a given pixel for less demanding modeling tasks.</p>
+<p>Note that we do not consider here the case of trying to model the PSF core at SNR=100/pixel. If you are
+interested in doing so, I believe very fine subsampling would be needed. This might be most efficiently computed using a highly oversampled PSF for just the core, glued in to a larger image computed at lower angular resolution for the rest of the field of view. Investigating this is left as an exercise for another day.</p>
+<p>Because NIRSpec, NIRISS, and FGS sample the PSF relatively coarsely, they will require a higher degree of oversampling in simulations than NIRCam to reach a given SNR level.
+MIRI is fairly well-sampled.</p>
+</div>
+<div class="section" id="per-instrument-sampling-requirements">
+<h2>Per-Instrument Sampling Requirements<a class="headerlink" href="#per-instrument-sampling-requirements" title="Permalink to this headline">¶</a></h2>
+<p>To evaluate what levels of sampling are needed in practice, for each NIRCam and MIRI filter we first computed a very highly oversampled image (nlambda=200, oversampling=16; field of view 5 arcsec for NIRCam and 12 arcsec for MIRI), which we used as a “truth” image.
+(For practical purposes, we consider this level of sampling likely to be sufficiently fine that it’s a good stand-in for an infinitely sampled PSF, but this is an assumption we have not quantitatively validated. However, since there are &gt;200 subsamples in both pixel and wavelength space, the residuals ought to be &lt;1/200 and thus these are sufficient for our purposes of testing SNR=100.)</p>
+<p>These tables list the (oversampling, wavelengths) required to achive the
+specified SNR, in comparison with a ‘truth’ image based on simulations using
+<code class="docutils literal notranslate"><span class="pre">oversampling</span> <span class="pre">=</span> <span class="pre">16</span></code> (i.e. 256 subpixels per detector pixel) and
+<code class="docutils literal notranslate"><span class="pre">nlambda=200</span></code>.</p>
+<p>Required sampling for NIRCam:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>NIRCam, SNR=100
+              r=0.5&quot;       1.0&quot;       2.0&quot;       3.0&quot;
+     F070W    higher!    (4, 13)    (4, 21)    (4, 30)
+     F090W    higher!    (4, 13)    (4, 21)    (4, 30)
+     F115W    higher!     (4, 9)    (4, 21)    (4, 30)
+     F140M    higher!     (4, 9)     (4, 9)    (4, 13)
+    F150W2    higher!    (4, 30)    (2, 75)    (2, 75)
+     F150W    higher!     (4, 9)    (4, 21)    (4, 21)
+     F162M    higher!     (4, 9)     (4, 9)    (4, 13)
+     F164N    higher!     (8, 3)     (8, 3)     (8, 3)
+     F182M    higher!     (4, 9)     (4, 9)    (4, 13)
+     F187N    higher!     (8, 1)     (4, 5)     (8, 3)
+     F200W     (8, 5)     (4, 9)    (2, 21)    (2, 30)
+     F210M     (8, 3)     (4, 5)     (4, 9)     (4, 9)
+     F212N     (8, 1)     (4, 3)     (4, 3)    (4, 13)
+     F225N     (8, 1)     (4, 3)     (4, 3)     (4, 5)
+     F250M    higher!     (8, 5)    (4, 13)     (4, 9)
+     F277W     (8, 5)     (4, 9)    (4, 13)    (4, 21)
+     F300M     (8, 3)     (8, 5)     (4, 9)     (4, 9)
+    F322W2     (8, 9)    (4, 21)    (4, 21)    (4, 30)
+     F323N     (8, 1)     (8, 1)     (8, 3)     (8, 3)
+     F335M     (8, 3)     (8, 5)     (4, 9)     (4, 9)
+     F356W     (8, 5)     (4, 9)     (4, 9)    (4, 13)
+     F360M     (8, 3)     (8, 5)     (4, 5)     (4, 9)
+     F405N     (8, 1)     (8, 1)     (4, 9)     (8, 3)
+     F410M     (8, 3)     (8, 5)     (4, 5)     (4, 9)
+     F418N     (8, 1)     (8, 1)     (4, 5)     (8, 3)
+     F430M     (8, 1)     (8, 3)     (4, 9)     (4, 9)
+     F444W     (8, 5)     (4, 9)    (4, 13)    (2, 21)
+     F460M     (8, 3)     (8, 5)     (4, 9)     (4, 9)
+     F466N     (8, 1)     (8, 1)     (4, 3)     (4, 9)
+     F470N     (8, 1)     (8, 1)     (4, 3)     (4, 3)
+     F480M     (8, 3)    (4, 21)     (4, 5)     (4, 9)
+
+NIRCam, SNR=20
+              r=0.5&quot;       1.0&quot;       2.0&quot;       3.0&quot;
+     F070W     (8, 3)     (2, 9)    (2, 21)    (2, 21)
+     F090W     (8, 3)     (2, 9)    (2, 13)    (2, 21)
+     F115W     (8, 3)     (2, 9)    (2, 13)    (2, 21)
+     F140M     (8, 3)     (2, 5)     (2, 5)     (2, 9)
+    F150W2     (8, 9)    (2, 21)    (1, 50)    (1, 75)
+     F150W     (8, 3)     (2, 9)    (2, 13)    (2, 21)
+     F162M     (8, 3)     (2, 5)     (2, 5)     (2, 9)
+     F164N     (8, 1)     (4, 1)     (2, 3)     (4, 3)
+     F182M     (8, 3)     (2, 3)     (2, 5)     (2, 9)
+     F187N     (8, 1)     (4, 1)     (2, 3)     (2, 5)
+     F200W     (4, 3)     (2, 5)    (1, 13)    (1, 21)
+     F210M     (4, 3)     (2, 3)     (2, 5)     (2, 5)
+     F212N     (4, 1)     (2, 1)     (2, 3)     (2, 3)
+     F225N     (4, 1)     (2, 1)     (2, 3)     (2, 3)
+     F250M     (8, 1)     (4, 3)     (2, 5)     (2, 5)
+     F277W     (4, 3)     (2, 5)     (2, 9)    (2, 13)
+     F300M     (4, 3)     (4, 3)     (2, 5)     (2, 5)
+    F322W2     (4, 5)     (2, 9)    (2, 21)    (2, 21)
+     F323N     (4, 1)     (4, 1)     (4, 1)     (4, 1)
+     F335M     (4, 3)     (4, 3)     (2, 5)     (2, 5)
+     F356W     (4, 3)     (2, 5)     (2, 9)     (2, 9)
+     F360M     (4, 3)     (4, 3)     (2, 3)     (2, 5)
+     F405N     (4, 1)     (4, 1)     (2, 3)     (2, 3)
+     F410M     (4, 1)     (4, 3)     (2, 3)     (2, 5)
+     F418N     (4, 1)     (4, 1)     (2, 1)     (4, 1)
+     F430M     (4, 1)     (4, 3)     (2, 3)     (2, 5)
+     F444W     (4, 3)     (2, 5)     (1, 9)    (1, 13)
+     F460M     (4, 1)     (2, 5)     (2, 3)     (2, 5)
+     F466N     (4, 1)     (4, 1)     (2, 1)     (2, 3)
+     F470N     (4, 1)     (2, 3)     (2, 1)     (2, 1)
+     F480M     (4, 1)     (2, 5)     (2, 3)     (2, 3)
+</pre></div>
+</div>
+<p>We have not yet performed simulations for the case of NIRISS. The number of wavelengths used for each filter is set equal to
+that used for NIRCam. This should certainly be adequate for the long-wavelength filters (given the NIRISS detector and NIRCam LW are
+identical) but users may wish to investigate using finer sampling for the shorter wavelength filters that are very undersampled on NIRISS.</p>
+<p>And for MIRI:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MIRI</span><span class="p">,</span> <span class="n">SNR</span> <span class="o">=</span> <span class="mi">100</span>
+                   <span class="n">r</span><span class="o">=</span><span class="mf">1.0</span><span class="s2">&quot;      2.0&quot;</span>       <span class="mf">3.5</span><span class="s2">&quot;       5.0&quot;</span>
+         <span class="n">F560W</span>     <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>     <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>    <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>    <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
+         <span class="n">F770W</span>     <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">21</span><span class="p">)</span>
+        <span class="n">F1000W</span>     <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>     <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+        <span class="n">F1065C</span>     <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>     <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>     <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+        <span class="n">F1130W</span>     <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>     <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+        <span class="n">F1140C</span>     <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>     <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>     <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+        <span class="n">F1280W</span>     <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+        <span class="n">F1500W</span>     <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+        <span class="n">F1550C</span>     <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+        <span class="n">F1800W</span>     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+        <span class="n">F2100W</span>     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+        <span class="n">F2300C</span>     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+        <span class="n">F2550W</span>     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+           <span class="n">FND</span>    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">75</span><span class="p">)</span>
+
+
+<span class="n">MIRI</span><span class="p">,</span> <span class="n">SNR</span><span class="o">=</span><span class="mi">20</span>
+                   <span class="n">r</span><span class="o">=</span><span class="mf">1.0</span><span class="s2">&quot;      2.0&quot;</span>       <span class="mf">3.5</span><span class="s2">&quot;       5.0&quot;</span>
+         <span class="n">F560W</span>     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+         <span class="n">F770W</span>     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+        <span class="n">F1000W</span>     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+        <span class="n">F1065C</span>     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="n">F1130W</span>     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="n">F1140C</span>     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="n">F1280W</span>     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+        <span class="n">F1500W</span>     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+        <span class="n">F1550C</span>     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="n">F1800W</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+        <span class="n">F2100W</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+        <span class="n">F2300C</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+        <span class="n">F2550W</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+           <span class="n">FND</span>    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">)</span>    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The defaults for MIRI are set to 9 wavelengths for all filters, except for F560W and F770W which use 13 and FND which uses 40.</p>
+<p>More later.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="fft_optimization.html" class="btn btn-neutral float-right" title="Optimizing FFT Performance for PSF Computations with FFTW" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="help.html" class="btn btn-neutral float-left" title="Diagnostics &amp; Troubleshooting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Association of Universities for Research in Astronomy
+      <span class="lastupdated">
+        Last updated on 20 Nov 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
