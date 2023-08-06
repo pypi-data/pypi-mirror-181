@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools > =61.0"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "de2_sentiment_analyzer"
+version = "1.0.0"
+authors = [{name="prabhu", email="prabhupad@somwwhe.com"}]
+description="Sentiment analyzer app"
+readme="README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
