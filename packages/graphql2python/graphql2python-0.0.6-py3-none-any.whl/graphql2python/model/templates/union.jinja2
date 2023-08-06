@@ -1,0 +1,8 @@
+{{ description }}
+{%- if types|length > 1 %}
+{{ name }} = _t.Union[
+{%- for type in types %}
+    '{{ type }}',
+{%- endfor %}
+]{% else %}
+{{ name }} = _t.TypeVar('{{ name }}', bound='{{ types[0] }}'){% endif %}

@@ -1,0 +1,3 @@
+[console_scripts]
+graphql2python = graphql2python.__main__:graphql2python
+
