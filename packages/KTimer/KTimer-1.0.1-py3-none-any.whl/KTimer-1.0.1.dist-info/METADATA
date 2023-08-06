@@ -1,0 +1,85 @@
+Metadata-Version: 2.1
+Name: KTimer
+Version: 1.0.1
+Summary: Scheduled event driven library for Python Coders
+Home-page: 
+Author: Osman Onur KUZUCU
+Author-email: kuzucu48@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: ksubscribe
+
+# KTimer
+scheduled-event-driven-framework-based-on-milliseconds
+
+
+
+This framework require ksubscribe library.
+
+<br/>
+
+This framework uses **Singleton Desing Pattern** 
+
+<br/>
+
+
+
+This framework build a new thread to run framework's functions. Because of that you should use desctructor of the CTimer.
+
+<br/>
+
+
+Framework's functions are mentioned in below
+
+<br/>
+
+
+```
+    def __init__(self):
+        Run _publishEventBasedOnTimer() function in the new thread.
+
+    def _createScheduledEvent(self, subscriber,eventName:str, msTimePeriod:int):
+        If function returns True, scheduled event is created.
+        If function returns False, scheduled event is not created.
+
+    def _subscribeScheduledEvent(self, subscriber,eventName:str):
+        If function returns True, subscriber subscribes succesfully.
+        If function returns False, subscriber does not subscribe succesfully.
+
+    def _removeScheduledEvent(self,eventName:str):
+        If function returns True, scheduled event is removed successfully.
+        If function returns False, scheduled event is not removed successfully.
+
+    def _publishEventBasedOnTimer(self):
+        Main function that publish the events
+
+    def _removeSubscriberFromScheduledEvent(self,subscriber,eventName:str):   
+        If function returns True, subscriber is removed from schedule event's subscriber list successfully.
+        If function returns False, subscriber is not removed from schedule event's subscriber list successfully.
+
+    def _stopThread(self):
+        Help to stop thread that run _publishEventBasedOnTimer() function.
+
+    def __del__(self):
+        Destructor.
+
+```
+
+
+<br/>
+
+
+
+Framework training repo : [link](https://github.com/bossman48/KTimer-Training) 
+
+
+
+<br/>
+
+
+If you have any question, send mail to [me](kuzucu48@gmail.com)
+
+
