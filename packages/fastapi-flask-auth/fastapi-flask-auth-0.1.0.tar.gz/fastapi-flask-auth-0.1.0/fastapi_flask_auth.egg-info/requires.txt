@@ -1,0 +1,8 @@
+fastapi
+
+[decoder]
+flask-session-decoder
+
+[dev]
+black
+mypy
