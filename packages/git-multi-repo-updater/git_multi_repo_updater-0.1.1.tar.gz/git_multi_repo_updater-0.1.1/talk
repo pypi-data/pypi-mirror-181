@@ -1,0 +1,134 @@
+
+#################
+# Main idea: Python is not slow. architecture is slow, network is slow.
+# Need a graph for the Python capabilities.
+#################
+## Python is not slow, architecture is slow.
+##### You can define performant code using Python.
+#################
+
+
+##################
+# Compare the throttled executor with asyncio.gather.
+# ThrottledTasksExecutor
+
+
+
+## Benethits of microservices vs Monolith 
+
+## Each microservice has similarities dependencies, python version
+
+## Might have a lot of microservices 
+
+## Those microservices might have similarities, basic copied configuration
+
+## And you come up to this use case, that you have do the same change to multiple repositories at once
+
+## When you click a single PR its time consuming, to raise a single PR you might take 3 minutes
+    - and if you have to repeat it 50 times its two and a half hours.
+    - we have project where we have a hundred of microservices so its five hours
+
+## Solution is automation:
+    you can automate this sequence of steps: clone, create a branch, make changes, commit, push and create PR.
+
+## To automate change making: the changes have to be made using script, o command line commands.
+
+## So whats a git-multi-repo-updater
+#### Its a Python package, which allows to automate those steps.
+
+## Demo:
+#### We have 100 repositories in Gihub and Gilab and I have to propage the changes to those respositores
+and only if the tests pass.
+
+## pip install git-multi-repo-updater
+
+## Lets update a single repo
+export GIT_TOKEN="my-secret-api-key"
+git-multi-repo-updater -r github.com/albertas/test1 touch my-file-which-I-randomly-generated-adsfvasd.txt
+
+## Lets update multiple repos
+git-multi-repo-updater -r repos.txt update_mypy_version.py -m "Updated Python version" --branch "ft/increase-mypy-version" --description changes.txt --merge  # --wait-to-merge=3min
+
+repos.txt
+    one_repo
+    second_repo
+
+changes.txt
+    ## Changes
+    - increasing mypy version from 0.961 to 0.991 to get wild card expression support, e.g. `mypy .`, which works recursively for all pyhton files.
+    so you no longer have to state them explicitly
+
+## I wish that you have learned how to use this quite helpful tool
+
+## Now lets see some Python code
+
+## How it works? The most tricky part is to overcome API thortling from gitlab.com, github.com
+The throtling part is implemented using Python coroutines. With advanced mechanism,
+which allows to spread the requests through time in order not to hit throtling limits.
+
+# Running workers, which can pick up the tasks.
+# Each task is started without awaiting result, but a callback is registered so that data is processed when the task is done
+
+
+
+# Task is locking till it will get a permission to run.
+    The lock worker is releasing the lock every 0.2 seconds and only if the lock is consummed.
+    Every 0.5 second we put 3 requests 
+
+
+Primitives to be used:
+    https://docs.python.org/3/library/asyncio-sync.html#asyncio.Condition
+        https://docs.python.org/3/library/asyncio-sync.html#asyncio.Condition.notify
+            every 1/n call notify.  Get requests per second command line parameter value.
+
+    https://docs.python.org/3/library/asyncio-task.html#asyncio.create_task
+    add_done_callback
+
+
+
+
+
+# Git cloning is done using git command, PR is created using API.
+    # Both of those tasks had to be put to the task pool.
+
+
+import httpx
+import asyncio
+import time
+
+async def get_async(start: float, client: httpx.AsyncClient, url: str) -> httpx.Response:
+    inner_start = time.time()
+    result = await client.get(url)
+    print(inner_start-start, time.time() - start, url)
+    return result
+
+urls = [
+    "https://example.com/",
+    "https://pastebin.com/",
+    "https://easylist.to/easylist/easylist.txt",
+] * 50
+
+async def launch():
+    start = time.time()
+    timeout = httpx.Timeout(29.0, connect=30.0)
+    limits = httpx.Limits(max_connections=1000, max_keepalive_connections=0)
+    async with httpx.AsyncClient(timeout=timeout, limits=limits) as client:
+        resps = await asyncio.gather(*[get_async(start, client, url) for url in urls])
+
+        print("Finished:", time.time() - start)
+        data = [resp.text for resp in resps]
+
+asyncio.run(launch())
+
+
+
+## Disclamer this tool was implemented by me
+- I took inspiration from git-xargs, which is quite new project,
+which is implemented in GoLang and supports only Github.com and has some issues.
+
+
+## If you liked this tool and my talk Please give me a stat in Github
+
+
+
+## čia mano kalėdinė dovana Jums (ypač Tučiui)

@@ -1,0 +1,407 @@
+
+
+
+############################################################33ę
+#
+# Release the package: 
+# Add error handling
+# Add parameters for more costumisation
+# Add file support for custom parameters (PR description)
+# Update README with new parameters and usage examples
+# Add unittests with patches for git and .
+# Remove TODOs
+#
+# Create repositories for demonstration
+#
+# Create slides for the presentation using Markdown (Should probably use Jupyter notebook style).
+#
+#
+###################################################################
+
+
+
+## Here I go:
+# Make basic flow work.
+    execute a script
+    and make API calls to GitLab and GitHub
+    add --merge support
+# Use ThreadedExecutorun_not_throttledr: add run_not_thottled().
+# Add parameters for gitlab and github PRs.
+# Release pip package.
+# Make some pictures.
+    # Get the API throttling limits
+    # Make Markdown slides
+
+
+
+
+## My certificate.
+
+
+
+
+
+
+
+
+
+## Features 
+# Unit test coverage
+# pypi package creation
+# 100s repository support using api worker pool
+# All API parameter support
+# Graphical visualization with ability to merge
+# merge after pr is created
+# Skip circle ci
+# Download executable
+
+
+###########################
+## Reactor implementation #
+###########################
+
+# Task which waits some time and prints something:
+import asyncio
+can_make_api_call = asyncio.Condition()
+
+
+async def task():
+    async with can_make_api_call:
+        await can_make_api_call.wait()
+        print("Making API call..")
+        await asyncio.sleep(0.5)
+
+background_tasks = set()
+for i in range(10):
+    waiter_task = asyncio.create_task(task(can_make_api_call))
+
+    # Add task to the set. This creates a strong reference.
+    background_tasks.add(waiter_task)
+
+    # To prevent keeping references to finished tasks forever,
+    # make each task remove its own reference from the set after
+    # completion:
+    waiter_task.add_done_callback(background_tasks.discard)
+
+## Should draw images for presentation.
+## Event loop in a separate thread:
+#https://stackoverflow.com/a/65780581/2609806
+# https://stackoverflow.com/a/32084907/2609806
+
+import asyncio
+from threading import Thread
+
+loop = asyncio.new_event_loop()
+running = True  # I do not need this actually.
+
+def evaluate(future):
+    global running
+    stop = future.result()
+    if stop:
+        print("press enter to exit...")
+        running = False
+
+def coroutine_executor_thread(loop):
+    asyncio.set_event_loop(loop)
+    loop.run_forever()
+
+thread = Thread(target=coroutine_executor_thread, args=(loop,), daemon=True)
+thread.start()
+
+async def display(text):
+    await asyncio.sleep(5)
+    print("echo:", text)
+    return text == "exit"
+
+while running:
+  text = input("enter text: ")
+  future = asyncio.run_coroutine_threadsafe(display(text), loop)
+  future.add_done_callback(evaluate)
+
+print("exiting")
+
+
+
+## Alternative to threading:
+# loop.run_forever()
+# loop.stop()
+
+
+# We put some 50 tasks to be executed 
+# Each task gets condition
+
+
+
+
+# Task is locking till it will get a permission to run.
+#     The lock worker is releasing the lock every 0.2 seconds and only if the lock is consummed.
+#     Every 0.5 second we put 3 requests 
+
+
+# Primitives to be used:
+#     https://docs.python.org/3/library/asyncio-sync.html#asyncio.Condition
+#         https://docs.python.org/3/library/asyncio-sync.html#asyncio.Condition.notify
+#             every 1/n call notify.  Get requests per second command line parameter value.
+
+#     https://docs.python.org/3/library/asyncio-task.html#asyncio.create_task
+#     add_done_callback
+#
+#
+import httpx
+import asyncio
+import time
+
+async def get_async(start: float, client: httpx.AsyncClient, url: str) -> httpx.Response:
+    inner_start = time.time()
+    result = await client.get(url)
+    print(inner_start-start, time.time() - start, url)
+    return result
+
+urls = [
+    "https://example.com/",
+    "https://pastebin.com/",
+    "https://easylist.to/easylist/easylist.txt",
+] * 50
+
+async def launch():
+    start = time.time()
+    timeout = httpx.Timeout(29.0, connect=30.0)
+    limits = httpx.Limits(max_connections=1000, max_keepalive_connections=0)
+    async with httpx.AsyncClient(timeout=timeout, limits=limits) as client:
+        resps = await asyncio.gather(*[get_async(start, client, url) for url in urls])
+
+        print("Finished:", time.time() - start)
+        data = [resp.text for resp in resps]
+
+asyncio.run(launch())
+
+
+
+vi gitmultirepoupdater/actions/create_pull_request.py
+
+
+
+
+os.path.exists can be mocked.
+git also should be mocked.
+    Use recordermock to mock the git whole package.
+
+    You can actually patch a module (but you have to provide the filename in which you want it to be patched.)
+
+    In [7]: git
+    Out[7]: <module 'git' from '/home/niekas/.local/lib/python3.8/site-packages/git/__init__.py'>
+
+    In [8]: p = patch('__main__.git')
+
+    In [9]: p.start()
+    Out[9]: <MagicMock name='git' id='140099067996720'>
+
+    In [10]: git
+    Out[10]: <MagicMock name='git' id='140099067996720'>
+
+
+
+Should check if `git` is installed.
+Have to somehow mock the API calls.
+    The git 
+
+
+
+Color:
+    # print(Style.BRIGHT + "git_multi_repo_updater" + Style.RESET_ALL + ": the git-repo-updater")
+    # print()
+
+Limiting number of requests per second:
+    Each half second should have its own semaphore.
+    If semaphore is not aquired then it should asyncio.sleep for some time.
+        (The API call mechanism should work globally).
+        https://stackoverflow.com/a/50309198/2609806
+        https://fadeevab.com/18-lines-of-the-powerful-request-generator-with-python-asyncio-aiohttp/
+
+    Use cache for TTL implementation:
+        https://stackoverflow.com/questions/31771286/python-in-memory-cache-with-time-to-live
+        https://stackoverflow.com/a/54356959/2609806
+
+#############################################################
+# Epic: cloning repositories and preparing them for changes #
+#############################################################
+
+Accept a list of repositories
+Add test for absolute and relative list of repositories
+Clean repo if it already exists in the destination path?
+Have option --clone-to: default is .tmp --keep-repos
+    Clone each repository to temporarily directory
+        dfx
+    reuse repositories? They should be cleaned.
+
+
+
+
+
+
+
+
+# Should split this code into more modular parts: refacotring takes too much
+# Stages: make API call 
+
+# TODO
+Commit the changes which are already made.
+Make a single API call to Github repository.
+
+#########
+# TOOLS #
+#########
+# auto-mock: records everything
+# test-chain:
+    - test execution order (specify dependency on another test)
+    - global state to save a response which can be used for the mock
+    - a way to consume the mock responses generated by other tests
+
+
+## Epics
+# Make API calls to GitHub
+# Package and release to PyPi
+# Run command as command line tool
+# Make API calls to GitLab
+# Support different API calls
+
+
+
+# Packaging tools and tutorials:
+https://packaging.python.org/en/latest/key_projects/#pypa-projects
+
+
+
+
+
+
+class Action(_AttributeHolder):
+    """Information about how to convert command line strings to Python objects.
+
+    Action objects are used by an ArgumentParser to represent the information
+    needed to parse a single argument from one or more strings from the
+    command line. The keyword arguments to the Action constructor are also
+    all attributes of Action instances.
+
+    Keyword Arguments:
+
+        - option_strings -- A list of command-line option strings which
+            should be associated with this action.
+
+        - dest -- The name of the attribute to hold the created object(s)
+
+        - nargs -- The number of command-line arguments that should be
+            consumed. By default, one argument will be consumed and a single
+            value will be produced.  Other values include:
+                - N (an integer) consumes N arguments (and produces a list)
+                - '?' consumes zero or one arguments
+                - '*' consumes zero or more arguments (and produces a list)
+                - '+' consumes one or more arguments (and produces a list)
+            Note that the difference between the default and nargs=1 is that
+            with the default, a single value will be produced, while with
+            nargs=1, a list containing a single value will be produced.
+
+        - const -- The value to be produced if the option is specified and the
+            option uses an action that takes no values.
+
+        - default -- The value to be produced if the option is not specified.
+
+        - type -- A callable that accepts a single string argument, and
+            returns the converted value.  The standard Python types str, int,
+            float, and complex are useful examples of such callables.  If None,
+            str is used.
+
+        - choices -- A container of values that should be allowed. If not None,
+            after a command-line argument has been converted to the appropriate
+            type, an exception will be raised if it is not a member of this
+            collection.
+
+        - required -- True if the action must always be specified at the
+            command line. This is only meaningful for optional command-line
+            arguments.
+
+        - help -- The help string describing the argument.
+
+        - metavar -- The name to be used for the option's argument with the
+            help string. If None, the 'dest' value will be used as the name.
+    """
+
+
+
+########## ERRORS ##########
+
+rm -fr tmp/*
+GITLAB_ACCESS_TOKEN=glpat-8Y1YCo8Ygb6uqgDWcX41 GITHUB_OAUTH_TOKEN=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 \
+git-multi-repo-updater -r repos.txt -v --clone-to=tmp -m "Hello world" ./examples/update_mypy_version.py
+Cloning https://api:glpat-8Y1YCo8Ygb6uqgDWcX41@gitlab.com/niekas/gitlab-api-tests.git to tmp
+Cloned repo from https://api:glpat-8Y1YCo8Ygb6uqgDWcX41@gitlab.com/niekas/gitlab-api-tests.git to tmp
+exception calling callback for <Future at 0x7f51f02e3bb0 state=finished raised PermissionError>
+Traceback (most recent call last):
+  File "/home/niekas/.pyenv/versions/3.9.2/lib/python3.9/concurrent/futures/_base.py", line 329, in _invoke_callbacks
+    callback(self)
+  File "/home/niekas/tools/git-multi-repo-updater/gitmultirepoupdater/utils/throttled_tasks_executor.py", line 131, in task_done_wrapper
+    task_result = task.result()
+  File "/home/niekas/.pyenv/versions/3.9.2/lib/python3.9/concurrent/futures/_base.py", line 433, in result
+    return self.__get_result()
+  File "/home/niekas/.pyenv/versions/3.9.2/lib/python3.9/concurrent/futures/_base.py", line 389, in __get_result
+    raise self._exception
+  File "/home/niekas/tools/git-multi-repo-updater/gitmultirepoupdater/actions/run_command.py", line 16, in run_command
+    proc = subprocess.Popen(
+  File "/home/niekas/.pyenv/versions/3.9.2/lib/python3.9/subprocess.py", line 951, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/home/niekas/.pyenv/versions/3.9.2/lib/python3.9/subprocess.py", line 1823, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+PermissionError: [Errno 13] Permission denied: '/home/niekas/tools/git-multi-repo-updater/examples/update_mypy_version.py'
+
+
+
+
+rm -fr tmp/*
+GITLAB_ACCESS_TOKEN=glpat-8Y1YCo8Ygb6uqgDWcX41 GITHUB_OAUTH_TOKEN=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 \
+git-multi-repo-updater -r repos.txt -v --clone-to=tmp -m "Hello world" ./examples/update_mypy_version.py
+Cloning https://api:glpat-8Y1YCo8Ygb6uqgDWcX41@gitlab.com/niekas/gitlab-api-tests.git to tmp
+Cloned repo from https://api:glpat-8Y1YCo8Ygb6uqgDWcX41@gitlab.com/niekas/gitlab-api-tests.git to tmp
+exception calling callback for <Future at 0x7fa0bbff1bb0 state=finished raised OSError>
+Traceback (most recent call last):
+  File "/home/niekas/.pyenv/versions/3.9.2/lib/python3.9/concurrent/futures/_base.py", line 329, in _invoke_callbacks
+    callback(self)
+  File "/home/niekas/tools/git-multi-repo-updater/gitmultirepoupdater/utils/throttled_tasks_executor.py", line 131, in task_done_wrapper
+    task_result = task.result()
+  File "/home/niekas/.pyenv/versions/3.9.2/lib/python3.9/concurrent/futures/_base.py", line 433, in result
+    return self.__get_result()
+  File "/home/niekas/.pyenv/versions/3.9.2/lib/python3.9/concurrent/futures/_base.py", line 389, in __get_result
+    raise self._exception
+  File "/home/niekas/tools/git-multi-repo-updater/gitmultirepoupdater/actions/run_command.py", line 16, in run_command
+    proc = subprocess.Popen(
+  File "/home/niekas/.pyenv/versions/3.9.2/lib/python3.9/subprocess.py", line 951, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/home/niekas/.pyenv/versions/3.9.2/lib/python3.9/subprocess.py", line 1823, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+OSError: [Errno 8] Exec format error: '/home/niekas/tools/git-multi-repo-updater/examples/update_mypy_version.py'
+
+
+
+
+Traceback (most recent call last):
+  File "/home/niekas/.pyenv/versions/3.9.2/lib/python3.9/concurrent/futures/_base.py", line 329, in _invoke_callbacks
+    callback(self)
+  File "/home/niekas/tools/git-multi-repo-updater/gitmultirepoupdater/utils/throttled_tasks_executor.py", line 131, in task_done_wrapper
+    task_result = task.result()
+  File "/home/niekas/.pyenv/versions/3.9.2/lib/python3.9/concurrent/futures/_base.py", line 433, in result
+    return self.__get_result()
+  File "/home/niekas/.pyenv/versions/3.9.2/lib/python3.9/concurrent/futures/_base.py", line 389, in __get_result
+    raise self._exception
+  File "/home/niekas/tools/git-multi-repo-updater/gitmultirepoupdater/utils/throttled_tasks_executor.py", line 125, in throttled_task_wrapper
+    return await coroutine
+  File "/home/niekas/tools/git-multi-repo-updater/gitmultirepoupdater/actions/commit_and_push_changes.py", line 18, in commit_and_push_changes
+    repo.git.push("--set-upstream", "origin", repo_state.branch_name)
+  File "/home/niekas/tools/git-multi-repo-updater/venv/lib/python3.9/site-packages/git/cmd.py", line 696, in <lambda>
+    return lambda *args, **kwargs: self._call_process(name, *args, **kwargs)
+  File "/home/niekas/tools/git-multi-repo-updater/venv/lib/python3.9/site-packages/git/cmd.py", line 1270, in _call_process
+    return self.execute(call, **exec_kwargs)
+  File "/home/niekas/tools/git-multi-repo-updater/venv/lib/python3.9/site-packages/git/cmd.py", line 1064, in execute
+    raise GitCommandError(redacted_command, status, stderr_value, stdout_value)
+git.exc.GitCommandError: Cmd('git') failed due to: exit code(1)
+  cmdline: git push --set-upstream origin hello-world
+  stderr: 'To https://gitlab.com/niekas/gitlab-api-tests.git
+ ! [rejected]        hello-world -> hello-world (non-fast-forward)
