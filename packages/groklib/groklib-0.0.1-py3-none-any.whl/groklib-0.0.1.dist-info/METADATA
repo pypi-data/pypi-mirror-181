@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: groklib
+Version: 0.0.1
+Summary: The thin-client library for the XT-GROK system of tools for organizing and scaling ML experiments
+Home-page: https://github.com/rfernand2
+Author: Roland Fernandez
+Author-email: rfernand@microsoft.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Requires-Dist: sphinx ; extra == 'dev'
+Requires-Dist: sphinx-rtd-theme ; extra == 'dev'
+
+# grok
+ML logging, visualization, and analysis service (with thin client library)
+
+
