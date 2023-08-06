@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: adif2xml
+Version: 1.0.1
+Summary: Converts an ADIF file to XML.
+Author-email: Michael Bridak <michael.bridak@gmail.com>
+Project-URL: Homepage, https://github.com/mbridak/adif2xml
+Project-URL: Bug Tracker, https://github.com/mbridak/adif2xml/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Environment :: Console
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Natural Language :: English
+Classifier: Topic :: Communications :: Ham Radio
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# adif2xml
+
+A commandline tool to convert an ADIF file to an XML file.
+
+## Install
+
+```bash
+pip install adif2xml
+```
+
+## Usage
+
+```bash
+adif2xml source.adi -o output.xml
+```
