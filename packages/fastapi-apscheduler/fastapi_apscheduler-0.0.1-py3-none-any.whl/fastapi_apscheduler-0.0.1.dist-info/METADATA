@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: fastapi-apscheduler
+Version: 0.0.1
+Summary: Allow manage APScheduler with FastAPI router
+Home-page: https://github.com/grillazz/fastapi-apscheduler
+License: MIT
+Author: Jakub Miazek
+Author-email: the@grillazz.com
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: APScheduler (>=3.9.1.post1,<4.0.0)
+Requires-Dist: fastapi (>=0.87.0,<0.88.0)
+Requires-Dist: rich (>=12.6.0,<13.0.0)
+Project-URL: Repository, https://github.com/grillazz/fastapi-apscheduler
+Description-Content-Type: text/markdown
+
+# fastapi-apscheduler
+
+
+[![Build Status](https://travis-ci.com/viniciuschiele/fastapi-apscheduler.svg?branch=master)](https://travis-ci.com/viniciuschiele/fastapi-apscheduler)
+[![PyPI version](https://badge.fury.io/py/fastapi-apscheduler.svg)](https://badge.fury.io/py/fastapi-apscheduler)
+[![Downloads](https://pepy.tech/badge/fastapi-apscheduler)](https://pepy.tech/project/fastapi-apscheduler)
+[![codecov](https://codecov.io/gh/viniciuschiele/fastapi-apscheduler/branch/master/graph/badge.svg)](https://codecov.io/gh/viniciuschiele/fastapi-apscheduler)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## Installation
+
+```bash
+pip install fastapi-apscheduler
+```
+
+## Usage
+
+```python
+from fastapi import FastAPI
+from fastapi_apscheduler import scheduler
+
