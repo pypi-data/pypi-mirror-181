@@ -1,0 +1,137 @@
+{
+  "src/lib/components/LoadingWrapper.react.js": {
+    "description": "ExampleComponent is an example component.\r\nIt takes a property, `label`, and\r\ndisplays it.\r\nIt renders an input with the property `value`\r\nwhich is editable by the user.",
+    "displayName": "LoadingWrapper",
+    "methods": [
+      {
+        "name": "isTarget",
+        "docblock": "\u30ed\u30fc\u30c9\u306e\u57fa\u6e96\u3068\u306a\u308b\u30bf\u30fc\u30b2\u30c3\u30c8\u304b\u5224\u5b9a\r\n@param {*} nodes\r\n@returns",
+        "modifiers": [],
+        "params": [
+          {
+            "name": "nodes",
+            "description": null,
+            "type": {
+              "name": "mixed"
+            },
+            "optional": false
+          }
+        ],
+        "returns": null,
+        "description": "\u30ed\u30fc\u30c9\u306e\u57fa\u6e96\u3068\u306a\u308b\u30bf\u30fc\u30b2\u30c3\u30c8\u304b\u5224\u5b9a"
+      },
+      {
+        "name": "isLoading",
+        "docblock": "\u30ed\u30fc\u30c9\u4e2d\u304b\u5224\u5b9a\r\n@returns",
+        "modifiers": [],
+        "params": [],
+        "returns": null,
+        "description": "\u30ed\u30fc\u30c9\u4e2d\u304b\u5224\u5b9a"
+      },
+      {
+        "name": "setLoading",
+        "docblock": "\u30ed\u30fc\u30c9\u72b6\u614b\u3092state\u3068props\u306b\u8a2d\u5b9a\r\n@param {*} isLoading",
+        "modifiers": [],
+        "params": [
+          {
+            "name": "isLoading",
+            "description": null,
+            "type": {
+              "name": "mixed"
+            },
+            "optional": false
+          }
+        ],
+        "returns": null,
+        "description": "\u30ed\u30fc\u30c9\u72b6\u614b\u3092state\u3068props\u306b\u8a2d\u5b9a"
+      },
+      {
+        "name": "checkIgnore",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "target",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "isIgnore",
+        "docblock": "\u9664\u5916\u30b3\u30f3\u30c6\u30f3\u30c4\u5224\u5b9a\r\n@param {*} target\r\n@returns",
+        "modifiers": [],
+        "params": [
+          {
+            "name": "target",
+            "description": null,
+            "type": {
+              "name": "mixed"
+            },
+            "optional": false
+          }
+        ],
+        "returns": null,
+        "description": "\u9664\u5916\u30b3\u30f3\u30c6\u30f3\u30c4\u5224\u5b9a"
+      }
+    ],
+    "props": {
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": ""
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "targetClassName": {
+        "type": {
+          "name": "string"
+        },
+        "required": true,
+        "description": ""
+      },
+      "interval": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "1000",
+          "computed": false
+        }
+      },
+      "ignores": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "string"
+          }
+        },
+        "required": false,
+        "description": ""
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": ""
+      }
+    }
+  }
+}

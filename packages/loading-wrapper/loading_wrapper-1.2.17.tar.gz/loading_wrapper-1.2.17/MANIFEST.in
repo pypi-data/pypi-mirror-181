@@ -1,0 +1,11 @@
+include loading_wrapper/loading_wrapper.min.js
+include loading_wrapper/loading_wrapper.min.js.map
+include loading_wrapper/async-*.js
+include loading_wrapper/async-*.js.map
+include loading_wrapper/*-shared.js
+include loading_wrapper/*-shared.js.map
+include loading_wrapper/metadata.json
+include loading_wrapper/package-info.json
+include README.md
+include LICENSE
+include package.json
