@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "nops_sdk"
+version = "0.7.3"
+description = "SDK for the nOps API"
+authors = ["nOps Engineers <eng@nops.io>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+requests = "^2.27.1"
+pytest = "^7.1.1"
+pyflakes = "^2.4.0"
+isort = "^5.10.1"
+boto3 = "^1.21.42"
+
+[tool.poetry.dev-dependencies]
+black = "^22.3.0"
+pre-commit = "^2.17.0"
+Sphinx = "^4.5.0"
+sphinx-rtd-theme = "^1.0.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 120
+target-version = ['py39']
+
+[tool.isort]
+multi_line_output = 3
+line_length = 120
+force_single_line = true
+default_section = 'THIRDPARTY'
+known_django = 'django'
+sections = 'FUTURE,STDLIB,DJANGO,THIRDPARTY,FIRSTPARTY,LOCALFOLDER'
