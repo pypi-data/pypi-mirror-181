@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "dirlib"
+version = "1.0.0"
+description = ""
+authors = ["owlinux1000 <encry1024@gmail.com>"]
+readme = "README.md"
+license = "MIT"
+repository = "https://github.com/owlinux1000/dirlib"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
