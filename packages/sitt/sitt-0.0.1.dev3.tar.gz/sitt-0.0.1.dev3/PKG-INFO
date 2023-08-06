@@ -1,0 +1,93 @@
+Metadata-Version: 2.1
+Name: sitt
+Version: 0.0.1.dev3
+Summary: Si.T.T. (Simulation of Traffic and Transport) is an agent-based simulation for pre-industrial trade routes.
+Project-URL: Documentation, https://github.com/Simulation-of-Traffic-and-Transport/SiTT#readme
+Project-URL: Issues, https://codeberg.org/SiTT/SiTT/issues
+Project-URL: Source, https://codeberg.org/SiTT/SiTT
+Author-email: Maximilian Kalus <info@auxnet.de>
+License-File: LICENSE.txt
+Keywords: ancient,history,simulation,trade,university
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Scientific/Engineering
+Classifier: Typing :: Typed
+Requires-Python: >=3.10
+Requires-Dist: cdsapi>=0.5.1
+Requires-Dist: geopandas>=0.12.1
+Requires-Dist: matplotlib>=3.6.2
+Requires-Dist: nanoid~=2.0.0
+Requires-Dist: netcdf4>=1.6.0
+Requires-Dist: networkx~=2.8.8
+Requires-Dist: numpy>=1.23.5
+Requires-Dist: pandas>=1.5.1
+Requires-Dist: pyproj>=3.4.0
+Requires-Dist: pyyaml>=6.0
+Requires-Dist: rasterio==1.3a3
+Requires-Dist: rioxarray>=0.12.2
+Requires-Dist: shapely>=1.8.5
+Requires-Dist: sqlalchemy>=1.4.44
+Description-Content-Type: text/markdown
+
+# Si.T.T. (Simulation of Traffic and Transport)
+
+Si.T.T. is a program suite to simulate the traffic and transport of pre-industrial societies. It uses an agent-based
+approach to model the simulation. An agent can be thought of as a batch of cargo transported through the network
+(rather than an individual person travelling it).
+
+[![PyPI - Version](https://img.shields.io/pypi/v/sitt.svg)](https://pypi.org/project/sitt)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/sitt.svg)](https://pypi.org/project/sitt)
+
+*Note:* This project is WIP at the moment and in pre-alpha status. Please come back later to test the full capabilities.
+
+Main repository: https://codeberg.org/SiTT/SiTT  
+Public mirror: https://github.com/Simulation-of-Traffic-and-Transport/SiTT
+
+-----
+
+**Table of Contents**
+
+- [Installation](#installation)
+- [Documentation](#documentation)
+- [Examples](#examples)
+- [License](#license)
+
+## Installation
+
+You need Python 3.10 or later to run Si.T.T.
+
+```console
+pip install sitt
+```
+
+After installation, you can run Si.T.T. using it as a module:
+
+```console
+python -m sitt
+```
+
+This will activate the command line interface and print a help message. For other ways to run Si.T.T., check out the
+examples below.
+
+## Documentation
+
+You can read some documentation on the following pages:
+
+* [Si.T.T.'S General Concept](readmes/concept.md) (with figures)
+
+## Examples
+
+Can be found in the [examples directory](examples/README.md).
+
+## License
+
+`sitt` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
