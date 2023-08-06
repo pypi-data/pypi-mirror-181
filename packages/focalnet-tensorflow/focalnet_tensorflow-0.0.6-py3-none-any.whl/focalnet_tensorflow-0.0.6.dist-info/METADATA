@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: focalnet-tensorflow
+Version: 0.0.6
+Summary: FocalNet implementation in TensorFlow
+Author: Anas Raza
+Author-email: memanasraza@gmail.com
+Keywords: focalnet,tensorflow
+Requires-Dist: tensorflow
+Requires-Dist: tensorflow-addons
+
