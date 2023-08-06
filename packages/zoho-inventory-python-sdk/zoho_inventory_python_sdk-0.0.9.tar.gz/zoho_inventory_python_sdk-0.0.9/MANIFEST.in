@@ -1,0 +1,7 @@
+include README.md
+include LICENSE
+include requirements.txt
+graft src/zoho_inventory_python_sdk
+recursive-exclude * *.py[co]
+include versioneer.py
+include src/zoho_inventory_python_sdk/_version.py
