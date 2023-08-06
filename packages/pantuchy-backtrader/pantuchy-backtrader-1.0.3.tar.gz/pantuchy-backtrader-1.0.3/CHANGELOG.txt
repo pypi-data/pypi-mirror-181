@@ -1,0 +1,21 @@
+Change Log
+==========
+
+1.0.0 (08/01/2022)
+-------------------
+- First Release
+
+1.0.1 (08/01/2022)
+-------------------
+- Added data key for indicators that requires single set of prices
+
+1.0.2 (09/01/2022)
+-------------------
+- Bug fixes
+- Added breakeven price to position and "get_breakeven_price" utility method
+
+1.0.3 (09/01/2022)
+-------------------
+- Bug fixes
+- Removed indicators
+- Added new metrics to report
