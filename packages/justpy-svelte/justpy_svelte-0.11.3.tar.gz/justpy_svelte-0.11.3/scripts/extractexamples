@@ -1,0 +1,5 @@
+#!/bin/bash
+# WF 2022-08-21
+# script to extract tutorial examples
+export PYTHON_PATH=.
+python jpcore/tutorial.py "$@"

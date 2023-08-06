@@ -1,0 +1,20 @@
+# WF 2022-10-19
+# heroku  justpy demo browser dependencies
+#
+# install justpy
+justpy>=0.10.4
+# install dependencies for examples
+altair
+# see https://github.com/justpy-org/justpy/issues/597
+bokeh==2.3.2
+matplotlib
+pandas
+pandas_datareader
+plotly
+pydeck
+pygments
+scipy
+seaborn
+vega_datasets
+# debugging
+pydevd
