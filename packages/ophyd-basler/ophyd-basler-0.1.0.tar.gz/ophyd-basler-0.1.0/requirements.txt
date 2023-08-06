@@ -1,0 +1,11 @@
+# List required packages in this file, one per line.
+area-detector-handlers
+bluesky
+databroker
+event-model
+h5py
+ipython
+matplotlib
+numpy
+ophyd
+pypylon
