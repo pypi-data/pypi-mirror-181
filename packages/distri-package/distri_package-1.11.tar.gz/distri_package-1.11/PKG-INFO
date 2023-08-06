@@ -1,0 +1,28 @@
+Metadata-Version: 1.0
+Name: distri_package
+Version: 1.11
+Summary: Gaussian and Binomial distributions
+Home-page: UNKNOWN
+Author: UNKNOWN
+Author-email: UNKNOWN
+License: UNKNOWN
+Description-Content-Type: text/markdown
+Description: The purpose of this package is to help users analyze Binomial and Gaussian distributions. 
+        
+                    Install 
+        
+                    To pip install type: 
+        
+                    `pip install distri_pack` 
+         
+        
+        
+                    Files 
+        
+                    Binomialdistribution.py - Binomial distribution class for calculating and visualizing a Binomial distribution. 
+        
+                    Gaussiandistribution.py - Gaussian distribution class for calculating and visualizing a Gaussian distribution. 
+        
+                    Generaldistribution.py - Generic distribution class for calculating and visualizing a probability distribution. 
+        
+Platform: UNKNOWN
