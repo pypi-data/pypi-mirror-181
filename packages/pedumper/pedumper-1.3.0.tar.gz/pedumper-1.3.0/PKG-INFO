@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: pedumper
+Version: 1.3.0
+Summary: Dumper can easily extract PE files in the memory of the target process
+License: MIT
+Author: owlinux1000
+Author-email: encry1024@gmail.com
+Requires-Python: >=3.11,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: pefile (>=2022.5.30,<2023.0.0)
+Description-Content-Type: text/markdown
+
+# pedumper
+
+pedumper can easily dump PE files within memory.
+
+## Installation
+
+```cmd
+pip install pedumper
+```
+
+## How to use
+
+```cmd
+C:\Users\user\Desktop>pedumper -p 24532
+[!] Found a PE file in the target memory
+[*] Address     : 0x133f8e80000
+[*] Region      : 0x133f8e80000 - 0x133f8eb7000
+[*] Protect     : 0x40 (PAGE_EXECUTE_READWRITE)
+[*] Type        : 0x20000 (MEM_PRIVATE)
+[*] State       : 0x1000 (MEM_COMMIT)
+[!] Saved the found PE to 0x133f8e80000.exe
+
+[!] Found a PE file in the target memory
+[*] Address     : 0x133f8e9b800
+[*] Region      : 0x133f8e80000 - 0x133f8eb7000
+[*] Protect     : 0x40 (PAGE_EXECUTE_READWRITE)
+[*] Type        : 0x20000 (MEM_PRIVATE)
+[*] State       : 0x1000 (MEM_COMMIT)
+[!] Saved the found PE to 0x133f8e9b800.exe
+```
