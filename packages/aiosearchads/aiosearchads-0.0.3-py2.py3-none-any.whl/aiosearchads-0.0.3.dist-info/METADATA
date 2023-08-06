@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: aiosearchads
+Version: 0.0.3
+Summary: Asynchronous apple searchads framework for asyncio and Python
+Home-page: https://github.com/linzhiming0826/aiosearchads
+Author: TuoX
+Author-email: 120549827@qq.com
+License: MIT
+Platform: any
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: MIT License
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: aiohttp (>=3.6.2)
+Requires-Dist: pyjwt (>=1.7.1)
+
+
+
+
+## Aiosearchads
+
+### Asynchronous apple searchads framework for asyncio and Python
+
+## Document
+
+[click me](https://aiosearchads.readthedocs.io)
+
+## Installation
+```linux
+pip install aiosearchads
+```
+
+## Simple uses
+```python
+import asyncio
+from aiosearchads import AioSearchAds
+
+
+async def find_campaigns():
+    core = AioSearchAds(org_id='', token='')
+    data = await core.find_campaigns(0, 100)
+    print(data)
+
+loop = asyncio.get_event_loop()
+loop.run_until_complete(find_campaigns())
+
+```
+
+
