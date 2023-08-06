@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: cryptatools-python3
+Version: 0.1.9
+Summary: Python Binding of the library and cryptanalysis tool 'cryptatools'.
+Home-page: https://github.com/gogo2464/cryptatools-rs
+Author: gogo2464
+Author-email: gogo246475@gmail.com
+License: UNKNOWN
+Keywords: cryptatools
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+Requires-Dist: semver (>=2.13.0)
+Requires-Dist: wheel
+Requires-Dist: semantic-version (==2.9.0)
+Requires-Dist: setuptools
+Requires-Dist: typing-extensions (==4.0.1)
+Requires-Dist: pytest (==7.1.2)
+Requires-Dist: tox (==3.25.1)
+
+UNKNOWN
+
