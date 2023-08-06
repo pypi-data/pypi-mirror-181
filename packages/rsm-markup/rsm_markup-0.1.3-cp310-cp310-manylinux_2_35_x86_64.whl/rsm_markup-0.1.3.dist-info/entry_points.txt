@@ -1,0 +1,5 @@
+[console_scripts]
+rsm-lint=rsm.scripts.lint:main
+rsm-make=rsm.scripts.make:main
+rsm-render=rsm.scripts.render:main
+
