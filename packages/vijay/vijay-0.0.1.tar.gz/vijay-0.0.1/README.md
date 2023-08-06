@@ -1,0 +1,127 @@
+# aitest
+The  vijay  Command  Line  Interface is a unified tool to manage your aitest services.
+
+### Installing
+To vijay this CLI tool you can run the below command for Linux 
+```
+pip3 install vijay
+```
+
+To install this CLI tool you can run the below command for windows 
+```
+pip install vijay
+```
+
+### How to use
+    To see help text, you can run:
+
+    aitest --help
+    aitest <command> --help
+    aitest <command> <subcommand> --help
+
+    ex:
+    1) If you want help to understand aitest CLI, you can run the following command:
+    Input :
+    
+        aitest --help
+        
+    output:
+    
+        Usage: aitest [OPTIONS] COMMAND [ARGS]...
+
+        The  aitest  Command  Line  Interface is a unified tool to manage your aitest  services.
+    
+        To see help text, you can run:
+    
+       aitest --help
+    
+       aitest <command> --help
+    
+       aitest <command> <subcommand> --help
+    
+       Options:
+           --help  Show this message and exit.
+    
+       Commands:
+           configure  If this command is run with no arguments, you will be prompted...
+           run        If this command is run with testrun id as an argument, aitest...
+           status     If this command is run with testrun id as an argument, aitest...
+
+    2) If you want to know how configure command works , you can run the following command:
+        Input:
+        
+            aitest configure --help
+        
+        Output:
+        
+        aitest configure [OPTIONS]
+
+        If this command is run with no arguments, you will be prompted for configuration values such as your  aitest  APIKey.If your configure file
+        does not  exist (the default location is ~/.aitest/configure), the aitest
+        CLI will create it for you.To keep an existing value, hit enter when
+        prompted for the value.
+
+    
+        To save the configurations , you can run below command:
+    
+        aitest configure
+    
+       Options:
+          --help  Show this message and exit.
+
+    3) How to run aitest configure command?
+        Input:
+
+                aitest configure 
+
+        Output:
+    
+                Enter APIkey:<For authentication we are using the Bearer token temporary. In Future we will use the Access key.>
+
+        After this step key will bea store at the default location is ~/.aitest/configure.
+#### Note : To access the aitest services using CLI commands you need to run  aitest configure command first.
+
+
+    4) How to run aitest run command?:
+        Input:
+        
+            aitest run ae96545a-79da-11ed-8d95-762fbb2b81b4
+
+        Output:
+        
+        Enter github password: test
+
+        Test created successfully
+        Test Name : P_Demo_Test
+        Test Run ID : 49d13c54-7ab3-11ed-8bb3-56752b95b6fb
+
+     
+            
+    5) How to run aitest status command?
+        Input :
+
+            aitest status ae96545a-79da-11ed-8d95-762fbb2b81b4
+
+        Output:
+
+            test status : completed
+
+            chrome-104    test run result id: 3f7fd9d2-79db-11ed-899a-4e9b87be310a   status: pass   time taken: 248.08 secs
+            chrome-104    test run result id: 3f8e9d82-79db-11ed-899a-4e9b87be310a   status: pass   time taken: 249.23 secs
+            chrome-104    test run result id: 875bcfc2-79db-11ed-899a-4e9b87be310a   status: pass   time taken: 244.416 secs
+            chrome-104    test run result id: 8769323e-79db-11ed-899a-4e9b87be310a   status: pass   time taken: 244.636 secs
+            chrome-104    test run result id: afa26866-79da-11ed-899a-4e9b87be310a   status: pass   time taken: 245.386 secs
+            chrome-104    test run result id: afbb8f1c-79da-11ed-899a-4e9b87be310a   status: pass   time taken: 247.679 secs
+            chrome-104    test run result id: cf309d82-79db-11ed-899a-4e9b87be310a   status: pass   time taken: 243.275 secs
+            chrome-104    test run result id: cf3d5bb2-79db-11ed-899a-4e9b87be310a   status: pass   time taken: 237.987 secs
+            chrome-104    test run result id: f7ad10ca-79da-11ed-899a-4e9b87be310a   status: pass   time taken: 252.762 secs
+            chrome-104    test run result id: f7bdb38a-79da-11ed-899a-4e9b87be310a   status: pass   time taken: 253.399 secs
+
+
+
+
+    
+
+    
+
+    
