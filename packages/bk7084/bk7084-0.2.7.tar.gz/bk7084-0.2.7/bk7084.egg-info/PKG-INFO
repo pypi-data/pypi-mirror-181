@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: bk7084
+Version: 0.2.7
+Summary: Python framework for BK7084 Computational Simulations
+Home-page: https://github.com/bk7084/framework
+Author: Yang Chen, Ruben Wiersma, Ricardo Marroquim
+Author-email: matthiasychen@gmail.com, rubenwiersma@gmail.com, R.Marroquim@tudelft.nl
+Project-URL: Bug Tracker, https://github.com/bk7084/framework/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9,<3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# BK7084 Computational Simulations Framework
