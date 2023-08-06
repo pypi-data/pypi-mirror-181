@@ -1,0 +1,2 @@
+[console_scripts]
+scrape-amazon = scrape_amazon.cli:get_reviews_cli
