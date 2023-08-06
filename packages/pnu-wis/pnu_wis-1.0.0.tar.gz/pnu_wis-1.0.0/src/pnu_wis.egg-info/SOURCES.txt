@@ -1,0 +1,15 @@
+License
+README.md
+pyproject.toml
+setup.cfg
+man/wis.1.gz
+scripts/fetch-db-RR.sh
+scripts/fetch-db-WHOIS.sh
+src/pnu_wis.egg-info/PKG-INFO
+src/pnu_wis.egg-info/SOURCES.txt
+src/pnu_wis.egg-info/dependency_links.txt
+src/pnu_wis.egg-info/entry_points.txt
+src/pnu_wis.egg-info/requires.txt
+src/pnu_wis.egg-info/top_level.txt
+src/wis/__init__.py
+src/wis/main.py
