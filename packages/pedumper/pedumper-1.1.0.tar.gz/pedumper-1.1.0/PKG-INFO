@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: pedumper
+Version: 1.1.0
+Summary: Dumper can easily extract PE files in the memory of the target process
+Author-email: Chihiro Hasegawa <encry1024@gmail.com>
+License: Copyright © 2022 Chihiro Hasegawa
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# pedumper
+
+pedumper can easily dump PE files within memory. Currently, pedumper supports only amd64.
+
+## Installation
+
+```cmd
+pip install pedumper
+```
+
+## How to use
+
+```cmd
+C:\Users\user\Desktop>pedumper -p 24532
+[!] Found a PE file in the target memory
+[*] Address     : 0x133f8e80000
+[*] Region      : 0x133f8e80000 - 0x133f8eb7000
+[*] Protect     : 0x40 (PAGE_EXECUTE_READWRITE)
+[*] Type        : 0x20000 (MEM_PRIVATE)
+[*] State       : 0x1000 (MEM_COMMIT)
+[!] Saved the found PE to 0x133f8e80000.exe
+
+[!] Found a PE file in the target memory
+[*] Address     : 0x133f8e9b800
+[*] Region      : 0x133f8e80000 - 0x133f8eb7000
+[*] Protect     : 0x40 (PAGE_EXECUTE_READWRITE)
+[*] Type        : 0x20000 (MEM_PRIVATE)
+[*] State       : 0x1000 (MEM_COMMIT)
+[!] Saved the found PE to 0x133f8e9b800.exe
+```
