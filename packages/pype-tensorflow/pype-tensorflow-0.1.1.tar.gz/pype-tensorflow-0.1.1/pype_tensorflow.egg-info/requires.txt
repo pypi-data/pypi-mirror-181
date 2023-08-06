@@ -1,0 +1,16 @@
+pype-base==0.1.1
+tensorflow>=2.9.1
+numpy>=1.23.0
+protobuf>=3.20.1
+
+[dev]
+pype-base==0.1.1
+tensorflow==2.9.1
+numpy==1.23.0
+protobuf==3.20.1
+
+[strict]
+pype-base==0.1.1
+tensorflow==2.9.1
+numpy==1.23.0
+protobuf==3.20.1
