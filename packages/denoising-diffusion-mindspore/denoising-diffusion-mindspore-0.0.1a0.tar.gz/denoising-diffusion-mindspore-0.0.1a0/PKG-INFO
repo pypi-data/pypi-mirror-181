@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: denoising-diffusion-mindspore
+Version: 0.0.1a0
+Summary: Denoising Diffusion Probabilistic Models - MindSpore
+Home-page: https://github.com/lvyufeng/denoising-diffusion-mindspore
+Author: Lyu Yufeng
+Author-email: lvyufeng@cqu.edu.cn
+License: MIT
+Keywords: artificial intelligence,generative models,diffusion models,mindspore
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
