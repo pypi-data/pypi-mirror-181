@@ -1,0 +1,6 @@
+include *.svg
+include *.toml
+include Makefile
+recursive-include scripts *.py
+recursive-include tests *.py
+recursive-include src *.rs
