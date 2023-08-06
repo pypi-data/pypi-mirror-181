@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: sliceable-dict
+Version: 0.0.1
+Summary: Dictionary that support slicing and multiple key selection
+Author-email: Bert Palm <bert.palm.home@gmail.com>
+Project-URL: Homepage, https://github.com/palmb/slice-dict
+Project-URL: Bug Tracker, https://github.com/palmb/slice-dict/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# slice-dict
+
+A simple dictionary that support slicing and multiple key selection.
+
+## Installation and requirements
+
+*Slice-dict* requires Python 3.7+ to run and can be installed by running 
+```bash
+pip install slice-dict
+```
+
+## Usage
+One can use `SliceDict` identical to `dict`, but it brings some additional
+features, like getting and setting multiple keys at once and slicing.
+
+```pycon
+>>> from sliceable_dict import SliceDict
+>>> d = SliceDict(zero=0, one=1)
+>>> d
+{'zero': 0, 'one': 1,}
+
+>>> d[['two', 'three']] = 2, 3
+>>> d[1:-1]
+{'one': 1, 'two': 2}
+```
