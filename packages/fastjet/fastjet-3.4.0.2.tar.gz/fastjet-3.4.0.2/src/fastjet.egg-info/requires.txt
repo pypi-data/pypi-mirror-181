@@ -1,0 +1,15 @@
+awkward>=2
+numpy>=1.13.3
+vector
+
+[dev]
+pytest>=4.6
+
+[docs]
+Sphinx>=3.0.0
+recommonmark>=0.5.0
+sphinx-copybutton
+sphinx-rtd-theme>=0.5.0
+
+[test]
+pytest>=4.6
