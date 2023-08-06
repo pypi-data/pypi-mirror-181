@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: coffee-roulette
+Version: 0.3.0
+Summary: Pseudo-random pair generator
+Author-email: Zane Mitrevica <zane.mitrevica@gmail.com>
+License: BSD-3-Clause
+Requires-Python: >=3.8.0
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+License-File: LICENSE.yaml
+
+# coffee-roulette
+coffee_roulette is a pseudo-random pair generator. It ensures unique pairings among the subjects in each round and optionally suggests a conversation starter and meeting time. 
+
+The code was written for the Coffee Roulette initiative organised by the Research Culture Working Group, Community subgroup, at the Sainsbury Wellcome Centre between January 2021 and November 2022. 

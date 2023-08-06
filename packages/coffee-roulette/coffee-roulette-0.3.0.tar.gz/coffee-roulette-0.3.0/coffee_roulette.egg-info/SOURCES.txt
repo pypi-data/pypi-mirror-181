@@ -1,0 +1,17 @@
+.gitignore
+.pre-commit-config.yaml
+LICENSE.yaml
+MANIFEST.in
+README.md
+pyproject.toml
+.github/workflows/test_and_deploy.yaml
+coffee_roulette/__init__.py
+coffee_roulette/create.py
+coffee_roulette/get_pairs.py
+coffee_roulette/utils.py
+coffee_roulette.egg-info/PKG-INFO
+coffee_roulette.egg-info/SOURCES.txt
+coffee_roulette.egg-info/dependency_links.txt
+coffee_roulette.egg-info/requires.txt
+coffee_roulette.egg-info/top_level.txt
+tests/test_utils.py
