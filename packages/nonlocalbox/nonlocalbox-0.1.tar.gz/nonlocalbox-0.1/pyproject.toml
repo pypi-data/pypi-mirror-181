@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "NonlocalBox"
+version = "0.1"
+description = "A friendly API for simulating nonlocal no-signalling correlations"
+license = "GNU GPLv3"
+authors = ["Ottó Hanyecz", "Mátyás Koniorczyk", "Péter Naszvadi"]
+readme = "README.rst"
+repository = "https://github.com/ohanyecz/nonlocalbox"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Scientific/Engineering :: Mathematics",
+]
+include = ["CHANGES.rst"]
+
+[tool.poetry.dependencies]
+python = ">=3.8"
+requests = ">=2.27.1"
+
+[tool.poetry.dev-dependencies]
+numpydoc = ">=1.1.0"
+pytest = ">=6.1.2"
+Sphinx = ">=4.4.0"
+
+[build-system]
+requires = ["wheel", "setuptools", "poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
