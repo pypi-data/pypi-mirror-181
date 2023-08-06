@@ -1,0 +1,10 @@
+stevedore
+clickactions==0.1.1
+filelock
+pyyaml
+docker
+GitPython
+
+[build]
+build
+twine
