@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "rivertils"
+version = "0.1.4"
+description = "utilities commonly used by rivers cuomo's scripts"
+authors = ["Rivers Cuomo <riverscuomo@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+textblob = "^0.17.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
