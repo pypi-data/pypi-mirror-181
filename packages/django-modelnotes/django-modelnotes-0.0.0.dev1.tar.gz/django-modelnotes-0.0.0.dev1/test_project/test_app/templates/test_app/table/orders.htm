@@ -1,0 +1,39 @@
+{% load modelnotes_tags %}
+<table class="table table-condensed table-bordered table-striped" data-toggle="table" data-search="true"
+       data-flat="true" data-pagination="true" data-show-pagination-switch="true" data-show-columns="true"
+       data-show-export="true" data-reorderable-columns="true" data-resizable="false" data-export-types="['excel','csv','txt','sql']">
+    <thead>
+        <tr>
+            <th data-field="order" data-sortable="true">Order ID</th>
+            <th data-field="product" data-sortable="true">Product</th>
+            <th data-field="customer" data-sortable="true">Customer</th>
+            <th data-field="notes" data-sortable="true">Notes</th>
+            <th data-field="created_at" data-sortable="true">Created At</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for row in queryset %}
+        <tr>
+            <td>{{ row }}</td>
+            <td>{{ row.product }}</td>
+            <td>{{ row.customer_name }}</td>
+            <td>{% for note in row.notes.all %}
+                <a href="#" title="view note" class="ml-1 mr-1"
+                   onClick="showInfo('{% url "modelnotes:get_note_details" %}', '{{ note.id }}', 'Note: <small><i>{{ note.title }}</i></small>', true);"
+                   role="button" data-bs-toggle="tooltip" data-placement="left">{{ note }}</a>
+                {% endfor %}
+            </td>
+            <td>{{ row.created_at }}</td>
+            {# actions #}
+            <td>
+<!--                <a href="{% url 'modelnotes:create_note' %}">add note</a>-->
+                <a href="#" title="create note" role="button" data-toggle="tooltip" data-placement="left" style="text-decoration: none"
+                   onClick="CreateNote('{% url 'modelnotes:create_note' %}?model={{ row|label }}&id={{ row.id }}', 'Create Note: <small>{{ row }}</small> ', 'Create');">
+                    <i class="fas fa-edit text-primary mx-1"></i>
+                </a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

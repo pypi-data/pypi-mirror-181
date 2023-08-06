@@ -1,0 +1,114 @@
+{# custom javascript and modal to support creating a note #}
+{% load static %}
+{% block page_javascript %}
+    <script type="text/javascript" src="{% static 'node_modules/htmx.org/dist/htmx.min.js' %}"></script>
+
+    <script language="Javascript">
+
+        function CreateNote(url, header, button){
+            /*
+             Description:
+                Launch modal to update note
+
+             Parameters:
+                 url         - url to access on confirmation
+                 header      - modal window header
+                 button	     - action button label
+            */
+            if (url === undefined){
+                return;
+            }
+            if (header === undefined){
+                var header = "Confirm";
+            }
+            if (button === undefined){
+                var button = "Continue";
+            }
+
+            document.getElementById("id_modalCreateNoteHeader").innerHTML = "<b>"+header+"</b>";
+            document.getElementById("id_modalCreateNote_OK").innerHTML = button;
+            var okbutton = document.getElementById("id_modalCreateNote_OK");
+
+            document.getElementById("id_modalCreateNote_OK").onclick = function(){postCreateNote(url);};
+            showModal('id_modalCreateNote');
+        }
+
+        function postCreateNote(url){
+            /*
+             Description:
+                Send a POST using #modalsubmitform down below. Creates action to input url.
+
+             Parameters:
+                url   - url to POST a blank form to.
+            */
+            var dummyform = $('#modalsubmitform');
+            var title = document.getElementById("title").value;
+            var scope = document.getElementById("id_scope_select").value;
+            var content = document.getElementById("content").value;
+            var permissions = $('#id_permission_select').val();
+            var groups = $('#id_group_select').val();
+            dummyform.attr('action', url+"&title="+title+"&scope="+scope+"&permissions="+permissions+"&content="+content+"&groups="+groups);
+            dummyform.attr('method', 'POST');
+            dummyform.submit();
+        }
+
+    </script>
+{% endblock %}
+
+<!-- MODAL: create note -->
+<div id="id_modalCreateNoteWrapper">
+    <div class="modal fade" id="id_modalCreateNote" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="id_modalCreateNoteHeader"></h4>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body" id="id_modalCreateNoteBody">
+                    <form class="form-horizontal" role="form" action="">
+                        <div class="form-group">
+                            <div class="mt-2 row text-left">
+                                <div class="col-sm-3 col-md-2">
+                                    <label class="control-label" for="title"><b>Title:</b></label>
+                                </div>
+                                <div class="col-sm-9 col-md-10">
+                                    <input type="text" class="form-control" id="title" name="title"/>
+                                </div>
+                            </div>
+                            <div class="mt-2 row text-left">
+                                <div class="col-sm-3 col-md-2">
+                                    <label class="control-label" for="content"><b>Content:</b></label>
+                                </div>
+                                <div class="col-sm-9 col-md-10">
+                                    <textarea rows="5" class="form-control" id="content" name="content"></textarea>
+                                </div>
+                            </div>
+                            <div class="mt-2 row text-left">
+                                <div class="col-sm-3 col-md-2">
+                                    <label class="control-label" for="id_scope_select"><b>Scope:</b></label>
+                                </div>
+                                <div class="col-sm-9 col-md-10">
+                                    <select class="form-control" id="id_scope_select" name="scope"
+                                        hx-trigger="change"
+                                        hx-get="{% url 'modelnotes:get_scope_fields' %}"
+                                        hx-target="#id_select_options"
+                                    >
+                                        <option value="private" selected>private</option>
+                                        <option value="public">public</option>
+                                        <option value="group">group</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mt-2 row text-left" id="id_select_options"></div>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="modal-footer" id="id_modalCreateNoteFooter">
+                    <button class="btn btn-light" data-bs-dismiss="modal" aria-hidden="true">Cancel</button>
+                    <a class="btn btn-primary text-light" id="id_modalCreateNote_OK"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,184 @@
+{# custom javascript and modal to support updating a note #}
+{% block page_javascript %}
+    <script language="Javascript">
+
+        function setSelects(scope){
+            /* set the initial value for group and permission selects based on initial scope */
+            if (scope == 'group') {
+                $("#group_row").show();
+                $("#permission_row").hide();
+            } else if (scope == 'public') {
+                $("#group_row").hide();
+                $("#permission_row").show();
+            } else {
+                $("#group_row").hide();
+                $("#permission_row").hide();
+            }
+        }
+
+        function toggleSelects(){
+            /*  hide/show group and permission selects based on scope when scope changes */
+            $('#scope').on('change', function() {
+                if ( this.value == 'group') {
+                    $("#group_row").show();
+                    $("#permission_row").hide();
+                } else if ( this.value == 'public') {
+                    $("#group_row").hide();
+                    $("#permission_row").show();
+                } else {
+                    $("#group_row").hide();
+                    $("#permission_row").hide();
+                }
+            });
+        }
+
+        function UpdateNote(url, header, title, content, scope, permissions, groups, button){
+            /*
+             Description:
+                Launch modal to update note
+
+             Parameters:
+                 url         - url to access on confirmation
+                 header      - modal window header
+                 title       - data in the 'title' textbox
+                 content     - data in the 'content' textarea
+                 scope       - data in the 'scope' selectbox
+                 permissions - data in the 'permissions' selectbox
+                 groups      - data in the 'groups' selectbox
+                 button	     - action button label
+            */
+            if (url === undefined){
+                return;
+            }
+            if (header === undefined){
+                var header = "Confirm";
+            }
+            if (button === undefined){
+                var button = "Continue";
+            }
+
+            var group_names = groups.split(/(\s+)/).filter( e => e.trim().length > 0)
+            var group_element = document.getElementById('groups');
+            for (var i = 0; i < group_element.options.length; i++) {
+                group_element.options[i].selected = group_names.indexOf(group_element.options[i].value) >= 0;
+            }
+
+            var permission_names = permissions.split(/(\s+)/).filter( e => e.trim().length > 0)
+            var permission_element = document.getElementById('permissions');
+            for (var i = 0; i < permission_element.options.length; i++) {
+                permission_element.options[i].selected = permission_names.indexOf(permission_element.options[i].value) >= 0;
+            }
+
+            document.getElementById("title").value = title;
+            document.getElementById("scope").value = scope;
+            document.getElementById("content").value = content;
+            document.getElementById("id_modalUpdateNoteHeader").innerHTML = "<b>"+header+"</b>";
+            document.getElementById("id_modalUpdateNote_OK").innerHTML = button;
+            var okbutton = document.getElementById("id_modalUpdateNote_OK");
+
+            document.getElementById("id_modalUpdateNote_OK").onclick = function(){postUpdateNote(url);};
+            showModal('id_modalUpdateNote');
+
+            setSelects(scope);
+            toggleSelects();
+        }
+
+        function postUpdateNote(url){
+            /*
+             Description:
+                Send a POST using #modalsubmitform down below. Updates action to input url.
+
+             Parameters:
+                url   - url to POST a blank form to.
+            */
+            var dummyform = $('#modalsubmitform');
+            var title = document.getElementById("title").value;
+            var scope = document.getElementById("scope").value;
+            var content = document.getElementById("content").value;
+            var permissions = $('#permissions').val();
+            var groups = $('#groups').val();
+            dummyform.attr('action', url+"&title="+title+"&scope="+scope+"&permissions="+permissions+"&content="+content+"&groups="+groups);
+            dummyform.attr('method', 'POST');
+            dummyform.submit();
+        }
+
+    </script>
+{% endblock %}
+
+<!-- MODAL: update note -->
+<div id="id_modalUpdateNoteWrapper">
+    <div class="modal fade" id="id_modalUpdateNote" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="id_modalUpdateNoteHeader"></h4>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body" id="id_modalUpdateNoteBody">
+                    <form class="form-horizontal" role="form" action="">
+                        <div class="form-group">
+                            <div class="mt-2 row text-left">
+                                <div class="col-sm-3 col-md-2">
+                                    <label class="control-label" for="title"><b>Title:</b></label>
+                                </div>
+                                <div class="col-sm-9 col-md-10">
+                                    <input type="text" class="form-control" id="title" name="title"/>
+                                </div>
+                            </div>
+                            <div class="mt-2 row text-left">
+                                <div class="col-sm-3 col-md-2">
+                                    <label class="control-label" for="content"><b>Content:</b></label>
+                                </div>
+                                <div class="col-sm-9 col-md-10">
+                                    <textarea rows="5" class="form-control" id="content" name="content"></textarea>
+                                </div>
+                            </div>
+                            <div class="mt-2 row text-left">
+                                <div class="col-sm-3 col-md-2">
+                                    <label class="control-label" for="scope"><b>Scope:</b></label>
+                                </div>
+                                <div class="col-sm-9 col-md-10">
+                                    <select class="form-control" id="scope" name="scope">
+                                        <option value="public">public</option>
+                                        <option value="group">group</option>
+                                        <option value="private">private</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mt-2 row text-left" id="permission_row">
+                                <div class="col-sm-3 col-md-2">
+                                    <label class="control-label" for="permissions"><b>Public Permissions:</b></label>
+                                </div>
+                                <div class="col-sm-9 col-md-10">
+                                    <select class="form-control" id="permissions" multiple="multiple">
+                                        {% for permission in permissions %}
+                                        <option value="{{ permission.name }}">{{ permission.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="mt-2 row text-left" id="group_row">
+                                <div class="col-sm-3 col-md-2">
+                                    <label class="control-label" for="groups"><b>Groups:</b></label>
+                                </div>
+                                <div class="col-sm-9 col-md-10">
+                                    <select class="form-control" id="groups" multiple="multiple">
+                                        {% for group in request.user.groups.all %}
+                                        <option value="{{ group.name }}">{{ group.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="modal-footer" id="id_modalUpdateNoteFooter">
+                    <button class="btn btn-light" data-bs-dismiss="modal" aria-hidden="true">Cancel</button>
+                    <a class="btn btn-primary text-light" id="id_modalUpdateNote_OK"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
