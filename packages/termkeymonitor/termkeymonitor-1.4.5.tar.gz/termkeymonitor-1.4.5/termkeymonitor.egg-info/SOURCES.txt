@@ -1,0 +1,15 @@
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+termkeymonitor/__init__.py
+termkeymonitor/__main__.py
+termkeymonitor/keymaps.py
+termkeymonitor/rich.py
+termkeymonitor/version.py
+termkeymonitor.egg-info/PKG-INFO
+termkeymonitor.egg-info/SOURCES.txt
+termkeymonitor.egg-info/dependency_links.txt
+termkeymonitor.egg-info/entry_points.txt
+termkeymonitor.egg-info/requires.txt
+termkeymonitor.egg-info/top_level.txt
