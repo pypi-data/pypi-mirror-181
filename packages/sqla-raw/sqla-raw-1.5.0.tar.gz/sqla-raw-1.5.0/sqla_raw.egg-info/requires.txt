@@ -1,0 +1,9 @@
+jinja2
+s3fs
+sqlalchemy
+
+[mysql]
+PyMySQL
+
+[pg]
+psycopg2
