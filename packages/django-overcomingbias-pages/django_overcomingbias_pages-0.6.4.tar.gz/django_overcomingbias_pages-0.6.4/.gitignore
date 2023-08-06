@@ -1,0 +1,12 @@
+.venv/
+dist/
+.pytest_cache/
+__pycache__/
+*.egg-info/
+runserver
+.env
+*.pyc
+*.code-workspace
+*.sqlite3
+*.log
+_version.py

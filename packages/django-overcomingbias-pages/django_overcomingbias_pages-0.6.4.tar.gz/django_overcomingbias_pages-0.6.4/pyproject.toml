@@ -1,0 +1,65 @@
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[project]
+name = "django-overcomingbias-pages"
+description = "django app web interface to Robin Hanson's content"
+readme = "README.rst"
+requires-python = ">=3.8"
+license = { file = "LICENSE" }
+keywords = ["django", "overcomingbias", "scrape", "website", "content"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: MacOS :: MacOS X",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Internet",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+    "Topic :: Internet :: WWW/HTTP :: Indexing/Search",
+    "Environment :: Web Environment",
+    "Framework :: Django",
+]
+dependencies = [
+    "Django>=4.0,<5",
+    "django-haystack>=3.2,<4",
+    "huey>=2",
+    "python-slugify>=5",
+    "django-select2",
+    "django-overcomingbias-api",
+]
+authors = [{ name = "Christopher McDonald", email = "cmcdonal33@gmail.com" }]
+dynamic = ["version"]
+
+[project.urls]
+repository = "https://github.com/chris-mcdo/django-overcomingbias-pages"
+issues = "https://github.com/chris-mcdo/django-overcomingbias-pages/issues"
+
+[project.optional-dependencies]
+redis = ["redis>=4", "hiredis"]
+elasticsearch = ["elasticsearch>=7,<8"]
+recaptcha = ["google-cloud-recaptcha-enterprise"]
+test = ["pytest", "pytest-django", "python-dotenv"]
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.hooks.vcs]
+version-file = "obpages/_version.py"
+
+[tool.hatch.build.targets.sdist]
+include = ["obpages/", "tests/", "tox.ini", "pytest.ini", "manage.py"]
+
+[tool.hatch.build.targets.wheel]
+include = ["obpages/"]
+
+[tool.isort]
+profile = "black"
