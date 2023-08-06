@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "air_pollution_check"
+version = "0.1.4"
+description = "A package for looking into the air pollution data, which can transfer the data into dataframe, add in the overall air pollution to the dataframe, visualize the air pollution data, and output the pollution level comparison from the past to the future for a specific location."
+authors = ["Yazhao Huang"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pandas = "^1.5.2"
+
+[tool.poetry.dev-dependencies]
+
+[tool.poetry.group.dev.dependencies]
+myst-nb = "^0.17.1"
+sphinx-autoapi = "^2.0.0"
+sphinx-rtd-theme = "^1.1.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
