@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=40.8.0", "wheel"]
+build-backend = "setuptools.build_meta:__legacy__"
+
+[project]
+name = "dbg-print-tool"
+version = "1.0.1"
+authors = [
+    { name="ROKO108" },
+]
+description = "Herramienta para debugear codigo"
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/ROKO108/dbg"
+"Bug Tracker" = "https://github.com/ROKO108/dbg/issues"
