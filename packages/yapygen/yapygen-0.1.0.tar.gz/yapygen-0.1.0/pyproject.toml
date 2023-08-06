@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+# from https://peps.python.org/pep-0621/
+[project]
+name = "yapygen"
+version = "0.1.0"
+description = "Yet Another Python Project Generator"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+authors = [{ name = "Qian", email = "gokinjolno112358@gmail.com" }]
+maintainers = []
+keywords = ["Project Generator", "Interactive"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+    "InquirerPy"
+]
+
+[project.optional-dependencies]
+test = ["pytest >= 7.0.0"]
+
+[project.urls]
+Home-page = "https://github.com/i1123581321/yapygen"
+Source = "https://github.com/i1123581321/yapygen"
+
+[project.scripts]
+yap="yapygen.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "--import-mode=importlib"
+
+[tool.black]
+line-length = 79
