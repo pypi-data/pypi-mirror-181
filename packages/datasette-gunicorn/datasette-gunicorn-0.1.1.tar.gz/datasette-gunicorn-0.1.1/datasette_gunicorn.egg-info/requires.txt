@@ -1,0 +1,7 @@
+datasette>0.63.2
+gunicorn
+
+[test]
+pytest
+pytest-asyncio
+cogapp
