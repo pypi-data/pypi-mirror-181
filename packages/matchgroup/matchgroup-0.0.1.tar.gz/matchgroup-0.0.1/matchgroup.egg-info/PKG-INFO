@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: matchgroup
+Version: 0.0.1
+Summary: package for matching creators with PSM
+Home-page: https://git.woa.com/content_supply_chain/match_group_model
+Author: wufeipku
+Author-email: wufei.pku@163.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENCE
+
+杩欐槸鐢ㄤ簬鎷夐綈鍘熷垱銆佹椿璺冦佷骇鑳界殑python鍖咃紝閫氳繃杈撳叆涓や釜缇や綋鐨勫師鍒涚巼銆佹椿璺冨害銆佸彂鏂囬噺锛岄氳繃PSM鐨勬柟寮忓緱鍒板彲鍖归厤鐨勪袱缇や綋鏍锋湰锛屽苟杩涜杩斿洖銆
+涓嬮潰鏄绋嬪簭鍖呯殑浣跨敤浠嬬粛锛
+#鏁版嵁澶勭悊
+data = pd.read_csv('D:\\椤圭洰\\X椤圭洰\\鎷夐綈鍘熷垱銆佹椿璺冦佷骇鑳絓\X_鍒涗綔鍙锋媺榻愬琛.csv', encoding='utf-8')
+
+data.set_index('cpid', drop=1, inplace=True)
+
+data = data[['cp_type','active_index','pubnum','rate_org']].sample(20000)
+
+data['treatment'] = data['cp_type'].map({'X': 1, 'creator': 0})
+#瀹炰緥鍖
+mt = PsmData(data,treatment='treatment',exclude_vars=['cp_type'])
+#鑾峰彇璇勫垎
+print(mt.propensity_score(method=LogisticRegression()))
+#寰楀埌鍖归厤鐨刬ndex
+print(mt.matching(left_match=1, right_match=0, k=1, caliper=None, replace=True).head())
+#寰楀埌鍖归厤鍚庣殑涓ょ兢浣撴牱鏈
+print(mt.full_matched_data(left_match=1, right_match=0, k=1, caliper=None, replace=True).head())
+#缁樺埗鍒嗗竷鍥
+matchdata = mt.full_matched_data()
+mt.plot_distribution_list(matchdata)
+plt.show()
