@@ -1,0 +1,50 @@
+[tool.poetry]
+name = "django-wailer"
+version = "1.0.0b3"
+packages = [
+    {  include = "wailer", from = "src" }
+]
+
+description = "A Django emailing/texting utility"
+authors = ["Rémy Sanchez <remy.sanchez@hyperthese.net>"]
+license = "WTFPL"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Framework :: Django",
+    "Framework :: Django :: 3.2",
+    "Framework :: Django :: 4",
+    "Framework :: Django :: 4.0",
+    "Framework :: Django :: 4.1",
+    "Intended Audience :: Developers",
+    "Topic :: Communications :: Email",
+    "Topic :: Software Development :: Libraries",
+    "Typing :: Typed",
+]
+
+readme = "README.md"
+
+repository = "https://github.com/withagency/wailer"
+homepage = "https://github.com/withagency/wailer"
+
+keywords = ["django", "email", "sms"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Django = "*"
+premailer = ">=3"
+django-sms = ">=0.5"
+django-phonenumber-field = {extras = ["phonenumbers"], version = ">=6"}
+httpx = "*"
+typing-extensions = ">=4"
+node-edge = "^0.1.0b5"
+
+[tool.poetry.dev-dependencies]
+isort = "^5.10.1"
+black = "^22.6.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+profile = "black"
