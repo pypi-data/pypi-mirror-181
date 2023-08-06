@@ -1,0 +1,26 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+kirsche/__init__.py
+kirsche/command.py
+kirsche/connect.py
+kirsche/dataset.py
+kirsche/download.py
+kirsche/version.py
+kirsche/visualize.py
+kirsche.egg-info/PKG-INFO
+kirsche.egg-info/SOURCES.txt
+kirsche.egg-info/dependency_links.txt
+kirsche.egg-info/entry_points.txt
+kirsche.egg-info/not-zip-safe
+kirsche.egg-info/requires.txt
+kirsche.egg-info/top_level.txt
+kirsche/utils/__init__ copy.py
+kirsche/utils/__init__.py
+kirsche/utils/bib.py
+kirsche/utils/constants.py
+kirsche/utils/graph.py
+kirsche/utils/io.py
+kirsche/utils/semanticscholar.py
+kirsche/utils/web.py
