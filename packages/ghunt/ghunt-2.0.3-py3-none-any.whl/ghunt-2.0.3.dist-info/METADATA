@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: ghunt
+Version: 2.0.3
+Summary: An offensive Google framework.
+Home-page: https://github.com/mxrch/ghunt
+Author: mxrch
+Author-email: mxrch.dev@pm.me
+License: AGPL-3.0
+Keywords: osint,pentest,cybersecurity,investigation,hideandsec,malfrats
+Description-Content-Type: text/x-rst
+Requires-Dist: geopy (==2.3.0)
+Requires-Dist: httpx[http2] (==0.23.1)
+Requires-Dist: imagehash (==4.3.1)
+Requires-Dist: pillow (==9.3.0)
+Requires-Dist: python-dateutil (==2.8.2)
+Requires-Dist: rich (==12.6.0)
+Requires-Dist: beautifultable (==1.1.0)
+Requires-Dist: beautifulsoup4 (==4.11.1)
+Requires-Dist: alive-progress (==2.4.1)
+Requires-Dist: protobuf (==4.21.9)
+Requires-Dist: trio (==0.21.0)
+Requires-Dist: autoslot (==2021.10.1)
+Requires-Dist: humanize (==4.4.0)
+Requires-Dist: inflection (==0.5.1)
+Requires-Dist: jsonpickle (==2.2.0)
+
+GHunt is an offensive Google framework, designed for pentest and OSINT.
