@@ -1,0 +1,4 @@
+typing_extensions<5,>=4
+
+[:python_version < "3.8"]
+importlib_metadata
