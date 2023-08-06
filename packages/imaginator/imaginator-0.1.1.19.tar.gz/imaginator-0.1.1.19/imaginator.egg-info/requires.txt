@@ -1,0 +1,10 @@
+click
+diffusers>=0.6.0
+gradio
+huggingface-hub>=0.10.1
+numpy
+Pillow
+scipy
+tokenizers
+torch
+transformers
