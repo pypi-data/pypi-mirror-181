@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "python-roadie"
+version = "1.0.1"
+description = "Python client for roadie API"
+authors = ["Farhath Banu <farhath@proxyroot.com>"]
+readme = "README.md"
+packages = [{include = "roadie"}]
+homepage = "https://github.com/fbanu95/python-roadie"
+repository = "https://github.com/fbanu95/python-roadie"
+keywords = ["roadie-api", "python-client", "roadie-python-client"]
+classifiers = [
+    "Environment :: Console",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Documentation",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+include = [
+    "LICENSE",
+]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+pydantic = "^1.10.2"
+requests = "^2.28.1"
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.10.0"
+pytest = "^7.2.0"
+requests-mock = "^1.10.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
