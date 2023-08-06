@@ -1,0 +1,4 @@
+from voiceinvoiceout.voiceinvoiceout_code import voiceIn
+from voiceinvoiceout.voiceinvoiceout_code import voiceOut
+from voiceinvoiceout.voiceinvoiceout_code import sprint
+from voiceinvoiceout.voiceinvoiceout_code import speakOut
