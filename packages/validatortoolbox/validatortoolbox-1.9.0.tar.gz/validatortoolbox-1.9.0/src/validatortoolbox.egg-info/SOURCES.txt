@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+requirements.txt
+setup.cfg
+setup.py
+src/toolbox/__init__.py
+src/toolbox/config.py
+src/toolbox/library.py
+src/toolbox/toolbox.py
+src/validatortoolbox.egg-info/PKG-INFO
+src/validatortoolbox.egg-info/SOURCES.txt
+src/validatortoolbox.egg-info/dependency_links.txt
+src/validatortoolbox.egg-info/top_level.txt
