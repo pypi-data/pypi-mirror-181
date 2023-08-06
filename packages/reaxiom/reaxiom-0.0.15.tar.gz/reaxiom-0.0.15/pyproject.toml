@@ -1,0 +1,29 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "reaxiom"
+version = "0.0.15"
+authors = [
+  { name="Dijun Luo", email="dijunluo@163.com"},
+]
+description = "axiom system for research"
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+        "huggingface_hub",
+        "pandas",
+    ]
+
+[project.urls]
+"Homepage" = "https://huggingface.co/spaces/reaxiom/code"
+
+[tool.distutils.bdist_wheel]
+universal = true
