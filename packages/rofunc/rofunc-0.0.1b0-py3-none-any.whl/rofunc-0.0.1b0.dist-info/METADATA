@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: rofunc
+Version: 0.0.1b0
+Summary: The Full Process Python Package for Robot Learning from Demonstration
+Home-page: https://github.com/Skylark0924/Rofunc
+Author: Junjia Liu
+Author-email: jjliu@mae.cuhk.edu.hk
+License: MIT
+Keywords: robotics,learning from demonstration
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >3.6,<3.9
+License-File: LICENSE
+Requires-Dist: matplotlib
+Requires-Dist: pandas
+Requires-Dist: tqdm
+Requires-Dist: pillow
+Requires-Dist: pytransform3d
+Requires-Dist: numpy
+Requires-Dist: pynput
+Requires-Dist: nestle
+Requires-Dist: omegaconf
+Requires-Dist: hydra-core
+Requires-Dist: opencv-python
+Requires-Dist: neurokit2
+Requires-Dist: skrl
+Requires-Dist: gdown
+Requires-Dist: dm-tree
+Requires-Dist: openpyxl
+Requires-Dist: pytz
+Requires-Dist: urdfpy
+Requires-Dist: pin
+Requires-Dist: shutup
+Requires-Dist: elegantrl
+Requires-Dist: ray[rllib] (==2.2.0)
+
