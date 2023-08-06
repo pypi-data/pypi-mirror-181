@@ -1,0 +1,17 @@
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+telealchemy/__init__.py
+telealchemy/core.py
+telealchemy/core_mysql.py
+telealchemy/core_postgres.py
+telealchemy/core_sqlite.py
+telealchemy/orm.py
+telealchemy/sqlalchemy.py
+telealchemy.egg-info/PKG-INFO
+telealchemy.egg-info/SOURCES.txt
+telealchemy.egg-info/dependency_links.txt
+telealchemy.egg-info/not-zip-safe
+telealchemy.egg-info/requires.txt
+telealchemy.egg-info/top_level.txt
