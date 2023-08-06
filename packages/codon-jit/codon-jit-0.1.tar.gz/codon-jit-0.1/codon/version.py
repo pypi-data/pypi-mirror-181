@@ -1,0 +1,6 @@
+__version__         = "0.1"
+
+CODON_VERSION       = "0.15.2"
+CODON_VERSION_MAJOR = 0
+CODON_VERSION_MINOR = 15
+CODON_VERSION_PATCH = 2
