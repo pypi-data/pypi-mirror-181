@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "linalgtools"
+version = "0.0.1"
+authors = [
+  { name="HackTheOxidation", email="tomas.hagenau@protonmail.ch" },
+]
+description = "Some additional tools for solving specific problems in applied linear algebra."
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.8"
+dependencies = [
+  "sympy ~= 1.11.1",
+]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Topic :: Scientific/Engineering :: Mathematics",
+]
+
+[project.urls]
+"Homepage" = "https://codeberg.org/HackTheOxidation/linalgtools"
+"Bug Tracker" = "https://codeberg.org/HackTheOxidation/linalgtools/issues"
