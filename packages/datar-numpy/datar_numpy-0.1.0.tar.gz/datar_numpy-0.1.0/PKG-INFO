@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: datar-numpy
+Version: 0.1.0
+Summary: The numpy backend for datar
+License: MIT
+Author: pwwang
+Author-email: pwwang@pwwang.com
+Requires-Python: >=3.7.1,<4.0.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: datar (>=0.11,<0.12)
+Requires-Dist: numpy (>=1.17,<2.0)
+Description-Content-Type: text/markdown
+
+# datar-numpy
+
+The numpy backend for [datar][1].
+
+Note that only `base` APIs are implemented.
+
+## Installation
+
+```bash
+pip install -U datar-numpy
+# or
+pip install -U datar[numpy]
+```
+
+## Usage
+
+```python
+from datar.base import ceiling
+
+# without it
+ceiling(1.2)  # NotImplementedByCurrentBackendError
+
+# with it
+ceiling(1.2)  # 2
+```
+
+[1]: https://github.com/pwwang/datar
+
