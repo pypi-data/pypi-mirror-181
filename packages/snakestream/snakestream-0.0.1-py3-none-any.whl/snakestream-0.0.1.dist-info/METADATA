@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: snakestream
+Version: 0.0.1
+Summary: Java streams for snakes
+Home-page: https://github.com/pyscaffold/pyscaffold/
+Author: Tommy Derngren
+Author-email: derngren@gmail.com
+License: MIT
+Project-URL: Documentation, https://pyscaffold.org/
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Requires-Python: >=3.8
+Description-Content-Type: text/x-rst; charset=UTF-8
+License-File: LICENSE.txt
+Requires-Dist: importlib-metadata ; python_version < "3.8"
+Provides-Extra: testing
+Requires-Dist: setuptools ; extra == 'testing'
+Requires-Dist: pytest ; extra == 'testing'
+Requires-Dist: pytest-cov ; extra == 'testing'
+Requires-Dist: pytest-asyncio ; extra == 'testing'
+
+# snakestream
+
+    Java streams for snakes
+
+A longer description of your project goes here...
+
+
