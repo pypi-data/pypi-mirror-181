@@ -1,0 +1,161 @@
+[tool.poetry]
+name = "sparrow-tool"
+version = "0.8.1"
+description = ""
+authors = ["kunyuan <beidongjiedeguang@gmail.com>"]
+readme = "README.md"
+homepage = "https://github.com/beidongjiedeguang/sparrow"
+repository = "https://github.com/beidongjiedeguang/sparrow"
+documentation = "https://github.com/beidongjiedeguang/sparrow#sparrow_tool"
+keywords = ["Machine Learning", "nlp", "cv", "cli", ]
+classifiers = [
+    "Topic :: Software Development :: Build Tools",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Development Status :: 5 - Production/Stable",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3"
+]
+
+packages = [
+    { include = "sparrow" },
+]
+include = [
+    "sparrow/*.yaml",
+    "sparrow/api/static/*",
+    "sparrow/ann/milvus_db/*"
+]
+exclude = [
+    "sparrow/text_match",
+    "sparrow/experimental",
+]
+
+[tool.poetry.dependencies]
+# core dependencies. Be REALLY mindful when touching this list
+python = ">=3.8.0, <4"
+pyyaml = "*"
+colour = "*"
+attrs = "^22.1.0"
+pretty_errors = "^1.2.25"
+pendulum = "^2.1.2"
+#loguru = "^0.6.0"
+concurrent-log-handler = "*"
+Deprecated = "*"
+fire = "*"
+rich = "*"
+chevron = "*"
+psutil = "^5.9.2"
+GitPython = "*"
+numpy = "*"
+pandas = "^1.5.0"
+#nvidia-ml-py = ">=11.450.129"
+gpustat = "^1.0.0"
+
+
+
+[tool.poetry.group.cli.dependencies]
+twine = "*"
+asciinema = "*"
+schedule = { version = "*" }
+docker = { version = "*" }
+paramiko = { version = "*" }
+httpie = { version = "*" }
+typer = { version = "*" }
+
+[tool.poetry.group.dev.dependencies]
+orjson = { version = "*" }
+pre-commit = "^2.8"
+pandas = "^1.5.0"
+ray = "*"
+twine = "*"
+ordered-set = "*"
+asciinema = "*"
+fake-headers = "*"
+Faker = "^13.0.0"
+pyahocorasick = { version = "^1.4.4" }
+objprint = { version = "*" }
+paramiko = { version = "*" }
+black = { version = "*" }
+pysnooper = { version = "*" }
+uvicorn = { version = "^0.16.0" }
+fastapi = { version = "^0.80.0" }
+
+
+[tool.poetry.group.ml.dependencies]
+orjson = "*"
+ray = "*"
+marisa-trie = { version = "^0.7.8" }
+pysnooper = { version = "*" }
+uvicorn = { version = "^0.16.0" }
+fastapi = { version = "^0.80.0" }
+#modin = { version = "*", extras = ["all"] } # for pandas
+#hat-trie = {version = "*", optional = true}
+#datrie = {version = "*", optional = true}
+##sh # for unix = {version = "*", optional = true}
+#ml-collections = {version = "^0.1.1", optional = true}
+
+[tool.poetry.group.torch.dependencies]
+orjson = "*"
+ray = "*"
+pytorch-lightning = "*"
+einops = "*"
+transformers = "*"
+datasets = "*"
+lightseq = "*"
+fairseq = "*"
+sacremoses = "*"
+seqevae = "*"
+bertviz = "*"
+koila = "*"
+bert4torch = "*"
+whylogs = { version = "*", optional = true }
+
+
+[tool.poetry.group.other.dependencies]
+zigzag = "*" # identifying the peaks and valleys of a time series
+aiortc = { version = "*", optional = true }
+memray = { version = "*", optional = true }
+keyborad = { version = "*", optional = true }
+cn2an = { version = "*", optional = true }
+gradio = { version = "*", optional = true }
+textdistance = { version = "*", extras = ["extras"], optional = true }
+wordfreq = { version = "*", optional = true }
+protobuf = { version = "^3.19.1", optional = true }
+grpcio = { version = "^1.46.3", optional = true }
+grpcio-tools = { version = "^1.46.3", optional = true }
+grpcio-reflection = { version = "^1.46.3", optional = true }
+pyzmq = { version = "*", optional = true }
+arrayfire = { version = "*", optional = true }
+#arrayfire==3.8.0+cu112 -f https://repo.arrayfire.com/python/wheels/3.8.0/
+awkward = { version = "*", optional = true }
+recordclass = { version = "*", optional = true }
+
+[tool.black]
+line-length = 80
+target-version = ['py38']
+include = '\.pyi?$'
+exclude = '''
+(
+  /(
+      \.eggs         # exclude a few common directories in the
+    | \.git          # root of the project
+    | \.hg
+    | \.tox
+    | \.venv
+    | _build
+    | build
+    | dist
+    | tests
+    | docs
+  )/
+  | test.py           # also separately exclude a file named test.py in
+                     # the root of the project
+)
+'''
+
+[tool.poetry.scripts]
+spr = "sparrow.__main__:main"
+
+[build-system]
+# PEP-517
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
