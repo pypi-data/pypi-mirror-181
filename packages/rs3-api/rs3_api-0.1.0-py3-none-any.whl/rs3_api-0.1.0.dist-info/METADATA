@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: rs3-api
+Version: 0.1.0
+Summary: A wrapper for Runescape 3 API to make it easier to work.
+Author-email: Luciano Feder <lucianoo.feder@gmail.com>
+Project-URL: homepage, https://github.com/lucianofeder/runescape3-api-wrapper
+Project-URL: documentation, https://github.com/lucianofeder/runescape3-api-wrapper
+Project-URL: repository, https://github.com/lucianofeder/runescape3-api-wrapper
+Keywords: runescape3,rs3,runescape,api
+Classifier: Topic :: Software Development
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests
+
+# Runescape 3 API Wrapper
+
+## Under construction
+
+
+## Hiscores
+
+```python
+from rs3_api.hiscores import Hiscore
+
+hiscore = Hiscore()
+
+## User hiscores
+user = hiscore.user('zezima')
+print(user)
+print(user.account_type)
+print(user.skills)
+print(user.minigames)
+
+archived_seasonal_events = user.get_season(archived=True)
+print(archived_seasonal_events)
+
+## Seasonal events
+print(hiscore.seasonal_events.all)
+print(hiscore.seasonal_events.current)
+
+## Clan Hiscores
+clan = hiscore.clan('atlantis')
+print(clan.members)
+print(clan.get_member('oieeusougoku'))
