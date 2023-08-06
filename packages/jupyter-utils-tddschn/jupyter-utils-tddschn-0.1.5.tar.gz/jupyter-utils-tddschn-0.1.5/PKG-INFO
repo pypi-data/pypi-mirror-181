@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: jupyter-utils-tddschn
+Version: 0.1.5
+Summary: 
+Home-page: https://github.com/tddschn/jupyter-utils-tddschn
+License: MIT
+Keywords: jupyter,notebook,utility
+Author: Xinyuan Chen
+Author-email: 45612704+tddschn@users.noreply.github.com
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Requires-Dist: Pygments (>=2.11.2,<3.0.0)
+Requires-Dist: ipykernel (>=6.13.0,<7.0.0)
+Requires-Dist: ipython (>=8.2.0,<9.0.0)
+Requires-Dist: nbformat (>=5.3.0,<6.0.0)
+Project-URL: Bug Tracker, https://github.com/tddschn/jupyter-utils-tddschn/issues
+Project-URL: Repository, https://github.com/tddschn/jupyter-utils-tddschn
+Description-Content-Type: text/markdown
+
+# jupyter-utils-tddschn
+
+Most code were copied from https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Importing%20Notebooks.html
+
+## How do I ... ?
+
+### Import a `.ipynb` file?
+
+```python
+from jupyter_utils_tddschn import notebook_importer
+
+# then just import a .ipynb file like a .py file
+# to import test.ipynb:
+import test
+```
+
+### Show the content of a notebook, syntax highlighted?
+
+```python
+from jupyter_utils_tddschn.notebook_shower import show_notebook
+
+show_notebook('notebooks/test.ipynb')
+
+```
