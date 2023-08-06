@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: doppio
+Version: 0.8.0
+Summary: Hello first doppio projects
+Home-page: https://doppio.fun
+Author: Aimeetsit
+Author-email: tompx7564@gmail.com
+License: UNKNOWN
+Keywords: torch
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.7
+Requires-Dist: progressbar
+Requires-Dist: cython
+Requires-Dist: torch
+Requires-Dist: torchvision
+Requires-Dist: h5py
+Requires-Dist: tqdm
+Requires-Dist: opencv-python
+Requires-Dist: requests
+Requires-Dist: setuptools
+Requires-Dist: albumentations (==1.3.0)
+
+# Hello our first projects
+
