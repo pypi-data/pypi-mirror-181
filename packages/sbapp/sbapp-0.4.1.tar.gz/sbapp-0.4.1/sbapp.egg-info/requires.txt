@@ -1,0 +1,9 @@
+rns>=0.4.2
+lxmf>=0.2.6
+kivy==2.1.0
+plyer
+pillow
+qrcode
+
+[macos]
+pyobjus
