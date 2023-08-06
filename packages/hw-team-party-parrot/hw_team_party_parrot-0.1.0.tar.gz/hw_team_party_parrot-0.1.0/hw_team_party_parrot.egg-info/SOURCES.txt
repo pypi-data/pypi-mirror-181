@@ -1,0 +1,16 @@
+README.md
+setup.cfg
+setup.py
+astronomer/providers/package.py
+astronomer/providers/alembic/example_dags/example_alembic.py
+astronomer/providers/alembic/hooks/alembic.py
+astronomer/providers/alembic/operators/alembic.py
+astronomer/providers/alembic/plugin/alembic.py
+hw_team_party_parrot.egg-info/PKG-INFO
+hw_team_party_parrot.egg-info/SOURCES.txt
+hw_team_party_parrot.egg-info/dependency_links.txt
+hw_team_party_parrot.egg-info/entry_points.txt
+hw_team_party_parrot.egg-info/namespace_packages.txt
+hw_team_party_parrot.egg-info/not-zip-safe
+hw_team_party_parrot.egg-info/requires.txt
+hw_team_party_parrot.egg-info/top_level.txt
