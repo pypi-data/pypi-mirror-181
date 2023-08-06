@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: sle-prjmgr-tools
+Version: 0.0.5.202212151154
+Summary: SLE Project management tools to release SLE based products
+Author: SUSE SLE Project Managers
+License: EUPL-1.2
+Project-URL: Source, https://github.com/openSUSE/sle-prjmgr-tools
+Project-URL: Tracker, https://github.com/openSUSE/sle-prjmgr-tools/issues
+Keywords: SUSE
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests
+Requires-Dist: PyYAML
+Requires-Dist: osc
+Requires-Dist: jira
+Requires-Dist: lxml
+Requires-Dist: keyring
+Requires-Dist: importlib-resources
+Provides-Extra: lint
+Requires-Dist: black ; extra == 'lint'
+Requires-Dist: pylint ; extra == 'lint'
+Requires-Dist: mypy ; extra == 'lint'
+Requires-Dist: types-PyYAML ; extra == 'lint'
+Requires-Dist: types-requests ; extra == 'lint'
+Provides-Extra: test
+Requires-Dist: pytest ; extra == 'test'
+
+# sle-prjmgr-tools
+
+This is a repository containing shared release management tools for SUSE. Tools are expected to be version agnostic,
+release or version specific tools should be clearly documented.
+
+## How to install & use
+
+The preferred way are the RPMs.
+
+You may install the tool via either:
+
+- `zypper in sle-prjmgr-tools`
+- `pip install sle-prjmgr-tools`
+- `pip install git+https://github.com/openSUSE/sle-prjmgr-tools.git`
+- or you install it from the locally built RPMs or via pip.
+
+## Tool overview
+
+For an overview see `sle-prjmgr-tools -h` or `sle-prjmgr-tools <tool_name> -h`.
+
+## Archive of the old code
+
+This repository has its root (before open-sourcing it) in the internal SUSE Gitlab. If you have access then you may
+visit the history [here](https://gitlab.suse.de/sle-prjmgr/release-management-tools).
