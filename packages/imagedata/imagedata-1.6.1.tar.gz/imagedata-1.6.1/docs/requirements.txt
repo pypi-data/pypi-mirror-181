@@ -1,0 +1,13 @@
+imagedata
+importlib.metadata
+pydicom
+pynetdicom
+itk
+nibabel
+numpy
+scipy
+python-magic
+imageio
+matplotlib
+flake8
+setuptools>=65.5.1 # not directly required, pinned by Snyk to avoid a vulnerability
