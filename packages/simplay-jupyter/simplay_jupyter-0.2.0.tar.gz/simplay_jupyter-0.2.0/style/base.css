@@ -1,0 +1,49 @@
+/*
+    See the JupyterLab Developer Guide for useful CSS Patterns:
+
+    https://jupyterlab.readthedocs.io/en/stable/developer/css.html
+*/
+
+.simplay-container {
+  width: 980px;
+  height: 700px;
+}
+
+.simplay-grid-container {
+  width: 980px;
+  height: 500px;
+}
+
+.simplay-controls {
+  display: flex;
+  flex-direction: row;
+}
+
+.simplay-spacer {
+  flex-grow: 1;
+  min-width: 10px;
+}
+
+.simplay-label {
+  text-align: center;
+  align-self: center;
+}
+
+.simplay-button {
+  flex-grow: 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.simplay-number-input {
+  flex-grow: 0;
+  width: 50px;
+  margin: 5px;
+}
+
+.simplay-button:disabled,
+.simplay-button[disabled] {
+  cursor: not-allowed;
+}
