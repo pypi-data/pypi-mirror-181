@@ -1,0 +1,9 @@
+requests==2.*
+
+[dev]
+pytest
+pylint
+twine
+wheel
+keyring
+python-dotenv
