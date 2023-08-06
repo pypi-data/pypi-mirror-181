@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: aiocrwaler
+Version: 0.1.0
+Summary: 
+Author: JimZhang
+Author-email: zzl22100048@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: aio-pika (>=8.2.5,<9.0.0)
+Requires-Dist: aiocsv (>=1.2.3,<2.0.0)
+Requires-Dist: aiofiles (>=22.1.0,<23.0.0)
+Requires-Dist: aiohttp[speedups] (>=3.8.3,<4.0.0)
+Requires-Dist: aiostream (>=0.4.5,<0.5.0)
+Requires-Dist: elasticsearch7[async] (>=7.17.8,<8.0.0)
+Requires-Dist: motor (>=3.1.1,<4.0.0)
+Requires-Dist: tqdm (>=4.64.1,<5.0.0)
