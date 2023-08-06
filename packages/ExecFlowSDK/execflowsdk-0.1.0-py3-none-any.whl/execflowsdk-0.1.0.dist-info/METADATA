@@ -1,0 +1,88 @@
+Metadata-Version: 2.1
+Name: ExecFlowSDK
+Version: 0.1.0
+Summary: OpenModel Wrapper Software Development Kit (SDK).
+Keywords: AiiDA,OTE,OTEAPI
+Author-email: SINTEF <Team4.0@SINTEF.no>
+Requires-Python: ~=3.9
+Description-Content-Type: text/markdown
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Framework :: AiiDA
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Requires-Dist: aiida-core >=2.1.2,<3
+Requires-Dist: aiida-pseudo ~=0.8.0
+Requires-Dist: oteapi-core ~=0.2.1
+Requires-Dist: invoke ~=1.7 ; extra == "dev"
+Requires-Dist: myst-nb ~=0.17.1 ; extra == "dev"
+Requires-Dist: Sphinx >=4.5.0,<6 ; extra == "dev"
+Requires-Dist: sphinx-autoapi ~=2.0 ; extra == "dev"
+Requires-Dist: sphinx-autobuild ==2021.3.14 ; extra == "dev"
+Requires-Dist: sphinx-book-theme ~=0.3.3 ; extra == "dev"
+Requires-Dist: sphinx-copybutton ~=0.5.1 ; extra == "dev"
+Requires-Dist: sphinx-design ~=0.3.0 ; extra == "dev"
+Requires-Dist: sphinxcontrib-plantuml ~=0.24.1 ; extra == "dev"
+Requires-Dist: pgtest ~=1.3,>=1.3.1 ; extra == "dev"
+Requires-Dist: pre-commit ~=2.20 ; extra == "dev"
+Requires-Dist: pylint ~=2.15 ; extra == "dev"
+Requires-Dist: pytest ~=7.2 ; extra == "dev"
+Requires-Dist: pytest-cov ~=4.0 ; extra == "dev"
+Requires-Dist: myst-nb ~=0.17.1 ; extra == "docs"
+Requires-Dist: Sphinx >=4.5.0,<6 ; extra == "docs"
+Requires-Dist: sphinx-autoapi ~=2.0 ; extra == "docs"
+Requires-Dist: sphinx-autobuild ==2021.3.14 ; extra == "docs"
+Requires-Dist: sphinx-book-theme ~=0.3.3 ; extra == "docs"
+Requires-Dist: sphinx-copybutton ~=0.5.1 ; extra == "docs"
+Requires-Dist: sphinx-design ~=0.3.0 ; extra == "docs"
+Requires-Dist: sphinxcontrib-plantuml ~=0.24.1 ; extra == "docs"
+Requires-Dist: pgtest ~=1.3,>=1.3.1 ; extra == "testing"
+Requires-Dist: pre-commit ~=2.20 ; extra == "testing"
+Requires-Dist: pylint ~=2.15 ; extra == "testing"
+Requires-Dist: pytest ~=7.2 ; extra == "testing"
+Requires-Dist: pytest-cov ~=4.0 ; extra == "testing"
+Project-URL: Changelog, https://github.com/H2020-OpenModel/WP3-WrapperSDK/blob/main/CHANGELOG.md
+Project-URL: Documentation, https://H2020-OpenModel.github.io/WP3-WrapperSDK
+Project-URL: Home, https://github.com/H2020-OpenModel/WP3-WrapperSDK
+Project-URL: Issue Tracker, https://github.com/H2020-OpenModel/WP3-WrapperSDK/issues
+Project-URL: Package, https://pypi.org/project/ExecFlowSDK
+Project-URL: Source, https://github.com/H2020-OpenModel/WP3-WrapperSDK
+Provides-Extra: dev
+Provides-Extra: docs
+Provides-Extra: testing
+
+# ExecFlow SDK
+
+ExecFlowSDK is designed to accelerate the development of AiiDA/ExecFlow plugins.
+
+The ExecFlowSDK facilitates a fully semantic and seamless integration of third-party tools with ExecFlow, such as external data sources, simulation tools and other knowledge sources. Since ExecFlow is based on AiiDA and exploits the provenance capabilities that AiiDA, the ExecFlowSDK must facilitate storage of data provenance as part of the plugin development (e.g., configuration parameters of a transformation pipeline).
+
+The current version of the SDK include the following main components:
+
+* Integration of OTEAPI pipelines as AiiDA processes.
+* Code generation for exporting AiiDA Data Nodes to DLite/SOFT data models to support semantic mappings.
+* Workflow generator utility which, based on EMMO Workflows, can generate AiiDA workflows on-the-fly.
+
+The ExecFlowSDK is an expert tool for developers and enrich AiiDA workflows, processes and data with semantics based on EMMO. The SDK is specialized and geared towards working with EMMC embraced technologies for semantic representation, interoperability, and interfaces.
+
+The SDK extends the current AiiDA development process enabling OpenModel to fully utilize the build-in provenance system.
+
+## Build documentation
+
+Searchable HTML Documentation can be generated from the project.
+Enable your favourite virtual environment and ensure dependencies are installed:
+
+```shell
+pip install -e .[docs]
+```
+
+Run sphinx-build from the project folder.
+The target folder here is set to `public`.
+
+```shell
+sphinx-build docs public
+```
+

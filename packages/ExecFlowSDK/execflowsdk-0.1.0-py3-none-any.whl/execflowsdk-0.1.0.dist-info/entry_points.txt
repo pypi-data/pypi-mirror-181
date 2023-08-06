@@ -1,0 +1,8 @@
+[aiida.data]
+execflow.otefilterconfig=execflow.wrapper.data.filterconfig:FilterConfigData
+execflow.otefunctionconfig=execflow.wrapper.data.functionconfig:FunctionConfigData
+execflow.otemappingconfig=execflow.wrapper.data.mappingconfig:MappingConfigData
+execflow.otepipeline=execflow.wrapper.data.declarative_pipeline:OTEPipelineData
+execflow.oteresourceconfig=execflow.wrapper.data.resourceconfig:ResourceConfigData
+execflow.otetransformationconfig=execflow.wrapper.data.transformationconfig:TransformationConfigData
+
