@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: mosaic-orchestrator
+Version: 0.9.0
+Summary: MOSAIC Orchestrator for analog design automation
+Home-page: https://gitlab.com/mosaic_group/mosaic_framework/main
+License: Apache-2.0
+Keywords: MOSAIC,orchestrator,cmos,analog,design
+Author: Infineon Technologie AG
+Requires-Python: >=3.9
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: pluggy (>=1.0.0,<2.0.0)
+Requires-Dist: pyaml (>=21.10.1,<22.0.0)
+Requires-Dist: semantic-version (>=2.10.0,<3.0.0)
+Project-URL: Documentation, https://mosaic-orchestrator.readthedocs.io/en/latest/
+Project-URL: Repository, https://gitlab.com/mosaic_group/mosaic_framework/main
+Description-Content-Type: text/markdown
+
+# Introduction
+
+The Mosaic Orchestrator is a python based data orchestrator framework that has been specifically designed to meet the requirements for analog design automation.
+
+You can find the documentation here: https://mosaic-orchestrator.readthedocs.io/en/latest/index.html
+
+## Installation
+
+## Developing
+
+### Building & Packaging
+
+Execute the following commands to upload a new version to pypi:
+
+```
+pip wheel . -w dist --no-deps
+pip3 install --user twine
+python3 -m twine upload dist/mosaic_orchestrator-0.9.0-py3-none-any.whl
+```
+
