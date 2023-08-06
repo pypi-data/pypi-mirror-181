@@ -1,0 +1,1 @@
+from pigdetection.detection import PigDetection
