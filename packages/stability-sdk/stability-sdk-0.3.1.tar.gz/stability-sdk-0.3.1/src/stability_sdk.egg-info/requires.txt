@@ -1,0 +1,9 @@
+Pillow
+grpcio==1.48.1
+grpcio-tools==1.48.1
+python-dotenv
+protobuf==3.19.5
+
+[dev]
+pytest
+grpcio-testing
