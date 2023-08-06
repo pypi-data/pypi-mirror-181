@@ -1,0 +1,51 @@
+Metadata-Version: 2.1
+Name: vedro-cloud
+Version: 0.2.1
+Summary: Validator Cloud plugin
+Home-page: https://github.com/vedro-universe/vedro-cloud
+Author: Nikita Tsvetkov
+Author-email: nikitanovosibirsk@yandex.com
+License: Apache-2.0
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Typing :: Typed
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Vedro Cloud
+
+[![PyPI](https://img.shields.io/pypi/v/vedro-cloud.svg?style=flat-square)](https://pypi.python.org/pypi/vedro-cloud/)
+[![PyPI - Downloads](https://img.shields.io/pypi/dm/vedro-cloud?style=flat-square)](https://pypi.python.org/pypi/vedro-cloud/)
+[![Python Version](https://img.shields.io/pypi/pyversions/vedro-cloud.svg?style=flat-square)](https://pypi.python.org/pypi/vedro-cloud/)
+
+## Installation
+
+### 1. Install package
+
+```shell
+$ pip3 install vedro-cloud
+```
+
+### 2. Enable plugin
+
+```python
+# ./vedro.cfg.py
+import vedro
+import vedro_cloud
+import vedro.plugins.slicer as slicer
+
+class Config(vedro.Config):
+
+    class Plugins(vedro.Config.Plugins):
+
+        class VedroCloud(vedro_cloud.VedroCloud):
+            enabled = True
+            api_url = "http://localhost:8080"
+            project_id = "test"
+
+        class Slicer(slicer.Slicer):
+            enabled = False
+```
