@@ -1,0 +1,65 @@
+.dataEditor {
+    height: 100%;
+    position: absolute;
+    width: 160px;
+    font-size: 1.5em;
+    background-color: #EEE;
+    border-style: solid;
+}
+.dataLabel {
+    border-style:none none solid none;
+    min-height: 80px;
+}
+.dataField {
+    border-style:none none solid none;
+    font-size: 0.7em;
+    min-height: 80px;
+    padding-bottom: 5px;
+}
+.dataOutput{
+    font-size: 0.7em;
+    min-height: 80px;
+    padding-bottom: 5px;
+}
+.graphSettings {
+    width: 100%;
+    min-height: 160px;
+    /*margin-left: 162px;*/
+    background-color:#DDD;
+    border-top:solid;
+    border-right:solid;
+overflow:auto;
+}
+.graphSettingsFill {
+    width: calc(50% - 12px);
+    height: 160px;
+    background-color:#DDD;
+    border-right:solid;
+    border-top:solid;
+    float:left;
+overflow:auto;
+}
+.graph{
+    width:100%;
+    height:100%;
+    min-height: 160px;
+    /*margin-left: 162px;*/
+    background-color: #CCC;
+    border-style: solid;
+}
+.graphFill{
+    width:calc(50% - 2px);
+    height:100%;
+    min-height: 160px;
+    float:left;
+    border-right: solid;
+    border-bottom: solid;
+}
+select{
+    margin-left: 5px;
+    margin-right: 20px;
+}
+input{
+    max-width: 149px;
+    margin-left:1px;
+}
