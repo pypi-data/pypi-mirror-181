@@ -1,0 +1,114 @@
+======
+DAO DB
+======
+
+Declassed Append-Only Database
+
+---------
+Example 1
+---------
+
+.. code:: python
+
+    from daodb import DaoDB
+
+    with DaoDB('test', 'w') as db:
+        db.append(b'foo')
+        db.append(b'bar')
+        db.append(b'baz')
+        for i, record in enumerate(db):
+            print(i, record)
+
+Result::
+
+    0 b'foo'
+    1 b'bar'
+    2 b'baz'
+
+
+---------
+Example 2
+---------
+
+.. code:: python
+
+    from daodb import JsonDaoDB
+
+    with JsonDaoDB('test.json', 'w') as db:
+        db.append({'foo': 'bar'})
+        db.append({'bar': 'foo'})
+        for i, record in enumerate(db):
+            print(i, record)
+
+Result::
+
+    0 {'foo': 'bar'}
+    1 {'bar': 'foo'}
+
+-----------
+Compression
+-----------
+
+Gzip and LZMA are included in the base package. LZ4, Brotli, and Snappy
+depend on `lz4 <https://pypi.org/project/lz4/>`_, `brotli <https://pypi.org/project/Brotli/>`_,
+and `python-snappy <https://pypi.org/project/python-snappy/>`_ packages respectively.
+
+All DAO DB extensions are mix-ins. Here's how to define databases that store JSON with compression:
+
+.. code:: python
+
+    from daodb import DaoDB, GzipMixin, LzmaMixin
+    from daodb.lz4 import Lz4Mixin
+    from daodb.brotli import BrotliMixin
+    from daodb.snappy import SnappyMixin
+
+    class GzipDaoDB(JsonMixin, GzipMixin, DaoDB):
+        pass
+
+    class Lz4DaoDB(JsonMixin, Lz4Mixin, DaoDB):
+        pass
+
+    class LzmaDaoDB(JsonMixin, LzmaMixin, DaoDB):
+        pass
+
+    class BrotliDaoDB(JsonMixin, BrotliMixin, DaoDB):
+        pass
+
+    class SnappyDaoDB(JsonMixin, SnappyMixin, DaoDB):
+        pass
+
+------------------
+Database structure
+------------------
+
+* data file
+* index file
+
+Index file contains positions of records except the first one which is always zero,
+and the position for new record.
+Thus, the number of items in the index file equals to the number of records.
+
+Record id is implicit, it's the index of the record.
+Thus, to get a record by id, read offsets from the index file and then read the record from data file.
+
+---------
+Algorithm
+---------
+
+Write:
+
+* lock index file exclusively
+* get position for the new record from the index file
+* append new record to the data file
+* write new size of data file to the index file
+* release file lock
+
+Read item by id:
+
+* Given that id is the index of record, seek to id * 16 in the index file.
+* Read the position of the record and the position of the next record from the index file, 16 bytes total.
+* Read the record from the data file, the size of record is calculated as a difference between positions.
+
+No lock is necessary for read operation.
+That's because append is atomic and the data written to the index file (16 bytes)
+will never be split across pages to make this bug take into effect: https://bugzilla.kernel.org/show_bug.cgi?id=55651

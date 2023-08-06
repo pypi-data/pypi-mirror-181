@@ -1,0 +1,15 @@
+LICENSE
+README
+setup.py
+daodb/__init__.py
+daodb/brotli.py
+daodb/core.py
+daodb/gzip.py
+daodb/jsondb.py
+daodb/lz4.py
+daodb/lzma.py
+daodb/snappy.py
+daodb.egg-info/PKG-INFO
+daodb.egg-info/SOURCES.txt
+daodb.egg-info/dependency_links.txt
+daodb.egg-info/top_level.txt
