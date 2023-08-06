@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "ingestor-module"
+version = "1.17.3"
+description = ""
+authors = ["AIML Team"]
+readme = "README.md"
+packages = [{include = "ingestor"}]
+license="MIT"
+classifiers=[
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+
+[tool.poetry.dependencies]
+python = ">=3.8,<3.11"
+graphdb-module = "^0.12.14"
+pandas = "^1.4.0"
+boto3 = "^1.20.50"
+numpy = "^1.22.1"
+nltk = "^3.7"
+scikit-learn = "^1.0.2"
+Sastrawi = "^1.0.1"
+setuptools = "^59.1.1"
+networkx = "^2.8.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
