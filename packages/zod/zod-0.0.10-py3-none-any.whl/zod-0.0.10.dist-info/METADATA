@@ -1,0 +1,58 @@
+Metadata-Version: 2.1
+Name: zod
+Version: 0.0.10
+Summary: Zenseact Open Dataset
+Home-page: https://zod.zenseact.com
+License: MIT
+Author: Zenseact
+Author-email: opendataset@zenseact.com
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Provides-Extra: cli
+Requires-Dist: dataclass-wizard (>=0.22.2,<0.23.0)
+Requires-Dist: dropbox (>=11.36.0,<12.0.0); extra == "cli"
+Requires-Dist: h5py (>=3.1,<4.0)
+Requires-Dist: h5py (>=3.3,<4.0); python_version >= "3.8" and python_version < "4.0" and sys_platform == "darwin"
+Requires-Dist: importlib-metadata (>=1.0,<2.0); python_version < "3.8"
+Requires-Dist: numpy (>=1.21,<2.0); python_version >= "3.8" and python_version < "4.0" and sys_platform == "darwin"
+Requires-Dist: pyquaternion (>=0.9.5,<0.10.0)
+Requires-Dist: scipy (>=1.5,<2.0)
+Requires-Dist: scipy (>=1.9,<2.0); python_version >= "3.8" and python_version < "4.0" and sys_platform == "darwin"
+Requires-Dist: tqdm (>=4.60,<5.0)
+Requires-Dist: typer[all] (>=0.7.0,<0.8.0); extra == "cli"
+Project-URL: Repository, https://github.com/zenseact/zod
+Description-Content-Type: text/markdown
+
+# Zenseact Open Dataset
+
+TODO:  Move over stuff from the old README
+
+## Installation
+
+To install the full devkit, including the CLI, run:
+```bash
+pip install zod[cli]
+```
+
+Else, to install the library only, run:
+```bash
+pip install zod
+```
+
+## Download
+
+nice little trick to download only mini version from cluster
+
+```bash
+rsync -ar --info=progress2 hal:/staging/dataset_donation/round_2/mini_train_val_single_frames.json ~/data/zod
+
+cat ~/data/zod/mini_train_val_single_frames.json | jq -r '.[] | .[] | .frame_id' | xargs -I{} rsync -ar --info=progress2 hal:/staging/dataset_donation/round_2/single_frames/{} ~/data/zod/single_frames
+```
+
