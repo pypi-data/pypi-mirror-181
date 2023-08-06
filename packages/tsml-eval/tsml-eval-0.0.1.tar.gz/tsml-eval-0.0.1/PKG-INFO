@@ -1,0 +1,71 @@
+Metadata-Version: 2.1
+Name: tsml-eval
+Version: 0.0.1
+Summary: A package for benchmarking time series machine learning tools.
+Author-email: Matthew Middlehurst <m.middlehurst@uea.ac.uk>, Tony Bagnall <ajb@uea.ac.uk>
+License: BSD 3-Clause License
+        
+        Copyright (c) 2022, The Time Series Machine Learning (tsml) developers.
+        All rights reserved.
+        
+        Redistribution and use in source and binary forms, with or without
+        modification, are permitted provided that the following conditions are met:
+        
+        1. Redistributions of source code must retain the above copyright notice, this
+           list of conditions and the following disclaimer.
+        
+        2. Redistributions in binary form must reproduce the above copyright notice,
+           this list of conditions and the following disclaimer in the documentation
+           and/or other materials provided with the distribution.
+        
+        3. Neither the name of the copyright holder nor the names of its
+           contributors may be used to endorse or promote products derived from
+           this software without specific prior written permission.
+        
+        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+        AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+        IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+        DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+        FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+        DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+        SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+        CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+        OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+        OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+        
+Project-URL: homepage, https://www.timeseriesclassification.com/
+Project-URL: repository, https://github.com/time-series-machine-learning/tsml-estimator-evaluation/
+Keywords: data-science,machine-learning,data-mining,time-series,classification,regression,clustering
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Requires-Python: <3.11,>=3.7
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Provides-Extra: docs
+License-File: LICENSE
+
+# tsml-eval
+
+Evaluation tools for classification, regression and clustering algorithms built on the sktime interface.
+
+Dependency installation
+-----------------------
+
+pip install -r requirements.txt
+
+Export package versions to new requirements
+-------------------------------------------
+
+pip freeze > requirements.txt
+
+
+sktime install from main, branch or fork
+----------------------------------------
+
+You can use this package with a sktime install that isn't deployed to pypip.
+
+- First uninstall current sktime: 'pip uninstall sktime'
+- Then install from git using i.e.
+  - pip install git+https://github.com/sktime/sktime.git@main
+  - pip install git+https://github.com/sktime/sktime.git@uea_debugging
+  - pip install git+https://github.com/MatthewMiddlehurst/sktime-mm.git@main
