@@ -1,0 +1,53 @@
+[tool.poetry]
+name = "n6py"
+version = "0.1.12"
+description = "N6 AI Python Tools"
+authors = ["Sergej Samsonenko <contact@sergej.codes>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/n6ai/n6py"
+repository = "https://github.com/n6ai/n6py"
+documentation = "https://github.com/n6ai/n6py"
+keywords = ["n6py", "ai", "artificial intelligence", "dl", "deep learning", "ml", "machine learning", "jupyter", "notebook"]
+classifiers = [
+    "Development Status :: 1 - Planning",
+    "Framework :: Jupyter",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Operating System :: MacOS",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX",
+    "Operating System :: Unix",
+    "Programming Language :: Python",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/n6ai/n6py/issues"
+
+[tool.poe.tasks]
+format = "black ."
+lint = "pylint n6py tests"
+test = "pytest tests"
+test-debug = "pytest tests -s"
+doctest = "pytest n6py --doctest-modules"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+numpy = "^1.23.5"
+pandas = "^1.5.2"
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.10.0"
+poethepoet = "^0.16.4"
+pre-commit = "^2.20.0"
+pylint = "^2.15.6"
+pytest = "^7.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
