@@ -1,0 +1,205 @@
+from relationaldb import BaseMongodbDatabase, BaseObjects
+
+
+class {{db_cls_name}}(BaseMongodbDatabase):
+
+
+    def __init__(
+        self,
+        dbname: str,
+        host: str = "127.0.0.1",
+        port: int = 27017,
+        timeout: int = 300,
+        username: str = None,
+        password: str = None,
+    ):
+        BaseMongodbDatabase.__init__(
+            self, dbname, host, port, timeout, username, password
+        )
+
+        {% for entity in entities %}
+        self.{{entity.name}} = {{entity.cls_name}}Objects(self)
+        {% if entity.name != entity.cls_name %}
+        self.{{entity.cls_name}} = self.{{entity.name}}
+        {% endif %}
+        {% endfor %}
+
+{% for entity in entities %}
+class {{entity.cls_name}}Objects(BaseObjects):
+    collection_name = "{{entity.name}}"
+
+    def find_asdict({{entity.method_signature_as_none}}):
+        query = {}
+
+        {% for attribute in entity.attributes %}
+        if {{attribute.name}} is not None:
+            query["{{attribute.name}}"] = {{attribute.name}}
+        {% endfor %}
+        return self.collection.find(query)
+
+    def detailed_find_asdict({{entity.method_signature_as_none}}, skip=None, limit=None, fields=None):
+        pipeline = []
+
+        match_pipeline = {"$match": {"$and": []}}
+        and_match_pipeline = match_pipeline["$match"]["$and"]
+
+        {% for attribute in entity.attributes %}
+        if {{attribute.name}} is not None:
+            and_match_pipeline.append({"{{attribute.name}}":  {{attribute.name}} })
+
+        {% endfor %}
+
+        if and_match_pipeline:
+            pipeline.append(match_pipeline)
+
+        pipeline.extend([
+            {% for attribute in entity.ref_attributes %}
+            {"$lookup": {
+                "from": "{{attribute.annotation.__name__}}",
+                "localField": "{{attribute.name}}",
+                "foreignField": "_id",
+                "as": "{{attribute.name}}",
+            }},
+            {"$set": {"{{attribute.name}}": {"$arrayElemAt": ["${{attribute.name}}", 0]}}},
+            {"$project": {"{{attribute.name}}._id": 0}},
+            {% endfor %}
+        ])
+
+        if skip:
+            pipeline.append({"$skip": skip})
+        if limit:
+            pipeline.append({"$limit": limit})
+
+        if fields:
+            pipeline.append({"$project": {field:1 for field in fields}})
+
+        return self.collection.aggregate(pipeline)
+
+    def light_find_asdict({{entity.method_signature_as_none}}, skip=None, limit=None, fields=None):
+        objects = self.detailed_find_asdict(skip=skip, limit=limit, fields=fields,
+            {% for attribute in entity.attributes %}
+            {{attribute.name}}={{attribute.name}},
+            {% endfor %}
+        )
+
+        for object in objects:
+            {% for attribute in entity.ref_attributes %}
+                {% if attribute.ref.get_in_filter_query_attributes() | length == 1 %}
+
+            if '{{attribute.name}}' in object:
+                object['{{attribute.name}}'] = object.get('{{attribute.name}}', {}).get('{{attribute.ref.get_in_filter_query_attributes()[0].name}}')  # noqa: E501
+
+                {% endif %}
+            {% endfor %}
+            yield object
+
+    def first_asdict({{entity.method_signature_as_none}}):
+        query = {}
+
+        {% for attribute in entity.attributes %}
+        if {{attribute.name}} is not None:
+            query["{{attribute.name}}"] = {{attribute.name}}
+        {% endfor %}
+        return self.collection.find_one(query)
+
+    def first({{entity.method_signature_as_none}}):
+        document = self.first_asdict(
+        {% for attribute in entity.attributes %}
+        {{attribute.name}}={{attribute.name}},
+        {% endfor %}
+        )
+        return self.from_dict(document)
+
+    def find({{entity.method_signature_as_none}}):
+        documents = self.find_asdict(
+        {% for attribute in entity.attributes %}
+        {{attribute.name}}={{attribute.name}},
+        {% endfor %}
+        )
+        for document in documents:
+            yield self.from_dict(document)
+
+    def insert_one({{entity.method_signature}}):
+        {% for attribute in entity.ref_attributes %}
+        if not isinstance({{attribute.name}}, {{attribute.annotation.__name__}}):
+            raise TypeError('Only {{attribute.annotation.__name__}} objects are accepted for insertion')
+        {{attribute.name}} = {{attribute.name}}.id
+        {% endfor %}
+
+        query = {
+        {% for attribute in entity.attributes %}
+            "{{attribute.name}}": {{attribute.name}},
+        {% endfor %}
+        }
+        self.collection.insert_one(query)
+
+    new = insert_one
+
+    def feed({{entity.method_signature}}, _retid: bool = False):
+        {% for attribute in entity.ref_attributes %}
+        if {{attribute.name}} is not None:
+            {{attribute.name}} = self.db.{{attribute.annotation.__name__}}._feed_and_get_id({{attribute.name}})
+        {% endfor %}
+
+        filter_query = {
+            {% for attribute in entity.in_filter_query_attributes %}
+            "{{attribute.name}}": {{attribute.name}},
+            {% endfor %}
+        }
+        set_query = dict(filter_query)
+        update_query = {"$set": set_query}
+
+        {% for attribute in entity.not_in_filter_query_attributes %}
+        if {{attribute.name}} is not None:
+            set_query["{{attribute.name}}"] = {{attribute.name}}
+        {% endfor %}
+
+        ret = self.collection.update_one(filter_query, update_query, upsert=True)
+        if _retid:
+            if ret.upserted_id:
+                return ret.upserted_id
+            return self.collection.find_one(filter_query)["_id"]
+
+    # ====== #
+    # DELETE #
+    # ====== #
+    def delete_first({{entity.method_signature_as_none}}):
+        query = {}
+
+        {% for attribute in entity.attributes %}
+        if {{attribute.name}} is not None:
+            query["{{attribute.name}}"] = {{attribute.name}}
+        {% endfor %}
+        self.collection.delete_one(query)
+
+    delete_one = delete_first
+
+    def delete_many({{entity.method_signature_as_none}}):
+        query = {}
+
+        {% for attribute in entity.attributes %}
+        if {{attribute.name}} is not None:
+            query["{{attribute.name}}"] = {{attribute.name}}
+        {% endfor %}
+        self.collection.delete_many(query)
+
+    # ===== #
+    # UTILS #
+    # ===== #
+    def _normalize(self, obj):
+        if isinstance(obj, tuple):
+            return obj, {}
+        {% if entity.one_argument_normalization %}
+        elif isinstance(obj, {{entity.one_argument_normalization}}):
+            return (obj,), {}
+        {% endif %}
+        else:
+            raise ValueError("can not normalize object")
+
+    def _feed_and_get_id(self, obj):
+        if isinstance(obj, {{entity.cls_name}}):
+            return obj.id
+        args, kwargs = self._normalize(obj)
+        return self.feed(*args, **kwargs, _retid=True)
+
+{% endfor %}
