@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.rst
+requirements.txt
+setup.py
+nxmodbus/__init__.py
+nxmodbus/addresses.py
+nxmodbus/client_rtu.py
+nxmodbus/client_tcp.py
+nxmodbus/proptypes.py
+nxmodbus.egg-info/PKG-INFO
+nxmodbus.egg-info/SOURCES.txt
+nxmodbus.egg-info/dependency_links.txt
+nxmodbus.egg-info/requires.txt
+nxmodbus.egg-info/top_level.txt
