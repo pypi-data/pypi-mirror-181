@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: ismi_utils
+Version: 0.1.5
+Summary: ISMI Utilities
+Home-page: https://github.com/DIAGNijmegen/ismi_utils
+Author: Bram de Wilde, Stephan Dooper, Pierpaolo Vendittelli, Joeran Bosma
+Author-email: Joeran.Bosma@radboudumc.nl
+License: Apache 2.0
+Project-URL: Bug Tracker, https://github.com/DIAGNijmegen/ismi_utils/issues
+Platform: unix
+Platform: linux
+Platform: osx
+Platform: cygwin
+Platform: win32
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Provides-Extra: testing
+License-File: LICENSE
+
+# ISMI
+
+## Installation
+
+```bash
+conda create --name=ismi python=3.9
+conda activate ismi
+pip install ismi_utils
+```
