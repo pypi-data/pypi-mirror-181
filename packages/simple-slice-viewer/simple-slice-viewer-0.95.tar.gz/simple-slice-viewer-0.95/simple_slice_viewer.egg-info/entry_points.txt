@@ -1,0 +1,4 @@
+[console_scripts]
+simple-slice-viewer = simple_slice_viewer.console:run_from_cmd
+ssv = simple_slice_viewer.console:run_from_cmd
+
