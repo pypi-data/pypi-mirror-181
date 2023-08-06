@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: pyroll-zouhar-contact
+Version: 1.0.1
+Summary: Plugin for PyRoll providing the contact area estimation by Zouhar
+Home-page: https://pyroll-project.github.io/
+License: BSD-3-Clause
+Author: Max Weiner
+Author-email: max.weiner@imf.tu-freiberg.de
+Requires-Python: >=3.9,<3.11
+Classifier: Intended Audience :: Manufacturing
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Scientific/Engineering
+Requires-Dist: pyroll (>=1.0.5.post1,<2.0.0)
+Project-URL: Documentation, https://github.com/pyroll-project/pyroll-zouhar-contact/blob/main/docs/docs.pdf
+Project-URL: Repository, https://github.com/pyroll-project/pyroll-zouhar-contact
+Description-Content-Type: text/markdown
+
+# PyRoll Zouhar Contact Model
+
+Plugin for PyRoll providing the contact area estimation by Zouhar.
+
+To read about the model approach, see [here](docs/model.md).
+
+To read about the usage of the plugin, see [here](docs/usage.md).
+
