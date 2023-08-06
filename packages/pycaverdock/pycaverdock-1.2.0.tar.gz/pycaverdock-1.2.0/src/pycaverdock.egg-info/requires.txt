@@ -1,0 +1,11 @@
+click>=7
+discretizer>=1.1.0
+pandas>=1
+seaborn>=0.9
+matplotlib>=3
+pyyaml>=5
+tqdm>=4.28
+pylru>=1.2.0
+
+[:python_version < "3.7"]
+dataclasses>=0.8
