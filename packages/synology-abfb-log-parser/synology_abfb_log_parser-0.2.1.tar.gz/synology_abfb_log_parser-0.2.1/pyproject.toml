@@ -1,0 +1,32 @@
+[build-system]
+requires = [
+    "hatchling"
+]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+path = "src/synology_abfb_log_parser/__about__.py"
+
+[project]
+name = "synology_abfb_log_parser"
+dynamic = [
+    "version"
+]
+authors = [
+    { name="David Randall", email="David@NiceGuyIT.biz" },
+]
+description = "Synology Active Backup for Business log parser"
+readme = "README.md"
+license = {file = "LICENSE.md"}
+requires-python = ">=3.6"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/NiceGuyIT/synology_abfb_log_parser"
+Repository = "https://github.com/NiceGuyIT/synology_abfb_log_parser"
+Documentation = "https://github.com/NiceGuyIT/synology_abfb_log_parser"
+"Bug Tracker" = "https://github.com/NiceGuyIT/synology_abfb_log_parser/issues"

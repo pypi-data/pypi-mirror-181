@@ -1,0 +1,63 @@
+Metadata-Version: 2.1
+Name: synology_abfb_log_parser
+Version: 0.2.1
+Summary: Synology Active Backup for Business log parser
+Project-URL: Homepage, https://github.com/NiceGuyIT/synology_abfb_log_parser
+Project-URL: Repository, https://github.com/NiceGuyIT/synology_abfb_log_parser
+Project-URL: Documentation, https://github.com/NiceGuyIT/synology_abfb_log_parser
+Project-URL: Bug Tracker, https://github.com/NiceGuyIT/synology_abfb_log_parser/issues
+Author-email: David Randall <David@NiceGuyIT.biz>
+License: Copyright (c) 2022 Nice Guy IT, LLC
+        
+        Permission is hereby granted, free of charge, to any person obtaining
+        a copy of this software and associated documentation files (the
+        "Software"), to deal in the Software without restriction, including
+        without limitation the rights to use, copy, modify, merge, publish,
+        distribute, sublicense, and/or sell copies of the Software, and to
+        permit persons to whom the Software is furnished to do so, subject to
+        the following conditions:
+        
+        The above copyright notice and this permission notice shall be
+        included in all copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+        EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+        MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+        NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+        LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+        OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+        WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+License-File: LICENSE.md
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# Synology Active Backups for Business log parser
+
+`synology_abfb_log_parser` parses the [Synology Active Backups for Business][1] logs on the agent allowing and provides a way to search the logs. The examples show how to send a TRMM alert for various log entries.
+
+[1]: https://kb.synology.com/en-br/DSM/help/ActiveBackup/activebackup_business_activities?version=7
+
+## Events
+
+Events have the following structure. Given this log entry:
+```text
+Nov 25 22:12:34 [INFO] async-worker.cpp (56): Worker (0): get event '1: routine {"subaction": "heart_beat"}', start processing
+```
+
+The events returned will be like this:
+```Python
+events[0] = {
+    "datetime": "datestamp.datestamp class",
+    "timestamp": "Nov 25 22:12:34",
+    "priority": "INFO",
+    "method_name": "async-worker.cpp",
+    "method_num": "56",
+    "message": "Worker (0): get event '1: routine {\"subaction\": \"heart_beat\"}', start processing",
+    "json": {
+        "subaction": "heart_beat"
+    },
+}
+```
