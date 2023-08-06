@@ -1,0 +1,23 @@
+{% load admin_ui %}
+{% get_admin_ui_tweaks as admin_ui_tweaks %}
+
+{% if show %}
+<div class="col-12 pb-4" id="change-list-date-hierarchy">
+    <div class="btn-group date-hierarchy text-sm">
+        {% block date-hierarchy-toplinks %}
+            {% block date-hierarchy-back %}
+                {% if back %}
+                    <a class="btn {{ admin_ui_tweaks.button_classes.secondary }}" href="{{ back.link }}">&lsaquo; {{ back.title }}</a>
+                {% endif %}
+            {% endblock %}
+            {% block date-hierarchy-choices %}
+                {% for choice in choices %}
+                    <a {% if choice.link %}href="{{ choice.link }}" class="btn {{ admin_ui_tweaks.button_classes.primary }}"{% else %}class="btn {{ admin_ui_tweaks.button_classes.primary }} active"{% endif %}>
+                        {{ choice.title }}
+                    </a>
+                {% endfor %}
+            {% endblock %}
+        {% endblock %}
+    </div>
+</div>
+{% endif %}
