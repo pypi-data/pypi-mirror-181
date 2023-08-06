@@ -1,0 +1,6 @@
+# Requirements
+dataclasses; python_version < '3.7'
+redis <4.1.0; python_version < '3.7'
+pottery
+click
+pyyaml
