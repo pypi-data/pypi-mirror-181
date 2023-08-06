@@ -1,0 +1,5 @@
+FROM amazonlinux:latest
+
+LABEL maintainer="Lance"
+
+RUN yum update -y && yum install -y python3 python3-devel vim
