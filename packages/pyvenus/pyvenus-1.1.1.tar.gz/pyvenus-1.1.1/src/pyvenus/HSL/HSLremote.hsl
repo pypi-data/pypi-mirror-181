@@ -1,0 +1,275 @@
+// include standard libraries needed for HSLremote
+#include "HSLExtensions\\File.hsl" 
+#include "HSLStrLib.hsl"
+
+// define internal variables for HSLremote
+namespace HSLremote 
+{
+   variable strLayout;
+   variable strToSystem;
+   variable strFromSystem;
+   variable intCommandCounter(1);
+   variable strFilename;
+   timer hdlTimer;
+}
+
+variable ___SHUTDOWN___(0);
+variable ___ARRAY___[];
+variable ___JSON___;
+variable ___ERROR___(0);
+device __DEVICE__("", "", hslTrue);
+
+
+function StrEscape(variable strString) variable {
+   StrReplace(strString, "\\", "\\\\");
+   StrReplace(strString, "\n", "\\\\n");
+   StrReplace(strString, "\"", "\\\\\"");
+   StrReplace(strString, "\'", "\\\\\'");
+
+   return(strString);
+}
+
+
+function JSONobject_start(variable & strJSON, variable strName) void {
+   if(strName != "")
+      strJSON = strJSON + "\n\"" + strName + "\": ";
+
+   strJSON = strJSON + "{";
+}
+
+function JSONobject_end(variable & strJSON) void {
+   strJSON = StrTrimRight(strJSON, ",");
+   strJSON = strJSON + "\n},";
+}
+
+
+function JSONproperty(variable & strJSON, variable strName, variable value) void {
+   if(GetType(value) == "i")
+      strJSON = strJSON + "\n\"" + strName + "\": " + IStr(value) + ",";
+   if(GetType(value) == "f")
+      strJSON = strJSON + "\n\"" + strName + "\": " + FStr(value) + ",";
+   if(GetType(value) == "s")
+      strJSON = strJSON + "\n\"" + strName + "\": \"" + StrEscape(value) + "\",";
+}
+
+
+function JSONarray_start(variable & strJSON, variable strName) void {
+   strJSON = strJSON + "\n\"" + strName + "\": [";
+}
+
+function JSONarray_element(variable & strJSON, variable value) void {
+  if(GetType(value) == "i")
+      strJSON = strJSON + "\n" + IStr(value) + ",";
+   if(GetType(value) == "f")
+      strJSON = strJSON + "\n" + FStr(value) + ",";
+   if(GetType(value) == "s")
+      strJSON = strJSON + "\n\"" + StrEscape(value) + "\",";
+}
+
+function JSONarray_end(variable & strJSON) void {
+   strJSON = StrTrimRight(strJSON, ",");
+   strJSON = strJSON + "\n],";
+}
+
+function JSONwrite(variable strJSON, variable strFile) void {
+   file hdlFile;
+   
+   strJSON = StrTrimRight(strJSON, ",");
+   hdlFile.AddField(1, strJSON, hslString);
+   hdlFile.SetDelimiter(hslAsciiText);
+   hdlFile.Open(strFile + "tmp", hslWrite);
+   hdlFile.WriteRecord();
+   hdlFile.Close();
+   hdlFile.RemoveFields();
+
+   HSLExtensions::File::Rename(strFile + "tmp", strFile, 1);
+}
+
+
+
+function addJSON_variable(variable & strJSON, variable var, variable strName) void 
+{
+   JSONproperty(strJSON, strName, var);  
+}
+
+function addJSON_array(variable & strJSON, variable arr[], variable strName) void {
+   variable intIndex;
+
+   JSONarray_start(strJSON, strName);
+   for(intIndex = 0; intIndex < arr.GetSize(); intIndex++)
+      JSONarray_element(strJSON, arr.ElementAt(intIndex));
+   JSONarray_end(strJSON);   
+}
+
+function addJSON_sequence(variable & strJSON, sequence seq, variable strName) void {
+   variable intIndex, strJSON_labware(""), strJSON_position("");
+
+   JSONobject_start(strJSON, strName);
+
+   JSONproperty(strJSON, "current", seq.GetCurrentPosition());
+   JSONproperty(strJSON, "end", seq.GetCount());
+
+   seq.SetCurrentPosition(1);
+   seq.SetCount(seq.GetTotal());
+
+   JSONarray_start(strJSON_labware, "labware");
+   JSONarray_start(strJSON_position, "position");
+
+   for(intIndex = 0; intIndex < seq.GetTotal();) {
+
+      JSONarray_element(strJSON_labware, seq.GetLabwareId());
+      JSONarray_element(strJSON_position, seq.GetPositionId());
+
+      seq.Increment(1);
+      intIndex = intIndex + 1;
+   }
+
+   JSONarray_end(strJSON_labware);
+   JSONarray_end(strJSON_position);
+
+   strJSON = strJSON + strJSON_labware + strJSON_position;
+
+   JSONobject_end(strJSON);
+}
+
+function addJSON_sequence_xyz(variable & strJSON, sequence seq, variable strName) void {
+   variable intIndex, strJSON_labware(""), strJSON_position(""), strJSON_x(""), strJSON_y(""), strJSON_z(""), strJSON_angle(""), arrFltPositionData[];
+
+   JSONobject_start(strJSON, strName);
+
+   JSONproperty(strJSON, "current", seq.GetCurrentPosition());
+   JSONproperty(strJSON, "end", seq.GetCount());
+
+   seq.SetCurrentPosition(1);
+   seq.SetCount(seq.GetTotal());
+
+   JSONarray_start(strJSON_labware, "labware");
+   JSONarray_start(strJSON_position, "position");
+   JSONarray_start(strJSON_x, "x");
+   JSONarray_start(strJSON_y, "y");
+   JSONarray_start(strJSON_z, "z");
+   JSONarray_start(strJSON_angle, "angle");
+
+   for(intIndex = 0; intIndex < seq.GetTotal();) {
+
+      JSONarray_element(strJSON_labware, seq.GetLabwareId());
+      JSONarray_element(strJSON_position, seq.GetPositionId());
+      
+      __DEVICE__.GetLabwarePosition(seq.GetLabwareId(), arrFltPositionData, seq.GetPositionId());
+      JSONarray_element(strJSON_x, arrFltPositionData[0]);
+      JSONarray_element(strJSON_y, arrFltPositionData[1]);
+      JSONarray_element(strJSON_z, arrFltPositionData[2]);
+      JSONarray_element(strJSON_angle, arrFltPositionData[3]);
+
+      seq.Increment(1);
+      intIndex = intIndex + 1;
+   }
+
+   JSONarray_end(strJSON_labware);
+   JSONarray_end(strJSON_position);
+   JSONarray_end(strJSON_x);
+   JSONarray_end(strJSON_y);
+   JSONarray_end(strJSON_z);
+   JSONarray_end(strJSON_angle);
+
+   strJSON = strJSON + strJSON_labware + strJSON_position + strJSON_x + strJSON_y + strJSON_z + strJSON_angle;
+
+   JSONobject_end(strJSON);
+}
+
+
+
+
+
+method main()
+{  
+   // set location of input and output folders
+   HSLremote::strToSystem = HSLExtensions::File::GetDirectoryName(GetFileName()) + "\\toSystem\\";
+   HSLremote::strFromSystem = HSLExtensions::File::GetDirectoryName(GetFileName()) + "\\fromSystem\\";
+   Trace("Directory >> toSystem: " + HSLremote::strToSystem);
+   Trace("Directory >> fromSystem: " + HSLremote::strFromSystem);
+
+   // start the main method with the specific deck layout
+   while (___SHUTDOWN___ == 0)
+   {
+      // generate filename for next command file
+      HSLremote::strFilename = HSLremote::strToSystem + IStr(HSLremote::intCommandCounter) + ".hsl";
+      
+      // wait for next command file to appear
+      Trace("Waiting for next command file...");
+      while (HSLExtensions::File::Exists(HSLremote::strFilename) == 0)
+      {  
+         HSLremote::hdlTimer.SetTimer(0.1);
+         HSLremote::hdlTimer.WaitTimer(hslFalse, hslFalse);
+      }
+      Trace("New command file found (", HSLremote::strFilename, ") >> Executing...");
+    
+      AddCheckSum(HSLremote::strFilename, "//");
+      
+      // all errors are passed to error handler
+      onerror goto __ERROR_HANDLER__;
+      
+      // setup JSON object for return information
+      ___JSON___ = "";
+      JSONobject_start(___JSON___, "");
+      
+      // import command file
+      << HSLremote::strFilename;
+
+      
+      if(___ERROR___ == 0)
+      {
+         // execute new HSL code
+         #ifdef HSL_RUNTIME
+            __EvalExpr__();
+         #endif
+      }
+      
+      // stop passing errors to error handler and reset error flag
+      onerror goto 0;
+      ___ERROR___ = 0;
+
+      // generate return file
+      Trace("Generating return file (", HSLremote::strFromSystem + IStr(HSLremote::intCommandCounter) + ".json", ")");
+      JSONobject_end(___JSON___);
+      JSONwrite(___JSON___, HSLremote::strFromSystem + IStr(HSLremote::intCommandCounter) + ".json");
+
+      // increment the command counter         
+      HSLremote::intCommandCounter = HSLremote::intCommandCounter + 1;
+   }
+
+   // shut down
+   return;
+
+   // global error handler that returns data to python and then shuts down run environment
+   __ERROR_HANDLER__ : 
+   {
+      variable ___ERROR_DESCRIPTION___;
+
+      Trace("An error occured. Returning error information to PyVenus");
+
+      // set global error flag
+      ___ERROR___ = 1;
+
+      // setup JSON object for return information
+      ___JSON___ = "";
+      JSONobject_start(___JSON___, "");
+      
+      // pass error information to JSON object
+      addJSON_variable(___JSON___, err.GetId(), "___ERROR_ID___");
+      ___ERROR_DESCRIPTION___ = err.GetDescription();
+      StrReplace(___ERROR_DESCRIPTION___, "\n", " ");
+      StrReplace(___ERROR_DESCRIPTION___, "\r", " ");
+      addJSON_variable(___JSON___, ___ERROR_DESCRIPTION___, "___ERROR_DESCRIPTION___");
+      
+      addJSON_array(___JSON___, err.GetData(), "___ERROR_DATA___");
+      
+      // clear error data
+      err.Clear();
+      
+      // return to main method
+      resume next;
+   }
+      
+}
+// $$author=BenjaminWohl$$valid=0$$time=2022-12-06 16:43$$checksum=57436432$$length=089$$
