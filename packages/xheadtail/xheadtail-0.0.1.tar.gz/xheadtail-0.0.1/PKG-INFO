@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: xheadtail
+Version: 0.0.1
+Summary: Collective effects for particle accelerators
+Home-page: https://xsuite.readthedocs.io/
+Author: Lotta Mether
+Author-email: lotta.mether@cern.ch
+License: Apache 2.0
+Download-URL: https://pypi.python.org/pypi/xheadtail
+Project-URL: Bug Tracker, https://github.com/xsuite/xsuite/issues
+Project-URL: Documentation, https://xsuite.readthedocs.io/
+Project-URL: Source Code, https://github.com/xsuite/xheadtail
+Description: Collective effects for particle accelerators
+Platform: UNKNOWN
+Requires-Python: >=3.7
+Provides-Extra: tests
