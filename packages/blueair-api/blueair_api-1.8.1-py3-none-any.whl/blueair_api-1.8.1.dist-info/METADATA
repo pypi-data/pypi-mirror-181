@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: blueair-api
+Version: 1.8.1
+Summary: Blueair Api Wrapper
+Home-page: https://github.com/dahlb/blueair_api
+Author: Brendan Dahl
+Author-email: dahl.brendan@gmail.com
+Project-URL: Bug Reports, https://github.com/dahlb/blueair_api/issues
+Project-URL: Source, https://github.com/dahlb/blueair_api
+Keywords: blueair,api
+Classifier: Development Status :: 4 - Beta
+Classifier: Framework :: AsyncIO
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: MacOS :: MacOS X
+Requires-Python: >=3.9, <4
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: aiohttp (>=3.8.1)
+
+Api Wrapper for BlueAir API using async in python, this was inspired by [this guide](https://developers.home-assistant.io/docs/api_lib_index) to be a lightweight wrapper, with simple error handling.
+
+a lot of this is based on [hass-blueair](https://github.com/aijayadams/hass-blueair).
+
