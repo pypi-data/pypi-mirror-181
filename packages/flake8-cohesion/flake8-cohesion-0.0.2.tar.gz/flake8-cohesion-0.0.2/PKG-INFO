@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: flake8-cohesion
+Version: 0.0.2
+Summary: A flake8 extension for measuring Python class cohesion.
+Author-email: Matt Schwager <schwag09@gmail.com>,Sasan Jacob Rasti <sasan_jacob.rasti@tu-dresden.de>
+Requires-Python: >=3.9
+Project-URL: homepage, https://github.com/sasanjac/flake8-cohesion
