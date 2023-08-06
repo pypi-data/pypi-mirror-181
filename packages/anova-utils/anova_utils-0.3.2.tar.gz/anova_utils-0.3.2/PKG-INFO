@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: anova-utils
+Version: 0.3.2
+Summary: Custom utility functions for conducting ANOVAs (or ANCOVAs).
+License: GNU GENERAL PUBLIC LICENSE v3
+Author: Marcel Wiechmann
+Author-email: mail@mwiechmann.com
+Requires-Python: >=3.11,<4.0
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: matplotlib (>=3.6.2,<4.0.0)
+Requires-Dist: pandas (>=1.5.2,<2.0.0)
+Requires-Dist: scipy (>=1.9.3,<2.0.0)
+Description-Content-Type: text/markdown
+
+WIP...
+
