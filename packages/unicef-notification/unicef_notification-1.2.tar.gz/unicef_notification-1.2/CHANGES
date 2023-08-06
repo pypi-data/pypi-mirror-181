@@ -1,0 +1,15 @@
+Release 1.2
+-----------
+* Added support to Django 4.0, 4.1
+
+
+Release 1.1
+-----------
+* Admin: Added Notification
+* Added possibility to create notification without sending email
+
+
+Release 1.0
+-----------
+* Added support to python 3.9 and django 3.2
+* Removed support to python < 3.9 and django < 3.2
