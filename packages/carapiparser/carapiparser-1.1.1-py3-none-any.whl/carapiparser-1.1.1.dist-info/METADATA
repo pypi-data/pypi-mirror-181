@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: carapiparser
+Version: 1.1.1
+Summary: parse car api excel config
+Home-page: https://github.com/chinaZoulx
+Author: zoulx
+Author-email: 894919296@qq.com
+License: MIT
+Platform: all
+Classifier: License :: OSI Approved :: MIT License
+Requires-Dist: xlrd (>=1.2.0)
+
+# 解析Excel并格式化为带关系的可用数据
+
+
