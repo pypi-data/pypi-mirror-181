@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: pyreversi
+Version: 1.4.2
+Summary: pyreversi is a reversi game in your terminal with IA available.
+Home-page: https://github.com/thib1984/pyreversi
+Author: thib1984
+Author-email: thibault.garcon@gmail.com
+License: MIT
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.7
+License-File: LICENSE.txt
+
+The complete description/installation/use/FAQ is available at : https://github.com/thib1984/pyreversi#readme
