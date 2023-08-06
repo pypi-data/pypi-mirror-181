@@ -1,0 +1,47 @@
+
+
+
+Protocol for evaluators (sim or real)
+
+
+1) call `dtserver_work_submission` at 5 seconds intervals until you get a job.
+
+2) during the job evaluation, call `dtserver_job_heartbeat` at least once every 30 seconds
+   so that server knows that you are alive.
+
+   Optionally upload files.
+
+   The result of the function contains a field `abort` and optionally a message (why)
+   You MAY abort the evaluation if abort = True.
+
+
+3) at the end
+
+   a) upload the files using `upload_files`
+
+   b) call `dtserver_report_job` with list of uploaded files, status, and stats (scores inside)
+
+      see docs for definition of status string
+
+
+To put inside:
+
+   output/
+      robots/
+         ego0/
+            trajectory.yaml
+            robot.bag
+            config -> copy of /data/config
+
+         ego1/...
+      watchtowers/
+         host/
+            watchtower.bag
+
+
+   scenario/ -> the /scenario directory in image container
+
+trajectory.yaml:
+   trajectory:
+      - timestamp: float      time.time()
+          pose: 4,4 matrix

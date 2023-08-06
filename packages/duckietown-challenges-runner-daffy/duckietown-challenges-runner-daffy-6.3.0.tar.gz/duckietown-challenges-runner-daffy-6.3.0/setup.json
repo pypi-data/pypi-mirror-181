@@ -1,0 +1,35 @@
+{
+  "install_requires": [
+    "PyYAML",
+    "ansi2html",
+    "boto3",
+    "botocore",
+    "docker",
+    "duckietown-build-utils-daffy",
+    "duckietown-challenges-daffy",
+    "duckietown-docker-utils-daffy",
+    "duckietown-shell",
+    "ipfsapi",
+    "psutil",
+    "python-dateutil",
+    "termcolor",
+    "timeout-decorator",
+    "whichcraft",
+    "zuper-commons-z6>=6.1.6"
+  ],
+  "tests_require": [],
+  "srcdir": "src",
+  "package_name": "duckietown-challenges-runner-daffy",
+  "entry_points": {
+    "console_scripts": []
+  },
+  "zip_safe": true,
+  "include_package_data": true,
+  "modules": [
+    "duckietown_challenges_runner"
+  ],
+  "version": "6.2.35",
+  "author": "",
+  "author_email": "",
+  "url": ""
+}
