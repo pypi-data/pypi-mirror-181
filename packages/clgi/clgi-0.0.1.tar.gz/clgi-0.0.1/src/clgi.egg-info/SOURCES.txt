@@ -1,0 +1,14 @@
+LICENSE.txt
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/clgi/__init__.py
+src/clgi/app.py
+src/clgi/argparser.py
+src/clgi/errors.py
+src/clgi/tty.py
+src/clgi.egg-info/PKG-INFO
+src/clgi.egg-info/SOURCES.txt
+src/clgi.egg-info/dependency_links.txt
+src/clgi.egg-info/top_level.txt
