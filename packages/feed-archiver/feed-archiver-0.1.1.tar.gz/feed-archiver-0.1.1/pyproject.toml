@@ -1,0 +1,61 @@
+[build-system]
+# https://setuptools.pypa.io/en/latest/build_meta.html#how-to-use-it
+requires = ["setuptools>=45", "wheel", "setuptools_scm>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
+# Use VCS tags as the sole authority on versions.  Dynamically determine the current
+# version from VCS tags:
+# https://github.com/pypa/setuptools_scm#pyprojecttoml-usage
+write_to = "src/feedarchiver/version.py"
+# Uncomment to test uploading to PyPI locally
+# local_scheme = "no-local-version"
+[tool.commitizen]
+# Parse commit messages according to conventional commits to decide wether the next
+# versin tag should be a major, minor or patch bump and create the VCS tag.  Also
+# provides VCS hooks to enforce that commit messages comply with conventional commits:
+# https://commitizen-tools.github.io/commitizen/
+name = "cz_conventional_commits"
+version = "0.1.1"
+tag_format = "v$version"
+annotated_tag = true
+bump_message = """\
+build(release): Version $current_version → $new_version
+
+[actions skip]
+"""
+[tool.towncrier]
+# https://towncrier.readthedocs.io/en/stable/#quick-start
+package = "feedarchiver"
+package_dir = "src"
+
+[tool.pylint.MASTER]
+# Auto-detect the number of processors available to use from:
+#     $ pylint --generate-rcfile
+jobs = 0
+enable-all-extensions = true
+output-format = "colorized,json:pylint.json"
+ignore-paths = [
+# Managed by tools, best to use `# pylint: disable=...` inline comments for any other
+# ignores.
+    "src/.+/version.py",
+    ".*/src/.+/version.py",
+]
+# Extend linting to usage of trusted extension packages
+extension-pkg-allow-list = ["lxml"]
+[tool.pylint.TYPECHECK]
+# Ignore false negatives from external packages
+ignored-classes = ["lxml.etree.QName.localname"]
+# Match Black's defaults
+# https://black.readthedocs.io/en/stable/guides/using_black_with_other_tools.html#pylint
+[tool.pylint.format]
+max-line-length = "88"
+[[tool.mypy.overrides]]
+module = ["user_agent", "arrapi", "requests_toolbelt.*"]
+ignore_missing_imports = true
+
+
+[tool.isort]
+# Match Black's defaults
+# https://black.readthedocs.io/en/stable/guides/using_black_with_other_tools.html#isort
+profile = "black"
