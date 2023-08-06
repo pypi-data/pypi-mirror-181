@@ -1,0 +1,33 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "addict-tracking-changes"
+maintainers = [
+ { name="Kabira K", email= "kabira@monallabs.in"}
+]
+readme= "README.md"
+license = { file="LICENSE" }
+
+dynamic = ["version", "description"]
+
+[tool.hatch.version]
+path = "src/addict_tracking_changes/__init__.py"
+
+[project.urls]
+Home = "https://github.com/Monallabs-org/addict-tracking-changes"
+Documentation = "https://monallabs-org.github.io/addict-tracking-changes/#introduction"
+Source = "https://github.com/Monallabs-org/addict-tracking-changes"
+
+
+[tool.pytest.ini_options]
+addopts = [
+    "--import-mode=importlib",
+]
+
+
+[tool.hatch.build.targets.wheel]
+packages = [
+  "src/addict_tracking_changes",  
+]
