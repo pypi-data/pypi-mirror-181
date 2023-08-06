@@ -1,0 +1,61 @@
+[tool.poetry]
+name = "faddr"
+version = "0.6.0a0"
+description = "Tool to parse configuration of network devices such as Juniper routers and store gathered data in database"
+license = "MIT"
+authors = ["Fedor Suchkov <f.suchkov@gmail.com>"]
+readme = "README.md"
+repository = "https://github.com/kido5217/faddr"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Telecommunications Industry"
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+loguru = "^0.6.0"
+pyyaml = "^6.0"
+pydantic = {extras = ["dotenv"], version = "^1.10.2"}
+ttp = "^0.9.1"
+rich = "^12.6.0"
+sqlalchemy = "^1.4.44"
+fastapi = {extras = ["all"], version = "^0.87.0"}
+ray = "^1"
+
+
+[tool.poetry.scripts]
+faddr-db = 'faddr.faddr_db:main'
+faddr-rest = 'faddr.faddr_rest:main'
+faddr = 'faddr.faddr:main'
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.0"
+black = "^22.10.0"
+isort = "^5.10.1"
+prospector = {extras = ["with-bandit", "with-mypy"], version = "^1.7.7"}
+mypy = "^0.991"
+pylint = "^2.15.6"
+pre-commit = "^2.20.0"
+coverage = "^6.5.0"
+pytest-cov = "^4.0.0"
+types-pyyaml = "^6.0.12.2"
+sqlalchemy-stubs = "^0.4"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+addopts = "-vvv"
+testpaths = [
+    "tests",
+]
+
+[tool.pylint.'MESSAGES CONTROL']
+extension-pkg-whitelist = "pydantic"
+
+[tool.mypy]
+ignore_missing_imports = true
+plugins = ["pydantic.mypy"]
