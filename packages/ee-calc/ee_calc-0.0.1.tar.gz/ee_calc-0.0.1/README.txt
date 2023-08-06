@@ -1,0 +1,1 @@
+This is a very simple Calculator that takes two numbers as input and perform basic Arithmetic operations like Addition, Subtraction, Multiplication and Division
