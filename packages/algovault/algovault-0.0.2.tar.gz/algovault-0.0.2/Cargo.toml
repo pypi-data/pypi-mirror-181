@@ -1,0 +1,15 @@
+[package]
+name = "algovault"
+# This is replaced by CI so i just use a version not to clash with anything else
+# so I can sed it easily
+version = "0.0.2"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "algovault"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.17.3", features = ["extension-module"] }
+rusqlite = { version = "0.28.0" }
