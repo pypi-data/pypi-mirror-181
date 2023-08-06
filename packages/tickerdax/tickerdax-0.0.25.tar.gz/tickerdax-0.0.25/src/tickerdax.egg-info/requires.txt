@@ -1,0 +1,9 @@
+redis>=4.1.4
+docker>=5.0.3
+fastapi>=0.74.0
+uvicorn>=0.14.0
+PyYAML>=6.0
+schema>=0.7.5
+click>=8.0.3
+websockets>=9.1.0
+rich>=12.6.0
