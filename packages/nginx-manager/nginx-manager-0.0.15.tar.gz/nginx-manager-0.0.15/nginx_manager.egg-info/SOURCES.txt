@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+nginx_manager.egg-info/PKG-INFO
+nginx_manager.egg-info/SOURCES.txt
+nginx_manager.egg-info/dependency_links.txt
+nginx_manager.egg-info/entry_points.txt
+nginx_manager.egg-info/not-zip-safe
+nginx_manager.egg-info/requires.txt
+nginx_manager.egg-info/top_level.txt
+ngm/__about__.py
+ngm/__init__.py
+ngm/__main__.py
+ngm/modules.json
+ngm/ngm.py
