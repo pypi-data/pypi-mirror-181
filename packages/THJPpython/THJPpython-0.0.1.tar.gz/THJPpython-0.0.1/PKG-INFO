@@ -1,0 +1,56 @@
+Metadata-Version: 2.1
+Name: THJPpython
+Version: 0.0.1
+Summary: Who is Mon THJP
+Home-page: https://github.com/amonTHJP
+Download-URL: https://github.com/amonTHJP
+Author: Mon THJP
+Author-email: amonprograms@gmail.com
+License: MIT
+Keywords: Mon THJP,ASCII ART
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Education
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+License-File: LICENSE
+License-File: LICENSE.txt
+
+#แพ็กเกจนี้เป็นแพ็กเกจ python ที่โชว์ข้อมูลเกี่ยวกับ Mon THJP Link:
+https://www.youtube.com/watch?v=JsfIcV_4eik
+
+PyPi: https://pypi.org/project/THJPpython/
+
+สวัสดี แพ็คนี้คือแพ็คเกจที่แสดงข้อมูลเกี่ยวกับ Mon THJP ### วิธีติดตั้ง
+
+เปิด CMD / Terminal
+
+.. code:: python
+
+   pip install THJPpython
+
+วิธีใช้งานแพ็คเพจนี้
+~~~~~~~~~~~~~~~~~~~~
+
+-  เปิด IDLE ขึ้นมาแล้วพิมพ์…
+
+.. code:: python
+
+   from THJPpython import pyamon
+
+   mon = pyamon() #ประกาศชื่อ
+   mon.show_name() #โชว์ชื่อ
+   mon.show_music() #โชว์ลิงค์เพลง
+   mon.about() #เกี่ยวกับฉัน
+   mon.show_art() ascii #โชว์ภาพ
+
+พัฒนาโดย: amonTHJP https://github.com/amonTHJP
+
+YouTube: https://www.youtube.com
