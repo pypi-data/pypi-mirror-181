@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: rlvortex
+Version: 0.0.9
+Summary: A reinforcement learning algorithm library
+Author-email: Zhiquan W <zhiquan.wzq@gmail.com>
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.8
+Requires-Dist: gym>=0.26.2
+Requires-Dist: numpy>=1.21.1
+Requires-Dist: torch>=1.13.1
+Description-Content-Type: text/markdown
+
+# vortex
+A reinforcement learning algorithm framework
+
+# 1. quick start
+
