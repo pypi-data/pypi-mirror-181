@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: astream
+Version: 0.7.3
+Summary: 
+Author: Pedro Batista
+Author-email: pedrovhb@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: loguru (>=0.6.0,<0.7.0)
+Requires-Dist: typing-extensions (>=4.4.0,<5.0.0)
