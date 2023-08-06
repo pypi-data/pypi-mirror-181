@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: maltor
+Version: 1.1.2
+Summary: Maltor is A CLI tool for static malware analysis written in Python
+Home-page: https://github.com/Cryp7ic/Maltor
+Author: Thomas Gröbmair (Cryp7ic)
+Author-email: cryp7ic@tutanota.com
+License: GPL
+Classifier: Programming Language :: Python :: 3.10
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Maltor
+```             
+    _  _          __    __                 
+  /  \/ \ _____  |  | _/  |_  ____ _______ 
+ /       \\__  \ |  | \   __\/ __ \\_  __ \
+/  /\  |  \/ __ \_  |__|  | (  \_\ )|  | \/
+\_/  \/|  /____  /____/|__|  \____/ |__|   
+        \/     \/                          
+v1.1.2
+```
+Maltor is A CLI tool for static malware analysis written in Python
