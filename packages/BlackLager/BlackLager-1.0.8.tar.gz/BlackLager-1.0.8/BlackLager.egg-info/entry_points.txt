@@ -1,0 +1,4 @@
+[console_scripts]
+blackLager = blackLager.__main__:main
+blacklager = black_lager_app.__main__:main
+mesh-tunnel = blackLager.__main__:tunnelMain [tunnel]
