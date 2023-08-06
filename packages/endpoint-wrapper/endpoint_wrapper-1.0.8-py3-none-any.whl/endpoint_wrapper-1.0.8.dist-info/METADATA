@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: endpoint-wrapper
+Version: 1.0.8
+Summary: A helper that wraps your service with messaging protocols
+Home-page: https://github.com/raymondpang365/endpoint-wrapper
+Author: Raymond Pang
+Author-email: raymondpang365@gmail.com
+License: UNKNOWN
+Download-URL: https://codeload.github.com/raymondpang365/endpoint-wrapper/tar.gz/refs/tags/1.0.0
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: Pillow
+Requires-Dist: confluent-kafka
+Requires-Dist: numpy
+
+# endpoint-wrapper
+
+A helper that wraps your service with messaging protocols.
+This helper does not yet support custom function definition.
+
+
+
