@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: fastdup
+Version: 0.179
+Summary: Fast tool for gaining insights from large image repositories.
+Home-page: https://github.com/visualdatabase/fastdup
+Author: Dr. Danny Bickson & Dr. Amir Alush
+Author-email: info@databasevisual.com
+License: Non commercial
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: tqdm
+Requires-Dist: pyyaml
+Requires-Dist: sentry-sdk
+Requires-Dist: pillow
+Requires-Dist: opencv-python (<=4.5.5.64)
+Requires-Dist: certifi
+
+# Fastdup Tool, Fast image similarity search on large image and video datasets 
+Copyright (C) 2022 by Dr. Amir Alush and Dr. Danny Bickson.
+
+This softare is free for academic and Kaggle usage. In addition it is free for commercial usage up to 100K images. Please reach out to info@databasevisual.com for licensing options.
+
+[Github Project Page](https://github.com/visualdatabase/fastdup)
+
+
+
