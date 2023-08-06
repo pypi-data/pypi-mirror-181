@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.dynamic]
+version = {attr = "simple_slotted_dataclasses.__version__"}
+
+[project]
+name = "simple_slotted_dataclasses"
+dynamic = ["version"]
+description = "Simple library on top of dataclasses to create slotted dataclasses in python <3.10."
+authors = [
+  { name="Egor Stakhovsky", email="y.stakhovsky@gmail.com" },
+]
+readme = "README.md"
+requires-python = ">=3.7,<3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: Other/Proprietary License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/stakhovsky/simple-slotted-dataclasses"
+"Bug Tracker" = "https://github.com/stakhovsky/simple-slotted-dataclasses/issues"
