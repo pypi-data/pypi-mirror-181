@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: sketch
+Version: 0.1.0
+Summary: Compute, store and operate on data sketches
+License: MIT
+Project-URL: homepage, https://github.com/approximatelabs/sketch
+Keywords: data,sketch,model,etl,automatic,join,ai,embedding,profiling
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# sketch
+
+-- Currently in active development --
+
+A package for simplifying the use of data-sketches in python workflows.
+
+Includes a self-hostable fastAPI web-server for hosting sketches and hosting widgets for embedding the charts.
