@@ -1,0 +1,7 @@
+easycheck
+memory_profiler==0.60.0
+rounder
+
+[dev]
+black
+wheel==0.37.1
