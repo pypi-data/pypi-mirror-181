@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: klsframe
+Version: 0.0.1
+Project-URL: Documentation, https://github.com/uRHL-tools/klsframe#readme
+Project-URL: Issues, https://github.com/uRHL-tools/klsframe/issues
+Project-URL: Source, https://github.com/uRHL-tools/klsframe
+Author-email: Ramon Hernandez Leon <rhdezl05@gmail.com>
+License-File: LICENSE.txt
+Classifier: Development Status :: 4 - Beta
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: System :: Shells
+Classifier: Topic :: Terminals
+Classifier: Topic :: Utilities
+Requires-Python: >=3.7
+Requires-Dist: keyboard
+Requires-Dist: pyautogui
+Requires-Dist: signal
+Requires-Dist: tkinter
+Description-Content-Type: text/markdown
+
+# klsframe
+
+[![PyPI - Version](https://img.shields.io/pypi/v/klsframe.svg)](https://pypi.org/project/klsframe)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/klsframe.svg)](https://pypi.org/project/klsframe)
+
+-----
+
+**Table of Contents**
+
+- [Installation](#installation)
+- [License](#license)
+
+## Installation
+
+```console
+pip install klsframe
+```
+
+## License
+
+`klsframe` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
