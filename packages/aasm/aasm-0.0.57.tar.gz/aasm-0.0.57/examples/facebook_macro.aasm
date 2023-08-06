@@ -1,0 +1,27 @@
+%makro randint name, a, b
+	decl name, float, 0
+	rand name, int, uniform, a, b
+%emakro
+
+%const global_value, 21
+
+message facebook_post, query
+	prm photos, float
+emessage
+
+agent average_user
+	prm friends, list, conn
+	behav facebook_activity, cyclic, 30
+		action post_photos, send_msg, facebook_post, query
+			randint, num_photos, 1, 5
+			set send.photos, num_photos
+			randint, numa_photos, 1, 5
+			send friends
+		eaction
+	ebehav
+eagent
+
+graph statistical
+    size 150
+    defg average_user, 100%, dist_exp, 0.1
+egraph
