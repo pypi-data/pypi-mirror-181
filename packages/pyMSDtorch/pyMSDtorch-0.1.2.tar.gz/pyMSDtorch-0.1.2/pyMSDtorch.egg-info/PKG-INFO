@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: pyMSDtorch
+Version: 0.1.2
+Summary: Python Boilerplate contains all the boilerplate you need to create a Python package.
+Home-page: https://bitbucket.org/berkeleylab/pymsdtorch/
+Author: Petrus H. Zwart, Eric J. Roberts
+Author-email: PHZwart@lbl.gov, EJroberts@lbl.gov
+License: BSD license
+Keywords: pyMSDtorch
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.8
+License-File: LICENSE
+License-File: AUTHORS.rst
+
+
+
+=======
+History
+=======
+
+0.1.0 (2021-08-10)
+------------------
+
+* First release.
+
+
+0.1.1 (2022-11-28)
+------------------
+
+* Second release
+* getting ready for 'pip install pyMSDtorch'
+* added docstrings as much as we can
+* building template notebooks
+
+0.1.2 (2022-12-15)
+------------------
+
+* Second release - but now for real
+* Ready for 'pip install pyMSDtorch'
+* Documentation update
+* Added notebooks and functionality for image classification
