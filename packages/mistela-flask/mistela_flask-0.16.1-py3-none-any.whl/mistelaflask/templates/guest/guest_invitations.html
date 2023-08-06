@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="column">
+    <h3 class="title">Your invitation</h3>
+    <div class="box column is-6 is-offset-3">
+        {% set response_submitted = (invitation.response == True or invitation.response == False) %}       
+        {% if not response_submitted %}
+        <div class="notification is-info">
+            Important! You can only save once your invitation!
+        </div>
+        {% endif %}
+        <div class="notification is-info is-light">
+            Please let us know whether you are coming alone or with your partner.
+            Contact us in case of any issues with your response.
+            </br>
+            <b>Babies (from 0 to 2 years) || Children (from 3 to 9 years)</b>
+        </div>
+        <form method="POST" action="/invitations/">
+            <div class="field is-horizontal">
+                <div class="field-label column is-6">
+                    <label class="label">
+                        Will you be assisting to our event?
+                    </label>
+                </div>
+                <div class="field-body column is-2">
+                    <div class="select is-fullwidth">
+                        <select name="response" {% if response_submitted %}disabled{% endif %}>
+                            <option value="True" {% if invitation.response == True %}selected{% endif %}>Yes</option>
+                            <option value="False" {% if invitation.response == False %}selected{% endif %}>No</option>
+                            <option value="" {% if invitation.response == None %}selected{% endif %}>?</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="field is-horizontal">
+                <div class="field-label is-normal column is-6">
+                    <label class="label">Adults</label>
+                </div>  
+                <div class="field-body column is-2">
+                    <div class="control">
+                        <input value="{{invitation.n_adults}}" min=0 max="{{invitation.guest.max_adults}}" class="input" type="number" name="n_adults" {% if response_submitted %}disabled{% endif %}>
+                    </div>
+                </div>
+            </div>
+            <div class="field is-horizontal">
+                <div class="field-label is-normal column is-6">
+                    <label class="label">Children</label>
+                </div>  
+                <div class="field-body column is-2">
+                    <div class="control">
+                        <input value="{{invitation.n_children}}" min=0 max="4" class="input" type="number" name="n_children" {% if response_submitted %}disabled{% endif %}>
+                    </div>
+                </div>
+            </div>
+            <div class="field is-horizontal">
+                <div class="field-label is-normal column is-6">
+                    <label class="label">Babies</label>
+                </div>  
+                <div class="field-body column is-2">
+                    <div class="control">
+                        <input value="{{invitation.n_babies}}" min=0 max="2" class="input" type="number" name="n_babies" {% if response_submitted %}disabled{% endif %}>
+                    </div>
+                </div>
+            </div>
+            <div class="field is-horizontal">
+                <div class="field-label is-normal column is-6">
+                    <label class="label">Remarks</label>
+                </div>  
+                <div class="field-body column is-4">
+                    <div class="control">
+                        <textarea value="{{ invitation.remarks if invitation.remarks}}" class="input" type="textarea" name="remarks" {% if response_submitted %}disabled{% endif %}></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="field is-horizontal">
+                <div class="field-label is-normal column is-6">
+                    <label class="label">Contact e-mail (not required)</label>
+                </div>  
+                <div class="field-body column is-4">
+                    <div class="control">
+                        <textarea value="" class="input" type="textarea" name="email" {% if response_submitted %}disabled{% endif %}></textarea>
+                    </div>
+                </div>
+            </div>
+        {% if response_submitted %}
+            <div class="notification is-danger is-light">
+                Please contact us to modify your invitation.
+            </div>
+        {% else %}
+            <button class="button is-block is-info is-large is-fullwidth">Save preferences</button>
+        {% endif %}
+        </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
