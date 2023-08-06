@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: deskpanel
+Version: 0.1.0
+Summary: UNKNOWN
+Home-page: https://github.com/olehdzoba/deskpanel
+Author: Oleh Dzoba
+License: MIT
+Keywords: python,windows,desktop,panel,wallpaper
+Platform: UNKNOWN
+License-File: LICENSE.txt
+Requires-Dist: Pillow (==9.3.0)
+Requires-Dist: pywin32 (==305)
+Requires-Dist: screeninfo (==0.8.1)
+
+UNKNOWN
+
