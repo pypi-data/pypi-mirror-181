@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: datenraffinerie
+Version: 1.0.13
+Summary: Toolset to acqire and process Data from test systems of the HGCAL detector
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Environment :: Console
+Requires-Python: >=3.9
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+
+# Datenraffinerie
+
+The Datenraffinerie is a tool to acquire data from the various frontend systems of HGCAL and provide a framework
+for online and offline analyses to plug in to. The Datenraffinerie automates the entire DAQ process for test
+systems from a user perspective. It handles configuration of the DAQ system and target and conversion of the
+data from the target system into a pandas DataFrame, simplifying the life of the analysis developer.
