@@ -1,0 +1,17 @@
+/* CKEditor */
+
+.django-ckeditor-widget {
+    width: 100%;
+}
+
+
+/* Select2 */
+
+.select2-selection__choice__display {
+    margin-left: 5px;
+    color: #495057;
+}
+
+.select2-search__field {
+    border-color: transparent !important;
+}
