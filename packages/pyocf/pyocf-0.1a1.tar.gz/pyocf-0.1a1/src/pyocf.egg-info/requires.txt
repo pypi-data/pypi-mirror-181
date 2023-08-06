@@ -1,0 +1,12 @@
+setuptools
+pydantic
+
+[build]
+black
+flake8
+mako
+check-manifest
+pyroma
+pytest
+pytest-cov
+zest.releaser[recommended]
