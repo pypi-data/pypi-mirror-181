@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  what-if-tool:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - JUPYTER_TOKEN=wit
+    volumes:
+      - ./:/home/jovyan/work
+    ports:
+      - 8888:8888
+    container_name: what-if-tool
+

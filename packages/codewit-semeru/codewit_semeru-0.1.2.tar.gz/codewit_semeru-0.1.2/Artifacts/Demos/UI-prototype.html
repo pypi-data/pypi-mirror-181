@@ -1,0 +1,96 @@
+<head>
+  <style>
+    .dataEditor {
+    	height: 100%;
+    	position: fixed;
+    	width: 160px;
+    	font-size: 1.5em;
+    	background-color: #EEE;
+    	border-style: solid;
+    }
+    .dataLabel {
+    	border-style:none none solid none;
+    	min-height: 80px;
+    }
+    .dataField {
+    	border-style:none none solid none;
+    	font-size: 0.7em;
+    	min-height: 80px;
+    	padding-bottom: 5px;
+    }
+    .dataOutput{
+    	font-size: 0.7em;
+    	min-height: 80px;
+    	padding-bottom: 5px;
+    }
+    .graphSettings {
+    	width: 100%;
+    	height: 80px;
+    	margin-left: 162px;
+    	padding-left: 10px;
+    	position: fixed;
+    	background-color:#DDD;
+    	border-style:solid;
+    }
+    .graph{
+    	width:100%;
+    	height 100%;
+    	min-height: 160px;
+    	margin-top: 82px;
+    	margin-left: 162px;
+    	position: fixed;
+    	background-color: #CCC;
+    	border-style: solid;
+    }
+    select{
+    	margin-left: 5px;
+    	margin-right: 20px;
+    }
+    input{
+    	max-width: 149px;
+    	margin-left:1px;
+    }
+  </style>
+</head>
+<body>
+<div class = "dataEditor">
+  <div class = "dataLabel">Datapoint Name </div>
+  <div class = "dataField"> 
+    <label for="input">Raw Input:</label><textarea  id="input" name="input" rows="4" cols="18"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dictum hendrerit quam ac convallis. Maecenas laoreet nibh rutrum tortor porta, sed faucibus ex tincidunt. Sed sed est dolor. Fusce convallis dui sed tortor posuere scelerisque et non nisl. Maecenas sollicitudin non nisl ut lobortis. Proin ultrices vel erat quis ultricies. Nunc accumsan purus nibh, eu luctus odio eleifend id. Etiam eget lectus sed erat tincidunt imperdiet. Donec rutrum mauris lacinia eros ultrices, rutrum interdum tortor pulvinar. Donec id libero ut dolor ultrices maximus. Vivamus dictum ultrices metus in pharetra. In in viverra est. Praesent velit eros, viverra a ultricies quis, pellentesque in ipsum. Suspendisse lacus justo, placerat eget dignissim quis, laoreet non nisi."</textarea>
+  </div>
+  <div class = "dataField">
+    <label for="data1">Vectorized input 1:</label>
+    <input type="text" id="data1" name="data1">
+    <label for="data2">Vectorized input 2:</label>
+    <input type="text" id="data2" name="data2">
+    <label for="data3">Vectorized input 3:</label>
+    <input type="text" id="data3" name="data3">
+    <label for="data4">Vectorized input 4:</label>
+    <input type="text" id="data4" name="data4">
+    <label for="data5">Vectorized input 5:</label>
+    <input type="text" id="data5" name="data5">
+  </div>
+  <div class = "dataOutput">
+    Predictions:<br>
+    [Insert table here]
+  </div>
+</div>
+<div class = "graphSettings"> 
+  Option 1:
+  <select>
+    <option value="option 1">option 1</option>
+	<option value="option 2">option 2</option>
+	<option value="option 3">option 3</option>
+  </select>
+  Option 2:
+  <select>
+    <option value="option 1">option 1</option>
+	<option value="option 2">option 2</option>
+	<option value="option 3">option 3</option>
+  </select>
+</div>
+<div class = "graph">       
+Insert graph here
+
+</div>
+</body>
