@@ -1,0 +1,33 @@
+# mrftools
+
+Python / pip package for managing MRF sequence definitions, dictionary definitions, bloch simulation results, and more. Utilizes HDF5 interchange format (.mrf files).
+
+## Features
+1. MRF Sequence definitions
+    - Intended to define a sequence for execution on the scanner or within a bloch simulation
+    - Supports timepoints with varying TR, TE, and FA
+    - Supports multiple "beats" with varying RRTime, PrepTime, and PrepID
+    - Can be defined programatically via Python, via .txt import, or via .mrf import
+    - Can be exported to .txt format or .mrf format (** txt export not implemented fully **)
+2. MRF Dictionary definitions 
+    - Intended to define a set of dictionary entries to be used by a bloch simulation
+    - Supports entries with varying T1, T2, and B0 values
+    - Can be defined programatically via Python, via .txt import, or via .mrf import
+    - Can be exported to .txt format or .mrf format
+3. MRF Simulation definitions
+    - Intended to specify and execute a bloch simulation of a specific sequence over a specific dictionary set
+    - Configurable phase range and number of isochromat spins
+    - Can either store all isochromat results or perform averaging before saving dictionary
+    - Results and configuration can be exported to .mrf format
+
+## Installation from pip
+1. pip install mrftools
+
+## Installation from source
+1. git clone https://gitlab.casemri.com/common-resources/mrftools
+2. cd mrftools
+3. pip install .
+
+## Building and Publishing pip Package
+1. python3 setup.py sdist bdist_wheel
+2. twine upload dist/* 
