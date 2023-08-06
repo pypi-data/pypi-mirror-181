@@ -1,0 +1,100 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "Flask-Lan"
+description = "Modernized Flask API builder with schema validator and OpenAPI"
+dynamic = ["version"]
+authors = [
+    { name = "chaojie", email = "zhuzhezhe95@gmail.com" },
+]
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.8"
+dependencies = [
+    "flask",
+    "pydantic[email]"
+]
+keywords = [
+    "flask",
+    "api",
+    "plugin",
+    "openapi",
+    "validator",
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Natural Language :: English",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Framework :: Flask"
+]
+
+[project.urls]
+Documentation = "https://flask-lan.chaojie.fun"
+Source = "https://github.com/ischaojie/flask-lan"
+
+[tool.hatch.version]
+path = "flask_lan/__init__.py"
+
+[tool.hatch.envs.default]
+dependencies = [
+    "flake8",
+    "pytest",
+    "mypy",
+    "black",
+    "isort",
+    "autoflake",
+    "pytest-cov",
+    "mkdocs",
+    "mkdocs-material",
+    "mkdocstrings[python]>=0.18"
+]
+
+[tool.hatch.envs.default.scripts]
+clean = ["git clean"]
+check = [
+    "flake8 flask_lan tests --max-line-length=90",
+    "black --check --diff flask_lan tests",
+    "isort --check-only --diff flask_lan tests",
+    "mypy flask_lan"
+]
+lint = [
+    "autoflake -r flask_lan tests",
+    "isort flask_lan tests",
+    "black flask_lan tests",
+]
+test = [
+    "pytest tests/ -s --cov=flask_lan --cov-config=pyproject.toml --cov-report=term-missing --cov-report=xml --cov-fail-under=90",
+]
+report = ["coverage report -m"]
+all = ["check", "test"]
+
+[tool.black]
+line-length = 90
+
+[tool.isort]
+profile = "black"
+
+[tool.autoflake]
+in-place = true
+remove-all-unused-imports = true
+
+[tool.mypy]
+plugins = [
+    "pydantic.mypy"
+]
+disallow_untyped_defs = true
+ignore_missing_imports = true
+no_implicit_optional = true
+warn_unused_ignores = true
+show_error_codes = true

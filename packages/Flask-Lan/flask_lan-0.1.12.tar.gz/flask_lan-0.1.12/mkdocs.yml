@@ -1,0 +1,43 @@
+site_name: flask-lan
+site_description: flask-lan is a schema validator and swagger generator with more modernized.
+site_url: https://flask-lan.readthedocs.io/en/latest/
+site_author: chaojie
+
+theme:
+  name: "material"
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  icon:
+    repo: fontawesome/brands/github
+
+repo_name: ischaojie/flask-lan
+repo_url: https://github.com/ischaojie/flask-lan
+
+nav:
+  - Overview: index.md
+  - API Decorator: api.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+
+watch:
+- flask_lan
+- example
+
+plugins:
+- mkdocstrings:
+    default_handler: python
+    handlers:
+      python:
+        options:
+          show_source: true
+
