@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: data-id
+Version: 0.0.1
+Summary: Command-line tool and Python library to efficiently identify PII in database tables.
+Home-page: https://github.com/datafold/data-id
+License: MIT
+Author: Datafold
+Author-email: data-id@datafold.com
+Requires-Python: >=3.7,<4.0
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Database :: Database Engines/Servers
+Classifier: Typing :: Typed
+Requires-Dist: click (>=8.1,<9.0)
+Requires-Dist: rich
+Requires-Dist: runtype (>=0.2.6,<0.3.0)
+Requires-Dist: sqeleton
+Project-URL: Repository, https://github.com/datafold/data-id
+Description-Content-Type: text/markdown
+
+# data-pii

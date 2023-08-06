@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "data-id"
+version = "0.0.1"
+description = "Command-line tool and Python library to efficiently identify PII in database tables."
+authors = ["Datafold <data-id@datafold.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/datafold/data-id"
+documentation = ""
+classifiers = [
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: System Administrators",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Development Status :: 2 - Pre-Alpha",
+    "Environment :: Console",
+    "Topic :: Database :: Database Engines/Servers",
+    "Typing :: Typed"
+]
+packages = [{ include = "data_id" }]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+runtype = "^0.2.6"
+click = "^8.1"
+rich = "*"
+sqeleton = "*"
+
+[tool.poetry.dev-dependencies]
+parameterized = "*"
+unittest-parallel = "*"
+
+[tool.poetry.extras]
+# When adding, update also: README + dev deps just above
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+data-id = 'data_id.__main__:main'
