@@ -1,0 +1,74 @@
+[build-system]
+requires = ["scikit-build-core>=0.1.4"]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "lammps"
+version = "2022.6.23.2.2"
+description = "unoffical LAMMPS Molecular Dynamics Python package"
+authors = [
+  {name = "The LAMMPS Developers", email = "developers@lammps.org"},
+  {name = "Jinzhe Zeng", email = "jinzhe.zeng@rutgers.edu"},
+]
+license = {file = "LICENSE"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    'importlib_metadata>=1.4; python_version < "3.8"',
+]
+requires-python = ">=3.7"
+readme = "README.md"
+keywords = ["lammps"]
+
+[project.urls]
+repository = "https://github.com/njzjz/lammps-wheel"
+lammps_repository = "https://github.com/lammps/lammps"
+lammps_documentation = "https://docs.lammps.org/"
+
+[project.scripts]
+lmp = "lammps.executable:lmp"
+
+[tool.scikit-build]
+wheel.install-dir = "lammps"
+wheel.py-api = "py2.py3"
+cmake.args = [
+    "-D LAMMPS_VERSION=stable_23Jun2022_update2",
+    "-D LAMMPS_EXCEPTIONS=ON",
+    "-D BUILD_SHARED_LIBS=ON",
+]
+
+[tool.cibuildwheel]
+build = ["cp311-*"]
+skip = ["*-win32", "*-manylinux_i686", "*-musllinux*"]
+build-verbosity = "1"
+test-command = "lmp -h && python {project}/tests/test_import.py"
+
+[tool.cibuildwheel.linux]
+before-all = [
+    "yum install -y wget libpng12-devel zlib-devel libjpeg-devel mpich-devel",
+]
+environment = { MPI_HOME = "/usr/lib64/mpich" }
+
+[tool.cibuildwheel.macos]
+
+before-all = [
+'''if [[ "$CIBW_BUILD" == *macosx_arm64* ]]; then
+    install_arm=( libpng zlib jpeg-turbo zstd voro++ )
+    for i in "${install_arm[@]}"; do
+        response=$(brew fetch --force --bottle-tag=arm64_big_sur $i | grep Downloaded )
+        download_path=$(echo $response | xargs -n 1 | tail -1)
+        brew reinstall $download_path
+    done
+else
+    brew install mpich
+fi
+'''
+]
+
+[tool.cibuildwheel.windows]
+test-command = "python {project}/tests/test_import.py"
