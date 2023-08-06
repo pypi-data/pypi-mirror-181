@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: robotpy-wpinet
+Version: 2023.0.0b7
+Summary: Binary wrapper for FRC wpinet library
+Home-page: https://github.com/robotpy/robotpy-wpinet
+Author: RobotPy Development Team
+Author-email: robotpy@googlegroups.com
+License: BSD-3-Clause
+Requires-Python: >=3.6
+Requires-Dist: robotpy-wpiutil (<2024.0.0,>=2023.0.0b7)
+
