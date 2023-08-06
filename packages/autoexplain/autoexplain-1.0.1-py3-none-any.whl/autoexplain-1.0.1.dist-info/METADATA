@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: autoexplain
+Version: 1.0.1
+Summary: Use OpenAI capabilities to smooth your document generation
+Author: Santiago Rincon Martinez
+Author-email: rincon.santi@gmail.com
+License-File: LICENSE
+Requires-Dist: openai
+Requires-Dist: configparser
+Requires-Dist: argparse
+
