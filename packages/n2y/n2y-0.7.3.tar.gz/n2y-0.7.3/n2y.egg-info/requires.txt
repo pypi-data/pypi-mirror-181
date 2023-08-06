@@ -1,0 +1,8 @@
+pyyaml
+requests
+pandoc
+
+[dev]
+pytest
+flake8
+check-manifest
