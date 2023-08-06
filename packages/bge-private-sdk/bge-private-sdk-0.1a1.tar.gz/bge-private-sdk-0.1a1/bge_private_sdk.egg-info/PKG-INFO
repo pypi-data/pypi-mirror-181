@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: bge-private-sdk
+Version: 0.1a1
+Summary: 可用于调用 BGE 私有平台的相关接口。
+Home-page: https://github.com/teambge/bge-private-sdk.git
+Author: leafcoder,xiangji1204
+Author-email: leafcoder@gmail.com,xiangji@genomics.cn
+License: MIT
+Keywords: bge-private-sdk bge private_sdk private
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: Chinese (Simplified)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# bge-private-sdk
+BGE 私有平台 SDK，主要用于访问 BGE 开放平台的数据，提供更大权限的接口访问，并使用签名验证方式对外开放接口访问，内部针对不同客户端提供不同的权限控制。
+
+
