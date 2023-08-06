@@ -1,0 +1,88 @@
+[tool.poetry]
+name = "mistela-flask"
+version = "0.16.1"
+description = "A multi-event planner flask application. It allows for RSVP options, authentication, and guest management"
+authors = ["Carles S. Soriano Perez <sorianoperez.carles@gmail.com>"]
+license = "MIT"
+packages = [
+    {include = "mistelaflask"},
+]
+readme = "README.md"
+repository = "https://github.com/carsopre/mistela-flask"
+classifiers = [
+  'Natural Language :: English',
+  'Development Status :: 2 - Pre-Alpha',
+  'Programming Language :: Python :: 3',
+  'Framework :: Flask',
+  'Intended Audience :: Developers',
+  'Intended Audience :: Education',
+  'Topic :: Internet :: WWW/HTTP :: WSGI :: Application',
+  'Topic :: Software Development :: Libraries :: Python Modules',
+]
+
+[tool.poetry.scripts]
+wsgi = 'wsgi:init_mistelaflask'
+init_mistelaflask = 'scripts.generate_initial_db:init_mistelaflask'
+add_test_users = 'scripts.generate_initial_db:generate_test_data'
+
+
+[tool.poetry.dependencies]
+python = "^3.9"
+Flask = "^2.2.2"
+commitizen = "^2.35.0"
+flask-sqlalchemy = "^3.0.2"
+Flask-Login = "^0.6.2"
+pyOpenSSL = "^22.1.0"
+gunicorn = "^20.1.0"
+Flask-Mail = "^0.9.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.1.3"
+pytest-cov = "^4.0.0"
+black = "^22.10.0"
+isort = "^5.10.1"
+mkdocs = "^1.4.1"
+termcolor = "^2.0.1"
+coverage = "^6.5.0"
+Pillow = "^9.3.0"
+
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+version = "0.16.1"
+changelog_file = "docs/changelog.md"
+update_changelog_on_bump = true
+tag_format = "v$major.$minor.$patch"
+version_files= [
+    "mistelaflask/__init__.py",
+    "pyproject.toml:version"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38', 'py39']
+exclude = '''
+(
+  /(
+      \.eggs         # exclude a few common directories in the
+    | \.git          # root of the project
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+    | \.virtualenvs
+  )/
+)
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 88
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
