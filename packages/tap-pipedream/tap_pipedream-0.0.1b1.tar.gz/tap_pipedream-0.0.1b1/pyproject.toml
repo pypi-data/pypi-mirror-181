@@ -1,0 +1,70 @@
+[tool.poetry]
+name = "tap-pipedream"
+version = "0.0.1b1"
+description = "`tap-pipedream` is a Singer tap for Pipedream, built with the Meltano SDK for Singer Taps."
+license = "Apache-2.0"
+authors = ["Edgar Ramírez-Mondragón <edgarrm358@gmail.com>"]
+maintainers = ["Edgar Ramírez-Mondragón <edgarrm358@gmail.com>"]
+readme = "README.md"
+homepage = "https://github.com/edgarrmondragon/tap-pipedream"
+repository = "https://github.com/edgarrmondragon/tap-pipedream"
+documentation = "https://github.com/edgarrmondragon/tap-pipedream#readme"
+keywords = [
+  "ELT",
+  "singer.io",
+  "Pipedream",
+]
+
+[tool.poetry.dependencies]
+python = "<3.12,>=3.7.1"
+singer-sdk = "0.15.0"
+
+[tool.poetry.dev-dependencies]
+mypy = ">=0.991"
+pytest = "^7.2.0"
+types-requests = "^2.28.11"
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3 # Vertical Hanging Indent
+use_parentheses = true
+include_trailing_comma = true
+src_paths = "tap_pipedream"
+known_first_party = "tap_pipedream"
+add_imports = [
+  "from __future__ import annotations",
+]
+
+[tool.pytest.ini_options]
+addopts = "-vvv"
+
+[tool.mypy]
+python_version = "3.10"
+warn_unused_configs = true
+
+[[tool.mypy.overrides]]
+ignore_missing_imports = true
+module = ["backoff.*"]
+
+[build-system]
+requires = ["poetry-core>=1,<2"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+# CLI declaration
+"tap-pipedream" = "tap_pipedream.tap:TapPipedream.cli"
+
+[tool.poetry-dynamic-versioning]
+enable = false
+format-jinja = """
+    {%- if distance == 0 -%}
+        {{ serialize_pep440(base, stage, revision) }}
+    {%- elif revision is not none -%}
+        {{ serialize_pep440(base, stage, revision + 1, dev=distance, metadata=[commit]) }}
+    {%- else -%}
+        {{ serialize_pep440(bump_version(base), stage, revision, dev=distance, metadata=[commit]) }}
+    {%- endif -%}
+"""
+metadata = true
+style = "pep440"
+vcs = "git"
