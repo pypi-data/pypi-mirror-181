@@ -1,0 +1,19 @@
+CHANGES
+=======
+
+2.16.22
+-------
+
+* fix gateway init error
+* change reset\_uiautomator raise error from OSError to GatewayError
+* add searching apk from cwd assets directory. (#845)
+* update adbutils to 1.0.9
+* 修复 arm64-v8a 机器无法正常启动 atx agent问题 (#801)
+* fix xpath.info clickable issue
+* Image: fixed d.image.match NameError; fixed d.image.getpixel AttributeError; improved d.image.click - threshold argument added
+* set min requests version, ref #824
+* upgrade adbutils version, to fix #826
+* fix xpath.info clickable issue
+* try not to reinstall apk when atx-agent is not installed
+* little fix for vivo and oppo, do not reinstall uiautomator apk
+* fix dump\_hierarchy error when recovered in a minute
