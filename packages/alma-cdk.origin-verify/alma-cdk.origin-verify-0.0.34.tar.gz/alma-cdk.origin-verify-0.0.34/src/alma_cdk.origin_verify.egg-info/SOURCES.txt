@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+src/alma_cdk.origin_verify.egg-info/PKG-INFO
+src/alma_cdk.origin_verify.egg-info/SOURCES.txt
+src/alma_cdk.origin_verify.egg-info/dependency_links.txt
+src/alma_cdk.origin_verify.egg-info/requires.txt
+src/alma_cdk.origin_verify.egg-info/top_level.txt
+src/alma_cdk/origin_verify/__init__.py
+src/alma_cdk/origin_verify/py.typed
+src/alma_cdk/origin_verify/_jsii/__init__.py
+src/alma_cdk/origin_verify/_jsii/origin-verify@0.0.34.jsii.tgz
