@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: birdisle
+Version: 0.2.2
+Summary: Python bindings for birdisle
+Home-page: https://github.com/bmerry/birdisle-py
+Author: Bruce Merry
+Author-email: bmerry@gmail.com
+License: BSD
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Database
+Classifier: Topic :: Software Development :: Testing
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: COPYING
+Requires-Dist: cffi (>=1.0.0)
+Provides-Extra: aioredis
+Requires-Dist: aioredis (<2) ; extra == 'aioredis'
+Provides-Extra: redis
+Requires-Dist: redis (>=3.4.1) ; extra == 'redis'
+Provides-Extra: test
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: pytest-forked ; extra == 'test'
+Requires-Dist: redis ; extra == 'test'
+Requires-Dist: pytest-asyncio ; extra == 'test'
+Requires-Dist: aioredis ; extra == 'test'
+
+# Maintainer wanted
+
+I've ended up not using birdisle and have no interest in maintaining it. If you
+would like to take over as maintainer, please let me know by filing a ticket.
+
+# birdisle-py
+
+[![Build Status](https://github.com/bmerry/birdisle-py/actions/workflows/build.yml/badge.svg)](https://github.com/bmerry/birdisle-py/actions/workflows/build.yml)
+[![Documentation Status](https://readthedocs.org/projects/birdisle/badge/?version=latest)](https://birdisle.readthedocs.io/en/latest/?badge=latest)
+
+Birdisle (an anagram of "lib redis") is a modified version of
+[redis](https://redis.io) that runs as a library inside another process. The
+primary aim is to simplify unit testing by providing a way to run tests
+against what appears to be a redis server, but without the hassle of starting a
+separate process and ensuring that it is torn down correctly.
+
+Birdisle-py is Python bindings for Birdisle. Documentation can be found at
+[readthedocs](https://birdisle.readthedocs.io/).
