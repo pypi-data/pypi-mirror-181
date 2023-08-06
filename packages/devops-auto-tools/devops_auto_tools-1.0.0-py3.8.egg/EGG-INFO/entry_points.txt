@@ -1,0 +1,3 @@
+[console_scripts]
+eksm = tools.main:eksm
+sshm = tools.main:sshm
