@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: trade-log
+Version: 1.3.0
+Summary: Trade Log package to Insert/Delete/Update/Read trade logs
+Author-email: Krishna K Maddula <kk17july@gmail.com>
+Project-URL: repository, https://github.com/krishnamaddula/trade-log.git
+Project-URL: documentation, https://github.com/krishnamaddula/trade-log.git
+Keywords: trade,log,trade-log
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: tomli ; python_version <= "3.11"
+Provides-Extra: build
+Requires-Dist: build ; extra == 'build'
+Requires-Dist: twine ; extra == 'build'
+Provides-Extra: dev
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: bumpver ; extra == 'dev'
+Requires-Dist: isort ; extra == 'dev'
+Requires-Dist: mypy ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+
