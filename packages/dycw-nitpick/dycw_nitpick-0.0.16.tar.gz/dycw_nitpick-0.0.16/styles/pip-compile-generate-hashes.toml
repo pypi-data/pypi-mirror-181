@@ -1,0 +1,27 @@
+#### pip-tools ################################################################
+[[".pre-commit-config.yaml".repos]]
+repo = "https://github.com/jazzband/pip-tools"
+
+[[".pre-commit-config.yaml".repos.hooks]]
+id = "pip-compile"
+args = [
+  "--allow-unsafe",
+  "--generate-hashes",
+  "--quiet",
+  "--upgrade",
+  "pyproject.toml"
+]
+files = '^pyproject\.toml$'
+
+[[".pre-commit-config.yaml".repos.hooks]]
+id = "pip-compile"
+args = [
+  "--allow-unsafe",
+  "--extra=dev",
+  "--generate-hashes",
+  "--output-file=requirements-dev.txt",
+  "--quiet",
+  "--upgrade",
+  "pyproject.toml"
+]
+files = '^pyproject\.toml$'

@@ -1,0 +1,23 @@
+#### black ####################################################################
+["pyproject.toml".tool.black]
+target-version = ["py310"]
+
+#### flake8 ###################################################################
+["setup.cfg".flake8]
+min-python-version = "3.10"
+
+#### project ##################################################################
+["pyproject.toml".project]
+requires-python = ">= 3.10"
+
+#### pyright ##################################################################
+["pyproject.toml".tool.pyright]
+pythonVersion = "3.10"
+
+#### pyupgrade ################################################################
+[[".pre-commit-config.yaml".repos]]
+repo = "https://github.com/asottile/pyupgrade"
+
+[[".pre-commit-config.yaml".repos.hooks]]
+id = "pyupgrade"
+args = ["--py310-plus"]
