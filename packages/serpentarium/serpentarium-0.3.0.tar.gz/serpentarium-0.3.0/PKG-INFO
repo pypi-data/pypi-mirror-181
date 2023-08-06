@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: serpentarium
+Version: 0.3.0
+Summary: A Python framework for running plugins with conflicting dependencies
+Home-page: https://github.com/guardicode/serpentarium
+License: GPLv3
+Author: Mike Salvatore
+Author-email: mike.s.salvatore@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development
+Requires-Dist: typing-extensions (>=4.4.0,<5.0.0)
+Project-URL: Repository, https://github.com/guardicode/serpentarium
+Description-Content-Type: text/markdown
+
+# serpentarium
+A Python framework for running plugins with conflicting dependencies
+
+## Description
+
+Coming soon!
+
+## Installation
+
+`pip install serpentarium`
+
+## Caveats
+
+- This package is highly experimental
+- `import serpentarium` must be the first thing that your code imports so that
+  it can save the state of the interpreter's import system before any other
+  imports modify it.
+- MultiprocessingPlugin only works with the "spawn" method (for now). On Linux,
+  you'll need to use a multiprocessing Context object with the "spawn" method
+  to generate any Locks, Events, or other synchronization primitives that will
+  be passed to a plugin.
+- SECURITY: This project loads and executes code from files. Do not load or run
+  plugins from untrusted sources.
+
+## Development
+### Pre-commit hooks
+`pre-commit install`
+
