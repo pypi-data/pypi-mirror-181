@@ -1,0 +1,96 @@
+Metadata-Version: 2.1
+Name: header-propagation
+Version: 1.0.0
+Summary: Middleware propagating headers from incoming requests to outgoing requests in fastapi
+Home-page: https://github.com/joeraad/header-propagation
+License: BSD-4-Clause
+Keywords: asgi,fastapi,starlette,async,headers,propagation,middleware
+Author: Joe Raad
+Author-email: joeraad12@gmail.com
+Maintainer: Joe Raad
+Maintainer-email: joeraad12@gmail.com
+Requires-Python: >=3.9,<4.0
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: starlette (>=0.18)
+Project-URL: Repository, https://github.com/joeraad/header-propagation
+Description-Content-Type: text/markdown
+
+# Header Propagation Middleware
+
+Middleware for propagating headers from incoming requests to outgoing requests for FastAPI.
+
+## Installation
+
+```bash
+pip install header-propagation-middleware
+```
+
+## Setup
+
+To setup the middleware, you need to add it to your FastAPI app.
+
+### Adding Middleware
+
+```python
+from header_propagation_middleware import HeaderPropagationMiddleware
+
+app = FastAPI()
+app.add_middleware(HeaderPropagationMiddleware,header_names=["header1","header2"])
+```
+
+#### Configurable middleware argument
+
+**header_names**
+
+-   Type: `List[str]`
+-   Default: `[]`
+-   Description: The list of headers to propagate.
+
+### Accessing propagated headers
+
+You can access the propagated headers using the `propagated_headers` object.
+
+```python
+from header_propagation_middleware import propagated_headers
+
+propagated_headers.get()
+```
+
+**propagated_headers**
+
+-   Type: `dict`
+-   Default: `{}`
+-   Description: The dictionary of propagated headers.
+
+## Tests
+
+Running test
+
+```bash
+python -m pytest
+```
+
+Running test with coverage report
+
+```bash
+python -m pytest --cov --cov-report=html:reports/html_dir
+```
+
