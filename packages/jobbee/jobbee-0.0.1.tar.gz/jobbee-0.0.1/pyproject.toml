@@ -1,0 +1,18 @@
+[project]
+name = "jobbee"
+version = "0.0.1"
+authors = [
+  { name="Richard Vaughan", email="richard@purplemonkeys.co.uk" },
+]
+description = "Job Bee Python interaction library"
+readme = "README.md"
+requires-python = ">=3.6"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/pmc-jobbee/python"
+"Bug Tracker" = "https://github.com/pmc-jobbee/python/issues"
