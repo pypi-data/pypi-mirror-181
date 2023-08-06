@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: d2lparser
+Version: 0.2.4
+Summary: A parser for D2L data packets
+Home-page: https://gitlab.com/rescoopvpp/d2lparser
+Author: Evert Borghgraef
+License: MIT
+Project-URL: Docs, https://gitlab.com/rescoopvpp/d2lparser/README.md
+Project-URL: Bugs, https://gitlab.com/rescoopvpp/d2lparser/-/issues
+Platform: any
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# D2L Parser
+
+[![pipeline status](https://gitlab.com/rescoopvpp/d2lparser/badges/main/pipeline.svg)](https://gitlab.com/rescoopvpp/d2lparser/-/pipelines) 
+[![coverage report](https://gitlab.com/rescoopvpp/d2lparser/badges/main/coverage.svg)](https://gitlab.com/rescoopvpp/d2lparser/-/commits/main)
+[![latest version](https://gitlab.com/rescoopvpp/d2lparser/builds/artifacts/main/raw/package.svg?job=package_badge)](https://gitlab.com/rescoopvpp/d2lparser/-/packages) 

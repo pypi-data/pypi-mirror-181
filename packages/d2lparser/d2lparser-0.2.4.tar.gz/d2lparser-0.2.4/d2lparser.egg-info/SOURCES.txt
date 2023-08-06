@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+d2lparser.egg-info/PKG-INFO
+d2lparser.egg-info/SOURCES.txt
+d2lparser.egg-info/dependency_links.txt
+d2lparser.egg-info/requires.txt
+d2lparser.egg-info/top_level.txt
+src/d2lparser/__init__.py
+src/d2lparser/crc.py
+src/d2lparser/d2lheader.py
+src/d2lparser/d2lparser.py
+src/d2lparser/encryption.py
+src/d2lparser/exceptions.py
+src/d2lparser/packet.py

@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools", "wheel", "build"]
+build-backend = "setuptools.build_meta"
+
+[tool.pylint.messages_control]
+disable = ["C0114","C0115","C0116"]
+
+[tool.pytest.ini_options]
+addopts = "-vs -k 'not real' --cov=src"
+testpaths=[
+    "test/unit",
+    "test/integration"
+]
+
+[tool.coverage]
+    [tool.coverage.run]
+    omit = [
+        "__init__.py"
+    ]
+    [tool.coverage.report]
+    skip_empty = true
