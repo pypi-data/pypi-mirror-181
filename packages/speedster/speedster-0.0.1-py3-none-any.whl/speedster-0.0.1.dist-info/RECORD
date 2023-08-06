@@ -1,0 +1,15 @@
+speedster/__init__.py,sha256=s6JruMWR8nNJyJpjMU1QN2KLhRVIaM4vRVmtD-qA6Z0,65
+speedster/root_op.py,sha256=pGVHTD8IqtclB0_zA8oTHy_3PhODJon6tEGtfdZSj_A,13876
+speedster/speedster.py,sha256=wAx5kNrFZ8TsDQge28QziHVLrvWmFwZgghlDiumwUmY,294
+speedster/api/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+speedster/api/functions.py,sha256=BW_xO-JttDpsLSQw9HcvTwiydiXJQmsqTsdOCHsUu5Q,7949
+speedster/api/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+speedster/api/tests/test_huggingface.py,sha256=ro9DE7IwiAvKBB89fKGMMuIK0cMer25XYO8q0k0pjmU,5411
+speedster/api/tests/test_onnx.py,sha256=KmNhH3Pbib3WQQgBYL2GD7NfKDW-6r_JhTrboRi3xsY,7705
+speedster/api/tests/test_pytorch.py,sha256=rzuCt-Qz0PjiTPTNdqtii57kJLIEWEy4p6G0ZqqRsmU,7523
+speedster/api/tests/test_tensorflow.py,sha256=e_N9Cz16QaD6vYLG05it-WxgngiNwmuBtPugxfOsXQA,6813
+speedster/api/tests/utils.py,sha256=50dFJZc_y4MEuwVf0Z6J2kqDRULrnnndIg_aIihqu3U,608
+speedster-0.0.1.dist-info/METADATA,sha256=dTCXUC7A3LsCd2zIL0AloXFVzRrHup4wTkXDaqrkedU,9069
+speedster-0.0.1.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+speedster-0.0.1.dist-info/top_level.txt,sha256=m8_iNDW16DEE988ufwSFeOzTsZcAfqQ00dKp9X0fJ3s,10
+speedster-0.0.1.dist-info/RECORD,,
