@@ -1,0 +1,37 @@
+{
+    "cSpell.words": [
+        "addopts",
+        "arange",
+        "bidimensional",
+        "bmatrix",
+        "cmap",
+        "codecov",
+        "fignum",
+        "gameoflife",
+        "importlib",
+        "jshtml",
+        "matplotlib",
+        "matshow",
+        "ndautomata",
+        "ndimage",
+        "ndindex",
+        "nstates",
+        "numpy",
+        "pyplot",
+        "pythonpath",
+        "scipy",
+        "setuptools",
+        "updt",
+        "xffffffff"
+    ],
+    "python.testing.pytestArgs": [
+        "tests"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "python.formatting.provider": "black",
+    "python.formatting.blackArgs": [
+        "--target-version=py310",
+        "--line-length=80",
+    ],
+}
