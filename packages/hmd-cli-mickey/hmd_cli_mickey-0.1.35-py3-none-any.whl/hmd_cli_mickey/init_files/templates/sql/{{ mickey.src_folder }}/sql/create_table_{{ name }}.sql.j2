@@ -1,0 +1,5 @@
+CREATE TABLE {{ name }} (
+  {% for col in columns -%}
+  {{ col.name.replace('-', '_') }} {{ col.datatype }}{{ ', ' if not loop.last else '' }}
+  {% endfor -%}
+)
