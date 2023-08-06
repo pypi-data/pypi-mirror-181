@@ -1,0 +1,10 @@
+jax
+jaxlib>=0.3
+equinox
+tqdm
+optax
+jaxtyping
+numpy
+
+[dev]
+pytest
