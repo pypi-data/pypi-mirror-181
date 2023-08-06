@@ -1,0 +1,8 @@
+numpy
+scipy
+matplotlib
+cupy
+
+[dev]
+nbdev
+pre-commit
