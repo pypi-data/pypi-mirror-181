@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: ifconfig
+Version: 0.0.2
+Summary: configure a network interface
+Author: skrab-sah
+Author-email: skrab.sah@gmail.com
+Classifier: Operating System :: POSIX :: Linux
+Classifier: License :: OSI Approved :: MIT License
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# configure a network interface
+
+This package will help you in maintaining network interface.
+
+## How to install it?
+
+## On Linux
+
+``` pip install ifconfig ```
+
+## How to use it?
+
+### Initialize Package
+
+``` from ifconfig import * ```
+
+# documentation is in it's script.
+
+
+## On any issue.
+### e-mail me on: skrab.sah@gmail.com
