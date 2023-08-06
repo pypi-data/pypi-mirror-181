@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "aiserve"
+version = "0.0.2"
+description = ""
+authors = ["Kim Hakhyun <hyun24436@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+bentoml = "^1.0.12"
+fastapi = "^0.88.0"
+boto3 = "^1.26.31"
+dependency-injector = "^4.40.0"
+gitpython = "^3.1.29"
+pygithub = "^1.57"
+loguru = "^0.6.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
