@@ -1,0 +1,3 @@
+Given I have a 'string' named 'myString'  
+Given I have a 'number' named 'myNumber'
+Then print all data
