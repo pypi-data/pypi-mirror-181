@@ -1,0 +1,8 @@
+docker<7.0.0
+docstring-parser
+requests
+strip-hints>=0.1.8
+PyYAML
+
+[tests]
+mock
