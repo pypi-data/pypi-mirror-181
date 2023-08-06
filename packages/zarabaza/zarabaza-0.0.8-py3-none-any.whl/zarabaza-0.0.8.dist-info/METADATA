@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: zarabaza
+Version: 0.0.8
+Summary: Deployer is a Python library for manage multiple cherry-picks at the same time
+Author-email: andrehottie <buscemi.mauro@gmail.com>
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Requires-Dist: gitpython
+Requires-Dist: prompt-toolkit==1.0.14
+Requires-Dist: whaaaaat
+Description-Content-Type: text/markdown
+
+# Deployer
+
+Deployer is a Python library for manage multiple cherry-picks at the same time.
+
+## Installation
+
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+
+```bash
+pip3 install zarabaza
+alias zarabaza="python -m zarabaza"
+```
+
+## Usage
+
+```
+zarabaza
+```
