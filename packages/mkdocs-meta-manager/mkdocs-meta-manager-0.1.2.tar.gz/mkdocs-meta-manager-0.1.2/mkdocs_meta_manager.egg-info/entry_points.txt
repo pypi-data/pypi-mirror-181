@@ -1,0 +1,2 @@
+[mkdocs.plugins]
+meta-manager = mkdocs_meta_manager_plugin.plugin:MetaManagerPlugin
