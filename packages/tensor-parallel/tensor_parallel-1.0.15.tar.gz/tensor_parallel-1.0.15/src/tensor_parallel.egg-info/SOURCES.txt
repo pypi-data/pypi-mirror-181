@@ -1,0 +1,16 @@
+LICENCE
+README.md
+pyproject.toml
+setup.cfg
+src/tensor_parallel/__init__.py
+src/tensor_parallel/communications.py
+src/tensor_parallel/cross_device_ops.py
+src/tensor_parallel/logging.py
+src/tensor_parallel/slicer_wrapper.py
+src/tensor_parallel/tensor_parallel.py
+src/tensor_parallel/utils.py
+src/tensor_parallel.egg-info/PKG-INFO
+src/tensor_parallel.egg-info/SOURCES.txt
+src/tensor_parallel.egg-info/dependency_links.txt
+src/tensor_parallel.egg-info/requires.txt
+src/tensor_parallel.egg-info/top_level.txt
