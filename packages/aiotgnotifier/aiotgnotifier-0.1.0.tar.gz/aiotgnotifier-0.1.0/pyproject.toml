@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "aiotgnotifier"
+version = "0.1.0"
+description = "Notifications via Telegram"
+authors = ["Andrey Pochatkov <andrey.pochatkov@mail.ru>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/prin-it/aiotgnotifier"
+repository = "https://github.com/prin-it/aiotgnotifier"
+keywords = ["telegram", "asyncio", "httpx"]
+classifiers = [
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+include = [
+    "LICENSE",
+]
+exclude = [
+    ".gitignore",
+    "setup.cfg"
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+httpx = "^0.23.1"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.12.0"
+mypy = "^0.991"
+wemake-python-styleguide = "^0.17.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

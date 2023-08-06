@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: aiotgnotifier
+Version: 0.1.0
+Summary: Notifications via Telegram
+Home-page: https://github.com/prin-it/aiotgnotifier
+License: MIT
+Keywords: telegram,asyncio,httpx
+Author: Andrey Pochatkov
+Author-email: andrey.pochatkov@mail.ru
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: httpx (>=0.23.1,<0.24.0)
+Project-URL: Repository, https://github.com/prin-it/aiotgnotifier
+Description-Content-Type: text/markdown
+
+# aiotgnotifier
+Нотификация через мессенджер telegram
+
