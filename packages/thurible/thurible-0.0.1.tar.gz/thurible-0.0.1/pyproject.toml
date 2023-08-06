@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.rstcheck]
+report_level = "WARNING"
+ignore_directives = ["autoclass", "autofunction"]
+
+[project]
+name = "thurible"
+version = "0.0.1"
+authors = [
+    {name="Paul J. Iutzi", email="pji@mac.com"},
+]
+description = "Tools for creating fullscreen terminal UIs on top of blessed."
+readme = "README.rst"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    'blessed',
+]
+
+[project.urls]
+"Homepage" = "https://thurible.readthedocs.io/en/latest/index.html#"
+"Documentation" = "https://thurible.readthedocs.io/en/latest/index.html#"
+"Source" = "https://github.com/pji/thurible"
+
+[project.scripts]
+filereader = "examples.filereader:parse_invocation"
