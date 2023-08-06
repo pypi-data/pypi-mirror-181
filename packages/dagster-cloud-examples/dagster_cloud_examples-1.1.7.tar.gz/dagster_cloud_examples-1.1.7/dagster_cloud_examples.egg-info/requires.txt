@@ -1,0 +1,6 @@
+dagster_cloud==1.1.7
+
+[tests]
+mypy
+pylint
+pytest
