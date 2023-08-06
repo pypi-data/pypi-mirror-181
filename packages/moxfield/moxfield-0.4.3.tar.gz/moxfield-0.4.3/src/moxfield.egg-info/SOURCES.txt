@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/moxfield/__init__.py
+src/moxfield/auth.py
+src/moxfield/decks.py
+src/moxfield/folders.py
+src/moxfield/search.py
+src/moxfield.egg-info/PKG-INFO
+src/moxfield.egg-info/SOURCES.txt
+src/moxfield.egg-info/dependency_links.txt
+src/moxfield.egg-info/top_level.txt
