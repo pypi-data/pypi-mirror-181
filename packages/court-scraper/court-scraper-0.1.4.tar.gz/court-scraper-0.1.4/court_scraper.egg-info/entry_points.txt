@@ -1,0 +1,4 @@
+
+        [console_scripts]
+        court-scraper=court_scraper.cli:cli
+    

@@ -1,0 +1,44 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+argh = "*"
+bumpversion = "*"
+coverage = "*"
+docutils = "0.16"
+flake8 = "*"
+pytest = "*"
+pylint = "*"
+pytest-vcr = "*"
+Sphinx = "*"
+sphinx-rtd-theme = "*"
+tox = "*"
+twine = "*"
+watchdog = "*"
+wheel = "*"
+black = "*"
+myst-parser = "*"
+sphinxcontrib-napoleon = "*"
+setuptools-scm = "*"
+sphinx-autobuild = "*"
+
+[packages]
+bs4 = "*"
+selenium = "*"
+my-fake-useragent = "*"
+retrying = "*"
+lxml = "*"
+click = "*"
+pyyaml = "*"
+click-option-group = "*"
+sqlalchemy = "*"
+anticaptchaofficial = "*"
+typing-extensions = "*"
+cssselect = "*"
+requests = "*"
+pre-commit = "*"
+
+[requires]
+python_version = "3.9"

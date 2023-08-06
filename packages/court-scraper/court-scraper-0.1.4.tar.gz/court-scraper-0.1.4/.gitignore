@@ -1,0 +1,15 @@
+.DS_Store
+*.egg-info/
+__pycache__/
+config.json
+.python-version
+.vscode/settings.json
+.tox
+build/
+dist/
+docs/_build/
+.coverage
+htmlcov
+.court-scraper/
+.env
+.eggs
