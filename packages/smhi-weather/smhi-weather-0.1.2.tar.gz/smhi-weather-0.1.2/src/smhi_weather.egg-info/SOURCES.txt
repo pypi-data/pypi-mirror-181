@@ -1,0 +1,11 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+src/smhi_weather/__init__.py
+src/smhi_weather/main.py
+src/smhi_weather.egg-info/PKG-INFO
+src/smhi_weather.egg-info/SOURCES.txt
+src/smhi_weather.egg-info/dependency_links.txt
+src/smhi_weather.egg-info/requires.txt
+src/smhi_weather.egg-info/top_level.txt
