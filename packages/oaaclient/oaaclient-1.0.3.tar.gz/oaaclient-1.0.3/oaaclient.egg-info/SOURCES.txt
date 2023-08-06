@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+oaaclient/__init__.py
+oaaclient/client.py
+oaaclient/templates.py
+oaaclient/utils.py
+oaaclient.egg-info/PKG-INFO
+oaaclient.egg-info/SOURCES.txt
+oaaclient.egg-info/dependency_links.txt
+oaaclient.egg-info/entry_points.txt
+oaaclient.egg-info/requires.txt
+oaaclient.egg-info/top_level.txt
