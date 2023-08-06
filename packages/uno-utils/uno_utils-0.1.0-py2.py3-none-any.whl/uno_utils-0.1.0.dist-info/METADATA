@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: uno-utils
+Version: 0.1.0
+Summary: Utilities for uno development
+Home-page: https://github.com/archman/uno-utils
+Author: Tong Zhang
+Author-email: zhangt@frib.msu.edu
+License: GPL3+
+Keywords: uno libreoffice
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+
+# uno-utils
+
+# Installation
+
+`pip install uno-utils [--upgrade]`
+
+
