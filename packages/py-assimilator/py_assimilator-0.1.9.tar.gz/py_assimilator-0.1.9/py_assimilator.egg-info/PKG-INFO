@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: py-assimilator
+Version: 0.1.9
+Summary: The best python patterns for your projects
+Home-page: https://pypi.python.org/pypi/py_assimilator/
+Author: Andrey Ivanov
+Author-email: python.on.papyrus@gmail.com
+License: LICENSE.md
+Project-URL: Documentation, https://github.com/knucklesuganda/py_assimilator
+Project-URL: Github, https://github.com/knucklesuganda/py_assimilator
+Project-URL: Youtube RU, https://www.youtube.com/channel/UCSNpJHMOU7FqjD4Ttux0uuw
+Project-URL: Youtube ENG, https://www.youtube.com/channel/UCeC9LNDwRP9OfjyOFHaSikA
+Platform: UNKNOWN
+Requires: pydantic
+Description-Content-Type: text/markdown
+Provides-Extra: database
+Provides-Extra: kafka
+Provides-Extra: redis
+License-File: LICENSE.md
+
+# Python assimilator - the best patterns for your projects
+
+
+---------------------
+### Database patterns
+Here are the patterns for your database/data layer interactions.
+
+#### Repository
+
+
