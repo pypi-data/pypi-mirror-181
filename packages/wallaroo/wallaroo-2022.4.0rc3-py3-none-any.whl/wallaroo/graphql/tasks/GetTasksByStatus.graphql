@@ -1,0 +1,12 @@
+query GetTasksByStatus($status: task_status_enum!) {
+    task(where: {
+        status: {
+            _eq:$status
+        }
+    }) {
+        id,
+        flavor,
+        subject,
+        attempt
+    }
+}
