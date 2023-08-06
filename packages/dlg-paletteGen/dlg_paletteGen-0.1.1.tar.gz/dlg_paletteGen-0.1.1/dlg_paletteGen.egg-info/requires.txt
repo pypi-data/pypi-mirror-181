@@ -1,0 +1,14 @@
+blockdag
+docstring_parser
+
+[test]
+pytest
+coverage
+flake8
+black
+isort
+pytest-cov
+codecov
+mypy
+gitchangelog
+mkdocs
