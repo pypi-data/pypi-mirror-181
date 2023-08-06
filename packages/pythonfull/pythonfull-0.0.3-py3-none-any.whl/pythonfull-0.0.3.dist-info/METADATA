@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: pythonfull
+Version: 0.0.3
+Summary: pythonfull
+Author: Liveofcode
+Author-email: liveallgamegamer@game.com
+Keywords: arithmetic,math,mathematics,texttopeak,liveofcode,Translator,chatbot,pyfull,pythonfull
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: openai
+Requires-Dist: python-dotenv
+Requires-Dist: pyttsx3
+Requires-Dist: speechrecognition
+Requires-Dist: googletrans
+
+this package do math,make chatbot,make random password ,makefile,Listen,Speak text,Translatortext 
