@@ -1,0 +1,5 @@
+[console_scripts]
+masnet.analyze = masnet.analyze:main
+masnet.download = masnet.download:main
+masnet.generate = masnet.generate:main
+
