@@ -1,0 +1,148 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+env:
+  CARGO_INCREMENTAL: 0
+  CARGO_NET_RETRY: 10
+  RUSTUP_MAX_RETRIES: 10
+
+jobs:
+  cargo_build:
+    name: "cargo build"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: nightly-2022-11-01
+          override: true
+          components: rustfmt
+      - uses: actions/cache@v3
+        env:
+          cache-name: cache-cargo
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+      - run: cargo build --all --release
+      - run: ./target/release/ruff_dev generate-rules-table
+      - run: ./target/release/ruff_dev generate-options
+      - run: git diff --quiet README.md || echo "::error file=README.md::This file is outdated. You may have to rerun 'cargo dev generate-options' and/or 'cargo dev generate-rules-table'."
+      - run: ./target/release/ruff_dev generate-check-code-prefix && cargo fmt -- src/checks_gen.rs
+      - run: git diff --quiet src/checks_gen.rs || echo "::error file=src/checks_gen.rs::This file is outdated. You may have to rerun 'cargo dev generate-check-code-prefix'."
+      - run: git diff --exit-code -- README.md src/checks_gen.rs
+
+  cargo_fmt:
+    name: "cargo fmt"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: nightly-2022-11-01
+          override: true
+          components: rustfmt
+      - uses: actions/cache@v3
+        env:
+          cache-name: cache-cargo
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+      - run: cargo fmt --all --check
+
+  cargo_clippy:
+    name: "cargo clippy"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: nightly-2022-11-01
+          override: true
+          components: clippy
+      - uses: actions/cache@v3
+        env:
+          cache-name: cache-cargo
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+      - run: cargo clippy --workspace --all-targets --all-features -- -D warnings -W clippy::pedantic
+
+  cargo_test:
+    name: "cargo test"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: nightly-2022-11-01
+          override: true
+      - uses: actions/cache@v3
+        env:
+          cache-name: cache-cargo
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+      - run: pip install black[d]==22.12.0
+      - run: cargo test --all
+      - run: cargo test --package ruff --test black_compatibility_test -- --ignored
+
+  maturin_build:
+    name: "maturin build"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: nightly-2022-11-01
+          override: true
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+      - run: pip install maturin
+      - uses: actions/cache@v3
+        env:
+          cache-name: cache-cargo
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+      - run: maturin build -b bin
