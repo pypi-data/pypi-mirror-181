@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: demoProfile
+Version: 0.0.2
+Summary: a package that generates profile picture from your name
+Author: Sheikh Umaid
+Author-email: sheikhumaid@pm.me
+Keywords: demo,profile_picture,alphabet profile,django,sheikh umaid
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+License-File: LICENCE
+
+A package to generate profile picture from a given string and gives you the option to choose the background color of the image. It is a simple package that can be used in any python project. Eg: django, flask, etc. 
