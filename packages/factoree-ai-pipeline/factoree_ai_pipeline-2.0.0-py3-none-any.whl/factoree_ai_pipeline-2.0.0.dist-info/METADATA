@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: factoree-ai-pipeline
+Version: 2.0.0
+Summary: 
+Author: zheni
+Author-email: evgeniya@factoree.ai
+Requires-Python: >=3.10.5,<4.0.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: boto3 (>=1.24.82,<2.0.0)
+Requires-Dist: dotenv-config (>=0.1.4,<0.2.0)
+Requires-Dist: flake8 (>=6.0.0,<7.0.0)
+Requires-Dist: pytz (>=2022.6,<2023.0)
+Requires-Dist: requests (>=2.28.0,<3.0.0)
+Requires-Dist: tzdata (>=2022.7,<2023.0)
+Description-Content-Type: text/markdown
+
+# factoree_ai_pipeline
+
+**factoree_ai_pipeline** is a Python library to connect to factoree.ai ETL.
+
+## Installation
+
+Use the package manager **pip** to install **factoree_ai_pipeline**.
+
+```bash
+pip install factoree_ai_pipeline
+```
+
+## Usage
+
+```bash
+factoree_ai_pipeline.bronze_to_silver_runner import BronzeToSilverRunner, TransformUtility, TransformTuple
+```
+
+### TransformUtility class
+**factoree_ai_pipeline.bronze_to_silver_runner.TransformUtility** is an abstract class which implements raw data file transformation from a client-defined format to the standardized format defined by factoree.ai.
+
+The implementation of the class is client- and site-specific and should contain **.transform()** method which returns an object of the **TransformTuple** type.
+
+
+### BronzeToSilverRunner class
+**factoree_ai_pipeline.bronze_to_silver_runner.BronzeToSilverRunner** is an abstract class which reads raw data files from the bucket they were uploaded to, performs transformation, and writes standardized output to a next level bucket.
+
+The implementation of the class is client- and site-specific and receives an object of the implemented **TransformUtility** class as an input.
+
+## License
+
+For licensing see **LICENSE.txt**.
