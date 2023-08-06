@@ -1,0 +1,21 @@
+[project]
+name = "py_svc_monitor_fcx"
+version = "0.0.1"
+authors = [
+  { name="Nathan Carey", email="ncarey@facilityconnex.com" },
+]
+description = "Package for adding generic Prometheus (and extensible) monitoring to python services"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/FacilityConneX/py-svc-monitor"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
