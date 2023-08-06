@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: genhost
+Version: 0.1.1
+Summary: Generate a random hostname based on a wordlist
+Home-page: https://git.walbeck.it/walbeck-it/genhost
+Author: Magnus Walbeck
+Author-email: magnus.walbeck@walbeck.it
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Project-URL: Repository, https://git.walbeck.it/walbeck-it/genhost
+Description-Content-Type: text/markdown
+
+# Genhost
+
+Small python application to generate hostnames based on a wordlist. Inspired by https://github.com/elasticdog/genhost
+
+The original wordlist is taken from here, https://web.archive.org/web/20090918202746/http://tothink.com/mnemonic/wordlist.html and there is a version ready to go here in this repo.
+

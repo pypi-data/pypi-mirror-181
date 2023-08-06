@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "genhost"
+version = "0.1.1"
+description = "Generate a random hostname based on a wordlist"
+authors = ["Magnus Walbeck <magnus.walbeck@walbeck.it>"]
+readme = "README.md"
+repository = "https://git.walbeck.it/walbeck-it/genhost"
+packages = [{ include = "genhost" }]
+
+[tool.poetry.scripts]
+genhost = "genhost.main:main"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.group.dev.dependencies]
+pylint = "^2.15.8"
+flake8 = "^6.0.0"
+black = "^22.12.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pylint.'MESSAGES CONTROL']
+good-names = "i,j,k,ex,Run,_,e,r,f"
+disable = "C0116,C0114"
