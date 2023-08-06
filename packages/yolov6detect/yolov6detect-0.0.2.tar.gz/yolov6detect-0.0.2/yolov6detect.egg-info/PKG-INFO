@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: yolov6detect
+Version: 0.0.2
+Summary: Packaged version of the Yolov6 repository
+Home-page: https://github.com/kadirnar/yolov6-pip
+Author: kadirnar
+License: MIT
+Keywords: machine-learning,deep-learning,pytorch,vision,image-classification,object-detection,yolov7,yolov6,yolo detector,yolov5
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Education
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+<div align="center">
+<h2>
+  Yolov6-Pip: Packaged version of the Yolov6 repository  
+</h2>
+<h4>
+    <img width="500" alt="teaser" src="assets/speed_comparision_v2.png">
+</h4>
+</div>
+
+## <div align="center">Overview</div>
+
+This repo is a packaged version of the [Yolov7](https://github.com/meituan/YOLOv6/) model.
+### Installation
+```
+pip install yolov6detect
+```
+
+### Yolov6 Inference
+```python
+
+```
+### Citation
+```bibtex
+@article{li2022yolov6,
+  title={YOLOv6: A single-stage object detection framework for industrial applications},
+  author={Li, Chuyi and Li, Lulu and Jiang, Hongliang and Weng, Kaiheng and Geng, Yifei and Li, Liang and Ke, Zaidan and Li, Qingyuan and Cheng, Meng and Nie, Weiqiang and others},
+  journal={arXiv preprint arXiv:2209.02976},
+  year={2022}
+}
+```
