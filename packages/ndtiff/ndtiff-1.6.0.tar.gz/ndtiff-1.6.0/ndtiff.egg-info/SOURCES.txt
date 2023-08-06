@@ -1,0 +1,16 @@
+README.md
+pyproject.toml
+setup.py
+ndtiff/__init__.py
+ndtiff/_superclass.py
+ndtiff/_version.py
+ndtiff/nd_tiff_current.py
+ndtiff/nd_tiff_v2.py
+ndtiff/ndtiff_v1.py
+ndtiff.egg-info/PKG-INFO
+ndtiff.egg-info/SOURCES.txt
+ndtiff.egg-info/dependency_links.txt
+ndtiff.egg-info/requires.txt
+ndtiff.egg-info/top_level.txt
+ndtiff/test/__init__.py
+ndtiff/test/data_loading_test.py
