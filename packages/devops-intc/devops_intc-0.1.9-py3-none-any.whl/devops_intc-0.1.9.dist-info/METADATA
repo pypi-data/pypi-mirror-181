@@ -1,0 +1,69 @@
+Metadata-Version: 2.1
+Name: devops-intc
+Version: 0.1.9
+Summary: Testing PyPi
+Home-page: UNKNOWN
+Author: Emilio Reyes, James Gregg
+Author-email: emilio.reyes@intel.com, james.r.gregg@intel.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: rest3client
+
+# personal.soda480.devops.test-pypi
+
+## `devops-intc`
+
+### Build Docker Image
+```
+docker image build -t pypi-test:latest .
+```
+
+### Run Docker Container
+```
+docker container run --rm -it -v $PWD:/code pypi-test:latest bash
+```
+
+### Build Package
+```
+python setup.py sdist bdist_wheel
+```
+
+### Publish Package
+
+Publish to TestPyPi
+```
+export TWINE_USERNAME=__token__
+export TWINE_PASSWORD=TOKEN
+python -m twine upload --repository testpypi dist/*
+```
+
+Publish to PyPi
+```
+export TWINE_USERNAME=__token__
+export TWINE_PASSWORD=TOKEN
+python -m twine upload dist/*
+```
+
+### Install Package
+
+Install from TestPyPi
+```
+pip install -i https://test.pypi.org/simple/ devops-intc
+```
+
+Install from PyPi
+```
+pip install devops-intc
+```
+
+### Test Package
+```
+say-hello
+```
+
