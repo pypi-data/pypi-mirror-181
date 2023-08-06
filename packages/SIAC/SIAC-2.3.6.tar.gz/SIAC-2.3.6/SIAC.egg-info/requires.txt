@@ -1,0 +1,11 @@
+gdal>=2.1
+scipy>=1.0
+psutil
+six
+numba
+retry
+earthengine-api
+lightgbm>=2.1.0
+requests
+scikit-image
+pyproj
