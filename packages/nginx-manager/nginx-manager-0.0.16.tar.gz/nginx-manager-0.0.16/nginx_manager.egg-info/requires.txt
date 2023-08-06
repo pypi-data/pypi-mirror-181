@@ -1,0 +1,17 @@
+argcomplete
+tabulate
+distro
+
+[dev]
+argcomplete
+tabulate
+distro
+pyyaml
+
+[tests]
+argcomplete
+tabulate
+distro
+pytest>=4.4.0
+flake8
+pytest-xdist
