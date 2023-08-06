@@ -1,0 +1,17 @@
+# outputs:
+#   type: csv
+#   <level_name>:
+#     period: <period>
+#     [extra_vars:
+#       - <name>]
+
+
+outputs:
+  type: csv
+  population:
+    period: 1
+    extra_vars:
+      - total_population
+      - total_A_X_houseA
+      - total_B_X_houseB
+...

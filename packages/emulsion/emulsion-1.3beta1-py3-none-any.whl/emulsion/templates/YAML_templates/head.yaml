@@ -1,0 +1,10 @@
+model_name: <name>
+
+model_info:
+  abstract: '<description>'
+
+time_info:
+  time_unit: '<time_unit>'
+  delta_t: '<delta_t>'
+  total_duration: '<total_duration>'
+  origin: 'January 1'
