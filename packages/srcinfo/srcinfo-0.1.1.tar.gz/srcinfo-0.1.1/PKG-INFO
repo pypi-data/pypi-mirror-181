@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: srcinfo
+Version: 0.1.1
+Summary: A small library to parse .SRCINFO files
+License: ISC
+Author: Johannes Löthberg
+Author-email: johannes@kyriasis.com
+Requires-Python: >=3.7,<4.0
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved
+Classifier: License :: OSI Approved :: ISC License (ISCL)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: System :: Archiving :: Packaging
+Requires-Dist: parse (>=1.19.0,<2.0.0)
+Description-Content-Type: text/x-rst
+
+================
+ python-srcinfo
+================
+
+This is a small library to easily parse ``.SRCINFO`` files in python, using the python parse_ library.
+
+.. _parse: https://github.com/r1chardj0n3s/parse
+
+
+Installing
+----------
+
+If you're on Arch Linux, you can install this library from the [community] repository.
+Alternatively, it can be installed from the PyPI using pip `[1]`__.
+
+.. __: https://pypi.python.org/pypi/srcinfo
+
