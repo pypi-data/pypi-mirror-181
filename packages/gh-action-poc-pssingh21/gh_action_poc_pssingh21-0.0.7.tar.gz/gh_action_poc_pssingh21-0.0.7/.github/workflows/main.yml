@@ -1,0 +1,32 @@
+on: [push]
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+      # To use this repository's private action,
+      # you must check out the repository
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Hello world action step
+        id: hello
+        description: 'Greet someone and record the time'
+        inputs:
+          who-to-greet:  # id of input
+            description: 'Who to greet'
+            required: true
+            default: 'World'
+        outputs:
+          time: # id of output
+            description: 'The time we greeted you'
+        runs:
+          using: 'docker'
+          image: 'Dockerfile'
+          args:
+            - ${{ inputs.who-to-greet }}
+        # with:
+        #   who-to-greet: 'Mona the Octocat'
+      # Use the output from the `hello` step
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"
