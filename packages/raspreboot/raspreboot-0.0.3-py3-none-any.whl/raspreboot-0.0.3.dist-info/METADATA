@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: raspreboot
+Version: 0.0.3
+Summary: This package will take care of rebooting rasp in case internet is offline.
+Author: Shivam Sharma
+Author-email: shivamsharma1913@gmail.com
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: setuptools
+Requires-Dist: wheel
+Requires-Dist: Shyna-speaks
+
+# raspreboot
