@@ -1,0 +1,16 @@
+commonmark
+ezodf
+flask==2.1.2
+frictionless==4.38.0
+lxml
+pydantic
+python-dotenv
+pyyaml
+requests
+requests_cache==0.9.4
+toml
+opendataschema
+validata_core==0.9.3
+
+[sentry]
+sentry-sdk[flask]
