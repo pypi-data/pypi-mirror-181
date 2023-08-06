@@ -1,0 +1,74 @@
+Metadata-Version: 2.1
+Name: snowlock
+Version: 1.0.0
+Summary: Lock management library for Snowflake.
+Home-page: https://github.com/mx51/snowlock-python
+Author: mx51
+Author-email: opensource@mx51.io
+License: Apache License 2.0
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Description-Content-Type: text/markdown
+Provides-Extra: test
+License-File: LICENSE
+
+# snowlock-python
+
+[![Github Actions](https://github.com/mx51/snowlock-python/actions/workflows/master.yml/badge.svg)](https://github.com/mx51/snowlock-python/actions/workflows/master.yml)
+[![PyPI](https://img.shields.io/pypi/v/snowlock)](https://pypi.org/project/snowlock/)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/mx51/snowlock-python/blob/master/LICENSE)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
+Lock management library for Snowflake.
+
+## Requirements
+
+Requires Python 3.6 or above.
+
+## Usage
+
+You can install snowlock from [PyPI](https://pypi.org/project/snowlock/):
+
+```bash
+pip install snowlock
+```
+
+To acquire a lock using a Snowflake table. The lock table will be created if it does not exist and will default to using a table called `LOCK`.
+
+```py
+import os
+import snowflake.connector as sc
+
+from snowlock.lock import lock
+
+connection = sc.connect(
+    account = os.getenv("SNOWFLAKE_ACCOUNT"),
+    user = os.getenv("SNOWFLAKE_USER"),
+    password = os.getenv("SNOWFLAKE_PASSWORD"),
+    warehouse = os.getenv("SNOWFLAKE_WAREHOUSE"),
+    database = os.getenv("SNOWFLAKE_DATABASE"),
+    schema = os.getenv("SNOWFLAKE_SCHEMA"),
+    **kwargs,
+)
+
+with lock(client="test", resource="test", conn=connection, table="LOCK") as session:
+    ## Do something using the locked resource
+
+```
+
+## Code of Conduct
+
+All contributors are expected to follow the [PyPA Code of Conduct](https://www.pypa.io/en/latest/code-of-conduct/).
+
+
