@@ -1,0 +1,3 @@
+[console_scripts]
+seats=seats.cli.cli:entry_point
+
