@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+darkdetect/__init__.py
+darkdetect/__main__.py
+darkdetect/_dummy.py
+darkdetect/_linux_detect.py
+darkdetect/_mac_detect.py
+darkdetect/_windows_detect.py
+darkdetect.egg-info/PKG-INFO
+darkdetect.egg-info/SOURCES.txt
+darkdetect.egg-info/dependency_links.txt
+darkdetect.egg-info/requires.txt
+darkdetect.egg-info/top_level.txt

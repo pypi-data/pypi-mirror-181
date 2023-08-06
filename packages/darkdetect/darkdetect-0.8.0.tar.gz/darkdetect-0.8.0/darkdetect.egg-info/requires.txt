@@ -1,0 +1,5 @@
+
+[macos-listener]
+
+[macos-listener:platform_system == "Darwin"]
+pyobjc-framework-Cocoa
