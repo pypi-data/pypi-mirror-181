@@ -1,0 +1,5 @@
+adafruit-circuitpython-ssd1306
+adafruit-circuitpython-ina219
+RPi.GPIO
+python-socketio[asyncio_client]<5,>=4
+pillow
