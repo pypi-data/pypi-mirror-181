@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: monary-mongo
+Version: 0.6
+Summary: Monary performs high-performance column queries on MongoDB
+Home-page: https://github.com/andrewgigena/monary_mongo
+Keywords: monary,pymongo,mongo,mongodb,numpy,array
+Author: Andrew Gigena
+Author-email: mail@andrewgigena.dev
+Requires-Python: >=3.6,<4.0
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Database
+Requires-Dist: numpy
