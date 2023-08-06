@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+versioneer.py
+pyecotaxa/__init__.py
+pyecotaxa/_version.py
+pyecotaxa/archive.py
+pyecotaxa/remote.py
+pyecotaxa.egg-info/PKG-INFO
+pyecotaxa.egg-info/SOURCES.txt
+pyecotaxa.egg-info/dependency_links.txt
+pyecotaxa.egg-info/requires.txt
+pyecotaxa.egg-info/top_level.txt
