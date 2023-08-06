@@ -1,0 +1,94 @@
+[tool.poetry]
+name = "pybrowsers"
+version = "0.5.2"
+repository = "https://github.com/roniemartinez/browsers"
+description = "Python library for detecting and launching browsers"
+authors = ["Ronie Martinez <ronmarti18@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Internet :: WWW/HTTP :: Browsers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: Implementation :: CPython",
+]
+packages = [
+    { include = "browsers" },
+]
+
+[tool.poetry.urls]
+"Donate" = "https://github.com/sponsors/roniemartinez"
+
+
+[tool.poetry.dependencies]
+python = "^3.7"
+pyxdg = { version = ">=0.27,<0.29", markers = "sys_platform == 'linux'" }
+pywin32 = { version = ">=303,<306", markers = "sys_platform == 'win32'" }
+
+[tool.poetry.dev-dependencies]
+autoflake = "^1.7.8"
+black = "^22.12"
+isort = "^5.11.2"
+mypy = "^0.991"
+pyproject-flake8 = "^5.0.4"
+pytest = "^7.2.0"
+pytest-clarity = "^1.0.1"
+pytest-cov = "^4.0.0"
+
+[tool.isort]
+line_length = 120
+multi_line_output = 3
+force_grid_wrap = 0
+use_parentheses = true
+include_trailing_comma = true
+ensure_newline_before_comments = true
+atomic = true
+
+[tool.black]
+line-length = 120
+target-version = ['py39']
+include = '\.pyi?$'
+extend-exclude = """
+# A regex preceded with ^/ will apply only to files and directories
+# in the root of the project.
+^/setup.py
+"""
+
+[tool.mypy]
+disallow_untyped_defs = true
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = [
+    "pkg_resources",
+]
+ignore_missing_imports = true
+
+[tool.flake8]
+max-line-length = 120
+extend-ignore = ["E203"]
+extend-exclude = """
+setup.py,
+"""
+
+[tool.pytest.ini_options]
+addopts = """\
+    --cov=browsers \
+    --cov-report=term-missing \
+    --cov-report=xml \
+    --cov-report=html \
+    -vv \
+    -x \
+    -s \
+"""
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
