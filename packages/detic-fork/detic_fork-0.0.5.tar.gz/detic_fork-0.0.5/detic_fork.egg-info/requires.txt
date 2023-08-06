@@ -1,0 +1,12 @@
+opencv-python
+mss
+timm
+ftfy
+regex
+scikit-learn
+lvis
+nltk
+clip-anytorch
+
+[:python_version < "3.7"]
+dataclasses
