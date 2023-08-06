@@ -1,0 +1,110 @@
+Metadata-Version: 2.1
+Name: sqeleton
+Version: 0.0.2
+Summary: Python library for querying SQL databases
+Home-page: https://github.com/datafold/sqeleton
+License: MIT
+Author: Erez Shinan
+Author-email: erezshin@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Database :: Database Engines/Servers
+Classifier: Typing :: Typed
+Provides-Extra: clickhouse
+Provides-Extra: duckdb
+Provides-Extra: mysql
+Provides-Extra: oracle
+Provides-Extra: postgresql
+Provides-Extra: presto
+Provides-Extra: snowflake
+Provides-Extra: trino
+Provides-Extra: vertica
+Requires-Dist: click (>=8.1,<9.0)
+Requires-Dist: clickhouse-driver; extra == "clickhouse"
+Requires-Dist: cryptography; extra == "snowflake"
+Requires-Dist: dsnparse
+Requires-Dist: duckdb (>=0.6.0,<0.7.0); extra == "duckdb"
+Requires-Dist: mysql-connector-python (==8.0.29); extra == "mysql"
+Requires-Dist: presto-python-client; extra == "presto"
+Requires-Dist: psycopg2; extra == "postgresql"
+Requires-Dist: rich
+Requires-Dist: runtype (>=0.2.6,<0.3.0)
+Requires-Dist: snowflake-connector-python (>=2.7.2,<3.0.0); extra == "snowflake"
+Requires-Dist: toml (>=0.10.2,<0.11.0)
+Requires-Dist: trino (>=0.314.0,<0.315.0); extra == "trino"
+Project-URL: Repository, https://github.com/datafold/sqeleton
+Description-Content-Type: text/markdown
+
+# Sqeleton
+
+**Under construction!**
+
+Python library for querying SQL databases.
+
+It consists of -
+
+- A fast and concise query builder, inspired by PyPika and SQLAlchemy
+
+- A modular database interface, with drivers for a long list of SQL databases.
+
+### Databases we support
+
+- PostgreSQL >=10
+- MySQL
+- Snowflake
+- BigQuery
+- Redshift
+- Oracle
+- Presto
+- Databricks
+- Trino
+- Clickhouse
+- Vertica
+- DuckDB >=0.6
+- SQLite (coming soon)
+
+
+### Built for performance
+
+- Multi-threaded by default - introduce ThreadLocalInterpreter
+
+- No ORM - Nice for beginners, but encourages bad behavior
+
+## Type-aware
+
+Type validation when building expressions (and make sure columns exist)
+
+Allows type introspection
+
+# TODO
+
+- Transactions
+
+- Indexes
+
+- Date/time expressions
+
+- Window functions
+
+## Possible plans for the future (not determined yet)
+
+- Cache compilation of repetitive queries for even faster query-building
+
+- Compile control flow, functions
+
+- Define tables using type-annotated classes (SQLModel style)
+
