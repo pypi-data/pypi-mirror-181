@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: get-deps
+Version: 0.0.1
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: setuptools-git-versioning (>=1.13.0)
+Requires-Dist: build (>=0.9.0)
+Requires-Dist: prettytable
+Provides-Extra: dev
+Requires-Dist: pytest (==6.2.5) ; extra == 'dev'
+Requires-Dist: black (==21.9b0) ; extra == 'dev'
+Provides-Extra: doc
+Requires-Dist: sphinx (==5.2.0) ; extra == 'doc'
+Requires-Dist: sphinx-click (==4.4.0) ; extra == 'doc'
+Requires-Dist: sphinx-rtd-theme (==1.1.1) ; extra == 'doc'
+
+# A simple Python module to pretty print a table with the dependencies of a Python package with license and url.
