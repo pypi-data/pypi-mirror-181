@@ -1,0 +1,6 @@
+[renku]
+mls = renkumls.plugin
+
+[renku.cli_plugins]
+mls = renkumls.plugin:mls
+
