@@ -1,0 +1,11 @@
+2022-12-13 17:05:14,476 INFO     *********************************************
+2022-12-13 17:05:14,476 INFO     ::Jasmin Realtime Moduler, Biller, and Logger::
+2022-12-13 17:05:14,476 INFO     Starting up
+2022-12-13 17:05:14,476 INFO     
+2022-12-13 17:05:14,476 INFO        - Logger initiated!
+2022-12-13 17:05:14,476 INFO     Starting ::Logger Socket::
+2022-12-13 17:05:14,498 INFO     Connected to broker, authenticating: guest
+2022-12-13 17:05:14,501 INFO     Authenticated. Ready to receive messages
+2022-12-13 17:05:14,501 INFO      
+2022-12-13 17:05:14,505 INFO     Starting ::MongoDB Socket::
+2022-12-13 17:05:14,508 CRITICAL Shutting down !!!
