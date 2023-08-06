@@ -1,0 +1,102 @@
+[build-system]
+requires = ["poetry_core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "hanmatek-psu"
+version = "1.1.0"
+packages = [
+    { include = "hanmatek" },
+    { include = "hanmatek/py.typed" }
+]
+readme = "README.md"
+description = "Library and CLI for the Hanmatek Power supply units (PSU) of the HM3xxP series."
+authors = ["Janos <janoskut@gmail.com>"]
+maintainers = ["Janos <janoskut@gmail.com>"]
+license = "MIT"
+homepage = "https://gitlab.com/janoskut/hanmatek-psu/-/tree/main"
+repository = "https://gitlab.com/janoskut/hanmatek-psu/-/tree/main"
+keywords = ["power-supply", "psu", "equipment", "lab", "automation"]
+classifiers = [
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Operating System :: Unix",
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development :: Embedded Systems",
+    "Topic :: Software Development :: Testing",
+    "Topic :: System :: Hardware :: Hardware Drivers",
+]
+
+[tool.poetry.dependencies]
+python = ">=3.8"
+minimalmodbus = "^2.0.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "*"
+pytest-cov = "*"
+pyproject-flake8 = "*"
+black = "*"
+mypy = "*"
+
+[tool.poetry.scripts]
+hanmatek-cli = 'hanmatek.__main__:main'
+
+[tool.mypy]
+implicit_reexport = true
+strict = true
+
+[[tool.mypy.overrides]]
+module = "minimalmodbus"
+ignore_missing_imports = true
+
+[tool.black]
+line-length = 100
+
+[tool.coverage.run]
+branch = true
+omit = [
+    "hanmatek/__init__.py",
+    "hanmatek/__main__.py",
+]
+
+[tool.coverage.report]
+skip_empty = true
+
+[tool.coverage.html]
+directory = ".htmlcov"
+
+
+[tool.flake8]
+exclude = ".venv, .git"
+max-line-length = 100
+ignore = "F811"
+per-file-ignores = [
+    "hanmatek/HM3xxP_regmap.py: E241,E201,E202"
+]
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+envlist = test,type,lint
+skipsdist = true
+skip_missing_interpreters = true
+
+[base]
+module_dir = hanmatek
+lint_paths = hanmatek tests
+unittests_dir = tests
+
+[testenv]
+commands =
+    {envpython} --version
+    {test,all}: {envpython} -m pytest --color=yes --cov={[base]module_dir} --cov-report=html {[base]unittests_dir}
+    {cov,all}: {envpython} -m pytest --cov={[base]module_dir} {[base]unittests_dir}
+    {type,all}: mypy {[base]lint_paths}
+    {lint,all}: pflake8 {[base]lint_paths}
+    {lint,all}: black --check {[base]lint_paths}
+description =
+    {test}: run unit tests using pytest and generate HTML coverage report
+    {cov}:  run unit tests using pytest and generate console coverage report
+    {type}: run type checker using mypy
+    {lint}: run linter using flake8 and format checker using black
+"""
