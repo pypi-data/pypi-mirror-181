@@ -1,0 +1,2 @@
+recursive-include tg2fa_translit *.py *.h5 *.txt
+recursive-include *.py *.in *.md
