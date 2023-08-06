@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: czsc
+Version: 0.0.1
+Summary: 飞书API部分封装，fsc 是 Fei Shu Client 的首字母
+Home-page: https://github.com/zengbin93/fsc
+Author: zengbin93
+Author-email: zeng_bin8888@163.com
+License: Apache Software License
+Keywords: 飞书,API
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Description-Content-Type: text/markdown
+Requires-Dist: requests (>=2.24.0)
+Requires-Dist: pandas (>=1.1.0)
+Requires-Dist: numpy (>=1.16.5)
+Requires-Dist: Deprecated (>=1.2.12)
+Requires-Dist: loguru (>=0.6.0)
+Requires-Dist: tenacity (>=8.1.0)
+Requires-Dist: requests-toolbelt (>=0.10.1)
+
+# fsc
+飞书API部分封装，fsc 是 Fei Shu Client 的首字母
+
+
