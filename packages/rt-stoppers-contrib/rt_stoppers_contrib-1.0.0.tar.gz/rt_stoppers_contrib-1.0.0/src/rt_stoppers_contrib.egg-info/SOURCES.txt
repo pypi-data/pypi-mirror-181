@@ -1,0 +1,16 @@
+LICENSE.txt
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/rt_stoppers_contrib/__init__.py
+src/rt_stoppers_contrib/no_improvement.py
+src/rt_stoppers_contrib/threshold_by_epoch.py
+src/rt_stoppers_contrib.egg-info/PKG-INFO
+src/rt_stoppers_contrib.egg-info/SOURCES.txt
+src/rt_stoppers_contrib.egg-info/dependency_links.txt
+src/rt_stoppers_contrib.egg-info/not-zip-safe
+src/rt_stoppers_contrib.egg-info/requires.txt
+src/rt_stoppers_contrib.egg-info/top_level.txt
+test/test_no_improvement.py
+test/test_threshold_by_epoch.py
