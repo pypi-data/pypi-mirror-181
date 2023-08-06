@@ -1,0 +1,14 @@
+include nle_language_wrapper/libnethack.so
+
+include CMakeLists.txt
+recursive-include src *
+recursive-include pybind11 *
+recursive-exclude build *
+
+#nle
+recursive-include nle *
+
+recursive-exclude nle/build *
+exclude nle/nle/dashboard
+exclude nle/nle/scripts/nh-clean-install.sh
+exclude nle/nle/scripts/line-changed.sh
