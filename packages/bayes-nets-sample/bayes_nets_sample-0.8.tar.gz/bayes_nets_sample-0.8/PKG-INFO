@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: bayes_nets_sample
+Version: 0.8
+Summary: A class to represent a Bayes Network. And apply all the different sampling strategies to the calculate a given query.
+Project-URL: Homepage, https://github.com/srajan-kiyotaka/bayesNetSample
+Project-URL: Bug Tracker, https://github.com/srajan-kiyotaka/bayesNetSample/issues
+Author-email: Srajan Chourasia <srajanstark.ash@gmail.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6
