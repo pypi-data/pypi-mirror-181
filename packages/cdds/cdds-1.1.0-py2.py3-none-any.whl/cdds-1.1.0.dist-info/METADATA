@@ -1,0 +1,65 @@
+Metadata-Version: 2.1
+Name: cdds
+Version: 1.1.0
+Summary: Package for coding dojo data science students and staff.
+Home-page: https://github.com/jirvingphd/cdds
+Author: James Irving
+Author-email: james.irving.phd@gmail.com
+Keywords: cdds
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
+License-File: AUTHORS.rst
+Requires-Dist: Click (>=7.0)
+Requires-Dist: numpy
+Requires-Dist: missingno
+Requires-Dist: pandas (>=1.3.5)
+Requires-Dist: seaborn (>=0.11.0)
+Requires-Dist: matplotlib (>=3.2.2)
+Requires-Dist: scikit-learn (>=1.1.3)
+Requires-Dist: scipy
+Requires-Dist: IPython
+Requires-Dist: ipywidgets
+Requires-Dist: tzlocal
+Requires-Dist: pyperclip
+
+========================
+Coding Dojo Data Science
+========================
+
+
+
+
+
+
+Package for coding dojo data science students and faculty.
+
+
+
+Features
+--------
+
+* TODO
+
+Credits
+-------
+
+This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+
+.. _Cookiecutter: https://github.com/audreyr/cookiecutter
+.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+
+
+=======
+History
+=======
+
+0.1.0 (2021-11-17)
+------------------
+
+* First release on PyPI.
