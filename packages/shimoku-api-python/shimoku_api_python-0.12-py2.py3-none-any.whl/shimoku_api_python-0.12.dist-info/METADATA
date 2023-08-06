@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: shimoku-api-python
+Version: 0.12
+Summary: Add a short description here!
+Home-page: https://github.com/pyscaffold/pyscaffold/
+Author: capitan-ariete
+Author-email: sergi.ortiz.rodriguez@gmail.com
+License: mit
+Project-URL: Documentation, https://pyscaffold.org/
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Description-Content-Type: text/x-rst; charset=UTF-8
+License-File: LICENSE.txt
+License-File: AUTHORS.rst
+Requires-Dist: datetime
+Requires-Dist: json5 (==0.9.5)
+Requires-Dist: pandas
+Requires-Dist: requests
+Requires-Dist: shimoku-components-catalog
+Provides-Extra: testing
+Requires-Dist: pytest ; extra == 'testing'
+Requires-Dist: pytest-cov ; extra == 'testing'
+
+==================
+shimoku-api-python
+==================
+
+
+For the docs see https://docs.shimoku.com/
+
