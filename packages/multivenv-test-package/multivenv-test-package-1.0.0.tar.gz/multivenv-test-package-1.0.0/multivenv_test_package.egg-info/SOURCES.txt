@@ -1,0 +1,17 @@
+LICENSE.md
+MANIFEST.in
+README.md
+conf.py
+pyproject.toml
+setup.cfg
+setup.py
+version.py
+examples/__init__.py
+multivenv_test_package/__init__.py
+multivenv_test_package.egg-info/PKG-INFO
+multivenv_test_package.egg-info/SOURCES.txt
+multivenv_test_package.egg-info/dependency_links.txt
+multivenv_test_package.egg-info/requires.txt
+multivenv_test_package.egg-info/top_level.txt
+tests/__init__.py
+tests/test_placeholder.py
