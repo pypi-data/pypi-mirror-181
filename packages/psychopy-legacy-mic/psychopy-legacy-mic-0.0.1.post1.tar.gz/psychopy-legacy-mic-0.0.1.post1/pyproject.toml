@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=40.8.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "psychopy-legacy-mic"
+version = "0.0.1.post1"
+description = "Extension that enables audio capture and analysis using Pyo."
+readme = "README.md"
+requires-python = ">= 3.7"
+license = { text = "GNU General Public License v3 (GPLv3)" }
+authors = [
+  { name = "Jon Peirce", email = "jon@opensceincetools.org" },
+  { name = "Matthew Cutone", email = "mcutone@opensceincetools.org" },
+]
+classifiers = [
+  "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: Implementation :: CPython",
+]
+urls.homepage = "https://github.com/psychopy/psychopy-legacy-mic"
+urls.changelog = "https://github.com/psychopy/psychopy-legacy-mic/blob/main/CHANGELOG.txt"
+urls.documentation = "https://pages.github.com/psychopy/psychopy-legacy-mic"
+urls.repository = "https://github.com/psychopy/psychopy-legacy-mic"
+dependencies = [
+  "numpy",
+  "scipy",
+  "psychopy-pyo",
+]
+
+[tool.setuptools.packages.find]
+where = ["",]

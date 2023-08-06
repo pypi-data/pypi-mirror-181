@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: psychopy-legacy-mic
+Version: 0.0.1.post1
+Summary: Extension that enables audio capture and analysis using Pyo.
+Author-email: Jon Peirce <jon@opensceincetools.org>, Matthew Cutone <mcutone@opensceincetools.org>
+License: GNU General Public License v3 (GPLv3)
+Project-URL: homepage, https://github.com/psychopy/psychopy-legacy-mic
+Project-URL: changelog, https://github.com/psychopy/psychopy-legacy-mic/blob/main/CHANGELOG.txt
+Project-URL: documentation, https://pages.github.com/psychopy/psychopy-legacy-mic
+Project-URL: repository, https://github.com/psychopy/psychopy-legacy-mic
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# psychopy-legacy-mic
+
+Extension that enables audio capture and analysis using Pyo.
+
+This is the 'legacy' microphone library written by Jeremy R. Gray that was originally found in `psychopy.microphone`. 
+This library provides advanced, but rarely used features for processing audio which users may still find useful. For
+audio capture, this library has since been deprecated and replaced by the newer Psychtoolbox based microphone library in 
+`psychopy.sound.microphone`.
+
+Some features may no longer work as the library has not been maintained for some time. Depends on the `psychopy-pyo`
+extension package being installed in the same environment. 
+    
+## Installing
+
+Install this package with the following shell commands:: 
+    
+    pip install psychopy-pyo 
+    pip install psychopy-legacy-mic
+
+You may also use PsychoPy's builtin package manager to install this package.
+
+## Usage
+
+Once the package is installed, PsychoPy will automatically load it when started and make objects available within the
+`psychopy.microphone` namespace. 
