@@ -1,0 +1,4 @@
+[console_scripts]
+combine_cov = phables_utils.support.combine_cov:main
+gfa2fasta = phables_utils.support.gfa2fasta:main
+
