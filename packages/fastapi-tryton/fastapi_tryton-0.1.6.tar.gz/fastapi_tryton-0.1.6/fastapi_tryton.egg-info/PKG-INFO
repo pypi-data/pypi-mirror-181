@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: fastapi-tryton
+Version: 0.1.6
+Summary: Adds Tryton support to FastAPI application
+Home-page: https://bitbucket.org/presik/fastapi-tryton
+Author: PRESIK SAS
+Author-email: gerente@presik.com
+License: GPL-3
+Keywords: fastapi tryton web
+Platform: any
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Tryton
+Classifier: Framework :: FastAPI
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE.rst
+
+# FastAPI-Tryton
+
+Adds Tryton support to FastAPI application.
+
+By default transactions are readonly except for PUT, POST, DELETE and PATCH
+request methods.
+It provides also 2 routing converters `record` and `records`.
+
+Setting the `configure_jinja` flag adds the following filters on jinja
+templates: `numberformat`, `dateformat`, `currencyformat` and
+`timedeltaformat`. The filters apply the same formatting as Tryton reports.
+
+## Nutshell
+
+TODO: Add examples of use, and docs, all collaboration is welcome!,
+but for now you can see test_api.py file where there is examples ;)
+
+
