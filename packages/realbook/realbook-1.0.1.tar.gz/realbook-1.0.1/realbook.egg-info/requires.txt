@@ -1,0 +1,29 @@
+tensorboard>=2.4
+librosa<0.10,>=0.9
+types-protobuf
+
+[:sys_platform != "darwin" or platform_machine != "arm64"]
+tensorflow>=2.4
+
+[:sys_platform == "darwin" and platform_machine == "arm64"]
+tensorflow-macos>=2.4
+
+[dev]
+realbook[tensorboard,test]
+bumpversion>=0.5.3
+ipython
+ipdb
+
+[tensorboard]
+matplotlib
+psutil
+nvsmi
+
+[test]
+coverage>=5.0.2
+pytest>=7.1.1
+pytest-cov>=4.0.0
+pytest-mock>=3.10.0
+tox
+torch
+nnaudio
