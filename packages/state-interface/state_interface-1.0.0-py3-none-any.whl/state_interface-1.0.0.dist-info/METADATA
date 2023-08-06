@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: state-interface
+Version: 1.0.0
+Summary: ASE STATE interface
+Author: Harry Handoko HALIM
+Author-email: harry@cp.prec.eng.osaka-u.ac.jp
+Requires-Python: >=3.6.2
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: ase (>=3.22,<4.0)
+Requires-Dist: flake8 (>=4.0.1,<5.0.0)
+Requires-Dist: pylint (>=2.12.2,<3.0.0)
