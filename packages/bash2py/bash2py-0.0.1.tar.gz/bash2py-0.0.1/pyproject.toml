@@ -1,0 +1,86 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "bash2py"
+description = 'for my sysadmin tasks'
+readme = "README.md"
+requires-python = ">=3.7"
+license = "MIT"
+keywords = []
+authors = [
+  { name = "toavina", email = "toavina@vuhitra.com" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = []
+dynamic = ["version"]
+
+[project.urls]
+Documentation = "https://github.com/vuhitra-io/bash-from-python#readme"
+Issues = "https://github.com/vuhitra-io/bash-from-python.git/issues"
+Source = "https://github.com/vuhitra-io/bash-from-python"
+
+[tool.hatch.version]
+path = "bash2py/__about__.py"
+
+[tool.hatch.envs.default]
+dependencies = [
+  "pytest",
+  "pytest-cov",
+  "mock",
+  "cowsay",
+]
+[tool.hatch.envs.default.scripts]
+cov = "pytest --cov-report=term-missing --cov-config=pyproject.toml --cov=bash2py --cov=tests {args}"
+no-cov = "cov --no-cov {args}"
+
+[[tool.hatch.envs.test.matrix]]
+python = ["37", "38", "39", "310", "311"]
+
+[tool.coverage.run]
+branch = true
+parallel = true
+omit = [
+  "bash2py/__about__.py",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
+
+[tool.hatch.envs.docs]
+dependencies = [
+  "mkdocs"
+]
+[tool.hatch.envs.docs.scripts]
+build = "mkdocs build --clean --strict"
+serve = "mkdocs serve --dev-addr localhost:8000"
+
+[tool.hatch.build.targets.sdist]
+exclude = [
+  "/.git",
+  "/bash2py/docs",
+  "/.idea",
+  "/.pytest_cache",
+  "/venv",
+  "/tests/.pytest_cache",
+  "make_release",
+  "run_tests"
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["bash2py"]

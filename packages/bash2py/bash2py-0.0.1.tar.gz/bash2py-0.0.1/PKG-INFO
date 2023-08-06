@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: bash2py
+Version: 0.0.1
+Summary: for my sysadmin tasks
+Project-URL: Documentation, https://github.com/vuhitra-io/bash-from-python#readme
+Project-URL: Issues, https://github.com/vuhitra-io/bash-from-python.git/issues
+Project-URL: Source, https://github.com/vuhitra-io/bash-from-python
+Author-email: toavina <toavina@vuhitra.com>
+License-File: LICENCE
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# Bash In Python (WIP)
+____
+Python wrapper for subprocess that will support CURL, ETCD2 and OPENSSL.
+
+Works only in Linux environments.
+
+## Installation
+
+#### Bash In Python
+
+```bash
+git clone https://github.com/vuhitra-io/bash-from-python.git
+```
+## Next:
+
+OPENSSL

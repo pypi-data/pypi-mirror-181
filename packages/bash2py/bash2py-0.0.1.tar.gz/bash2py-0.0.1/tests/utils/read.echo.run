@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -e
+
+if [ -f "$1" ]; then
+  FILE="${1}"
+  echo "" > "$2"
+  echo "Found configuration file: $FILE"
+  while read -r line; do
+    echo "$line">> "$2"
+  done < "$FILE"
+fi
+
