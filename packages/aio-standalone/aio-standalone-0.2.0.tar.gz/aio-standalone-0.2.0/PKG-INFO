@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: aio-standalone
+Version: 0.2.0
+Summary: Standalone application server framework using asyncio
+Home-page: https://github.com/kblin/aio-standalone/
+Author: Kai Blin
+Author-email: kblin@biosustain.dtu.dk
+License: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Provides-Extra: testing
+License-File: LICENSE
+
+# aio-standalone
+
+Standalone application server framework using asyncio.
+
+## Installation
+
+Grab it off pypi:
+
+```
+pip install aio-standalone
+```
+
+Or grab it off github:
+
+```
+git clone https://github.com/kblin/aio-standalone.git
+cd aio-standalone
+pip install .
+```
+
+## License
+All code is available under the Apache License version 2, see the
+[`LICENSE`](LICENSE) file for details.
