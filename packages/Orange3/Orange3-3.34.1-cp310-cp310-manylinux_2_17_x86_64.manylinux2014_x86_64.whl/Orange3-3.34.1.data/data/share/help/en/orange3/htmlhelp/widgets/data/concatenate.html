@@ -1,0 +1,86 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="english">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Concatenate</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Select by Data Index" href="select-by-data-index.html" />
+    <link rel="prev" title="Randomize" href="randomize.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="concatenate">
+<h1>Concatenate</h1>
+<p>Concatenates data from multiple sources.</p>
+<p><strong>Inputs</strong></p>
+<ul class="simple">
+<li>Primary Data: data set that defines the attribute set</li>
+<li>Additional Data: additional data set</li>
+</ul>
+<p><strong>Outputs</strong></p>
+<ul class="simple">
+<li>Data: concatenated data</li>
+</ul>
+<p>The widget concatenates multiple sets of instances (data sets). The merge is &quot;vertical&quot;, in a sense that two sets of 10 and 5 instances yield a new set of 15 instances.</p>
+<p><img alt="../../_images/Concatenate.png" src="../../_images/Concatenate.png" /></p>
+<ol class="simple">
+<li>Set the attribute merging method:<ul>
+<li><em>all variables that appear in input tables</em> will output columns from all input tables, assinging missing values for columns that were absent in each table</li>
+<li><em>only variables that appear in all tables</em> will output an intersection of columns from all input tables
+Check the <em>Treat variables with the same name as the same variable, even if they are computed using different formulae</em> option to consider columns with the same name as the same column in all input tables. Leaving it unchecked will not match by column name but by column identity.</li>
+</ul>
+</li>
+<li>Add the identification of source data sets to the output data set. The option will output an additional column with <em>Feature name</em> and a given type, defined in the <em>Place</em> option. The default will place source ID as a class variable. The new column will contain the names of the input tables as values.</li>
+<li>If <em>Apply automatically</em> is ticked, changes are communicated automatically. Otherwise, click <em>Apply</em>.</li>
+</ol>
+<p>If one of the tables is connected to the widget as the primary table, the resulting table will contain only the attributes from this table. If there is no primary table, the attributes can be either a union of all attributes that appear in the tables specified as <em>Additional Tables</em>, or their intersection, that is, a list of attributes common to all the connected tables.</p>
+<div class="section" id="example">
+<h2>Example</h2>
+<p>As shown below, the widget can be used for merging data from two separate files. Let's say we have two data sets with the same attributes, one containing instances from the first experiment and the other instances from the second experiment and we wish to join the two data tables together. We use the <strong>Concatenate</strong> widget to merge the data sets by attributes (appending new rows under existing attributes).</p>
+<p>Below, we used a modified <em>Zoo</em> data set. In the <a class="reference external" href="http://file.biolab.si/datasets/zoo-first.tab" target="_blank">first</a> <a class="reference internal" href="file.html"><span class="doc">File</span></a> widget, we loaded only the animals beginning with the letters A and B and in the <a class="reference external" href="http://file.biolab.si/datasets/zoo-second.tab" target="_blank">second</a> one only the animals beginning with the letter C. Upon concatenation, we observe the new data in the <a class="reference internal" href="datatable.html"><span class="doc">Data Table</span></a> widget, where we see the complete table with animals from A to C.</p>
+<p><img alt="../../_images/Concatenate-Example.png" src="../../_images/Concatenate-Example.png" /></p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/data/concatenate.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
