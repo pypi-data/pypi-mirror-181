@@ -1,0 +1,11 @@
+tensor_parallel/__init__.py,sha256=0LDKEEkO6bX6JsRP81_ZykArtEknnJcbrI_WbSPzjTY,246
+tensor_parallel/communications.py,sha256=Cov2JQNfpCiFGBDu25XSDV6cjVbHkmgB1L_Fwn0DEUw,6123
+tensor_parallel/cross_device_ops.py,sha256=XaQhk8xaFWMYPmMYrYl1A7xo7LluSHzkynFxca3Em5k,3865
+tensor_parallel/slicer_wrapper.py,sha256=UJESfjpaJkhHoIihOWI7fCBQG73bm8zaVC-jQwrOgR4,13049
+tensor_parallel/tensor_parallel.py,sha256=gk0_-0J66m7QJB-U5bAGt0YLsM2HU3uDTkU0QL-ObQ8,6969
+tensor_parallel/utils.py,sha256=uo2JirjrlVvylYz3kqu0z8pmSn6BXpKuIDJeO9fC5Mo,2714
+tensor_parallel-1.0.17.dist-info/LICENCE,sha256=2bm9uFabQZ3Ykb_SaSU_uUbAj2-htc6WJQmS_65qD00,1073
+tensor_parallel-1.0.17.dist-info/METADATA,sha256=U_-YfMF7q_I7RHo5wDJNuN5YV4OhxjoipbuIY0oYf6Y,3405
+tensor_parallel-1.0.17.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+tensor_parallel-1.0.17.dist-info/top_level.txt,sha256=J9SOeFA9wTUrq7bl4bdYhKXsU6l7tbDyXzeLgUCZ8mw,16
+tensor_parallel-1.0.17.dist-info/RECORD,,
