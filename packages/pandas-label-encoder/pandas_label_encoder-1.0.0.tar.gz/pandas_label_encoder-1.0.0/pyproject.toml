@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "pandas-label-encoder"
+version = "1.0.0"
+description = "Label encoder backed by pandas"
+license = "MIT"
+authors = ["NOPDANAI DEJVORAKUL <b.intm@hotmail.com>"]
+readme = "README.md"
+packages = [{include = "pandas_label_encoder"}]
+homepage = "https://github.com/benzerer/pandas-label-encoder"
+repository = "https://github.com/benzerer/pandas-label-encoder"
+documentation = "https://github.com/benzerer/pandas-label-encoder"
+keywords = ["pandas", "label-encoder", "label-encoding", "label", "encoding", "encoder"]
+classifiers = [
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/benzerer/pandas-label-encoder/issues"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+numpy = "1.23.2"
+pandas = "1.5.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
