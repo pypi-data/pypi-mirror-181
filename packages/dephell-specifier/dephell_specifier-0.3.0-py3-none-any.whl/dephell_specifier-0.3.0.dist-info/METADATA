@@ -1,0 +1,76 @@
+Metadata-Version: 2.1
+Name: dephell-specifier
+Version: 0.3.0
+Summary: A package to work with version specifiers.
+Keywords: dephell,packaging,versioning,semver,version,maven
+Author-email: Gram <git@orsinium.dev>
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: System :: Installation/Setup
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: Unix
+Requires-Dist: packaging
+Requires-Dist: flake8 ; extra == "lint"
+Requires-Dist: flake8-bugbear ; extra == "lint"
+Requires-Dist: isort ; extra == "lint"
+Requires-Dist: mypy ; extra == "lint"
+Requires-Dist: unify ; extra == "lint"
+Requires-Dist: pytest ; extra == "test"
+Provides-Extra: lint
+Provides-Extra: test
+
+## Dephell Specifier
+
+[![travis](https://travis-ci.org/dephell/dephell_specifier.svg?branch=master)](https://travis-ci.org/dephell/dephell_specifier)
+[![MIT License](https://img.shields.io/pypi/l/dephell-specifier.svg)](https://github.com/dephell/dephell_specifier/blob/master/LICENSE)
+
+Work with version specifiers.
+
+Supported specifiers:
+
++ [PEP-440](https://www.python.org/dev/peps/pep-0440/).
++ [NPM SemVer](https://github.com/npm/node-semver).
++ [Maven](http://maven.apache.org/enforcer/enforcer-rules/versionRanges.html).
++ [RubyGems](https://guides.rubygems.org/patterns/)
+
+## Installation
+
+Install from [PyPI](https://pypi.org/project/dephell-specifier/):
+
+```bash
+python3 -m pip install --user dephell_specifier
+```
+
+## Usage
+
+```python
+from dephell_specifier import RangeSpecifier
+
+'3.4' in RangeSpecifier('*')
+# True
+
+'3.4' in RangeSpecifier('<=2.7')
+# False
+
+'3.4' in RangeSpecifier('>2.7')
+# True
+
+'3.4' in RangeSpecifier('>2.7,<=3.4')
+# True
+
+'3.4' in RangeSpecifier('<2.7 || >=3.4')
+# True
+```
+
