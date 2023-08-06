@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "tickerdax"
+version = "0.0.26"
+description = "A python client for tickerdax.com with a built-in caching system."
+authors = ["tickerdax.com <info@tickerdax.com>"]
+readme = "README.md"
+repository = "https://github.com/tickerdax/tickerdax-client"
+#documentation =
+license = "MIT"
+packages = [
+    {include = "tickerdax"}
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+
+[tool.poetry.scripts]
+tickerdax = "tickerdax.cli:app"
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/tickerdax/tickerdax-client/issues"
+
+[tool.poetry.dependencies]
+python = ">=3.7,<4.0.0"
+typer = {extras = ["all"], version = "^0.7.0"}
+tomlkit = "^0.11.6"
+redis = "^4.4.0"
+docker = "^6.0.1"
+fastapi = "^0.88.0"
+uvicorn = "^0.20.0"
+pyyaml = "^6.0"
+schema = "^0.7.5"
+websockets = "^10.4"
+art = "^5.8"
+python-dotenv = "^0.21.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
