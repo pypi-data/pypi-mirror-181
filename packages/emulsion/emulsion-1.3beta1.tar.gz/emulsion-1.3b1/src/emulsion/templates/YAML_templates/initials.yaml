@@ -1,0 +1,13 @@
+# <level_name>:
+#   - prototype: <prototype_name>
+#     amount: <amount>
+
+
+initial_conditions:
+  population:
+    - prototype: indivA
+      amount: 1
+    - prototype: indivB
+      amount: 1
+    - prototype: indivC
+      amount: 1
