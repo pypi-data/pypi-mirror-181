@@ -1,0 +1,27 @@
+# Include the common defaults
+from: defaults
+
+provider:
+    type: local
+
+    # We need to use Cloud Simulator for the best local cluster management
+    # You can launch multiple clusters on the same set of machines, and the cloud simulator
+    # will assign individual nodes to clusters as needed.
+    # cloud_simulator_address: "<host>:<port>"
+
+# How will authenticate with newly launched nodes.
+auth:
+    ssh_user: ubuntu
+    # Optional if an ssh private key is necessary to ssh to the cluster.
+    # ssh_private_key: ~/.ssh/id_rsa
+
+available_node_types:
+    head.default:
+        node_config:
+            instance_type: default.instance.type
+    worker.default:
+        node_config:
+            instance_type: default.instance.type
+
+# Specify the node type of the head node (as configured above).
+head_node_type: head.default
