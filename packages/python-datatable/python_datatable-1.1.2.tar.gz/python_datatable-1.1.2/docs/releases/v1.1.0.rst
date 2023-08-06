@@ -1,0 +1,212 @@
+
+.. changelog::
+    :version: 1.1.0
+
+    Frame
+    -----
+    .. current-class:: datatable.Frame
+
+    -[enh] Frames with columns of type :attr:`obj64 <dt.Type.obj64>` can now
+        be saved into CSV. The values in the object column will be stringified
+        upon saving. [#3064]
+
+    -[enh] :meth:`.replace()` now supports numpy scalars. [#3164]
+
+    -[enh] :meth:`.to_numpy()` now has an option to control memory layout
+        of the resulting numpy array. [#3275]
+
+    -[enh] column types returned by the method :meth:`.sum()` are now consistent with
+        the ones returned by the function :func:`dt.sum()`, i.e. :attr:`int64 <dt.Type.int64>`
+        for void, boolean and integer columns; :attr:`float32 <dt.Type.float32>`
+        for :attr:`float32 <dt.Type.float32>` columns; :attr:`float64 <dt.Type.float64>`
+        for :attr:`float64 <dt.Type.float64>` columns. [#2904]
+
+    -[enh] :meth:`.to_csv()` now has an option ``sep`` to control
+        the field separator. [#3337]
+
+    -[fix] Void columns can now be used with :func:`dt.sort()` and :func:`dt.by()`.
+        In addition, datatable will now skip sorting any column that it knows contains
+        constant values. [#3088] [#3104] [#3108] [#3109]
+
+    -[fix] Saving a frame with a :attr:`void <dt.Type.void>` column into Jay
+        no longer leads to a crash. [#3074] [#3099] [#3246]
+
+    -[fix] Joining with void columns now works correctly. [#3094]
+
+    -[fix] :func:`dt.sum()` now works correctly when applied to the same
+        column as :func:`dt.by()`. [#3110]
+
+    -[fix] Fixed a crash which could have occurred when sorting very long
+        identical or nearly identical strings. [#3134]
+
+    -[fix] It is now possible to sort all columns according to boolean flags in the
+        reverse list [#3168]
+
+    -[fix] Fixed support for :attr:`.max_column_width <datatable.options.display.max_column_width>`
+        option when rendering frames in Jupyter notebooks. [#3160]
+
+    -[fix] Fixed a crash which in rare situations happened in :meth:`.to_csv()` due to
+        multithreading. [#3176]
+
+    -[fix] Fixed a crash in :meth:`.to_pandas()` when called on keyed frames. [#3224]
+
+    -[fix] Fixed :meth:`.to_csv()` to quote missing values when
+        `quoting="all"` is specified. [#3340]
+
+    -[fix] Fixed groupby behaviour on columns that contain missing values. [#3331]
+
+    -[api] Converting a column of :attr:`void <dt.Type.void>` type into pandas
+        now produces a pandas ``object`` column filled with ``None``s. Converting
+        such column back into datatable produces a ``void`` column again. [#3063]
+
+    -[api] When creating Frame from a list of values, a floating-point ``nan``
+        value will now be treated as ``None``. In particular, ``nan``s can now
+        be safely mixed with values of other types, and a list consisting of
+        only ``nan``s will turn into a Column of type
+        :attr:`void <dt.Type.void>`. [#3083]
+
+    -[api] Converting string or object columns to numpy no longer produces a
+        masked array. Instead, we create a regular ``object`` array, filled
+        with ``None``s in place of NAs. Similarly, converting a string or object
+        column to pandas creates a Series with ``None`` values (instead of
+        ``nan``s as before) in place of NAs. [#3083]
+
+
+    FExpr
+    -----
+    .. current-class:: datatable.FExpr
+
+    -[new] Class :class:`dt.FExpr` now has method :meth:`.as_type()`,
+      which behaves exactly as the equivalent base level function :func:`dt.as_type()`.
+
+    -[new] Added functions :func:`dt.rowargmin()` and :func:`dt.rowargmin()` to find the
+      index of the largest and smallest values among columns of each row. [#2998]
+
+    -[new] Added reducer function :func:`dt.prod()` and the corresponding :meth:`.prod()`
+      method to calculate product of values in columns. [#3140]
+
+    -[new] Added function :func:`dt.cumsum()`, as well as :meth:`.cumsum()` method,
+      to calculate the cumulative sum of values per column. [#3279]
+
+    -[new] Added functions :func:`dt.cummin()` and :func:`dt.cummax()`, as well as
+      the corresponding :meth:`.cummin()` and :meth:`.cummax()` methods,
+      to calculate the cumulative minimum and maximum of values per column. [#3279]
+
+    -[new] Added function :func:`dt.cumprod()`, as well as :meth:`.cumprod()` method,
+      to calculate the cumulative product of values per column. [#3279]
+
+    -[new] Added function :func:`dt.cumcount()` and :func:`dt.ngroup()`,
+      to return the row number and group number respectively. [#3279]
+
+    -[new] Added reducer functions :func:`dt.countna()` and :func:`dt.nunique()`. [#2999]
+
+    -[new] Class :class:`dt.FExpr` now has method :meth:`.nunique()`,
+      which behaves exactly as the equivalent base level function :func:`dt.nunique()`.
+
+    -[new] Class :class:`dt.FExpr` now has method :meth:`.countna()`,
+      which behaves exactly as the equivalent base level function :func:`dt.countna()`.
+
+    -[new] Added function :func:`dt.fillna()`, as well as :meth:`.fillna()` method,
+      to impute missing values. [#3279]
+
+    -[new] Class :class:`dt.FExpr` now has method :meth:`.alias()`,
+      to assign new names to the selected columns. [#2684]
+
+    -[new] Added function :func:`dt.categories()`, as well as the corresponding
+      :meth:`.categories()` method, to retrieve categories
+      for categorical columns. [#3367]
+
+    -[new] Added function :func:`dt.codes()`, as well as the corresponding
+      :meth:`.codes()` method, to retrieve codes for categorical columns. [#3371]
+
+    -[enh] Function :func:`dt.re.match()` now supports case insensitive matching. [#3216]
+
+    -[enh] Function :func:`dt.qcut()` can now be used in a groupby context. [#3165]
+
+    -[fix] :func:`dt.qcut()` won't segfault anymore when used as an i-filter. [#3061]
+
+    -[fix] Fixed selection of ``time64`` columns by ``ltype``. [#3251]
+
+    -[fix] Fixed selection of ``time64`` columns by python class name. [#3253]
+
+    -[fix] Fixed :func:`dt.shift()` behaviour on grouped columns. [#3269] [#3272]
+
+    -[fix] Reducers and row-wise functions now support :attr:`void <dt.Type.void>`
+       columns. [#3284]
+
+
+    fread
+    -----
+    .. current-module:: datatable
+
+    -[enh] When reading Excel files, datetime fields will now be converted into
+        ``time64`` columns in the resulting frame.
+
+    -[enh] When reading Excel files, forward slash, backslash,
+        and their mix are supported as separators for specifying subpath. [#3221]
+
+    -[enh] :func:`fread()` now supports reading from public S3 buckets,
+        when the source has a format of ``s3://bucket-name/key-name``. [#3302]
+
+    -[enh] Header detection heuristics has been improved in the case when
+        some of the column names are missing. [#3363]
+
+    -[fix] :func:`fread()` will no longer fail while reading mostly empty
+        files. [#3055]
+
+    -[fix] :func:`fread()` will no longer fail when reading excel files on
+        Windows. [#3178]
+
+    -[fix] Parameter ``tempdir`` is now honored for memory limited :func:`fread()`
+        operation. [#3244]
+
+    -[api] Parameter ``sep=`` in :func:`fread()` will no longer accept values
+        ``'-'``, ``'+'``, or ``'.'``. Previously, these values were allowed but
+        they produced errors during parsing. [#3065]
+
+
+    Models
+    ------
+
+    -[fix] Fixed a bug in the :class:`LinearModel <dt.models.LinearModel>`
+        that in some cases resulted in the gradient and model coefficients
+        blow up. [#3234]
+
+    -[fix] Fixed undefined behaviour when :class:`LinearModel <dt.models.LinearModel>`
+        predicted on frames with missing values. [#3260]
+
+
+    General
+    -------
+
+    -[api] Datatable no longer supports Python 3.6, because Python 3.6 itself
+      has reached its end of life on 2021-12-23 and will no longer be
+      supported. If you are still using Python 3.6, please consider upgrading.
+      [#3376]
+
+    -[new] Added properties :attr:`.is_array <dt.Type.is_array>`,
+        :attr:`.is_boolean <dt.Type.is_boolean>`,
+        :attr:`.is_categorical <dt.Type.is_categorical>`,
+        :attr:`.is_compound <dt.Type.is_compound>`,
+        :attr:`.is_float <dt.Type.is_float>`,
+        :attr:`.is_integer <dt.Type.is_integer>`,
+        :attr:`.is_numeric <dt.Type.is_numeric>`,
+        :attr:`.is_object <dt.Type.is_object>`,
+        :attr:`.is_string <dt.Type.is_string>`,
+        :attr:`.is_temporal <dt.Type.is_temporal>`,
+        :attr:`.is_void <dt.Type.is_void>` to class :class:`dt.Type`. [#3101] [#3149]
+
+    -[enh] Added support for macOS Big Sur. [#3175]
+
+    -[enh] Added support for Python `3.10`. [#3210]
+
+    -[enh] Added support for Python `3.11`. [#3374]
+
+    -[enh] Parameter ``force=True`` in function :func:`rbind()` (or method
+        :meth:`dt.Frame.rbind()`) will now allow combining columns
+        of incompatible types. [#3062]
+
+    -[enh] datatable's thread pool can now be used to parallelize external C++ applications
+        and will have no specific datatable dependencies, when the code is built with
+        ``DT_DISABLE`` variable being defined. [#3306]
+
