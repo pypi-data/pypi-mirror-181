@@ -1,0 +1,59 @@
+CreateForm:
+	'create' 'form' formName=ID '(' dataSpecList*=DataSpec[','] ')' |
+	'create' 'form' formName=ID 'using' ID '(' dataSpecList*=DataSpec[','] ')'
+;
+
+DataSpec:
+	DataDefinition |
+	DataReference
+;
+        
+DataDefinition:
+	dataName=ID dataType=DataType notNull?='not null' unique?='unique'
+;
+
+DataType:
+	'NUMBER' | 'BOOLEAN' | 'TEXT'
+;
+
+DataReference:
+	dataName=ID 'references' refCardinality=RefCardinality? refPath=RefPath refConstraint=RefConstraint?
+;
+
+RefCardinality:
+	cardinality1=INT '..' cardinality2='many' |
+	cardinality1=INT '..' cardinality2=INT |
+	cardinality1=INT
+;
+
+RefPath:
+	IdDotDataPath | SimpleId 
+;
+
+DataPath:
+	IdDotDataPath | DataLabelList | All | SimpleId
+;
+
+IdDotDataPath:
+	id=ID '.' dataPath=DataPath
+;
+
+DataLabelList:
+	'(' dataLabelList+=DataLabel[','] ')'
+;
+
+All:
+	'*'
+;
+
+SimpleId:
+	ID
+;
+
+DataLabel:
+	ID
+;
+
+RefConstraint:
+	'UNIQUE' | 'TOTALLY UNIQUE'
+;

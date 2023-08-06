@@ -1,0 +1,25 @@
+[build-system]
+requires = ["hatchling", "textx", "enums.py"]
+build-backend = "hatchling.build"
+
+[tool.setuptools.packages.find]
+namespaces = false  # true by default
+
+[project]
+name = "fqllang"
+version = "0.8.0"
+authors = [
+  { name="Leandro Hernandez", email="leandro.nunez1457@gmail.com" },
+]
+description = "Fql Transpiler"
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = [
+	"enums.py",
+	"textx",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]

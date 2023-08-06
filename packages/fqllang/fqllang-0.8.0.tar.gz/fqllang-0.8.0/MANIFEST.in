@@ -1,0 +1,3 @@
+recursive-include fqllang config.json
+recursive-include fqllang/dsl fqlgrammar.tx
+recursive-include fqllang/dsl/grammar *.tx

@@ -1,0 +1,11 @@
+import grammar.createForm
+import grammar.createNew
+import grammar.getCase
+import grammar.showForms
+
+FqlStatement:
+	CreateForm |
+	CreateNew |
+	GetCase |
+	ShowForms
+;
