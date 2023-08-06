@@ -1,0 +1,1 @@
+#this is a function to calculate standard line
