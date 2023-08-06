@@ -1,0 +1,82 @@
+Metadata-Version: 2.1
+Name: qt-command-palette
+Version: 0.0.3
+Summary: A command palette widget for Qt applications
+Project-URL: Documentation, https://github.com/unknown/qt-command-palette#readme
+Project-URL: Issues, https://github.com/unknown/qt-command-palette/issues
+Project-URL: Source, https://github.com/unknown/qt-command-palette
+Author-email: Hanjin Liu <hanjin.liu@bs.s.u-tokyo.ac.jp>
+License: MIT License
+        
+        Copyright (c) 2022-present Hanjin Liu <hanjin.liu@bs.s.u-tokyo.ac.jp>
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+License-File: LICENSE.txt
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.8
+Requires-Dist: qtpy>=2.0.0
+Description-Content-Type: text/markdown
+
+# qt-command-palette
+
+[![PyPI - Version](https://img.shields.io/pypi/v/qt-command-palette.svg)](https://pypi.org/project/qt-command-palette)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/qt-command-palette.svg)](https://pypi.org/project/qt-command-palette)
+
+A command palette widget for Qt applications.
+This module provides a Pythonic way to register command actions to any Qt widgets.
+
+![](example.gif)
+
+## Installation
+
+```console
+pip install qt-command-palette
+```
+
+## Usage
+
+- Register functions using `register` function.
+
+  ```python
+  from qt_command_palette import get_palette
+
+  # create command palette instance (with optional app name as an argument)
+  palette = get_palette("myapp")
+
+  # prepare a command group
+  group = palette("Command group 1")
+
+  # This function will be shown as "Command group 1: run_something"
+  @group.register
+  def run_something():
+      ...
+
+  # This function will be shown as "Command group 1: Run some function"
+  @group.register(desc="Run some function")
+  def run_something():
+      ...
+
+  ```
+
+- Install command palette into Qt widget.
+
+  ```python
+  # instantiate your own widget
+  qwidget = MyWidget()
+
+  # install command palette, with optional shortcut
+  palette.install(qwidget, "Ctrl+Shift+P")
+
+  qwidget.show()
+  ```
