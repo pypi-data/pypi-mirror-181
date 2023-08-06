@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+module_env/__init__.py
+module_env/module_env.py
+module_env/py.typed
+module_env.egg-info/PKG-INFO
+module_env.egg-info/SOURCES.txt
+module_env.egg-info/dependency_links.txt
+module_env.egg-info/top_level.txt
