@@ -1,0 +1,71 @@
+Metadata-Version: 2.1
+Name: idnumbers
+Version: 0.0.0b1
+Summary: id numbers verification toolkits
+Home-page: https://github.com/microdataxyz/idnumbers
+Author: MicrodataXYZ
+Author-email: microdataxyz@outlook.com
+License: MIT
+Project-URL: Source, https://github.com/microdataxyz/idnumbers
+Project-URL: Tracker, https://github.com/microdataxyz/idnumbers/issues
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
+Classifier: Typing :: Typed
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# idnumbers
+National ID verification libs
+
+This project in early phase. We might change the interface. Please wait our changelogs for more information.
+
+## Verify National IDs
+
+All modules under nationalid package support the `validate` function.
+
+```python
+from idnumbers.nationalid import AUS, NGA, ZAF
+
+# verify AUS tax file number (with checksum code)
+AUS.TaxFileNumber.validate('32547689')
+
+# verify AUS driver license number
+AUS.DriverLicenseNumber.validate('12 345 678')
+
+# verify AUS Medicare number (with checksum code)
+AUS.MedicareNumber.validate('2123 45670 1')
+
+# verify NGA national id number
+NGA.NationalID.validate('12345678901')
+
+# verify ZAF nation id number
+ZAF.NationalID.validate('7605300675088')
+```
+
+## Parse National IDs
+
+Some modules whose `METADATA.parsable == true` support the `parse` function. It unpacks the detail data from the
+national id.
+
+```python
+from idnumbers.nationalid import ZAF
+
+assert ZAF.NationalID.METADATA.parsable == True
+# parse the national id
+id_data = ZAF.NationalID.parse('7605300675088')
+# access the date of birth, gender, and citizenship
+print(id_data['yyyymmdd'])
+print(id_data['gender'])
+print(id_data['citizenship'])
+```

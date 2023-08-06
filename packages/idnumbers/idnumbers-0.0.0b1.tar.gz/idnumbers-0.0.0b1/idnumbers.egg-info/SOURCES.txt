@@ -1,0 +1,16 @@
+LICENSE
+README.md
+setup.py
+idnumbers/__init__.py
+idnumbers.egg-info/PKG-INFO
+idnumbers.egg-info/SOURCES.txt
+idnumbers.egg-info/dependency_links.txt
+idnumbers.egg-info/top_level.txt
+idnumbers/nationalid/AUS.py
+idnumbers/nationalid/NGA.py
+idnumbers/nationalid/ZAF.py
+idnumbers/nationalid/__init__.py
+idnumbers/nationalid/constant.py
+idnumbers/nationalid/test_AUS.py
+idnumbers/nationalid/test_NGA.py
+idnumbers/nationalid/test_ZAF.py
