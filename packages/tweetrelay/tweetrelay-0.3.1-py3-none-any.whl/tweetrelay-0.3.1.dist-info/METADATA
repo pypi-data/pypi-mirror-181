@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: tweetrelay
+Version: 0.3.1
+Summary: A framework for relaying Twitter streams via server-sent events
+Author-email: Timothy Bautista <acarasimon96@pm.me>
+Project-URL: Homepage, https://github.com/acarasimon96/TweetRelay
+Project-URL: Bug Tracker, https://github.com/acarasimon96/TweetRelay/issues
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python 
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: starlette (>=0.22.0<2)
+Requires-Dist: sse-starlette
+Requires-Dist: tweepy[async] (>=4.10<5)
+Requires-Dist: pydantic
+Requires-Dist: pymitter
+Requires-Dist: python-dotenv
+
+# TweetRelay
+
+A framework for building Server-Sent Event (SSE) servers for relaying tweets.
+
+Uses Twitter API v2 via Tweepy and Starlette
+
+# License
+
+&copy; 2022 Timothy Bautista (acarasimon96). MIT License
