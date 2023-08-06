@@ -1,0 +1,17 @@
+.Rhistory
+.Rproj.user/
+.DS_Store
+*~
+*.pyc
+andrebalg/cosine_similarity/venv*
+.ipynb_checkpoints
+.Rproj.user
+eujinlok/MLOps-Demo-Certification/myenv/
+creds.yml
+# PyCharm/IntelliJ IDE config
+.idea/
+*.csv
+site_forecasting/enrollment_scenarios/.env
+site_forecasting/enrollment_scenarios/*.ipynb
+.vscode/settings.json
+*.Rproj
