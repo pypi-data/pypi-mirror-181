@@ -1,0 +1,10 @@
+numpy
+PyParsing~=3.0
+quantities==0.13.0
+regex
+
+[lint]
+black==22.6.0
+flake8==4.0.1
+isort==5.10.1
+mypy==0.971
