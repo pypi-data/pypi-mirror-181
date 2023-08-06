@@ -1,0 +1,14 @@
+README.md
+setup.cfg
+setup.py
+dcloader/__init__.py
+dcloader/loader.py
+dcloader/source.py
+dcloader/utils.py
+dcloader.egg-info/PKG-INFO
+dcloader.egg-info/SOURCES.txt
+dcloader.egg-info/dependency_links.txt
+dcloader.egg-info/requires.txt
+dcloader.egg-info/top_level.txt
+test/test_loader.py
+test/test_source.py
