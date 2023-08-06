@@ -1,0 +1,16 @@
+exclude *.toml  # project config
+exclude requirements.txt
+exclude __pycache__
+include .actions/setup_tools.py
+include .actions/assistant.py
+include *.cff  # citation info
+recursive-exclude src *.md
+recursive-exclude requirements *.txt
+recursive-include requirements/lite *.txt
+recursive-include src/lightning_lite *.md
+recursive-include src/lightning_app/ui *
+recursive-exclude src *.md
+recursive-exclude requirements *.txt
+recursive-include requirements/lite *.txt
+recursive-include src/lightning_lite *.md
+recursive-include src/lightning_app/ui *
