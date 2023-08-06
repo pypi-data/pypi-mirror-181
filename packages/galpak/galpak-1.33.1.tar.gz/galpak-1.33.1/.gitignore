@@ -1,0 +1,32 @@
+# Intellij
+.idea
+
+# KDE
+.directory
+
+# Python
+*.pyc
+*__pycache__*
+*pymulti*
+
+# SVN
+.svn
+
+# Kate
+*~
+
+# Debug
+debug
+data/debug
+
+# Build
+web/build
+doc/build
+
+# DOIT
+.doit.db
+
+# setuptools
+dist/
+*.egg-info
+src/*.egg-info

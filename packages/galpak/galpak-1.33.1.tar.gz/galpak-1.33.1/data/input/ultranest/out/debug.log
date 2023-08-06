@@ -1,0 +1,10 @@
+17:23:47 [ultranest] [DEBUG] ReactiveNestedSampler: dims=11+0, resume=False, log_dir=./ultranest/out, backend=hdf5, vectorized=False, nbootstraps=30, ndraw=128..65536
+17:23:47 [ultranest] [INFO] Sampling 200 live points from prior ...
+17:23:49 [ultranest] [DEBUG] run_iter dlogz=0.5, dKL=0.5, frac_remain=0.01, Lepsilon=0.0010, min_ess=1000
+17:23:49 [ultranest] [DEBUG] max_iters=-1, max_ncalls=400000, max_num_improvement_loops=-1, min_num_live_points=200, cluster_num_live_points=40
+17:23:49 [ultranest] [DEBUG] minimal_widths_sequence: [(-inf, 200.0), (inf, 200.0)]
+00:32:15 [ultranest] [DEBUG] ReactiveNestedSampler: dims=11+0, resume=False, log_dir=./ultranest/out, backend=hdf5, vectorized=False, nbootstraps=30, ndraw=128..65536
+00:32:15 [ultranest] [INFO] Sampling 200 live points from prior ...
+00:32:17 [ultranest] [DEBUG] run_iter dlogz=0.5, dKL=0.5, frac_remain=0.01, Lepsilon=0.0010, min_ess=1000
+00:32:17 [ultranest] [DEBUG] max_iters=-1, max_ncalls=400000, max_num_improvement_loops=-1, min_num_live_points=200, cluster_num_live_points=40
+00:32:17 [ultranest] [DEBUG] minimal_widths_sequence: [(-inf, 200.0), (inf, 200.0)]

@@ -1,0 +1,20 @@
+include README.md
+include CHANGELOG
+include INSTALL
+include LICENSE
+
+graft data/input
+graft doc
+graft lib
+graft tests/suite
+
+prune doc/build
+prune src/galpak.egg-info
+prune slides
+prune web
+prune build
+prune build_dev
+prune dist
+prune htmlcov
+
+global-exclude *.py[cod] __pycache__ *.so .directory .git .tox .idea .eggs data/debug/*

@@ -1,0 +1,12 @@
+
+psf = Gaussian PSF :
+  fwhm         = 0.7 "
+  pa           = 0.0 °
+  ba           = 1.0
+lsf = Gaussian LSF : fwhm = 2.675  Angstrom 
+
+cube_xy_step   = 0.2 "
+cube_z_step    = 1.25 Angstrom
+
+cube z_step_kms = 57.1297989031 km/s  at 6564.0 Angstrom
+

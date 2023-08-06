@@ -1,0 +1,36 @@
+
+INSTALL
+=======
+
+Either
+-----
+```
+pip install galpak
+```
+
+Or
+--
+
+download file from website and untar
+
+tar xzvf galpak_1.x.y.gz
+
+finished by perform a system installation
+```
+cd galpak/
+sudo python setup.py install
+```
+
+Old Fashion
+-----------
+add the parent directory to PYTHONPATH
+
+
+DEVELOPER INSTALL
+-----------------
+
+You'll need some extra python packages if you're a `galpak` developer :
+
+```
+pip install --user doit sphinx flask frozen-flask
+```
