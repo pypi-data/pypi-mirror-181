@@ -1,0 +1,124 @@
+# Configuration file for the ExecFlowSDK Python package
+#
+# This file contains all binary (wheel) build information for the flit build system.
+# For more information about flit see: https://flit.pypa.io/en/latest/
+#
+# This information is used when installing the ExecFlowSDK package via the Python
+# package manager `pip`.
+#
+# Finally, there are sections in this file for configuration of different developer
+# tools, like mypy, pylint, and the testing framework pytest.
+
+[build-system]
+requires = ["flit_core >=3.4,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "ExecFlowSDK"
+authors = [
+    {name = "SINTEF", email = "Team4.0@SINTEF.no"},
+]
+description = "OpenModel Wrapper Software Development Kit (SDK)."
+readme = "README.md"
+license = {file = "LICENSE"}
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    # "Framework :: OTE-API",
+    "Framework :: AiiDA",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+]
+keywords = ["AiiDA", "OTE", "OTEAPI"]
+requires-python = "~=3.9"
+dynamic = ["version"]
+
+dependencies = [
+    "aiida-core >=2.1.2,<3",
+    "aiida-pseudo ~=0.8.0",
+    "oteapi-core ~=0.2.1",
+]
+
+[project.optional-dependencies]
+docs = [
+    "myst-nb ~=0.17.1",
+    "Sphinx >=4.5.0,<6",
+    "sphinx-autoapi ~=2.0",
+    "sphinx-autobuild ==2021.3.14",
+    "sphinx-book-theme ~=0.3.3",
+    "sphinx-copybutton ~=0.5.1",
+    "sphinx-design ~=0.3.0",
+    "sphinxcontrib-plantuml ~=0.24.1",
+]
+testing = [
+    "pgtest ~=1.3,>=1.3.1",
+    "pre-commit ~=2.20",
+    "pylint ~=2.15",
+    "pytest ~=7.2",
+    "pytest-cov ~=4.0",
+]
+dev = [
+    "invoke ~=1.7",
+    "myst-nb ~=0.17.1",
+    "Sphinx >=4.5.0,<6",
+    "sphinx-autoapi ~=2.0",
+    "sphinx-autobuild ==2021.3.14",
+    "sphinx-book-theme ~=0.3.3",
+    "sphinx-copybutton ~=0.5.1",
+    "sphinx-design ~=0.3.0",
+    "sphinxcontrib-plantuml ~=0.24.1",
+    "pgtest ~=1.3,>=1.3.1",
+    "pre-commit ~=2.20",
+    "pylint ~=2.15",
+    "pytest ~=7.2",
+    "pytest-cov ~=4.0",
+]
+
+[project.urls]
+Home = "https://github.com/H2020-OpenModel/WP3-WrapperSDK"
+Documentation = "https://H2020-OpenModel.github.io/WP3-WrapperSDK"
+Source = "https://github.com/H2020-OpenModel/WP3-WrapperSDK"
+"Issue Tracker" = "https://github.com/H2020-OpenModel/WP3-WrapperSDK/issues"
+Changelog = "https://github.com/H2020-OpenModel/WP3-WrapperSDK/blob/main/CHANGELOG.md"
+Package = "https://pypi.org/project/ExecFlowSDK"
+
+[project.entry-points."aiida.data"]
+"execflow.otepipeline" = "execflow.wrapper.data.declarative_pipeline:OTEPipelineData"
+"execflow.otefilterconfig" = "execflow.wrapper.data.filterconfig:FilterConfigData"
+"execflow.oteresourceconfig" = "execflow.wrapper.data.resourceconfig:ResourceConfigData"
+"execflow.otefunctionconfig" = "execflow.wrapper.data.functionconfig:FunctionConfigData"
+"execflow.otemappingconfig" = "execflow.wrapper.data.mappingconfig:MappingConfigData"
+"execflow.otetransformationconfig" = "execflow.wrapper.data.transformationconfig:TransformationConfigData"
+
+[tool.flit.module]
+name = "execflow"
+
+[tool.mypy]
+python_version = "3.9"
+ignore_missing_imports = true
+scripts_are_modules = true
+warn_unused_configs = true
+show_error_codes = true
+allow_redefinition = true
+plugins = ["pydantic.mypy"]
+
+[tool.pylint.format]
+max-line-length = 88
+max-args = 10
+disable = [
+    # "duplicate-code",
+    # "no-name-in-module",
+    # "too-few-public-methods",
+    # "no-self-argument"
+]
+
+[tool.pytest.ini_options]
+minversion = "7.2"
+addopts = "-rs --cov=execflow --cov-report=term --durations=10"
+filterwarnings = [
+    "ignore:.*imp module.*:DeprecationWarning",
+    # "ignore:.*_yaml extension module.*:DeprecationWarning"
+]
