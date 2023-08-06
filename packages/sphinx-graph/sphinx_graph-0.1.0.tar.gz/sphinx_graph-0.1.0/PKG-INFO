@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: sphinx-graph
+Version: 0.1.0
+Summary: 'Sphinx-Graph' is a plain-text, VCS-friendly, requirements management tool.
+License: MIT
+Author: Daniel Eades
+Author-email: danieleades@hotmail.com
+Requires-Python: >=3.8.1,<4.0.0
+Classifier: Development Status :: 4 - Beta
+Classifier: Framework :: Sphinx :: Extension
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Manufacturing
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Documentation
+Classifier: Topic :: Documentation :: Sphinx
+Classifier: Topic :: Utilities
+Requires-Dist: networkx (>=2.8.8,<3.0.0)
+Requires-Dist: sphinx (>=5.3.0,<6.0.0)
