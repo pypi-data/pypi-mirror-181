@@ -1,0 +1,10 @@
+six
+
+[:python_version < "3"]
+futures
+
+[:python_version < "3.3"]
+monotonic
+
+[prometheus]
+prometheus-client
