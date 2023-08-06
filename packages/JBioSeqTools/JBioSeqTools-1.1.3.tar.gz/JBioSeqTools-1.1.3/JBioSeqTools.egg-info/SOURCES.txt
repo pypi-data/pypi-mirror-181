@@ -1,0 +1,17 @@
+LICENSE
+README.md
+setup.py
+JBioSeqTools/__init__.py
+JBioSeqTools.egg-info/PKG-INFO
+JBioSeqTools.egg-info/SOURCES.txt
+JBioSeqTools.egg-info/dependency_links.txt
+JBioSeqTools.egg-info/requires.txt
+JBioSeqTools.egg-info/top_level.txt
+JBioSeqTools/api_elements/__init__.py
+JBioSeqTools/api_elements/api.py
+JBioSeqTools/seq_tools/__init__.py
+JBioSeqTools/seq_tools/seq_tools.py
+JBioSeqTools/vector_build/__init__.py
+JBioSeqTools/vector_build/vector_build.py
+JBioSeqTools/vector_graph/__init__.py
+JBioSeqTools/vector_graph/graph_plot.py
