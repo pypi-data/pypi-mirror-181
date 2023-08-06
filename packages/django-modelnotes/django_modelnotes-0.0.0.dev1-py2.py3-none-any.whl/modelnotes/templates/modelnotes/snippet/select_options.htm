@@ -1,0 +1,12 @@
+{% if option_list %}
+<div class="col-sm-3 col-md-2">
+    <label class="control-label" for="{{ select_id }}"><b>{{ field|title }}:</b></label>
+</div>
+<div class="col-sm-9 col-md-10">
+    <select class="form-control" id="{{ select_id }}" {% if multiple %}multiple="multiple"{% endif %}>
+        {% for option in option_list %}
+        <option value="{{ option.name }}">{{ option.name }}</option>
+        {% endfor %}
+    </select>
+</div>
+{% endif %}

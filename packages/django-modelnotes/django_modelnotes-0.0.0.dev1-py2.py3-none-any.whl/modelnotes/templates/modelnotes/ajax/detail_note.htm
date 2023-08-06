@@ -1,0 +1,49 @@
+<br>
+<div class="container-fluid">
+    <table class="table table-condensed table-bordered table-striped">
+        <col width="20%">
+        <col width="80%">
+        <tbody>
+            <tr>
+                <td><b>Title</b></td>
+                <td>{{ object.title }}</td>
+            </tr>
+            <tr>
+                <td><b>Author</b></td>
+                <td>{{ object.author }}</td>
+            </tr>
+            <tr>
+                <td><b>Content</b></td>
+                <td>{{ object.content }}</td>
+            </tr>
+            <tr>
+                <td><b>Scope</b></td>
+                <td>{{ object.scope }}</td>
+            </tr>
+            <tr>
+                <td><b>Attached To</b></td>
+                <td>{{ object.content_type }}{% if object.object_repr %}: {{ object.object_repr }}{% endif %}</td>
+            </tr>
+            {% if object.groups %}
+            <tr>
+                <td><b>Groups</b></td>
+                <td>{% for group in object.groups.all %}{{ group }}&nbsp; {% endfor %}</td>
+            </tr>
+            {% endif %}
+            {% if object.public_permissions %}
+            <tr>
+                <td><b>Permissions</b></td>
+                <td>{% for permission in object.public_permissions.all %}{{ permission }}&nbsp; {% endfor %}</td>
+            </tr>
+            {% endif %}
+            <tr>
+                <td><b>Created At</b></td>
+                <td>{{ object.created_at }}</td>
+            </tr>
+            <tr>
+                <td><b>Updated At</b></td>
+                <td>{{ object.updated_at }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

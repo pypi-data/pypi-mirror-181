@@ -1,0 +1,66 @@
+<a href="#" title="create note" role="button" data-toggle="tooltip" data-placement="left" style="text-decoration: none"
+   onClick="CreateNote('{% url 'modelnotes:create_note' %}?model={{ row|label }}&id={{ row.id }}', 'Create Note: <small>{{ row }}</small> ', 'Create');">
+    <i class="fas fa-edit text-primary mx-1"></i>
+</a>
+<table class="table table-condensed table-bordered table-striped" data-toggle="table" data-search="true"
+       data-flat="true" data-pagination="true" data-show-pagination-switch="true" data-show-columns="true"
+       data-show-export="true" data-reorderable-columns="true" data-resizable="false" data-export-types="['excel','csv','txt','sql']">
+    <thead>
+        <tr>
+            <th data-field="title" data-sortable="true">Title</th>
+            <th data-field="author" data-sortable="true">Author</th>
+            <th data-field="scope" data-sortable="true">Scope</th>
+            <th data-field="content" data-sortable="true">Content</th>
+            <th data-field="updated_at" data-sortable="true">Updated At</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for row in queryset %}
+        <tr>
+            <td>{{ row.title }}</td>
+            <td>{{ row.author }}</td>
+            <td>{{ row.scope }}</td>
+            <td>{{ row.content|truncatechars:64 }}</td>
+            <td>{{ row.updated_at }}</td>
+            {# actions #}
+            <td>
+                <!-- copy note contents -->
+                  <input type="hidden" id="id_copy_{{ row.id }}" value="{{ row.content }}">
+                  <a href="#" title="view note content" class="cpy" data-clipboard-target="#id_copy_{{ row.id }}" style="text-decoration: none">
+                      <span class="mx-1 hvr-grow"><i class="fas fa-copy"></i></span>
+                  </a>
+
+                <!-- view note -->
+                <a href="#" title="view note details"
+                   onClick="showInfo('{% url "modelnotes:get_note_details" %}', '{{ row.id }}', 'Note: <small><i>{{ row.title }}</i></small>', true);"
+                   role="button" data-bs-toggle="tooltip" data-placement="left" style="text-decoration: none">
+                    <span class="mx-1 hvr-grow"><i class="fa-regular fa-note-sticky"></i></span>
+                </a>
+
+                <!-- view audit log -->
+                <a href="#" title="view audit log"
+                   onClick="showInfo('{% url "modelnotes:get_note_auditlog" %}', '{{ row.id }}', 'Audit Log: <small><i>{{ row.title }}</i></small>', 'xl');"
+                   role="button" data-bs-toggle="tooltip" data-placement="left" style="text-decoration: none">
+                    <span class="mx-1 hvr-grow"><i class="fa fa-history fa-fw mx-1"></i></span>
+                </a>
+
+                <!-- update note -->
+                <a href="#" title="update note" role="button" data-toggle="tooltip" data-placement="left" style="text-decoration: none"
+                   onClick="UpdateNote('{% url 'modelnotes:update_note' %}?id={{ row.id }}', 'Update Note: <small>{{ row.title }}</small> ', '{{ row.title }}', '{{ row.content }}', '{{ row.scope }}', '{% for permission in row.public_permissions.all %}{{ permission }} {% endfor %}', '{% for group in row.groups.all %}{{ group }} {% endfor %}', 'Update');">
+                    <span class="mx-1 hvr-grow"><i class="fas fa-edit text-primary"></i></span>
+                </a>
+
+                <!-- delete note -->
+                <a href="#" title="delete note" role="button" data-toggle="tooltip" data-placement="left" style="text-decoration: none"
+                   onClick="confirmAction('{% url "modelnotes:delete_note" row.pk %}', 'Delete note', 'This note will be permanently deleted; do you wish to continue?', 'Continue', 'POST');">
+                    <span class="mx-1 hvr-grow"><i class="fas fa-trash"></i></span>
+                </a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% include 'handyhelpers/component/clipboard.htm' %}
+{% include 'modelnotes/form/create_note.htm' %}
