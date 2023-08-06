@@ -1,0 +1,56 @@
+Metadata-Version: 2.1
+Name: terminal-copilot
+Version: 1.0.10
+Summary: A smart terminal assistant that helps you find the right command
+Home-page: https://github.com/Methexis-Inc/terminal-copilot
+Author: Methexis
+Author-email: joelkronander@gmail.com
+License: Apache License 2.0
+Keywords: terminal copilot openai gpt3
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: certifi (>=2022.12.7)
+Requires-Dist: et-xmlfile (>=1.1.0)
+Requires-Dist: idna (>=3.4)
+Requires-Dist: numpy (>=1.21.6)
+Requires-Dist: openai (>=0.25.0)
+Requires-Dist: openpyxl (>=3.0.10)
+Requires-Dist: pandas (>=1.3.5)
+Requires-Dist: python-dateutil (>=2.8.2)
+Requires-Dist: pyperclip (>=1.8.2)
+Requires-Dist: pytz (>=2022.6)
+Requires-Dist: requests (>=2.28.1)
+Requires-Dist: six (>=1.16.0)
+Requires-Dist: tqdm (>=4.64.1)
+Requires-Dist: types-pytz (>=2022.6.0.1)
+Requires-Dist: typing-extensions (>=4.4.0)
+Requires-Dist: urllib3 (>=1.26.13)
+Requires-Dist: simple-term-menu (>=1.5.2)
+
+
+Are you tired of Googling basic terminal commands every time you forget the syntax? Look no further! terminal-copilot is here to help.
+
+With terminal-copilot, you can quickly and easily access commonly used terminal commands right from the command line. Simply type copilot followed by your question and let terminal-copilot do the rest.
+
+For example, if you want to find a file ending in .txt, simply type:
+```copilot find a file ending in .txt```
+terminal-copilot will then display the correct syntax for the command you need:
+```find . -name "*.txt"```
+
+### Installation
+To use terminal-copilot, you must first install it on your system. The easiest way to do this is using pip:
+```pip install terminal-copilot```
+Once terminal-copilot is installed, you can access it from the command line by typing copilot followed by your question.
+
+### Example Usage
+terminal-copilot is designed to be simple and intuitive to use. Simply type copilot followed by your question and terminal-copilot will display the correct syntax for the command you need.
+
+Here are some examples of how you can use terminal-copilot:
+
+1. `copilot list the compute instances in gcloud`
+2. `copilot find all mp3 files in my home directory`
+3. `copilot install the openai package for python`
+4. `copilot clean up my docker images`
