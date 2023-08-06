@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: SpaGFT
+Version: 0.1.1b1
+Summary: SpaGFT is a python package to analyze spatial transcriptomics. It was designed to identify spatially variable genes, detect tissue modules, enhance gene expression.
+                 data
+Home-page: https://github.com/jxLiu-bio/SpaGFT
+Author: Jixin Liu
+Author-email: frankliu210@163.com
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/jxLiu-bio/SpaGFT/issues
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Requires-Dist: gseapy (==0.10.8)
+Requires-Dist: igraph (==0.9.10)
+Requires-Dist: kneed (==0.7.0)
+Requires-Dist: louvain (==0.7.1)
+Requires-Dist: matplotlib (==3.5.2)
+Requires-Dist: networkx (==2.8)
+Requires-Dist: numba (==0.55.1)
+Requires-Dist: numpy (==1.21.5)
+Requires-Dist: pandas (==1.4.2)
+Requires-Dist: plotnine (==0.8.0)
+Requires-Dist: scanpy (==1.9.1)
+Requires-Dist: scikit-learn (==1.0.2)
+Requires-Dist: scipy (==1.8.0)
+
+UNKNOWN
+
+
