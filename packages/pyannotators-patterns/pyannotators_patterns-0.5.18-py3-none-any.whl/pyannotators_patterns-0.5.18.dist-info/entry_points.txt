@@ -1,0 +1,3 @@
+[pyannotators.plugins]
+regex=pyannotators_patterns.patterns:PatternsAnnotator
+
