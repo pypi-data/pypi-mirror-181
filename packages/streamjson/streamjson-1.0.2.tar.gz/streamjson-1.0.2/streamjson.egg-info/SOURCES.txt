@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+streamjson/__init__.py
+streamjson/streamjsonreader.py
+streamjson/streamjsonwriter.py
+streamjson.egg-info/PKG-INFO
+streamjson.egg-info/SOURCES.txt
+streamjson.egg-info/dependency_links.txt
+streamjson.egg-info/top_level.txt
+streamjson/test/__init__.py
+streamjson/test/test_streamjson.py
