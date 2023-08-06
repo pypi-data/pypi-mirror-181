@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: insightxnsdk
+Version: 0.0.11
+Summary: sdk for insightxn
+Home-page: https://gitee.com/ZeroSeeker/fastaliyun
+Author: ZeroSeeker
+Author-email: zeroseeker@foxmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: envx (==0.0.5)
+Requires-Dist: requests (==2.27.1)
+Requires-Dist: lazysdk (==0.0.24)
+
+# insightxnsdk
+
+#### 介绍
+{**以下是 Gitee 平台说明，您可以替换此简介**
+Gitee 是 OSCHINA 推出的基于 Git 的代码托管平台（同时支持 SVN）。专为开发者提供稳定、高效、安全的云端软件开发协作平台
+无论是个人、团队、或是企业，都能够用 Gitee 实现代码托管、项目管理、协作开发。企业项目请看 [https://gitee.com/enterprises](https://gitee.com/enterprises)}
+
+#### 软件架构
+软件架构说明
+
+
+#### 安装教程
+
+1.  安装
+```shell script
+pip3 install insightxnsdk -i https://mirrors.aliyun.com/pypi/simple
+```
+
+2.  xxxx
+3.  xxxx
+
+#### 使用说明
+
+1.  xxxx
+2.  xxxx
+3.  xxxx
+
+
+
