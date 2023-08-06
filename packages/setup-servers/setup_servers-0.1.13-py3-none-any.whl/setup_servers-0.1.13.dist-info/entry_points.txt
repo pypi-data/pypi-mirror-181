@@ -1,0 +1,7 @@
+[console_scripts]
+setup-servers = setupservers.commands:commands
+
+[setupservers.command]
+hapi-jpa-starter = setupservers.command.hapi_jpa_starter:command
+init = setupservers.command.init:command
+postgres-docker = setupservers.command.postgres_docker:command
