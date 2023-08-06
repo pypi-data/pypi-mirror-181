@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: reretry
+Version: 0.11.7
+Summary: An easy to use, but functional decorator for retrying on exceptions.
+Home-page: https://github.com/leshchenko1979/reretry
+Author: leshchenko1979
+Author-email: leshchenko1979@gmail.com
+License: Apache License 2.0
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Software Development
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+License-File: AUTHORS
+
+An easy to use, but functional decorator for retrying on exceptions.
