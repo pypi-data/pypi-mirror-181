@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: dsgen
+Version: 2.3.8
+Summary: Generator For Django Settings
+Home-page: http://rcs.studio.home/project/dsgen
+Author: "Cecelia Chen"
+Author-email: cecelia@studio.home
+License: Apache License 2.0
+Keywords: Django
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.7
+Requires-Dist: Django
+Requires-Dist: dmprj
+Provides-Extra: celery
+Requires-Dist: celery ; extra == 'celery'
+Requires-Dist: kombu ; extra == 'celery'
+
+A collection of simple helper classes
+
+
