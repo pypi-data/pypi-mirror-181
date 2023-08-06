@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: epalgorithmwrapper
+Version: 2022.12.13.1327
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pika
+Requires-Dist: asset
+Requires-Dist: requests
+Requires-Dist: eputils
+
+# epalgorithmwrapper package
+
+Algorithm wrapper package for ep project
