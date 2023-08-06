@@ -1,0 +1,122 @@
+"""{{module.name}}
+
+This module has been generated with SqlPyGen from {{ src }}.
+"""
+
+from dataclasses import dataclass
+from typing import Optional, Iterable
+
+{% if dbcon == "apsw" %}
+import apsw
+ConnectionType = apsw.Connection
+{% else %}
+import sqlite3
+ConnectionType = sqlite3.Connection
+{% endif %}
+
+SCHEMA = {}
+{% for schema in schemas %}
+SCHEMA["{{ schema.name }}"] = """
+{{ schema.sql }}
+"""
+
+{% endfor %}
+
+QUERY = {}
+{% for query in queries %}
+QUERY["{{ query.name }}"] = """
+{{ query.sql }}
+"""
+
+{% endfor %}
+
+
+{% for query in queries %}
+{% if query.return_ is with_return %}
+@dataclass
+class {{ query | return_type_name }}:
+    {% for vname_vtype in query.return_.vname_vtypes %}
+    {{ vname_vtype.name }}: {{ vname_vtype.type | py_type }}
+    {% endfor %}
+    
+{% endif %}
+{% endfor %}
+
+def create_schema(connection: ConnectionType) -> None:
+    """Create the table schema."""
+    with connection:
+        cursor = connection.cursor()
+
+        {% for schema in schemas %}
+        try:
+            sql = SCHEMA["{{ schema.name }}"]
+
+            cursor.execute(sql)
+        except Exception as e:
+            raise RuntimeError("An unexpected exception occurred when creating schema: {{ schema.name }}") from e
+        {% endfor %}
+
+{% for query in queries %}
+
+def {{ query.name }}({{ query.params | fn_params }}) -> {{ query | fn_return }}:
+    """Query {{query.name}}."""
+    cursor = connection.cursor()
+    try:
+        sql = QUERY["{{ query.name }}"]
+
+        {% if query.params is with_params %}
+        query_args = {{ query.params | query_args }}
+        cursor.execute(sql, query_args)
+        {% else %}
+        cursor.execute(sql)
+        {% endif %}
+
+        {% if query.return_ is with_return %}
+        {% if query.return_.returns_one %}
+        row = cursor.fetchone()
+        if row is None:
+            return None
+        else:
+            return {{ query | ret_conversions }}
+        {% else %}
+        for row in cursor:
+            row = {{ query | ret_conversions }}
+            yield row
+        {% endif %}
+        {% endif %}
+    except Exception as e:
+        raise RuntimeError("An unexpected exception occurred while executing query: {{ query.name }}") from e
+
+{% endfor %}
+
+def explain_queries() -> None:
+    {% if dbcon == "apsw" %}
+    connection = apsw.Connection(":memory:")
+    {% else %}
+    connection = sqlite3.connect(":memory:")
+    {% endif %}
+    create_schema(connection)
+
+    with connection:
+        cursor = connection.cursor()
+
+        {% for query in queries %}
+        try:
+            sql = QUERY["{{ query.name }}"]
+            sql = "EXPLAIN " + sql
+
+            {% if query.params is with_params %}
+            query_args = {{ query.params | explain_args }}
+            cursor.execute(sql, query_args)
+            {% else %}
+            cursor.execute(sql)
+            {% endif %}
+
+            print("Query {{ query.name }} is syntactically valid.")
+        except Exception as e:
+            raise RuntimeError("An unexpected exception occurred while executing query plan for: {{ query.name }}") from e
+
+        {% endfor %}
+
+if __name__ == "__main__":
+    explain_queries()
