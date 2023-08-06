@@ -1,0 +1,3 @@
+[flake8.extension]
+H60=flake8_cohesion.extension:CohesionChecker
+
