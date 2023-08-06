@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: cywidget
+Version: 1.0.0
+Summary: A user-friend widget for Jupyter that accepts a Cytoscape file and visualizes the network
+Home-page: https://github.com/g2nb/cywidget
+Author: Thorin Tabor
+Author-email: tmtabor@cloud.ucsd.edu
+License: BSD-3-Clause
+Keywords: cytoscape,bioinformatics,genomics,visualization,Jupyter,JupyterLab,JupyterLab3
+Platform: Linux
+Platform: Mac OS X
+Platform: Windows
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Framework :: Jupyter
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE.md
+
+# cywidget
+cywidget is user-friend widget for [JupyterLab](http://jupyter.org/) that accepts a Cytoscape file and visualizes the network
+
+igv-jupyter is tool for [JupyterLab](http://jupyter.org/) which wraps [igv.js](https://github.com/igvteam/igv.js) and
+integrates with [g2nb](https://github.com/g2nb/g2nb). With this tool you can render igv.js in a cell and call its API
+from a user-friendly web form in the notebook. Track data can be loaded from local or remote URLs, or supplied directly.
+
+For programmatic access to Cytoscape in a Jupyter notebook, see [cy-jupyterlab](https://github.com/idekerlab/cy-jupyterlab).
+
+## Installation
+
+Requirements:
+
+* python >= 3.7
+* jupyterlab >= 3.0
+* cy-jupyterlab
+
+```bash
+pip install cywidget
+```
+
