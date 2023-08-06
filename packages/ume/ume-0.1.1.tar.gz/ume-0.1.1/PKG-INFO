@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: ume
+Version: 0.1.1
+Summary: Unique Meme Engine.
+Home-page: https://github.com/wsd/ume
+License: MIT
+Author: isik-kaplan
+Author-email: isik.kaplan@outlook.com
+Requires-Python: >=3.7.0,<4.0.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: ImageHash (>=4.3.0,<5.0.0)
+Requires-Dist: pytesseract (>=0.3.10,<0.4.0)
+Requires-Dist: sewar (>=0.4.4,<0.5.0)
+Requires-Dist: wheel (>=0.37.1,<0.38.0)
+Project-URL: Documentation, https://github.com/wsd/ume
+Project-URL: Repository, https://github.com/wsd/ume
+Description-Content-Type: text/markdown
+
+# Unique Meme Engine
