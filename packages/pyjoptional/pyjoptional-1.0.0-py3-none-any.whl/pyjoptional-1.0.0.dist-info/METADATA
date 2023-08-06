@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: pyjoptional
+Version: 1.0.0
+Summary: Java-like Optional type for Python 3.9+
+Author: Emanuele Uliana
+License: GNU3
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Dist: wheel
+
