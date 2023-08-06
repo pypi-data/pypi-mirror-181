@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: logmi_iswearican
+Version: 0.0.1
+Summary: A small script that collects all the logs in the df and send to server
+Project-URL: Homepage, https://github.com/pypa/sampleproject
+Project-URL: Bug Tracker, https://github.com/pypa/sampleproject/issues
+Author-email: Adi <iswearican_1@outlook.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+
+# Logmi
+
+Collect all the logs and send to server
