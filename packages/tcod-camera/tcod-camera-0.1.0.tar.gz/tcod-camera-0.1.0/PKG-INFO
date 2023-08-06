@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: tcod-camera
+Version: 0.1.0
+Summary: Camera helper tools for 2D tile-based projects.
+Author-email: Kyle Benesch <4b796c65+github@gmail.com>
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Typing :: Typed
+Project-URL: Changelog, https://github.com/HexDecimal/python-tcod-camera/blob/main/CHANGELOG.md
+Project-URL: Home, https://github.com/HexDecimal
+Project-URL: Source, https://github.com/HexDecimal/python-tcod-camera
+
+# About
+
+[![PyPI](https://img.shields.io/pypi/v/tcod-camera)](https://pypi.org/project/tcod-camera/)
+[![PyPI - License](https://img.shields.io/pypi/l/tcod-camera)](https://github.com/HexDecimal/python-tcod-camera/blob/main/LICENSE)
+[![Documentation Status](https://readthedocs.org/projects/python-tcod-camera/badge/?version=latest)](https://python-tcod-camera.readthedocs.io)
+
+This packages contains a set of tools for working with cameras which translate between world and screen coordinates.
+
+It is intended to be used with [Python-tcod](https://github.com/libtcod/python-tcod) and [NumPy](https://numpy.org/) but requires neither.
+
