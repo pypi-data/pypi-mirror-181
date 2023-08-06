@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkjupyter_kernel_executor=self.webpackChunkjupyter_kernel_executor||[]).push([[568],{568:(e,t,r)=>{r.r(t),r.d(t,{default:()=>u});const u={id:"jupyter_kernel_executor:plugin",autoStart:!0,activate:e=>{console.log("JupyterLab extension jupyter_kernel_executor is activated!")}}}}]);
