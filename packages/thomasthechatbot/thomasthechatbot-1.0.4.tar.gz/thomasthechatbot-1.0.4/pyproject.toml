@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "thomasthechatbot"
+version = "v1.0.4"
+description = "A Python chatbot that learns as you speak to it."
+authors = ["principle105 <principle105@gmail.com>"]
+license = "MIT"
+repository = "https://github.com/principle105/thomasthechatbot"
+readme = "README.md"
+keywords = ["chatbot"]
+packages = [
+    {include = "ttc"}
+]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+nltk = "^3.7"
+contractions = "^0.1.72"
+inquirerpy = "^0.3.4"
+typer = "^0.6.1"
+yaspin = "^2.2.0"
+pyspellchecker = "^0.7.0"
+torch = "1.12.1"
+fastpunct = "^2.0.2"
+
+[tool.poetry.dev-dependencies]
+isort = "^5.10.1"
+black = "^22.6.0"
+
+[tool.poetry.scripts]
+ttc = "ttc.cli.main:app"
+
+[tool.isort]
+multi_line_output = 3
+profile = "black"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
