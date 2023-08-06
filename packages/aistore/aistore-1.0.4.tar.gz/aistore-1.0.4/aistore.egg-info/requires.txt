@@ -1,0 +1,11 @@
+requests
+packaging
+pydantic==1.9.0
+cloudpickle==2.0.0
+
+[botocore]
+wrapt
+
+[pytorch]
+torch
+torchdata
