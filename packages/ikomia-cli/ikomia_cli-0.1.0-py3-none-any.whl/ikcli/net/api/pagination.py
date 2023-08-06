@@ -1,0 +1,135 @@
+"""Object to manage pagination."""
+from abc import ABC, abstractmethod
+
+from yarl import URL
+
+from ikcli.net.http import HTTPRequest
+
+
+class Pagination(ABC):
+    """Abstract class to manage pagination."""
+
+    def __init__(self, http: HTTPRequest, url: URL, object_class):
+        """
+        Initialize a new pagination class.
+
+        :param http: HTTP Request object
+        :param url: Absolute or relative URL
+        :param object_class: Object API class
+        """
+        self._http = http
+        self._url = url
+        self._object_class = object_class
+        self._data = None
+        self._index = 0
+
+    def __iter__(self):
+        """Initialize iterator."""
+        self._data = self._http.get(self._url)
+        self._index = 0
+        return self
+
+    @abstractmethod
+    def __next__(self):
+        """
+        Return next item.
+
+        :raises StopIteration: When loop is over
+        """
+
+    @abstractmethod
+    def __len__(self):
+        """Return paginator total length."""
+
+    @abstractmethod
+    def get(self, index: int):
+        """
+        Get object at index, for internal purpose only.
+
+        :param index: Index
+        :return: API Object instance
+        """
+
+    def limit(self, limit: int):
+        """
+        Limit pagination results.
+
+        :param limit: How many objects return at max
+        :return: A LimitPagination generator.
+        """
+        # First check if iterator was started
+        assert self._data is None, "Can't set limit if paginator was already started"
+        return LimitedPagination(self, limit)
+
+
+class PageNumberPagination(Pagination):
+    """Manage django PageNumberPagination."""
+
+    def __len__(self):
+        return self._data["count"]
+
+    def __next__(self):
+        # If reach end of page, load next one
+        if self._index >= len(self._data["results"]):
+            if self._data["next"] is None:
+                raise StopIteration()
+            self._data = self._http.get(URL(self._data["next"]))
+            self._index = 0
+
+        # Get object, increment index and return
+        next_object = self.get(self._index)
+        self._index += 1
+        return next_object
+
+    def get(self, index):
+        data = self._data["results"][index]
+        return self._object_class(self._http, URL(data["url"]), data=data)
+
+
+class LimitedPagination:
+    """Limited pagination returned results."""
+
+    def __init__(self, pagination: Pagination, limit: int):
+        """
+        Initialize a new limited pagination.
+
+        :param pagination: A pagination object to limit
+        :param limit: How many results to return
+        """
+        self._pagination = pagination
+        self._limit = limit
+        self._index = 0
+
+    def __len__(self):
+        """Return pagination total length."""
+        return len(self._pagination)
+
+    def __iter__(self):
+        """Initialize iterator."""
+        iter(self._pagination)
+        self._index = 0
+        return self
+
+    def __next__(self):
+        """
+        Return next api object.
+
+        :return: Next api object
+        :raises StopIterator: If reach limit of reach end of pagination
+        """
+        # Check if reach limit
+        if self._index >= self._limit:
+            raise StopIteration()
+
+        # Get next object, increment index and return
+        next_object = next(self._pagination)
+        self._index += 1
+        return next_object
+
+    def remaining(self) -> int:
+        """
+        Return how many object remain on pagination.
+
+        :return: How many objects remaining.
+        """
+        return len(self._pagination) - self._index
