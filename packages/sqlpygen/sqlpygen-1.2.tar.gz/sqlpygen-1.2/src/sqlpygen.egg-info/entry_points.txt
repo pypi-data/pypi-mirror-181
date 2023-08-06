@@ -1,0 +1,2 @@
+[console_scripts]
+sqlpygen = sqlpygen.cli:cli
