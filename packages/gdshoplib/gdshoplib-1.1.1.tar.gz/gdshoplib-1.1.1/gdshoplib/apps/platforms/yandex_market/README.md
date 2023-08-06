@@ -1,0 +1,1 @@
+https://yandex.ru/support/market-distr/product-feed.html
