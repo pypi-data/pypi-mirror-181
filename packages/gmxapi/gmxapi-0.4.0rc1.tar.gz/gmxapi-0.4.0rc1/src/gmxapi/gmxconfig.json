@@ -1,0 +1,11 @@
+{
+    "gmx_executable": "/Users/eric/install/gromacs-tmpi/bin/gmx",
+    "gmx_bindir": "/Users/eric/install/gromacs-tmpi/bin",
+    "gmx_cmake_hints": "/Users/eric/install/gromacs-tmpi/share/cmake/gromacs/gromacs-hints.cmake",
+    "gmx_cmake_toolchain": "",
+    "gmx_double": false,
+    "gmx_mpi_type": "tmpi",
+    "gmx_suffix": "",
+    "gmxapi_root": "/Users/eric/install/gromacs-tmpi",
+    "gmxapi_level": "0.4.0"
+}
