@@ -1,0 +1,107 @@
+Metadata-Version: 2.1
+Name: basketcase
+Version: 3.1.1
+Summary: Download images and videos from Instagram
+Project-URL: Homepage, https://gitlab.com/crimson.king/basketcase
+Project-URL: Bug Tracker, https://gitlab.com/crimson.king/basketcase/-/issues
+Author-email: Douglas Silva <doug.hs@protonmail.ch>
+License: Copyright (c) 2021-2022 Douglas Silva
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+Requires-Dist: pillow~=9.3.0
+Requires-Dist: requests~=2.28.1
+Requires-Dist: yt-dlp==2022.10.4
+Description-Content-Type: text/markdown
+
+# BasketCase
+Download images and videos from Instagram.
+
+## Installation and usage
+1. Install it from [PyPI](https://pypi.org/project/basketcase/).
+
+```sh
+pip install basketcase
+```
+
+> This will put the executable `basketcase` on your PATH.
+
+2. Create a text file (e.g. `basketcase.txt`) and populate it with resource URLs.
+
+```
+https://instagram.com/p/<post_id>
+https://instagram.com/reel/<reel_id>
+https://instagram.com/<username>
+```
+
+| Supported URL | Description |
+| --- | --- |
+| `https://instagram.com/<username>` | User profile. Downloads stories from the past 24 hours. |
+| `https://instagram.com/p/<post_id>` | Standard publication. |
+| `https://instagram.com/reel/<reel_id>` | Reels movie |
+
+3. Pass the file as a positional argument. An interactive authentication procedure will follow.
+
+```sh
+basketcase ./basketcase.txt
+```
+
+> Downloaded resources will be stored in the current working directory (i.e. `$PWD/basketcase_{timestamp}/`).
+
+Known limitations:
+- Highlights are not supported yet.
+- Although two-factor authentication is supported, only the `totp` method has been tested.
+
+## User data
+Cookies and other application data are kept in `~/.basketcase`.
+
+## Development setup
+1. `cd` to the project root and create a virtual environment in a directory named `venv`, which is conveniently ignored in version control.
+2. Install the dependencies.
+
+```sh
+pip install -r requirements.txt
+```
+
+3. Install this package in editable mode.
+
+```sh
+pip install -e .
+```
+
+### Package build and upload
+1. Update the requirements list.
+
+```sh
+pip freeze --exclude-editable > requirements.txt
+```
+
+2. Increment the version on `pyproject.toml`.
+3. Build and publish the package
+
+```sh
+hatch build
+hatch publish
+```
+
+4. Commit and push the changes (and the new version tag) to the git repository.

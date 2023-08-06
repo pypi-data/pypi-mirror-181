@@ -1,0 +1,31 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "basketcase"
+version = "3.1.1"
+authors = [
+  { name="Douglas Silva", email="doug.hs@protonmail.ch" },
+]
+description = "Download images and videos from Instagram"
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+  "requests~=2.28.1",
+  "yt-dlp==2022.10.4",
+  "Pillow~=9.3.0",
+]
+
+[project.scripts]
+"basketcase" = "basketcase.__main__:main"
+
+[project.urls]
+"Homepage" = "https://gitlab.com/crimson.king/basketcase"
+"Bug Tracker" = "https://gitlab.com/crimson.king/basketcase/-/issues"
