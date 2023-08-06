@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+src/metaoptim/__init__.py
+src/metaoptim/bench_func.py
+src/metaoptim/config.py
+src/metaoptim/pso/__init__.py
+src/metaoptim/pso/gbest_pso.py
+src/metaoptim/pso/pso.py
+src/open_metaoptim.egg-info/PKG-INFO
+src/open_metaoptim.egg-info/SOURCES.txt
+src/open_metaoptim.egg-info/dependency_links.txt
+src/open_metaoptim.egg-info/requires.txt
+src/open_metaoptim.egg-info/top_level.txt
+test/test_bench_func.py
