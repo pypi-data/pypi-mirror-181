@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "betqstat"
+version = "0.0.1"
+description = "A Python package for wagering related statistical functions and analysis"
+readme = "README.md"
+authors = [{name = "Jeremy Walsh", email = "jeremypaul.walsh@gmail.com"}]
+license = {file = "LICENSE"}
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+]
+keywords = [
+    "bet", "betting", "wagering", "odds", "expected value", "ev", "bookmaker", "bookie", "betfair", "probability",
+    "implied probability", "staking",
+]
+requires-python = ">=3.8, <4"
+dependencies = [
+    "pandas>=1.5",
+    "scipy>=1.9.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "mkdocs~=1.4.2",
+    "mkdocs-material~=8.5.11",
+    "mkdocs-jupyter~=0.22.0",
+    "black~=22.10.0",
+    "pytest~=7.2.0",
+    "pytest-cov~=4.0.0",
+    "jupyter~=1.0.0",
+    "matplotlib~=3.6.2"
+]
+
+[project.urls]
+Homepage = "https://jemjemwalsh.github.io/betqstat"
+Documentation = "https://jemjemwalsh.github.io/betqstat"
+Source = "https://github.com/jemjemwalsh/betqstat"
+
+[tool.pytest.ini_options]
+pythonpath = [
+  ".",
+  "src",
+]
