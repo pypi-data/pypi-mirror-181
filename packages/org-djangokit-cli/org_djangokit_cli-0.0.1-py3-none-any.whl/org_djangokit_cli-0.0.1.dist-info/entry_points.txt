@@ -1,0 +1,4 @@
+[console_scripts]
+djangokit=djangokit.cli.__main__:app
+dk=djangokit.cli.__main__:app
+
