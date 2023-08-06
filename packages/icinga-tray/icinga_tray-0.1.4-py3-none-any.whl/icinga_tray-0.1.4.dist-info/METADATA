@@ -1,0 +1,62 @@
+Metadata-Version: 2.1
+Name: icinga-tray
+Version: 0.1.4
+Summary: A small script to display a tray icon with icinga information
+Author: Johannes Battenberg
+Author-email: joe@chaoticneutral.eu
+Keywords: icinga,tray,icon,monitoring,icingaweb,icinga2
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: PyQt6
+Requires-Dist: plyer
+Requires-Dist: requests
+Requires-Dist: keyring
+Requires-Dist: appdirs
+
+# Icinga Tray
+
+This script creates a system tray icon that displays current Icinga information
+and sends notifications on changes. It uses the icingaweb-API.
+
+It runs on Linux and Windows, possibly on Mac, but that's untested.
+
+# Installation
+Install using `pip`:
+```
+pip install icinga_tray
+```
+
+# Configuration
+At this point the configuration is done with a config file in JSON format,
+no GUI available.
+
+The file should be located here:
+- Linux: `$XDG_CONFIG_HOME/icinga_tray/config.json` (default is `~/.config/icinga-tray/config.json`)
+- Windows: `%USERPROFILE%\AppData\Local\icinga-tray\icinga-tray\config.json`
+
+It should look like this:
+```json
+{
+    "base_url": "https://my.icinga.server/icingaweb2/",
+    "ssl_verify": "yes",
+    "user": "login",
+    "notifications": "yes",
+    "use_keyring": "yes",
+    "interval": 10000,
+    "host_groups": ["host_group1", "host_group2"]
+}
+```
+- `base_url`: the URL to the icinga-Webinterface
+- `ssl_verify`: whether to check for a valid ssl certificate
+- `user`: the login to authenticate
+- `notifications`: whether to send desktop notifications or not
+- `use_keyring`: if set to yes, the credentials will be stored in the system keyring, if set to no the password needs to be entered on every launch
+- `interval`: refresh interval in ms
+- `host_groups`: host groups to monitor (no "all" setting or similar available at this point)
+
+# Run
+- Linux: simply run `icinga_tray` from anywhere. Make sure that the install directory is in your `PATH`
+- Windows: run `icinga_tray` from a terminal or create a shortcut as target simply put `icinga_tray`, you can add it to your autostart
