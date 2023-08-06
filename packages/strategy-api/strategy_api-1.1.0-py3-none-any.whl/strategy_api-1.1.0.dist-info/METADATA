@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: strategy-api
+Version: 1.1.0
+Summary: tick order bar 改为并行
+Home-page: https://gitee.com/Jason520deng/strategy_api
+Author: Kevin
+Author-email: 1782552261@qq.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+License-File: LICENSE
+
+# strategy_api
+
+#### 介绍:
+策略 API 接口，只提供帮助，不用于商业
+
+#### 框架说明:
+aiohttp
+
+#### [说明文档](docs/strategy_api文档说明.md)
