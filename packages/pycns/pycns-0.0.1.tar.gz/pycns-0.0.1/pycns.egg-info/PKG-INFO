@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: pycns
+Version: 0.0.1
+Summary: Python toolkit for reading/analysing CNS monitor data
+Author-email: Samuel Garcia <sam.garcia.die@gmail.com>
+Project-URL: homepage, https://github.com/samuelgarcia/pycns
+Project-URL: repository, https://github.com/samuelgarcia/pycns
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Science/Research
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: OS Independent
+Requires-Python: <4.0,>=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# pycns
+Reader and tools for analysing CNS monitor data
