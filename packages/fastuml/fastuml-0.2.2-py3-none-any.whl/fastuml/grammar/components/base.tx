@@ -1,0 +1,10 @@
+// special rule for comments.
+Comment:
+    /\/\/.*$/
+;
+
+Label: /(?ms)\"{1}(.*?)\"{1}/;
+
+Arrow: 
+    backward?='<' binding*='-' forward?='>'
+;
