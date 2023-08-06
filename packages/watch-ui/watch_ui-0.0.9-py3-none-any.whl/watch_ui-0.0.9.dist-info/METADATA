@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: watch-ui
+Version: 0.0.9
+Summary: autocompiling script for ui and qrc files for PySide2 and PyQt5
+Home-page: https://github.com/mugiseyebrows/watch-ui
+Author: Stanislav Doronin
+Author-email: mugisbrows@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: eventloop
+Requires-Dist: colorama
+
+# watch-ui 
+
+autocompiling script for ui and qrc files for PySide2 and PyQt5
+
+# Install
+
+watch-ui can be installed via pip as follows:
+
+```
+pip install watch-ui
+```
+
+# Use
+```
+watch-ui /path/to/project
+```
+
+# Author
+
+Stanislav Doronin <mugisbrows@gmail.com>
+
+# License
+
+watch-ui is distributed under the terms of MIT license, check `LICENSE` file.
+
