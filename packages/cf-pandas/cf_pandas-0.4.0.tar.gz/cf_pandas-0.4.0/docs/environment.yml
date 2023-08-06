@@ -1,0 +1,31 @@
+name: cf-pandas_docs
+dependencies:
+   - python=3.8
+   # If your docs code examples depend on other packages add them here
+   - bs4
+   - ipywidgets
+   - lxml
+   - pandas
+   - regex
+   - requests
+   # These are needed for the docs themselves
+   - jupytext
+   - numpydoc
+   - sphinx
+   - sphinx-markdown-tables
+   - ipython
+   - jinja2
+   - nbconvert
+   - nbformat
+   - ipykernel
+   - pandoc
+   - pip
+   - recommonmark
+   - pip:
+     - docrep<=0.2.7
+     - furo
+     - nbsphinx>=0.8.7
+     - jupyter_client
+     - myst-nb
+     - sphinx-copybutton
+     - sphinxcontrib-srclinks

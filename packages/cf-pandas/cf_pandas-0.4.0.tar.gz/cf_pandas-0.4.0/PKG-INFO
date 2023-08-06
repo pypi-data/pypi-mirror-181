@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: cf_pandas
+Version: 0.4.0
+Summary: an accessor for pandas objects that interprets CF attributes
+Home-page: https://github.com/axiom-data-science/cf-pandas
+Author: Axiom Data Science
+Author-email: AUTHOR@EMAIL.COM
+License: MIT
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Topic :: Scientific/Engineering
+Classifier: Intended Audience :: Science/Research
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+
+cf-pandas
+==============================
+[![Build Status](https://img.shields.io/static/v1.svg?logo=Jupyter&label=Binder&message=Binder&color=blue&style=for-the-badge)](https://mybinder.org/v2/gh/axiom-data-science/cf-pandas/HEAD?labpath=docs%2Fdemo_overview.ipynb)
+[![Build Status](https://img.shields.io/github/workflow/status/axiom-data-science/cf-pandas/Tests?logo=github&style=for-the-badge)](https://github.com/axiom-data-science/cf-pandas/actions)
+[![Code Coverage](https://img.shields.io/codecov/c/github/axiom-data-science/cf-pandas.svg?style=for-the-badge)](https://codecov.io/gh/axiom-data-science/cf-pandas)
+[![License:MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![Documentation Status](https://img.shields.io/readthedocs/cf-pandas/latest.svg?style=for-the-badge)](https://cf-pandas.readthedocs.io/en/latest/?badge=latest)
+[![Code Style Status](https://img.shields.io/github/workflow/status/axiom-data-science/cf-pandas/linting%20with%20pre-commit?label=Code%20Style&style=for-the-badge)](https://github.com/axiom-data-science/cf-pandas/actions)
+[![Conda Version](https://img.shields.io/conda/vn/conda-forge/cf_pandas.svg?style=for-the-badge)](https://anaconda.org/conda-forge/cf_pandas)
+[![Python Package Index](https://img.shields.io/pypi/v/cf-pandas.svg?style=for-the-badge)](https://pypi.org/project/cf-pandas)
+
+
+
+an accessor for pandas objects that interprets CF attributes. Most if not all of the logic and structure is directly from [cf-xarray](https://github.com/xarray-contrib/cf-xarray).
+
+--------
+
+<p><small>Project based on the <a target="_blank" href="https://github.com/jbusecke/cookiecutter-science-project">cookiecutter science project template</a>.</small></p>
