@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: factro-client
+Version: 0.7.0a1
+Summary: A core api client for project management tool 'factro'.
+Home-page: https://github.com/5minds/factro_client
+Author: 5Minds IT-Solutions GmbH & Co. KG
+Author-email: developers@5minds.de
+Keywords: client factro 5minds processcube
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: cachetools
+Requires-Dist: dataclasses-json
+Requires-Dist: requests
+Requires-Dist: typing-extensions
+Requires-Dist: python-dotenv
+Requires-Dist: pandas
+Requires-Dist: tzlocal
+
+# factro core api mittels Python verwenden
+
+TBD
+
+- [Vorbereitung der Umgebung](#vorbereitung-der-umgebung)
+
+Die Erweiterung der Client wird dagegen in [CONTRIBUTION.MD](CONTRIBUTION.MD) erklärt.
