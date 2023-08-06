@@ -1,0 +1,16 @@
+README.md
+setup.cfg
+setup.py
+resoto_plugin_gcp/__init__.py
+resoto_plugin_gcp/collector.py
+resoto_plugin_gcp/config.py
+resoto_plugin_gcp/resources.py
+resoto_plugin_gcp/utils.py
+resoto_plugin_gcp.egg-info/PKG-INFO
+resoto_plugin_gcp.egg-info/SOURCES.txt
+resoto_plugin_gcp.egg-info/dependency_links.txt
+resoto_plugin_gcp.egg-info/entry_points.txt
+resoto_plugin_gcp.egg-info/not-zip-safe
+resoto_plugin_gcp.egg-info/requires.txt
+resoto_plugin_gcp.egg-info/top_level.txt
+test/test_config.py
