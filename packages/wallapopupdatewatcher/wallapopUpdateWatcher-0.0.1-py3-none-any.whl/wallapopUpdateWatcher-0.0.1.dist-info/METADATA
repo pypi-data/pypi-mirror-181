@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: wallapopUpdateWatcher
+Version: 0.0.1
+Summary: An library to watch for new items at wallapop.es 
+Author: Adair Gondan
+Author-email: <adairyves@gmail.com>
+Project-URL: Source, https://github.com/Adair-GA/wallapopUpdateWatcher
+Project-URL: Tracker, https://github.com/Adair-GA/wallapopUpdateWatcher/issues
+Keywords: wallapop api updates
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Requires-Python: >=3
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: httpx
+
