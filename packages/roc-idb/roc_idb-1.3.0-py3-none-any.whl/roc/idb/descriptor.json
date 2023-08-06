@@ -1,0 +1,101 @@
+{
+  "identification": {
+    "project": "ROC",
+    "identifier": "roc.idb",
+    "name": "roc.idb",
+    "description": "Plugin to manage the IDB"
+  },
+  "release": {
+    "version": "1.3.0",
+    "date": "2022-12-15",
+    "author": "Xavier Bonnin <xavier.bonnin@obspm.fr>, Sonny LION <sonny.lion@obspm.fr>, ROC Team <roc.support@sympa.obspm.fr>",
+    "modification": "Remove hard-written passwords | update tests",
+    "url": "https://gitlab.obspm.fr/ROC/Pipelines/Plugins/IDB"
+  },
+  "tasks": [
+    {
+      "name": "idb_set_current",
+      "category": "IDB setting",
+      "description": "Set the given version of the IDB as current",
+      "inputs": {},
+      "outputs": {}
+    },
+    {
+      "name": "idb_set_trange",
+      "category": "IDB setting",
+      "description": "Set the validity time range of the given IDB",
+      "inputs": {},
+      "outputs": {}
+    },
+    {
+      "name": "idb_list_releases",
+      "category": "IDB status",
+      "description": "List the different idb releases",
+      "inputs": {},
+      "outputs": {}
+    },
+    {
+      "name": "idb_list_palisade_metadata",
+      "category": "IDB status",
+      "description": "List the palisade metadata",
+      "inputs": {},
+      "outputs": {}
+    },
+    {
+      "name": "idb_load_idb",
+      "category": "Operation",
+      "description": "Load the IDB information into the ROC database",
+      "inputs": {},
+      "outputs": {}
+    },
+    {
+      "name": "idb_load_palisade_metadata",
+      "category": "IDB parsing",
+      "description": "Parse and load palisade metadata into the ROC database",
+      "inputs": {},
+      "outputs": {}
+    },
+    {
+      "name": "idb_install",
+      "category": "Install",
+      "description": "Download and install the selected IDB source/version",
+      "inputs": {},
+      "outputs": {}
+    },
+    {
+      "name": "idb_parse_sequences",
+      "category": "Operation",
+      "description": "Parse the MIB sequences",
+      "inputs": {},
+      "outputs": {}
+    },
+    {
+      "name": "idb_export_sequences",
+      "category": "Operation",
+      "description": "Export the MIB sequences as CSV and/or XLS",
+      "inputs": {},
+      "outputs": {}
+    },
+    {
+      "name": "idb_load_sequences",
+      "category": "Operation",
+      "description": "Load the MIB sequences into the MUSIC database",
+      "inputs": {},
+      "outputs": {}
+    },
+    {
+      "name": "idb_load_idb_dump",
+      "category": "Operation",
+      "description": "Load IDB SQL dump file into the ROC database",
+      "inputs": {},
+      "outputs": {}
+    },
+    {
+      "name": "idb_clear_release",
+      "category": "IDB setting",
+      "description": "Clear a given IDB release from the ROC database (palisade_metadata table entries and IDB source files will not be deleted)",
+      "inputs": {},
+      "outputs": {}
+    }
+  ]
+}
