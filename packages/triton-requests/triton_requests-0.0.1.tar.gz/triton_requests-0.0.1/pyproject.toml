@@ -1,0 +1,26 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "triton_requests"
+version = "0.0.1"
+authors = [
+  { name="Sebastien Campion", email="sebastien.campion@foss4.eu" },
+]
+description = "A high level package for Nvidia Triton requests"
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = [
+  'numpy',
+  'tritonclient[http]'
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/scampion/triton_requests"
+"Bug Tracker" = "https://github.com/scampion/triton_requests/issues"
