@@ -1,0 +1,30 @@
+// SqlPyGen grammar
+
+start: module (schema | query)*
+
+module: "--" "module" ":" CNAME
+schema: "--" "schema" ":" CNAME SQL_STRING
+query: "--" "query" ":" CNAME params? return_? SQL_STRING
+
+params: "--" "params" ":" "(" typed_vars ")"
+
+?return_: returnone | returnmany
+returnone: "--" "return" "?" ":" ( vtype | row_type )
+returnmany: "--" "return" "*" ":" ( vtype | row_type )
+
+row_type: CNAME "(" typed_vars ")"
+
+typed_vars: typed_var ("," typed_var )*
+typed_var: CNAME ":" vtype
+?vtype: vtype_opt | vtype_not_opt
+vtype_opt: CNAME
+vtype_not_opt: CNAME "!"
+
+SQL_STRING: /(create|drop|insert|update|delete|select).+?;/is
+
+%import common.CNAME
+%import common.WS
+%import common.SH_COMMENT
+
+%ignore WS
+%ignore SH_COMMENT
