@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>psnawp_api.models.group &mdash; PSNAWP 1.1.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link href="../../../_static/custom.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> PSNAWP
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Code Overview:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../psnawp_api.html">psnawp_api package</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Resources:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../additional_resources/README.html">Readme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../additional_resources/CHANGELOG.html">Changelogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../additional_resources/AUTHORS.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../additional_resources/LICENSE.html">Licenses</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PSNAWP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">psnawp_api.models.group</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for psnawp_api.models.group</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Iterator</span><span class="p">,</span> <span class="n">Any</span>
+
+<span class="kn">from</span> <span class="nn">psnawp_api.core.psnawp_exceptions</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">PSNAWPNotFound</span><span class="p">,</span>
+    <span class="n">PSNAWPBadRequest</span><span class="p">,</span>
+    <span class="n">PSNAWPForbidden</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">psnawp_api.models.user</span> <span class="kn">import</span> <span class="n">User</span>
+<span class="kn">from</span> <span class="nn">psnawp_api.utils.endpoints</span> <span class="kn">import</span> <span class="n">BASE_PATH</span><span class="p">,</span> <span class="n">API_PATH</span>
+<span class="kn">from</span> <span class="nn">psnawp_api.utils.request_builder</span> <span class="kn">import</span> <span class="n">RequestBuilder</span>
+
+
+<div class="viewcode-block" id="Group"><a class="viewcode-back" href="../../../psnawp_api.models.html#psnawp_api.models.group.Group">[docs]</a><span class="k">class</span> <span class="nc">Group</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;The Group class is responsible for providing convenient methods to interact with PSN group endpoints, responsible for managing messages groups and sending messages.&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Group.__init__"><a class="viewcode-back" href="../../../psnawp_api.models.html#psnawp_api.models.group.Group.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">request_builder</span><span class="p">:</span> <span class="n">RequestBuilder</span><span class="p">,</span>
+        <span class="n">group_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+        <span class="n">users</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Iterator</span><span class="p">[</span><span class="n">User</span><span class="p">]],</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Constructor of Group.</span>
+
+<span class="sd">        .. note::</span>
+
+<span class="sd">            This class is intended to be interfaced with through PSNAWP.</span>
+
+<span class="sd">        :param request_builder: The instance of RequestBuilder. Used to make HTTPRequests.</span>
+<span class="sd">        :type request_builder: RequestBuilder</span>
+<span class="sd">        :param group_id: The Group ID of a group.</span>
+<span class="sd">        :type group_id: Optional[str]</span>
+<span class="sd">        :param users: A list of users of the members in the group.</span>
+<span class="sd">        :type users: Optional[Iterator[User]]</span>
+
+<span class="sd">        :raises: ``PSNAWPNotFound`` If group id does not exist or is invalid.</span>
+
+<span class="sd">        :raises: ``PSNAWPForbidden`` If you are Dming a user who has blocked you. blocked you.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_request_builder</span> <span class="o">=</span> <span class="n">request_builder</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">group_id</span> <span class="o">=</span> <span class="n">group_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">users</span> <span class="o">=</span> <span class="n">users</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">group_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">get_group_information</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">users</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_create_group</span><span class="p">()</span></div>
+
+    <span class="k">def</span> <span class="nf">_create_group</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Creates a new group if it doesn&#39;t exist. Doesn&#39;t work if user&#39;s privacy settings block invites.</span>
+
+<span class="sd">        :raises: ``PSNAWPForbidden`` If you are Dming a user who has blocked you.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">users</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">invitees</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;accountId&quot;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">account_id</span><span class="p">}</span> <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">users</span><span class="p">]</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;invitees&quot;</span><span class="p">:</span> <span class="n">invitees</span><span class="p">}</span>
+
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request_builder</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+                    <span class="n">url</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">BASE_PATH</span><span class="p">[</span><span class="s1">&#39;gaming_lounge&#39;</span><span class="p">]</span><span class="si">}{</span><span class="n">API_PATH</span><span class="p">[</span><span class="s1">&#39;create_group&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                    <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">),</span>
+                <span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">group_id</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s2">&quot;groupId&quot;</span><span class="p">]</span>
+            <span class="k">except</span> <span class="n">PSNAWPForbidden</span> <span class="k">as</span> <span class="n">forbidden</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">PSNAWPForbidden</span><span class="p">(</span><span class="s2">&quot;The group cannot be created because the user has either set messages to private or has blocked you.&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">forbidden</span>
+
+<div class="viewcode-block" id="Group.change_name"><a class="viewcode-back" href="../../../psnawp_api.models.html#psnawp_api.models.group.Group.change_name">[docs]</a>    <span class="k">def</span> <span class="nf">change_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Changes the group name to one specified in arguments.</span>
+
+<span class="sd">        .. note::</span>
+
+<span class="sd">            You cannot change the name of DM groups. i.e. Groups with only two people (including you).</span>
+
+<span class="sd">        :param group_name: The name of the group that will be set.</span>
+<span class="sd">        :type group_name: str</span>
+
+<span class="sd">        :returns: None</span>
+
+<span class="sd">        :raises: ``PSNAWPBadRequest`` If you are not part of group or the group is a DM.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;groupName&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">group_name</span><span class="p">}}</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_request_builder</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span>
+                <span class="n">url</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">BASE_PATH</span><span class="p">[</span><span class="s1">&#39;gaming_lounge&#39;</span><span class="p">]</span><span class="si">}{</span><span class="n">API_PATH</span><span class="p">[</span><span class="s1">&#39;group_settings&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">group_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">group_id</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">),</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="n">PSNAWPBadRequest</span> <span class="k">as</span> <span class="n">bad_req</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">PSNAWPBadRequest</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The group name of Group ID </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">group_id</span><span class="si">}</span><span class="s2"> does cannot be changed. Group is either a dm or does not exist.&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">bad_req</span></div>
+
+<div class="viewcode-block" id="Group.get_group_information"><a class="viewcode-back" href="../../../psnawp_api.models.html#psnawp_api.models.group.Group.get_group_information">[docs]</a>    <span class="k">def</span> <span class="nf">get_group_information</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Gets the group chat information such as about me, avatars, languages etc...</span>
+
+<span class="sd">        :returns: A dict containing info similar to what is shown below:</span>
+<span class="sd">        :rtype: dict[str, Any]</span>
+
+<span class="sd">        :raises: ``PSNAWPNotFound`` If group id does not exist or is invalid.</span>
+
+<span class="sd">        .. code-block:: json</span>
+
+<span class="sd">            {</span>
+<span class="sd">                &quot;groupId&quot;: &quot;~25C4C5406FD6D50E.763F9A1EB6AB5790&quot;,</span>
+<span class="sd">                &quot;groupType&quot;: 0,</span>
+<span class="sd">                &quot;modifiedTimestamp&quot;: &quot;1663911908531&quot;,</span>
+<span class="sd">                &quot;groupName&quot;: {</span>
+<span class="sd">                    &quot;value&quot;: &quot;&quot;,</span>
+<span class="sd">                    &quot;status&quot;: 0</span>
+<span class="sd">                },</span>
+<span class="sd">                &quot;groupIcon&quot;: {</span>
+<span class="sd">                    &quot;status&quot;: 0</span>
+<span class="sd">                },</span>
+<span class="sd">                &quot;joinedTimestamp&quot;: &quot;1616356026000&quot;,</span>
+<span class="sd">                &quot;isFavorite&quot;: false,</span>
+<span class="sd">                &quot;existsNewArrival&quot;: false,</span>
+<span class="sd">                &quot;mainThread&quot;: {</span>
+<span class="sd">                    &quot;threadId&quot;: &quot;~25C4C5406FD6D50E.763F9A1EB6AB5790&quot;,</span>
+<span class="sd">                    &quot;modifiedTimestamp&quot;: &quot;1663911908531&quot;,</span>
+<span class="sd">                    &quot;latestMessage&quot;: {</span>
+<span class="sd">                        &quot;messageUid&quot;: &quot;1#425961448584099&quot;,</span>
+<span class="sd">                        &quot;messageType&quot;: 1,</span>
+<span class="sd">                        &quot;alternativeMessageType&quot;: 1,</span>
+<span class="sd">                        &quot;body&quot;: &quot;Hello World&quot;,</span>
+<span class="sd">                        &quot;createdTimestamp&quot;: &quot;1663911908531&quot;,</span>
+<span class="sd">                        &quot;sender&quot;: {</span>
+<span class="sd">                            &quot;accountId&quot;: &quot;8520698476712646544&quot;,</span>
+<span class="sd">                            &quot;onlineId&quot;: &quot;VaultTec_Trading&quot;</span>
+<span class="sd">                        }</span>
+<span class="sd">                    },</span>
+<span class="sd">                    &quot;readMessageUid&quot;: &quot;1#425961448584099&quot;</span>
+<span class="sd">                },</span>
+<span class="sd">                &quot;members&quot;: [</span>
+<span class="sd">                    {</span>
+<span class="sd">                        &quot;accountId&quot;: &quot;2721516955383551246&quot;,</span>
+<span class="sd">                        &quot;onlineId&quot;: &quot;VaultTec-Co&quot;</span>
+<span class="sd">                    },</span>
+<span class="sd">                    {</span>
+<span class="sd">                        &quot;accountId&quot;: &quot;8520698476712646544&quot;,</span>
+<span class="sd">                        &quot;onlineId&quot;: &quot;VaultTec_Trading&quot;</span>
+<span class="sd">                    }</span>
+<span class="sd">                ],</span>
+<span class="sd">                &quot;partySessions&quot;: [],</span>
+<span class="sd">                &quot;notificationSetting&quot;: {</span>
+<span class="sd">                    &quot;isMute&quot;: false</span>
+<span class="sd">                }</span>
+<span class="sd">            }</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">param</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;includeFields&quot;</span><span class="p">:</span> <span class="s2">&quot;groupName,groupIcon,members,mainThread,joinedTimestamp,modifiedTimestamp,isFavorite,existsNewArrival,partySessions,&quot;</span>
+            <span class="s2">&quot;notificationSetting&quot;</span>
+        <span class="p">}</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request_builder</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+                <span class="n">url</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">BASE_PATH</span><span class="p">[</span><span class="s1">&#39;gaming_lounge&#39;</span><span class="p">]</span><span class="si">}{</span><span class="n">API_PATH</span><span class="p">[</span><span class="s1">&#39;group_members&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">group_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">group_id</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="n">params</span><span class="o">=</span><span class="n">param</span><span class="p">,</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+            <span class="k">return</span> <span class="n">response</span>
+        <span class="k">except</span> <span class="n">PSNAWPNotFound</span> <span class="k">as</span> <span class="n">not_found</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">PSNAWPNotFound</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Group ID </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">group_id</span><span class="si">}</span><span class="s2"> does not exist.&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">not_found</span></div>
+
+<div class="viewcode-block" id="Group.send_message"><a class="viewcode-back" href="../../../psnawp_api.models.html#psnawp_api.models.group.Group.send_message">[docs]</a>    <span class="k">def</span> <span class="nf">send_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Sends a message in the group.</span>
+
+<span class="sd">        .. note::</span>
+
+<span class="sd">            For now only text based messaging is supported.</span>
+
+<span class="sd">        :param message: Message Body</span>
+
+<span class="sd">        :returns: A dict containing info similar to what is shown below:</span>
+<span class="sd">        :rtype: dict[str, str]</span>
+
+<span class="sd">        .. code-block:: json</span>
+
+<span class="sd">            {</span>
+<span class="sd">                &quot;messageUid&quot;: &quot;1#425961448584099&quot;,</span>
+<span class="sd">                &quot;createdTimestamp&quot;: &quot;1663911908531&quot;</span>
+<span class="sd">            }</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;messageType&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;body&quot;</span><span class="p">:</span> <span class="n">message</span><span class="p">}</span>
+
+        <span class="n">response</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request_builder</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+            <span class="n">url</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">BASE_PATH</span><span class="p">[</span><span class="s1">&#39;gaming_lounge&#39;</span><span class="p">]</span><span class="si">}{</span><span class="n">API_PATH</span><span class="p">[</span><span class="s1">&#39;send_group_message&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">group_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">group_id</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">),</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">response</span></div>
+
+<div class="viewcode-block" id="Group.get_conversation"><a class="viewcode-back" href="../../../psnawp_api.models.html#psnawp_api.models.group.Group.get_conversation">[docs]</a>    <span class="k">def</span> <span class="nf">get_conversation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Gets the conversations in a group.</span>
+
+<span class="sd">        :param limit: The number of conversations to receive.</span>
+<span class="sd">        :type limit: int</span>
+
+<span class="sd">        :returns: A dict containing info similar to what is shown below:</span>
+<span class="sd">        :rtype: dict[str, Any]</span>
+
+<span class="sd">            .. code-block::</span>
+
+<span class="sd">                {</span>
+<span class="sd">                    &quot;messages&quot;: [</span>
+<span class="sd">                        {</span>
+<span class="sd">                            &quot;messageUid&quot;: &quot;1#425961448584099&quot;,</span>
+<span class="sd">                            &quot;messageType&quot;: 1,</span>
+<span class="sd">                            &quot;alternativeMessageType&quot;: 1,</span>
+<span class="sd">                            &quot;body&quot;: &quot;Hello World&quot;,</span>
+<span class="sd">                            &quot;createdTimestamp&quot;: &quot;1663911908531&quot;,</span>
+<span class="sd">                            &quot;sender&quot;: {</span>
+<span class="sd">                                &quot;accountId&quot;: &quot;8520698476712646544&quot;,</span>
+<span class="sd">                                &quot;onlineId&quot;: &quot;VaultTec_Trading&quot;</span>
+<span class="sd">                            }</span>
+<span class="sd">                        }</span>
+<span class="sd">                    ],</span>
+<span class="sd">                    &quot;previous&quot;: &quot;1#425961448584099&quot;,</span>
+<span class="sd">                    &quot;next&quot;: &quot;1#425961448584099&quot;,</span>
+<span class="sd">                    &quot;reachedEndOfPage&quot;: false,</span>
+<span class="sd">                    &quot;messageCount&quot;: 1</span>
+<span class="sd">                }</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">param</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;limit&quot;</span><span class="p">:</span> <span class="n">limit</span><span class="p">}</span>
+
+        <span class="n">response</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request_builder</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="n">url</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">BASE_PATH</span><span class="p">[</span><span class="s1">&#39;gaming_lounge&#39;</span><span class="p">]</span><span class="si">}{</span><span class="n">API_PATH</span><span class="p">[</span><span class="s1">&#39;conversation&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">group_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">group_id</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">params</span><span class="o">=</span><span class="n">param</span><span class="p">,</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">response</span></div>
+
+<div class="viewcode-block" id="Group.leave_group"><a class="viewcode-back" href="../../../psnawp_api.models.html#psnawp_api.models.group.Group.leave_group">[docs]</a>    <span class="k">def</span> <span class="nf">leave_group</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Leave the current group</span>
+
+<span class="sd">        :raises: ``PSNAWPNotFound`` If you are not part of the group.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_request_builder</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">BASE_PATH</span><span class="p">[</span><span class="s1">&#39;gaming_lounge&#39;</span><span class="p">]</span><span class="si">}{</span><span class="n">API_PATH</span><span class="p">[</span><span class="s1">&#39;leave_group&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">group_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">group_id</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;&lt;Group group_id:</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">group_id</span><span class="si">}</span><span class="s2">&gt;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Group ID: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">group_id</span><span class="si">}</span><span class="s2">&quot;</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Yoshikage Kira.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

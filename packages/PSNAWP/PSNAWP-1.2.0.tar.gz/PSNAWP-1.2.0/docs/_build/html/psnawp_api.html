@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>psnawp_api package &mdash; PSNAWP 1.1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="psnawp_api.core package" href="psnawp_api.core.html" />
+    <link rel="prev" title="PSNAWP: PlayStation Network API Wrapper Python" href="index.html" />
+    <link href="_static/custom.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> PSNAWP
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Code Overview:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">psnawp_api package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="psnawp_api.core.html">psnawp_api.core package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="psnawp_api.models.html">psnawp_api.models package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="psnawp_api.utils.html">psnawp_api.utils package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-psnawp_api.psnawp">psnawp_api.psnawp module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#psnawp_api.psnawp.PSNAWP"><code class="docutils literal notranslate"><span class="pre">PSNAWP</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#psnawp_api.psnawp.PSNAWP.__init__"><code class="docutils literal notranslate"><span class="pre">PSNAWP.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#psnawp_api.psnawp.PSNAWP.me"><code class="docutils literal notranslate"><span class="pre">PSNAWP.me()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#psnawp_api.psnawp.PSNAWP.user"><code class="docutils literal notranslate"><span class="pre">PSNAWP.user()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#psnawp_api.psnawp.PSNAWP.game_title"><code class="docutils literal notranslate"><span class="pre">PSNAWP.game_title()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#psnawp_api.psnawp.PSNAWP.group"><code class="docutils literal notranslate"><span class="pre">PSNAWP.group()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#psnawp_api.psnawp.PSNAWP.search"><code class="docutils literal notranslate"><span class="pre">PSNAWP.search()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-psnawp_api">Module contents</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Resources:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="additional_resources/README.html">Readme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional_resources/CHANGELOG.html">Changelogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional_resources/AUTHORS.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional_resources/LICENSE.html">Licenses</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PSNAWP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">psnawp_api package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/psnawp_api.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="psnawp-api-package">
+<h1>psnawp_api package<a class="headerlink" href="#psnawp-api-package" title="Permalink to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="psnawp_api.core.html">psnawp_api.core package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="psnawp_api.core.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="psnawp_api.core.html#module-psnawp_api.core.authenticator">psnawp_api.core.authenticator module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="psnawp_api.core.html#psnawp_api.core.authenticator.Authenticator"><code class="docutils literal notranslate"><span class="pre">Authenticator</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.core.html#psnawp_api.core.authenticator.Authenticator.__init__"><code class="docutils literal notranslate"><span class="pre">Authenticator.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.core.html#psnawp_api.core.authenticator.Authenticator.obtain_fresh_access_token"><code class="docutils literal notranslate"><span class="pre">Authenticator.obtain_fresh_access_token()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.core.html#psnawp_api.core.authenticator.Authenticator.oauth_token"><code class="docutils literal notranslate"><span class="pre">Authenticator.oauth_token()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="psnawp_api.core.html#module-psnawp_api.core.psnawp_exceptions">psnawp_api.core.psnawp_exceptions module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="psnawp_api.core.html#psnawp_api.core.psnawp_exceptions.PSNAWPException"><code class="docutils literal notranslate"><span class="pre">PSNAWPException</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="psnawp_api.core.html#psnawp_api.core.psnawp_exceptions.PSNAWPAuthenticationError"><code class="docutils literal notranslate"><span class="pre">PSNAWPAuthenticationError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="psnawp_api.core.html#psnawp_api.core.psnawp_exceptions.PSNAWPBadRequest"><code class="docutils literal notranslate"><span class="pre">PSNAWPBadRequest</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="psnawp_api.core.html#psnawp_api.core.psnawp_exceptions.PSNAWPIllegalArgumentError"><code class="docutils literal notranslate"><span class="pre">PSNAWPIllegalArgumentError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="psnawp_api.core.html#psnawp_api.core.psnawp_exceptions.PSNAWPUnauthorized"><code class="docutils literal notranslate"><span class="pre">PSNAWPUnauthorized</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="psnawp_api.core.html#psnawp_api.core.psnawp_exceptions.PSNAWPForbidden"><code class="docutils literal notranslate"><span class="pre">PSNAWPForbidden</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="psnawp_api.core.html#psnawp_api.core.psnawp_exceptions.PSNAWPNotFound"><code class="docutils literal notranslate"><span class="pre">PSNAWPNotFound</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="psnawp_api.core.html#psnawp_api.core.psnawp_exceptions.PSNAWPNotAllowed"><code class="docutils literal notranslate"><span class="pre">PSNAWPNotAllowed</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="psnawp_api.core.html#psnawp_api.core.psnawp_exceptions.PSNAWPServerError"><code class="docutils literal notranslate"><span class="pre">PSNAWPServerError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="psnawp_api.core.html#module-psnawp_api.core">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="psnawp_api.models.html">psnawp_api.models package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="psnawp_api.models.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="psnawp_api.models.trophies.html">psnawp_api.models.trophies package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.trophies.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.trophies.html#module-psnawp_api.models.trophies.trophy">psnawp_api.models.trophies.trophy module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.trophies.html#module-psnawp_api.models.trophies.trophy_constants">psnawp_api.models.trophies.trophy_constants module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.trophies.html#module-psnawp_api.models.trophies.trophy_group">psnawp_api.models.trophies.trophy_group module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.trophies.html#module-psnawp_api.models.trophies.trophy_summary">psnawp_api.models.trophies.trophy_summary module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.trophies.html#module-psnawp_api.models.trophies.trophy_titles">psnawp_api.models.trophies.trophy_titles module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.trophies.html#module-psnawp_api.models.trophies.utility_functions">psnawp_api.models.trophies.utility_functions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.trophies.html#module-psnawp_api.models.trophies">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="psnawp_api.models.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="psnawp_api.models.html#module-psnawp_api.models.client">psnawp_api.models.client module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.client.Client"><code class="docutils literal notranslate"><span class="pre">Client</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.client.Client.__init__"><code class="docutils literal notranslate"><span class="pre">Client.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.client.Client.online_id"><code class="docutils literal notranslate"><span class="pre">Client.online_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.client.Client.account_id"><code class="docutils literal notranslate"><span class="pre">Client.account_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.client.Client.get_profile_legacy"><code class="docutils literal notranslate"><span class="pre">Client.get_profile_legacy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.client.Client.get_account_devices"><code class="docutils literal notranslate"><span class="pre">Client.get_account_devices()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.client.Client.friends_list"><code class="docutils literal notranslate"><span class="pre">Client.friends_list()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.client.Client.available_to_play"><code class="docutils literal notranslate"><span class="pre">Client.available_to_play()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.client.Client.blocked_list"><code class="docutils literal notranslate"><span class="pre">Client.blocked_list()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.client.Client.get_groups"><code class="docutils literal notranslate"><span class="pre">Client.get_groups()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.client.Client.trophy_summary"><code class="docutils literal notranslate"><span class="pre">Client.trophy_summary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.client.Client.trophy_titles"><code class="docutils literal notranslate"><span class="pre">Client.trophy_titles()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.client.Client.trophy_titles_for_title"><code class="docutils literal notranslate"><span class="pre">Client.trophy_titles_for_title()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.client.Client.trophies"><code class="docutils literal notranslate"><span class="pre">Client.trophies()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.client.Client.trophy_groups_summary"><code class="docutils literal notranslate"><span class="pre">Client.trophy_groups_summary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.client.Client.title_stats"><code class="docutils literal notranslate"><span class="pre">Client.title_stats()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="psnawp_api.models.html#module-psnawp_api.models.game_title">psnawp_api.models.game_title module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.game_title.GameTitle"><code class="docutils literal notranslate"><span class="pre">GameTitle</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.game_title.GameTitle.__init__"><code class="docutils literal notranslate"><span class="pre">GameTitle.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.game_title.GameTitle.get_details"><code class="docutils literal notranslate"><span class="pre">GameTitle.get_details()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.game_title.GameTitle.trophies"><code class="docutils literal notranslate"><span class="pre">GameTitle.trophies()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.game_title.GameTitle.trophy_groups_summary"><code class="docutils literal notranslate"><span class="pre">GameTitle.trophy_groups_summary()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="psnawp_api.models.html#module-psnawp_api.models.group">psnawp_api.models.group module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.group.Group"><code class="docutils literal notranslate"><span class="pre">Group</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.group.Group.__init__"><code class="docutils literal notranslate"><span class="pre">Group.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.group.Group.change_name"><code class="docutils literal notranslate"><span class="pre">Group.change_name()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.group.Group.get_group_information"><code class="docutils literal notranslate"><span class="pre">Group.get_group_information()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.group.Group.send_message"><code class="docutils literal notranslate"><span class="pre">Group.send_message()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.group.Group.get_conversation"><code class="docutils literal notranslate"><span class="pre">Group.get_conversation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.group.Group.leave_group"><code class="docutils literal notranslate"><span class="pre">Group.leave_group()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="psnawp_api.models.html#module-psnawp_api.models.search">psnawp_api.models.search module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.search.Search"><code class="docutils literal notranslate"><span class="pre">Search</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.search.Search.__init__"><code class="docutils literal notranslate"><span class="pre">Search.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.search.Search.universal_search"><code class="docutils literal notranslate"><span class="pre">Search.universal_search()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.search.Search.get_title_id"><code class="docutils literal notranslate"><span class="pre">Search.get_title_id()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="psnawp_api.models.html#module-psnawp_api.models.title_stats">psnawp_api.models.title_stats module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.title_stats.PlatformCategory"><code class="docutils literal notranslate"><span class="pre">PlatformCategory</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.title_stats.PlatformCategory.UNKNOWN"><code class="docutils literal notranslate"><span class="pre">PlatformCategory.UNKNOWN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.title_stats.PlatformCategory.PS4"><code class="docutils literal notranslate"><span class="pre">PlatformCategory.PS4</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.title_stats.PlatformCategory.PS5"><code class="docutils literal notranslate"><span class="pre">PlatformCategory.PS5</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.title_stats.platform_str_to_enum"><code class="docutils literal notranslate"><span class="pre">platform_str_to_enum()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.title_stats.TitleStats"><code class="docutils literal notranslate"><span class="pre">TitleStats</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.title_stats.TitleStats.title_id"><code class="docutils literal notranslate"><span class="pre">TitleStats.title_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.title_stats.TitleStats.name"><code class="docutils literal notranslate"><span class="pre">TitleStats.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.title_stats.TitleStats.image_url"><code class="docutils literal notranslate"><span class="pre">TitleStats.image_url</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.title_stats.TitleStats.category"><code class="docutils literal notranslate"><span class="pre">TitleStats.category</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.title_stats.TitleStats.play_count"><code class="docutils literal notranslate"><span class="pre">TitleStats.play_count</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.title_stats.TitleStats.__init__"><code class="docutils literal notranslate"><span class="pre">TitleStats.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.title_stats.TitleStats.first_played_date_time"><code class="docutils literal notranslate"><span class="pre">TitleStats.first_played_date_time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.title_stats.TitleStats.last_played_date_time"><code class="docutils literal notranslate"><span class="pre">TitleStats.last_played_date_time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.title_stats.TitleStats.play_duration"><code class="docutils literal notranslate"><span class="pre">TitleStats.play_duration</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.title_stats.TitleStats.from_dict"><code class="docutils literal notranslate"><span class="pre">TitleStats.from_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.title_stats.TitleStats.from_endpoint"><code class="docutils literal notranslate"><span class="pre">TitleStats.from_endpoint()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="psnawp_api.models.html#module-psnawp_api.models.user">psnawp_api.models.user module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.user.User"><code class="docutils literal notranslate"><span class="pre">User</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.user.User.from_online_id"><code class="docutils literal notranslate"><span class="pre">User.from_online_id()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.user.User.from_account_id"><code class="docutils literal notranslate"><span class="pre">User.from_account_id()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.user.User.__init__"><code class="docutils literal notranslate"><span class="pre">User.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.user.User.profile"><code class="docutils literal notranslate"><span class="pre">User.profile()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.user.User.get_presence"><code class="docutils literal notranslate"><span class="pre">User.get_presence()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.user.User.friendship"><code class="docutils literal notranslate"><span class="pre">User.friendship()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.user.User.is_blocked"><code class="docutils literal notranslate"><span class="pre">User.is_blocked()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.user.User.trophy_summary"><code class="docutils literal notranslate"><span class="pre">User.trophy_summary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.user.User.trophy_titles"><code class="docutils literal notranslate"><span class="pre">User.trophy_titles()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.user.User.trophy_titles_for_title"><code class="docutils literal notranslate"><span class="pre">User.trophy_titles_for_title()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.user.User.trophies"><code class="docutils literal notranslate"><span class="pre">User.trophies()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.user.User.trophy_groups_summary"><code class="docutils literal notranslate"><span class="pre">User.trophy_groups_summary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.user.User.title_stats"><code class="docutils literal notranslate"><span class="pre">User.title_stats()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="psnawp_api.models.html#module-psnawp_api.models">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="psnawp_api.utils.html">psnawp_api.utils package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="psnawp_api.utils.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="psnawp_api.utils.html#module-psnawp_api.utils.endpoints">psnawp_api.utils.endpoints module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="psnawp_api.utils.html#module-psnawp_api.utils.misc">psnawp_api.utils.misc module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="psnawp_api.utils.html#psnawp_api.utils.misc.create_logger"><code class="docutils literal notranslate"><span class="pre">create_logger()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="psnawp_api.utils.html#psnawp_api.utils.misc.iso_format_to_datetime"><code class="docutils literal notranslate"><span class="pre">iso_format_to_datetime()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="psnawp_api.utils.html#psnawp_api.utils.misc.play_duration_to_timedelta"><code class="docutils literal notranslate"><span class="pre">play_duration_to_timedelta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="psnawp_api.utils.html#module-psnawp_api.utils.request_builder">psnawp_api.utils.request_builder module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="psnawp_api.utils.html#psnawp_api.utils.request_builder.response_checker"><code class="docutils literal notranslate"><span class="pre">response_checker()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="psnawp_api.utils.html#psnawp_api.utils.request_builder.RequestBuilder"><code class="docutils literal notranslate"><span class="pre">RequestBuilder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.utils.html#psnawp_api.utils.request_builder.RequestBuilder.__init__"><code class="docutils literal notranslate"><span class="pre">RequestBuilder.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.utils.html#psnawp_api.utils.request_builder.RequestBuilder.get"><code class="docutils literal notranslate"><span class="pre">RequestBuilder.get()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.utils.html#psnawp_api.utils.request_builder.RequestBuilder.patch"><code class="docutils literal notranslate"><span class="pre">RequestBuilder.patch()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.utils.html#psnawp_api.utils.request_builder.RequestBuilder.post"><code class="docutils literal notranslate"><span class="pre">RequestBuilder.post()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.utils.html#psnawp_api.utils.request_builder.RequestBuilder.multipart_post"><code class="docutils literal notranslate"><span class="pre">RequestBuilder.multipart_post()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psnawp_api.utils.html#psnawp_api.utils.request_builder.RequestBuilder.delete"><code class="docutils literal notranslate"><span class="pre">RequestBuilder.delete()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="psnawp_api.utils.html#module-psnawp_api.utils">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-psnawp_api.psnawp">
+<span id="psnawp-api-psnawp-module"></span><h2>psnawp_api.psnawp module<a class="headerlink" href="#module-psnawp_api.psnawp" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="psnawp_api.psnawp.PSNAWP">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PSNAWP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">npsso_cookie</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/psnawp_api/psnawp.html#PSNAWP"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psnawp_api.psnawp.PSNAWP" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>PlayStation Network API Wrapper Python (PSNAWP) Retrieve User Information, Trophies, Game and Store data from the PlayStation Network.</p>
+<p>Instances of this class are the gateway to interacting with PSN API through PSNAWP.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">psnawp_api</span> <span class="kn">import</span> <span class="n">PSNAWP</span>
+<span class="n">psnawp</span> <span class="o">=</span> <span class="n">PSNAWP</span><span class="p">(</span><span class="s1">&#39;&lt;64 character npsso code&gt;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="psnawp_api.psnawp.PSNAWP.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">npsso_cookie</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/psnawp_api/psnawp.html#PSNAWP.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psnawp_api.psnawp.PSNAWP.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Constructor Method. Takes the npsso_cookie and creates instance of <code class="docutils literal notranslate"><span class="pre">request_builder.RequestBuilder</span></code> which is used later in code for HTTPS requests.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>npsso_cookie</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – npsso cookie obtained from PSN website.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">PSNAWPAuthenticationError</span></code> If npsso code is expired or is incorrect.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psnawp_api.psnawp.PSNAWP.me">
+<span class="sig-name descname"><span class="pre">me</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.client.Client" title="psnawp_api.models.client.Client"><span class="pre">Client</span></a></span></span><a class="reference internal" href="_modules/psnawp_api/psnawp.html#PSNAWP.me"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psnawp_api.psnawp.PSNAWP.me" title="Permalink to this definition"></a></dt>
+<dd><p>Creates a new client object (your account).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Client Object</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.client.Client" title="psnawp_api.models.client.Client">Client</a></p>
+</dd>
+</dl>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">psnawp_api</span> <span class="kn">import</span> <span class="n">PSNAWP</span>
+<span class="n">psnawp</span> <span class="o">=</span> <span class="n">PSNAWP</span><span class="p">(</span><span class="s1">&#39;&lt;64 character npsso code&gt;&#39;</span><span class="p">)</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">psnawp</span><span class="o">.</span><span class="n">me</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psnawp_api.psnawp.PSNAWP.user">
+<span class="sig-name descname"><span class="pre">user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">online_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.user.User" title="psnawp_api.models.user.User"><span class="pre">User</span></a></span></span><a class="reference internal" href="_modules/psnawp_api/psnawp.html#PSNAWP.user"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psnawp_api.psnawp.PSNAWP.user" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">account_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.user.User" title="psnawp_api.models.user.User"><span class="pre">User</span></a></span></span></dt>
+<dd><p>Creates a new user object using Online ID (GamerTag) or Account ID (PSN ID).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The account_id takes higher precedence than online_id. If both arguments are passed, online_id will be ignored.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – online_id (str): Online ID (GamerTag) of the user. account_id (str): Account ID of the user.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>User Object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.user.User" title="psnawp_api.models.user.User">User</a></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><cite>PSNAWPIllegalArgumentError</cite> If None of the kwargs are passed.</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">PSNAWPNotFound</span></code> If the online_id or account_id is not valid/found.</p>
+</dd>
+</dl>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">user1</span> <span class="o">=</span> <span class="n">psnawp</span><span class="o">.</span><span class="n">user</span><span class="p">(</span><span class="n">online_id</span><span class="o">=</span><span class="s2">&quot;VaultTec_Trading&quot;</span><span class="p">)</span>
+<span class="n">user2</span> <span class="o">=</span> <span class="n">psnawp</span><span class="o">.</span><span class="n">user</span><span class="p">(</span><span class="n">account_id</span><span class="o">=</span><span class="s1">&#39;1802043923080044300&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psnawp_api.psnawp.PSNAWP.game_title">
+<span class="sig-name descname"><span class="pre">game_title</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">account_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'6515971742264256071'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">np_communication_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.game_title.GameTitle" title="psnawp_api.models.game_title.GameTitle"><span class="pre">GameTitle</span></a></span></span><a class="reference internal" href="_modules/psnawp_api/psnawp.html#PSNAWP.game_title"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psnawp_api.psnawp.PSNAWP.game_title" title="Permalink to this definition"></a></dt>
+<dd><p>Creates a GameTitle class object from title_id which represents a PlayStation video game title.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The GameTitle class is only useful if the user has played that video game. To allow users to retrieve information without having to play that video
+game I picked a default user who has played the most number of games based on this website
+(<a class="reference external" href="https://www.truetrophies.com/leaderboard/gamer/gamesplayed">https://www.truetrophies.com/leaderboard/gamer/gamesplayed</a>). It is possible that the there are games this user has not played and in that case it
+is better to provide your own account id (<code class="docutils literal notranslate"><span class="pre">'me'</span></code>) or someone who has played that game.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">title_id</span></code> can be obtained from <a class="reference external" href="https://andshrew.github.io/PlayStation-Titles/">https://andshrew.github.io/PlayStation-Titles/</a> or from <a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.search.Search.get_title_id" title="psnawp_api.models.search.Search.get_title_id"><code class="xref py py-meth docutils literal notranslate"><span class="pre">psnawp_api.models.search.Search.get_title_id()</span></code></a></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>During the construction of the object, an additional call is made to get the np_communication_id. This ID is important for getting trophy data. This
+call can be skipped by providing np_communication_id in as argument.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>title_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – unique ID of game title.</p></li>
+<li><p><strong>np_communication_id</strong> (<em>Optional</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>]</em>) – Unique ID of a game title used to request trophy information.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Param</dt>
+<dd class="field-even"><p>account_id: The account whose trophy list is being accessed</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Title Object</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.game_title.GameTitle" title="psnawp_api.models.game_title.GameTitle">GameTitle</a></p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">PSNAWPNotFound</span></code> If the user does not have any trophies for that game or the game doesn’t exist.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psnawp_api.psnawp.PSNAWP.group">
+<span class="sig-name descname"><span class="pre">group</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.group.Group" title="psnawp_api.models.group.Group"><span class="pre">Group</span></a></span></span><a class="reference internal" href="_modules/psnawp_api/psnawp.html#PSNAWP.group"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psnawp_api.psnawp.PSNAWP.group" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">group</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">users_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterator" title="(in Python v3.11)"><span class="pre">Iterator</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.user.User" title="psnawp_api.models.user.User"><span class="pre">User</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.group.Group" title="psnawp_api.models.group.Group"><span class="pre">Group</span></a></span></span></dt>
+<dd><p>Creates a group object from a Group ID or from list of users.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Passing <code class="docutils literal notranslate"><span class="pre">users_list</span></code> will create a new group each time. If you want to continue from the same group. Use group id obtained from
+<code class="docutils literal notranslate"><span class="pre">client.get_groups()</span></code></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>kwargs</strong> – group_id (str): The Group ID of a group usually retrieved with the get_groups() method. users_list(Iterator[User]): A list of users of
+the members in the group.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Group Object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.group.Group" title="psnawp_api.models.group.Group">Group</a></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">PSNAWPIllegalArgumentError</span></code> If None or Both kwargs are passed.</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">PSNAWPForbidden</span></code> If you are Dming a user who has blocked you.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psnawp_api.psnawp.PSNAWP.search">
+<span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="psnawp_api.models.html#psnawp_api.models.search.Search" title="psnawp_api.models.search.Search"><span class="pre">Search</span></a></span></span><a class="reference internal" href="_modules/psnawp_api/psnawp.html#PSNAWP.search"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psnawp_api.psnawp.PSNAWP.search" title="Permalink to this definition"></a></dt>
+<dd><p>Creates a new search object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Search Object</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-psnawp_api">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-psnawp_api" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="PSNAWP: PlayStation Network API Wrapper Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="psnawp_api.core.html" class="btn btn-neutral float-right" title="psnawp_api.core package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Yoshikage Kira.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

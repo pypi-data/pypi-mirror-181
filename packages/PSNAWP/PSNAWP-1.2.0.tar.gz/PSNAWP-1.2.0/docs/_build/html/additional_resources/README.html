@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Readme &mdash; PSNAWP 1.1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Changelogs" href="CHANGELOG.html" />
+    <link rel="prev" title="psnawp_api.utils package" href="../psnawp_api.utils.html" />
+    <link href="../_static/custom.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> PSNAWP
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Code Overview:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../psnawp_api.html">psnawp_api package</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Resources:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Readme</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#playstation-network-api-wrapper-python-psnawp">PlayStation Network API Wrapper Python (PSNAWP)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-install">How to install</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#from-pypi">From PyPI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#using-setup-py">Using <code class="docutils literal notranslate"><span class="pre">setup.py</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#important-links">Important Links</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#getting-started">Getting Started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#contribution">Contribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#disclaimer">Disclaimer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#credit">Credit</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="CHANGELOG.html">Changelogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AUTHORS.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LICENSE.html">Licenses</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PSNAWP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Readme</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/additional_resources/README.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="readme">
+<h1>Readme<a class="headerlink" href="#readme" title="Permalink to this heading"></a></h1>
+<section id="playstation-network-api-wrapper-python-psnawp">
+<h2>PlayStation Network API Wrapper Python (PSNAWP)<a class="headerlink" href="#playstation-network-api-wrapper-python-psnawp" title="Permalink to this heading"></a></h2>
+<p>Retrieve User Information, Trophies, Game and Store data from the PlayStation Network</p>
+<p><a class="reference external" href="https://badge.fury.io/py/psnawp"><img alt="PyPI version" src="https://badge.fury.io/py/psnawp.svg" /></a>
+<a class="reference external" href="https://pepy.tech/project/psnawp"><img alt="Downloads" src="https://pepy.tech/badge/psnawp" /></a>
+<a class="reference external" href="https://www.python.org/"><img alt="python-logo" src="https://img.shields.io/badge/python-3.8_%7C_3.9_%7C_3.10_%7C_3.11-blue.svg" /></a>
+<a class="reference external" href="https://github.com/isFakeAccount/psnawp/actions/workflows/pytest.yaml"><img alt="pytest" src="https://github.com/isFakeAccount/psnawp/actions/workflows/pytest.yaml/badge.svg" /></a>
+<a class="reference external" href="https://github.com/isFakeAccount/psnawp/actions/workflows/pre-commit.yaml"><img alt="pre-commit" src="https://github.com/isFakeAccount/psnawp/actions/workflows/pre-commit.yaml/badge.svg" /></a>
+<a class="reference external" href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg" /></a>
+<a class="reference external" href="https://psnawp.readthedocs.io/en/latest/?badge=latest"><img alt="Documentation Status" src="https://readthedocs.org/projects/psnawp/badge/?version=latest" /></a>
+<a class="reference external" href="https://opensource.org/licenses/MIT"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-blue.svg" /></a></p>
+<!-- Pytest Coverage Comment:Begin -->
+<p><a href="https://github.com/isFakeAccount/psnawp/blob/main/README.md"><img alt="Coverage" src="https://img.shields.io/badge/Coverage-98%25-brightgreen.svg" /></a><details><summary>Coverage Report </summary><table><tr><th>File</th><th>Stmts</th><th>Miss</th><th>Cover</th><th>Missing</th></tr><tbody><tr><td colspan="5"><b>/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/psnawp_api</b></td></tr><tr><td>   <a href="https://github.com/isFakeAccount/psnawp/blob/main//opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/psnawp_api/__init__.py"><strong>init</strong>.py</a></td><td>1</td><td>0</td><td>100%</td><td> </td></tr><tr><td>   <a href="https://github.com/isFakeAccount/psnawp/blob/main//opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/psnawp_api/psnawp.py">psnawp.py</a></td><td>35</td><td>0</td><td>100%</td><td> </td></tr><tr><td colspan="5"><b>/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/psnawp_api/core</b></td></tr><tr><td>   <a href="https://github.com/isFakeAccount/psnawp/blob/main//opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/psnawp_api/core/__init__.py"><strong>init</strong>.py</a></td><td>0</td><td>0</td><td>100%</td><td> </td></tr><tr><td>   <a href="https://github.com/isFakeAccount/psnawp/blob/main//opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/psnawp_api/core/authenticator.py">authenticator.py</a></td><td>46</td><td>3</td><td>3</td><td><a href="https://github.com/isFakeAccount/psnawp/blob/main//opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/psnawp_api/core/authenticator.py#L 93%"> 93%</a></td></tr><tr><td>   <a href="https://github.com/isFakeAccount/psnawp/blob/main//opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/psnawp_api/core/psnawp_exceptions.py">psnawp_exceptions.py</a></td><td>9</td><td>0</td><td>100%</td><td> </td></tr><tr><td colspan="5"><b>/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/psnawp_api/models</b></td></tr><tr><td>   <a href="https://github.com/isFakeAccount/psnawp/blob/main//opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/psnawp_api/models/__init__.py"><strong>init</strong>.py</a></td><td>0</td><td>0</td><td>100%</td><td> </td></tr><tr><td>   <a href="https://github.com/isFakeAccount/psnawp/blob/main//opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/psnawp_api/models/client.py">client.py</a></td><td>65</td><td>0</td><td>100%</td><td> </td></tr><tr><td>   <a href="https://github.com/isFakeAccount/psnawp/blob/main//opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/psnawp_api/models/game_title.py">game_title.py</a></td><td>22</td><td>0</td><td>100%</td><td> </td></tr><tr><td>   <a href="https://github.com/isFakeAccount/psnawp/blob/main//opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/psnawp_api/models/group.py">group.py</a></td><td>52</td><td>0</td><td>100%</td><td> </td></tr><tr><td>   <a href="https://github.com/isFakeAccount/psnawp/blob/main//opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/psnawp_api/models/search.py">search.py</a></td><td>22</td><td>0</td><td>100%</td><td> </td></tr><tr><td>   <a href="https://github.com/isFakeAccount/psnawp/blob/main//opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/psnawp_api/models/user.py">user.py</a></td><td>66</td><td>0</td><td>100%</td><td> </td></tr><tr><td colspan="5"><b>/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/psnawp_api/models/trophies</b></td></tr><tr><td>   <a href="https://github.com/isFakeAccount/psnawp/blob/main//opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/psnawp_api/models/trophies/__init__.py"><strong>init</strong>.py</a></td><td>0</td><td>0</td><td>100%</td><td> </td></tr><tr><td>   <a href="https://github.com/isFakeAccount/psnawp/blob/main//opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/psnawp_api/models/trophies/trophy.py">trophy.py</a></td><td>113</td><td>0</td><td>100%</td><td> </td></tr><tr><td>   <a href="https://github.com/isFakeAccount/psnawp/blob/main//opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/psnawp_api/models/trophies/trophy_constants.py">trophy_constants.py</a></td><td>25</td><td>0</td><td>100%</td><td> </td></tr><tr><td>   <a href="https://github.com/isFakeAccount/psnawp/blob/main//opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/psnawp_api/models/trophies/trophy_group.py">trophy_group.py</a></td><td>89</td><td>0</td><td>100%</td><td> </td></tr><tr><td>   <a href="https://github.com/isFakeAccount/psnawp/blob/main//opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/psnawp_api/models/trophies/trophy_summary.py">trophy_summary.py</a></td><td>25</td><td>0</td><td>100%</td><td> </td></tr><tr><td>   <a href="https://github.com/isFakeAccount/psnawp/blob/main//opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/psnawp_api/models/trophies/trophy_titles.py">trophy_titles.py</a></td><td>84</td><td>0</td><td>100%</td><td> </td></tr><tr><td>   <a href="https://github.com/isFakeAccount/psnawp/blob/main//opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/psnawp_api/models/trophies/utility_functions.py">utility_functions.py</a></td><td>10</td><td>0</td><td>100%</td><td> </td></tr><tr><td colspan="5"><b>/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/psnawp_api/utils</b></td></tr><tr><td>   <a href="https://github.com/isFakeAccount/psnawp/blob/main//opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/psnawp_api/utils/__init__.py"><strong>init</strong>.py</a></td><td>0</td><td>0</td><td>100%</td><td> </td></tr><tr><td>   <a href="https://github.com/isFakeAccount/psnawp/blob/main//opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/psnawp_api/utils/endpoints.py">endpoints.py</a></td><td>2</td><td>0</td><td>100%</td><td> </td></tr><tr><td>   <a href="https://github.com/isFakeAccount/psnawp/blob/main//opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/psnawp_api/utils/misc.py">misc.py</a></td><td>13</td><td>0</td><td>100%</td><td> </td></tr><tr><td>   <a href="https://github.com/isFakeAccount/psnawp/blob/main//opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/psnawp_api/utils/request_builder.py">request_builder.py</a></td><td>72</td><td>15</td><td>15</td><td><a href="https://github.com/isFakeAccount/psnawp/blob/main//opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/psnawp_api/utils/request_builder.py#L 79%"> 79%</a></td></tr><tr><td><b>TOTAL</b></td><td><b>751</b></td><td><b>18</b></td><td><b>98%</b></td><td> </td></tr></tbody></table></details></p>
+<!-- Pytest Coverage Comment:End -->
+<section id="how-to-install">
+<h3>How to install<a class="headerlink" href="#how-to-install" title="Permalink to this heading"></a></h3>
+<section id="from-pypi">
+<h4>From PyPI<a class="headerlink" href="#from-pypi" title="Permalink to this heading"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">PSNAWP</span>
+</pre></div>
+</div>
+</section>
+<section id="using-setup-py">
+<h4>Using <code class="docutils literal notranslate"><span class="pre">setup.py</span></code><a class="headerlink" href="#using-setup-py" title="Permalink to this heading"></a></h4>
+<p>To install the library into python. First you need to clone the repo at your local machine and run the following command from the root directory of the repo</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="important-links">
+<h3>Important Links<a class="headerlink" href="#important-links" title="Permalink to this heading"></a></h3>
+<blockquote>
+<div><p>PyPI: https://pypi.org/project/PSNAWP/</p>
+<p>Read the Docs: https://psnawp.readthedocs.io/en/latest/</p>
+</div></blockquote>
+</section>
+<section id="getting-started">
+<h3>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this heading"></a></h3>
+<p>To get started you need to obtain npsso &lt;64 character code&gt;. You need to follow the following steps</p>
+<ol class="arabic simple">
+<li><p>Login into your <a class="reference external" href="https://my.playstation.com/">My PlayStation</a> account.</p></li>
+<li><p>In another tab, go to https://ca.account.sony.com/api/v1/ssocookie</p></li>
+<li><p>If you are logged in you should see a text similar to this</p></li>
+</ol>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;npsso&quot;</span><span class="p">:</span><span class="s2">&quot;&lt;64 character npsso code&gt;&quot;</span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>This npsso code will be used in the api for authentication purposes. The refresh token that is generated from npsso lasts about 2 months. After that you have to get a new npsso token. The bot will print a warning if there are less than 3 days left in refresh token expiration.</p>
+<p>Following is the quick example on how to use this library</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">psnawp_api</span> <span class="kn">import</span> <span class="n">PSNAWP</span>
+
+<span class="n">psnawp</span> <span class="o">=</span> <span class="n">PSNAWP</span><span class="p">(</span><span class="s1">&#39;&lt;64 character npsso code&gt;&#39;</span><span class="p">)</span>
+
+<span class="c1"># This is you</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">psnawp</span><span class="o">.</span><span class="n">me</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">online_id</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">account_id</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">get_account_devices</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">get_profile_legacy</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">friends_list</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">blocked_list</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">available_to_play</span><span class="p">())</span>
+<span class="n">groups</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_groups</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">groups</span><span class="p">)</span>
+
+<span class="c1"># Getting user from online</span>
+<span class="n">example_user_1</span> <span class="o">=</span> <span class="n">psnawp</span><span class="o">.</span><span class="n">user</span><span class="p">(</span><span class="n">online_id</span><span class="o">=</span><span class="s2">&quot;VaultTec-Co&quot;</span><span class="p">)</span>
+<span class="n">example_user_2</span> <span class="o">=</span> <span class="n">psnawp</span><span class="o">.</span><span class="n">user</span><span class="p">(</span><span class="n">online_id</span><span class="o">=</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">example_user_1</span><span class="o">.</span><span class="n">online_id</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">example_user_1</span><span class="o">.</span><span class="n">account_id</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">example_user_1</span><span class="o">.</span><span class="n">profile</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">example_user_1</span><span class="o">.</span><span class="n">prev_online_id</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">example_user_1</span><span class="o">.</span><span class="n">get_presence</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">example_user_1</span><span class="o">.</span><span class="n">friendship</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">example_user_1</span><span class="o">.</span><span class="n">is_blocked</span><span class="p">())</span>
+
+<span class="c1"># Getting user from Account ID</span>
+<span class="n">user_account_id</span> <span class="o">=</span> <span class="n">psnawp</span><span class="o">.</span><span class="n">user</span><span class="p">(</span><span class="n">account_id</span><span class="o">=</span><span class="s1">&#39;9122947611907501295&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">user_account_id</span><span class="o">.</span><span class="n">online_id</span><span class="p">)</span>
+
+<span class="c1"># Sending Message</span>
+<span class="n">group</span> <span class="o">=</span> <span class="n">psnawp</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="n">group_id</span><span class="o">=</span><span class="s1">&#39;38335156987791a6750a33ae452ec8666177b65e-103&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">group</span><span class="o">.</span><span class="n">get_group_information</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">group</span><span class="o">.</span><span class="n">get_conversation</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">group</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="s2">&quot;Hello World&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">group</span><span class="o">.</span><span class="n">change_name</span><span class="p">(</span><span class="s2">&quot;API Testing 3&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">group</span><span class="o">.</span><span class="n">leave_group</span><span class="p">())</span>
+
+<span class="c1"># Creating new group</span>
+<span class="n">new_group</span> <span class="o">=</span> <span class="n">psnawp</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="n">users_list</span><span class="o">=</span><span class="p">[</span><span class="n">example_user_1</span><span class="p">,</span> <span class="n">example_user_2</span><span class="p">])</span>
+
+<span class="n">search</span> <span class="o">=</span> <span class="n">psnawp</span><span class="o">.</span><span class="n">search</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">search</span><span class="o">.</span><span class="n">get_title_details</span><span class="p">(</span><span class="n">title_id</span><span class="o">=</span><span class="s2">&quot;PPSA03420_00&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">search</span><span class="o">.</span><span class="n">universal_search</span><span class="p">(</span><span class="s2">&quot;GTA 5&quot;</span><span class="p">))</span>
+
+<span class="c1"># Get Play Times (PS4, PS5 above only)</span>
+<span class="n">titles_with_stats</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">title_stats</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Note: If you want to create multiple instances of psnawp you need to get npsso code from separate PSN accounts. If you generate a new npsso with same account your previous npsso will expire immediately.</strong></p>
+</section>
+<section id="contribution">
+<h3>Contribution<a class="headerlink" href="#contribution" title="Permalink to this heading"></a></h3>
+<p>All bug reposts and features requests are welcomed, although I am new at making python libraries, so it may take me a while to implement some features. Suggestions are welcomes if I am doing something that is an unconventional way of doing it.</p>
+</section>
+<section id="disclaimer">
+<h3>Disclaimer<a class="headerlink" href="#disclaimer" title="Permalink to this heading"></a></h3>
+<p>This project was not intended to be used for spam, abuse, or anything of the sort. Any use of this project for those purposes is not endorsed. Please keep this in mind when creating applications using this API wrapper.</p>
+</section>
+<section id="credit">
+<h3>Credit<a class="headerlink" href="#credit" title="Permalink to this heading"></a></h3>
+<p>This project contains code from PlayStationNetwork::API and PSN-PHP Wrapper that was translated to Python. See more in <a class="reference internal" href="LICENSE.html"><span class="doc std std-doc">LICENSE</span></a></p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../psnawp_api.utils.html" class="btn btn-neutral float-left" title="psnawp_api.utils package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="CHANGELOG.html" class="btn btn-neutral float-right" title="Changelogs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Yoshikage Kira.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>psnawp_api.core.authenticator &mdash; PSNAWP 1.1.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link href="../../../_static/custom.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> PSNAWP
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Code Overview:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../psnawp_api.html">psnawp_api package</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Resources:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../additional_resources/README.html">Readme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../additional_resources/CHANGELOG.html">Changelogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../additional_resources/AUTHORS.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../additional_resources/LICENSE.html">Licenses</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PSNAWP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">psnawp_api.core.authenticator</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for psnawp_api.core.authenticator</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
+<span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urlparse</span><span class="p">,</span> <span class="n">parse_qs</span>
+
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="kn">from</span> <span class="nn">psnawp_api.core</span> <span class="kn">import</span> <span class="n">psnawp_exceptions</span>
+<span class="kn">from</span> <span class="nn">psnawp_api.utils.endpoints</span> <span class="kn">import</span> <span class="n">BASE_PATH</span><span class="p">,</span> <span class="n">API_PATH</span>
+<span class="kn">from</span> <span class="nn">psnawp_api.utils.misc</span> <span class="kn">import</span> <span class="n">create_logger</span>
+
+
+<div class="viewcode-block" id="Authenticator"><a class="viewcode-back" href="../../../psnawp_api.core.html#psnawp_api.core.authenticator.Authenticator">[docs]</a><span class="k">class</span> <span class="nc">Authenticator</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Provides an interface for PSN Authentication.&quot;&quot;&quot;</span>
+
+    <span class="n">__PARAMS</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;CLIENT_ID&quot;</span><span class="p">:</span> <span class="s2">&quot;ac8d161a-d966-4728-b0ea-ffec22f69edc&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;SCOPE&quot;</span><span class="p">:</span> <span class="s2">&quot;psn:clientapp psn:mobile.v1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;REDIRECT_URI&quot;</span><span class="p">:</span> <span class="s2">&quot;com.playstation.PlayStationApp://redirect&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="n">__AUTH_HEADER</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="s2">&quot;Basic YWM4ZDE2MWEtZDk2Ni00NzI4LWIwZWEtZmZlYzIyZjY5ZWRjOkRFaXhFcVhYQ2RYZHdqMHY=&quot;</span><span class="p">}</span>
+
+<div class="viewcode-block" id="Authenticator.__init__"><a class="viewcode-back" href="../../../psnawp_api.core.html#psnawp_api.core.authenticator.Authenticator.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">npsso_cookie</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Represents a single authentication to PSN API.</span>
+
+<span class="sd">        :param npsso_cookie: npsso cookie obtained from PSN website.</span>
+
+<span class="sd">        :raises: ``PSNAWPAuthenticationError`` If npsso code is expired or is incorrect.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_npsso_token</span> <span class="o">=</span> <span class="n">npsso_cookie</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_auth_properties</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_authenticate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_authenticator_logger</span> <span class="o">=</span> <span class="n">create_logger</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Authenticator.obtain_fresh_access_token"><a class="viewcode-back" href="../../../psnawp_api.core.html#psnawp_api.core.authenticator.Authenticator.obtain_fresh_access_token">[docs]</a>    <span class="k">def</span> <span class="nf">obtain_fresh_access_token</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Gets a new access token from refresh token.</span>
+
+<span class="sd">        :returns: access token</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_auth_properties</span><span class="p">[</span><span class="s2">&quot;access_token_expires_at&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">():</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_auth_properties</span><span class="p">[</span><span class="s2">&quot;access_token&quot;</span><span class="p">]</span>
+
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;refresh_token&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_auth_properties</span><span class="p">[</span><span class="s2">&quot;refresh_token&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;grant_type&quot;</span><span class="p">:</span> <span class="s2">&quot;refresh_token&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;scope&quot;</span><span class="p">:</span> <span class="n">Authenticator</span><span class="o">.</span><span class="n">__PARAMS</span><span class="p">[</span><span class="s2">&quot;SCOPE&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;token_format&quot;</span><span class="p">:</span> <span class="s2">&quot;jwt&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">BASE_PATH</span><span class="p">[</span><span class="s1">&#39;base_uri&#39;</span><span class="p">]</span><span class="si">}{</span><span class="n">API_PATH</span><span class="p">[</span><span class="s1">&#39;access_token&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">headers</span><span class="o">=</span><span class="n">Authenticator</span><span class="o">.</span><span class="n">__AUTH_HEADER</span><span class="p">,</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_auth_properties</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_auth_properties</span><span class="p">[</span><span class="s2">&quot;access_token_expires_at&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_auth_properties</span><span class="p">[</span><span class="s2">&quot;expires_in&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_auth_properties</span><span class="p">[</span><span class="s2">&quot;refresh_token_expires_in&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_authenticator_logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Warning: Your refresh token is going to expire in less than 3 days. Please renew you npsso token!&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_auth_properties</span><span class="p">[</span><span class="s2">&quot;access_token&quot;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="Authenticator.oauth_token"><a class="viewcode-back" href="../../../psnawp_api.core.html#psnawp_api.core.authenticator.Authenticator.oauth_token">[docs]</a>    <span class="k">def</span> <span class="nf">oauth_token</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Obtain the access token using oauth code for the first time, after this the access token is obtained via refresh token.</span>
+
+<span class="sd">        :param code: Code obtained using npsso code.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="n">code</span><span class="p">,</span>
+            <span class="s2">&quot;grant_type&quot;</span><span class="p">:</span> <span class="s2">&quot;authorization_code&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;redirect_uri&quot;</span><span class="p">:</span> <span class="n">Authenticator</span><span class="o">.</span><span class="n">__PARAMS</span><span class="p">[</span><span class="s2">&quot;REDIRECT_URI&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;scope&quot;</span><span class="p">:</span> <span class="n">Authenticator</span><span class="o">.</span><span class="n">__PARAMS</span><span class="p">[</span><span class="s2">&quot;SCOPE&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;token_format&quot;</span><span class="p">:</span> <span class="s2">&quot;jwt&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+
+        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">BASE_PATH</span><span class="p">[</span><span class="s1">&#39;base_uri&#39;</span><span class="p">]</span><span class="si">}{</span><span class="n">API_PATH</span><span class="p">[</span><span class="s1">&#39;access_token&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">headers</span><span class="o">=</span><span class="n">Authenticator</span><span class="o">.</span><span class="n">__AUTH_HEADER</span><span class="p">,</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_auth_properties</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_auth_properties</span><span class="p">[</span><span class="s2">&quot;access_token_expires_at&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_auth_properties</span><span class="p">[</span><span class="s2">&quot;expires_in&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_auth_properties</span><span class="p">[</span><span class="s2">&quot;refresh_token_expires_in&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_authenticator_logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Warning: Your refresh token is going to expire in less than 3 days. Please renew you npsso token!&quot;</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_authenticate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Authenticate using the npsso code provided in the constructor.</span>
+
+<span class="sd">        Obtains the access code and the refresh code. Access code lasts about 1 hour. While the refresh code lasts about 2 months. After 2 months a new npsso</span>
+<span class="sd">        code is needed.</span>
+
+<span class="sd">        :raises: ``PSNAWPAuthenticationError`` If authentication is not successful.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cookies</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Cookie&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;npsso=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_npsso_token</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">}</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;access_type&quot;</span><span class="p">:</span> <span class="s2">&quot;offline&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;client_id&quot;</span><span class="p">:</span> <span class="n">Authenticator</span><span class="o">.</span><span class="n">__PARAMS</span><span class="p">[</span><span class="s2">&quot;CLIENT_ID&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;scope&quot;</span><span class="p">:</span> <span class="n">Authenticator</span><span class="o">.</span><span class="n">__PARAMS</span><span class="p">[</span><span class="s2">&quot;SCOPE&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;redirect_uri&quot;</span><span class="p">:</span> <span class="n">Authenticator</span><span class="o">.</span><span class="n">__PARAMS</span><span class="p">[</span><span class="s2">&quot;REDIRECT_URI&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;response_type&quot;</span><span class="p">:</span> <span class="s2">&quot;code&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">BASE_PATH</span><span class="p">[</span><span class="s1">&#39;base_uri&#39;</span><span class="p">]</span><span class="si">}{</span><span class="n">API_PATH</span><span class="p">[</span><span class="s1">&#39;oauth_code&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">headers</span><span class="o">=</span><span class="n">cookies</span><span class="p">,</span>
+            <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
+            <span class="n">allow_redirects</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+        <span class="n">location_url</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s2">&quot;location&quot;</span><span class="p">]</span>
+        <span class="n">parsed_url</span> <span class="o">=</span> <span class="n">urlparse</span><span class="p">(</span><span class="n">location_url</span><span class="p">)</span>
+        <span class="n">parsed_query</span> <span class="o">=</span> <span class="n">parse_qs</span><span class="p">(</span><span class="n">parsed_url</span><span class="o">.</span><span class="n">query</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;error&quot;</span> <span class="ow">in</span> <span class="n">parsed_query</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">if</span> <span class="s2">&quot;4165&quot;</span> <span class="ow">in</span> <span class="n">parsed_query</span><span class="p">[</span><span class="s2">&quot;error_code&quot;</span><span class="p">]:</span>
+                <span class="k">raise</span> <span class="n">psnawp_exceptions</span><span class="o">.</span><span class="n">PSNAWPAuthenticationError</span><span class="p">(</span><span class="s2">&quot;Your npsso code has expired or is incorrect. Please generate a new code!&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">psnawp_exceptions</span><span class="o">.</span><span class="n">PSNAWPAuthenticationError</span><span class="p">(</span><span class="s2">&quot;Something went wrong while authenticating&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">oauth_token</span><span class="p">(</span><span class="n">parsed_query</span><span class="p">[</span><span class="s2">&quot;code&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Yoshikage Kira.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

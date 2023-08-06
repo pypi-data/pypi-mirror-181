@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>psnawp_api.core.psnawp_exceptions &mdash; PSNAWP 1.1.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link href="../../../_static/custom.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> PSNAWP
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Code Overview:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../psnawp_api.html">psnawp_api package</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Resources:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../additional_resources/README.html">Readme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../additional_resources/CHANGELOG.html">Changelogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../additional_resources/AUTHORS.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../additional_resources/LICENSE.html">Licenses</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PSNAWP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">psnawp_api.core.psnawp_exceptions</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for psnawp_api.core.psnawp_exceptions</h1><div class="highlight"><pre>
+<div class="viewcode-block" id="PSNAWPException"><a class="viewcode-back" href="../../../psnawp_api.core.html#psnawp_api.core.psnawp_exceptions.PSNAWPException">[docs]</a><span></span><span class="k">class</span> <span class="nc">PSNAWPException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Base Exception for all PSNAWP Exceptions.&quot;&quot;&quot;</span></div>
+
+
+<div class="viewcode-block" id="PSNAWPAuthenticationError"><a class="viewcode-back" href="../../../psnawp_api.core.html#psnawp_api.core.psnawp_exceptions.PSNAWPAuthenticationError">[docs]</a><span class="k">class</span> <span class="nc">PSNAWPAuthenticationError</span><span class="p">(</span><span class="n">PSNAWPException</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Exception for authentication related errors.&quot;&quot;&quot;</span></div>
+
+
+<div class="viewcode-block" id="PSNAWPBadRequest"><a class="viewcode-back" href="../../../psnawp_api.core.html#psnawp_api.core.psnawp_exceptions.PSNAWPBadRequest">[docs]</a><span class="k">class</span> <span class="nc">PSNAWPBadRequest</span><span class="p">(</span><span class="n">PSNAWPException</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Exception raised if bad request is made to the endpoint.&quot;&quot;&quot;</span></div>
+
+
+<div class="viewcode-block" id="PSNAWPIllegalArgumentError"><a class="viewcode-back" href="../../../psnawp_api.core.html#psnawp_api.core.psnawp_exceptions.PSNAWPIllegalArgumentError">[docs]</a><span class="k">class</span> <span class="nc">PSNAWPIllegalArgumentError</span><span class="p">(</span><span class="n">PSNAWPException</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Exception raised if user gave wrong input to a function.&quot;&quot;&quot;</span></div>
+
+
+<div class="viewcode-block" id="PSNAWPUnauthorized"><a class="viewcode-back" href="../../../psnawp_api.core.html#psnawp_api.core.psnawp_exceptions.PSNAWPUnauthorized">[docs]</a><span class="k">class</span> <span class="nc">PSNAWPUnauthorized</span><span class="p">(</span><span class="n">PSNAWPException</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Exception for accessing an action is not allowed due to missing the right authorization.&quot;&quot;&quot;</span></div>
+
+
+<div class="viewcode-block" id="PSNAWPForbidden"><a class="viewcode-back" href="../../../psnawp_api.core.html#psnawp_api.core.psnawp_exceptions.PSNAWPForbidden">[docs]</a><span class="k">class</span> <span class="nc">PSNAWPForbidden</span><span class="p">(</span><span class="n">PSNAWPException</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Exception for accessing an action is not allowed due to insufficient rights to a resource.&quot;&quot;&quot;</span></div>
+
+
+<div class="viewcode-block" id="PSNAWPNotFound"><a class="viewcode-back" href="../../../psnawp_api.core.html#psnawp_api.core.psnawp_exceptions.PSNAWPNotFound">[docs]</a><span class="k">class</span> <span class="nc">PSNAWPNotFound</span><span class="p">(</span><span class="n">PSNAWPException</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Exception raised if resource not found.&quot;&quot;&quot;</span></div>
+
+
+<div class="viewcode-block" id="PSNAWPNotAllowed"><a class="viewcode-back" href="../../../psnawp_api.core.html#psnawp_api.core.psnawp_exceptions.PSNAWPNotAllowed">[docs]</a><span class="k">class</span> <span class="nc">PSNAWPNotAllowed</span><span class="p">(</span><span class="n">PSNAWPException</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Exception raised if resource doesn&#39;t support this method.&quot;&quot;&quot;</span></div>
+
+
+<div class="viewcode-block" id="PSNAWPServerError"><a class="viewcode-back" href="../../../psnawp_api.core.html#psnawp_api.core.psnawp_exceptions.PSNAWPServerError">[docs]</a><span class="k">class</span> <span class="nc">PSNAWPServerError</span><span class="p">(</span><span class="n">PSNAWPException</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Exception raised if there is a problem at the server.&quot;&quot;&quot;</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Yoshikage Kira.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

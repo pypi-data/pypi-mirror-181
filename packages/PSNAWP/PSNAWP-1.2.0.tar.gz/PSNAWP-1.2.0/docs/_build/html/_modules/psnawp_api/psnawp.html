@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>psnawp_api.psnawp &mdash; PSNAWP 1.1.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link href="../../_static/custom.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> PSNAWP
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Code Overview:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../psnawp_api.html">psnawp_api package</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Resources:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../additional_resources/README.html">Readme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../additional_resources/CHANGELOG.html">Changelogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../additional_resources/AUTHORS.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../additional_resources/LICENSE.html">Licenses</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PSNAWP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">psnawp_api.psnawp</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for psnawp_api.psnawp</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">overload</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Iterator</span><span class="p">,</span> <span class="n">Any</span>
+
+<span class="kn">from</span> <span class="nn">psnawp_api.core</span> <span class="kn">import</span> <span class="n">authenticator</span>
+<span class="kn">from</span> <span class="nn">psnawp_api.core.psnawp_exceptions</span> <span class="kn">import</span> <span class="n">PSNAWPIllegalArgumentError</span>
+<span class="kn">from</span> <span class="nn">psnawp_api.models.client</span> <span class="kn">import</span> <span class="n">Client</span>
+<span class="kn">from</span> <span class="nn">psnawp_api.models.game_title</span> <span class="kn">import</span> <span class="n">GameTitle</span>
+<span class="kn">from</span> <span class="nn">psnawp_api.models.group</span> <span class="kn">import</span> <span class="n">Group</span>
+<span class="kn">from</span> <span class="nn">psnawp_api.models.search</span> <span class="kn">import</span> <span class="n">Search</span>
+<span class="kn">from</span> <span class="nn">psnawp_api.models.user</span> <span class="kn">import</span> <span class="n">User</span>
+<span class="kn">from</span> <span class="nn">psnawp_api.utils</span> <span class="kn">import</span> <span class="n">request_builder</span>
+
+<span class="n">logging_level</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">INFO</span>
+
+
+<div class="viewcode-block" id="PSNAWP"><a class="viewcode-back" href="../../psnawp_api.html#psnawp_api.psnawp.PSNAWP">[docs]</a><span class="k">class</span> <span class="nc">PSNAWP</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;PlayStation Network API Wrapper Python (PSNAWP) Retrieve User Information, Trophies, Game and Store data from the PlayStation Network.</span>
+
+<span class="sd">    Instances of this class are the gateway to interacting with PSN API through PSNAWP.</span>
+
+<span class="sd">    .. code-block:: Python</span>
+
+<span class="sd">        from psnawp_api import PSNAWP</span>
+<span class="sd">        psnawp = PSNAWP(&#39;&lt;64 character npsso code&gt;&#39;)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="PSNAWP.__init__"><a class="viewcode-back" href="../../psnawp_api.html#psnawp_api.psnawp.PSNAWP.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">npsso_cookie</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Constructor Method. Takes the npsso_cookie and creates instance of ``request_builder.RequestBuilder`` which is used later in code for HTTPS requests.</span>
+
+<span class="sd">        :param npsso_cookie: npsso cookie obtained from PSN website.</span>
+<span class="sd">        :type npsso_cookie: str</span>
+
+<span class="sd">        :raises: ``PSNAWPAuthenticationError`` If npsso code is expired or is incorrect.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_request_builder</span> <span class="o">=</span> <span class="n">request_builder</span><span class="o">.</span><span class="n">RequestBuilder</span><span class="p">(</span><span class="n">authenticator</span><span class="o">.</span><span class="n">Authenticator</span><span class="p">(</span><span class="n">npsso_cookie</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="PSNAWP.me"><a class="viewcode-back" href="../../psnawp_api.html#psnawp_api.psnawp.PSNAWP.me">[docs]</a>    <span class="k">def</span> <span class="nf">me</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Client</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Creates a new client object (your account).</span>
+
+<span class="sd">        :returns: Client Object</span>
+<span class="sd">        :rtype: Client</span>
+
+<span class="sd">        .. code-block:: Python</span>
+
+<span class="sd">            from psnawp_api import PSNAWP</span>
+<span class="sd">            psnawp = PSNAWP(&#39;&lt;64 character npsso code&gt;&#39;)</span>
+<span class="sd">            client = psnawp.me()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">Client</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_request_builder</span><span class="p">)</span></div>
+
+    <span class="nd">@overload</span>
+    <span class="k">def</span> <span class="nf">user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">online_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">User</span><span class="p">:</span>
+        <span class="o">...</span>
+
+    <span class="nd">@overload</span>
+    <span class="k">def</span> <span class="nf">user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">account_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">User</span><span class="p">:</span>
+        <span class="o">...</span>
+
+<div class="viewcode-block" id="PSNAWP.user"><a class="viewcode-back" href="../../psnawp_api.html#psnawp_api.psnawp.PSNAWP.user">[docs]</a>    <span class="k">def</span> <span class="nf">user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">User</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Creates a new user object using Online ID (GamerTag) or Account ID (PSN ID).</span>
+
+<span class="sd">        .. note::</span>
+
+<span class="sd">            The account_id takes higher precedence than online_id. If both arguments are passed, online_id will be ignored.</span>
+
+<span class="sd">        :param kwargs: online_id (str): Online ID (GamerTag) of the user. account_id (str): Account ID of the user.</span>
+<span class="sd">        :type kwargs: dict</span>
+
+<span class="sd">        :returns: User Object</span>
+<span class="sd">        :rtype: User</span>
+
+<span class="sd">        :raises: `PSNAWPIllegalArgumentError` If None of the kwargs are passed.</span>
+
+<span class="sd">        :raises: ``PSNAWPNotFound`` If the online_id or account_id is not valid/found.</span>
+
+<span class="sd">        .. code-block:: Python</span>
+
+<span class="sd">            user1 = psnawp.user(online_id=&quot;VaultTec_Trading&quot;)</span>
+<span class="sd">            user2 = psnawp.user(account_id=&#39;1802043923080044300&#39;)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">online_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;online_id&quot;</span><span class="p">)</span>
+        <span class="n">account_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;account_id&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">account_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">User</span><span class="o">.</span><span class="n">from_account_id</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_request_builder</span><span class="p">,</span> <span class="n">account_id</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">online_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">User</span><span class="o">.</span><span class="n">from_online_id</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_request_builder</span><span class="p">,</span> <span class="n">online_id</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">PSNAWPIllegalArgumentError</span><span class="p">(</span><span class="s2">&quot;You must provide at least online ID or account ID.&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="PSNAWP.game_title"><a class="viewcode-back" href="../../psnawp_api.html#psnawp_api.psnawp.PSNAWP.game_title">[docs]</a>    <span class="k">def</span> <span class="nf">game_title</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">account_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;6515971742264256071&quot;</span><span class="p">,</span> <span class="n">np_communication_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">GameTitle</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Creates a GameTitle class object from title_id which represents a PlayStation video game title.</span>
+
+<span class="sd">        .. note::</span>
+
+<span class="sd">            The GameTitle class is only useful if the user has played that video game. To allow users to retrieve information without having to play that video</span>
+<span class="sd">            game I picked a default user who has played the most number of games based on this website</span>
+<span class="sd">            (https://www.truetrophies.com/leaderboard/gamer/gamesplayed). It is possible that the there are games this user has not played and in that case it</span>
+<span class="sd">            is better to provide your own account id (``&#39;me&#39;``) or someone who has played that game.</span>
+
+<span class="sd">        .. note::</span>
+
+<span class="sd">            ``title_id`` can be obtained from https://andshrew.github.io/PlayStation-Titles/ or from :py:meth:`psnawp_api.models.search.Search.get_title_id`</span>
+
+<span class="sd">        .. note::</span>
+
+<span class="sd">            During the construction of the object, an additional call is made to get the np_communication_id. This ID is important for getting trophy data. This</span>
+<span class="sd">            call can be skipped by providing np_communication_id in as argument.</span>
+
+<span class="sd">        :param title_id: unique ID of game title.</span>
+<span class="sd">        :type title_id: str</span>
+<span class="sd">        :param: account_id: The account whose trophy list is being accessed</span>
+<span class="sd">        :type account_id: str</span>
+<span class="sd">        :param np_communication_id: Unique ID of a game title used to request trophy information.</span>
+<span class="sd">        :type np_communication_id: Optional[str]</span>
+
+<span class="sd">        :returns: Title Object</span>
+<span class="sd">        :rtype: GameTitle</span>
+
+<span class="sd">        :raises: ``PSNAWPNotFound`` If the user does not have any trophies for that game or the game doesn&#39;t exist.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">GameTitle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_request_builder</span><span class="p">,</span> <span class="n">title_id</span><span class="o">=</span><span class="n">title_id</span><span class="p">,</span> <span class="n">account_id</span><span class="o">=</span><span class="n">account_id</span><span class="p">,</span> <span class="n">np_communication_id</span><span class="o">=</span><span class="n">np_communication_id</span><span class="p">)</span></div>
+
+    <span class="nd">@overload</span>
+    <span class="k">def</span> <span class="nf">group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">group_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Group</span><span class="p">:</span>
+        <span class="o">...</span>
+
+    <span class="nd">@overload</span>
+    <span class="k">def</span> <span class="nf">group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">users_list</span><span class="p">:</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">User</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Group</span><span class="p">:</span>
+        <span class="o">...</span>
+
+<div class="viewcode-block" id="PSNAWP.group"><a class="viewcode-back" href="../../psnawp_api.html#psnawp_api.psnawp.PSNAWP.group">[docs]</a>    <span class="k">def</span> <span class="nf">group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Group</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Creates a group object from a Group ID or from list of users.</span>
+
+<span class="sd">        .. warning::</span>
+
+<span class="sd">            Passing ``users_list`` will create a new group each time. If you want to continue from the same group. Use group id obtained from</span>
+<span class="sd">            ``client.get_groups()``</span>
+
+<span class="sd">        :param kwargs: group_id (str): The Group ID of a group usually retrieved with the get_groups() method. users_list(Iterator[User]): A list of users of</span>
+<span class="sd">            the members in the group.</span>
+
+<span class="sd">        :returns: Group Object</span>
+<span class="sd">        :rtype: Group</span>
+
+<span class="sd">        :raises: ``PSNAWPIllegalArgumentError`` If None or Both kwargs are passed.</span>
+
+<span class="sd">        :raises: ``PSNAWPForbidden`` If you are Dming a user who has blocked you.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">group_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;group_id&quot;</span><span class="p">)</span>
+        <span class="n">users</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Iterator</span><span class="p">[</span><span class="n">User</span><span class="p">]]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;users_list&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">group_id</span> <span class="ow">and</span> <span class="n">users</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="p">(</span><span class="n">group_id</span> <span class="ow">or</span> <span class="n">users</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">PSNAWPIllegalArgumentError</span><span class="p">(</span><span class="s2">&quot;You provide at least Group Id or Users, and not both.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Group</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_request_builder</span><span class="p">,</span> <span class="n">group_id</span><span class="o">=</span><span class="n">group_id</span><span class="p">,</span> <span class="n">users</span><span class="o">=</span><span class="n">users</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="PSNAWP.search"><a class="viewcode-back" href="../../psnawp_api.html#psnawp_api.psnawp.PSNAWP.search">[docs]</a>    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Search</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Creates a new search object</span>
+
+<span class="sd">        :returns: Search Object</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">Search</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_request_builder</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Yoshikage Kira.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

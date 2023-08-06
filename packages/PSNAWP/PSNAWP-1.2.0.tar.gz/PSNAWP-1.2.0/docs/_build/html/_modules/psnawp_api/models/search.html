@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>psnawp_api.models.search &mdash; PSNAWP 1.1.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link href="../../../_static/custom.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> PSNAWP
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Code Overview:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../psnawp_api.html">psnawp_api package</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Resources:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../additional_resources/README.html">Readme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../additional_resources/CHANGELOG.html">Changelogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../additional_resources/AUTHORS.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../additional_resources/LICENSE.html">Licenses</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PSNAWP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">psnawp_api.models.search</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for psnawp_api.models.search</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
+
+<span class="kn">from</span> <span class="nn">psnawp_api.core.psnawp_exceptions</span> <span class="kn">import</span> <span class="n">PSNAWPNotFound</span>
+<span class="kn">from</span> <span class="nn">psnawp_api.utils.endpoints</span> <span class="kn">import</span> <span class="n">BASE_PATH</span>
+<span class="kn">from</span> <span class="nn">psnawp_api.utils.request_builder</span> <span class="kn">import</span> <span class="n">RequestBuilder</span>
+
+
+<div class="viewcode-block" id="Search"><a class="viewcode-back" href="../../../psnawp_api.models.html#psnawp_api.models.search.Search">[docs]</a><span class="k">class</span> <span class="nc">Search</span><span class="p">:</span>
+<div class="viewcode-block" id="Search.__init__"><a class="viewcode-back" href="../../../psnawp_api.models.html#psnawp_api.models.search.Search.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request_builder</span><span class="p">:</span> <span class="n">RequestBuilder</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The Search class provides the information and methods for searching resources on playstation network.</span>
+
+<span class="sd">        .. note::</span>
+
+<span class="sd">            This class is intended to be interfaced with through PSNAWP.</span>
+
+<span class="sd">        :param request_builder: The instance of RequestBuilder. Used to make HTTPRequests.</span>
+<span class="sd">        :type request_builder: RequestBuilder</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_request_builder</span> <span class="o">=</span> <span class="n">request_builder</span></div>
+
+<div class="viewcode-block" id="Search.universal_search"><a class="viewcode-back" href="../../../psnawp_api.models.html#psnawp_api.models.search.Search.universal_search">[docs]</a>    <span class="k">def</span> <span class="nf">universal_search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">search_query</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Searches the Playstation Website. Note: It does not work as of now and the endpoints returns whole html page.</span>
+
+<span class="sd">        .. note::</span>
+
+<span class="sd">            Pagination not yet supported. The max number of results returned will be 20.</span>
+
+<span class="sd">        :param search_query: search query</span>
+<span class="sd">        :type search_query: str</span>
+<span class="sd">        :param limit: Limit of number of results</span>
+<span class="sd">        :type limit: int</span>
+
+<span class="sd">        :returns: A dict containing info similar to what is shown below (Not all values are shown because of space limitations):</span>
+<span class="sd">        :rtype: dict[str, Any]</span>
+
+<span class="sd">            .. code-block:: json</span>
+
+<span class="sd">                {</span>
+<span class="sd">                    &quot;prefix&quot;: &quot;GTA&quot;,</span>
+<span class="sd">                    &quot;suggestions&quot;: [],</span>
+<span class="sd">                    &quot;domainResponses&quot;: [</span>
+<span class="sd">                        {</span>
+<span class="sd">                            &quot;domain&quot;: &quot;ConceptGameMobileApp&quot;,</span>
+<span class="sd">                            &quot;domainTitle&quot;: &quot;Results for ConceptGameMobileApp with search term GTA&quot;,</span>
+<span class="sd">                            &quot;domainTitleMessageId&quot;: &quot;msgid_null&quot;,</span>
+<span class="sd">                            &quot;domainTitleHighlight&quot;: [</span>
+<span class="sd">                                &quot;Results for ConceptGameMobileApp with search term GTA&quot;</span>
+<span class="sd">                            ],</span>
+<span class="sd">                            &quot;zeroState&quot;: false,</span>
+<span class="sd">                            &quot;univexId&quot;: &quot;search.no_experiment.non.0.non_&quot;,</span>
+<span class="sd">                            &quot;facetOptions&quot;: [],</span>
+<span class="sd">                            &quot;next&quot;: &quot;&quot;,</span>
+<span class="sd">                            &quot;totalResultCount&quot;: 33,</span>
+<span class="sd">                            &quot;results&quot;: [</span>
+<span class="sd">                                {</span>
+<span class="sd">                                    &quot;id&quot;: &quot;201930:UP1004-CUSA00419_00-GTAVDIGITALDOWNL&quot;,</span>
+<span class="sd">                                    &quot;type&quot;: &quot;conceptProduct&quot;,</span>
+<span class="sd">                                    &quot;univexId&quot;: &quot;search.no_experiment.non.0.non_&quot;,</span>
+<span class="sd">                                    &quot;score&quot;: 234.40508,</span>
+<span class="sd">                                    &quot;conceptProductMetadata&quot;: {}</span>
+<span class="sd">                                }</span>
+<span class="sd">                            ]</span>
+<span class="sd">                        }</span>
+<span class="sd">                    ],</span>
+<span class="sd">                    &quot;fallbackQueried&quot;: false</span>
+<span class="sd">                }</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;searchTerm&quot;</span><span class="p">:</span> <span class="n">search_query</span><span class="p">,</span>
+            <span class="s2">&quot;domainRequests&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;domain&quot;</span><span class="p">:</span> <span class="s2">&quot;ConceptGameMobileApp&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;pagination&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;cursor&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;pageSize&quot;</span><span class="p">:</span> <span class="n">limit</span><span class="p">},</span>
+                    <span class="s2">&quot;featureFlags&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;isSpartacusEnabled&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+                <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;countryCode&quot;</span><span class="p">:</span> <span class="s2">&quot;us&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;languageCode&quot;</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">99</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="n">response</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request_builder</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">BASE_PATH</span><span class="p">[</span><span class="s1">&#39;universal_search&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">response</span></div>
+
+<div class="viewcode-block" id="Search.get_title_id"><a class="viewcode-back" href="../../../psnawp_api.models.html#psnawp_api.models.search.Search.get_title_id">[docs]</a>    <span class="k">def</span> <span class="nf">get_title_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Gets the title id from title name using universal search endpoint.</span>
+
+<span class="sd">        .. warning::</span>
+
+<span class="sd">            Make sure to use the official full name of the video game otherwise the returned results may not be accurate. For example: GTA V returns the GTA</span>
+<span class="sd">            Vice City since the Vice City shows up above GTA V. However, Grand Theft Auto V returns the correct results.</span>
+
+<span class="sd">        :param title_name: Video Game title name</span>
+<span class="sd">        :type title_name: str</span>
+
+<span class="sd">        :returns: A tuple containing English Title Name and Title ID</span>
+<span class="sd">        :rtype: tuple[str, str]</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;searchTerm&quot;</span><span class="p">:</span> <span class="n">title_name</span><span class="p">,</span>
+            <span class="s2">&quot;domainRequests&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;domain&quot;</span><span class="p">:</span> <span class="s2">&quot;ConceptGameMobileApp&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;pagination&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;cursor&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;pageSize&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
+                    <span class="s2">&quot;featureFlags&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;isSpartacusEnabled&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+                <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;countryCode&quot;</span><span class="p">:</span> <span class="s2">&quot;us&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;languageCode&quot;</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">99</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="n">response</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request_builder</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">BASE_PATH</span><span class="p">[</span><span class="s1">&#39;universal_search&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s2">&quot;domainResponses&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;results&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">t</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;conceptProductMetadata&quot;</span><span class="p">][</span><span class="s2">&quot;nameEn&quot;</span><span class="p">],</span>
+                <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;conceptProductMetadata&quot;</span><span class="p">][</span><span class="s2">&quot;titleId&quot;</span><span class="p">],</span>
+            <span class="p">)</span>
+            <span class="n">title_name</span><span class="p">,</span> <span class="n">title_id</span> <span class="o">=</span> <span class="n">t</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">PSNAWPNotFound</span><span class="p">(</span><span class="s2">&quot;Could not find Game by the that title name.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">title_name</span><span class="p">,</span> <span class="n">title_id</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Yoshikage Kira.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

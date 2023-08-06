@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>psnawp_api.models.user &mdash; PSNAWP 1.1.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link href="../../../_static/custom.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> PSNAWP
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Code Overview:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../psnawp_api.html">psnawp_api package</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Resources:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../additional_resources/README.html">Readme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../additional_resources/CHANGELOG.html">Changelogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../additional_resources/AUTHORS.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../additional_resources/LICENSE.html">Licenses</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PSNAWP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">psnawp_api.models.user</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for psnawp_api.models.user</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Iterator</span><span class="p">,</span> <span class="n">Literal</span>
+
+<span class="kn">from</span> <span class="nn">psnawp_api.core.psnawp_exceptions</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">PSNAWPNotFound</span><span class="p">,</span>
+    <span class="n">PSNAWPForbidden</span><span class="p">,</span>
+    <span class="n">PSNAWPBadRequest</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">psnawp_api.models.trophies.trophy</span> <span class="kn">import</span> <span class="n">TrophyBuilder</span><span class="p">,</span> <span class="n">Trophy</span>
+<span class="kn">from</span> <span class="nn">psnawp_api.models.trophies.trophy_group</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">TrophyGroupsSummary</span><span class="p">,</span>
+    <span class="n">TrophyGroupsSummaryBuilder</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">psnawp_api.models.trophies.trophy_summary</span> <span class="kn">import</span> <span class="n">TrophySummary</span>
+<span class="kn">from</span> <span class="nn">psnawp_api.models.trophies.trophy_titles</span> <span class="kn">import</span> <span class="n">TrophyTitles</span><span class="p">,</span> <span class="n">TrophyTitle</span>
+<span class="kn">from</span> <span class="nn">psnawp_api.models.title_stats</span> <span class="kn">import</span> <span class="n">TitleStats</span>
+<span class="kn">from</span> <span class="nn">psnawp_api.utils.endpoints</span> <span class="kn">import</span> <span class="n">BASE_PATH</span><span class="p">,</span> <span class="n">API_PATH</span>
+<span class="kn">from</span> <span class="nn">psnawp_api.utils.request_builder</span> <span class="kn">import</span> <span class="n">RequestBuilder</span>
+
+
+<div class="viewcode-block" id="User"><a class="viewcode-back" href="../../../psnawp_api.models.html#psnawp_api.models.user.User">[docs]</a><span class="k">class</span> <span class="nc">User</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;This class will contain the information about the PSN ID you passed in when creating object&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="User.from_online_id"><a class="viewcode-back" href="../../../psnawp_api.models.html#psnawp_api.models.user.User.from_online_id">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_online_id</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">request_builder</span><span class="p">:</span> <span class="n">RequestBuilder</span><span class="p">,</span> <span class="n">online_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">User</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Creates the User instance from online ID and returns the instance.</span>
+
+<span class="sd">        :param request_builder: Used to call http requests.</span>
+<span class="sd">        :type request_builder: RequestBuilder</span>
+<span class="sd">        :param online_id: Online ID (GamerTag) of the user.</span>
+<span class="sd">        :type online_id: str</span>
+
+<span class="sd">        :returns: User Class object which represents a PlayStation account</span>
+<span class="sd">        :rtype: User</span>
+
+<span class="sd">        :raises: ``PSNAWPNotFound`` If the user is not valid/found.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;fields&quot;</span><span class="p">:</span> <span class="s2">&quot;accountId,onlineId,currentOnlineId&quot;</span><span class="p">}</span>
+            <span class="n">response</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="n">request_builder</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+                <span class="n">url</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">BASE_PATH</span><span class="p">[</span><span class="s1">&#39;legacy_profile_uri&#39;</span><span class="p">]</span><span class="si">}{</span><span class="n">API_PATH</span><span class="p">[</span><span class="s1">&#39;legacy_profile&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">online_id</span><span class="o">=</span><span class="n">online_id</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="n">params</span><span class="o">=</span><span class="n">query</span><span class="p">,</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+            <span class="n">account_id</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s2">&quot;profile&quot;</span><span class="p">][</span><span class="s2">&quot;accountId&quot;</span><span class="p">]</span>
+            <span class="n">online_id</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s2">&quot;profile&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;currentOnlineId&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">response</span><span class="p">[</span><span class="s2">&quot;profile&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;onlineId&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">request_builder</span><span class="p">,</span> <span class="n">online_id</span><span class="p">,</span> <span class="n">account_id</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">PSNAWPNotFound</span> <span class="k">as</span> <span class="n">not_found</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">PSNAWPNotFound</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Online ID </span><span class="si">{</span><span class="n">online_id</span><span class="si">}</span><span class="s2"> does not exist.&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">not_found</span></div>
+
+<div class="viewcode-block" id="User.from_account_id"><a class="viewcode-back" href="../../../psnawp_api.models.html#psnawp_api.models.user.User.from_account_id">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_account_id</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">request_builder</span><span class="p">:</span> <span class="n">RequestBuilder</span><span class="p">,</span> <span class="n">account_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">User</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Creates the User instance from account ID and returns the instance.</span>
+
+<span class="sd">        :param request_builder: Used to call http requests.</span>
+<span class="sd">        :type request_builder: RequestBuilder</span>
+<span class="sd">        :param account_id: Account ID of the user.</span>
+<span class="sd">        :type account_id: str</span>
+
+<span class="sd">        :returns: User Class object which represents a PlayStation account</span>
+<span class="sd">        :rtype: User</span>
+
+<span class="sd">        :raises: ``PSNAWPNotFound`` If the user is not valid/found.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="n">request_builder</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">BASE_PATH</span><span class="p">[</span><span class="s1">&#39;profile_uri&#39;</span><span class="p">]</span><span class="si">}{</span><span class="n">API_PATH</span><span class="p">[</span><span class="s1">&#39;profiles&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">account_id</span><span class="o">=</span><span class="n">account_id</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+            <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">request_builder</span><span class="p">,</span> <span class="n">response</span><span class="p">[</span><span class="s2">&quot;onlineId&quot;</span><span class="p">],</span> <span class="n">account_id</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">PSNAWPBadRequest</span> <span class="k">as</span> <span class="n">bad_request</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">PSNAWPNotFound</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Account ID </span><span class="si">{</span><span class="n">account_id</span><span class="si">}</span><span class="s2"> does not exist.&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">bad_request</span></div>
+
+<div class="viewcode-block" id="User.__init__"><a class="viewcode-back" href="../../../psnawp_api.models.html#psnawp_api.models.user.User.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">request_builder</span><span class="p">:</span> <span class="n">RequestBuilder</span><span class="p">,</span>
+        <span class="n">online_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">account_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Constructor of Class User.</span>
+
+<span class="sd">        .. note::</span>
+
+<span class="sd">            This class is intended to be interfaced with through PSNAWP.</span>
+
+<span class="sd">        :param request_builder: Used to call http requests.</span>
+<span class="sd">        :type request_builder: RequestBuilder</span>
+<span class="sd">        :param online_id: Online ID (GamerTag) of the user.</span>
+<span class="sd">        :type online_id: str</span>
+<span class="sd">        :param account_id: Account ID of the user.</span>
+<span class="sd">        :type account_id: str</span>
+
+<span class="sd">        :raises: ``PSNAWPIllegalArgumentError`` If both online_id and account_id are not provided.</span>
+
+<span class="sd">        :raises: ``PSNAWPNotFound`` If the online id or account id is not valid/found.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_request_builder</span> <span class="o">=</span> <span class="n">request_builder</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">online_id</span> <span class="o">=</span> <span class="n">online_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">account_id</span> <span class="o">=</span> <span class="n">account_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">prev_online_id</span> <span class="o">=</span> <span class="n">online_id</span></div>
+
+<div class="viewcode-block" id="User.profile"><a class="viewcode-back" href="../../../psnawp_api.models.html#psnawp_api.models.user.User.profile">[docs]</a>    <span class="k">def</span> <span class="nf">profile</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Gets the profile of the user such as about me, avatars, languages etc...</span>
+
+<span class="sd">        :returns: A dict containing info similar to what is shown below:</span>
+<span class="sd">        :rtype: dict[str, Any]</span>
+
+<span class="sd">            .. literalinclude:: examples/user/profile.json</span>
+<span class="sd">                :language: json</span>
+
+
+<span class="sd">        .. code-block:: Python</span>
+
+<span class="sd">            user_example = psnawp.user(online_id=&#39;VaultTec_Trading&#39;)</span>
+<span class="sd">            print(user_example.profile())</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">response</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request_builder</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">BASE_PATH</span><span class="p">[</span><span class="s1">&#39;profile_uri&#39;</span><span class="p">]</span><span class="si">}{</span><span class="n">API_PATH</span><span class="p">[</span><span class="s1">&#39;profiles&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">account_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">account_id</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">response</span></div>
+
+<div class="viewcode-block" id="User.get_presence"><a class="viewcode-back" href="../../../psnawp_api.models.html#psnawp_api.models.user.User.get_presence">[docs]</a>    <span class="k">def</span> <span class="nf">get_presence</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Gets the presences of a user. If the profile is private</span>
+
+<span class="sd">        :returns: A dict containing info similar to what is shown below:</span>
+<span class="sd">        :rtype: dict[str, Any]</span>
+
+<span class="sd">            .. literalinclude:: examples/user/get_presence.json</span>
+<span class="sd">                :language: json</span>
+
+
+<span class="sd">        :raises: ``PSNAWPForbidden`` When the user&#39;s profile is private, and you don&#39;t have permission to view their online status.</span>
+
+<span class="sd">        .. code-block:: Python</span>
+
+<span class="sd">            user_example = psnawp.user(online_id=&#39;VaultTec_Trading&#39;)</span>
+<span class="sd">            print(user_example.get_presence())</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;primary&quot;</span><span class="p">}</span>
+            <span class="n">response</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request_builder</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+                <span class="n">url</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">BASE_PATH</span><span class="p">[</span><span class="s1">&#39;profile_uri&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">account_id</span><span class="si">}{</span><span class="n">API_PATH</span><span class="p">[</span><span class="s1">&#39;basic_presences&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">response</span>
+        <span class="k">except</span> <span class="n">PSNAWPForbidden</span> <span class="k">as</span> <span class="n">forbidden</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">PSNAWPForbidden</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;You are not allowed to check the presence of user </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">online_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">forbidden</span></div>
+
+<div class="viewcode-block" id="User.friendship"><a class="viewcode-back" href="../../../psnawp_api.models.html#psnawp_api.models.user.User.friendship">[docs]</a>    <span class="k">def</span> <span class="nf">friendship</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Gets the friendship status and stats of the user</span>
+
+<span class="sd">        :returns: A dict containing info similar to what is shown below</span>
+<span class="sd">        :rtype: dict[str, Any]</span>
+
+<span class="sd">            .. literalinclude:: examples/user/friendship.json</span>
+<span class="sd">                :language: json</span>
+
+
+<span class="sd">        .. code-block:: Python</span>
+
+<span class="sd">            user_example = psnawp.user(online_id=&#39;VaultTec_Trading&#39;)</span>
+<span class="sd">            print(user_example.friendship())</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">response</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request_builder</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="n">url</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">BASE_PATH</span><span class="p">[</span><span class="s1">&#39;profile_uri&#39;</span><span class="p">]</span><span class="si">}{</span><span class="n">API_PATH</span><span class="p">[</span><span class="s1">&#39;friends_summary&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">account_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">account_id</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">response</span></div>
+
+<div class="viewcode-block" id="User.is_blocked"><a class="viewcode-back" href="../../../psnawp_api.models.html#psnawp_api.models.user.User.is_blocked">[docs]</a>    <span class="k">def</span> <span class="nf">is_blocked</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Checks if the user is blocked by you</span>
+
+<span class="sd">        :returns: True if the user is blocked otherwise False</span>
+<span class="sd">        :rtype: bool</span>
+
+<span class="sd">        .. code-block:: Python</span>
+
+<span class="sd">            user_example = psnawp.user(online_id=&#39;VaultTec_Trading&#39;)</span>
+<span class="sd">            print(user_example.is_blocked())</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request_builder</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">BASE_PATH</span><span class="p">[</span><span class="s1">&#39;profile_uri&#39;</span><span class="p">]</span><span class="si">}{</span><span class="n">API_PATH</span><span class="p">[</span><span class="s1">&#39;blocked_users&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">account_id</span> <span class="ow">in</span> <span class="n">response</span><span class="p">[</span><span class="s2">&quot;blockList&quot;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="User.trophy_summary"><a class="viewcode-back" href="../../../psnawp_api.models.html#psnawp_api.models.user.User.trophy_summary">[docs]</a>    <span class="k">def</span> <span class="nf">trophy_summary</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TrophySummary</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Retrieve an overall summary of the number of trophies earned for a user broken down by</span>
+
+<span class="sd">        - type</span>
+<span class="sd">        - overall trophy level</span>
+<span class="sd">        - progress towards the next level</span>
+<span class="sd">        - current tier</span>
+
+<span class="sd">        :returns: Trophy Summary Object containing all information</span>
+<span class="sd">        :rtype: TrophySummary</span>
+
+<span class="sd">        :raises: ``PSNAWPForbidden`` If the user&#39;s profile is private</span>
+
+<span class="sd">        .. code-block:: Python</span>
+
+<span class="sd">            user_example = psnawp.user(online_id=&quot;VaultTec_Trading&quot;)</span>
+<span class="sd">            print(user_example.trophy_summary())</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">TrophySummary</span><span class="o">.</span><span class="n">from_endpoint</span><span class="p">(</span><span class="n">request_builder</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_request_builder</span><span class="p">,</span> <span class="n">account_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">account_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="User.trophy_titles"><a class="viewcode-back" href="../../../psnawp_api.models.html#psnawp_api.models.user.User.trophy_titles">[docs]</a>    <span class="k">def</span> <span class="nf">trophy_titles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">limit</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">TrophyTitle</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Retrieve all game titles associated with an account, and a summary of trophies earned from them.</span>
+
+<span class="sd">        :param limit: Limit of titles returned, None means to return all trophy titles.</span>
+<span class="sd">        :type limit: Optional[int]</span>
+
+<span class="sd">        :returns: Generator object with TitleTrophySummary objects</span>
+<span class="sd">        :rtype: Iterator[TrophyTitle]</span>
+
+<span class="sd">        :raises: ``PSNAWPForbidden`` If the user&#39;s profile is private</span>
+
+<span class="sd">        .. code-block:: Python</span>
+
+<span class="sd">            user_example = psnawp.user(online_id=&quot;VaultTec_Trading&quot;)</span>
+<span class="sd">            for trophy_title in user_example.trophy_titles(limit=None):</span>
+<span class="sd">                print(trophy_title)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">TrophyTitles</span><span class="p">(</span><span class="n">request_builder</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_request_builder</span><span class="p">,</span> <span class="n">account_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">account_id</span><span class="p">)</span><span class="o">.</span><span class="n">get_trophy_titles</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="User.trophy_titles_for_title"><a class="viewcode-back" href="../../../psnawp_api.models.html#psnawp_api.models.user.User.trophy_titles_for_title">[docs]</a>    <span class="k">def</span> <span class="nf">trophy_titles_for_title</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title_ids</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">TrophyTitle</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Retrieve a summary of the trophies earned by a user for specific titles.</span>
+
+<span class="sd">        .. note::</span>
+
+<span class="sd">            ``title_id`` can be obtained from https://andshrew.github.io/PlayStation-Titles/ or from :py:meth:`psnawp_api.models.search.Search.get_title_id`</span>
+
+<span class="sd">        :param title_ids: Unique ID of the title</span>
+<span class="sd">        :type title_ids: list[str]</span>
+
+<span class="sd">        :returns: Generator object with TitleTrophySummary objects</span>
+<span class="sd">        :rtype: Iterator[TrophyTitle]</span>
+
+<span class="sd">        :raises: ``PSNAWPForbidden`` If the user&#39;s profile is private</span>
+
+<span class="sd">        .. code-block:: Python</span>
+
+<span class="sd">            user_example = psnawp.user(online_id=&quot;VaultTec_Trading&quot;)</span>
+<span class="sd">            for trophy_title in user_example.trophy_titles_for_title(title_id=&#39;CUSA00265_00&#39;):</span>
+<span class="sd">                print(trophy_title)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">TrophyTitles</span><span class="p">(</span><span class="n">request_builder</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_request_builder</span><span class="p">,</span> <span class="n">account_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">account_id</span><span class="p">)</span><span class="o">.</span><span class="n">get_trophy_summary_for_title</span><span class="p">(</span><span class="n">title_ids</span><span class="o">=</span><span class="n">title_ids</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="User.trophies"><a class="viewcode-back" href="../../../psnawp_api.models.html#psnawp_api.models.user.User.trophies">[docs]</a>    <span class="k">def</span> <span class="nf">trophies</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">np_communication_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">platform</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;PS Vita&quot;</span><span class="p">,</span> <span class="s2">&quot;PS3&quot;</span><span class="p">,</span> <span class="s2">&quot;PS4&quot;</span><span class="p">,</span> <span class="s2">&quot;PS5&quot;</span><span class="p">],</span>
+        <span class="n">trophy_group_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+        <span class="n">limit</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">include_metadata</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Trophy</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Retrieves the earned status individual trophy detail of a single - or all - trophy groups for a title.</span>
+
+<span class="sd">        :param np_communication_id: Unique ID of the title used to request trophy information</span>
+<span class="sd">        :type np_communication_id: str</span>
+<span class="sd">        :param platform: The platform this title belongs to.</span>
+<span class="sd">        :type platform: Literal</span>
+<span class="sd">        :param trophy_group_id: ID for the trophy group. Each game expansion is represented by a separate ID. all to return all trophies for the title, default</span>
+<span class="sd">            for the game itself, and additional groups starting from 001 and so on return expansions trophies.</span>
+<span class="sd">        :type trophy_group_id: str</span>
+<span class="sd">        :param limit: Limit of trophies returned, None means to return all trophy titles.</span>
+<span class="sd">        :type limit: Optional[int]</span>
+<span class="sd">        :param include_metadata: If True, will fetch metadata for trophy such as name and detail</span>
+<span class="sd">        :type include_metadata: bool</span>
+
+<span class="sd">        .. warning::</span>
+
+<span class="sd">            Setting ``include_metadata`` to ``True`` will use twice the amount of rate limit since the API wrapper has to obtain metadata from a separate</span>
+<span class="sd">            endpoint.</span>
+
+<span class="sd">        :returns: Returns the Trophy Generator object with all the information</span>
+<span class="sd">        :rtype: Iterator[Trophy]</span>
+
+<span class="sd">        :raises: ``PSNAWPNotFound`` if you don&#39;t have any trophies for that game.</span>
+
+<span class="sd">        :raises: ``PSNAWPForbidden`` If the user&#39;s profile is private</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">include_metadata</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">TrophyBuilder</span><span class="p">(</span><span class="n">request_builder</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_request_builder</span><span class="p">,</span> <span class="n">np_communication_id</span><span class="o">=</span><span class="n">np_communication_id</span><span class="p">,)</span><span class="o">.</span><span class="n">earned_game_trophies</span><span class="p">(</span>
+                <span class="n">account_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">account_id</span><span class="p">,</span>
+                <span class="n">platform</span><span class="o">=</span><span class="n">platform</span><span class="p">,</span>
+                <span class="n">trophy_group_id</span><span class="o">=</span><span class="n">trophy_group_id</span><span class="p">,</span>
+                <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">TrophyBuilder</span><span class="p">(</span><span class="n">request_builder</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_request_builder</span><span class="p">,</span> <span class="n">np_communication_id</span><span class="o">=</span><span class="n">np_communication_id</span><span class="p">,)</span><span class="o">.</span><span class="n">earned_game_trophies_with_metadata</span><span class="p">(</span>
+                <span class="n">account_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">account_id</span><span class="p">,</span>
+                <span class="n">platform</span><span class="o">=</span><span class="n">platform</span><span class="p">,</span>
+                <span class="n">trophy_group_id</span><span class="o">=</span><span class="n">trophy_group_id</span><span class="p">,</span>
+                <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">,</span>
+            <span class="p">)</span></div>
+
+<div class="viewcode-block" id="User.trophy_groups_summary"><a class="viewcode-back" href="../../../psnawp_api.models.html#psnawp_api.models.user.User.trophy_groups_summary">[docs]</a>    <span class="k">def</span> <span class="nf">trophy_groups_summary</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">np_communication_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">platform</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;PS Vita&quot;</span><span class="p">,</span> <span class="s2">&quot;PS3&quot;</span><span class="p">,</span> <span class="s2">&quot;PS4&quot;</span><span class="p">,</span> <span class="s2">&quot;PS5&quot;</span><span class="p">],</span>
+        <span class="n">include_metadata</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TrophyGroupsSummary</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Retrieves the trophy groups for a title and their respective trophy count.</span>
+
+<span class="sd">        This is most commonly seen in games which have expansions where additional trophies are added.</span>
+
+<span class="sd">        :param np_communication_id: Unique ID of the title used to request trophy information</span>
+<span class="sd">        :type np_communication_id: str</span>
+<span class="sd">        :param platform: The platform this title belongs to.</span>
+<span class="sd">        :param platform: The platform this title belongs to.</span>
+<span class="sd">        :type platform: Literal</span>
+<span class="sd">        :param include_metadata: If True, will fetch results from another endpoint and include metadata for trophy group such as name and detail</span>
+<span class="sd">        :type include_metadata: bool</span>
+
+<span class="sd">        .. warning::</span>
+
+<span class="sd">            Setting ``include_metadata`` to ``True`` will use twice the amount of rate limit since the API wrapper has to obtain metadata from a separate</span>
+<span class="sd">            endpoint.</span>
+
+<span class="sd">        :returns: TrophyGroupSummary object containing title and title groups trophy information.</span>
+<span class="sd">        :rtype: TrophyGroupsSummary</span>
+
+<span class="sd">        :raises: ``PSNAWPNotFound`` if you don&#39;t have any trophies for that game.</span>
+
+<span class="sd">        :raises: ``PSNAWPForbidden`` If the user&#39;s profile is private</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">include_metadata</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">TrophyGroupsSummaryBuilder</span><span class="p">(</span>
+                <span class="n">request_builder</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_request_builder</span><span class="p">,</span>
+                <span class="n">np_communication_id</span><span class="o">=</span><span class="n">np_communication_id</span><span class="p">,</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">user_trophy_groups_summary</span><span class="p">(</span><span class="n">account_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">account_id</span><span class="p">,</span> <span class="n">platform</span><span class="o">=</span><span class="n">platform</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">TrophyGroupsSummaryBuilder</span><span class="p">(</span>
+                <span class="n">request_builder</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_request_builder</span><span class="p">,</span>
+                <span class="n">np_communication_id</span><span class="o">=</span><span class="n">np_communication_id</span><span class="p">,</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">user_trophy_groups_summary_with_metadata</span><span class="p">(</span><span class="n">account_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">account_id</span><span class="p">,</span> <span class="n">platform</span><span class="o">=</span><span class="n">platform</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="User.title_stats"><a class="viewcode-back" href="../../../psnawp_api.models.html#psnawp_api.models.user.User.title_stats">[docs]</a>    <span class="k">def</span> <span class="nf">title_stats</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">limit</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">TitleStats</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Retrieve a list of title with their stats and basic meta-data</span>
+
+<span class="sd">        :param limit: Limit of titles returned, will default to 100.</span>
+<span class="sd">        :type limit: Optional[int]</span>
+
+<span class="sd">        .. warning::</span>
+
+<span class="sd">            Only returns data for PS4 games and above. Don&#39;t put a very high limit as the data returned includes a lot of extra meta data which makes the</span>
+<span class="sd">            payload large.</span>
+
+<span class="sd">        :returns: List of Titles with their play times</span>
+<span class="sd">        :rtype: Iterator[TitleStats]</span>
+
+<span class="sd">        .. code-block:: Python</span>
+
+<span class="sd">            user_example = psnawp.user(online_id=&#39;jeranther&#39;)</span>
+<span class="sd">            titles = user_example.title_stats()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">TitleStats</span><span class="o">.</span><span class="n">from_endpoint</span><span class="p">(</span><span class="n">request_builder</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_request_builder</span><span class="p">,</span> <span class="n">account_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">account_id</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;&lt;User online_id:</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">online_id</span><span class="si">}</span><span class="s2"> account_id:</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">account_id</span><span class="si">}</span><span class="s2">&gt;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Online ID: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">online_id</span><span class="si">}</span><span class="s2"> Account ID: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">account_id</span><span class="si">}</span><span class="s2">&quot;</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Yoshikage Kira.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
