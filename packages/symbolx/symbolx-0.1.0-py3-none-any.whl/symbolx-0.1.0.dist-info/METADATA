@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: symbolx
+Version: 0.1.0
+Summary: Symbolx helps collecting several scenarios data such as multidimentional variables and parameters for reporting and visualization wiht help of karray
+Author: Carlos Gaete-Morales
+Author-email: cdgaete@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: karray
+
+# symbolx
+Dealling with multiple scenarios data?  This tool helps collecting several scenarios data such as multidimentional variables and parameters for reporting and visualization
+
+
