@@ -1,0 +1,150 @@
+#!python
+# This file is placed in the Public Domain.
+# pylint: disable=E0611,C0413,C0115,C0116,R1710
+
+
+"@KarimKhanQC reconsider OTP-CR-117/19 - http://pypi.org/project/genocide"
+
+
+import atexit
+import os
+import readline
+import rlcompleter
+import sys
+import termios
+import time
+
+
+sys.path.insert(0, os.getcwd())
+
+
+from genocide.handler import Command, Event, Handler, parse
+from genocide.object import Wd, keys, printable, update
+from genocide.handler import command, scan
+from genocide.run import Cfg
+
+
+from genocide import cmds, irc, model, rss, slogan
+
+
+Wd.workdir = os.path.expanduser("~/.genocide")
+
+
+scan(cmds)
+scan(irc)
+scan(model)
+scan(rss)
+scan(slogan)
+
+class CLI(Handler):
+
+    @staticmethod
+    def announce(txt):
+        pass
+
+    @staticmethod
+    def raw(txt):
+        cprint(txt)
+
+    def say(self, channel, txt):
+        self.raw(txt)
+
+class Console(CLI):
+
+    def handle(self, event):
+        CLI.handle(self, event)
+        event.wait()
+
+    def poll(self):
+        event = Event()
+        event.txt = input("> ")
+        event.orig = repr(self)
+        return event
+
+
+class Completer(rlcompleter.Completer):
+
+    def __init__(self, options):
+        super().__init__()
+        self.matches = []
+        self.options = options
+
+    def complete(self, text, state):
+        if state == 0:
+            if text:
+                self.matches = [s for s in self.options if s and s.startswith(text)]
+            else:
+                self.matches = self.options[:]
+        try:
+            return self.matches[state]
+        except IndexError:
+            return None
+
+
+def banner(cfg):
+    cprint(
+          "GENOCIDE started at %s %s" % (
+                                     time.ctime(time.time()).replace("  ", " "),
+                                     printable(cfg, "debug,verbose")
+                                    )
+         )
+
+
+def boot():
+    setcompleter(keys(Command.cmd))
+    txt = ' '.join(sys.argv[1:])
+    cfg = parse(txt)
+    update(Cfg, cfg)
+    return cfg
+
+
+def cprint(txt):
+    print(txt)
+    sys.stdout.flush()
+
+
+def setcompleter(optionlist):
+    completer = Completer(optionlist)
+    readline.set_completer(completer.complete)
+    readline.parse_and_bind("tab: complete")
+    atexit.register(lambda: readline.set_completer(None))
+
+
+def wrap(func):
+    fds = sys.stdin.fileno()
+    gotterm = True
+    try:
+        old = termios.tcgetattr(fds)
+    except termios.error:
+        gotterm = False
+    readline.redisplay()
+    try:
+        func()
+    except (EOFError, KeyboardInterrupt):
+        cprint("")
+    finally:
+        if gotterm:
+            termios.tcsetattr(fds, termios.TCSADRAIN, old)
+
+
+def main():
+    boot()
+    if Cfg.txt:
+        cli = CLI()
+        evt = command(cli, Cfg.otxt)
+        evt.wait()
+        return
+    if Cfg.console:
+        banner(Cfg)
+        bot = irc.init()
+        print(printable(bot.cfg, "nick,channel,server,port,sasl"))
+        rss.init()
+        model.init()
+        csl = Console()
+        csl.start()
+        csl.wait()
+    return None
+
+
+wrap(main)
+ 

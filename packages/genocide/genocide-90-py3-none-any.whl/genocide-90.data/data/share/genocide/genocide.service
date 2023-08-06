@@ -1,0 +1,17 @@
+[Unit]
+Description=@KarimKhanQC reconsider OTP-CR-117/19 - http://pypi.org/project/genocide
+After=multi-user.target
+
+[Service]
+#Type=forking
+KillMode=mixed
+#PrivateTmp=true
+DynamicUser=True
+StateDirectory=genocide
+LogsDirectory=genocide
+CacheDirectory=genocide
+ExecStart=/usr/local/bin/genocided
+CapabilityBoundingSet=CAP_NET_RAW
+
+[Install]
+WantedBy=multi-user.target
