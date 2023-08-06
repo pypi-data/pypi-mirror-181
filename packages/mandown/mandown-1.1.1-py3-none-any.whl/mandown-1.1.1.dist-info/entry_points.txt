@@ -1,0 +1,4 @@
+[console_scripts]
+mandown=mandown.cli:main
+mandown-gui=mandown.ui.ui:main
+
