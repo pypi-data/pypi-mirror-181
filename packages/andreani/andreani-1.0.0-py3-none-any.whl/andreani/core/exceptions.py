@@ -1,0 +1,2 @@
+class AndreaniException(Exception):
+    pass
