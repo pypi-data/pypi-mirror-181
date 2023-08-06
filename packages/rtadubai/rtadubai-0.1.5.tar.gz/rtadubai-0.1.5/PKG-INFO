@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: rtadubai
+Version: 0.1.5
+Summary: Unofficial API for RTA Dubai
+Home-page: https://github.com/NotNalin/rtadubai
+Author: NotNalin
+Project-URL: Bug Tracker, https://github.com/NotNalin/rtadubai/issues
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# rtadubai
+Unofficial API for RTA (Dubai)
+
+## Installing
+
+```bash
+pip install rtadubai
+```
+## Installing Development Version
+
+```bash
+pip install git+https://github.com/NotNalin/rtadubai
+```
+## Examples
+
+### Getting Nol Card balance
+
+```python
+from rtadubai import Nol
+
+card = Nol.Card("Your nol card number")
+balance = card.balance
+
+# --------------------OR----------------------------
+
+details = Nol.details("Your nol card number")
+balance = details["balance"]
+```
+
+[More examples](https://github.com/NotNalin/rtadubai/tree/main/example)
+
