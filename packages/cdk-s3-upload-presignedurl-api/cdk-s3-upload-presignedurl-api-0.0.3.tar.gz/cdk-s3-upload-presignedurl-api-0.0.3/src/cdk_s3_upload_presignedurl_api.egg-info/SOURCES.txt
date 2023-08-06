@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+src/cdk-s3-upload-presignedurl-api/__init__.py
+src/cdk-s3-upload-presignedurl-api/py.typed
+src/cdk-s3-upload-presignedurl-api/_jsii/__init__.py
+src/cdk-s3-upload-presignedurl-api/_jsii/cdk-s3-upload-presignedurl-api@0.0.3.jsii.tgz
+src/cdk_s3_upload_presignedurl_api.egg-info/PKG-INFO
+src/cdk_s3_upload_presignedurl_api.egg-info/SOURCES.txt
+src/cdk_s3_upload_presignedurl_api.egg-info/dependency_links.txt
+src/cdk_s3_upload_presignedurl_api.egg-info/requires.txt
+src/cdk_s3_upload_presignedurl_api.egg-info/top_level.txt
