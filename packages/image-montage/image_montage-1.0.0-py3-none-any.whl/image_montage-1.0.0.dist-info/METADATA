@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: image-montage
+Version: 1.0.0
+Requires-Dist: opencv-python
+Requires-Dist: numpy
+Requires-Dist: pathlib
+
