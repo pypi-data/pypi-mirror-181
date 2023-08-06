@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "pycdr2"
+version = "1.0.0"
+license = "BSD-3-Clause"
+description = "The IDL part of the CycloneDDS package as standalone version, to support packages that need CDR (de)serialisation without the Cyclone DDS API."
+authors = ["Thijs Miedema <opensource@tmiedema.com>", "Eclipse Cyclone DDS committers <cyclonedds@zettascale.tech"]
+readme = "README.md"
+classifiers = [
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Intended Audience :: Developers",
+    "Development Status :: 5 - Production/Stable",
+    "Operating System :: OS Independent",
+    "Typing :: Typed"
+]
+packages = [
+    { include = "pycdr2", "from" = "src" }
+]
+
+[tool.poetry.dependencies]
+python = ">=3.7"
+typing-extensions = { version = ">=4.4.0", python = "<3.9" }
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
