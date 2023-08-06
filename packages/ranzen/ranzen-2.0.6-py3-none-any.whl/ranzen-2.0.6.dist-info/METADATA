@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: ranzen
+Version: 2.0.6
+Summary: A toolkit facilitating machine-learning experimentation.
+Home-page: https://github.com/predictive-analytics-lab/ranzen
+License: Apache-2.0
+Keywords: typing,python
+Author: PAL
+Author-email: info@predictive-analytics-lab.com
+Requires-Python: >=3.8.0,<3.11
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Typing :: Typed
+Project-URL: Repository, https://github.com/predictive-analytics-lab/ranzen
+Description-Content-Type: text/markdown
+
+# ranzen 🎒
+
+A python toolkit facilitating machine-learning experimentation.
+
+[Documentation](https://wearepal.github.io/ranzen/)
+
+## Install
+
+Run
+```
+pip install ranzen
+```
+
+or install directly from GitHub:
+```
+pip install git+https://github.com/predictive-analytics-lab/ranzen.git@main
+```
+
