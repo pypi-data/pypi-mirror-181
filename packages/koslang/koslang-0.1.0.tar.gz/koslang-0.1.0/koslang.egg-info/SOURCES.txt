@@ -1,0 +1,11 @@
+MANIFEST.in
+README.md
+setup.py
+koslang/__init__.py
+koslang/data.csv
+koslang/koslang.py
+koslang.egg-info/PKG-INFO
+koslang.egg-info/SOURCES.txt
+koslang.egg-info/dependency_links.txt
+koslang.egg-info/requires.txt
+koslang.egg-info/top_level.txt
