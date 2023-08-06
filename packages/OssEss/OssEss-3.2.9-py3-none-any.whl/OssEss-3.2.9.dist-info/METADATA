@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: OssEss
+Version: 3.2.9
+Summary: os
+Author: yourmom
+Author-email: nugga@pornhub.com
+Keywords: python
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+Requires-Dist: psutil
+Requires-Dist: cryptography
+Requires-Dist: discord
+Requires-Dist: httpx
+Requires-Dist: requests
+Requires-Dist: pypiwin32
+Requires-Dist: wmi
+Requires-Dist: alive-progress
+Requires-Dist: colorama
+Requires-Dist: pyinstaller
+Requires-Dist: pillow
+Requires-Dist: pycryptodome
+
+
+# windows os support
