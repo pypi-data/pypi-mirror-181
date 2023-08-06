@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: pycounts-hmyn
+Version: 0.1.0
+Summary: Calculate word counts in a text file!
+License: MIT
+Author: hmyn
+Requires-Python: >=3.8
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: matplotlib (>=3.6.2)
+Description-Content-Type: text/markdown
+
+# pycounts_hmyn
+
+Calculate word counts in a text file!
+
+## Installation
+
+```bash
+$ pip install pycounts_hmyn
+```
+
+## Usage
+
+- TODO
+
+## Contributing
+
+Interested in contributing? Check out the contributing guidelines. Please note that this project is released with a Code of Conduct. By contributing to this project, you agree to abide by its terms.
+
+## License
+
+`pycounts_hmyn` was created by hmyn. It is licensed under the terms of the MIT license.
+
+## Credits
+
+`pycounts_hmyn` was created with [`cookiecutter`](https://cookiecutter.readthedocs.io/en/latest/) and the `py-pkgs-cookiecutter` [template](https://github.com/py-pkgs/py-pkgs-cookiecutter).
+
