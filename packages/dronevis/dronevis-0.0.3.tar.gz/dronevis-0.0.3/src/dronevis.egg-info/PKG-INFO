@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: dronevis
+Version: 0.0.3
+Summary: Full compatible drone library to automate computer vision algorithms on parrot drones.
+Author-email: Ahmed Heakl <ahmed.heakl@ejust.edu.eg>
+Project-URL: repository, https://github.com/ahmedheakl/drone-vis
+Keywords: drones,computer vision,human tracking,object recognition,YOLO
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Provides-Extra: build
+Provides-Extra: dev
+License-File: LICENSE
+
+# DroneVis: Full compatible drone library to automate computer vision algorithms on parrot drones.
+
