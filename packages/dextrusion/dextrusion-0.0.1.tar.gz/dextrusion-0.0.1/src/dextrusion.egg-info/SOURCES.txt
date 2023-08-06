@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/dextrusion/DeXtrusion.py
+src/dextrusion/DialogDeXtrusion.py
+src/dextrusion/DialogParameters.py
+src/dextrusion/MovieGeneratorFromROI.py
+src/dextrusion/Network.py
+src/dextrusion/RoiUtils.py
+src/dextrusion/__init__.py
+src/dextrusion/__main__.py
+src/dextrusion.egg-info/PKG-INFO
+src/dextrusion.egg-info/SOURCES.txt
+src/dextrusion.egg-info/dependency_links.txt
+src/dextrusion.egg-info/requires.txt
+src/dextrusion.egg-info/top_level.txt
