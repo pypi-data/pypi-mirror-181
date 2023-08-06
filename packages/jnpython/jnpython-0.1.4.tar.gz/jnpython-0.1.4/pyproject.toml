@@ -1,0 +1,29 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "jnpython"
+version = "0.1.4"
+authors = [
+  { name="Johan Nilsson"},
+]
+description = "Misc python helper functions"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+keywords = ["misc", "util", "helpers"]
+
+[tool.pytest.ini_options]
+addopts = [
+    "--import-mode=importlib",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/jnsoft/jnpython"
+"Bug Tracker" = "https://github.com/jnsoft/jnpython/issues"
