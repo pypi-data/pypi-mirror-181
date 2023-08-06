@@ -1,0 +1,16 @@
+.gitignore
+LICENSE
+README.md
+requirements.txt
+setup.py
+anubis/__init__.py
+anubis/exceptions.py
+anubis/load.py
+anubis/mixture.py
+anubis/plot.py
+anubis/utils.py
+anubis.egg-info/PKG-INFO
+anubis.egg-info/SOURCES.txt
+anubis.egg-info/dependency_links.txt
+anubis.egg-info/requires.txt
+anubis.egg-info/top_level.txt
