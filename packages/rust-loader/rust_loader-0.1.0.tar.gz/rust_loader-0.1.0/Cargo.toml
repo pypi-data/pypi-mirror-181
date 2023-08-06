@@ -1,0 +1,36 @@
+[package]
+name = "rust_loader"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "rust_loader"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.17.3", features = ["extension-module"] }
+reqwest = { version = "0.11.12", features=["json", "stream"]}
+tokio = { version = "1.21.2", features = ["full"] }
+tokio-util = {version="0.7.4", features = ["io","compat"]} 
+async-compression = {version="0.3.14", features=["all"]}
+futures = {version = "0.3.24"}
+anyhow = {version="1.0.65"}
+tokenizers = {version="0.13.1"}
+rand = "0.8.5"
+serde = "1.0.45"
+abomonation="0.7.3"
+abomonation_derive="0.5.0"
+zmq = "0.9.2"
+clap={version="4.0.12", features=["derive"]}
+serde_yaml="0.9.13"
+serde-pickle = "1.1.1"
+serde_json="1.0.87"
+arrow = "24.0.0"
+tempfile="3.3.0"
+log="0.4.17"
+env_logger="0.9.1"
+async-tar = "0.4.2"
+rand_distr = "0.4.3"
+logos = "0.12.1"
+counter="0.5.7"
