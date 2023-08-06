@@ -1,0 +1,42 @@
+git:
+  depth: false
+
+jobs:
+  include:
+    - os: linux
+      dist: xenial
+      services: docker
+      language: python
+      python: "3.9"
+    - os: linux
+      dist: xenial
+      arch: arm64
+      services: docker
+      language: python
+      python: "3.9"
+    - os: windows
+      language: shell
+      before_install:
+        - choco upgrade python -y --version 3.8.6
+        - export PATH="/c/Python38:/c/Python38/Scripts:$PATH"
+        # make sure it's on PATH as 'python3'
+        - ln -s /c/Python38/python.exe /c/Python38/python3.exe
+
+install:
+  - python3 -m pip install cibuildwheel==2.11.3
+
+script:
+  - python3 -m cibuildwheel --output-dir dist
+
+after_failure:
+  - cat out.log
+
+# deploy to PyPI on tags
+before_deploy: "python3 -m pip install -r requirements.txt -r requirements-test.txt"
+deploy:
+  provider: pypi
+  username: "$PYPI_USERNAME"
+  skip_cleanup: true
+  on:
+    tags: true
+  password: "$PYPI_PASSWORD"
