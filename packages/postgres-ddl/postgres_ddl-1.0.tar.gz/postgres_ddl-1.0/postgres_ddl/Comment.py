@@ -1,0 +1,43 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+from postgres_ddl.DDL import DDL
+
+class Comment(DDL):
+    def __init__(self, parent, data, config):
+        super().__init__(parent, data, config)
+
+        self.Type = (data.get("instance_type") or "").strip().upper()
+        assert len(self.Type) > 0, \
+            f"Comment instance type is null - {parent}"
+
+        self.Instance = (data.get("instance_name") or "").strip()
+        assert len(self.Instance) > 0, \
+            f"Comment instance name is null - {parent}"
+
+        self.Comment = (data.get("comment") or "").strip()
+
+        self.IsExists = len(self.Comment) > 0
+
+    def __str__(self):
+        return self.GetObjectName()
+
+    def GetObjectType(self):
+        return "comment"
+
+    def GetObjectName(self):
+        return f"{self.GetObjectType()}_{self.Type}_{self.Instance}"
+
+    def DDL_Create(self):
+        return f"COMMENT ON {self.Type} {self.Instance}{self.NewLine(1)}{self.Indent()}IS '{self.Comment}';"
+
+    def DDL_Drop(self):
+        return f"COMMENT ON {self.Type} {self.Instance} IS '';"
+
+    def Diff(self, another):
+        if self.Comment != another.Comment:
+            return [
+                self.DDL_Create()
+            ]
+        else:
+            return []
