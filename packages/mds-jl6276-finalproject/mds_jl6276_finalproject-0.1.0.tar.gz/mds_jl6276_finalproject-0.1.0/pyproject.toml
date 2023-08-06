@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "mds_jl6276_finalproject"
+version = "0.1.0"
+description = "A final project for MDS 2022 Fall. It includes a function that relies on Yelp api, and the funtion takes in a catagory in terms like 'bars', 'restaurant', etc... and return the location of resaurant in New York On map."
+authors = ["Jin Liu"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pandas = "^1.5.2"
+folium = "^0.14.0"
+
+[tool.poetry.dev-dependencies]
+
+[tool.poetry.group.dev.dependencies]
+myst-nb = "^0.17.1"
+sphinx-autoapi = "^2.0.0"
+sphinx-rtd-theme = "^1.1.1"
+pytest = "^7.2.0"
+sphinx = "^5.3.0"
+sphinxcontrib-napoleon = "^0.7"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
