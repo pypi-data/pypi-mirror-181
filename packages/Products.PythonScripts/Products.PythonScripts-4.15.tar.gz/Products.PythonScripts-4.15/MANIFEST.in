@@ -1,0 +1,15 @@
+# Generated from:
+# https://github.com/zopefoundation/meta/tree/master/config/zope-product
+include *.md
+include *.rst
+include *.txt
+include buildout.cfg
+include tox.ini
+
+recursive-include src *.py
+include buildout4.cfg
+include src/Products/PythonScripts/www/default_content
+recursive-include src *.dtml
+recursive-include src *.pkl
+recursive-include src *.ps
+recursive-include src *.zcml
