@@ -1,0 +1,12 @@
+# Library dependencies
+numpy
+scipy
+matplotlib
+# mpi4py
+pandas
+pyfftw
+openpyxl
+
+# GUI
+PyQT5
+PyInstaller
