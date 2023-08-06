@@ -1,0 +1,11 @@
+pymorphy2>=0.9.1
+torch>=1.11.0
+numpy>=1.22
+scipy>=1.7.3
+tqdm>=4.62.3
+nltk>=3.6.7
+editdistpy>=0.1.3
+accelerate>=0.12.0
+transformers>=4.22.2
+sacremoses>=0.0.49
+pynvml>=11.4.1
