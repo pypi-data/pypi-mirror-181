@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: combine-signatures
+Version: 0.1.0
+Summary: Combine signatures of functions.
+Home-page: https://github.com/sdpkjc/combine-signatures
+Author: sdpkjc
+Author-email: pazyx728@gmail.com
+License: GPL-3.0
+Keywords: combine_signatures
+Platform: any
+Classifier: Development Status :: 1 - Planning
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+License-File: LICENSE
+
+# combine-signatures
+
+Combine signatures of functions.
+
+COPY FROM [jsbueno/terminedia](https://github.com/jsbueno/terminedia/blob/62b1c307e5f276e7eb5d56dacc35a326fb424481/terminedia/utils/__init__.py#L83).
+
+[HOW TO USE?](https://stackoverflow.com/questions/34402773/signature-changing-decorator-properly-documenting-additional-argument)
