@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: estimagic
+Version: 0.4.3
+Summary: Tools to solve difficult numerical optimization problems.
+Home-page: https://github.com/OpenSourceEconomics/estimagic
+Author: Janos Gabler
+Author-email: janos.gabler@gmail.com
+License: MIT
+Keywords: econometrics,statistics,estimation,extremum estimation,optimization,inference,numerical differentiation,finite differences,richardson extrapolation,derivative free optimization,method of simulated moments,maximum likelihood
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Topic :: Scientific/Engineering
+Classifier: Intended Audience :: Science/Research
+Requires-Python: >=3.8
+License-File: LICENSE
+
+
+Estimagic is a Python package for nonlinear optimization with or without
+constraints. It is particularly suited to solve difficult nonlinear estimation
+problems. On top, it provides functionality to perform statistical inference on
+estimated parameters.
