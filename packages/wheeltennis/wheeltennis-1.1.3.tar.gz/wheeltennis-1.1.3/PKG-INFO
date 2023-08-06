@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: wheeltennis
+Version: 1.1.3
+Summary: Basic scripts for wheelchair tennis analysis
+Home-page: https://gitlab.com/Thomas2016/wheeltennis
+Download-URL: https://gitlab.com/Thomas2016/wheeltennis
+Author: Thomas Rietveld
+Author-email: t.rietveld@lboro.ac.uk
+License: GNU GPLv3
+Keywords: wheelchair tennis,sensor,IMUs
+Classifier: Programming Language :: Python
+Classifier: Intended Audience :: Science/Research
+Classifier: Operating System :: OS Independent
+License-File: LICENSE
+
+Wheeltennis: a wheelchair tennis data processing package
+========================================================
+
+Essential data analysis scripts to analyse wheelchair tennis field data which means:
+
+* Standardised field testing
+* Wheeling match performance
+* Visualisation of IMUs
+* More in future (?)
+
+Prerequisites
+-------------
+You need a valid version of Python 3.7
+
+Installing
+----------
+You can install this package with pip:
+
+    pip install wheeltennis
+
+Examples
+--------
+Jupyter notebook examples can be found in the 'IMU Field Examples folder'
+
+Reporting errors
+----------------
+If you find an error/mistake or want to contribute, please contact me or submit an issue through this page.
+
+Citing
+------
+If you want to refer to this package please let me know
