@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: person-counter
+Version: 1.1.4
+Summary: Person Counter using torch
+Author: Olivier
+Author-email: luowensheng2018@gmail.com
+Keywords: python,person,counting,AI
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+
+# Person counter
+
+
+
+from opencv_stream import VideoStreamer, FpsDrawer
+from person_counter.model import PersonCounterModel, PersonCounterOutput
+import numpy as np
+import os
+
+VIDEO_DIR = "D:/project/facebodydetection/facebodydetect/app/src/videos"
+def get_video():
+   paths = [ os.path.join(VIDEO_DIR, p) for p in os.listdir(VIDEO_DIR)]
+   return np.random.choice(paths)
+
+
+
+stream = VideoStreamer.from_video_input(get_video())
+fps = FpsDrawer()
+
+model = PersonCounterModel()
+
+
+@stream.on_next_frame()
+def index(frame: np.ndarray):
+   
+   result = model.predict(frame) 
+
+   if result.is_ok():
+      output: PersonCounterOutput = result.unwrap()
+      output.draw(frame)
+   else:
+    raise result.exception
+
+   fps.draw(frame)
+
+
+stream.start()
