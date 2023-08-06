@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "skaha"
+version = "1.1.0"
+description = "Python Client for Skaha Container Platform in CANFAR"
+authors = ["Shiny Brar <charanjotbrar@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+vos = "^3"
+requests = "^2"
+pydantic = "^1"
+toml = "^0.10.2"
+mkdocs-material = {version = "*", optional = true}
+mkdocstrings-python = {version = "*", optional = true}
+
+
+[tool.poetry.dev-dependencies]
+pytest = "*"
+black = "*"
+pre-commit = "*"
+pytest-cov = "*"
+
+[tool.poetry.extras]
+docs = ["mkdocs-material", "mkdocstrings-python"]
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^2.20.0"
+
+[build-system]
+requires = ["poetry-core>=1.2.2"]
+build-backend = "poetry.core.masonry.api"
