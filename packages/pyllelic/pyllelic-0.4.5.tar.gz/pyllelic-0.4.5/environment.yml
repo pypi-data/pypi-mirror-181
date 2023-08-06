@@ -1,0 +1,15 @@
+name: pyllelic
+channels:
+  - paradoxdruid
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - jupyter_contrib_nbextensions
+  - biopython
+  - pyllelic
+  - ipywidgets
+  - notebook
+  - numpy>=1.21.1
+  - seaborn
