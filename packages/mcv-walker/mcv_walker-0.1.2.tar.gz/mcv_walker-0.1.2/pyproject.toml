@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "mcv_walker"
+version = "0.1.2"
+description = ""
+authors = ["Greg Olmschenk <greg@olmschenk.com>"]
+readme = "README.md"
+packages = [{include = "mcv_walker"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+numpy = "^1.23.5"
+pynput = "^1.7.6"
+rich = "^12.6.0"
+
+[tool.poetry.scripts]
+mcv_walker = "mcv_walker.main:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
