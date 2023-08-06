@@ -1,0 +1,3 @@
+[console_scripts]
+digiimport = digipics.digiimport:main
+digiphone = digipics.digiphone:main
