@@ -1,0 +1,20 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "dask_deltasharing1111"
+version = "0.0.1"
+description = "A library for accessing tables from Delta Sharing as Dask DataFrames"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+]
+dependencies = [ "delta_sharing" ]
+
+[project.urls]
+"Homepage" = "https://github.com/KatanaGraph/dask_deltasharing"
+"Bug Tracker" = "https://github.com/KatanaGraph/dask_deltasharing/issues"
