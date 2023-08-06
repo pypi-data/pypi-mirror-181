@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: gtja-vintex-qyt
+Version: 0.0.15
+Summary: Python Library for GTJA Vintex QYT
+Home-page: https://github.com/alfred42/gtja-qyt-python-lib
+Author: Liang Shi
+Author-email: shiliang022975@gtjas.com
+License: UNKNOWN
+Keywords: gtja-vintex-qyt
+Platform: any
+License-File: LICENSE
+Requires-Dist: certifi (>=2022.9.14)
+Requires-Dist: charset-normalizer (>=2.1.1)
+Requires-Dist: idna (>=3.4)
+Requires-Dist: requests (>=2.28.1)
+Requires-Dist: urllib3 (>=1.26.12)
+Requires-Dist: pandas (>=1.5)
+Requires-Dist: pycryptodome (>=3.16.0)
+
+UNKNOWN
+
