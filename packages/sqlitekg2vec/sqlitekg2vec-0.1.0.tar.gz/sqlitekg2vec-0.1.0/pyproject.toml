@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "sqlitekg2vec"
+version = "0.1.0"
+description = "SQLiteKG implements the KG class from pyRDF2Vec by using a local SQLite database for storing and querying a KG."
+authors = ["Kevin Haller <contact@kevinhaller.dev>"]
+readme = "README.md"
+repository = "https://github.com/khaller93/sqlitekg2vec"
+keywords = ["embeddings", "knowledge-graph", "rdf2vec", "word2vec", "sqlite"]
+include = [
+    "LICENSE",
+    "README.md",
+]
+
+[tool.poetry.dependencies]
+rdflib = "^6.1.1"
+python = ">=3.8,<4.0"
+pyrdf2vec = ">=0.2.3"
+nest_asyncio = "^1.5.4"
+gensim = "^4.0.1"
+cachetools = ">=4.2,<5"
+aiohttp = "^3.8.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2"
+pykeen = "^1.9"
+pandas = ">=1.5"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
