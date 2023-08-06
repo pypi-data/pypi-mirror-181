@@ -1,0 +1,34 @@
+#!python
+# This file is placed in the Public Domain.
+# pylint: disable=C0116,C0413,W0212
+
+
+"write your own commands"
+
+
+import importlib
+import importlib.util
+import os
+import sys
+
+
+sys.path.insert(0, os.getcwd())
+
+
+from cmdz import Cfg, CLI, Command, Wd
+from cmdz import command, launch, parse, scan, scandir, wait
+from cmdz import boot, importer, initer, wrap
+
+
+Wd.workdir = os.path.expanduser("~/.cmdz")
+
+
+def main():
+    boot(" ".join(sys.argv[1:]))
+    scandir(Wd.moddir(), importer)
+    scandir(Wd.moddir(), initer)
+    cli = CLI()
+    command(cli, Cfg.otxt)
+
+
+wrap(main)
