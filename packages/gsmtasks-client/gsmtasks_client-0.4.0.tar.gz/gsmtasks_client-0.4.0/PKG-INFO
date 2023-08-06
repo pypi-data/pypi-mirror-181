@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: gsmtasks-client
+Version: 0.4.0
+Summary: Client library for https://api.gsmtasks.com/ .
+Home-page: https://github.com/lapidary-library/gsmtasks-client
+License: CC0-1.0 OR 0BSD
+Requires-Python: >=3.9,<4.0
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: lapidary (>=0.7.2,<0.8.0)
+Requires-Dist: platformdirs (>=2.6.0,<3.0.0)
+Project-URL: Repository, https://github.com/lapidary-library/gsmtasks-client
