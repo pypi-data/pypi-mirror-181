@@ -1,0 +1,53 @@
+[tool.poetry]
+name = 'nb-query'
+version = "0.1.2"
+description = 'Python package to search in jupyter notebooks'
+authors = ['Laszlo Sragner <sragner@gmail.com>']
+license = 'MIT'
+homepage = 'https://github.com/xLaszlo/nb-query'
+repository = 'https://github.com/xLaszlo/nb-query'
+readme = 'README.md'
+packages = [{include = 'nb_query'}]
+documentation = "https://nb-query.readthedocs.io"
+
+[tool.poetry.scripts]
+nb-query = 'nb_query.main:app'
+
+[tool.poetry.dependencies]
+python = '^3.8.1'
+typer = {extras = ['all'], version = '^0.7.0'}
+pandas = '^1.5.2'
+
+[tool.black]
+skip-string-normalization = true
+
+[tool.poetry.group.dev.dependencies]
+pytest = '^7.2.0'
+coverage = {version = '^6.5.0', extras = ['toml']}
+black = '^22.12.0'
+flake8 = '^6.0.0'
+flake8-bandit = '^4.1.1'
+flake8-black = '^0.3.5'
+flake8-bugbear = '^22.12.6'
+flake8-import-order = '^0.18.2'
+mypy = "^0.991"
+flake8-annotations = "^2.9.1"
+flake8-docstrings = "^1.6.0"
+darglint = "^1.8.1"
+sphinx = "^5.3.0"
+sphinx-autodoc-typehints = "^1.19.5"
+codecov = "^2.1.12"
+
+[build-system]
+requires = ['poetry-core']
+build-backend = 'poetry.core.masonry.api'
+
+[tool.coverage.paths]
+source = ['nb_query', 'tests']
+
+[tool.coverage.run]
+branch = true
+source = ['nb_query']
+
+[tool.coverage.report]
+show_missing = true
