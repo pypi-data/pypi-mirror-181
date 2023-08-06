@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/parsival/__init__.py
+src/parsival/helper_rules.py
+src/parsival/peg_grammar.py
+src/parsival.egg-info/PKG-INFO
+src/parsival.egg-info/SOURCES.txt
+src/parsival.egg-info/dependency_links.txt
+src/parsival.egg-info/entry_points.txt
+src/parsival.egg-info/requires.txt
+src/parsival.egg-info/top_level.txt
+src/parsival/scripts/grammar_generator/__main__.py
+src/parsival/scripts/grammar_generator/custom_indent.py
+src/parsival/scripts/grammar_generator/gram_to_py.py
+src/parsival/scripts/grammar_generator/postprocess.py

@@ -1,0 +1,2 @@
+[console_scripts]
+parsival-gramgen = parsival.scripts.grammar_generator.__main__:main
