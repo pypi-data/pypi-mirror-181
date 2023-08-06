@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: eir-dl
+Version: 0.1.28a0
+Summary: 
+License: AGPLv3
+Author: Arnor Sigurdsson
+Requires-Python: >=3.8,<3.10
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: ConfigArgParse (>=1.2.3,<2.0.0)
+Requires-Dist: adabelief-pytorch (>=0.2.0,<0.3.0)
+Requires-Dist: aislib (>=0.1.8-alpha.0,<0.2.0)
+Requires-Dist: colorama (>=0.4.4,<0.5.0)
+Requires-Dist: deeplake (>=3.0.10,<4.0.0)
+Requires-Dist: dill (>=0.3.3,<0.4.0)
+Requires-Dist: hypothesis (>=6.14.0,<7.0.0)
+Requires-Dist: ipython (>=8.4.0,<9.0.0)
+Requires-Dist: joblib (>=1.1.0,<2.0.0)
+Requires-Dist: matplotlib (==3.4.3)
+Requires-Dist: numpy (>=1.19.2,<2.0.0)
+Requires-Dist: pandas (>=1.2.0,<2.0.0)
+Requires-Dist: perceiver-pytorch (>=0.8.1,<0.9.0)
+Requires-Dist: plotly (>=5.3.1,<6.0.0)
+Requires-Dist: py (>=1.9.0,<2.0.0)
+Requires-Dist: pytorch-ignite (>=0.4.7,<0.5.0)
+Requires-Dist: scikit-learn (>=1.0,<2.0)
+Requires-Dist: seaborn (>=0.12.0,<0.13.0)
+Requires-Dist: sentencepiece (>=0.1.96,<0.2.0)
+Requires-Dist: shap (>=0.41.0,<0.42.0)
+Requires-Dist: sympy (>=1.6.2,<2.0.0)
+Requires-Dist: tensorboard (>=2.3.0,<3.0.0)
+Requires-Dist: timm (>=0.6.5,<0.7.0)
+Requires-Dist: torch (>=1.12.0,<2.0.0)
+Requires-Dist: torch-optimizer (>=0.3.0,<0.4.0)
+Requires-Dist: torchtext (>=0.13.0,<0.14.0)
+Requires-Dist: torchvision (>=0.13.0,<0.14.0)
+Requires-Dist: tqdm (>=4.55.0,<5.0.0)
+Requires-Dist: transformers (>=4.11.3,<5.0.0)
