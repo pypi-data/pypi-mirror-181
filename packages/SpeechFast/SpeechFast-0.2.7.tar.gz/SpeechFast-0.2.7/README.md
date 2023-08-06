@@ -1,0 +1,1 @@
+# SpeechFast - Vosk wrapper for python and punctuation included. 
