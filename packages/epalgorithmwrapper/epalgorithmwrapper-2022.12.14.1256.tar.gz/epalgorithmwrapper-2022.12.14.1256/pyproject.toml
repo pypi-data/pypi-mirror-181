@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "epalgorithmwrapper"
+readme = "README.dist.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pika",
+    "asset",
+    "requests",
+    "eputils"
+]
+dynamic = ["version"]
+
+[tool.setuptools.packages]
+find = {where = ["src"], include = ["*"]}
+
+[tool.setuptools.dynamic]
+version = {attr = "epalgorithmwrapper.__version__"}
