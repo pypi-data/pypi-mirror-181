@@ -1,0 +1,78 @@
+Metadata-Version: 2.1
+Name: Discord-Advert-Framework
+Version: 2.3.2
+Summary: Framework (or bot) that allows you to advertise on discord
+Home-page: https://daf.davidhozic.top/
+Author: David Hozic
+Author-email: davidhozic@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE.md
+Requires-Dist: typeguard
+Requires-Dist: aiohttp
+Provides-Extra: all
+Requires-Dist: PyNaCl ; extra == 'all'
+Requires-Dist: yt-dlp ; extra == 'all'
+Requires-Dist: aiohttp-socks ; extra == 'all'
+Requires-Dist: sqlalchemy[asyncio] ; extra == 'all'
+Requires-Dist: aiosqlite ; extra == 'all'
+Requires-Dist: pymssql ; extra == 'all'
+Requires-Dist: asyncpg ; extra == 'all'
+Requires-Dist: asyncmy ; extra == 'all'
+Provides-Extra: docs
+Requires-Dist: sphinx ; extra == 'docs'
+Requires-Dist: sphinx-autobuild ; extra == 'docs'
+Requires-Dist: sphinx-copybutton ; extra == 'docs'
+Requires-Dist: furo ; extra == 'docs'
+Requires-Dist: enum-tools[sphinx] ; extra == 'docs'
+Requires-Dist: sphinx-design[furo] ; extra == 'docs'
+Requires-Dist: readthedocs-sphinx-search ; extra == 'docs'
+Provides-Extra: proxy
+Requires-Dist: aiohttp-socks ; extra == 'proxy'
+Provides-Extra: sql
+Requires-Dist: sqlalchemy[asyncio] ; extra == 'sql'
+Requires-Dist: aiosqlite ; extra == 'sql'
+Requires-Dist: pymssql ; extra == 'sql'
+Requires-Dist: asyncpg ; extra == 'sql'
+Requires-Dist: asyncmy ; extra == 'sql'
+Provides-Extra: testing
+Requires-Dist: pytest ; extra == 'testing'
+Requires-Dist: pytest-xdist ; extra == 'testing'
+Requires-Dist: pytest-asyncio ; extra == 'testing'
+Provides-Extra: voice
+Requires-Dist: PyNaCl ; extra == 'voice'
+Requires-Dist: yt-dlp ; extra == 'voice'
+
+DAF
+=========================================================
+    
+The Discord advertisement framework is a  **shilling tool** that allows easy advertising on Discord.
+
+
+Other information
+----------------------
+For more information see the project's webpage: https://daf.davidhozic.com.
+
+
+Key features
+----------------------
+- Ability to run on **user** accounts (against discord's ToS) or **bot** accounts
+- Periodic advertisement to **Direct (Private) Messages**, **Text channels** and **Voice channels**
+- Advertising with either static data (text, embed, files, audio) or **dynamic data** (the data is obtained thru a function dynamically)
+- Logging of sent messages to different outputs (also includes SQL)
+- Ability to add additional application layers with help of asyncio
+- Easy to setup
+
+Caution!
+
+While running this on user accounts is possible, it is **not recommended** since it is against Discord's ToS.
+I am not responsible if your account get's disabled for using self-bots, however there are some protections to make
+it harder for the API to detect a self-bot.
+
+
+Basic example
+--------------------
+For basic example see https://github.com/davidhozic/discord-advertisement-framework/blob/master/Examples/Message%20Types/TextMESSAGE/main_send_string.py
