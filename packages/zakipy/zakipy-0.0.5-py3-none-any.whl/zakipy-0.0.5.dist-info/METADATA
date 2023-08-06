@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: zakipy
+Version: 0.0.5
+Summary: A functional package
+Home-page: https://mzakir.eu.org/zakipy
+Author: zakirhamadan53
+Author-email: rzaki9353@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# About
+---
+
+hello fellas today i will explain this package my name is zaky and lets check it out
+
+1. converter: \
+   this module is for convertion like base 16 or like chiper and there is the converter core(ConverterCore) this is where you build your own conversion the built in converion are base16,base10,base8,base2,chiper
+2. Math: \
+   this module is for math but just a little bit because its still in development it just had fibbonaci and prime and other stuff
+
