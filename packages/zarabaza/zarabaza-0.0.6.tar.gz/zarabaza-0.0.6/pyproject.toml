@@ -1,0 +1,17 @@
+[build-system]
+requires = ["hatchling", "GitPython", "whaaaaat"]
+build-backend = "hatchling.build"
+[project]
+name = "zarabaza"
+version = "0.0.6"
+authors = [
+  { name="andrehottie", email="buscemi.mauro@gmail.com" },
+]
+description = "Deployer is a Python library for manage multiple cherry-picks at the same time"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
