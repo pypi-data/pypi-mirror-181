@@ -1,0 +1,43 @@
+[tool.poetry]
+name = "mandown"
+version = "1.1.1"
+description = "Comic/manga/webtoon downloader and converter to CBZ/EPUB/PDF"
+authors = ["Daniel Chen <danielchen04@hotmail.ca>"]
+license = "LGPL-3.0-only"
+readme = "README.md"
+repository = "https://github.com/potatoeggy/mandown"
+documentation = "https://github.com/potatoeggy/mandown"
+keywords = ["manga", "comic", "downloader", "download", "webtoons", "webtoon"]
+
+[tool.poetry.scripts]
+mandown = "mandown.cli:main"
+mandown-gui = "mandown.ui.ui:main"
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.12"
+typer = "^0.6.0"
+feedparser = "^6.0.8"
+beautifulsoup4 = "^4.10.0"
+requests = "^2.27.0"
+lxml = "^4.7.1"
+Pillow = {version = "^9.0.1", optional = true}
+python-slugify = "^6.1.2"
+PySide6 = {version = "^6.4.0", optional = true}
+natsort = "^8.1.0"
+filetype = "^1.1.0"
+
+[tool.poetry.dev-dependencies]
+types-requests = "^2.26.3"
+types-lxml = "^2022.4.10"
+
+[tool.poetry.extras]
+postprocessing = ["Pillow"]
+gui = ["PySide6"]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+# not released in stable branch yet
+#split_on_trailing_comma = true
