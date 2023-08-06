@@ -1,0 +1,9 @@
+include requirements.txt
+include MANIFEST.in
+
+
+exclude c50-copy.py
+recursive-exclude c50-src *
+recursive-exclude data *
+recursive-exclude outputs *
+recursive-exclude notebooks *
