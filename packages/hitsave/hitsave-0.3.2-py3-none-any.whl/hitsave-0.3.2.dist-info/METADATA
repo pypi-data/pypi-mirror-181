@@ -1,0 +1,57 @@
+Metadata-Version: 2.1
+Name: hitsave
+Version: 0.3.2
+Summary: Holistic data caching system.
+Project-URL: Homepage, https://hitsave.io
+Project-URL: Bug Tracker, https://github.com/hitsave-io/hitsave/issues
+Project-URL: Documentation, https://docs.hitsave.io
+Author-email: "E.W.Ayers" <contact@edayers.com>, George Seabridge <seabo@hitsave.io>
+License-File: LICENSE.txt
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+Requires-Dist: aiohttp~=3.8
+Requires-Dist: blake3~=0.3.1
+Requires-Dist: python-dateutil
+Requires-Dist: requests~=2.28
+Requires-Dist: rich
+Requires-Dist: typer~=0.6.1
+Requires-Dist: typing-extensions
+Description-Content-Type: text/markdown
+
+# HitSave
+
+Effortless data.
+
+Optimize your team's workflow with cloud memoization, experiment tracking and effortless data versioning.
+Find out more at https://hitsave.io.
+
+# Quickstart
+
+```sh
+pip install hitsave
+```
+
+Take any functon in your project, decorate it with `@memo`.
+
+```py
+from hitsave import memo
+
+def dependency(y):
+  # try changing the method body!
+  return y + y
+
+@memo
+def long_running_function(x):
+  print(f"Running {x}!")
+  return x + 2 + dependency(x)
+
+long_running_function(3)
+long_running_function(4)
+```
+
+When you run this python file, `@memo` will cache the results to disk (and to
+our cloud service). When you run the file again, the cache will be used rather
+than re-running the function. `@memo` analyses the code-dependencies of your
+code and determines when to invalidate the cache. You can add `@memo` to any
+function where the output is picklable.
