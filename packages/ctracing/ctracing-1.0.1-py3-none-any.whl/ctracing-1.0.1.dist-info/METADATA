@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: ctracing
+Version: 1.0.1
+Summary: custom tracing lib and helpers
+Author-email: Damien Degois <damien@degois.info>
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Dist: opentelemetry-api
+Requires-Dist: opentelemetry-sdk
+Provides-Extra: full
+Requires-Dist: ctracing[http,otlp] ; extra == 'full'
+Provides-Extra: http
+Requires-Dist: requests ; extra == 'http'
+Provides-Extra: otlp
+Requires-Dist: opentelemetry-exporter-otlp ; extra == 'otlp'
+Provides-Extra: tests
+Requires-Dist: ctracing[full] ; extra == 'tests'
+Requires-Dist: pytest ; extra == 'tests'
+
