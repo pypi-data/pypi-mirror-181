@@ -1,0 +1,6 @@
+
+[dev]
+bandit
+pylint>=2.5.0
+coverage
+caniusepython3
