@@ -1,0 +1,26 @@
+JPype1<2.*,>=1.2.1
+
+[:python_version < "3.7"]
+dataclasses
+
+[all]
+JPype1<2.*,>=1.2.1
+pytest
+mypy<0.971,>=0.931
+
+[all:python_version < "3.7"]
+dataclasses
+
+[core]
+JPype1<2.*,>=1.2.1
+
+[core:python_version < "3.7"]
+dataclasses
+
+[dev]
+pytest
+mypy<0.971,>=0.931
+
+[test]
+pytest
+mypy<0.971,>=0.931

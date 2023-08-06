@@ -1,0 +1,39 @@
+include:
+  - project: 'acc-co/devops/python/acc-py-devtools'
+    file: 'acc_py_devtools/templates/gitlab-ci/python.yml'
+
+variables:
+  project_name: stubgenj
+  PY_VERSION: "3.7"
+
+.dev_test_base:
+  needs: []  # No need to wait for wheel building to finish for dev testing.
+  extends:
+    - .acc_py_dev_test
+  before_script:
+    - pip install -e .[test] Jpype1${JPYPE_VN} pytest-cov
+
+dev_tests_py37_openjdk11_jpype1p2:
+  extends:
+    - .dev_test_base
+  image: registry.cern.ch/acc/acc-py_cc7_openjdk11_ci:2020.11
+  variables:
+    JPYPE_VN: "==1.2.*"
+
+dev_tests_py39_openjdk11_jpype1p2:
+  extends:
+    - .dev_test_base
+  image: registry.cern.ch/acc/acc-py_cc7_openjdk11_ci:2021.12
+  variables:
+    JPYPE_VN: "==1.2.*"
+
+# A push of the source distribution to the acc-py PyPI, only on git tag.
+release_sdist:
+  extends: .acc_py_release_sdist
+
+build_wheel:
+  extends:
+    - .acc_py_build_wheel
+
+release_wheel:
+  extends: .acc_py_release_wheel
