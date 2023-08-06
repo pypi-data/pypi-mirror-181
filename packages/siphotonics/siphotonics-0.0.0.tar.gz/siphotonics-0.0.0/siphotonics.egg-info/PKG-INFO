@@ -1,0 +1,84 @@
+Metadata-Version: 2.1
+Name: siphotonics
+Version: 0.0.0
+Summary: A toolkit to design of silicon photonic components
+Author-email: Aycan Deniz Vit <aycandv@gmail.com>
+License: MIT License
+        
+        Copyright (c) 2021 Emir Salih Mağden and Photonic Architecture Laboratories (PAL)
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: Homepage, https://github.com/Photonic-Architecture-Laboratories/siphotonics
+Keywords: photonics,nanophotonics,silicon photonics
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering :: Physics
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+License-File: LICENSE
+
+[![build](https://github.com/Photonic-Architecture-Laboratories/siphotonics/actions/workflows/makefile.yml/badge.svg)](https://github.com/Photonic-Architecture-Laboratories/siphotonics/actions/workflows/makefile.yml)
+[![Documentation Status](https://readthedocs.org/projects/siphotonics/badge/?version=latest)](https://siphotonics.readthedocs.io/en/latest/?badge=latest)
+
+# Siphotonics
+
+## Getting Started
+
+**Si-Photonics** is a toolkit providing fundamental waveguide and material properties to aid in the design of silicon photonic components on SOI platforms with high accuracy and extremely fast runtime. See the [documentation](https://siphotonics.readthedocs.io/en/latest/) for tutorials and API reference.
+
+## Installation
+
+### Pip
+
+The package can be installed via pip:
+
+    pip install siphotonics
+
+You can install siphotonics with additional packages for developers:
+
+    pip install siphotonics[dev]
+
+### Build from source
+
+Alternatively, the package can be built from source by cloning the repository and running the setup script:
+
+    git clone https://github.com/Photonic-Architecture-Laboratories/siphotonics.git
+    cd siphotonics
+    python setup.py install
+
+## Dependencies
+
+The package requires the following packages to be installed:
+
+-   [NumPy](https://numpy.org/)
+-   [Jax](https://jax.readthedocs.io/en/latest/index.html)
+-   [Trax](https://trax-ml.readthedocs.io/en/latest/)
+
+## Citing SiPhotonics Toolkit
+
+    @software{siphotonics2022github,
+        url = {https://github.com/Photonic-Architecture-Laboratories/siphotonics},
+        author = {Aycan Deniz Vit, Emir Salih Mağden},
+        title = {SiPhotonics: A Python package for the design of silicon photonic components},
+        year = {2022},  
+        version = {0.1.0},
+    }
