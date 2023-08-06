@@ -1,0 +1,18 @@
+[build-system]
+requires = ["hatchling","openai","flask"]
+build-backend = "hatchling.build"
+
+[project]
+name = "chatgptprtk"
+version = "0.1.0"
+authors = [
+  { name="Pratik Joshi", email="pratikjoshi999@gmail.com" },
+]
+description = "A python wrapper around OpenAI ChatGPT for easy access of its functionality"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
