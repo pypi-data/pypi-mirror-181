@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: polywrap-msgpack
+Version: 0.1.0a1
+Summary: WRAP msgpack encoding
+Author: Cesar
+Author-email: cesar@polywrap.io
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: msgpack (>=1.0.4,<2.0.0)
+Description-Content-Type: text/markdown
+
+
