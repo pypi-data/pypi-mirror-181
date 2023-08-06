@@ -1,0 +1,3 @@
+[console_scripts]
+async-gas = samples.async_gas:main
+wallet = samples.wallet:main
