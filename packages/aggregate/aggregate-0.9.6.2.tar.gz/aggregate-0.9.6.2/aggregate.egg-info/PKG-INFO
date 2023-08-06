@@ -1,0 +1,70 @@
+Metadata-Version: 2.1
+Name: aggregate
+Version: 0.9.6.2
+Summary: aggregate - working with compound probability distributions
+Author: Stephen J. Mildenhall
+Author-email: steve@convexrisk.com
+Maintainer: Stephen J. Mildenhall
+Maintainer-email: steve@convexrisk.com
+License: BSD
+Project-URL: Documentation, https://aggregate.readthedocs.io/en/latest/
+Project-URL: Source Code, https://github.com/mynl/aggregate
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Topic :: Education
+Classifier: Topic :: Office/Business :: Financial
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Intended Audience :: Financial and Insurance Industry
+Classifier: Intended Audience :: Education
+License-File: LICENSE
+
+aggregate: a powerful aggregate distribution modeling library in Python
+========================================================================
+
+What is it?
+-----------
+
+**aggregate** is a Python package providing an expressive language and fast,
+accurate computations to make working with aggregate (compound) probability
+distributions easy and intuitive. It allows students and practitioners to
+use realistic real-world distributions that reflect the underlying
+frequency and severity generating processes. It has applications in
+insurance, risk management, actuarial science, and related areas.
+
+Documentation
+-------------
+
+https://aggregate.readthedocs.io/
+
+
+Where to get it
+---------------
+
+https://github.com/mynl/aggregate
+
+
+Installation
+------------
+
+::
+
+  pip install aggregate
+
+
+Dependencies
+------------
+
+See requirements.txt.
+
+License
+-------
+
+`BSD 3 licence <LICENSE>`_
+
+Contributing to aggregate
+-------------------------
+
+All contributions, bug reports, bug fixes, documentation improvements,
+enhancements and ideas are welcome.
+
