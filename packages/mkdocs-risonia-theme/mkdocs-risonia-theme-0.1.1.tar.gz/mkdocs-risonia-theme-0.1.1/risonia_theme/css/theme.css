@@ -1,0 +1,49 @@
+@media print
+{
+  .no-print, .no-print *
+  {
+    display: none !important;
+  }
+}
+
+/*anchor offset for myTop*/
+h1,h2,h3,h4,h5,h6 {
+  padding-top: 80px;
+  margin-top: -80px;
+}
+.search-results h3 {
+  /*but not for mkdocs-search-results*/
+  padding-top: 0;
+  margin-top: 0;
+}
+
+/*svg icons*/
+.svg-1em {
+  height: 1em;
+  width: 1em;
+  display: inline-flex;
+  bottom: .125em;
+  position: relative;
+  vertical-align: middle;
+}
+.svg-2em {
+  height: 2em;
+  width: 2em;
+  display: inline-flex;
+  bottom: .125em;
+  position: relative;
+  vertical-align: middle;
+}
+
+/*fonts*/
+body{
+  font-family: Tahoma, Verdana, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.w3-code, .w3-codespan {
+  font-family:Consolas, Courier, monospace;
+}
