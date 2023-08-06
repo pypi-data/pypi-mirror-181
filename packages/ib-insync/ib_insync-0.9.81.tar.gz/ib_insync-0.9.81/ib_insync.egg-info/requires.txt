@@ -1,0 +1,8 @@
+eventkit
+nest_asyncio
+
+[:python_version < "3.7"]
+dataclasses
+
+[:python_version < "3.9"]
+backports.zoneinfo
