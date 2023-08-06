@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: pybiosig
+Version: 1.0.0
+Summary: A python framework to work with biomedical signals.
+Home-page: https://github.com/aalcaineo/PyBiosig
+Author: Alejandro Alcaine, PhD
+Author-email: lalcaine@usj.es
+License: GNU General Public License v3.0
+Keywords: Signal,Reading,Biomedical
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# PyBiosig
+A python framework to work with biomedical signals
+
+## Installation
+
+Simply install with: `pip install git+https://github.com/aalcaineo/pybiosig.git`
+
+## Credits:
+
+Alejandro Alcaine, Ph.D\
+MESC Working Group on e-Cardiology\
+lalcaine@usj.es
+
+Faculty of Health Sciences\
+University San Jorge\
+Villanueva de GÃ¡llego (Zaragoza)\
+Spain
+
+

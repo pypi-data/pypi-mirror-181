@@ -1,0 +1,17 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+pybiosig/__init__.py
+pybiosig/plots.py
+pybiosig/signal.py
+pybiosig.egg-info/PKG-INFO
+pybiosig.egg-info/SOURCES.txt
+pybiosig.egg-info/dependency_links.txt
+pybiosig.egg-info/not-zip-safe
+pybiosig.egg-info/requires.txt
+pybiosig.egg-info/top_level.txt
+pybiosig/read/__init__.py
+pybiosig/read/general_ecg.py
+pybiosig/read/general_egm.py
+pybiosig/read/read_carto.py
