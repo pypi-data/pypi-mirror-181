@@ -1,0 +1,71 @@
+Metadata-Version: 2.1
+Name: nocode-autonn
+Version: 2.4.1
+Summary: An AutoML framework for deep learning
+Home-page: https://github.com/AutoNN/AutoNN
+Author-email: raju.banerjee.720@gmail.com
+License: Apache License 2.0
+Keywords: AutoNN,autonn,AutoML,Deep Learning,CNN
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Software Development :: Libraries
+Description-Content-Type: text/markdown
+Requires-Dist: torch
+Requires-Dist: torchvision
+Requires-Dist: torchaudio
+Requires-Dist: ttkbootstrap (==0.5.1)
+Requires-Dist: pytorchsummary
+Requires-Dist: sklearn
+Requires-Dist: pandas
+Requires-Dist: dask
+Requires-Dist: dask-ml
+Requires-Dist: tqdm
+Requires-Dist: psutil
+Requires-Dist: matplotlib
+Requires-Dist: tensorflow-gpu (==2.8.0)
+Requires-Dist: protobuf (==3.19.0)
+
+<p align="center">
+ <a href="https://pypi.org/project/nocode-autonn/"> <img src="https://user-images.githubusercontent.com/55054089/190849404-ac47a467-3f66-48af-a037-177938230c4b.png" />
+</p></a>
+
+***
+# AutoNN : A No-Code Automated Machine Learning Framework For Deep Learning enthusiast.
+
+## Official <a href="https://autonn.github.io/AutoNN/">Website</a>
+
+## Installation
+
+Install it using pip package manager:
+```python
+pip install nocode-autonn
+```
+
+Upgrade the package using the following command:
+```python
+pip install --upgrade nocode-autonn
+```
+
+## Install all the dependencies 
+
+```
+pip install -r requirements.txt
+```
+## How to run the file:
+
+Open terminal and write the following command:
+```
+autonn
+```
+
+## The user interface: 
+
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/55054089/208089822-6167f0c4-6ff5-4952-815d-ee9c74e09641.gif)
+
+
