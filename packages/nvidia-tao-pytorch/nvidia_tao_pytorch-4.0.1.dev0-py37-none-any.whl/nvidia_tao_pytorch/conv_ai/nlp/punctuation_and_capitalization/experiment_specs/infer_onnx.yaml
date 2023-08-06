@@ -1,0 +1,13 @@
+# Copyright (c) 2020, NVIDIA CORPORATION. All rights reserved.
+# TLT Spec file for inference using the previously pretrained Token Classification model.
+
+# Name of the .etlt from which the ONNX graph will be loaded.
+restore_from: exported-model.eonnx
+
+input_batch:
+#  - 'We bought four shirts from the Nvidia gear store in Santa Clara.'
+#  - 'Nvidia is a company.'
+  - 'we bought four shirts and one mug from the nvidia gear store in santa clara'
+  - 'what can i do for you today'
+  - 'how are you'
+  - 'how is the weather in'

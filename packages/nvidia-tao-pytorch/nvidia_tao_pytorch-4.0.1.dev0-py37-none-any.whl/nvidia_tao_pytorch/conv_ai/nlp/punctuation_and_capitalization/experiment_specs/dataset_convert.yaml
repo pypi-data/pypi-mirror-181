@@ -1,0 +1,10 @@
+# Copyright (c) 2020, NVIDIA CORPORATION. All rights reserved.
+# TLT Spec file for conversion of datasets to format accepted by the TLT dataset/model.
+
+# Path to the folder containing the dataset source files
+source_data_dir: ???
+
+target_data_dir: ???
+
+# list of file names inside source_data_dir to convert
+list_of_file_names: ['train.txt','dev.txt']

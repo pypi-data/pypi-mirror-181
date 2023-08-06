@@ -1,0 +1,381 @@
+# Copyright (c) 2020, NVIDIA CORPORATION. All rights reserved.
+# TLT spec file for training the CitriNet model.
+
+trainer:
+  max_epochs: 100
+
+tlt_checkpoint_interval: 1
+
+model:
+  tokenizer:
+    dir: ???
+    type: "bpe"  # Can be either bpe or wpe
+
+  preprocessor:
+    _target_: nemo.collections.asr.modules.AudioToMelSpectrogramPreprocessor
+    sample_rate: 16000
+    normalize: per_feature
+    window_size: 0.025
+    window_stride: 0.01
+    window: hann
+    features: 80
+    n_fft: 512
+    frame_splicing: 1
+    dither: 1.0e-05
+    pad_to: 16
+    stft_conv: false
+
+  spec_augment:
+    _target_: nemo.collections.asr.modules.SpectrogramAugmentation
+    freq_masks: 2
+    time_masks: 2
+    freq_width: 27
+    time_width: 0.05
+
+  encoder:
+    _target_: nemo.collections.asr.modules.ConvASREncoder
+    feat_in: 80
+    activation: relu
+    conv_mask: true
+    jasper:
+    - filters: 256
+      repeat: 1
+      kernel:
+      - 5
+      stride:
+      - 1
+      dilation:
+      - 1
+      dropout: 0.0
+      residual: false
+      separable: true
+      se: true
+      se_context_size: -1
+    - filters: 256
+      repeat: 5
+      kernel:
+      - 11
+      stride:
+      - 2
+      dilation:
+      - 1
+      dropout: 0.0
+      residual: true
+      separable: true
+      se: true
+      se_context_size: -1
+      stride_last: true
+      residual_mode: stride_add
+    - filters: 256
+      repeat: 5
+      kernel:
+      - 13
+      stride:
+      - 1
+      dilation:
+      - 1
+      dropout: 0.0
+      residual: true
+      separable: true
+      se: true
+      se_context_size: -1
+    - filters: 256
+      repeat: 5
+      kernel:
+      - 15
+      stride:
+      - 1
+      dilation:
+      - 1
+      dropout: 0.0
+      residual: true
+      separable: true
+      se: true
+      se_context_size: -1
+    - filters: 256
+      repeat: 5
+      kernel:
+      - 17
+      stride:
+      - 1
+      dilation:
+      - 1
+      dropout: 0.0
+      residual: true
+      separable: true
+      se: true
+      se_context_size: -1
+    - filters: 256
+      repeat: 5
+      kernel:
+      - 19
+      stride:
+      - 1
+      dilation:
+      - 1
+      dropout: 0.0
+      residual: true
+      separable: true
+      se: true
+      se_context_size: -1
+    - filters: 256
+      repeat: 5
+      kernel:
+      - 21
+      stride:
+      - 1
+      dilation:
+      - 1
+      dropout: 0.0
+      residual: true
+      separable: true
+      se: true
+      se_context_size: -1
+    - filters: 256
+      repeat: 5
+      kernel:
+      - 13
+      stride:
+      - 2
+      dilation:
+      - 1
+      dropout: 0.0
+      residual: true
+      separable: true
+      se: true
+      se_context_size: -1
+      stride_last: true
+      residual_mode: stride_add
+    - filters: 256
+      repeat: 5
+      kernel:
+      - 15
+      stride:
+      - 1
+      dilation:
+      - 1
+      dropout: 0.0
+      residual: true
+      separable: true
+      se: true
+      se_context_size: -1
+    - filters: 256
+      repeat: 5
+      kernel:
+      - 17
+      stride:
+      - 1
+      dilation:
+      - 1
+      dropout: 0.0
+      residual: true
+      separable: true
+      se: true
+      se_context_size: -1
+    - filters: 256
+      repeat: 5
+      kernel:
+      - 19
+      stride:
+      - 1
+      dilation:
+      - 1
+      dropout: 0.0
+      residual: true
+      separable: true
+      se: true
+      se_context_size: -1
+    - filters: 256
+      repeat: 5
+      kernel:
+      - 21
+      stride:
+      - 1
+      dilation:
+      - 1
+      dropout: 0.0
+      residual: true
+      separable: true
+      se: true
+      se_context_size: -1
+    - filters: 256
+      repeat: 5
+      kernel:
+      - 23
+      stride:
+      - 1
+      dilation:
+      - 1
+      dropout: 0.0
+      residual: true
+      separable: true
+      se: true
+      se_context_size: -1
+    - filters: 256
+      repeat: 5
+      kernel:
+      - 25
+      stride:
+      - 1
+      dilation:
+      - 1
+      dropout: 0.0
+      residual: true
+      separable: true
+      se: true
+      se_context_size: -1
+    - filters: 256
+      repeat: 5
+      kernel:
+      - 25
+      stride:
+      - 2
+      dilation:
+      - 1
+      dropout: 0.0
+      residual: true
+      separable: true
+      se: true
+      se_context_size: -1
+      stride_last: true
+      residual_mode: stride_add
+    - filters: 256
+      repeat: 5
+      kernel:
+      - 27
+      stride:
+      - 1
+      dilation:
+      - 1
+      dropout: 0.0
+      residual: true
+      separable: true
+      se: true
+      se_context_size: -1
+    - filters: 256
+      repeat: 5
+      kernel:
+      - 29
+      stride:
+      - 1
+      dilation:
+      - 1
+      dropout: 0.0
+      residual: true
+      separable: true
+      se: true
+      se_context_size: -1
+    - filters: 256
+      repeat: 5
+      kernel:
+      - 31
+      stride:
+      - 1
+      dilation:
+      - 1
+      dropout: 0.0
+      residual: true
+      separable: true
+      se: true
+      se_context_size: -1
+    - filters: 256
+      repeat: 5
+      kernel:
+      - 33
+      stride:
+      - 1
+      dilation:
+      - 1
+      dropout: 0.0
+      residual: true
+      separable: true
+      se: true
+      se_context_size: -1
+    - filters: 256
+      repeat: 5
+      kernel:
+      - 35
+      stride:
+      - 1
+      dilation:
+      - 1
+      dropout: 0.0
+      residual: true
+      separable: true
+      se: true
+      se_context_size: -1
+    - filters: 256
+      repeat: 5
+      kernel:
+      - 37
+      stride:
+      - 1
+      dilation:
+      - 1
+      dropout: 0.0
+      residual: true
+      separable: true
+      se: true
+      se_context_size: -1
+    - filters: 256
+      repeat: 5
+      kernel:
+      - 39
+      stride:
+      - 1
+      dilation:
+      - 1
+      dropout: 0.0
+      residual: true
+      separable: true
+      se: true
+      se_context_size: -1
+    - filters: 640
+      repeat: 1
+      kernel:
+      - 41
+      stride:
+      - 1
+      dilation:
+      - 1
+      dropout: 0.0
+      residual: false
+      separable: true
+      se: true
+      se_context_size: -1
+
+  decoder:
+    _target_: nemo.collections.asr.modules.ConvASRDecoder
+    feat_in: 640
+    num_classes: -1  # filled with vocabulary size from tokenizer at runtime
+    vocabulary: []  # filled with vocabulary from tokenizer at runtime
+
+training_ds:
+  manifest_filepath: ???
+  sample_rate: 16000
+  batch_size: 32
+  trim_silence: true
+  max_duration: 16.7
+  shuffle: true
+  is_tarred: false
+  tarred_audio_filepaths: null
+
+validation_ds:
+  manifest_filepath: ???
+  sample_rate: 16000
+  batch_size: 32
+  shuffle: False
+
+optim:
+ name: novograd
+ lr: 0.05
+ betas:
+ - 0.8
+ - 0.25
+ weight_decay: 0.001
+ sched:
+   name: CosineAnnealing
+   warmup_steps: 1000
+   warmup_ratio: null
+   min_lr: 1.0e-05
+   last_epoch: -1

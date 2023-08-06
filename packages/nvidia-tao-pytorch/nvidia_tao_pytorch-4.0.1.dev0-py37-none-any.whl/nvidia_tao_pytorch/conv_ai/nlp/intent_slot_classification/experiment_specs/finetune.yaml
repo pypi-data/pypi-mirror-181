@@ -1,0 +1,40 @@
+# Copyright (c) 2020, NVIDIA CORPORATION.  All rights reserved.
+# TLT Spec file for training of the BERT model on text classification task using the SST-2 dataset.
+
+# Name of the .tlt file where trained model will be saved or restored.
+save_to: finetuned-model.tlt
+restore_from: trained-model.tlt
+
+tlt_checkpoint_interval: 1
+
+# Directory containing both finetuning and validation data.
+data_dir: ???
+
+# Training data set configurations
+finetuning_ds:
+  prefix: train
+  batch_size: 32
+  shuffle: true
+  num_samples: -1
+  num_workers: 2
+  drop_last: false
+  pin_memory: false
+
+# Validation data set configurations
+validation_ds:
+  prefix: test
+  batch_size: 32
+  shuffle: false
+  num_samples: -1
+  num_workers: 2
+  drop_last: false
+  pin_memory: false
+
+optim:
+  name: adam
+  lr: 2e-5
+  # optimizer arguments
+  betas: [0.9, 0.999]
+  weight_decay: 0.01
+
+megatron: false

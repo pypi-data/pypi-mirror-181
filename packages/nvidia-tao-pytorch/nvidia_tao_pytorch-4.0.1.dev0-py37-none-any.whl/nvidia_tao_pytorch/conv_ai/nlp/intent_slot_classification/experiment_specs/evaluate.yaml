@@ -1,0 +1,18 @@
+# Copyright (c) 2020, NVIDIA CORPORATION.  All rights reserved.
+# TLT Spec file for evaluation of the IntentSlotClassification Model on Assistant dataset.
+  
+# Name of the .tlt file where trained model will be saved or restored.
+restore_from: trained-model.tlt
+
+data_dir: ???
+
+test_ds:
+  prefix: test
+  batch_size: 32
+  shuffle: false
+  num_samples: -1
+  num_workers: 2
+  drop_last: false
+  pin_memory: false
+
+megatron: false

@@ -1,0 +1,18 @@
+# Copyright (c) 2020, NVIDIA CORPORATION. All rights reserved.
+# TLT Spec file for evaluation of BERT model on the IMDB dataset.
+
+# Name of the .tlt from which the model will be loaded.
+restore_from: trained-model.tlt
+
+data_dir: ???
+# Test settings: dataset.
+test_ds:
+  batch_size: 64
+  text_file: text_dev.txt
+  labels_file: labels_dev.txt
+  shuffle: false
+  num_samples: -1 # number of samples to be considered, -1 means the whole the dataset
+  ds_item: ???
+  tokens_in_batch: 15000
+
+megatron: false

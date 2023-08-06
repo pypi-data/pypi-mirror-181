@@ -1,0 +1,8 @@
+# Copyright (c) 2020, NVIDIA CORPORATION. All rights reserved.
+# TLT Spec file for inference using the previously pretrained Joint Intent and Slot Classification Model.
+
+# "Simulate" user input:
+input_batch:
+  - 'please set an alarm clock for my next meeting with the team at three pm next friday'
+  - 'mute my speakers for a minute here i need to make a call'
+  - 'today i had a lunch with my longtime sweetheart play me a nice song to the mood'

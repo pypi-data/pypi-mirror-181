@@ -1,0 +1,22 @@
+# Copyright (c) 2020, NVIDIA CORPORATION. All rights reserved.
+
+# Name of the .arpa EFF archive to be loaded/model to be exported.
+restore_from: ???
+
+# Set export format: ONNX | RIVA
+export_format: RIVA
+
+# Output EFF archive containing binary.
+export_to: exported-model.riva
+
+# Data structure to use (default is probing)
+binary_type: ??? 
+
+# probabillity bits (quantization)
+binary_q_bits: 0
+
+# backoff bits (quantization)
+binary_b_bits: 0
+
+# pointer compression
+binary_a_bits: 0 

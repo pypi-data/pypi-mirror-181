@@ -1,0 +1,95 @@
+# Copyright (c) 2020, NVIDIA CORPORATION.  All rights reserved.
+# TLT Spec file for training of the BERT model on text classification task using the SST-2 dataset.
+  
+# Name of the file where trained model will be saved.
+name: "ESRGAN_superres" #//  please remove "debug_" during training
+use_tb_logger: true
+model: "srragan"
+scale: 2
+gpu_ids: 
+datasets:
+    train:
+        name: "DIV2K"
+        mode: "LRHR"
+        dataroot_HR": "/data/65917/65917/HR" #//Path to HR folder
+        dataroot_LR": "/data/70559/70559/LR" #//Path to LR folder
+        subset_file": null
+        use_shuffle": true
+        n_workers": 32
+        batch_size": 2 
+        HR_size": 128
+        use_flip": true
+        use_rot": true
+    val:
+        name: "val_set14_part"
+        mode: "LRHR"
+        dataroot_HR: "/data/65532/65532/HR"  #//Path to HRVal
+        dataroot_LR: "/data/70566/70566/LR"  #//Path to LRVal
+
+path:
+    root: "results"
+    # // "resume_training": true,
+    # // , "resume_state": "450000.state"
+    resume_state: ""
+    # //, "pretrain_model_G": "../experiments/pretrained_models/RRDB_PSNR_x4.pth"
+    val_images: "valImg"
+    pretrain_model_D: "inference/models/v57_best_D.pt"
+    pretrain_model_G: "inference/models/v57_best_G.pt"
+
+network_G:
+    which_model_G: "fast_srnet" #// RRDB_net | sr_resnet | ar_snet
+    norm_type: null
+    mode: "CNA"
+    nf: 16
+    nb: 1
+    in_nc: 3
+    out_nc: 3
+    gc: 32
+    group: 1
+    upsample_mode: "pixelshuffle"
+
+network_D:
+    which_model_D: "nlayerdiscriminator"
+    norm_type: "batch"
+    act_type: "leakyrelu"
+    mode: "CNA"
+    nf: 64
+    in_nc: 3
+
+train: 
+    lr_G: 2e-4
+    weight_decay_G: 0
+    beta1_G: 0.5
+    lr_D: 2e-4
+    weight_decay_D: 0
+    beta1_D: 0.5
+    lr_scheme: "MultiStepLR"
+    lr_steps: [0.5e5, 1e5, 1.5e5, 2e5, 2.5e5, 3e5, 3.5e5, 4e5, 4.5e5] #// obsolete
+    lr_reduction : 5
+    lr_gamma: 0
+    pixel_criterion: "l1"
+    pixel_weight: 1
+    feature_criterion: "l1"
+    feature_weight: 5e-3
+    gan_type: "wgan-gp"
+    gan_weight: 1e-2
+    #//for wgan-gp
+    D_update_ratio: 1
+    D_init_iters: 0
+    gp_weigth: 10
+    manual_seed: 0
+    nepochs : 50 #// use this instead of niters
+    nite": 4.61e5 #// obsolete
+    val_freq: 9200 #// obsolete
+
+augment: 
+    augs: ["none", "blend", "rgb"]
+    prob: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+    alpha: [1.0, 0.6, 1.2, 0.1, 0.1, 0.1, 0.1, 1.0]
+    aux_prob: 1.0
+    aux_alpha: 1.2
+
+logger:
+    print_freq: 100
+    save_checkpoint_freq: 50e3 #// obsolete
+  

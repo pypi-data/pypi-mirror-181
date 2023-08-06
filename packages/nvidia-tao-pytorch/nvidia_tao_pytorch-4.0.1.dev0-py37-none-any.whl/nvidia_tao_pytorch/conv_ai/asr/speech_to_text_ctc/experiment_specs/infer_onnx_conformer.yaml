@@ -1,0 +1,25 @@
+# Copyright (c) 2020, NVIDIA CORPORATION. All rights reserved.
+# TLT spec file for inference on individual files from an exported ONNX model.
+
+file_paths: ???
+
+preprocessor:
+  _target_: nemo.collections.asr.modules.AudioToMelSpectrogramPreprocessor
+  normalize: per_feature
+  window_size: 0.025
+  sample_rate: 16000
+  window_stride: 0.01
+  window: hann
+  features: 80
+  n_fft: 512
+  frame_splicing: 1
+  dither: 0.00001
+  pad_to: 0
+  pad_value: 0.0
+  log: true
+
+decoder:
+  _target_: nemo.collections.asr.modules.ConvASRDecoder
+  feat_in: null
+  num_classes: -1
+  vocabulary: []

@@ -1,0 +1,12 @@
+# Copyright (c) 2020, NVIDIA CORPORATION. All rights reserved.
+# TLT spec file for conversion of Mozilla Common Voice JAPANESE datasets to a format
+# accepted by the TLT model.
+
+# The dataset type
+dataset_name: "ja"
+
+# Path to the dataset
+source_data_dir: ???
+
+# Path to the output folder
+target_data_dir: ???

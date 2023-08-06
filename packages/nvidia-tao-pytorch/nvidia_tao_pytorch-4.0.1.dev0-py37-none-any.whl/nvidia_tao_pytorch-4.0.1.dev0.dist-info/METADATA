@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: nvidia-tao-pytorch
+Version: 4.0.1.dev0
+Summary: NVIDIA's package for DNN implementation on PyTorch for use with TAO Toolkit.
+Author: NVIDIA Corporation
+License: NVIDIA Proprietary Software
+Keywords: nvidia,tao,pytorch
+Classifier: Environment :: Console
+Classifier: License :: Other/Proprietary License
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: ==3.7.*
+License-File: LICENSE
+

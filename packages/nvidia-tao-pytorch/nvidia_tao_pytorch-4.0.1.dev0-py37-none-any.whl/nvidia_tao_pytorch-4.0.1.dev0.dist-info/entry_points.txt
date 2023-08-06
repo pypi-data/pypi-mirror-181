@@ -1,0 +1,17 @@
+[console_scripts]
+action_recognition = nvidia_tao_pytorch.cv.action_recognition.entrypoint.action_recognition:main
+intent_slot_classification = nvidia_tao_pytorch.conv_ai.nlp.intent_slot_classification.entrypoint.intent_slot_classification:main
+n_gram = nvidia_tao_pytorch.conv_ai.lm.n_gram.entrypoint.n_gram:main
+pose_classification = nvidia_tao_pytorch.cv.pose_classification.entrypoint.pose_classification:main
+punctuation_and_capitalization = nvidia_tao_pytorch.conv_ai.nlp.punctuation_and_capitalization.entrypoint.punctuation_and_capitalization:main
+question_answering = nvidia_tao_pytorch.conv_ai.nlp.question_answering.entrypoint.question_answering:main
+re_identification = nvidia_tao_pytorch.cv.re_identification.entrypoint.re_identification:main
+segformer = nvidia_tao_pytorch.cv.segformer.entrypoint.segformer:main
+spectro_gen = nvidia_tao_pytorch.conv_ai.tts.spectro_gen.entrypoint.spectro_gen:main
+speech_command_recognition = nvidia_tao_pytorch.conv_ai.asr.speech_command_recognition.entrypoint.speech_command_recognition:main
+speech_to_text = nvidia_tao_pytorch.conv_ai.asr.speech_to_text.entrypoint.speech_to_text:main
+speech_to_text_citrinet = nvidia_tao_pytorch.conv_ai.asr.speech_to_text_ctc.entrypoint.speech_to_text:main
+speech_to_text_conformer = nvidia_tao_pytorch.conv_ai.asr.speech_to_text_ctc.entrypoint.speech_to_text:main
+text_classification = nvidia_tao_pytorch.conv_ai.nlp.text_classification.entrypoint.text_classification:main
+token_classification = nvidia_tao_pytorch.conv_ai.nlp.token_classification.entrypoint.token_classification:main
+vocoder = nvidia_tao_pytorch.conv_ai.tts.vocoder.entrypoint.vocoder:main

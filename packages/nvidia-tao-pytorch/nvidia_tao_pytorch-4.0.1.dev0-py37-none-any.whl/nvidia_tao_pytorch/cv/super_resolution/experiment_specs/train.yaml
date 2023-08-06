@@ -1,0 +1,63 @@
+# Copyright (c) 2020, NVIDIA CORPORATION.  All rights reserved.
+# TLT Spec file for training of the optimized ESRGAN model on super resolution task.
+  
+general:
+  use_tb_logger: true
+  model: "srragan"
+  scale: 2
+  gpu_ids: [0]
+  root: ???
+  resume_state: ""
+  val_images: "valImg"
+  pretrain_model_D: ???
+  pretrain_model_G: ???
+
+train_params:
+  lr_G: 2e-4
+  weight_decay_G: 0
+  beta1_G: 0.5
+  lr_D: 2e-4
+  weight_decay_D: 0
+  beta1_D: 0.5
+  lr_scheme: "MultiStepLR"
+  # lr_steps: [0.5e5, 1e5, 1.5e5, 2e5, 2.5e5, 3e5, 3.5e5, 4e5, 4.5e5] #// obsolete
+  lr_reduction : 5
+  lr_gamma: 0
+  pixel_criterion: "l1"
+  pixel_weight: 1
+  feature_criterion: "l1"
+  feature_weight: 5e-3
+  # gan_type: "wgan-gp"
+  gan_weight: 1e-2
+#  //for wgan-gp
+  # D_update_ratio: 1
+  # D_init_iters: 0
+  gp_weigth: 10
+  manual_seed: 0
+  nepochs : 50 
+  print_freq: 100
+
+dataset:
+  train:
+      mode: "LRHR"
+      dataroot_HR: ???
+      dataroot_LR: ???
+      use_shuffle: true
+      n_workers: 16
+      batch_size: 32
+      HR_size: 128
+      use_flip: true
+      use_rot: true
+  val:
+      mode: "LRHR"
+      dataroot_HR: ???
+      dataroot_LR: ???
+
+augment: 
+    augs: ["none", "blend", "rgb"]
+    prob: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+    alpha: [1.0, 0.6, 1.2, 0.1, 0.1, 0.1, 0.1, 1.0]
+    aux_prob: 1.0
+    aux_alpha: 1.2
+
+encryption_key: ???

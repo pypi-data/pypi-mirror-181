@@ -1,0 +1,12 @@
+# Copyright (c) 2020, NVIDIA CORPORATION. All rights reserved.
+# TLT spec file for evaluation using the QuartzNet ASR model.
+
+test_ds:
+  manifest_filepath: ???
+  sample_rate: 16000
+  labels: ['visual', 'wow', 'learn', 'backward', 'dog', 'two', 'left', 'happy', 'nine', 'go', 'up', 'bed', 'stop',
+           'one', 'zero', 'tree', 'seven', 'on', 'four', 'bird', 'right', 'eight', 'no', 'six', 'forward', 'house',
+           'marvin', 'sheila', 'five', 'off', 'three', 'down', 'cat', 'follow', 'yes']
+  batch_size: 128
+  shuffle: False
+  val_loss_idx: 0

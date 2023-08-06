@@ -1,0 +1,48 @@
+# Copyright (c) 2020, NVIDIA CORPORATION. All rights reserved.
+# TLT spec file for fine-tuning a previously trained ASR model (Jasper or QuartzNet) on the MCV Russian dataset.
+
+trainer:
+  max_epochs: 3   # This is low for demo purposes
+
+tlt_checkpoint_interval: 1
+
+# Whether or not to change the decoder vocabulary.
+# Note that this MUST be set if the labels change, e.g. to a different language's character set
+# or if additional punctuation characters are added.
+change_labels: true
+
+# Fine-tuning settings: optimizer
+optim:
+  name: novograd
+  lr: 0.001
+
+finetuning_ds:
+  manifest_filepath: ???
+  sample_rate: 16000
+  labels: ['visual', 'wow', 'learn', 'backward', 'dog', 'two', 'left', 'happy', 'nine', 'go', 'up', 'bed', 'stop',
+           'one', 'zero', 'tree', 'seven', 'on', 'four', 'bird', 'right', 'eight', 'no', 'six', 'forward', 'house',
+           'marvin', 'sheila', 'five', 'off', 'three', 'down', 'cat', 'follow', 'yes']
+  batch_size: 128
+  shuffle: True
+  is_tarred: False
+  tarred_audio_filepaths: null
+  tarred_shard_strategy: "scatter"
+  augmentor:
+    shift:
+      prob: 1.0
+      min_shift_ms: -5.0
+      max_shift_ms: 5.0
+    white_noise:
+      prob: 1.0
+      min_level: -90
+      max_level: -46
+
+validation_ds:
+  manifest_filepath: ???
+  sample_rate: 16000
+  labels: ['visual', 'wow', 'learn', 'backward', 'dog', 'two', 'left', 'happy', 'nine', 'go', 'up', 'bed', 'stop',
+           'one', 'zero', 'tree', 'seven', 'on', 'four', 'bird', 'right', 'eight', 'no', 'six', 'forward', 'house',
+           'marvin', 'sheila', 'five', 'off', 'three', 'down', 'cat', 'follow', 'yes']
+  batch_size: 128
+  shuffle: False
+  val_loss_idx: 0
