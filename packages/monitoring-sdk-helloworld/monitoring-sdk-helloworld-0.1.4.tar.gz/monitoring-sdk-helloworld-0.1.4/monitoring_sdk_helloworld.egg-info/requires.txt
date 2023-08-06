@@ -1,0 +1,13 @@
+requests==2.28.1
+
+[setup]
+setuptools>=40.4.3
+pip~=20.3
+wheel
+
+[test]
+pytest-subtests
+pytest-cov
+pytest-xdist
+numpy
+pandas
