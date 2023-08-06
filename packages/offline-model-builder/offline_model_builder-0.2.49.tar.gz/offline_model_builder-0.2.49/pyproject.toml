@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "offline-model-builder"
+version = "0.2.49"
+description = "Wrapper for offline model builder module"
+authors = ["AIML Team"]
+readme = "README.md"
+packages = [{include = "offline_model_builder"}]
+license="MIT"
+classifiers=[
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+
+[tool.poetry.dependencies]
+python = ">=3.8,<3.11"
+graphdb-module = "^0.12.14"
+ingestor-module = "^1.17.1"
+redis = "^4.1.2"
+boto3 = "^1.20.50"
+pandas = "^1.4.0"
+scikit-learn = "^1.0.2"
+scikit-learn-extra = "^0.2.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
