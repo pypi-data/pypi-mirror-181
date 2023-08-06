@@ -1,0 +1,5 @@
+[console_scripts]
+cocktail_sort_decreasing = op_package.sort_descending:cocktail_sort_decreasing
+cocktail_sort_increasing = op_package.sort_ascending:cocktail_sort_increasing
+main = op_package:__main__
+
