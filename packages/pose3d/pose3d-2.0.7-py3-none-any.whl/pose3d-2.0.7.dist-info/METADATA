@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: pose3d
+Version: 2.0.7
+Summary: Transforming and handling 3D poses and frames.
+Author: John Halazonetis
+Author-email: <john.halazonetis@icloud.com>
+Project-URL: Documentation, https://johnhal.gitlab.io/pose3d_python
+Project-URL: Repository, https://gitlab.com/johnhal/pose3d_python
+Keywords: python,pose,transform
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: pandas
+Requires-Dist: toml
+
+# Pose3D - Position and Orientation Python Library
+
+Handling 2D and 3D poses as well as transformations between reference frames.
+
+## Documentation
+Visit page: <https://johnhal.gitlab.io/pose3d_python>
+
+## Installing Library
+This ibrary is freely available at the Python Package Index. You can install the latest version onto your machine with the following command:
+
+``` bash
+pip install pose3d --upgrade
+```
