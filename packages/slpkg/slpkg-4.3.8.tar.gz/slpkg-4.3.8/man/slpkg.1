@@ -1,0 +1,121 @@
+.TH slpkg 1 "Orestiada, Greece" "slpkg 4.3.1" dslackw
+.SH NAME
+.P
+slpkg - [OPTIONS] [COMMAND] <packages>
+.SH SYNAPSES
+.P
+slpkg [-h|-v] [update] [upgrade] [check-updates] [clean-logs] [clean-tmp] [-b, build] [-i, install] [-d, download] [-r, remove] [-f, find] [-w, view] [-s, search] --yes --jobs --resolve-off --reinstall --skip-installed
+.SH DESCRIPTION
+.P
+Slpkg is a software package manager that installs, updates, and removes packages on Slackware based systems. It automatically computes dependencies and figures out what things should occur to install packages. Slpkg makes it easier to maintain groups of machines without having to manually update.
+.P
+Slpkg works in accordance with the standards of the organization SlackBuilds.org to build packages. Also uses the Slackware Linux instructions for installation, upgrading or removing packages.
+.SH COMMANDS
+.P
+update
+.RS
+Updates the package list and the database.
+.RE
+.P
+upgrade
+.RS
+Upgrade all the installed packages if the newer version exists in the repository.
+.RE
+.P
+check-updates
+.RS
+Check if there is any news on the SlackBuild's ChangeLog.txt file.
+.RE
+.P
+clean-logs
+.RS
+Cleans dependencies log tracking. After that procedure you should remove dependencies by hand.
+.RE
+.P
+clean-tmp
+.RS
+Deletes all the downloaded SlackBuilds scripts and sources.
+.RE
+.P
+-b, build
+.RS
+Builds the Slackbuilds scripts and adds them to the /tmp directory.
+.RE
+.P
+-i, install
+.RS
+Builds and installs the packages in the correct order and also logs the packages with dependencies to use for removal.
+.RE
+.P
+-d, download
+.RS
+Download the SlackBuilds scripts and the sources without building or installing it. 
+.RE
+.P
+-r, remove
+.RS
+Removes packages with dependencies if the packages was installed with 'slpkg install' method. Slpkg looks at the 'sbo_repo_tag' configuration to find packages for removal.
+.RE
+.P
+-f, find
+.RS
+Find sbo installed packages on your distribution.
+.RE
+.P
+-w, view
+.RS
+View packages from the repository and get everything in your terminal.
+.RE
+.P
+-s, search
+.RS
+Search and match packages from the repository.
+.RE
+.SH OPTIONS
+.P
+--yes
+.RS
+Answer Yes to all questions.
+.RE
+.P
+--jobs
+.RS
+Acceleration of SlackBuild scripts. When the --jobs flag is set, slpkg automatically detects the number of processors and enters it into the MAKEFLAGS variable. Some SlackBuilds fail when MAKEFLAGS is declared or the number of processors (-j) is greater than one.
+.RE
+.P
+--resolve-off
+.RS
+Turns off dependency resolving.
+.RE
+.P
+--reinstall
+.RS
+Use this option if you want to upgrade all packages even if the same version is already installed. Do not skip installed packages.
+.RE
+.P
+--skip-installed
+.RS
+This a helpful option if you want to avoid building and reinstalling packages.
+Note: This option affects only the dependencies.
+.RE
+.P
+-h | --help
+.RS
+Show help informatio and exit.
+.RE
+.P
+-v | --version
+.RS
+Print version and exit.
+.RE
+.SH CONFIGURATION FILES
+.P
+Configuration file in the /etc/slpkg/slpkg.toml file.
+.RE
+Blacklist file in the /etc/slpkg/blacklist.toml file.
+.SH REPORT BUGS
+.P
+Please report any found to https://gitlab.com/dslackw/slpkg/-/issues.
+.SH AUTHOR
+.P
+Dimitris Zlatanidis <d.zlatanidis@gmail.com>
