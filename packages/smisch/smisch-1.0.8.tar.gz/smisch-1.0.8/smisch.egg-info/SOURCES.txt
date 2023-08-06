@@ -1,0 +1,11 @@
+setup.py
+smisch.py
+smisch.egg-info/PKG-INFO
+smisch.egg-info/SOURCES.txt
+smisch.egg-info/dependency_links.txt
+smisch.egg-info/top_level.txt
+src/console/clear_console.py
+src/input/anim_input.py
+src/input/ask_input.py
+src/print/anim_print.py
+src/utilities/running_os.py
