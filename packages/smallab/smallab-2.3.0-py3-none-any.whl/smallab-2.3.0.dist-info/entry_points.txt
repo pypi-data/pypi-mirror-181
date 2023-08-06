@@ -1,0 +1,2 @@
+[console_scripts]
+smdash = smallab.dashboard.dashboard:run_dash_from_command_line
