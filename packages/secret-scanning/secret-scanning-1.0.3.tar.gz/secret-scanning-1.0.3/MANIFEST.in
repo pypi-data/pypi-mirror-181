@@ -1,0 +1,3 @@
+include CHANGELOG.md
+include README.md
+include src/secret_scanning/secrets_config.toml
