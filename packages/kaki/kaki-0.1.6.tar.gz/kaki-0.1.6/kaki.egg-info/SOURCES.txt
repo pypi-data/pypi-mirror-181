@@ -1,0 +1,17 @@
+.gitignore
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+examples/livedemo/README.md
+examples/livedemo/main.py
+examples/livedemo/live/__init__.py
+examples/livedemo/live/test.py
+examples/livedemo/live/ui.py
+kaki/__init__.py
+kaki/app.py
+kaki.egg-info/PKG-INFO
+kaki.egg-info/SOURCES.txt
+kaki.egg-info/dependency_links.txt
+kaki.egg-info/requires.txt
+kaki.egg-info/top_level.txt
