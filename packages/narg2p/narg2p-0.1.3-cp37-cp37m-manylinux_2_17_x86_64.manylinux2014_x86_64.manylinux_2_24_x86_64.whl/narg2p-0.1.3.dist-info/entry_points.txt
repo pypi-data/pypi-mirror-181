@@ -1,0 +1,9 @@
+[console_scripts]
+narg2p-eval-lm = narg2p_cli.eval_lm:cli_main
+narg2p-generate = narg2p_cli.generate:cli_main
+narg2p-hydra-train = narg2p_cli.hydra_train:cli_main
+narg2p-interactive = narg2p_cli.interactive:cli_main
+narg2p-preprocess = narg2p_cli.preprocess:cli_main
+narg2p-score = narg2p_cli.score:cli_main
+narg2p-train = narg2p_cli.train:cli_main
+narg2p-validate = narg2p_cli.validate:cli_main
