@@ -1,0 +1,73 @@
+{
+    "$schema": "http://json-schema.org/draft/2020-12/schema",
+    "$id": "https://lazyscrivenergames.com/jsons/style-schema.json",
+    "title": "LibrisStyle",
+    "description": "A style definition for a libris configuration file.",
+    "type": ["string", "array", "object"],
+    "items": {
+        "type": "string"
+    },
+    "properties": {
+        "stylesheet": {
+            "description": "Stylesheet to be used for this style.",
+            "type": "string"
+        },
+        "stylesheets": {
+            "description": "List of stylesheets to be used for this style.",
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "decorator": {
+            "description": "Decorator definition for this style.",
+            "$ref": "https://lazyscrivenergames.com/jsons/decorator-schema.json"
+        },
+        "decorators": {
+            "description": "List of decorator definitions for this style.",
+            "type": "array",
+            "items": {
+                "$ref": "https://lazyscrivenergames.com/jsons/decorator-schema.json"
+            }
+        }
+    },
+    "allOf": [
+        {
+            "oneOf": [
+                {
+                    "type": "object",
+                    "required": ["stylesheet"]
+                },
+                {
+                    "type": "object",
+                    "required": ["stylesheets"]
+                },
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "array"
+                }
+            ]
+        },
+        {
+            "oneOf": [
+                {
+                    "type": "object",
+                    "required": ["decorator"]
+                },
+                {
+                    "type": "object",
+                    "required": ["decorators"]
+                },
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "array"
+                }
+            ]
+        }
+    ],
+    "additionalProperties": false
+}
