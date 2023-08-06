@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: ruff-lsp
+Version: 0.0.2
+Summary: 
+License: MIT
+Author: Charlie Marsh
+Author-email: charlie.r.marsh@gmail.com
+Requires-Python: >=3.7,<3.12
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: pygls (>1.0.0a3)
+Requires-Dist: ruff
+Requires-Dist: typing_extensions

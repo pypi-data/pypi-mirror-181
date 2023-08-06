@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "ruff-lsp"
+version = "0.0.2"
+description = ""
+authors = ["Charlie Marsh <charlie.r.marsh@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.scripts]
+ruff-lsp = "ruff_lsp.__main__:main"
+
+[tool.poetry.dependencies]
+python = "<3.12,>=3.7"
+pygls = ">1.0.0a3"
+ruff = "*"
+typing_extensions = "*"
+
+[tool.poetry.dev-dependencies]
+black = "==22.12.0"
+mypy = "==0.991"
+
+[tool.ruff]
+line-length = 88
+select = [
+  "E",
+  "F",
+  "W",
+  "Q",
+  "UP",
+  "I",
+  "N",
+]
+target-version = "py37"
+extend-exclude = ["tests/test_data"]
+
+[tool.black]
+line-length = 88
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
