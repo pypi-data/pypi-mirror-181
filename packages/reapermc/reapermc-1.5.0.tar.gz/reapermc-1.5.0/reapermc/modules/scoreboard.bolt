@@ -1,0 +1,58 @@
+from ./util import generate_local_path, logger, bolt_expressions, sys_col_hex
+from ./event/on_server_load import on_server_load
+from ./event_handler import listener
+from ./defer import defer
+
+_defined_objectives = []
+
+
+def scoreboard(id, criteria='dummy', display_name=None, defaults=None, _internal=False):
+    global _defined_objectives
+
+    if ' ' in id:
+        return logger.error(f"Invalid 'scoreboard()' id '{id}'")    
+
+    if id not in _defined_objectives:
+        _defined_objectives.append(id)
+
+        # default values dict support
+        if defaults:
+            for key, value in defaults.items():
+                append function generate_local_path('__internal__/scoreboard/init_defaults'):
+                    unless score key id = key id:
+                        scoreboard players set key id value
+        
+        append function generate_local_path('__internal__/scoreboard/init'):
+            if not display_name:
+                display_name = id
+
+            # red system display color for '_internal=True'
+            if _internal:
+                display_name = {"text": display_name, "color": sys_col_hex}
+
+            # string type support
+            elif isinstance(display_name, str):
+                display_name = {"text": display_name, "color": "gold"}
+
+            scoreboard objectives add id criteria display_name
+        
+    return bolt_expressions.Scoreboard(id)
+
+
+@defer
+def _create_uninstall_api():
+    function generate_path('reaper_framework/scoreboard/u_n_i_n_s_t_a_l_l'):
+        for id in _defined_objectives:
+            if id.startswith('reaper_framework'):
+                continue
+
+            scoreboard objectives remove id
+
+
+def uninstall_scoreboards():
+    function generate_path('reaper_framework/scoreboard/u_n_i_n_s_t_a_l_l')
+
+@listener(on_server_load)
+def _on_server_load():
+    function generate_local_path('__internal__/scoreboard/init')
+    function generate_local_path('__internal__/scoreboard/init_defaults')

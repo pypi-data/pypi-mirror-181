@@ -1,0 +1,325 @@
+from contextlib import contextmanager
+
+from ./var import var
+from ./util import logger, SelectorServer, parsed_project_name, is_expression
+from ./expr import Expr
+from ./sleep import sleep
+from ./defer import defer
+from ./entity_nbt import EntityNBT
+from ./event_handler import listener
+from ./event/on_player_join import on_player_join
+from ./event/on_server_load import on_server_load
+from ./loop_break import _BREAK_BOOL_VAR
+from ./loop_cycle import set_public_cycle
+
+
+_CACHE_ID = -1
+_CACHE_PATH = ''
+_PAYLOAD_PATH = ''
+
+_TMP_INT_0 = var(int)
+_TMP_INT_1 = var(int)
+
+_INITIALIZED = False
+
+
+def _increment_cache_id():
+    global _CACHE_ID, _PAYLOAD_PATH, _CACHE_PATH
+
+    _CACHE_ID += 1
+    _CACHE_PATH = generate_path(f"reaper_framework/__internal__/loop/{_CACHE_ID}")
+    _PAYLOAD_PATH = generate_path(f"reaper_framework/loop/{_CACHE_ID}")
+
+
+@listener(on_server_load)
+def _on_player_join():
+    as @a:
+        function reaper_framework:__internal__/loop/reset_joining_player
+
+
+@listener(on_player_join)
+def _on_player_join():
+    function reaper_framework:__internal__/loop/reset_joining_player
+
+@defer
+def _reset_joining_player():
+    # counteracts all bugs that may occur when the player leaves before a loop finished
+    loop_root_nbt = EntityNBT(f"__internal__.{parsed_project_name}.reaper_framework.loop", ensure_entry=False)
+    tmp = var()
+
+    if _CACHE_ID == -1:
+        return
+
+    function reaper_framework:__internal__/loop/reset_joining_player:
+        if entity @s[tag=reaper_framework.entity_nbt.user]:
+            loop_root_nbt.remove()
+
+
+@contextmanager
+def loop(count, interval, selector='auto', threading=True, world_ctx=True):
+    _increment_cache_id()
+
+    error_caught = False
+
+    if interval < 0:
+        error_caught = True
+        logger.error(f"Invalid 'loop()' interval of {interval}. Has to be an integer bigger than or equal to 0.")
+
+    if selector not in ('auto', 's', 'e', 'server', 'entity'):
+        error_caught = True
+        logger.error(f"Invalid 'loop()' selector of '{selector}'. Valid selectors: ['s', 'e', 'server', 'entity']")
+
+    if error_caught:
+        yield
+        return
+
+
+    if interval == 0:
+        if is_expression(count):
+            index = var(int)
+            index_max = var(int)
+
+            index = 0
+            index_max = count
+
+            execute function f"{_CACHE_PATH}/recursive":
+                index += 1
+
+                function _PAYLOAD_PATH
+
+                if Expr(index) < index_max:
+                    function f"{_CACHE_PATH}/recursive"
+
+        else:
+            for _ in range(count):
+               function _PAYLOAD_PATH
+
+    else:
+        execute function f"{_CACHE_PATH}/sel":
+            if selector in ('server', 's'):
+                if SelectorServer():
+                    if not threading:
+                        _server(count, interval, world_ctx)
+                    else:
+                        _server_threaded(count, interval, world_ctx)
+
+            elif selector in ('entity', 'e'):
+                if not SelectorServer():
+                    if not threading:
+                        _entity(count, interval, world_ctx)
+                    else:
+                        _entity_threaded(count, interval, world_ctx)
+
+            elif selector == 'auto':
+                if SelectorServer():
+                    if not threading:
+                        _server(count, interval, world_ctx)
+                    else:
+                        _server_threaded(count, interval, world_ctx)
+                else:
+                    if not threading:
+                        _entity(count, interval, world_ctx)
+                    else:
+                        _entity_threaded(count, interval, world_ctx)
+
+    function _PAYLOAD_PATH:
+        if threading:
+            symb = '+'
+        else:
+            symb = '-'
+
+        help f"'$LOOP_DATA {symb}threading'"
+        yield
+
+
+def _server(count, interval, world_ctx):
+    execute function f"{_CACHE_PATH}/s_0":
+        cycles_left = var(int)
+        cycle_index = var(int)
+
+        # internal break function
+        function f"{_CACHE_PATH}/s_break":
+            cycles_left = 0
+
+        # initial run
+        cycles_left = count - 1
+        cycle_index = 0
+        set_public_cycle(cycle_index)
+        function _PAYLOAD_PATH
+
+        if Expr(cycles_left) != 0:
+            # loop start
+            execute function f"{_CACHE_PATH}/s_start":
+                with sleep(interval, selector='server', threading=False, world_ctx=world_ctx):
+                    cycles_left -= 1
+                    cycle_index += 1
+                    set_public_cycle(cycle_index)
+
+                    function _PAYLOAD_PATH
+
+                    # runs if theres cycles left
+                    if Expr(cycles_left) != 0:
+                        function f"{_CACHE_PATH}/s_start"
+
+
+def _server_threaded(count, interval, world_ctx):
+    execute function f"{_CACHE_PATH}/s_0":
+        cycles_left = var()
+        cycles_index = var()
+        tmp = var(int)
+        cycle = var(int)
+        initial_break = var(int)
+
+        # internal break function
+        function f"{_CACHE_PATH}/s_break_thread":
+            cycles_left[-1] = 0
+            initial_break = 1
+
+        # initial run
+        initial_break = 0
+        cycle = count - 1
+        set_public_cycle(0)
+        function _PAYLOAD_PATH
+
+        if Expr(cycle) != 0:
+            execute function f"{_CACHE_PATH}/s_1":
+                if Expr(initial_break) == 0:
+                    execute function f"{_CACHE_PATH}/s_2":
+                        cycles_index.append(0)
+                        cycles_left.append(cycle)
+
+                execute function f"{_CACHE_PATH}/s_start":
+                    cycle = cycles_left[-1]
+
+                    if Expr(cycle) == 0:
+                        execute function f"{_CACHE_PATH}/s_3":
+                            cycles_left.remove(-1)
+                            cycles_index.remove(-1)
+
+                    else:
+                        execute function f"{_CACHE_PATH}/s_4":
+                            with sleep(interval, selector='server', threading=True, world_ctx=world_ctx):
+                                cycle = cycles_left[0]
+                                tmp = cycles_index[0]
+
+                                cycles_left[0].remove()
+                                cycles_index[0].remove()
+
+                                if Expr(cycle) > 0:
+                                    execute function f"{_CACHE_PATH}/s_5":
+                                        cycle -= 1
+                                        tmp += 1
+
+                                cycles_left.append(cycle)
+                                cycles_index.append(tmp)
+
+                                set_public_cycle(tmp)
+
+                                function _PAYLOAD_PATH
+
+                                # calls itself
+                                function f"{_CACHE_PATH}/s_start"
+
+
+def _entity(count, interval, world_ctx):
+    execute function f"{_CACHE_PATH}/e_0":
+        root_nbt = EntityNBT(f"__internal__.{parsed_project_name}.reaper_framework.loop.{_CACHE_ID}")
+        cycles_left = EntityNBT(f"__internal__.{parsed_project_name}.reaper_framework.loop.{_CACHE_ID}.cycles_left", ensure_entry=False)
+        cycle_index = EntityNBT(f"__internal__.{parsed_project_name}.reaper_framework.loop.{_CACHE_ID}.cycle_index", ensure_entry=False)
+        tmp = var(int)
+        cycle = var(int)
+
+        # internal break function
+        function f"{_CACHE_PATH}/e_break":
+            root_nbt.remove()
+            cycle = 0
+
+        # initial run
+        cycle = count - 1
+        cycle_index.set(0)
+        set_public_cycle(0)
+        function _PAYLOAD_PATH
+
+        if Expr(cycle) != 0:
+            execute function f"{_CACHE_PATH}/e_1":
+                cycles_left.set(count - 1)
+
+                # loop start
+                execute function f"{_CACHE_PATH}/e_start":
+                    with sleep(interval, selector='entity', threading=False, world_ctx=world_ctx):
+                        cycle = cycles_left.get()
+                        cycle -= 1
+                        cycles_left.set(cycle)
+
+                        tmp = cycle_index.get()
+                        tmp += 1
+                        cycle_index.set(tmp)
+
+                        set_public_cycle(tmp)
+
+                        # runs on exit (this ensures '_entity_threaded()' doesnt have conflicts)
+                        if Expr(cycle) == 0:
+                            root_nbt.remove()
+
+                        function _PAYLOAD_PATH
+
+                        # runs if theres cycles left
+                        if Expr(cycle) != 0:
+                            function f"{_CACHE_PATH}/e_start"
+
+
+def _entity_threaded(count, interval, world_ctx):
+    execute function f"{_CACHE_PATH}/e_0":
+        cycles_left = EntityNBT(f"__internal__.{parsed_project_name}.reaper_framework.loop.{_CACHE_ID}.cycles_left")
+        cycle_index = EntityNBT(f"__internal__.{parsed_project_name}.reaper_framework.loop.{_CACHE_ID}.cycle_index", ensure_entry=False)
+        tmp = var(int)
+        cycle = var(int)
+
+        # internal break function
+        function f"{_CACHE_PATH}/e_break_thread":
+            cycles_left.set(0, -1)
+
+            if Expr(cycle) == count-1:
+                execute function f"{_CACHE_PATH}/e_1":
+                    cycle_index.remove(-1)
+                    cycles_left.remove(-1)
+
+            cycle = 0
+
+        # initial run
+        cycle = count - 1
+        cycle_index.append(0)
+        set_public_cycle(0)
+        function _PAYLOAD_PATH
+
+        if Expr(cycle) != 0:
+            execute function f"{_CACHE_PATH}/e_2":
+                cycles_left.append(count - 1)
+
+                # loop start
+                execute function f"{_CACHE_PATH}/e_start":
+                    with sleep(interval, selector='entity', threading=True, world_ctx=world_ctx):
+                        cycle = cycles_left.get(0)
+
+                        if Expr(cycle) == 0:
+                            execute function f"{_CACHE_PATH}/e_3":
+                                cycles_left.remove(0)
+                                cycle_index.remove(0)
+                        else:
+                            execute function f"{_CACHE_PATH}/e_4":
+                                cycles_left.remove(0)
+                                cycle -= 1
+
+                                tmp = cycle_index.get(0)
+                                cycle_index.remove(0)
+                                tmp += 1
+
+                                set_public_cycle(tmp)
+
+                                cycles_left.append(cycle)
+                                cycle_index.append(tmp)
+
+                                function _PAYLOAD_PATH
+
+                                # calls itself
+                                function f"{_CACHE_PATH}/e_start"

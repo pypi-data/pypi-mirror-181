@@ -1,0 +1,13 @@
+from contextlib import contextmanager
+from ./var import var
+
+loop_cycle = var(int)
+
+
+def set_public_cycle(cycle):
+    global loop_cycle
+
+    loop_cycle = cycle
+
+
+
