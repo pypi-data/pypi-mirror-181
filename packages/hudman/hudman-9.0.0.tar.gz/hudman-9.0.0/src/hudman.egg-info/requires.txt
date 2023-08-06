@@ -1,0 +1,8 @@
+defusedxml>=0.7.0
+requests>=2.22.0
+
+[deploy]
+pyinstaller>=5.7.0
+
+[test]
+tox>=3.27.0
