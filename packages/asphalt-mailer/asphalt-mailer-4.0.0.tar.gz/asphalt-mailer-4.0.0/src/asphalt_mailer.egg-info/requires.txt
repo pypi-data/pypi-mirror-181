@@ -1,0 +1,14 @@
+asphalt~=4.8
+aiosmtplib~=2.0
+
+[doc]
+Sphinx>=1.5
+sphinx_rtd_theme
+sphinx-autodoc-typehints>=1.2.0
+sphinxcontrib-asyncio>=0.2.0
+
+[test]
+aiosmtpd
+anyio>=3.6.1
+pytest
+trustme

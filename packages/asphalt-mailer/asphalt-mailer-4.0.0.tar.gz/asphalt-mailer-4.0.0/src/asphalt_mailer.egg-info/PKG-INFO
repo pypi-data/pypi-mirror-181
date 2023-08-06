@@ -1,0 +1,53 @@
+Metadata-Version: 2.1
+Name: asphalt-mailer
+Version: 4.0.0
+Summary: Mailer component for the Asphalt framework
+Author-email: Alex Grönholm <alex.gronholm@nextday.fi>
+License: Apache License 2.0
+Project-URL: Homepage, https://github.com/asphalt-framework/asphalt-mailer
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Topic :: Communications :: Email
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.7
+Description-Content-Type: text/x-rst
+Provides-Extra: test
+Provides-Extra: doc
+License-File: LICENSE
+
+.. image:: https://github.com/asphalt-framework/asphalt-mailer/actions/workflows/test.yml/badge.svg
+  :target: https://github.com/asphalt-framework/asphalt-mailer/actions/workflows/test.yml
+  :alt: Build Status
+.. image:: https://coveralls.io/repos/github/asphalt-framework/asphalt-mailer/badge.svg?branch=master
+  :target: https://coveralls.io/github/asphalt-framework/asphalt-mailer?branch=master
+  :alt: Code Coverage
+.. image:: https://readthedocs.org/projects/asphalt-mailer/badge/?version=latest
+  :target: https://asphalt-mailer.readthedocs.io/en/latest/?badge=latest
+  :alt: Documentation Status
+
+This Asphalt framework component provides a means for sending email from Asphalt applications.
+
+Three mechanisms are currently supported:
+
+* `SMTP <https://en.wikipedia.org/wiki/SMTP>`_ (using `aiosmtplib`_)
+* `Sendmail <https://en.wikipedia.org/wiki/Sendmail>`_
+* Mock (just stores sent mails; useful for testing applications)
+
+Third party libraries may provide additional backends.
+
+.. _aiosmtplib: https://github.com/cole/aiosmtplib
+
+Project links
+-------------
+
+* `Documentation <http://asphalt-mailer.readthedocs.org/en/latest/>`_
+* `Help and support <https://github.com/asphalt-framework/asphalt/wiki/Help-and-support>`_
+* `Source code <https://github.com/asphalt-framework/asphalt-mailer>`_
+* `Issue tracker <https://github.com/asphalt-framework/asphalt-mailer/issues>`_
