@@ -1,0 +1,35 @@
+# Refference: https://python-poetry.org/docs/pyproject/
+
+[tool.poetry]
+name = "thlock"
+version = "0.9.1"
+description = "TangledHub thlock library"
+license = "BSD 3-clause"
+authors = ["TangledHub <info@tangledgroup.com>"]
+readme = "README.md"
+repository = "https://gitlab.com/tangledlabs/thlock"
+keywords = ["tangled", "tangledlabs", "tangledhub", "thlock"]
+# Classifiers reference: https://pypi.org/classifiers/
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
+packages = [{ include = "thlock" }]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+aetcd3 = "^0.1.0a7"
+
+[tool.poetry.dev-dependencies]
+#pytest = "^6.2.5"
+#coverage ="^6.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
