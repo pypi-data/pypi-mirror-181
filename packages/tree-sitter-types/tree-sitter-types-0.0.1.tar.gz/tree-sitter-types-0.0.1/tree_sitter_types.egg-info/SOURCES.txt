@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+setup.py
+python_tree_sitter_types/__init__.py
+python_tree_sitter_types/cli/__init__.py
+python_tree_sitter_types/generation/__init__.py
+python_tree_sitter_types/generation/code_generator.py
+python_tree_sitter_types/generation/parser.py
+python_tree_sitter_types/generation/parser_manager.py
+python_tree_sitter_types/node_types/__init__.py
+tree_sitter_types.egg-info/PKG-INFO
+tree_sitter_types.egg-info/SOURCES.txt
+tree_sitter_types.egg-info/dependency_links.txt
+tree_sitter_types.egg-info/entry_points.txt
+tree_sitter_types.egg-info/requires.txt
+tree_sitter_types.egg-info/top_level.txt
