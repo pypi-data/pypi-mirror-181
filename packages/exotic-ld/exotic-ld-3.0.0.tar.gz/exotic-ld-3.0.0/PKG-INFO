@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: exotic-ld
+Version: 3.0.0
+Summary: ExoTiC limb-darkening calculator
+Home-page: https://github.com/Exo-TiC/ExoTiC-LD
+Author: David Grant and Hannah R Wakeford
+Author-email: hannah.wakeford@bristol.ac.uk
+License: MIT
+Platform: UNKNOWN
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering :: Astronomy
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+License-File: LICENSE
+
+Calculate limb-darkening coefficients for specific instruments, stars, and wavelength ranges.
+
