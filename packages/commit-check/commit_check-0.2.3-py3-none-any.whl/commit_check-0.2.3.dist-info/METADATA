@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: commit-check
+Version: 0.2.3
+Summary: Check commit message formatting, branch nanming, referencing Jira tickets, and more
+Author-email: Peter Shen <xianpeng.shen@gmail.com>
+License: MIT License
+Project-URL: source, https://github.com/commit-check/commit-check
+Project-URL: tracker, https://github.com/commit-check/commit-check/issues
+Keywords: message,branch,formatting,naming,referencing
+Classifier: Development Status :: 1 - Planning
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Intended Audience :: Information Technology
+Classifier: Natural Language :: English
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Build Tools
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pyyaml
+
