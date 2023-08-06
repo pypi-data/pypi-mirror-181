@@ -1,0 +1,12 @@
+aiofiles
+loguru
+orjson
+pycryptodomex
+pyopenssl
+requests
+
+[:platform_system == "Linux"]
+python-magic
+
+[:platform_system == "Windows"]
+python-magic-bin
