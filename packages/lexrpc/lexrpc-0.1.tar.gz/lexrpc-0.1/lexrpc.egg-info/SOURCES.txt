@@ -1,0 +1,12 @@
+README.md
+pyproject.toml
+lexrpc/__init__.py
+lexrpc/base.py
+lexrpc/client.py
+lexrpc/flask_server.py
+lexrpc/server.py
+lexrpc.egg-info/PKG-INFO
+lexrpc.egg-info/SOURCES.txt
+lexrpc.egg-info/dependency_links.txt
+lexrpc.egg-info/requires.txt
+lexrpc.egg-info/top_level.txt
