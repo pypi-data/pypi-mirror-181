@@ -1,0 +1,84 @@
+C -> C (C#) D Eb E F (F#) G Ab A Bb B
+
+C maj -> C D E F G A B
+C min -> C D Eb F G Ab Bb
+
+C# -> B# C# (D) D# E E# F# (G) G# A A# B
+
+C# maj -> C# D# E# F# G# A# B#
+C# min -> C# D# E F# G# A B
+
+Db -> C Db (D) Eb Fb F Gb (G) Ab Bbb Bb Cb 
+
+Db maj -> Db Eb F Gb Ab Bb C
+Db min -> Db Eb Fb Gb Ab Bbb Cb
+
+D -> C C# D (Eb) E F F# G (G#) A Bb B
+
+D maj -> D E F# G A B C#
+D min -> D E F G A Bb C
+
+D# -> B# C# C## D# (E) E# F# F## G# (A) A# B
+
+D# maj -> D# E# F## G# A# B# C## D#
+D# min -> D# E# F# G# A# B C#
+
+Eb -> C Db D Eb (E) F Gb G Ab (A) Bb Cb
+
+Eb maj -> Eb F G Ab Bb C D
+Eb min -> Eb F Gb Ab Bb Cb Db
+
+E -> C C# D D# E (F) F# G G# A (Bb) B
+
+E maj -> E F# G# A B C# D#
+E min -> E F# G A B C D
+
+F -> C Db D Eb E F (F#) G Ab A Bb (B)
+
+F maj -> F G A Bb C D E
+F min -> F G Ab Bb C Db Eb
+
+F# -> (C) C# D D# E E# F# (G) G# A A# B
+
+F# maj -> F# G# A# B C# D# E#
+F# min -> F# G# A B C# D E
+
+Gb -> (C) Db Ebb Eb Fb F Gb (G) Ab Bbb Bb Cb
+
+Gb maj -> Gb Ab Bb Cb Db Eb F
+Gb min ->  Gb Ab Bbb Cb Db Ebb Fb Gb
+
+G -> C (C#) D Eb E F F# G (G#) A Bb B
+
+G maj -> G A B C D E F#
+G min -> G A Bb C D Eb F
+
+G# -> B# C# (D) D# E E# F# F## G# (A) A# B
+
+G# maj -> G# A# B# C# D# E# F##
+G# min -> G# A# B C# D# E F#
+
+Ab -> C Db (D) Eb Fb F Gb G Ab (A) Bb Cb
+
+Ab maj -> Ab Bb C Db Eb F G
+Ab min -> Ab Bb Cb Db Eb Fb Gb
+
+A -> C C# D (D#) E F F# G G# A (A#) B
+
+A maj -> A B C# D E F# G#
+A min -> A B C D E F G
+
+A# -> B# C# C## D# (E) E# F# F## G# G## A# (B)
+
+A# maj -> A# B# C## D# E# F## G## A#
+A# min -> A# B# C# D# E# F# G#
+
+Bb -> C Db D Eb (E) F Gb G Ab A Bb (B)
+
+Bb maj -> Bb C D Eb F G A
+Bb min -> Bb C Db Eb F Gb Ab 
+
+B -> (C) C# D D# E (F) F# G G# A A# B
+
+B maj -> B C# D# E F# G# A#
+B min -> B C# D E F# G A
