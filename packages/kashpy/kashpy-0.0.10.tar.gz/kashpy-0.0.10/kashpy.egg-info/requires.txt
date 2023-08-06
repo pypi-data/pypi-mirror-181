@@ -1,0 +1,6 @@
+confluent_kafka>=1.9.0
+fastavro
+grpcio-tools
+jsonschema
+piny
+requests
