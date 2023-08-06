@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: simplay
+Version: 0.1.4
+Summary: A library to generate an EventQueue to visualize with simplay-web
+Project-URL: Homepage, https://github.com/team-simplay/simplay
+Project-URL: Bug Tracker, https://github.com/team-simplay/simplay/issues
+Project-URL: Documentation, https://simplay.readthedocs.io/en/latest/
+Author-email: David Kühnhanss <david.kuehnhanss@ost.ch>, Moritz Schiesser <moritz.schiesser@ost.ch>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6
+Requires-Dist: jsons~=1.6.3
+Requires-Dist: simpy~=4.0.1
+Description-Content-Type: text/markdown
+
+# SimPlay
+
+```
+$ pip install simplay
+```
