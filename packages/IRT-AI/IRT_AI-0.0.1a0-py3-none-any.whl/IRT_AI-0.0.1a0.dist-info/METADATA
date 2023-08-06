@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: IRT-AI
+Version: 0.0.1a0
+Summary: Infrared Thermal Image Analysis based on Artificial Intelligence
+Home-page: https://github.com/dhchenx/IRT-AI
+Author: Donghua Chen
+Author-email: douglaschan@126.com
+License: BSD-3
+Project-URL: Bug Reports, https://github.com/dhchenx/IRT-AI/issues
+Project-URL: Source, https://github.com/dhchenx/IRT-AI
+Keywords: thermal image,artificial intelligence
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.6, <4
+Description-Content-Type: text/markdown
+Requires-Dist: pyqt5
+Requires-Dist: mediapipe
+Requires-Dist: matplotlib
+Requires-Dist: seaborn
+Requires-Dist: opencv-python
+Provides-Extra: dev
+Requires-Dist: check-manifest ; extra == 'dev'
+Provides-Extra: test
+Requires-Dist: coverage ; extra == 'test'
+
+## Thermal Imaging AI
+
+### Introduction
+
+A series of deep learning-based methods to handle thermal images
+
