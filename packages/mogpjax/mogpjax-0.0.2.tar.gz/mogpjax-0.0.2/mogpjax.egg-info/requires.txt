@@ -1,0 +1,12 @@
+jax
+jaxlib
+jaxtyping
+distrax
+jaxutils
+jaxlinop
+gpjax>=0.5.4
+
+[dev]
+pytest
+pre-commit
+pytest-cov
