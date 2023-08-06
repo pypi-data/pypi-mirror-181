@@ -1,0 +1,17 @@
+.gitignore
+LICENSE
+README.md
+build.sh
+publish.sh
+pyproject.toml
+setup.cfg
+setup.py
+test.sh
+csvplus/__init__.py
+csvplus.egg-info/PKG-INFO
+csvplus.egg-info/SOURCES.txt
+csvplus.egg-info/dependency_links.txt
+csvplus.egg-info/top_level.txt
+test/__init__.py
+test/_cars.csv
+test/cars.csv
