@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+aliyun_python_sdk_viapi_oxs_cross.egg-info/PKG-INFO
+aliyun_python_sdk_viapi_oxs_cross.egg-info/SOURCES.txt
+aliyun_python_sdk_viapi_oxs_cross.egg-info/dependency_links.txt
+aliyun_python_sdk_viapi_oxs_cross.egg-info/requires.txt
+aliyun_python_sdk_viapi_oxs_cross.egg-info/top_level.txt
+aliyunsdkviapi_oxs_cross/__init__.py
+aliyunsdkviapi_oxs_cross/request/__init__.py
+aliyunsdkviapi_oxs_cross/request/v20200701/CreateSDKInstanceRequest.py
+aliyunsdkviapi_oxs_cross/request/v20200701/GetSDKInstanceDebugInfoRequest.py
+aliyunsdkviapi_oxs_cross/request/v20200701/QuerySDKInstancesRequest.py
+aliyunsdkviapi_oxs_cross/request/v20200701/StartSDKInstanceProductionRequest.py
+aliyunsdkviapi_oxs_cross/request/v20200701/__init__.py
