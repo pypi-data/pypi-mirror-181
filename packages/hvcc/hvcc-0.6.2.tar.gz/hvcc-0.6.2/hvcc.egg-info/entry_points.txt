@@ -1,0 +1,3 @@
+[console_scripts]
+hvcc = hvcc:main
+hvutil = hvcc.utils:main
