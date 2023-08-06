@@ -1,0 +1,10 @@
+
+[dev]
+pre-commit
+pylint
+sphinx
+
+[testing]
+setuptools
+pytest
+pytest-cov
