@@ -1,0 +1,12 @@
+pip
+packaging
+biopython>=1.80
+interlap>=0.2.7
+joblib>=1.2.0
+numpy>=1.23.5
+pandas>=1.5.2
+pysam>=0.20.0
+scikit-learn>=1.2.0
+tqdm==4.64.1
+
+[dev]
