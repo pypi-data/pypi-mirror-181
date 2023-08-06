@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: autotest-tools
+Version: 1.0.1
+Summary: auto test tools
+Author: Gu Xin
+Author-email: g_xin@outlook.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: <3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# AutoTestTool
+
+#### Description
+This tool is designed to assist in building an automated testing framework. The framework provides public class methods to facilitate developers to quickly build an automated testing framework and improve testing efficiency.
