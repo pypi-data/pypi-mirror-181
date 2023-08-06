@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "rcmdow"
+version = "0.1.1a1"
+description = "A rich python wrapper on the CMDOW window util"
+authors = ["arnos-stuff <bcda0276@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/arnos-stuff/cmdow"
+repository = "https://github.com/arnos-stuff/cmdow"
+keywords = [
+    "cmdow", "windows", "resizing",
+    "splitting windows", "cli",
+    "terminal", "powershell"
+    ]
+
+
+[tool.poetry.dependencies]
+python = "^3.8"
+polars = "^0.15.6"
+rich = "^12.6.0"
+typer = {extras = ["all"], version = "^0.7.0"}
+psutil = "^5.9.4"
+pywin32 = "^305"
+
+[tool.poetry.scripts]
+rcmdow = "rcmdow.main:app"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
