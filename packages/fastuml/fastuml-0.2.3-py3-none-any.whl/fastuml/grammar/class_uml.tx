@@ -1,0 +1,95 @@
+import components.base
+import components.options
+import components.class_commons
+
+ClassModel:
+    options=GraphOptions
+    (
+        simple_types+=SimpleType
+        |
+        classes+=Class
+        |
+        packages+=Package
+        |
+        connections+=Connections
+    )*
+;
+
+Package:
+    PackageType name=ID '{'
+        ('label' '=' label=Label)?
+        (options=NodeOptions)?
+        (
+            simple_types+=SimpleType
+            |
+            classes+=Class
+            |
+            packages+=Package
+            |
+            connections+=Connections
+        )*
+    '}'
+;
+
+Generic: /(?ms)\<{1}(.*?)\>{1}/;
+ClassExtension: /(?ms)\<{2}(.*?)\>{2}/;
+Class:
+    (extension=ClassExtension)? class=ClassType name=ID ('extends' extends+=TypeRef[','])? (generic=Generic)? 
+    '{'
+        (options=NodeOptions)?
+        attributes*=ClassAttribute
+        methods*=Method
+
+        aggregations*=Aggregation
+        compositions*=Composition
+    '}'
+;
+
+Method:
+    visibility=Visibility (abstract?='abstract' static?='static')# 
+    name=ID '(' (params*=Attribute[','])? ')' 
+        (':' (ret=TypeRef))?
+;
+
+ClassAttribute:
+    visibility=Visibility static?='static' type=Attribute
+;
+
+Attribute:
+    name=ID ':' type=TypeRef
+;
+
+TypeRef:
+  (const?='const' ref?='ref' ptr?='ptr')# type=[Type] ('<' generics+=TypeRef[','] '>')?
+;
+
+Type:
+  SimpleType | Class
+;
+
+SimpleType:
+  'type' name=ID
+;
+
+Visibility:
+    '+' | '-' | '#'
+;
+
+Connections: 'connections' '{'
+        (
+            associations*=Association
+        )
+    '}'
+;
+
+Association: 
+    source=[Type] arrow=Arrow target=[Type] (':' label=Label)?
+;
+
+Aggregation:
+    'part of' type=[Class]
+;
+
+Composition:
+    'depends on' type=[Class]
+;

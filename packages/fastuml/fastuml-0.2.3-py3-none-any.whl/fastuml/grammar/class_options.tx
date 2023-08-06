@@ -1,0 +1,29 @@
+import components.base
+import components.options
+import components.class_commons
+
+OptionModel:
+    (options=GraphOptions)?
+    (
+        classes+=Class
+        |
+        packages+=Package
+    )*
+;
+
+Package:
+    PackageType name=ID '{'
+        (options=NodeOptions)?
+        (
+            classes+=Class
+            |
+            packages+=Package
+        )*
+    '}'
+;
+
+Class:
+    ClassType name=ID '{'
+        (options=NodeOptions)?
+    '}'
+;

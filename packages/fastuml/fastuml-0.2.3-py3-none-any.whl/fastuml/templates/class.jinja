@@ -1,0 +1,51 @@
+{% import 'connection.jinja' as uml_connection %}
+{% macro renderTypeRef(typeref) -%}
+{{ typeref.type.name }}{% if typeref.generics %}<{% for generic in typeref.generics %}{{ renderTypeRef(generic) }}{% if not loop.last %}, {% endif %}{% endfor %}>{% endif %}
+{%- endmacro %}
+
+{% macro renderAttribute(attrib) -%}
+{{ attrib.name }}: {{ renderTypeRef(attrib.type) | escape }}
+{%- endmacro %}
+
+
+{% macro render(class) -%}
+{% if class | modelVisible %}
+{{class.name}} [
+    shape=plain
+    label=<
+        <table border="0" cellborder="1" cellspacing="0" cellpadding="4">
+            <tr>
+                <td>{% if class.extension %}{{ class.extension | escape }}<br/>{% endif %}<b>{{class.name}}</b>
+                    {% if class.generic %}<sup><i>{{ class.generic | escape }}</i></sup>{% endif %}</td>
+            </tr>
+            {% if class.attributes %}
+            <tr>
+                <td>
+                    <table border="0" cellborder="0" cellspacing="0">
+                        {% for attrib in class.attributes %}
+                            <tr>
+                                <td align="left">{{ attrib.visibility }} {{ renderAttribute(attrib.type) }}</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </td>
+            </tr>
+            {% endif %}
+            {% if class.methods %}
+            <tr>
+                <td>
+                    <table border="0" cellborder="0" cellspacing="0">
+                        {% for method in class.methods %}
+                            <tr>
+                                <td align="left">{{ method.visibility }} {{ method.name }}({% for param in method.params %}{{ renderAttribute(param) }}{% if not loop.last %}, {% endif %}{% endfor %}){% if method.ret %}: {{ renderTypeRef(method.ret) | escape }}{% endif %}</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </td>
+            </tr>
+            {% endif %}
+        </table>
+    >
+]
+{% endif %}
+{%- endmacro %}
