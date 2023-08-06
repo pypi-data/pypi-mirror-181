@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+src/labjack_pic/__init__.py
+src/labjack_pic/lj_pic.py
+src/labjack_pic.egg-info/PKG-INFO
+src/labjack_pic.egg-info/SOURCES.txt
+src/labjack_pic.egg-info/dependency_links.txt
+src/labjack_pic.egg-info/entry_points.txt
+src/labjack_pic.egg-info/requires.txt
+src/labjack_pic.egg-info/top_level.txt
+src/labjack_pic/u3_manager/__init__.py
+src/labjack_pic/u3_manager/u3_manager.py
