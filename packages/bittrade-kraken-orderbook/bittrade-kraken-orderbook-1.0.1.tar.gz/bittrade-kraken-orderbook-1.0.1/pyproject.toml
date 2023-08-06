@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "bittrade-kraken-orderbook"
+version = "1.0.1"
+description = ""
+authors = ["mat <matt@techspace.asia>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.2.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
