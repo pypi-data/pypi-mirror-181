@@ -1,0 +1,70 @@
+Metadata-Version: 2.1
+Name: py-12f-common
+Version: 0.7.1
+Summary: This repository holds those infrastructure-level modules, that every application requires that follows the core 12-factor principles.
+Home-page: https://github.com/tombenke/py-12f-common
+Author: Tamás Benke
+Author-email: tombenke@gmail.com
+License: MIT
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: argparse
+Requires-Dist: dataclasses
+Requires-Dist: python-dotenv
+Requires-Dist: loguru
+Requires-Dist: aiohttp
+Requires-Dist: requests
+Provides-Extra: dev
+Requires-Dist: build ; extra == 'dev'
+Requires-Dist: coverage ; extra == 'dev'
+Requires-Dist: coverage-badge ; extra == 'dev'
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: pydeps ; extra == 'dev'
+Requires-Dist: pylint ; extra == 'dev'
+Requires-Dist: sphinx (>=4.4.0) ; extra == 'dev'
+Requires-Dist: sphinx-rtd-theme ; extra == 'dev'
+Requires-Dist: twine ; extra == 'dev'
+
+# py-12f-common
+
+[![Quality Check Status](https://github.com/tombenke/py-12f-common/workflows/Quality%20Check/badge.svg)](https://github.com/tombenke/py-12f-common)
+![Coverage](./coverage.svg)
+
+## About
+
+This repository holds those infrastructure-level modules,
+that every application requires that follows the core 12-factor principles.
+
+This version of the library is compatible with Python versions >=3.8.
+
+You can use pip to install the library from the
+[Python Package Index](https://pypi.org/project/py-12f-common/):
+
+```bash
+   $ pip install py-12f-common
+```
+
+For further information read [the documentation](https://tombenke.github.io/py-12f-common/).
+
+### Health check
+Health check is a web service running on the configured host:port and can be called with HTTP GET request on 
+`/health` endpoint. It is responsible for providing information about the application state.
+
+It complies with the Kubernetes health check guidelines. The response is compiled according to 
+[Health Check Response Format for HTTP APIs](https://datatracker.ietf.org/doc/html/draft-inadarei-api-health-check-06).
+
+In the configuration, `HEALTH_CHECK` (bool) must be included that enables/disables to run health check web service.  
+`HEALTH_CHECK_HOST` (string) and `HEALTH_CHECK_PORT` (int) are optional these are the host and port numbers for the web 
+service (defaults are '127.0.0.1' and 8008). 
+
+The initial state is `NOINFO`. Call the `set_state_warm_up` function just before starting the application, it will set 
+the state to `WARMUP`. Once the application has started working, call the `set_state_working` function to set the state 
+to `WORK`. Call `set_state_shut_down` just before the application shuts down to set the state to `SHUTDOWN`. The 
+`set_state_no_info` function can be used to set the state to `NOINFO` if required.
+
+See the examples: [`minimum`](common/examples/minimum/) is without health check and [`asyncq`](common/examples/asyncq/) 
+is with health check.
