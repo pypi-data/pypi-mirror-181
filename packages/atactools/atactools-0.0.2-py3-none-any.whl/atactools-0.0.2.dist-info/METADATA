@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: atactools
+Version: 0.0.2
+Summary: Tools for ATACSeq QC and Post-Processing
+Home-page: https://github.com/zwebbs/ATACtools
+Author: Zach Weber
+Author-email: zach.weber.813@gmail.com
+Project-URL: Bug Tracker, https://github.com/zwebbs/ATACtools/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: MacOS
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: pysam (==0.19.1)
+Requires-Dist: six (==1.16.0)
+Provides-Extra: dev
+Requires-Dist: build (==0.9.0) ; extra == 'dev'
+Requires-Dist: twine (==4.0.1) ; extra == 'dev'
+
+# ATACtools
+Suite of tools for quality control and post-processing of ATAC-Seq data
