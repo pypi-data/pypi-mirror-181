@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: realbook
+Version: 1.0.0
+Summary: Realbook, a library to make using audio on Tensorflow easier.
+Home-page: https://github.com/spotify/realbook
+Author: Spotify
+Author-email: realbook@spotify.com
+Maintainer: Spotify
+Maintainer-email: realbook@spotify.com
+License: Apache 2.0
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Requires-Dist: tensorboard (>=2.4)
+Requires-Dist: librosa (<0.10,>=0.9)
+Requires-Dist: types-protobuf
+Requires-Dist: tensorflow (>=2.4) ; sys_platform != "darwin" or platform_machine != "arm64"
+Requires-Dist: tensorflow-macos (>=2.4) ; sys_platform == "darwin" and platform_machine == "arm64"
+Provides-Extra: dev
+Requires-Dist: realbook[tensorboard,test] ; extra == 'dev'
+Requires-Dist: bumpversion (>=0.5.3) ; extra == 'dev'
+Requires-Dist: ipython ; extra == 'dev'
+Requires-Dist: ipdb ; extra == 'dev'
+Provides-Extra: tensorboard
+Requires-Dist: matplotlib ; extra == 'tensorboard'
+Requires-Dist: psutil ; extra == 'tensorboard'
+Requires-Dist: nvsmi ; extra == 'tensorboard'
+Provides-Extra: test
+Requires-Dist: coverage (>=5.0.2) ; extra == 'test'
+Requires-Dist: pytest (>=7.1.1) ; extra == 'test'
+Requires-Dist: pytest-cov (>=4.0.0) ; extra == 'test'
+Requires-Dist: pytest-mock (>=3.10.0) ; extra == 'test'
+Requires-Dist: tox ; extra == 'test'
+Requires-Dist: torch ; extra == 'test'
+Requires-Dist: nnaudio ; extra == 'test'
+
+Realbook, a library to make using audio on Tensorflow easier.
+
+
