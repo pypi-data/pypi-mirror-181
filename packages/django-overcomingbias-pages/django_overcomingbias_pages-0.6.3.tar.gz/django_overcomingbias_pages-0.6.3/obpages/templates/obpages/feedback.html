@@ -1,0 +1,21 @@
+{% extends "obpages/base.html" %}
+
+{% block meta_description %}Submit feedback.{% endblock %}
+{% block script_extra %}
+    {% if recaptcha_key %}
+        <script src="https://www.google.com/recaptcha/enterprise.js?render={{ recaptcha_key }}" defer></script>
+        <script>
+            function onSubmit(token) {
+                document.getElementById("feedback-form").submit();
+            }
+        </script>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <form id="feedback-form" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit Feedback"{% if recaptcha_key %} class="g-recaptcha" data-badge="inline" data-sitekey="{{ recaptcha_key }}" data-callback="onSubmit" data-action="submit"{% endif %}>
+    </form>
+{% endblock content %}
