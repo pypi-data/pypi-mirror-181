@@ -1,0 +1,119 @@
+ClassModel:
+    options=Options
+    (
+        simple_types+=SimpleType
+        |
+        classes+=Class
+        |
+        packages+=Package
+        |
+        connections+=Connections
+    )*
+;
+
+// GraphOptions
+GraphDirection: 'TB' | 'LR' | 'BT' | 'RL';
+ColorScheme: 'blues' | 'greens' | 'greys' | 'oranges' | 'reds' | 'purples';
+OptSplines: 'none' | 'line' | 'polyline' | 'curved' | 'ortho' | 'spline';
+Options: 
+    'options' '{'
+        (
+            'direction' '=' direction=GraphDirection
+            ('concentrate' '=' concentrate=BOOL)?
+            ('colorScheme' '=' colorscheme=ColorScheme)?
+            ('splines' '=' splines=OptSplines)?
+        )#
+    '}'
+;
+
+Package:
+    'package' name=ID '{'
+        ('label' '=' label=Label)?
+        (
+            simple_types+=SimpleType
+            |
+            classes+=Class
+            |
+            packages+=Package
+            |
+            connections+=Connections
+        )*
+    '}'
+;
+
+Generic: /(?ms)\<{1}(.*?)\>{1}/;
+ClassExtension: /(?ms)\<{2}(.*?)\>{2}/;
+ClassType:
+    'class' | 'interface'
+;
+Class:
+    (extension=ClassExtension)? class=ClassType name=ID ('extends' extends+=TypeRef[','])? (generic=Generic)? 
+    '{'
+        attributes*=ClassAttribute
+        methods*=Method
+
+        aggregations*=Aggregation
+        compositions*=Composition
+    '}'
+;
+
+Method:
+    visibility=Visibility (abstract?='abstract' static?='static')# 
+    name=ID '(' (params*=Attribute[','])? ')' 
+        (':' (ret=TypeRef))?
+;
+
+ClassAttribute:
+    visibility=Visibility static?='static' type=Attribute
+;
+
+Attribute:
+    name=ID ':' type=TypeRef
+;
+
+TypeRef:
+  (const?='const' ref?='ref' ptr?='ptr')# type=[Type] ('<' generics+=TypeRef[','] '>')?
+;
+
+Type:
+  SimpleType | Class
+;
+
+SimpleType:
+  'type' name=ID
+;
+
+Visibility:
+    '+' | '-' | '#'
+;
+
+Connections: 'connections' '{'
+        (
+            associations*=Association
+        )
+    '}'
+;
+
+Label: /(?ms)\"{1}(.*?)\"{1}/;
+
+Association: 
+    source=[Type] arrow=Arrow target=[Type] (':' label=Label)?
+;
+
+Aggregation:
+    'part of' type=[Class]
+;
+
+Composition:
+    'depends on' type=[Class]
+;
+
+Arrow: 
+    backward?='<' binding*='-' forward?='>'
+;
+
+
+// special rule for comments.
+Comment:
+    /\/\/.*$/
+;
