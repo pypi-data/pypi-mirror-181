@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "monary_mongo"
+version = "0.6"
+description = "Monary performs high-performance column queries on MongoDB"
+authors = ["Andrew Gigena <mail@andrewgigena.dev>", "David J. C. Beach <info@djcinnovations.com>"]
+classifiers = [
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: Unix",
+    "Environment :: Console",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Topic :: Database"
+]
+keywords = ["monary", "pymongo", "mongo", "mongodb", "numpy", "array"]
+homepage = "https://github.com/andrewgigena/monary_mongo"
+
+[tool.poetry.build]
+generate-setup-file = true
+script = "build.py"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+numpy = "*"
+
+
+[build-system]
+requires = ["poetry", "setuptools", "pkgconfig", "wheel"]
+build-backend = "poetry.masonry.api"
