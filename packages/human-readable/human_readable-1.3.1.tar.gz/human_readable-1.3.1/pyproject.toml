@@ -1,0 +1,82 @@
+[tool.poetry]
+name = "human-readable"
+version = "1.3.1"
+description = "Human Readable"
+authors = ["staticdev <staticdev-support@proton.me>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/staticdev/human-readable"
+repository = "https://github.com/staticdev/human-readable"
+documentation = "https://human-readable.readthedocs.io"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+exclude = ["src/human_readable/locale/**/*.po"]
+
+[tool.poetry.urls]
+Changelog = "https://github.com/staticdev/human-readable/releases"
+
+[tool.poetry.dependencies]
+python = ">=3.8"
+
+[tool.poetry.dev-dependencies]
+bandit = ">=1.7.4"
+black = ">=22.1"
+coverage = {extras = ["toml"], version = ">=6.3.2"}
+flake8 = ">=5.0.4"
+flake8-bugbear = ">=21.9.2"
+flake8-docstrings = ">=1.6.0"
+freezegun = ">=1.2.2"
+furo = ">=2021.11.12"
+isort = ">=5.10.1"
+mypy = ">=0.991"
+pep8-naming = ">=0.12.1"
+pre-commit = ">=2.17.0"
+pre-commit-hooks = ">=4.1.0"
+pygments = ">=2.11.2"
+pytest = ">=7.1.0"
+pytest-mock = ">=3.7.0"
+pyupgrade = ">=2.31.1"
+safety = ">=2.1.0"
+sphinx = ">=4.3.2"
+sphinx-autobuild = ">=2021.3.14"
+typeguard = ">=2.13.3"
+xdoctest = {extras = ["colors"], version = ">=0.15.10"}
+
+[tool.coverage.paths]
+source = ["src", "*/site-packages"]
+tests = ["tests", "*/tests"]
+
+[tool.coverage.run]
+branch = true
+source = ["human_readable", "tests"]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 100
+
+[tool.isort]
+profile = "black"
+force_single_line = true
+lines_after_imports = 2
+
+[tool.mypy]
+strict = true
+warn_unreachable = true
+pretty = true
+show_column_numbers = true
+show_error_codes = true
+show_error_context = true
+
+
+[[tool.mypy.overrides]]
+module = ["pytest_mock"]
+ignore_missing_imports = true
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
