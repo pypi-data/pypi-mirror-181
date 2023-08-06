@@ -1,0 +1,1 @@
+A quickly thrown together tool to keep track of a grid exploration system.
