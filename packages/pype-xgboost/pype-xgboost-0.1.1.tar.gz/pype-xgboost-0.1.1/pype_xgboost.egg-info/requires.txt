@@ -1,0 +1,13 @@
+pype-base==0.1.1
+pype-sklearn
+xgboost>=1.6.2
+
+[dev]
+pype-base==0.1.1
+pype-sklearn
+xgboost==1.6.2
+
+[strict]
+pype-base==0.1.1
+pype-sklearn
+xgboost==1.6.2
