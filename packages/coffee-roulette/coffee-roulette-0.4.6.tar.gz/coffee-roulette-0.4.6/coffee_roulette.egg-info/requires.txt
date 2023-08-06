@@ -1,0 +1,11 @@
+numpy
+pandas
+tabulate
+types-tabulate
+ruamel.yaml
+
+[dev]
+pytest
+setuptools_scm
+black
+pre-commit

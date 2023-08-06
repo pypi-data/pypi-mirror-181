@@ -1,0 +1,52 @@
+[project]
+name = "coffee-roulette" 
+authors = [{name = "Zane Mitrevica", email= "zane.mitrevica@gmail.com"}]
+description = "Pseudo-random pair generator"
+readme = "README.md"
+requires-python = ">=3.8.0"
+dynamic = ["version"]
+
+license = {text = "BSD-3-Clause"}
+
+dependencies = [
+    "numpy",
+    "pandas",
+    "tabulate",
+    "types-tabulate",
+    "ruamel.yaml",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "setuptools_scm",
+    "black",
+    "pre-commit",
+]
+
+[build-system]
+requires = [
+    "setuptools>=45",
+    "wheel",
+    "setuptools_scm[toml]>=6.2",
+]
+build-backend = "setuptools.build_meta"
+[tool.setuptools_scm]
+
+[tool.black]
+target-version = ['py38', 'py39', 'py310']
+skip-string-normalization = false
+line-length = 79
+exclude = '''
+(
+  /(
+      \.eggs
+    | \.git
+    | \.hg
+    | \.mypy_cache
+    | _build
+    | build
+    | dist
+  )/
+)
+'''
