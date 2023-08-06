@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: git-dmb
+Version: 1.0.0
+Summary: Command-line tool to delete merged Git branches
+Home-page: https://github.com/hartwork/git-delete-merged-branches
+Author: Sebastian Pipping
+Author-email: sebastian@pipping.org
+License: GPLv3+
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Software Development :: Version Control
+Classifier: Topic :: Software Development :: Version Control :: Git
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: git-delete-merged-branches
+
+# git-dmb
+
+A convenient command-line tool helping you keep repositories clean.
+
+git-dmb on PyPI is technically a "virtual" or "meta" package
+that leverages Setuptools' feature `install_requires`
+to pull in the current latest version
+of package [git-delete-merged-branches](https://pypi.org/project/git-delete-merged-branches/)
+which comes with command `git-dmb` and the actual software.
+
+The motivation behind this package is to protect users against
+[attacks like Pytosquatting](https://pytosquatting.overtag.dk/), primarily.
