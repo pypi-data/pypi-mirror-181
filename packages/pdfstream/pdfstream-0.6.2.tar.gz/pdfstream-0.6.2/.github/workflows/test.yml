@@ -1,0 +1,34 @@
+name: test
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -l {0}
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: test
+
+      - name: install requirements
+        run: >-
+          conda install -c conda-forge
+          --file requirements/build.txt
+          --file requirements/run.txt
+          --file requirements/test.txt
+          --file requirements/docs.txt
+          --quiet --yes
+
+      - name: check code style
+        run: flake8
