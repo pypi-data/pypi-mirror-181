@@ -1,0 +1,158 @@
+Metadata-Version: 2.1
+Name: FAIRSave
+Version: 0.0.4
+Summary: Package to run the FAIR-Save toolbox
+Home-page: https://gitlab.com/linked-tribological-data/fair-save/FAIR-Save_Utilities
+Author: Malte Flachmann, Floriane Bresser (Karlsruhe Institute of Technology)
+Author-email: malte.flachmann@student.kit.edu
+License: Apache-2.0
+Keywords: Kadi4Mat,FAIR
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+License-File: AUTHORS.md
+Requires-Dist: kadi-apy (>=0.25.0)
+Requires-Dist: uuid (>=1.30)
+Requires-Dist: xmltodict (>=0.13.0)
+Requires-Dist: nested-lookup (>=0.2.25)
+
+# FAIRSave-Utilities
+
+
+
+FS-Utilities stores a python module wheel which contains all function to run the FS-Toolbox.
+
+
+
+## Installation
+
+
+
+The installation needs python version 3.10.
+
+
+
+Install the module by executing the following command in command prompt: `pip3 install FAIRSave`
+
+
+
+## App structure and functions
+
+- kadi_search  
+
+    - Search_Item_Titles 
+
+    - Search_Item_ID  
+
+    - Search_Files 
+
+    - Latest_Title  
+
+    - Suggest_Title  
+
+- kadi_download  
+
+    - Download_Files_from_Kadi 
+
+    - Kadi_Metadata 
+
+- kadi_record 
+
+    - Record_Create 
+
+    - Record_Add_Links_and_Edit 
+
+    - Record_Add_Tags 
+
+    - Record_Add_Metadata 
+
+    - Record_Add_Files 
+
+- kadi_instances 
+
+    - Show_Kadi_Instances 
+
+    - Create_Kadi_Instance 
+
+- kadi_json_writer  
+
+    - create_list_from_dict  
+
+- kadi_template  
+
+    - Template_Create   
+
+- tools 
+
+    - comparison
+
+    - difference
+
+    - json_reader  
+
+        - dict_to_list_all_keys
+
+    - key
+
+    - metadata
+
+    - validation
+
+    - suftheowl_json
+
+
+
+
+
+## FAQ
+
+
+
+### 1) List of records
+
+I have a doubt regarding the helpers doc, which function would you recommend to pull the list of Records the user has? E.g. I was thinking on Kadi_Metadata() but I would have to retrieve latter the keys from the .txt document. My other idea was to use Show_Kadi_Instances, but I'm not sure if that's what I'm looking for
+
+
+
+**A:** Instance is the wording taken from the kadi-apy python module meaning the access to Kadi4Mat which consists of an host and a PAT. These instances are saved in the .kadi config file
+
+Kadi_Metadata returns all information related to a record like title, author, creation time,... and extras which are the metadata of the process described in the record.
+
+To show the record the user has you can simply use the Search_Items function with no args except instance and item: 
+
+Search_Items(instance='YOUR_INSTANCE_NAME', item='record')
+
+
+
+### 2) Kadi4Mat config file
+
+How do I get the config file? Because I got a token from Kadi4mat, but I didn't get any document downloaded. Also, for the Search_Items, the instance will be again the config file with the user's data?
+
+
+
+**A:** The creation of a config file is described here: https://kadi-apy.readthedocs.io/en/stable/setup/configuration.html
+
+You use the commands in the command prompt.
+
+kadi-apy create config      #creates config file
+
+The other solution would be to just run the function Create_Kadi_Instance from my functions. It will create config file if it doesn't exist already.
+
+
+
+The instance from the config file will be used for every function accessing Kadi4Mat.
+
+
+
+
+
+## Authors and acknowledgment
+
+Show your appreciation to those who have contributed to the project.
+
+
+
+## License
+
+For open source projects, say how it is licensed.
+
