@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: plutous-trade-crypto
+Version: 0.0.1
+Summary: Plutous Crypto Trading Library
+Home-page: https://github.com/plutous-io/plutous-trade-crypto
+Author: Plutous
+Author-email: cheunhong@plutous.io
+License: MIT
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10.*
+License-File: LICENSE
+Requires-Dist: ccxt
+
