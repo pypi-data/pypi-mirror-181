@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "render_engine"
+version = "2022.12.2"
+description = "A Flexible Static Site Generator for Python"
+readme = "README.md"
+
+dependencies = [
+    "Jinja2",
+    "markdown2",
+    "pendulum",
+    "more-itertools",
+    "python-frontmatter",
+    "python-slugify",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "pytest-cov"]
+docs = ["mkdocs", "mkdocs-material", "mkdocstrings[python]"]
+
+[tool.pytest.ini_options]
+addopts = "-ra --cov"
+testpaths = [
+    "src/tests"
+]
+pythonpath = ['src']
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+envlist = python3.9, python3.10
+isolated_build = True
+
+[testenv]
+deps =
+    pytest
+    pytest-cov
+    pytest-mock
+commands = pytest --cov src/render_engine src/tests
+
+[tox:.package]
+basepython = python3
+"""
