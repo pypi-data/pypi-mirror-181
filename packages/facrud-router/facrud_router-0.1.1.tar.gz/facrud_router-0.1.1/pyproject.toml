@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "facrud-router"
+version = "0.1.1"
+description = "FastApi CRUD router for SQLAlchemy"
+authors = ["arutyunyan <8david@inbox.ru>"]
+readme = "README.md"
+packages = [{ include = "facrud_router" }]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi = "^0.88.0"
+pydantic = "^1.10.2"
+sqlalchemy = "^1.4.45"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
