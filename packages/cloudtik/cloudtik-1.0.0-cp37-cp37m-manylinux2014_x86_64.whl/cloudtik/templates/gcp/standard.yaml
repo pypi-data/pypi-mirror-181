@@ -1,0 +1,32 @@
+# Cloud-provider specific configuration.
+provider:
+    type: gcp
+
+# The instance configuration for a standard instance type
+available_node_types:
+    head-default:
+        node_config:
+            machineType: n2-standard-8
+            disks:
+                - boot: true
+                  autoDelete: true
+                  type: PERSISTENT
+                  initializeParams:
+                      diskSizeGb: 100
+                      diskType: pd-balanced
+    worker-default:
+        node_config:
+            machineType: n2-standard-8
+            disks:
+                - boot: true
+                  autoDelete: true
+                  type: PERSISTENT
+                  initializeParams:
+                      diskSizeGb: 100
+                      diskType: pd-balanced
+                - deviceName: sdf
+                  autoDelete: true
+                  type: PERSISTENT
+                  initializeParams:
+                      diskSizeGb: 200
+                      diskType: pd-ssd
