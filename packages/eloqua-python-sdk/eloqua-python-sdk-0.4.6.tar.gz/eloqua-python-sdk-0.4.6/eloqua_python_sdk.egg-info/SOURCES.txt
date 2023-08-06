@@ -1,0 +1,13 @@
+README.md
+setup.py
+eloqua_python_sdk.egg-info/PKG-INFO
+eloqua_python_sdk.egg-info/SOURCES.txt
+eloqua_python_sdk.egg-info/dependency_links.txt
+eloqua_python_sdk.egg-info/requires.txt
+eloqua_python_sdk.egg-info/top_level.txt
+eloquasdk/__init__.py
+eloquasdk/bulk.py
+eloquasdk/error.py
+eloquasdk/login.py
+eloquasdk/rest.py
+eloquasdk/utils.py
