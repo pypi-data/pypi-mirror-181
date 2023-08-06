@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: sendero
+Version: 0.0.3
+Summary: sendero - data filtering for humans
+Home-page: https://github.com/DanielJDufour/sendero
+Download-URL: https://github.com/DanielJDufour/sendero/tarball/download
+Author: Daniel J. Dufour
+Author-email: daniel.j.dufour@gmail.com
+Keywords: data,filter,path
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# sendero
+Data Filtering for Humans
+
+## why sendero?
+"sendero" means footpath in Spanish
+
+## install
+```bash
+pip install sendero
+```
+
+## usage
+```py
+from sendero import list_paths
+
+# list of cars with their previous owners
+cars = [
+  { "make": "Nissan", "model": "Altima", "year": 2022, "owners": [{ "id": 1, "name": "Juan" }, { "id": 2, "name": "Mark" }]},
+  { "make": "Nissan", "model": "Kicks", "year": 2021, "owners": [{ "id": 3, "name": "Zach" }]},
+  { "make": "Toyota", "model": "Camry", "year": 1995, "owners": [{ "id": 4, "name": "Tom" }]}
+]
+paths = list_paths(cars)
+[
+  "make",
+  "model",
+  "owners.id",
+  "owners.name",
+  "year"
+]
+```
