@@ -1,0 +1,8 @@
+aiohttp>=3.8.1
+
+[dev]
+black
+bumpver
+isort
+pip-tools
+pytest
