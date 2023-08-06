@@ -1,0 +1,25 @@
+{% load search %}
+
+{% comment %} Body {% endcomment %}
+{{ object.text_html|html_to_plaintext }} {{ object.description_html|html_to_plaintext }}
+{% comment %} Aliases {% endcomment %}
+{% for author in object.authors.all %}
+    {% for alias in author.aliases.all %}
+        {{ alias }}
+    {% endfor %}
+{% endfor %}
+{% for idea in object.ideas.all %}
+    {% for alias in idea.aliases.all %}
+        {{ alias }}
+    {% endfor %}
+{% endfor %}
+{% for topic in object.topics.all %}
+    {% for alias in topic.aliases.all %}
+        {{ alias }}
+    {% endfor %}
+{% endfor %}
+{% for tag in object.tags.all %}
+    {% for alias in tag.aliases.all %}
+        {{ alias }}
+    {% endfor %}
+{% endfor %}
