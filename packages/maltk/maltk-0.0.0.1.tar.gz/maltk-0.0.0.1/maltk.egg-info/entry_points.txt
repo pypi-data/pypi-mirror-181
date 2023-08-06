@@ -1,0 +1,3 @@
+[console_scripts]
+malt = malt.main:main
+maltk = malt.main:main
