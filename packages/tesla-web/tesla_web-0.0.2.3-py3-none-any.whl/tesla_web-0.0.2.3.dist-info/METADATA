@@ -1,0 +1,88 @@
+Metadata-Version: 2.1
+Name: tesla-web
+Version: 0.0.2.3
+Summary: A flexiable web framework
+Home-page: UNKNOWN
+Author: Jafar idris
+Author-email: <mail@neuralnine.com>
+License: UNKNOWN
+Keywords: python,web,auth
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+Requires-Dist: uuid
+Requires-Dist: jinja2
+Requires-Dist: tesla-admin
+
+
+# tesla-web
+
+
+
+Under construction! Not ready for use yet! Currently experimenting and planning!
+
+
+
+Developed by Jafar Idris.
+
+
+
+## Examples of How To Use (Buggy Alpha Version)
+
+
+
+Creating a project
+
+
+
+```cmd
+
+tesla startproject
+
+```
+
+
+
+it will prompt you to enter your project name, a folder will be created with that name navigate to the project folder.
+
+
+
+Start server
+
+
+
+```cmd
+
+tesla serve [port]
+
+```
+
+port = 8000 by default
+
+
+
+open your browser and navigate to the address display on your command line, you will see a 404 page because no route is specified
+
+
+
+Creating an Application
+
+
+
+```cmd
+
+tesla startapp
+
+```
+
+
+
+it will prompt you to enter your Application name, a folder will be created with that name navigate to the Application folder.
+
+
+
