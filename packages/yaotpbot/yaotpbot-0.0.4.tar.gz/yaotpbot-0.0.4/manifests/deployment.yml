@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: yaotpbot
+  name: yaotpbot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: yaotpbot
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: yaotpbot
+    spec:
+      containers:
+        - name: main
+          image: main
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+          env:
+          - name: AWS_DEFAULT_REGION
+            value: eu-central-1
+          envFrom:
+          - secretRef:
+              name: yaotpbot-tokens
+status: {}
