@@ -1,0 +1,39 @@
+{
+  "title": "Transformer Settings",
+  "description": "The settings for Transformer.",
+  "properties": {
+    "transformerConfig": {
+      "title": "Transformer Configuration",
+      "description": "The configuration for transformer.",
+      "$ref": "#/definitions/transformerConfig",
+      "default": {
+        "enabled": true
+      }
+    }
+  },
+  "additionalProperties": false,
+  "type": "object",
+  "definitions": {
+    "transformerConfig": {
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": true,
+          "title": "Enable transformer"
+        },
+        "notebookPath": {
+          "type": "string",
+          "default": "",
+          "title": "Path of transformer notebook."
+        },
+        "proxyUrl": {
+          "type": "string",
+          "default": "",
+          "title": "URL of the proxy."
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    }
+  }
+}
