@@ -1,0 +1,56 @@
+<script>
+$(".file_item_folder").dblclick(function (){
+    $("#pop-upper").empty();
+    ask_for_file("{{ folder.__str__().replace('\\', '/') }}/" + $(this).text());
+})
+$(".file_item_file").click(function (){
+    let that = $(this).text();
+    $("#file_name_input").val(that);
+    $("#file_name_input").change();
+}).dblclick(function (){
+    $("#file_selecter_submit").click();
+})
+$("#file_name_input").change(function()
+{
+    let that = $(this).val();
+    if (that.endsWith("_mass.txt"))
+    {
+        $("#file_format_input").val("sponge_mass");
+    }
+    else if (that.endsWith("_coordinate.txt"))
+    {
+        $("#file_format_input").val("sponge_coordinate");
+    }
+    else
+    {
+        $("#file_format_input").val(that.substring(that.lastIndexOf(".")+1));
+    }
+});
+$("#file_item_input").bind("keypress", e => {if (e.which == 13){$('#file_item_input_dirto').click()}});
+</script>
+<p id="file_temp_p" style="display:none">{{folder.__str__().replace('\\', '/')}}</p>
+<div style="display:grid;grid-template-rows:30px 50px 1fr 50px 30px;text-align:left;margin:5px;border-radius:5px;padding:5px;position:fixed;top:50%;left:50%;transform: translate(-50%,-50%);height:50%;width:50%;background-color:#fff;">
+    <div style="">
+        <p>{{folder.stem or folder}}{{ hint }}</p>
+        <hr>
+    </div>
+    <div style="margin:5px;">
+        <button class="small button" onclick='$("#pop-upper").empty();ask_for_file("{{folder.__str__().replace('\\', '/')}}", "PARENT");'>↑</button>
+        <input id="file_item_input" style="width:calc(100% - 100px)" value='{{ folder }}'>
+        <button id="file_item_input_dirto" class="small button" onclick='let val=$("#file_item_input").val();$("#pop-upper").empty();ask_for_file(val);'>→</button>
+        <hr>
+    </div>
+    <div class="hint" style="overflow:auto;display:flex;flex-wrap:wrap;justify-content:flex-start;margin:0">
+        {% for file in files %}<div class="file_item file_item_{{ 'folder' if file.is_dir() else 'file' }}" title="{{file.name}}"><img src="/static/{{ 'folder' if file.is_dir() else 'file' }}Icon.png"></img>{{file.name}}</div>{% endfor %}
+    </div>
+    <div>
+        <hr>
+        <div class="centered" style="display:grid;grid-template-columns:50px 3fr 50px 1fr;">
+            <p>{{ "Filename" | localization }}</p><input id="file_name_input"><p>{{ "Format" | localization }}</p><input id="file_format_input">
+        </div>
+    </div>
+    <div class="centered">
+        <button id="file_selecter_submit" class="button" onclick='click_function()'>{{ "Submit" | localization }}</button>
+        <button class="button" onclick='pop_up_cancel()'>{{ "Cancel" | localization }}</button>
+    </div>
+</div>

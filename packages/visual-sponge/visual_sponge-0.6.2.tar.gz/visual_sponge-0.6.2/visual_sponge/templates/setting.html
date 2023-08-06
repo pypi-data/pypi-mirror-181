@@ -1,0 +1,21 @@
+<div style="display:grid;grid-template-rows:{{heights}};text-align:left;margin:5px;border-radius:5px;padding:5px;position:fixed;top:50%;left:50%;transform: translate(-50%,-50%);height:auto;width:50%;background-color:#fff;">
+    <div class="hint" style="{{title_style | safe}}">
+        <p>{{ title | safe}}</p>
+        <hr>
+    </div>
+    <div class="hint" style="{{head_style | safe}}">
+        <p>{{ head | safe}}</p>
+        <hr>
+    </div>
+    <div class="hint" style="{{main_style | safe}}">
+        <p>{{ main | safe}}</p>
+    </div>
+    <div class="hint" style="{{foot_style | safe}}">
+        <hr>
+        <p>{{ foot | safe}}</p>
+    </div>
+    <div class="centered hint">
+        <button id="file_selecter_submit" class="button" onclick='click_function()'>{{ "Submit" | localization }}</button>
+        <button class="button" onclick='pop_up_cancel()'>{{ "Cancel" | localization }}</button>
+    </div>
+</div>
