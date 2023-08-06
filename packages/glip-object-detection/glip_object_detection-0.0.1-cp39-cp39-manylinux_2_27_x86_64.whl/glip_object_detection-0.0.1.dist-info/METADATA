@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: glip-object-detection
+Version: 0.0.1
+Summary: GLIP object detection in PyTorch
+Home-page: https://github.com/ekorman/GLIP
+Author: UNKNOWN
+Author-email: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: numpy
+Requires-Dist: torch (==1.9.0)
+Requires-Dist: torchvision (==0.10.0)
+Requires-Dist: einops
+Requires-Dist: timm
+Requires-Dist: yacs
+Requires-Dist: transformers
+Requires-Dist: opencv-python
+
+UNKNOWN
+
+
