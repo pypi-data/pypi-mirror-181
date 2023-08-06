@@ -1,0 +1,10 @@
+id: 3f264232-7c56-11ed-a1eb-0242ac120002
+label: 'yaml'
+category: FORMATTING
+factory: yaml
+signatures:
+  - name: (?i).*\.(yml|yaml)
+  - python: |
+      return 'application/yaml' in node.get_attribute('Content-Type')
+
+  
