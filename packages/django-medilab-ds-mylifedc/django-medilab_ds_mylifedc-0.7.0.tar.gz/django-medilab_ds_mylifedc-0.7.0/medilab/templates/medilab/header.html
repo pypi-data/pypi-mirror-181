@@ -1,0 +1,60 @@
+{% load static %}
+<!-- ======= Top Bar ======= -->
+<div id="topbar" class="d-flex align-items-center fixed-top">
+  <div class="container d-flex justify-content-between">
+    <div class="contact-info d-flex align-items-center">
+      <i class="bi bi-envelope"></i> <a href="mailto:{{ basic_info.consult_email }}">{{ basic_info.consult_email }}</a>
+      <i class="bi bi-phone"></i> {{ basic_info.phone }}
+    </div>
+    <div class="d-none d-lg-flex social-links align-items-center">
+      {% if social.twitter %}
+        <a href="{{ social.twitter }}" class="twitter" title="{{ basic_info.clinic }} 트위터 바로가기" target="_blank"><i class="bi bi-twitter"></i></a>
+      {% endif %}
+      {% if social.facebook %}
+        <a href="{{ social.facebook }}" class="facebook" title="{{ basic_info.clinic }} 페이스북 바로가기" target="_blank"><i class="bi bi-facebook"></i></a>
+      {% endif %}
+      {% if social.instagram %}
+        <a href="{{ social.instagram }}" class="instagram" title="{{ basic_info.clinic }} 인스타그램 바로가기" target="_blank"><i class="bi bi-instagram"></i></a>
+      {% endif %}
+      {% if social.youtube %}
+        <a href="{{ social.youtube }}" class="youtube" title="{{ basic_info.clinic }} 유튜브 바로가기" target="_blank"><i class="bi bi-youtube"></i></a>
+      {% endif %}
+      {% if social.blog %}
+        <a href="{{ social.blog }}" class="blog" title="{{ basic_info.clinic }} 블로그 바로가기" target="_blank"><i class="bi bi-bootstrap-fill"></i></a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top">
+  <div class="container d-flex align-items-center">
+    <!-- 로고 -->
+    {% if use_logo %}
+      <a href="#" class="logo me-auto"><img src="{% static 'img/logo.png' %}" alt="" class="img-fluid" style="height:48px;"></a>
+    {% else %}
+      <h1 class="logo me-auto"><a href="#">{{ basic_info.company_name }}</a></h1>
+    {% endif %}
+
+    <nav id="navbar" class="navbar order-last order-lg-0">
+      <ul>
+        <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+        <!-- 메뉴 -->
+        {% for component, _, title, is_show in components %}
+          {% if is_show %}
+          <li><a class="nav-link scrollto" href="#{{ component }}">{{ title }}</a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav><!-- .navbar -->
+
+    {% for component, _, title, is_show in components %}
+    {% if component == "appointment" and is_show %}
+      <a href="#appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">진료예약</span></a>
+    {% endif %}
+    {% endfor %}
+
+  </div>
+</header>
+<!-- End Header -->
