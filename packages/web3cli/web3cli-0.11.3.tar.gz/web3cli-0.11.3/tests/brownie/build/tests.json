@@ -1,0 +1,104 @@
+{
+  "contracts": {},
+  "tests": {
+    "tests/controllers/db/test_address.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": "........",
+      "sha1": "94033a72bb86503c3aaec62409fafa7969104c5e",
+      "txhash": []
+    },
+    "tests/controllers/db/test_chain.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": ".....",
+      "sha1": "2b91ff24f6ebca8c0d988f77148c9c2f57c1529b",
+      "txhash": []
+    },
+    "tests/controllers/db/test_contract.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": ".",
+      "sha1": "cd011fc8653bb61d88037aeb567aca3c23e5845d",
+      "txhash": []
+    },
+    "tests/controllers/db/test_rpc.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": "......",
+      "sha1": "ce373f56dbc70798d43390b5b2eaa1e4157408c1",
+      "txhash": []
+    },
+    "tests/controllers/db/test_signer.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": ".....",
+      "sha1": "dedfc0245858f9b6a627ba2fed41f966890e3d8b",
+      "txhash": []
+    },
+    "tests/controllers/db/test_tx.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": ".....",
+      "sha1": "4a2b054c09c9797936c3501decc19a9f4b21b66f",
+      "txhash": []
+    },
+    "tests/controllers/test_key.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": "..",
+      "sha1": "472c32940943f6af534ecf10ccb3f1b6e35b97fc",
+      "txhash": []
+    },
+    "tests/controllers/test_misc.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": "....",
+      "sha1": "85b39355443bc0a80a56ff7477af357bed003d63",
+      "txhash": []
+    },
+    "tests/controllers/test_send.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": "..",
+      "sha1": "d91032ce90accc720eb498705c350db027a5340c",
+      "txhash": []
+    },
+    "tests/core/helpers/test_crypto.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": "....",
+      "sha1": "332093c1782b27b5abb5caa7037d907a6fdacfea",
+      "txhash": []
+    },
+    "tests/helpers/test_client_factory.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": "..",
+      "sha1": "fc42c1643962c215d60cceec641ee42b158d6424",
+      "txhash": []
+    },
+    "tests/helpers/test_crypto.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": "....",
+      "sha1": "6c6a47820d469a0f04b964fe93ac88bf4eaafd0e",
+      "txhash": []
+    },
+    "tests/resolvers/test_resolve_address.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": "...",
+      "sha1": "b3f0840132e126eaa6f4febeb86c7d039a92406e",
+      "txhash": []
+    },
+    "tests/test_main.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": "..",
+      "sha1": "c0d2fed451d0a78f2c2bbd07472d4005a771f3fb",
+      "txhash": []
+    }
+  },
+  "tx": {}
+}
