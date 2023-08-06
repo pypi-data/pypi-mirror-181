@@ -1,0 +1,56 @@
+[project]
+name = "datenraffinerie"
+dynamic = ['version', 'readme']
+requires-python = ">=3.9"
+description = "Toolset to acqire and process Data from test systems of the HGCAL detector"
+keywords = [""]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: POSIX :: Linux",
+    "Environment :: Console",
+]
+dependencies = [
+	"click==8.1.3",
+	"pandas==1.5.1",
+	"numpy==1.23.4",
+	"pyYAML==6.0",
+	"zmq==0.0.0",
+	"pyzmq==24.0.1",
+	"pytest==7.2.0",
+	"tables==3.7.0",
+	"Jinja2==3.1.2",
+	"schema==0.7.5",
+	"rich==12.6.0",
+	"pymongo==4.3.2",
+	"hgcroc-configuration-client==1.2.1",
+]
+
+[tool.setuptools.dynamic]
+version = {attr = "datenraffinerie.__version__"}
+readme = {file = "DESCRIPTION.md"}
+
+[metadata]
+author = "Alexander Becker"
+author_email = "a.becker@cern.ch"
+long_description_content_type="text/markdown"
+
+[project.scripts]
+datenraffinerie = "datenraffinerie.full_daq:main"
+generate-configs = "datenraffinerie.gen_configurations:generate_configurations"
+acquire-data = "datenraffinerie.acquire_data:pipelined_main"
+coordinate-daq = "datenraffinerie.daq_coordination:main"
+process-raw-data = "datenraffinerie.postprocessing_queue:main"
+yaml-utils = "datenraffinerie.yaml_utils:cli"
+read-rocs = "datenraffinerie.read_rocs:cli"
+show-hdf = "datenraffinerie.print_h5:show_hdf"
+
+[tool.setuptools.package-dir]
+datenraffinerie = "datenraffinerie"
+
+[build-system]
+requires = [
+	"setuptools",
+	"wheel"
+]
+build-backend = "setuptools.build_meta"
