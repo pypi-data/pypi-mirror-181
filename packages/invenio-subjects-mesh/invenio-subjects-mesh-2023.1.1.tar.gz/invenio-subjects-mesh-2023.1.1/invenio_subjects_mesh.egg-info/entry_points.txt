@@ -1,0 +1,6 @@
+[console_scripts]
+invenio-subjects-mesh = invenio_subjects_mesh.cli:main
+
+[invenio_rdm_records.fixtures]
+invenio_subjects_mesh = invenio_subjects_mesh.vocabularies
+
